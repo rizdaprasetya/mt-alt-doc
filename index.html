@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="Simple">
+    <!-- Manual style override -->
+    <link rel="stylesheet" type="text/css" href="asset/docsify-override.css" />
+    <title>Midtrans Alt Docs</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        window.$docsify = {
+            loadSidebar: true,
+            name: 'Docs',
+            themeColor: '#3F51B5',
+            // homepage: 'faq-general.md',
+            // basePath: "/",
+            alias: {
+                // proxy for any /gh/ url to fetch markdown from real github url
+                '.*?/gh/(.*)': 'https://raw.githubusercontent.com/$1',
+            },
+            search: {
+                // set to 1 hour on development, change to 1 day on prod
+                maxAge: 1000*1*60*60, 
+                depth: 6,
+                noData: 'No results!',
+                placeholder: 'Search...'
+            },
+            routerMode: 'hash',
+            auto2top: true,
+            maxLevel: 3,
+            subMaxLevel: 3,
+            plugins: [
+                /**
+                 * Custom plugin to replace all relative URL with absolute
+                 * So when crawled, asset links are not broken
+                 * @warn: Not tested on and might broke on sub path, e.g: example.com/sub/path/
+                 */
+                function (hook, vm) {
+                    hook.ready(function(){
+                        const isPluginActivated = true
+                        if (!isPluginActivated){
+                            return false
+                        }
+                        // url in these attribute will be replaced
+                        const attributeQueries = [
+                            'href',
+                            'src'
+                        ]
+                        const httpPrefix = 'http'
+                        // loop all attribute
+                        attributeQueries.map(function(attr){
+                            // query all element with the attribute
+                            let elementFound = Array.from(document.querySelectorAll('['+attr+']'))
+                            elementFound.map(function(el){
+                                // if url doesn't start with http prefix, replace with absolute url
+                                if( (el[attr].toLocaleLowerCase()).startsWith(httpPrefix) ){
+                                    let newUrl = new URL(el[attr], document.location.href)
+                                    el[attr] = newUrl.href
+                                }
+                            })
+
+                        })
+                    })
+                },
+                /**
+                 * custom plugin to replace various relative url to point to 
+                 * proper github repo url
+                 */
+                function (hook, vm) {
+                    hook.beforeEach(function (rawMarkdown) {
+                        let modifiedMarkdown = rawMarkdown
+                        // only apply changes if the file is fetched from github
+                        if (/githubusercontent\.com/.test(vm.route.file)){
+                            let currentFileUrl = (vm.route.file).toLowerCase()
+                            let currentFileRepoUrl = 
+                                currentFileUrl
+                                    .replace('raw.githubusercontent.com','github.com')
+                                    .replace('/master/','/tree/master/')
+                                    .split('readme.md')[0]
+                            // replace (example/) to (/example/), to make it consistent
+                            modifiedMarkdown = modifiedMarkdown.replace(/\]\(example/g,"\]\(/example")
+                            // replace relative /.. urls to absolute github urls
+                            modifiedMarkdown = modifiedMarkdown.replace(/\]\(\/(.*)\)/g, "]("+currentFileRepoUrl+"$1)")
+                            // replace #(begin with number) to #_ to make hash url work on docsify
+                            modifiedMarkdown = modifiedMarkdown.replace(/\]\(\#([0-9].*)\)/g," ](#_$1)")
+                            // Add prefix text to link to original repo url
+                            modifiedMarkdown = '> Note: [Click to visit the project Repository]('+currentFileRepoUrl+')\n' + modifiedMarkdown
+                        }
+                        return modifiedMarkdown
+                    })
+                },
+                /**
+                 * Custom plugin to fix scrolling issue.
+                 * Docsify have scrolling issue on page load of a page with image.
+                 * https://github.com/docsifyjs/docsify/issues/351
+                 * This will ensure scroll to element id based on id found on url.
+                 */
+                function (hook, vm) {
+                    hook.ready(function () {
+                        // true = show debug log
+                        let dd = false 
+                        let TARGET_QUERY = 'id'
+                        let SCROLL_DELAY = 2000 // in milisecond
+                        let location = window.location
+                        let isBrowserTabFocused = !document.hidden
+                        let browserTabFocusedCount = 0
+
+                        dd&&console.log('custom scroll plugin called!')
+                        let currentUrlWithoutHash = new URL(
+                            location.origin+location.pathname+
+                            location.search+location.hash.substring(1)
+                        )
+                        let urlQueryParam = currentUrlWithoutHash.searchParams
+                        let isUrlHasIdQuery = urlQueryParam.has(TARGET_QUERY)
+                        // abort if URL dont have ID query
+                        if(!isUrlHasIdQuery) {
+                            return
+                        }
+                        dd&&console.log('url has id')
+                        let urlId = urlQueryParam.get(TARGET_QUERY)
+                        let performDelayedScroll = function(){
+                            // run delayed, to make sure everything loaded
+                            setTimeout(function() {
+                                dd&&console.log('will scroll to element now')
+                                try{
+                                    document.querySelector('#'+urlId)
+                                        .scrollIntoView()
+                                } catch(e){ dd&&console.log('custom scroll failed',e) }
+                            }, SCROLL_DELAY);
+                        }
+                        // only scroll after browser tab focused
+                        if(isBrowserTabFocused){
+                            performDelayedScroll()
+                            return
+                        }
+                        // if not focused, wait on focus
+                        window.addEventListener('focus', function() {
+                            browserTabFocusedCount++
+                            dd&&console.log('browser tab is focused',browserTabFocusedCount)
+                            let isBrowserFocusedFirstTime = browserTabFocusedCount<=1
+                            if(!isBrowserFocusedFirstTime){
+                                return
+                            }
+                            dd&&console.log('browser tab focused 1st time')
+                            performDelayedScroll()
+                        })
+                    })
+                },
+            ],
+        }
+    </script>
+    <!-- Docsify library -->
+    <script src="https://unpkg.com/docsify@4.9.4/lib/docsify.min.js"></script>
+    <!-- Docsify plugins -->
+    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/zoom-image.min.js"></script>
+    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/emoji.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+    <script src="https://unpkg.com/docsify-pagination@2.4.0/dist/docsify-pagination.min.js"></script>
+    <!-- Code highlighter language plugins -->
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-bash.min.js"></script>
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-python.min.js"></script>
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-go.min.js"></script>
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-ruby.min.js"></script>
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-php.min.js"></script>
+    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-java.min.js"></script>
+</body>
+
+</html>

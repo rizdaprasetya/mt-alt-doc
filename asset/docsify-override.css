@@ -1,0 +1,47 @@
+/* Override sidebar width, to be wider for more content readibility */
+:root{
+	--sidebar-width: 19rem;
+	--nav-link-hover: #E6ECF1;
+	--nav-link-padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+body {
+    background: #EEEEEE;
+}
+/* fix <code> overflowing to edge on small width screen */
+.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+/* fix <a> overflowing to edge on small width screen */
+.markdown-section a {
+    word-break: break-word;
+}
+.markdown-section h3 {
+    line-height: 2rem;
+}
+.markdown-section {
+    max-width: 45rem;
+}
+.sidebar-nav li{
+    font-size: 0.85rem;
+    line-height: 2rem;
+}
+.sidebar-nav li>a{
+    padding-left: 0.7rem;
+    /*border-right-width: 0rem;*/ 
+    /*transition: ease-in 0.1s !important;*/ 
+}
+.sidebar-nav li>a:hover
+/*,.sidebar-nav li>a:focus*/
+{
+    text-decoration: none;
+    background-color: var(--nav-link-hover);
+    border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
+    /*margin-left: -0.3rem;*/ 
+    /*border-right-width: 0.3rem;*/ 
+}
+.sidebar-nav li.active>a{
+    background-color: var(--nav-link-hover);
+    /*transition: ease-out 0.1s;*/ 
+}
