@@ -13,7 +13,7 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 <div class="my-card">
 
 ### &#9099; Snap
-Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or hosted on Midtrans if you choose to). Integrate just once in the beginning and you're set - no need to do additional technical integrations in the future when you're enabling additional payment methods. (link to payment methods). 
+Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' various payment methods (link to payment methods). 
 
 ?> Snap Demo < BIG CLICKABLE DEMO LINK >
 </div>
@@ -21,13 +21,13 @@ Securely accept payment on your web and app with few simple steps! Your customer
 <div class="my-card">
 
 ### &#9099; Mobile SDK
-Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this [video](https://www.youtube.com/watch?v+EefsTMXCscg) for the default SDK example.
+Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this [video](https://www.youtube.com/watch?v+EefsTMXCscg) for the default SDK example. Just like Snap, but for native mobile platforms.
 </div>
 
 <div class="my-card">
 
 ### &#9099; Customize your own (Core API)
-Need to customize the payment flow or user interface to fit your business? We have Core API for your web, app, point of sales, and IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
+Need to customize the payment flow or user interface to fit your unique needs? We have Core API for your web, app, point of sales, IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
 </div>
 
 <div class="my-card">

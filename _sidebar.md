@@ -6,11 +6,12 @@
 
 - **Snap**
 
-	- [Snap Overview](/en/snap/overview.md)
-	- Technical Integration
-	- Snap With Plugins
-	- Advanced Features
-	- Mobile SDK
+	- [Overview](/en/snap/overview.md)
+	- [Technical Integration](/en/snap/technical-integration.md)
+	- [Snap With Plugins]((/en/snap/with-plugin.md))
+	- [Advanced Features](/en/snap/advanced-feature.md)
+
+- **[Mobile SDK](https://mobile-docs.midtrans.com)**
 
 - **Customize Your Own - Core API**
 
@@ -27,7 +28,7 @@
 - **Payment Link**
 
 	- Overview
-	
+
 - **Disbursement - IRIS**
 - **Developer Resource**
 
