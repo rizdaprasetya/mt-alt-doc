@@ -15,7 +15,23 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 ### &#9099; Snap
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' various payment methods (link to payment methods). 
 
-?> Snap Demo < BIG CLICKABLE DEMO LINK >
+Try it yourself:
+
+<button onclick="
+event.target.innerText = `Processing...`;
+fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
+	.then(res=>res.json())
+	.then(res=>{
+		let snapToken = res.token;
+		snap.pay(snapToken,{
+			onSuccess: function(res){ console.log('Snap result:',res) },
+			onPending: function(res){ console.log('Snap result:',res) },
+			onError: function(res){ console.log('Snap result:',res) },
+		});
+	})
+	.catch( e=>console.error(e) )
+	.finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
+" class="my-btn">Pay with Snap &#9099;</button>
 </div>
 
 <div class="my-card">
