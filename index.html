@@ -16,6 +16,32 @@
 <body>
     <div id="app"></div>
     <script>
+        /**
+         * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
+         * to `[root folder]/_sidebar.md``
+         * Problem: 
+         * if docs is located on subfolder, on page load Docsify tried to fetch 
+         * `[subfolder]/_sidebar.md`, if not exist then slowly move up to root.
+         * which can be slow to wait for 404 call. It impacted UI to be seem 
+         * unresponsive for few second on prod
+         */
+        function rewriteAjax(){
+            const isOverrideActive = 1; // on-off switch
+            if(!isOverrideActive){ return }
+            // Override XMLHttpRequest to modify Ajax request destination url
+            var proxiedAjax = window.XMLHttpRequest.prototype.open;
+            window.XMLHttpRequest.prototype.open = function() {
+                console.log( '-raw:',arguments );
+                if( arguments.length>=2 && 
+                    arguments[1].includes('/_sidebar.md')
+                ){
+                    arguments[1] = './' + '_sidebar.md'
+                }
+                return proxiedAjax.apply(this, [].slice.call(arguments));
+            };
+        }; 
+        rewriteAjax();
+
         window.$docsify = {
             loadSidebar: true,
             name: 'Midtrans Docs',
