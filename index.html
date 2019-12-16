@@ -24,6 +24,9 @@
          * `[subfolder]/_sidebar.md`, if not exist then slowly move up to root.
          * which can be slow to wait for 404 call. It impacted UI to be seem 
          * unresponsive for few second on prod
+         * @WARNING:
+         * - Overriding XMLHttpRequest.prototype.open might trigger unwanted side effect
+         * - _sidebar is hardcoded
          */
         function rewriteAjax(){
             const isOverrideActive = 1; // on-off switch
@@ -31,7 +34,6 @@
             // Override XMLHttpRequest to modify Ajax request destination url
             var proxiedAjax = window.XMLHttpRequest.prototype.open;
             window.XMLHttpRequest.prototype.open = function() {
-                console.log( '-raw:',arguments );
                 if( arguments.length>=2 && 
                     arguments[1].includes('/_sidebar.md')
                 ){
