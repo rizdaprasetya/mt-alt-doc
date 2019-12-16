@@ -7,6 +7,8 @@
 	- You can run MAMP/XAMPP and copy this project folder to your `htdocs` folder. Access it from localhost url.
 	- You can run Python `python -m SimpleHTTPServer`, and open `localhost:8000/index.html`.
 	- You can use [Serve NPM package](https://www.npmjs.com/package/serve) on NodeJS
+	- Or even from browser itself, via [Chrome Web Server Extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
+	- Or preview online with codesandbox: https://codesandbox.io/s/github/rizdaprasetya/mt-alt-doc
 	- etc.
 - Open web browser and point it to the `index.html` file. i.e: `localhost/mt-alt-doc/index.html`.
 
