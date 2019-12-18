@@ -70,17 +70,129 @@ curl -X POST \
 }'
 ```
 
+#### **PHP**
+
+Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library
+```bash
+composer require midtrans/midtrans-php
+```
+
+> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually
+> ```php
+> require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
+> ```
+
+Send Snap transaction request
+```php
+// Set your Merchant Server Key
+\Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
+// Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+\Midtrans\Config::$isProduction = false;
+// Set sanitization on (default)
+\Midtrans\Config::$isSanitized = true;
+// Set 3DS transaction for credit card to true
+\Midtrans\Config::$is3ds = true;
+
+$params = array(
+    'transaction_details' => array(
+        'order_id' => rand(),
+        'gross_amount' => 10000,
+    ),
+    'customer_details' => array(
+        'first_name' => 'budi',
+        'last_name' => 'pratama',
+        'email' => 'budi.pra@example.com',
+        'phone' => '08111222333',
+    ),
+);
+
+$snapToken = \Midtrans\Snap::getSnapToken($params);
+```
+
 #### **Node JS**
 
+Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package
+```bash
+npm install --save midtrans-client
 ```
-Bonjour!
+
+Send Snap transaction request
+```javascript
+const midtransClient = require('midtrans-client');
+// Create Snap API instance
+let snap = new midtransClient.Snap({
+        isProduction : false,
+        serverKey : 'YOUR_SERVER_KEY'
+    });
+
+let parameter = {
+    "transaction_details": {
+        "order_id": "YOUR-ORDERID-123456",
+        "gross_amount": 10000
+    }, 
+    "credit_card":{
+        "secure" : true
+    },
+    "customer_details": {
+        "first_name": "budi",
+        "last_name": "pratama",
+        "email": "budi.pra@example.com",
+        "phone": "08111222333"
+    }
+};
+
+snap.createTransaction(parameter)
+    .then((transaction)=>{
+        // transaction token
+        let transactionToken = transaction.token;
+        console.log('transactionToken:',transactionToken);
+    })
 ```
 
 #### **Python**
 
+Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package
+```bash
+pip install midtransclient
 ```
-Ciao!
+
+Send Snap transaction request
+```python
+import midtransclient
+# Create Snap API instance
+snap = midtransclient.Snap(
+    is_production=False,
+    server_key='YOUR_SERVER_KEY'
+)
+# Build API parameter
+param = {
+    "transaction_details": {
+        "order_id": "test-transaction-123",
+        "gross_amount": 200000
+    }, "credit_card":{
+        "secure" : True
+    }, "customer_details":{
+        "first_name": "budi",
+        "last_name": "pratama",
+        "email": "budi.pra@example.com",
+        "phone": "08111222333"
+    }
+}
+
+transaction = snap.create_transaction(param)
+
+transaction_token = transaction['token']
 ```
+
+#### **Postman**
+
+1. Download and open [Postman](https://www.getpostman.com)
+2. Use this button to import our Postman Collection
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
+3. Navigate to `1.a.  SNAP transaction token request (minimum)`
+4. For more detail please [follow this usage instruction](https://github.com/midtrans/Midtrans-Payment-API-Postman-Collections#usage-instruction).
+
 <!-- tabs:end -->
 
 ?> **Optional:** You can customize `transaction_details` data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
