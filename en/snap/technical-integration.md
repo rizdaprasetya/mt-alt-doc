@@ -1,3 +1,5 @@
+The steps to do technical integration of Snap will be explained below
+
 ## Integration Steps
 1. Obtain Transaction `token` on Backend
 2. Show Snap Payment Page on Frontend
@@ -106,7 +108,6 @@ Status Code | Description | Example
 
 ## 2. Show Snap Payment Page on Frontend
 
-### Show Payment on Your Page
 To show Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
 There are at least 3 components that are required to do this:
@@ -143,24 +144,76 @@ You will need to put your Client Key as the value of `data-client-key` attribute
 </html>
 ```
 
-Referring to the steps above, the displayed Snap page is as follows:
+Referring to the steps above, the sample displayed Snap page is as follows:
 
-![image alt text](image_4.gif)
+![Snap Popup Preview](./../../asset/image/snap-popup-preview.gif)
+
+Or try the demo here:
+
+<p style="text-align: center;">
+  <button onclick="
+  event.target.innerText = `Processing...`;
+  fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
+    .then(res=>res.json())
+    .then(res=>{
+      let snapToken = res.token;
+      snap.pay(snapToken,{
+        onSuccess: function(res){ console.log('Snap result:',res) },
+        onPending: function(res){ console.log('Snap result:',res) },
+        onError: function(res){ console.log('Snap result:',res) },
+      });
+    })
+    .catch( e=>console.error(e) )
+    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
+  " class="my-btn">Try Snap Demo &#9099;</button>
+</p>
 
 >**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
 `<meta name="viewport" content="width=device-width, initial-scale=1">`
 
 ?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
 
+After payment completed, customer will be redirected back to `Finish URL` specified on Midtrans Dashboard, under menu **Settings > Snap Preference > System Settings > `Finish URL`**
+
+
 ## 3. Creating Test Payment
 
-Create test payment to make sure your integrating with Midtrans is successful. Choosing some payment channel on SNAP select payment page and open payment simulator [here]
+Create a test payment to make sure you have integrated Snap successfully. You can refer to test credentials [available on our sandbox payment simulator]
 
-![image alt text](image_5.gif)
+![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
 ## 4. Handling Post-Transaction
 
-### Next Step:
-* Handling Webhook HTTP Notification
-* Taking Action of Payment
-* Transaction Status Cycle and Action
+Other than customer being redirected, when the status of payment is updated/changed (i.e: payment has been successfully received), Midtrans will send **HTTP Notification** (or webhook) to your server's `Notification Url` (specified on Midtrans Dashboard, under menu **Settings > Configuration `Notification URL`**). Follow this link for more details:
+
+<div class="my-card">
+
+#### [&#187; Handling Webhook HTTP Notification](/en/)
+
+</div>
+
+#### Next Step:
+<br>
+<div class="my-card">
+
+#### [&#187; Taking Action of Payment](/en/)
+
+</div>
+<div class="my-card">
+
+#### [&#187; Transaction Status Cycle and Action](/en/)
+
+</div>
+<div class="my-card">
+
+#### [&#187; Snap Advanced Integration](/en/)
+
+</div>
+
+#### Reference:
+
+> Integration sample codes are also available on our Github repos:
+- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
+- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
+- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
+- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)

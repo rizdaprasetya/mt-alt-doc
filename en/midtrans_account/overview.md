@@ -7,3 +7,6 @@ Before integrating with Midtrans, you need to register [here]([https://account.m
 You can use the sandbox environment during your development phase of integrating Midtrans’ payments system. You can also test dummy transactions on sandbox environment. The production environment is also available, but your production credentials will only be ready once you have completed all the necessary administrative steps.
 
 ![Production Merchant Dashboard](./../../asset/image/production-map.png)
+
+
+TODO: explain about MAP configuration for Snap
