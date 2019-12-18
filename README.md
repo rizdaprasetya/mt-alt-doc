@@ -11,6 +11,10 @@
 	- Or preview online with codesandbox: https://codesandbox.io/s/github/rizdaprasetya/mt-alt-doc
 	- etc.
 - Open web browser and point it to the `index.html` file. i.e: `localhost/mt-alt-doc/index.html`.
+- Live preview from Github repo are might also be possible:
+	- Preview using Githack: https://raw.githack.com/rizdaprasetya/mt-alt-doc/master/
+	- Change `master` with any branch you want to preview
+	- Note: Githack is free service so it might not be always available
 
 ## Structure
 
