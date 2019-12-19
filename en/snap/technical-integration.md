@@ -149,6 +149,85 @@ snap.createTransaction(parameter)
     })
 ```
 
+#### **Java**
+
+Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library
+
+If you're using Maven as the build tools for your project, please add jcenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
+Maven:
+```xml
+<repositories>
+    <repository>
+        <id>jcenter</id>
+        <name>bintray</name>
+        <url>http://jcenter.bintray.com</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+      <groupId>com.midtrans</groupId>
+      <artifactId>java-library</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+</dependencies>
+```
+Gradle:
+If you're using Gradle as the build tools for your project, please add jcenter repository to your build script then add the following dependency to your project's build definition (build.gradle):
+```bash
+repositories {
+    maven {
+        url  "http://jcenter.bintray.com" 
+    }
+}
+
+dependencies {
+    compile 'com.midtrans:java-library:1.1.0'
+}
+```
+
+Send Snap transaction request
+```java
+import com.midtrans.Config;
+import com.midtrans.ConfigFactory;
+import com.midtrans.service.MidtransSnapApi;
+import com.midtrans.httpclient.error.MidtransError;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONObject;
+
+public class MidtransExample {
+
+    public static void main(String[] args) throws MidtransError {
+      // Create new Object SnapAPI
+      MidtransSnapApi snapApi = new ConfigFactory(new Config("YOU_SERVER_KEY","YOUR_CLIENT_KEY", false)).getSnapApi();
+
+      // Create params JSON Raw Object request
+      public Map<String, Object> requestBody() {
+          UUID idRand = UUID.randomUUID();
+          Map<String, Object> params = new HashMap<>();
+          
+          Map<String, String> transactionDetails = new HashMap<>();
+          transactionDetails.put("order_id", idRand);
+          transactionDetails.put("gross_amount", "265000");
+          
+          Map<String, String> creditCard = new HashMap<>();
+          creditCard.put("secure", "true");
+          
+          params.put("transaction_details", transactionDetails);
+          params.put("credit_card", creditCard);
+          
+          return params;
+      }
+
+      // Create Token and then you can send token variable to FrontEnd,
+      // to initialize Snap JS when customer click pay button
+      String transactionToken = snapApi.createTransactionToken(requestBody())
+    }
+}
+```
 #### **Python**
 
 Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package
@@ -195,7 +274,7 @@ transaction_token = transaction['token']
 
 <!-- tabs:end -->
 
-?> **Optional:** You can customize `transaction_details` data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
+?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
 
 ### API Response
 
@@ -322,6 +401,8 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 </div>
 
+<hr>
+
 #### Reference:
 
 > Integration sample codes are also available on our Github repos:
@@ -329,3 +410,9 @@ Other than customer being redirected, when the status of payment is updated/chan
 - [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
 - [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
 - [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
+
+#### Sequence Diagram
+
+The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
+
+![Snap JS sequence diagram](./../../asset/image/snap_sequence_regular.png)
