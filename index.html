@@ -132,7 +132,7 @@
                  * This will ensure scroll to element id based on id found on url.
                  */
                 function (hook, vm) {
-                    hook.ready(function () {
+                    hook.doneEach(function () {
                         // true = show debug log
                         let dd = false 
                         let TARGET_QUERY = 'id'
