@@ -7,7 +7,7 @@ The steps to do technical integration of Snap will be explained below
 4. Handling Post-Transaction
 
 ?>**Note:**
-All the steps below are using Midtrans Sandbox environment, not production, to easily test the      integration process. Make sure are switching to Sandbox mode on your Midtrans account dashboard while retrieving Server Key and Client Key. Explained in Midtrans Account.
+All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the      integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
 
 ## 1. Obtain Transaction Token on Backend
 
@@ -23,7 +23,7 @@ Server Key| Explained on [previous section](/en/midtrans_account/overview.md)
 
 The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
-#### **API Request**
+#### **API-Request**
 
 *This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library_plugin))*
 
@@ -379,25 +379,25 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [&#187; Handling Webhook HTTP Notification](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/)
 
 </div>
 
-#### Next Step:
+## Next Step:
 <br>
 <div class="my-card">
 
-#### [&#187; Taking Action of Payment](/en/)
+#### [Taking Action of Payment &#187;](/en/)
 
 </div>
 <div class="my-card">
 
-#### [&#187; Transaction Status Cycle and Action](/en/)
+#### [Transaction Status Cycle and Action &#187;](/en/)
 
 </div>
 <div class="my-card">
 
-#### [&#187; Snap Advanced Integration](/en/)
+#### [Snap Advanced Integration &#187;](/en/)
 
 </div>
 
@@ -405,14 +405,14 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 #### Reference:
 
-> Integration sample codes are also available on our Github repos:
-- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
+> Integration sample codes are also available on our [Github repos](/en/snap/overview?id=b-follow-sample-code)
 
 #### Sequence Diagram
 
 The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
 
+**A. Snap with Snap.js**
 ![Snap JS sequence diagram](./../../asset/image/snap_sequence_regular.png)
+
+**B. Snap Redirect Mode**
+![Snap Redirect sequence diagram](./../../asset/image/snap_sequence_redirect.png)
