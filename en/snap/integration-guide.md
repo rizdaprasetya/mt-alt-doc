@@ -1,13 +1,14 @@
 The steps to do technical integration of Snap will be explained below
 
+?>**Note:**
+All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the      integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
+
 ## Integration Steps
 1. Obtain Transaction `token` on Backend
 2. Show Snap Payment Page on Frontend
 3. Creating Test Payment
 4. Handling Post-Transaction
 
-?>**Note:**
-All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the      integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
 <input id="seq-diag" class="collaps-toggle" type="checkbox">
 <label for="seq-diag" class="collaps-label"> 
 
