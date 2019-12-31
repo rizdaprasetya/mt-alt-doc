@@ -10,10 +10,7 @@ All the steps below are using Midtrans **Sandbox environment**, not production, 
 4. Handling Post-Transaction
 
 <input id="seq-diag" class="collaps-toggle" type="checkbox">
-<label for="seq-diag" class="collaps-label"> 
-
-#### Sequence Diagram
-</label>
+<label for="seq-diag" class="collaps-label"><strong>Sequence Diagram</strong></label>
 <div class="collaps-content">
 
 The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
