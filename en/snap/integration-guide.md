@@ -8,6 +8,23 @@ The steps to do technical integration of Snap will be explained below
 
 ?>**Note:**
 All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the      integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
+<input id="seq-diag" class="collaps-toggle" type="checkbox">
+<label for="seq-diag" class="collaps-label"> 
+
+#### Sequence Diagram
+</label>
+<div class="collaps-content">
+
+The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
+
+<!-- tabs:start -->
+#### **Snap Popup Mode (Default)**
+![Snap JS sequence diagram](./../../asset/image/snap_sequence_regular.png)
+
+#### **Snap Redirect Mode**
+![Snap Redirect sequence diagram](./../../asset/image/snap_sequence_redirect.png)
+<!-- tabs:end -->
+</div>
 
 ## 1. Obtain Transaction Token on Backend
 
@@ -406,13 +423,3 @@ Other than customer being redirected, when the status of payment is updated/chan
 #### Reference:
 
 > Integration sample codes are also available on our [Github repos](/en/snap/overview?id=b-follow-sample-code)
-
-#### Sequence Diagram
-
-The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
-
-**A. Snap with Snap.js**
-![Snap JS sequence diagram](./../../asset/image/snap_sequence_regular.png)
-
-**B. Snap Redirect Mode**
-![Snap Redirect sequence diagram](./../../asset/image/snap_sequence_redirect.png)
