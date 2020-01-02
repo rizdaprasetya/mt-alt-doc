@@ -1,7 +1,7 @@
 The steps to do technical integration of Snap will be explained below
 
 ?>**Note:**
-All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the      integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
+All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
 
 ## Integration Steps
 1. Obtain Transaction `token` on Backend
@@ -358,6 +358,7 @@ Or try the demo here:
 
 <p style="text-align: center;">
   <button onclick="
+  let label = event.target.innerText;
   event.target.innerText = `Processing...`;
   fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
     .then(res=>res.json())
@@ -369,8 +370,8 @@ Or try the demo here:
         onError: function(res){ console.log('Snap result:',res) },
       });
     })
-    .catch( e=>console.error(e) )
-    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
+    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
+    .finally( e=>{ event.target.innerText = label })
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
@@ -395,25 +396,24 @@ Other than customer being redirected, when the status of payment is updated/chan
 <div class="my-card">
 
 #### [Handling Webhook HTTP Notification &#187;](/en/)
-
 </div>
 
 ## Next Step:
 <br>
+
 <div class="my-card">
 
 #### [Taking Action of Payment &#187;](/en/)
-
 </div>
+
+<div class="my-card">
+
+#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature)
+</div>
+
 <div class="my-card">
 
 #### [Transaction Status Cycle and Action &#187;](/en/)
-
-</div>
-<div class="my-card">
-
-#### [Snap Advanced Integration &#187;](/en/)
-
 </div>
 
 <hr>
