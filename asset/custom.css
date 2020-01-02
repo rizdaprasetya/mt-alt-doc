@@ -71,6 +71,7 @@ td{
 }
 
 /* Downsize font for code & table, to make it seem compact and short */
+.markdown-section code:not([class*="lang-"]):not([class*="language-"]),
 .markdown-section code[class*="lang-"], 
 .markdown-section pre[data-lang],
 .markdown-section table code:not([class*="lang-"]):not([class*="language-"]),
