@@ -886,6 +886,8 @@ You can input `callback_url` value with http/https url protocol for website, or 
 > 
 > You could utilize those information to display custom message to your customer on your finish url.
 
+Note: `gopay.callback_url` will only affect customer who pay with Deeplink mode, customer who pay with QR scan mode, will be redirected to Snap finish redirect url. Which you can also [specify here](/en/snap/advanced-feature?id=custom-finish-url)
+
 ### Specify GoPay Mode
 Snap payment screen by default will autodetect customer device being used for transaction:
 
