@@ -33,4 +33,9 @@ Please refer to the diagram below on how redirection URLs are being handled.
 
 <!-- tabs:end -->
 
+**Note**: 
+The final redirect url will be appended with query parameter like `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
 
+For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
+
+You could utilize those information to display custom message to your customer on your finish url.

@@ -1,6 +1,6 @@
 Snap have various optional parameters that can be utilized for more advanced use case that can help your integration.
 
-## General Payment Feature
+## General
 
 ### Recommended Params
 It's recommended to send as much detail so on report/dashboard those information will be included.
@@ -124,9 +124,107 @@ curl -X POST \
 
 Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition.
 
-### Specify Payment Channel
-On the [Integration guide](/en/snap/integration-guide?id=api-request), all available payments for the merchant are activated by default. Under some conditions, you might need to display only some of the payment methods available. You can add and customize `enabled_payments` parameter:
+### Snap.js Function & Options
 
+Snap.js support various useful options that you can use according to your needs, like specifying language, specifying GoPay payment mode to deeplink, etc.
+
+For full reference please refer to [this doc](https://snap-docs.midtrans.com/#frontend-integration)
+
+Note: If you are using Snap Redirect Mode, you can append options as Query parameter at the end of the Snap redirect_url. e.g:
+```
+https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?language=en&gopayMode=deeplink
+```
+
+### Javascript Callback
+
+Snap.js support callbacks, which you can utilize to trigger your custom javascript implementation on each event. The available callbacks are:
+
+* `onSuccess`: Function that will be triggered when payment success.
+* `onPending`: Function that will be triggered when payment is pending, which is for payment that require further customer action, like bank transfer / VA.
+* `onError`: Function that will be triggered when payment failure after several attempts.
+* `onClose`: Function that will be triggered when customer closed the Snap popup.
+
+Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide?id=_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
+
+<!-- tabs:start -->
+#### **Frontend JS**
+```javascript
+snap.pay('SNAP_TRANSACTION_TOKEN', {
+  onSuccess: function(result){
+    /* You may add your own implementation here */
+    alert("payment success!"); console.log(result);
+  },
+  onPending: function(result){
+    /* You may add your own implementation here */
+    alert("wating your payment!"); console.log(result);
+  },
+  onError: function(result){
+    /* You may add your own implementation here */
+    alert("payment failed!"); console.log(result);
+  },
+  onClose: function(){
+    /* You may add your own implementation here */
+    alert('you closed the popup without finishing the payment');
+  }
+})
+```
+<!-- tabs:end -->
+
+### Custom Finish URL
+By default Snap will redirect customer to [Finish Redirect URL configured on Dashboard](/en/snap/preparation?id=configure-redirection-url), but you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
+
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
+<!-- tabs:start -->
+#### **JSON Param**
+```javascript
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 13000
+  },
+  "callbacks": {
+    "finish": "https://tokoecommerce.com/my_custom_finish/?name=Customer01"
+  }
+}
+```
+#### **As CURL**
+```bash
+curl -X POST \
+  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 13000
+  },
+  "callbacks": {
+    "finish": "https://tokoecommerce.com/my_custom_finish/?name=Customer01"
+  }
+}'
+```
+<!-- tabs:end -->
+
+### Specify Payment Channel
+On Snap payment selection screen, all available payments for the merchant are activated by default. Under some conditions, you might need to display only some of the payment methods available. There are generally two way that you can choose:
+
+#### A) Specify Payment Channel via Dashboard
+You can set Enable Payment with Snap Preference on Midtrans Dashboard. This will apply to all Snap transaction for the Merchant account.
+
+1. Login to your Midtrans Dashboard
+2. Go to menu **(1) Settings -> (2) Snap Preferences -> (3) Payment Channels Tab**
+3. Click [x] icon to disable payment channel
+4. Click [+] icon To enable payment channel
+5. To use our recommendation sorting, Click "Apply Recommended Sorting" button and also you can drag/drop manually to sorting payment channel list
+6. Click **Save** button
+
+![snap preference payment channels](./../../asset/image/snap-adv-enabled-payment-dash.png)
+
+#### B) Specify Payment Channel via API Request
+Alternatively, you can add and customize `enabled_payments` parameter. That will apply specifically for the transaction.
+
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -209,7 +307,7 @@ Supported aliases:
 
 Example usage:
 <!-- tabs:start -->
-#### **CURL**
+#### **As CURL**
 ```bash
 curl -X POST \
   https://app.sandbox.midtrans.com/snap/v1/transactions \
@@ -236,7 +334,21 @@ The code above will display only credit card payment method on Snap:
 ![enabled payment card](./../../asset/image/snap-adv-enabled-payment.png)
 
 ### Custom Transaction Expiry
-Custom Expiry feature enables merchant to set an expiry time of payment for each transaction. When the time elapsed, customer will no longer be able to pay the transaction.
+Custom Expiry feature enables merchant to set an expiry time of payment for each transaction. When the time elapsed, customer will no longer be able to pay the transaction. There are generally two way that you can choose:
+
+#### A) Custom Expiry via Dashboard
+You can set custom expiry with Snap Preference on Midtrans Dashboard. This will apply to all Snap transaction for the Merchant account.
+1. Login to your Midtrans Dashboard
+2. Go to menu **(1) Settings -> (2) Snap Preferences -> (3) System Settings** Tab
+3. Click Checkbox (4) on the left side duration field
+4. Field in the expiry duration (5).
+5. Select duration unit on the dropdown menu (6)
+6. Click **Save** button
+
+![snap preference expiry](./../../asset/image/snap-adv-custom-expiry-dash.png)
+
+#### B) Custom Expiry via API Request 
+This will apply specifically for the transaction.
 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
 
@@ -318,7 +430,7 @@ custom_field1 | String(255) | (optional) | Custom field 1 for custom parameter f
 custom_field2 | String(255) | (optional) | Custom field 2 for custom parameter from merchant <br>Input any data you want here
 custom_field3 | String(255) | (optional) | Custom field 3 for custom parameter from merchant <br>Input any data you want here
 
-## Credit Card Feature
+## Credit Card
 ### 3 Domain Secure (3DS)
 Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should always enable 3DS**, unless you understand the risk of disabling 3DS and the requirement (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Activation team.
 
@@ -724,32 +836,28 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-<!-- ### Enabling Payments using Card Loyalty Points // Is it available on Snap ???-->
+<!-- ### Enabling Payments using Card Loyalty Points // TODO Is it available on Snap ???-->
 
-## Gopay
-### Enabling Callback to Gojek App
+## GoPay
+### Redirect Customer From Gojek App
+After GoPay payment completed, by default customer will remain on Gojek app, so they need to manually close Gojek app to switch back to merchant web/app. Using parameter `gopay.callback_url` will allow customer to be automatically redirected to merchant web/app from Gojek app.
 
-## Bank Transfer / VA
-### Custom VA Number
-### Custom VA Description
-
-## Convenience Store
-## Custom Alfamart Description [Name TBC]
-
-
-> === EVERYHTING BELOW IS JUST PLACEHOLDER / TEMPLATE ===
-
-## Demo Collapsible
-
-<input id="feat1" class="collaps-toggle" type="checkbox">
-<label for="feat1" class="collaps-label"> 
-
-#### Feature 1
-</label>
-
-<div class="collaps-content">
-
-Full request in CURL:
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
+<!-- tabs:start -->
+#### **JSON Param**
+```javascript
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "gopay": {
+    "enable_callback": true,
+    "callback_url": "https://tokoecommerce.com/finish"
+  }
+}
+```
+#### **As CURL**
 ```bash
 curl -X POST \
   https://app.sandbox.midtrans.com/snap/v1/transactions \
@@ -757,60 +865,274 @@ curl -X POST \
   -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
   -H 'Content-Type: application/json' \
   -d '{
-    "transaction_details": {
-        "order_id": "YOUR-ORDERID-123456",
-        "gross_amount": 10000
-    }, 
-    "credit_card":{
-        "secure" : true
-    },
-    "customer_details": {
-        "first_name": "budi",
-        "last_name": "pratama",
-        "email": "budi.pra@example.com",
-        "phone": "08111222333"
-    }
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "gopay": {
+    "enable_callback": true,
+    "callback_url": "https://tokoecommerce.com/finish"
+  }
 }'
 ```
-</div>
+<!-- tabs:end -->
 
-<input id="feat2" class="collaps-toggle" type="checkbox" checked>
-<label for="feat2" class="collaps-label"> 
+You can input `callback_url` value with http/https url protocol for website, or Deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
 
-#### Feature 2
-</label>
+> **Note**: 
+> The final redirect url will be appended with query parameter like `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
+> 
+> For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
+> 
+> You could utilize those information to display custom message to your customer on your finish url.
 
-<div class="collaps-content">
+### Specify GoPay Mode
+Snap payment screen by default will autodetect customer device being used for transaction:
 
-Full request in CURL:
-```bash
-curl -X POST \
-  https://app.sandbox.midtrans.com/snap/v1/transactions \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "transaction_details": {
-        "order_id": "YOUR-ORDERID-123456",
-        "gross_amount": 10000
-    }, 
-    "credit_card":{
-        "secure" : true
-    },
-    "customer_details": {
-        "first_name": "budi",
-        "last_name": "pratama",
-        "email": "budi.pra@example.com",
-        "phone": "08111222333"
-    }
-}'
-```
-</div>
+* If the device is detected as mobile device, Snap will use Deeplink mode to redirect customer to GoJek app (if installed on the device). 
+* If the device is detected as non movile device, Snap will use QR mode to display QR Code for customer to be paid from their mobile device.
 
+You can specify options `gopayMode` on Snap.js to force Snap to use QR or deeplink as specified.
 
+Option | Type | Required? | Description
+--- | --- | --- | ---
+gopayMode | String | (optional) | Choose the UI mode for GoPay. <br>Supported values are `deeplink`, `qr`, and `auto`. Set to auto by default.
+
+Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide?id=_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
 
 <!-- tabs:start -->
-#### ** **
-
-#### ** **
+#### **Frontend JS**
+```javascript
+snap.pay('SNAP_TRANSACTION_TOKEN', {
+  gopayMode: "deeplink"
+})
+```
+#### **Snap Redirect Mode**
+If you are using Snap Redirect Mode, you can append options as Query parameter at the end of the Snap redirect_url. e.g:
+```
+https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?gopayMode=deeplink
+```
 <!-- tabs:end -->
+
+For full reference please refer to [this doc](https://snap-docs.midtrans.com/#gopay)
+
+## Bank Transfer / VA
+### Specify VA Number
+
+By default Midtrans will randomize VA number used for bank transfer transaction. In some cases, you might want to specify/customize VA Number for Bank Transfer payment channels. You can do that with the following parameters.
+
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
+<!-- tabs:start -->
+#### **JSON Param**
+```javascript
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "bca_va": {
+    "va_number": "12345678901",
+    "sub_company_code": "00000"
+  },
+  "bni_va": {
+    "va_number": "12345678"
+  },
+  "permata_va": {
+    "va_number": "1234567890"
+  }
+}
+```
+#### **As CURL**
+```bash
+curl -X POST \
+  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "bca_va": {
+    "va_number": "12345678901",
+    "sub_company_code": "00000"
+  },
+  "bni_va": {
+    "va_number": "12345678"
+  },
+  "permata_va": {
+    "va_number": "1234567890"
+  }
+}'
+```
+<!-- tabs:end -->
+
+Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part is the part that can be customized.
+
+* Only digits are allowed.
+* Different banks have different specs on their custom VA numbers. Please see the documentation on the respective banks.
+* If the number provided is already utilized for another order, then a different unique number will be used instead.
+* If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
+* If the number provided is shorter than required, then the number will be prefixed with zeros.
+
+Parameter | Type | Required? | Description
+--- | --- | --- | ---
+BCA `va_number`| String | (optional) | Length should be within 1 to 11.
+BCA `sub_company_code` | String | (optional) | BCA sub company code directed for this transactions. <br>NOTE: Don't use it if you don't know.
+Permata `va_number` | String | (optional) | Length should be 10. Only supported for b2b VA type.
+BNI `va_number` | String | (optional)| Length should be within 1 to 8.
+
+
+Note: On Production mode, not all Bank support custom VA number, it depends on the agreement, please consult with Midtrans Activation team for further info.
+
+### Specify VA Description
+
+Some VA description and recepient name can be customized.
+
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
+<!-- tabs:start -->
+#### **JSON Param**
+```javascript
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "bca_va": {
+    "free_text": {
+      "inquiry": [
+        {
+          "en": "Invoice for Order 3123 - Toy Shop",
+          "id": "Tagihan untuk Order 3123 - Toy Shop"
+        }
+      ],
+      "payment": [
+        {
+          "en": "Pay Order 3123 - Toy Shop",
+          "id": "Bayar Order 3123 - Toy Shop"
+        }
+      ]
+    }
+  },
+  "permata_va": {
+    "recipient_name": "Budi Susanto"
+  }
+}
+```
+#### **As CURL**
+```bash
+curl -X POST \
+  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_details": {
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "bca_va": {
+    "free_text": {
+      "inquiry": [
+        {
+          "en": "Invoice for Order 3123 - Toy Shop",
+          "id": "Tagihan untuk Order 3123 - Toy Shop"
+        }
+      ],
+      "payment": [
+        {
+          "en": "Pay Order 3123 - Toy Shop",
+          "id": "Bayar Order 3123 - Toy Shop"
+        }
+      ]
+    }
+  },
+  "permata_va": {
+    "recipient_name": "Budi Susanto"
+  }
+}'
+```
+<!-- tabs:end -->
+
+BCA VA:
+* **Inquiry** free text is list of text that will be displayed on ATM (if supported) when customer attempt to check/inquire the VA number.
+* **Payment** free text is list of text that will be displayed on ATM (if supported) when customer attempt to pay the VA number.
+
+BCA VA Free Text Array: 
+
+Parameter | Type | Required? | Description
+--- | --- | --- | ---
+inquiry | Array of FreeTextItem | (optional) | Max item for array is 10
+payment | Array of FreeTextItem | (optional) | Max item for array is 10
+
+BCA VA Free Text Item:
+
+Parameter | Type | Required? | Description
+--- | --- | --- | ---
+en | String | (required) | Size should not exceed 50 chars.
+id | String | (required) | Size should not exceed 50 chars.
+
+Permata VA:
+
+Parameter | Type | Required? | Description
+--- | --- | --- | ---
+recipient_name | String | (optional) | Recipient name shown on the on the bank’s payment prompt. <br>It is shown as 20 character uppercase string. <br>Anyting over 20 character will be truncated. NOTE: Default is merchant name
+
+## Convenience Store
+
+### Specify Alfamart
+Text that will be shown/printend on Alfamart receipt can be customized.
+
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide?id=api-request)):
+<!-- tabs:start -->
+#### **JSON Param**
+```javascript
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "cstore": {
+    "alfamart_free_text_1" : "Thanks for shopping with Toy Store!",
+    "alfamart_free_text_2" : "Visit our site at toystore.com",
+    "alfamart_free_text_3" : "Invite your friend and get discount."
+  }
+}
+```
+#### **As CURL**
+```bash
+curl -X POST \
+  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "cstore": {
+    "alfamart_free_text_1" : "Thanks for shopping with Toy Store!",
+    "alfamart_free_text_2" : "Visit our site at toystore.com",
+    "alfamart_free_text_3" : "Invite your friend and get discount."
+  }
+}'
+```
+<!-- tabs:end -->
+
+Parameter | Type | Required? | Description
+--- | --- | --- | ---
+alfamart_free_text_1 | String(40) | (optional) | First row of printed receipt description
+alfamart_free_text_2 | String(40) | (optional) | Second row of printed receipt description
+alfamart_free_text_3 | String(40) | (optional) | Third row of printed receipt description
+
+## Reference
+
+Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition.
+
+<div class="my-card">
+
+#### [Snap Docs &#187;](https://snap-docs.midtrans.com/#json-objects)
+</div>
