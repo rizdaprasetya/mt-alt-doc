@@ -78,3 +78,7 @@ td{
 table{
     font-size: 90%;
 }
+
+iframe{
+    border: 0
+}

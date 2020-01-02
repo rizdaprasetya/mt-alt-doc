@@ -375,6 +375,28 @@ Or try the demo here:
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
+<!-- DEMO IFRAME -->
+<input id="demo" class="collaps-toggle" type="checkbox">
+<label for="demo" class="collaps-label"><strong>Interactive Demo / Playground</strong></label>
+<div class="collaps-content">
+
+You can interactively try integration demo below. Inspect the source code and see the live output.
+#### 1. Backend
+
+Sample backend integration in NodeJS. Wait until the window/iframe below is fully loaded, then click "Play icon", wait until you see Snap Transaction Token as output.
+
+[Repl.it demo Midtrans NodeJS](https://repl.it/repls/LopsidedHilariousWordprocessing?lite=true ':include :type=iframe width=100% height=400px')
+
+#### 2. Frontend
+
+Input the Snap Transaction Token from step 1 below, then press "Pay". Click "HTML" to see the source code.
+
+<!-- [JSFiddle demo Snap.js](https://jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark ':include :type=iframe width=100% height=400px') -->
+
+<iframe width="100%" height="750" src="//jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+</div> 
+
 >**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
 `<meta name="viewport" content="width=device-width, initial-scale=1">`
 
