@@ -1,7 +1,7 @@
 The steps to do technical integration of Snap will be explained below
 
 ?>**Note:**
-All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the integration process. Make sure to follow [preparation section](/en/snap/preparation), before proceeding.
+All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the integration process. Make sure to follow [preparation section](/en/snap/preparation.md), before proceeding.
 
 ## Integration Steps
 1. Obtain Transaction `token` on Backend
@@ -40,7 +40,7 @@ The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library_plugin))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library-plugin.md))*
 
 #### Request Details
 Type | Value
@@ -408,7 +408,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature)
+#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature.md)
 </div>
 
 <div class="my-card">
@@ -420,4 +420,4 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview?id=b-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/snap/overview.md?id=b-follow-sample-code)

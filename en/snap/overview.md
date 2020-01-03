@@ -30,7 +30,7 @@ Choose any of one integration method below that is suitable to your liking:
 <br>
 <div class="my-card">
 
-#### [Integration Guide](/en/snap/integration-guide)
+#### [Integration Guide](/en/snap/integration-guide.md)
 </div>
 
 ### B) Follow Sample Code
@@ -56,7 +56,7 @@ Choose any of one integration method below that is suitable to your liking:
 <br>
 <div class="my-card">
 
-#### [Interactive Demo](en/snap/interactive-demo.md)
+#### [Interactive Demo](/en/snap/interactive-demo.md)
 </div>
 
 ### D) Install Plugin / Module on Your CMS

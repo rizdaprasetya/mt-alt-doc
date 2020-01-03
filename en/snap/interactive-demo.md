@@ -18,9 +18,9 @@ Sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Tok
 
 ### What's Next
 
-This is just demonstration of **Step 1 & Step 2** [explained in the guide](en/snap/integration-guide?id=integration-steps). Please follow the next step from there.
+This is just demonstration of **Step 1 & Step 2** [explained in the guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next step from there.
 
 <div class="my-card">
 
-#### [Next Step &#187;](en/snap/integration-guide?id=integration-steps)
+#### [Next Step &#187;](/en/snap/integration-guide.md?id=integration-steps)
 </div>
