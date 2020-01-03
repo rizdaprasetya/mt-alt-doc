@@ -9,6 +9,7 @@
 	- [Overview](en/snap/overview.md)
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
+	- [Interactive Demo](en/snap/interactive-demo.md)
 	- [Snap With Plugins](en/snap/with-plugin.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
 

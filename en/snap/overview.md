@@ -52,10 +52,17 @@ Choose any of one integration method below that is suitable to your liking:
 #### [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
 </div>
 
-### C) Install as CMS Plugin / Module
+### C) Interactive Demo
+<br>
+<div class="my-card">
+
+#### [Interactive Demo](en/snap/interactive-demo.md)
+</div>
+
+### D) Install Plugin / Module on Your CMS
 <br>
 TODO: link these to plugins
 
-### D) Using Platform
+### E) Using Platform
 <br>
 TODO: link these to affiliated platform
