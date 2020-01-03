@@ -17,7 +17,7 @@
 
 - **Customize Your Own - Core API**
 
-	- Overview
+	- [Overview](en/core-api/overview.md)
 	- Technical Integration
 		- Credit Card
 		- Bank Transfer
