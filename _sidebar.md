@@ -19,7 +19,7 @@
 
 	- [Overview](en/core-api/overview.md)
 	- Technical Integration
-		- Credit Card
+		- [Credit Card](en/core-api/credit-card.md)
 		- Bank Transfer
 		- E-Wallet
 		- Direct Debit
