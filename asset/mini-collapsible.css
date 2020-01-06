@@ -1,8 +1,16 @@
+/* Override to hide default arrow icon of details & summary tag */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 .collaps-toggle {
     display: none;
 }
 
-.collaps-label {
+.collaps-label, summary {
     display: block;
     padding: 1rem;
     cursor: pointer;
@@ -18,12 +26,20 @@
 .collaps-label h3,
 .collaps-label h4,
 .collaps-label h5
+summary h1,
+summary h2,
+summary h3,
+summary h4,
+summary h5
 {
     display: inline;
 }
 
 .collaps-label:hover,
-.collaps-label:focus {
+.collaps-label:focus,
+summary:hover,
+summary:focus {
+    outline: none;  /* reset browser highlight of summary */
     border-color: var(--main-bg-color);
     filter: brightness(110%);
     box-shadow: var(--high-box-shadow);
@@ -31,7 +47,8 @@
 }
 
 /* arrow icon */
-.collaps-label::before {
+.collaps-label::before, 
+summary::before {
     content: ' ';
     display: inline-block;
     border-top: 5px solid transparent;
@@ -43,7 +60,8 @@
     transition: transform 0.25s ease-out;
 }
 
-.collaps-label::after {
+.collaps-label::after,
+summary::after {
     content: '(click to expand)';
     font-size: 70%;
     opacity: 0.4;
@@ -53,18 +71,21 @@
 
 /* Workaround for small screen */
 @media only screen and (max-width: 768px) {
-    .collaps-label::after {
+    .collaps-label::after,
+    summary::after {
         padding-left: 1em;
         float: none;
         font-size: 50%;
     }
 }
 
-.collaps-toggle:checked + .collaps-label::before {
+.collaps-toggle:checked + .collaps-label::before,
+details[open] > summary::before {
     transform: rotate(90deg) translateX(-3px);
 }
 
-.collaps-content {
+.collaps-content,
+details > article {
     background: #00000003;
     margin-bottom: 1em;
     border-style: solid;
@@ -77,7 +98,9 @@
     transition: all 0.25s ease-in-out;
 }
 
-.collaps-toggle:checked + .collaps-label + .collaps-content {
+.collaps-toggle:checked + .collaps-label + .collaps-content, 
+details[open] > article{
+    margin: auto;
     max-height: 500vh;
     overflow: scroll;
 }
