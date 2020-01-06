@@ -9,9 +9,9 @@ All the steps below are using Midtrans **Sandbox environment**, not production, 
 3. Creating Test Payment
 4. Handling Post-Transaction
 
-<input id="seq-diag" class="collaps-toggle" type="checkbox">
-<label for="seq-diag" class="collaps-label"><strong>Sequence Diagram</strong></label>
-<div class="collaps-content">
+<details>
+<summary><b>Sequence Diagram</b></summary>
+<article>
 
 The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
 
@@ -22,7 +22,8 @@ The overall Snap end-to-end payment proccess can be illustrated in following seq
 #### **Snap Redirect Mode**
 ![Snap Redirect sequence diagram](./../../asset/image/snap_sequence_redirect.png)
 <!-- tabs:end -->
-</div>
+</article>
+</details>
 
 ## 1. Obtain Transaction Token on Backend
 
