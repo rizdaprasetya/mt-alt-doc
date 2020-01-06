@@ -33,6 +33,58 @@
 - To add/edit/remove sidebar menu, edit `_sidebar.md` file.
 - After editing, just refresh from browser.
 
+### Custom CSS elements
+There are some custom elements to make UX better:
+
+#### Tabs
+Using [docsify tabs plugin](https://jhildenbiddle.github.io/docsify-tabs), sample usage
+
+```markdown
+<!-- tabs:start -->
+#### **Tabs title 1**
+Tabs content 1
+
+#### **Tabs title 2**
+Tabs content 2
+<!-- tabs:end -->
+```
+
+#### Collapsible
+Custom implementation. 
+Sample usage via native html `details` & `summary` tag (recommended, also markdown compatible): 
+
+```html
+<details>
+<summary><b>Collapsible Title</b></summary>
+<article>
+
+The overall Snap end-to-end payment proccess can be illustrated in following sequence diagram:
+</article>
+</details>
+```
+
+Or via custom div elements (not recommended, not markdown compatible and need to manage unique id)
+
+```html
+<input id="unique-id" class="collaps-toggle" type="checkbox">
+<label for="unique-id" class="collaps-label"><b>Collapsible Title</b></label>
+<div class="collaps-content">
+
+input's "id" attribute must be unique from other collapsible instances, and must match with "for" attribute of the label.
+</div>
+```
+
+#### Card
+Custom implementation, sample usage:
+
+```html
+<div class="my-card">
+
+### [Card Title With Link (optional) &#187;](https://example.com)
+Optional card body content, or actually you can use any html/markdown content within card.
+</div>
+```
+
 ## Deploying
 
 - Just pull request or commit to `master` branch.
