@@ -9,7 +9,7 @@ Sample backend integration in NodeJS (hosted on CodeSandbox). Wait until the win
 
 ### 2. Frontend Integration
 
-Sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 below, then press "Pay". Click **"HTML"** to see the source code.
+Sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 to below field, then press "Pay". Click **"HTML"** to see the source code.
 
 <!-- [JSFiddle demo Snap.js](https://jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark ':include :type=iframe width=100% height=400px') -->
 

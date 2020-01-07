@@ -1,6 +1,6 @@
 Basic integration process of Credit Card (3DS) will be explained below.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview), before proceeding with this section.
+?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview), before proceeding with this section.
 
 ## Integration Step
 1. Get Card Token, via Frontend
@@ -34,7 +34,7 @@ data-client-key="<INSERT YOUR CLIENT KEY HERE>"></script>
 | Attribute | Value |
 |-----------|-------|
 | `data-environment`| Input `sandbox` or `production` (API environment)|
-| `data-client-key`| Input **client key** [by following previous section.](/en/midtrans_account/overview.md?id=retrieving-api-access-keys) |
+| `data-client-key`| Input **client key** [by following previous section.](/en/midtrans-account/overview.md?id=retrieving-api-access-keys) |
 
 Link: [*More detailed definition*](https://api-docs.midtrans.com/#get-token)
 
@@ -81,7 +81,7 @@ API request should be done from **Merchant’s backend** to acquire `redirect_ur
 
 Requirement | Description
 --- | ---
-Server Key | Explained on [previous section](/en/midtrans_account/overview.md)
+Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id` | Transaction order ID, defined from your side
 `gross_amount` | Total amount of transaction, defined from your side
 `token_id` | Represents customer's credit card information acquired from [Get Card Token Response](en/core-api/credit-card.md?id=get-card-token-response)

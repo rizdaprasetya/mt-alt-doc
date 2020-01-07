@@ -386,7 +386,17 @@ After payment completed, customer will be redirected back to `Finish URL` specif
 
 ## 3. Creating Test Payment
 
-Create a test payment to make sure you have integrated Snap successfully. You can refer to test credentials [available on our sandbox payment simulator]
+Create a test payment to make sure you have integrated Snap successfully. You can use one of our test credentials for Card Payment:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+You can refer to more test credentials [available on our sandbox payment simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index)
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
