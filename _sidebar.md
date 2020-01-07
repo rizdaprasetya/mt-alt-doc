@@ -35,7 +35,7 @@
 
 - **After Payment**	
 
-	- Taking Action of Payment	
+	- [Taking Action of Payment](en/after-payment/action-payment.md)
 	- Handling Webhook HTTP Notification	
 	- Transaction Status Cycle and Action	
 	- Dashboard Usage and Action	
