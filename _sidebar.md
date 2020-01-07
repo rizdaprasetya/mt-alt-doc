@@ -15,10 +15,10 @@
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
 
-- **Customize Your Own - Core API**
+- **Core API - Build your own checkout page**
 
 	- [Overview](en/core-api/overview.md)
-	- Technical Integration
+	- Integration Guide
 		- [Credit Card](en/core-api/credit-card.md)
 		- Bank Transfer
 		- E-Wallet
@@ -31,12 +31,7 @@
 
 	- Overview
 
-- **Disbursement - IRIS**
-- **Developer Resource**
-
-	- Testing Payment on Sandbox
-	- Library & Plugins
-	- Postman Collection
+- [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
 
 - **After Payment**	
 
@@ -46,6 +41,12 @@
 	- Dashboard Usage and Action	
 	- Receiving Your Fund / Payout	
 	- Fraud and Dispute	
+
+- **Integration Reference**
+
+	- Testing Payment on Sandbox
+	- Library & Plugins
+	- Postman Collection
 
 - **Security**	
 
