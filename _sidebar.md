@@ -2,7 +2,7 @@
 
 - **Midtrans Account**
 
-	- [Overview](en/midtrans_account/overview.md)
+	- [Overview](en/midtrans-account/overview.md)
 
 - **Snap**
 

@@ -31,7 +31,7 @@ API request should be done from Merchant’s backend to acquire Snap transaction
 
 Requirement | Description
 --- | ---
-Server Key| Explained on [previous section](/en/midtrans_account/overview.md)
+Server Key| Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id`| Transaction order ID, defined from your side
 `gross_amount`| Total amount of transaction, defined from your side
 
@@ -321,7 +321,7 @@ There are at least 3 components that are required to do this:
 
 Requirement | Description
 --- | ---
-Client Key | Explained on [previous section](/en/midtrans_account/overview.md)
+Client Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
 transaction `token` | retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend)
 
