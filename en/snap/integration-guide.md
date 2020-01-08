@@ -31,9 +31,9 @@ API request should be done from Merchant’s backend to acquire Snap transaction
 
 Requirement | Description
 --- | ---
-Server Key| Explained on [previous section](/en/midtrans-account/overview.md)
-`order_id`| Transaction order ID, defined from your side
-`gross_amount`| Total amount of transaction, defined from your side
+`Server Key`| Explained on [previous section](/en/midtrans-account/overview.md)
+`order_id`| Unique transaction order ID, defined from your side. One ID could be used only be paid once. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50.
+`gross_amount`| Total amount of transaction, defined from your side. Integer.
 
 ### API Request
 
