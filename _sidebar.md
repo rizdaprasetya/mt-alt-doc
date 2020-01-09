@@ -20,7 +20,7 @@
 	- [Overview](en/core-api/overview.md)
 	- Integration Guide
 		- [Credit Card](en/core-api/credit-card.md)
-		- Bank Transfer
+		- [Bank Transfer](en/core-api/bank-transfer.md)
 		- E-Wallet
 		- Direct Debit
 		- Store
