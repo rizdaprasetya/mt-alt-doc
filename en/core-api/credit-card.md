@@ -8,13 +8,14 @@ Basic integration process of Credit Card (3DS) will be explained below.
 3. Open 3DS Authentication Page, via Frontend
 4. Handling Post-Transaction
 
-<input id="seq-diag" class="collaps-toggle" type="checkbox">
-<label for="seq-diag" class="collaps-label"><strong>Sequence Diagram</strong></label>
-<div class="collaps-content">
+<details>
+<summary><b>Sequence Diagram</b></summary>
+<article>
 The overall Credit Card (3DS) end-to-end payment proccess can be illustrated in following sequence diagram:
 
 ![3ds sequence diagram](./../../asset/image/core_api-sequence_3ds.png)
-</div>
+</article>
+</details>
 
 ## 1. Get Card Token
 Card `token_id` is representation of customer's card data, that will be used during a transaction. `token_id` should be retrieved using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant's website frontend, card data will be securely transmitted by frontend javascript to Midtrans API in exchange of card `token_id`, to avoid risk involved if card data being transmitted to merchant's backend.
