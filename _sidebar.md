@@ -22,9 +22,9 @@
 		- [Credit Card](en/core-api/credit-card.md)
 		- Bank Transfer
 		- E-Wallet
-		- Direct Debit
-		- Store
-		- Cardless Credit
+		- [Direct Debit](en/core-api/direct-debit.md)
+		- [Convenience Store](en/core-api/convenience-store.md)
+		- [Cardless Credit](en/core-api/cardless-credit.md)
 	- Advanced Features
 
 - **Payment Link**
