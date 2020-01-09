@@ -1,6 +1,6 @@
 After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, also Merchant can also retrieve transaction status to Midtrans.
 
-Midtrans provides three means for merchant to obtain the transaction status:
+Midtrans provides various means for merchant to obtain the transaction status:
 
 <div class="my-card">
 
@@ -330,7 +330,10 @@ The content of the HTTP(S) POST notification consists of JSON object. Some sampl
 
 ?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` incase of card transaction) **and**  `fraud_status` value is `accept`. Then you are safe to deliver good/service to customer.
 
-#### Status Description
+#### Status Definition
+
+<!-- tabs:start -->
+#### **Transaction Status**
 
 transaction_status | 🔍 | description
 --- | --- | ---
@@ -342,20 +345,79 @@ transaction_status | 🔍 | description
 `expire` | ❌| Transaction no longer available to be paid or processed, beacause the payment has not been completed after the expiry time period exceeded.
 `refund` | ↩️| Refund is triggered by Merchant. Transaction is marked to be refunded.
 
+#### **Fraud Status**
+
 fraud_status | 🔍 | description
 --- | --- | ---
 `accept` | ✅ | Transaction is safe, not considered as fraud.
 `deny` | ❌ | Transaction is considered as fraud. And denied/rejected for safety reason.
 `challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
-
-To ensure the content integrity and the notification is securely sent by Midtrans, not other unverified party, we recommend you to verify the notification by one of these mechanism:
-
-#### Verify Signature Key
+<!-- tabs:end -->
 
 #### Verify Notification Authenticity
 
-To ensure Notification is securely sent by Midtrans, not other unverified party, we recommend a mechanism to verify . This can be achieved by calling [the get status API](/en/after-payment/action-payment.md?id=api-get-status). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
+To ensure the content integrity and the notification is securely sent by Midtrans, not by other unverified party, we recommend you to verify the notification by one of these mechanisms:
+
+<!-- tabs:start -->
+#### **Verify Signature Key**
+
+On the JSON notification body, we provided `signature_key` which generated using Server Key as one of its component. Since presumably only Midtrans and that specific Merchant knows the Server Key, it can be use to ensure the notification is signed by Midtrans, and can be verified by Merchant.
+
+The logic to generate or calculate signature key is explaine below:
+
+```
+SHA512(order_id+status_code+gross_amount+serverkey)
+```
+
+> It basically means append the value of `order_id`,`status_code`,`gross_amount`,`ServerKey` into one string, then use it as input to SHA512 hash function. Then the output should match with `signature_key` from notification.
+
+You can test with [this tools to try out signature_key calculation](https://jsbin.com/lipuwopehu/10/edit?output)
+
+#### **Request Directly to Midtrans API**
+
+Alternatively, verify by calling [the get status API](/en/after-payment/action-payment.md?id=api-get-status). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
 
 ![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)
+<!-- tabs:end -->
+
+#### Response
+
+Your notification url / backend must response with http status code `200` to confirm notification is received. On most backend / web framework you can also achive that by simply printing string, like `ok` it will automatically send http status code `200`.
+
+#### Best Practice to Handle Notification
+<br>
+<details>
+<summary><b>Best Practice</b></summary>
+<article>
+
+- Always use an HTTPS endpoint. It is secure and there cannot be MITM attacks because we validate the certificates match the hosts. Also do not use self signed certificates.
+- Use standard port (80/443) for notification callback url
+- Always implement notification in an idempotent way, in extremely rare cases, we may send multiple notifications for the same transaction event twice. It should not cause double entries in the merchant end, The simple way of achieving this is to use orderid as the key to track the entries.
+- Always check the signature hash of the notification, This will confirm that the notification was actually sent by Midtrans, because we encode the shared secret (server key). Nobody else can build this signature hash.
+- Always check all the following three fields for confirming success transaction
+	- `status_code`: Should be 200 for successful transactions
+	- `fraud_status`: ACCEPT
+	- `transaction_status` : settlement/capture
+- We strive to send the notification immediately after the transaction has occurred, but in extremely rare cases, it may be delayed because of transaction spikes. If you have not received a notification, please use the Status API to check for current status of the transaction.
+- It is safe to call Status API to get the latest status of the transaction/order on each notification.
+- We set the HTTP timeout to 15 seconds.
+- Please strive to keep the response time of the the HTTP notifications under 5 seconds.
+In extremely rare cases we may send the HTTP notifications out of order, ie. a `settlement` status for a notification before the notification for `pending` status. It's important that such later notifications are ignored. Here's the state transition diagram that you could use. But again, use our /status API to confirm the actual status.
+- We send the notification body as JSON, please parse the JSON with a JSON parser. Always expect new fields will be added to the notification body, so parse it in a non strict format, so if the parser sees new fields, it should not throw exception. It should gracefully ignore the new fields. This allows us to extend our notification system for newer use cases without breaking old clients.
+- Always use the right HTTP Status code for responding to the notification, we handle retry for error cases differently based on the status code
+	- for `2xx`: No retries, it is considered success
+	- for `500`: Retry only once
+	- for `503`: Retry 4 times
+	- for `400/404`: Retry 2 times
+	- for `301/302/303`: No retries. We suggest the notificaiton endpoint should be update in setting instead of reply these status code.
+	- for `307/308`: Follow the new url with POST method and same notification body. Max redirect is 5 times
+	- for all other failures: Retry 5 times
+- We do retry at most 5 times with following policy
+- Different retry interval from 1st time to 5th time (2m, 10m, 30m, 1.5hour, 3.5hour)
+- Put a random time shift for each time retry base on above interval. For example, the first time retry might be 33s(at most 2m) after the job failed.
+</article>
+</details>
 
 ## API Get Status
+
+Merchant can also send request to Midtrans API to inquire transaction status of a transaction, based on `order_id` (or `transaction_id`).
