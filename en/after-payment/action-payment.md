@@ -1,5 +1,3 @@
-## Transaction Status
-
 After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, also Merchant can also retrieve transaction status to Midtrans.
 
 Midtrans provides three means for merchant to obtain the transaction status:
@@ -7,19 +5,32 @@ Midtrans provides three means for merchant to obtain the transaction status:
 <div class="my-card">
 
 #### [A. Email Notification &#187;](/en/after-payment/action-payment.md?id=email-notification)
+The simplest. Require no complicated set up.
 </div>
+
 <div class="my-card">
 
 #### [B. HTTP(S) Notification / Webhook &#187;](/en/after-payment/action-payment.md?id=https-notification-webhook)
+The most recommended, if you are aiming to have automated transaction status update on your system.
 </div>
+
 <div class="my-card">
 
-#### [C. Merchant Administration Portal &#187;](/en/after-payment/dashboard-usage.md)
+#### [C. Dashboard / Merchant Administration Portal &#187;](/en/after-payment/dashboard-usage.md)
+Also simple and easy, utilizing our ready to use Dashboard.
+</div>
+
+<div class="my-card">
+
+#### [D. Call API Get Status &#187;](/en/after-payment/action-payment.md?id=api-get-status)
+You can query for transaction status to Midtrans via API too if needed.
 </div>
 
 ## Email Notification
 
-On transaction status changes: success, failure, cancel, etc. Midtrans by default will notify by email the status of the transaction to Merchant email (email configured on dashboard) & Customer email (email inputted on Snap payment page). 
+Whenever transaction status changes: success, failure, cancel, etc. Midtrans by default will notify by email the status of the transaction to Merchant email (email configured on dashboard) & Customer email (email inputted on Snap payment page). 
+
+Feel free to try create transaction on Sandbox mode, to see and test email notification that will be sent to you.
 
 Merchant can configure the email notification setting at [Settings - Email Notification](https://dashboard.sandbox.midtrans.com/settings/email_notifications) in Dashboard.
 
@@ -38,6 +49,8 @@ Enable Midtrans HTTP(S) POST Notification by setting the Payment Notification UR
 !> Make sure to input Notification URL that **can be reached from Public Internet**. Midtrans **will not be able** to send notification to localhost, url protected with auth/password, url behind VPN, unusual destination port, etc. Though don't worry, you can then utilize `signature_key` or method explained below to make sure it's security.
 
 ?> **Tips**: If you are still developing your notification handler on localhost, you can utilize these service to expose your localhost server to public internet: [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), etc. Once you have obtain the internet accessible url, you can input it to the `notification url` field on Dashboard.
+
+#### Sample Notification
 
 The content of the HTTP(S) POST notification consists of JSON object. Some sample notification of successful transaction based on payment channel:
 
@@ -315,18 +328,34 @@ The content of the HTTP(S) POST notification consists of JSON object. Some sampl
 ```
 <!-- tabs:end -->
 
-It's recommended to check the `transaction_status` as reference of the most accurate transaction status. 
-
-Transaction can be considered success if `transaction_status` value is `settlement` (or `capture` incase of card transaction) **and**  `fraud_status` value is `accept`. Then you are safe to deliver good/service to customer.
+?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` incase of card transaction) **and**  `fraud_status` value is `accept`. Then you are safe to deliver good/service to customer.
 
 #### Status Description
 
-status | description
---- | ---
-`capture` | Transaction successfully capture the credit card balance. <br>Will be settled automatically next day if no manual action taken, safe to assume as success payment.
-`settlement` | Transaction is successfully settled. Funds has been received.
-`pending` | Transaction is made available in Midtrans to be paid.
-`deny` | Payment provider / Fraud Detection System rejects the credentials used for payment. <br>See `status_message` for deny details.
-`cancel` | Transaction is cancelled. <br>Can be triggered by Midtrans or partner themselves.
-`expire` | Transaction no longer available to be paid or processed. <br>Transaction has not been completed after the expiry time period exceeded.
-`refund` | Transaction is marked to be refunded.	
+transaction_status | 🔍 | description
+--- | --- | ---
+`capture` | ✅ | Transaction successfully capture the credit card balance. <br>Will be settled automatically next day if no manual action taken. <br>Safe to assume as success payment.
+`settlement` | ✅ | Transaction is successfully settled. Funds has been received.
+`pending` | 🕒 | Transaction is made available in Midtrans to be paid.
+`deny` | ❌| Payment provider / Fraud Detection System rejects the credentials used for payment. See `status_message` field for deny reason/details.
+`cancel` | ❌| Transaction is cancelled. Can be triggered by Midtrans or Merchant themselves.
+`expire` | ❌| Transaction no longer available to be paid or processed, beacause the payment has not been completed after the expiry time period exceeded.
+`refund` | ↩️| Refund is triggered by Merchant. Transaction is marked to be refunded.
+
+fraud_status | 🔍 | description
+--- | --- | ---
+`accept` | ✅ | Transaction is safe, not considered as fraud.
+`deny` | ❌ | Transaction is considered as fraud. And denied/rejected for safety reason.
+`challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
+
+To ensure the content integrity and the notification is securely sent by Midtrans, not other unverified party, we recommend you to verify the notification by one of these mechanism:
+
+#### Verify Signature Key
+
+#### Verify Notification Authenticity
+
+To ensure Notification is securely sent by Midtrans, not other unverified party, we recommend a mechanism to verify . This can be achieved by calling [the get status API](/en/after-payment/action-payment.md?id=api-get-status). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
+
+![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)
+
+## API Get Status

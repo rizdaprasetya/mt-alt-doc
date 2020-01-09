@@ -35,12 +35,12 @@
 
 - **After Payment**	
 
-	- [Taking Action of Payment](en/after-payment/action-payment.md)
-	- Handling Webhook HTTP Notification	
-	- Transaction Status Cycle and Action	
-	- Dashboard Usage and Action	
-	- Receiving Your Fund / Payout	
-	- Fraud and Dispute	
+	- [Get Notified of Payment](en/after-payment/action-payment.md)
+	- [Handling HTTPs Notification Webhook](en/after-payment/handling-notification.md)
+	- Transaction Status Cycle and Action
+	- Dashboard Usage and Action
+	- Receiving Your Fund / Payout
+	- Fraud and Dispute
 
 - **Integration Reference**
 
