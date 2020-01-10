@@ -7,7 +7,7 @@ At this moment, Midtrans has integrated with 2 different with Convenience Store:
 <img width="170px" height="50px" src="./../../asset/image/coreapi/indomaret_logo.png" />
    
 
-Basic integration process of Direct Debit will be explained below.
+Basic integration process of Convenience Store will be explained below.
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
 <article>
@@ -57,6 +57,7 @@ Authorization: Basic AUTH_STRING
 This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available language libraries).
 <!-- tabs:start -->
 #### **Alfamart**
+
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -78,6 +79,16 @@ curl -X POST \
   }
 }'
 ```
+#### Alfamart Request Details
+JSON Attribute         | Type       | Required  | Description
+---------------------- | ---------- | --------  | -----------
+store                  | String(20) | Y         | Store name                                       
+message                | String(20) | N         | Label to be displayed in Alfamart POS
+alfamart_free_text_1   | String(40) | N         | Customize the first row of description in Alfamart printed receipt
+alfamart_free_text_2   | String(40) | N         | Customize the second row of description in Alfamart printed receipt
+alfamart_free_text_2   | String(40) | N         | Customize the third row of description in Alfamart printed receipt
+
+
 
 #### **Indomaret**
 ```bash
@@ -98,6 +109,11 @@ curl -X POST \
   }
 }'
 ```
+#### Indomaret Request Details
+JSON Attribute         | Type       | Required  | Description
+---------------------- | ---------- | --------  | -----------
+store                  | String(20) | Y        | Store name                                       
+message                | String(20) | N         | Label to be displayed in Indomaret POS
 
 <!-- tabs:end -->
 

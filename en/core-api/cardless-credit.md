@@ -1,7 +1,10 @@
 <H1> Cardless Credit </H1>
 One of the payment method offered by Midtrans is Cardless Credit. By using this payment method, customers will have the option to make a payment via Cardless credit page and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with Akulaku
+At this moment, Midtrans has integrated with 
+
+<img width="242px" height="127px" src="./../../asset/image/coreapi/akulaku_logo.svg" />
+
 
 Basic integration process of Cardless Credit will be explained below.
 <details>
@@ -117,33 +120,18 @@ On the Finish Redirect URL script, we need to obtain the response sent to the fi
 Raw response are formatted in JSON, however, in some rare case, sometime there are backslash () before the quotation mark (“). Below are the sample of the raw dirty response.
 ```json
 {
-  \"transaction_time\": \"2020-01-09 17:58:00\",
-  \"transaction_status\": \"settlement\",
-  \"transaction_id\": \"fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-  \"status_message\": \"midtrans payment notification\",
-  \"status_code\": \"200\",
-  \"signature_key\": \"331d8619f0c53ce97abf4cfc91fae8d8d0b11da1640b5bb136b0cfbc0da161d50fc6d0dd0d7f893977881710a2d2c174d9e036aaaa772e80fdeac6e9fb60e6b9\",
-  \"settlement_time\": \"2020-01-09 18:00:48\",
-  \"payment_type\": \"akulaku\",
-  \"order_id\": \"order-101-1578567480\",
-  \"merchant_id\": \"G812785002\",
-  \"gross_amount\": \"11000.00\",
-  \"fraud_status\": \"accept\",
-  \"currency\": \"IDR\"
-}
-{
-    "status_code": "201",
-    "status_message": "Success, Akulaku transaction is created",
-    "transaction_id": "fa05cba0-8ea3-4e46-a2b1-daea2a01785c",
-    "order_id": "order-101-1578567480",
-    "redirect_url": "https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c",
-    "merchant_id": "G812785002",
-    "gross_amount": "11000.00",
-    "currency": "IDR",
-    "payment_type": "akulaku",
-    "transaction_time": "2020-01-09 17:58:00",
-    "transaction_status": "pending",
-    "fraud_status": "accept"
+    \"status_code\": \"201\",
+    \"status_message\": \"Success, Akulaku transaction is created\",
+    \"transaction_id\": \"fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
+    \"order_id\": \"order-101-1578567480\",
+    \"redirect_url\": \"https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
+    \"merchant_id\": \"G812785002\",
+    \"gross_amount\": \"11000.00\",
+    \"currency\": \"IDR\",
+    \"payment_type\": \"akulaku\",
+    \"transaction_time\": \"2020-01-09 17:58:00\",
+    \"transaction_status\": \"pending\",
+    \"fraud_status\": \"accept\"
 }
 ```
 After the response being clean we got this result.

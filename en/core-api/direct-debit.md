@@ -7,7 +7,6 @@ At this moment, Midtrans has integrated with 4 different direct debit payment me
 2. CIMB Clicks
 3. Danamon Online
 4. e-Pay BRI
-5. Akulaku
 
 Basic integration process of Direct Debit will be explained below.
 <details>
@@ -127,22 +126,6 @@ curl -X POST \
   }
 }'
 ```
-
-#### **Akulaku**
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "payment_type": "akulaku",
-  "transaction_details": {
-      "order_id": "order-101",
-      "gross_amount": 44000
-  }
-}'
-```
 <!-- tabs:end -->
 
 ?>**Optional:**
@@ -232,24 +215,6 @@ You will get the API response like the following.
     "currency": "IDR",
     "payment_type": "bri_epay",
     "transaction_time": "2019-11-11 15:09:35",
-    "transaction_status": "pending",
-    "fraud_status": "accept"
-}
-```
-
-#### **Akulaku**
-```json
-{
-    "status_code": "201",
-    "status_message": "Success, Akulaku transaction is created",
-    "transaction_id": "f80b0974-46d6-480c-9278-8b0d473857e1",
-    "order_id": "order-101s",
-    "redirect_url": "https://api.sandbox.midtrans.com/v2/akulaku/redirect/f80b0974-46d6-480c-9278-8b0d473857e1",
-    "merchant_id": "G812785002",
-    "gross_amount": "11000.00",
-    "currency": "IDR",
-    "payment_type": "akulaku",
-    "transaction_time": "2019-11-11 12:19:54",
     "transaction_status": "pending",
     "fraud_status": "accept"
 }
@@ -388,25 +353,6 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
   "fraud_status": "accept",
   "currency": "IDR",
   "approval_code": "1576483775235"
-}
-```
-
-#### **Akulaku**
-```json
-{
-  "transaction_time": "2019-11-11 12:30:35",
-  "transaction_status": "settlement",
-  "transaction_id": "be30d5f1-3dfa-42a0-bc23-4d48207e71f0",
-  "status_message": "midtrans payment notification",
-  "status_code": "200",
-  "signature_key": "1ab3eb28bc4833d193871ad911a0d96d45cc0d68cdfe30c6d5a61728593aa7129b6500090b95da1606956767473806102066d090eda72e4b2ee3f082df3ba731",
-  "settlement_time": "2019-12-13 12:30:48",
-  "payment_type": "akulaku",
-  "order_id": "order-101",
-  "merchant_id": "G812785002",
-  "gross_amount": "11000.00",
-  "fraud_status": "accept",
-  "currency": "IDR"
 }
 ```
 <!-- tabs:end -->
