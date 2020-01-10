@@ -1,17 +1,14 @@
 - [**Home**](/)
 
-- **Midtrans Account**
+- [**Midtrans Account**](en/midtrans-account/overview.md)
 
-	- [Overview](en/midtrans-account/overview.md)
+- [**Snap**](en/snap/overview.md)
 
-- **Snap**
-
-	- [Overview](en/snap/overview.md)
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
 	- [Interactive Demo](en/snap/interactive-demo.md)
-	- [Snap With Plugins](en/snap/with-plugin.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
+	- [Snap With Plugins](en/snap/with-plugin.md)
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
 
@@ -33,17 +30,18 @@
 
 - [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
 
-- **After Payment**	
-
-	- [Get Notified of Payment](en/after-payment/action-payment.md)
-	- [Handling HTTPs Notification Webhook](en/after-payment/handling-notification.md)
-	- Transaction Status Cycle and Action
+- [**After Payment**](en/after-payment/overview.md)
+	- [Email Notification](en/after-payment/email-notification.md)
+	- [Handling HTTPs Notification Webhook](en/after-payment/http-notification.md)
+	- [Get Status API](en/after-payment/get-status.md)
 	- Dashboard Usage and Action
+	- [Transaction Status Cycle](en/after-payment/status-cycle.md)
 	- Receiving Your Fund / Payout
 	- Fraud and Dispute
 
 - **Integration Reference**
-
+	
+	- API Authorization & Headers
 	- Testing Payment on Sandbox
 	- Library & Plugins
 	- Postman Collection

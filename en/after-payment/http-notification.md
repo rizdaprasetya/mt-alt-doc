@@ -1,44 +1,4 @@
-After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, also Merchant can also retrieve transaction status to Midtrans.
-
-Midtrans provides various means for merchant to obtain the transaction status:
-
-<div class="my-card">
-
-#### [A. Email Notification &#187;](/en/after-payment/action-payment.md?id=email-notification)
-The simplest. Require no complicated set up.
-</div>
-
-<div class="my-card">
-
-#### [B. HTTP(S) Notification / Webhook &#187;](/en/after-payment/action-payment.md?id=https-notification-webhook)
-The most recommended, if you are aiming to have automated transaction status update on your system.
-</div>
-
-<div class="my-card">
-
-#### [C. Dashboard / Merchant Administration Portal &#187;](/en/after-payment/dashboard-usage.md)
-Also simple and easy, utilizing our ready to use Dashboard.
-</div>
-
-<div class="my-card">
-
-#### [D. Call API Get Status &#187;](/en/after-payment/action-payment.md?id=api-get-status)
-You can query for transaction status to Midtrans via API too if needed.
-</div>
-
-## Email Notification
-
-Whenever transaction status changes: success, failure, cancel, etc. Midtrans by default will notify by email the status of the transaction to Merchant email (email configured on dashboard) & Customer email (email inputted on Snap payment page). 
-
-Feel free to try create transaction on Sandbox mode, to see and test email notification that will be sent to you.
-
-Merchant can configure the email notification setting at [Settings - Email Notification](https://dashboard.sandbox.midtrans.com/settings/email_notifications) in Dashboard.
-
-![Email Notification Configuration](./../../asset/image/after-payment-email-dashboard.png)
-
-?> For multiple emails, please use comma as a separator. Example : `me@tokoecomm.com, you@tokoecomm.com`
-
-## HTTP(S) Notification / Webhook
+# HTTP(S) Notification / Webhook
 
 Notification through HTTP(S) POST / Webhook will be sent to the merchant's server when customer completes the payment process and when transaction status changes (transaction refunded, pending, etc). Merchant can utilize the HTTP(S) POST notification to update a payment status or send the item of a transaction in real time.
 
@@ -50,27 +10,78 @@ Enable Midtrans HTTP(S) POST Notification by setting the Payment Notification UR
 
 ?> **Tips**: If you are still developing your notification handler on localhost, you can utilize these service to expose your localhost server to public internet: [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), etc. Once you have obtain the internet accessible url, you can input it to the `notification url` field on Dashboard.
 
-#### Sample Notification
+### Sample Notification
 
-The content of the HTTP(S) POST notification consists of JSON object. Some sample notification of successful transaction based on payment channel:
+The HTTP(S) POST notification is HTTP request with:
+
+Key | Type
+--- | ---
+Kind | HTTP Request
+Request Method | `POST`
+Request Header | `Content-Type: application/json`
+Request Body | `string` of JSON
+
+<details>
+<summary><b>Sample Notification Request in CURL</b></summary>
+<article>
+
+Here's example of how the HTTP notification will be sent from Midtrans side:
+```bash
+curl -X POST \
+  https://tokoecommerc.com/payment-notification-handler/ \
+  -H 'Accept: application/json'\
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_time": "2020-01-09 18:27:19",
+  "transaction_status": "capture",
+  "transaction_id": "57d5293c-e65f-4a29-95e4-5959c3fa335b",
+  "status_message": "midtrans payment notification",
+  "status_code": "200",
+  "signature_key": "16d6f84b2fb0468e2a9cf99a8ac4e5d803d42180347aaa70cb2a7abb13b5c6130458ca9c71956a962c0827637cd3bc7d40b21a8ae9fab12c7c3efe351b18d00a",
+  "payment_type": "credit_card",
+  "order_id": "Postman-1578568851",
+  "merchant_id": "M004123",
+  "masked_card": "481111-1114",
+  "gross_amount": "10000.00",
+  "fraud_status": "accept",
+  "eci": "05",
+  "currency": "IDR",
+  "channel_response_message": "Approved",
+  "channel_response_code": "00",
+  "card_type": "credit",
+  "bank": "bni",
+  "approval_code": "1578569243927"
+}'
+```
+</article>
+</details>
+
+Some sample notification of successful transaction based on payment channel:
+<!-- TODO: Update the notification sample with actual test result-->
 
 <!-- tabs:start -->
 #### **Card**
 ```javascript
 {
-  "masked_card": "481111-1114",
-  "approval_code": "256084",
-  "bank": "bni",
-  "transaction_time": "2016-06-28 09:42:20",
-  "gross_amount": "10000.00",
-  "order_id": "C17550",
-  "payment_type": "credit_card",
-  "signature_key": "ad7ccda03d8ec6f2f415661fb511d47fcd17dcc7d7e1ade96a305dd5d3bc2bea5438a8bdfe1aeedabdefb226000338ac169fc18d5ae73788fd5e78dbac945ce4",
-  "status_code": "200",
-  "transaction_id": "1eae238a-cb9e-4f92-b284-aac8b39e4eab",
+  "transaction_time": "2020-01-09 18:27:19",
   "transaction_status": "capture",
+  "transaction_id": "57d5293c-e65f-4a29-95e4-5959c3fa335b",
+  "status_message": "midtrans payment notification",
+  "status_code": "200",
+  "signature_key": "16d6f84b2fb0468e2a9cf99a8ac4e5d803d42180347aaa70cb2a7abb13b5c6130458ca9c71956a962c0827637cd3bc7d40b21a8ae9fab12c7c3efe351b18d00a",
+  "payment_type": "credit_card",
+  "order_id": "Postman-1578568851",
+  "merchant_id": "M004123",
+  "masked_card": "481111-1114",
+  "gross_amount": "10000.00",
   "fraud_status": "accept",
-  "status_message": "midtrans payment notification"
+  "eci": "05",
+  "currency": "IDR",
+  "channel_response_message": "Approved",
+  "channel_response_code": "00",
+  "card_type": "credit",
+  "bank": "bni",
+  "approval_code": "1578569243927"
 }
 ```
 
@@ -330,7 +341,7 @@ The content of the HTTP(S) POST notification consists of JSON object. Some sampl
 
 ?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` incase of card transaction) **and**  `fraud_status` value is `accept`. Then you are safe to deliver good/service to customer.
 
-#### Status Definition
+### Status Definition
 
 <!-- tabs:start -->
 #### **Transaction Status**
@@ -339,7 +350,7 @@ transaction_status | 🔍 | description
 --- | --- | ---
 `capture` | ✅ | Transaction successfully capture the credit card balance. <br>Will be settled automatically next day if no manual action taken. <br>Safe to assume as success payment.
 `settlement` | ✅ | Transaction is successfully settled. Funds has been received.
-`pending` | 🕒 | Transaction is made available in Midtrans to be paid.
+`pending` | 🕒 | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/ebanking/E-wallet app/ store).
 `deny` | ❌| Payment provider / Fraud Detection System rejects the credentials used for payment. See `status_message` field for deny reason/details.
 `cancel` | ❌| Transaction is cancelled. Can be triggered by Midtrans or Merchant themselves.
 `expire` | ❌| Transaction no longer available to be paid or processed, beacause the payment has not been completed after the expiry time period exceeded.
@@ -354,7 +365,7 @@ fraud_status | 🔍 | description
 `challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
 <!-- tabs:end -->
 
-#### Verify Notification Authenticity
+### Verify Notification Authenticity
 
 To ensure the content integrity and the notification is securely sent by Midtrans, not by other unverified party, we recommend you to verify the notification by one of these mechanisms:
 
@@ -371,20 +382,32 @@ SHA512(order_id+status_code+gross_amount+serverkey)
 
 > It basically means append the value of `order_id`,`status_code`,`gross_amount`,`ServerKey` into one string, then use it as input to SHA512 hash function. Then the output should match with `signature_key` from notification.
 
-You can test with [this tools to try out signature_key calculation](https://jsbin.com/lipuwopehu/10/edit?output)
+You can test with this tools to try out signature_key calculation:
 
-#### **Request Directly to Midtrans API**
+
+<details>
+<summary><b>Signature Key Calculator</b></summary>
+<article>
+
+[Signature Key Calculator](https://jsfiddle.net/5amr8cov/6/embedded/result,html/dark ':include :type=iframe width=100% height=800px')
+</article>
+</details>
+<br>
+
+#### **Verify Directly to Midtrans API**
 
 Alternatively, verify by calling [the get status API](/en/after-payment/action-payment.md?id=api-get-status). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
 
 ![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)
 <!-- tabs:end -->
 
-#### Response
+?> **Tips**: Official Midtrans language library will automatically do "Verify Directly to Midtrans API" mechanism within the built in `notification` function. As well as official Midtrans CMS plugin.
+
+### Response
 
 Your notification url / backend must response with http status code `200` to confirm notification is received. On most backend / web framework you can also achive that by simply printing string, like `ok` it will automatically send http status code `200`.
 
-#### Best Practice to Handle Notification
+### Best Practice to Handle Notification
 <br>
 <details>
 <summary><b>Best Practice</b></summary>
@@ -418,6 +441,59 @@ In extremely rare cases we may send the HTTP notifications out of order, ie. a `
 </article>
 </details>
 
-## API Get Status
+### Example
 
-Merchant can also send request to Midtrans API to inquire transaction status of a transaction, based on `order_id` (or `transaction_id`).
+Sample code for merchant to receive HTTP(S) POST and JSON object by utilizing **Midtrans Official Library**. Assume that this code will be executed when notification URL endpoint (https://tokoecomm.com/notification) is accessed.
+
+<!-- tabs:start -->
+#### **PHP**
+```php
+<?php
+
+require_once(dirname(__FILE__) . '/Midtrans.php');
+\Midtrans\Config::$isProduction = false;
+\Midtrans\Config::$serverKey = '<your serverkey>';
+$notif = new \Midtrans\Notification();
+
+$transaction = $notif->transaction_status;
+$type = $notif->payment_type;
+$order_id = $notif->order_id;
+$fraud = $notif->fraud_status;
+
+if ($transaction == 'capture') {
+  // For credit card transaction, we need to check whether transaction is challenge by FDS or not
+  if ($type == 'credit_card'){
+    if($fraud == 'challenge'){
+      // TODO set payment status in merchant's database to 'Challenge by FDS'
+      // TODO merchant should decide whether this transaction is authorized or not in MAP
+      echo "Transaction order_id: " . $order_id ." is challenged by FDS";
+      }
+      else {
+      // TODO set payment status in merchant's database to 'Success'
+      echo "Transaction order_id: " . $order_id ." successfully captured using " . $type;
+      }
+    }
+  }
+else if ($transaction == 'settlement'){
+  // TODO set payment status in merchant's database to 'Settlement'
+  echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
+  }
+  else if($transaction == 'pending'){
+  // TODO set payment status in merchant's database to 'Pending'
+  echo "Waiting customer to finish transaction order_id: " . $order_id . " using " . $type;
+  }
+  else if ($transaction == 'deny') {
+  // TODO set payment status in merchant's database to 'Denied'
+  echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied.";
+  }
+  else if ($transaction == 'expire') {
+  // TODO set payment status in merchant's database to 'expire'
+  echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is expired.";
+  }
+  else if ($transaction == 'cancel') {
+  // TODO set payment status in merchant's database to 'Denied'
+  echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is canceled.";
+}
+?>
+```
+<!-- tabs:end -->

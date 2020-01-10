@@ -1,0 +1,29 @@
+# Get Notified of Payment
+
+After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, also Merchant can also retrieve transaction status to Midtrans.
+
+Midtrans provides various means for merchant to obtain the transaction status:
+
+<div class="my-card">
+
+#### [A. Email Notification &#187;](/en/after-payment/email-notification.md)
+The simplest. Require no complicated set up.
+</div>
+
+<div class="my-card">
+
+#### [B. HTTP(S) Notification / Webhook &#187;](/en/after-payment/http-notification.md)
+The most recommended, if you are aiming to have automated transaction status update on your system.
+</div>
+
+<div class="my-card">
+
+#### [C. Dashboard / Merchant Administration Portal &#187;](/en/after-payment/dashboard-usage.md)
+Also simple and easy, utilizing our ready to use Dashboard.
+</div>
+
+<div class="my-card">
+
+#### [D. Call API Get Status &#187;](/en/after-payment/get-status.md)
+You can query for transaction status to Midtrans via API too if needed.
+</div>
