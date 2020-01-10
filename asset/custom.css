@@ -84,3 +84,9 @@ table{
 iframe{
     border: 0
 }
+
+/* Override non aesthetic "-" prefix on sidebar h2 link*/
+.section-link::before,
+.sidebar-nav li>a:before {
+    display: none !important;
+}
