@@ -26,7 +26,7 @@ The overall Bank Tranfer end-to-end payment proccess can be illustrated in follo
 </details>
 
 ## 1. Send Transaction Data to API Charge
-API request should be done from **Merchant’s backend** to acquire `va_number` which will need to proceed to next step, opening 3DS authentication page by providing payment information. There are several components that are required:
+API request should be done from **Merchant’s backend** to acquire `va_number`. There are several components that are required:
 
 Requirement | Description
 --- | ---
@@ -35,11 +35,10 @@ Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `gross_amount` | Total amount of transaction, defined from your side
 `payment_type` | Set Bank Transfer payment method
 
-Charge API request should be done from Merchant's backend. **Server Key** (from your account's [Dashboard](https://account.midtrans.com)) will be needed to [authenticate the request](https://api-docs.midtrans.com/#http-s-header).
+Charge API request should be done from Merchant's backend.
 
 ### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available [language libraries](/en/welcome/pluginlibrary.html)).
-The example below shows a sample codes to obtain transaction token:
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/developer_resource/library_plugin)). The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **BCA**
 
