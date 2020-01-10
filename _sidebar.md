@@ -21,7 +21,7 @@
 	- Integration Guide
 		- [Credit Card](en/core-api/credit-card.md)
 		- [Bank Transfer](en/core-api/bank-transfer.md)
-		- E-Wallet
+		- [E-Wallet](en/core-api/e-wallet.md)
 		- Direct Debit
 		- Store
 		- Cardless Credit
