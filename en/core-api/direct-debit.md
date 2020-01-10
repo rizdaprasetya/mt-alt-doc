@@ -3,10 +3,8 @@ One of the payment method offered by Midtrans is Direct Debit. By using this pay
 
 At this moment, Midtrans has integrated with 4 different direct debit payment methods:
 
-1. BCA Klikpay
-2. CIMB Clicks
-3. Danamon Online
-4. e-Pay BRI
+<img width="170px" height="50px" src="./../../asset/image/coreapi/bca_klikpay.svg" /> <img width="170px" height="50px" src="./../../asset/image/coreapi/cimb_clicks.svg" /> <br>
+<img width="170px" height="50px" src="./../../asset/image/coreapi/danamon.png" /> <img width="180px" height="40px" src="./../../asset/image/coreapi/epay_bri.png" />
 
 Basic integration process of Direct Debit will be explained below.
 <details>
