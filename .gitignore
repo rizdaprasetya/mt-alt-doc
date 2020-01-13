@@ -1,2 +1,6 @@
-
 .DS_Store
+.idea/.gitignore
+.idea/misc.xml
+.idea/modules.xml
+.idea/mt-alt-doc.iml
+.idea/vcs.xml
