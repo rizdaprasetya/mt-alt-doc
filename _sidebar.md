@@ -10,7 +10,7 @@
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
 	- [Interactive Demo](en/snap/interactive-demo.md)
-	- [Snap With Plugins](en/snap/with-plugin.md)
+	- [Snap With Plugins](en/snap/with-plugins.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
@@ -22,9 +22,9 @@
 		- [Credit Card](en/core-api/credit-card.md)
 		- [Bank Transfer](en/core-api/bank-transfer.md)
 		- [E-Wallet](en/core-api/e-wallet.md)
-		- Direct Debit
-		- Store
-		- Cardless Credit
+		- [Direct Debit](en/core-api/direct-debit.md)
+		- [Convenience Store](en/core-api/convenience-store.md)
+		- [Cardless Credit](en/core-api/cardless-credit.md)
 	- Advanced Features
 
 - **Payment Link**
