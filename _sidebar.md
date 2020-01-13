@@ -40,9 +40,9 @@
 	- Receiving Your Fund / Payout
 	- Fraud and Dispute
 
-- **Integration Reference**
+- **Technical Reference**
 	
-	- API Authorization & Headers
+	- [API Authorization & Headers](en/technical-reference/api-header.md)
 	- Testing Payment on Sandbox
 	- Library & Plugins
 	- Postman Collection
