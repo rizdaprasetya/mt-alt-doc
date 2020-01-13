@@ -12,7 +12,7 @@ Basic integration process of Convenience Store will be explained below.
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
 <article>
 
-![Direct Debit Payment Flow](./../../asset/image/coreapi/direct_debit.png)
+![Direct Debit Payment Flow](./../../asset/image/coreapi/seq_cstore.png)
 
 </article>
 </details>
