@@ -26,7 +26,7 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 <div class="my-card">
 
-#### [Store Integration Guide](/en/core-api/store.md)
+#### [Store Integration Guide](/en/core-api/convenience-store.md)
 </div>
 <div class="my-card">
 
