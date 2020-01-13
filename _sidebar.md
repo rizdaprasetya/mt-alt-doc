@@ -26,6 +26,7 @@
 		- [Convenience Store](en/core-api/convenience-store.md)
 		- [Cardless Credit](en/core-api/cardless-credit.md)
 	- Advanced Features
+	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 
 - **Payment Link**
 
