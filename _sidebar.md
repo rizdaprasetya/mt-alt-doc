@@ -10,7 +10,7 @@
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
 	- [Interactive Demo](en/snap/interactive-demo.md)
-	- [Snap With Plugins](en/snap/with-plugin.md)
+	- [Snap With Plugins](en/snap/with-plugins.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
