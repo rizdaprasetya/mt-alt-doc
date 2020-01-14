@@ -42,16 +42,13 @@
 	
 	- [API Authorization & Headers](en/technical-reference/api-header.md)
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md)
-	- Library & Plugins
-	- Postman Collection
+	- [Library & Plugins](en/technical-reference/library-plugin.md)
+	- [Postman Collection](en/technical-reference/postman-collection.md)
+	- [IP Address](en/technical-reference/ip-address.md)
+	- Error Code & Response?
 
 - **Security**	
 
 	- HTTPS/TLS	
 	- PCI DSS	
 	- 3 Domain Secure (3DS)	
-
-- **Other Reference**	
-
-	- IP Address	
-	- Error Code & Response?	
