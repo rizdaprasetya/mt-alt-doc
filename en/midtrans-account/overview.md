@@ -56,21 +56,17 @@ The light and dark shade of blue indicates production and sandbox mode respectiv
 
 Midtrans provides tolerance of up to 5x (five times) errors when the merchant tries to login into MAP. If the tolerance limit is exceeded, the account will be locked automatically.
 
-To unlock MAP, inform the locked account to support@midtrans.com for the unlock process. If the unlock process was done, please log into midtrans account using your previous password.
+To unlock MAP, please inform the locked account to support@midtrans.com to begin unlock process. After the account has been unlocked, please log into midtrans account using your previous password.
 
 ## Reset Password
 
-If you forgotten Midtrans account password, you can reset the password by click **Trouble Logging in?** button on login page
+If you forgot your Midtrans account password, you can reset the password by clicking **Trouble Logging in?** button on login page
 
-<p align="center">
-<img src="./../../asset/image/snap-prep-login-page.png" alt="login page forgot password" width="300" height="300">
-</p>
+![forgot password page](./../../asset/image/snap-prep-login-page.png ':size=300')
 
-Fill in the email that has been registered at Midtrans, instructions for the password reset process will be sent to your email. Please check your Inbox or Spam, you will receive a new e-mail with instructions on how to reset your password in a few moments.			
+Input the email that registered as Midtrans Account, instructions for the password reset process will be sent to your email. Please check your Inbox (or Spam folder incase it flagged as spam), you will receive a new e-mail with instructions on how to reset your password in a few moments.
 
-<p align="center">
-<img src="./../../asset/image/snap-prep-reset-password.png" alt="email forgot field" width="300" height="300">
-</p>
+![forgot password page email field](./../../asset/image/snap-prep-reset-password.png ':size=300')
 
 
 > **Info :**

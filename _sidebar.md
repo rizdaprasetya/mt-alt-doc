@@ -7,16 +7,14 @@
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
 	- [Interactive Demo](en/snap/interactive-demo.md)
-	- [Snap With Plugins](en/snap/with-plugins.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
-	- [Snap With Plugins](en/snap/with-plugin.md)
+	- [Install as CMS Plugin](en/snap/with-plugins.md)
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
 
-- **Core API - Build your own checkout page**
+- [**Core API - Build your own checkout page**](en/core-api/overview.md)
 
-	- [Overview](en/core-api/overview.md)
-	- Integration Guide
+	- [Integration Guide](en/core-api/overview?id=integration)
 		- [Credit Card](en/core-api/credit-card.md)
 		- [Bank Transfer](en/core-api/bank-transfer.md)
 		- [E-Wallet](en/core-api/e-wallet.md)

@@ -25,3 +25,5 @@ Fraud Status | 🔍 | Description
 `accept` | ✅ | Transaction is safe, not considered as fraud.
 `deny` | ❌ | Transaction is considered as fraud. And denied/rejected for safety reason.
 `challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
+
+<!-- TODO explain how to do refund, approve, deny, cancel, etc -->
