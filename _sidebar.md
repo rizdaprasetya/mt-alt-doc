@@ -43,7 +43,7 @@
 - **Technical Reference**
 	
 	- [API Authorization & Headers](en/technical-reference/api-header.md)
-	- Testing Payment on Sandbox
+	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md)
 	- Library & Plugins
 	- Postman Collection
 
