@@ -446,6 +446,48 @@ In extremely rare cases we may send the HTTP notifications out of order, ie. a `
 Sample code for merchant to receive HTTP(S) POST and JSON object by utilizing **Midtrans Official Library**. Assume that this code will be executed when notification URL endpoint (https://tokoecomm.com/notification) is accessed.
 
 <!-- tabs:start -->
+#### **Node JS**
+```javascript
+const midtransClient = require('midtrans-client');
+// Create Core API / Snap instance (both have shared `transactions` methods)
+let apiClient = new midtransClient.Snap({
+        isProduction : false,
+        serverKey : 'YOUR_SERVER_KEY',
+        clientKey : 'YOUR_CLIENT_KEY'
+    });
+
+apiClient.transaction.notification(notificationJson)
+    .then((statusResponse)=>{
+        let orderId = statusResponse.order_id;
+        let transactionStatus = statusResponse.transaction_status;
+        let fraudStatus = statusResponse.fraud_status;
+
+        console.log(`Transaction notification received. Order ID: ${orderId}. Transaction status: ${transactionStatus}. Fraud status: ${fraudStatus}`);
+
+        // Sample transactionStatus handling logic
+
+        if (transactionStatus == 'capture'){
+            if (fraudStatus == 'challenge'){
+                // TODO set transaction status on your database to 'challenge'
+                // and response with 200 OK
+            } else if (fraudStatus == 'accept'){
+                // TODO set transaction status on your database to 'success'
+                // and response with 200 OK
+            }
+        } else if (transactionStatus == 'settlement'){
+            // TODO set transaction status on your database to 'success'
+            // and response with 200 OK
+        } else if (transactionStatus == 'cancel' ||
+          transactionStatus == 'deny' ||
+          transactionStatus == 'expire'){
+          // TODO set transaction status on your database to 'failure'
+          // and response with 200 OK
+        } else if (transactionStatus == 'pending'){
+          // TODO set transaction status on your database to 'pending' / waiting payment
+          // and response with 200 OK
+        }
+    });
+```
 #### **PHP**
 ```php
 <?php
@@ -497,3 +539,49 @@ else if ($transaction == 'settlement'){
 ?>
 ```
 <!-- tabs:end -->
+
+### Customize Notification URL via API
+<br>
+<details>
+<summary><b>Customize Notification URL via API</b></summary>
+<article>
+	
+Optionally, if required Merchant can option to change or add custom notification URLs on each transaction. It can be achieved by adding additional HTTP(s) headers on the API request.
+
+There are two optional headers that we can accept:
+- `X-Append-Notification` : to add new notification url(s) alongside the settings on dashboard
+- `X-Override-Notification` : to use new notification url(s) disregarding the settings on dashboard
+
+Both header can only receive up to maximum of 2 URLs, separated by coma(`,`).
+
+#### Example in CURL
+
+This is sample API request of Snap a transaction with override-notification url:
+
+```bash
+curl -X POST \
+  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Content-Type: application/json' \
+  -H 'X-Override-Notification: https://tokoecomm.com/notif-handler-1,https://myweb.com/notif-handler-2' \
+  -d '{
+    "transaction_details": {
+        "order_id": "YOUR-ORDERID-123456",
+        "gross_amount": 10000
+    }
+}'
+```
+
+#### Sample Case
+
+Assuming merchant has set `https://example.com` as notification url on the dashboard. If merchant set header `X-Append-Notification: https://example.com/test1,https://example.com/test2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
+- https://example.com,
+- https://example.com/test1, and
+- https://example.com/test2
+
+Else if merchant set header `X-Override-Notification: https://example.com/test1,https://example.com/test2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
+- https://example.com/test1 and
+- https://example.com/test2
+</article>
+</details>
