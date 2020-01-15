@@ -18,19 +18,19 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Snap validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
 
 ### Sample Get Status Request
 
 Replace the `[ORDER_ID]` with the transaction `order_id` (or `transaction_id` is also supported).
-
+<!-- TODO: add more language sample -->
 ```bash
 curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87'
 ```
-?> Each of official Midtrans Library will also have `status` function to call Get Status API.
+?> Each of official [Midtrans Language Library](/en/technical-reference/library-plugin.md) will also have `status` function to call Get Status API.
 
 ### Sample Response
 

@@ -58,7 +58,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Snap validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
 
 #### Full HTTP Request
 
