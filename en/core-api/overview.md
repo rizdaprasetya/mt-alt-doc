@@ -16,7 +16,7 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 <div class="my-card">
 
-#### [E-Wallet Integration Guide](/en/core-api/ewallet.md)
+#### [E-Wallet Integration Guide](/en/core-api/e-wallet.md)
 </div>
 <div class="my-card">
 

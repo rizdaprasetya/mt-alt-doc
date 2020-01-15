@@ -26,4 +26,7 @@ app.midtrans.com
 
 In any case you are unable to send request to Midtrans, please ensure that you already whitelisted the domain above.
 
-If it really necessary to whitelist IP address instead of Domain, you can refer to the [following IP address list](https://www.cloudflare.com/ips-v4). Altough not recommended.
+If it really necessary to whitelist IP address instead of Domain, you can refer to the [following IP address list](https://www.cloudflare.com/ips-v4). Although not recommended.
+
+
+[API IP address range](https://www.cloudflare.com/ips-v4 ':include :type=iframe width=100% height=300px')

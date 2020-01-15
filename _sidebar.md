@@ -29,8 +29,6 @@
 
 - **Payment Link**
 
-	- Overview
-
 - [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
 
 - [**After Payment**](en/after-payment/overview.md)
@@ -49,10 +47,14 @@
 	- [Library & Plugins](en/technical-reference/library-plugin.md)
 	- [Postman Collection](en/technical-reference/postman-collection.md)
 	- [IP Address](en/technical-reference/ip-address.md)
-	- Error Code & Response?
+	- Error Code & Response
+	- [Snap API Docs](https://snap-docs.midtrans.com)
+	- [Core API Docs](https://api-docs.midtrans.com)
 
 - **Security**	
 
 	- HTTPS/TLS	
 	- PCI DSS	
 	- 3 Domain Secure (3DS)	
+
+- [**Technical FAQ**](/en/)
