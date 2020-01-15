@@ -92,6 +92,13 @@ iframe{
     display: none !important;
 }
 
+/* Center all image of body content */
+.markdown-section img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child),
 .sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child),
 .sidebar-nav li>a[href^="#/"]:not([href*="?id="]):not(:only-child),
