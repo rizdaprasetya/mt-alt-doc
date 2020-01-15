@@ -9,6 +9,10 @@
 	- [Interactive Demo](en/snap/interactive-demo.md)
 	- [Advanced Features](en/snap/advanced-feature.md)
 	- [Install as CMS Plugin](en/snap/with-plugins.md)
+	- [Platform](en/snap/platform/overview.md)
+		- [Shopify](en/snap/platform/shopify.md)
+		- [Sirclo](en/snap/platform/sirclo.md)
+		- [Jejualan](en/snap/platform/jejualan.md)
 
 - [**Mobile SDK**](https://mobile-docs.midtrans.com)
 
