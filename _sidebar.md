@@ -47,7 +47,7 @@
 	- [Library & Plugins](en/technical-reference/library-plugin.md)
 	- [Postman Collection](en/technical-reference/postman-collection.md)
 	- [IP Address](en/technical-reference/ip-address.md)
-	- Error Code & Response
+	- [Error Code & Response](en/technical-reference/error-response-code.md)
 	- [Snap API Docs](https://snap-docs.midtrans.com)
 	- [Core API Docs](https://api-docs.midtrans.com)
 
