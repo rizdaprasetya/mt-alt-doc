@@ -7,16 +7,19 @@
     --main-transition: 250ms ease 0s;
 }
 
-/* fix <code> overflowing to edge on small width screen */
-.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
+/* fix <code> overflowing to edge on small width screen. */
+/* NOT NEEDED on `themeable.responsiveTables: false`
+/*.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
     white-space: pre-wrap;
     word-break: break-word;
-}
-/* fix <a> & <td> overflowing to edge on small width screen */
+}/**/
+
+/* fix <a> & <td> overflowing to edge on small width screen .*/
+/* NOT NEEDED on `themeable.responsiveTables: false`
 .markdown-section a,
 td{
     word-break: break-word;
-}
+}/**/
 
 .my-card{
     font-size: 80%;
