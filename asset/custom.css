@@ -1,5 +1,6 @@
 :root {
     --main-bg-color: #0a87da;
+    --main-bg-color-transparent: #0a87da15;
     --main-border-color: #00000024;
     --main-box-shadow: rgba(116, 129, 141, 0.1) 0em 0.2em 0.8em 0em;
     --hover-box-shadow: rgba(116, 129, 141, 0.15) 0em 0.8em 0.8em 0.1em;
@@ -89,4 +90,46 @@ iframe{
 .section-link::before,
 .sidebar-nav li>a:before {
     display: none !important;
+}
+
+/* Center all image of body content */
+.markdown-section img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child),
+.sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child),
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]):not(:only-child),
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]):only-child
+{
+    background-image: unset;
+    background-position: unset;
+}
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]), 
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]) ~ ul a
+{
+    /*padding: unset;*/
+    padding: 0.25em 0 0.25em 0;
+}
+
+/* Override sidebar nav menu effect*/
+:root{
+    --sidebar-nav-indent: 0.7em;
+}
+.sidebar-nav li>a,
+.sidebar-nav li
+{
+    transition: var(--main-transition);
+}
+.sidebar-nav li>a:hover,
+.sidebar-nav li.active>a
+/*,.sidebar-nav li>a:focus*/
+{
+    /*text-decoration: unset;*/
+    background-color: var(--main-bg-color-transparent);
+    padding-left: 2em !important;
+    margin-left: -2em !important;
+    border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
 }
