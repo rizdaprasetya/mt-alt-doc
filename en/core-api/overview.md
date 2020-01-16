@@ -1,5 +1,3 @@
-## Overview
-
 Midtrans’ Core API is a RESTful Web Service used as a communication bridge between merchant and our payment channels. By using our Core API services, our partners can fully customize their payment page, without any redirection to Midtrans’ page. Setup is easy. Core API is suitable for medium sized businesses to large enterprises.
 
 ## Integration
@@ -18,7 +16,7 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 <div class="my-card">
 
-#### [E-Wallet Integration Guide](/en/core-api/ewallet.md)
+#### [E-Wallet Integration Guide](/en/core-api/e-wallet.md)
 </div>
 <div class="my-card">
 

@@ -31,9 +31,9 @@ API request should be done from Merchant’s backend to acquire Snap transaction
 
 Requirement | Description
 --- | ---
-Server Key| Explained on [previous section](/en/midtrans-account/overview.md)
-`order_id`| Transaction order ID, defined from your side
-`gross_amount`| Total amount of transaction, defined from your side
+`Server Key`| Explained on [previous section](/en/midtrans-account/overview.md)
+`order_id`| Unique transaction order ID, defined from your side. One ID could be used only be paid once. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50.
+`gross_amount`| Total amount of transaction, defined from your side. Integer.
 
 ### API Request
 
@@ -58,7 +58,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Snap validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
 
 #### Full HTTP Request
 
@@ -396,7 +396,7 @@ Exp Month | Any month (e.g: `02`)
 Exp Year | Any future year (e.g: `2025`)
 OTP/3DS | `112233`
 
-You can refer to more test credentials [available on our sandbox payment simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index)
+You can use more test payment credentials [available on our sandbox payment simulator](/en/technical-reference/sandbox-test.md)
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
@@ -406,7 +406,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Next Step:
@@ -414,7 +414,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
@@ -424,11 +424,11 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview.md?id=b-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#b-follow-sample-code)

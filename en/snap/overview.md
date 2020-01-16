@@ -59,7 +59,14 @@ Choose any of one integration method below that is suitable to your liking:
 
 ### D) Install Plugin / Module on Your CMS
 <br>
-TODO: link these to plugins
+
+Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc? Simply install these plugins:
+
+<div class="my-card">
+
+#### [Install Snap as CMS Plugin](/en/snap/with-plugins.md)
+</div>
+
 
 ### E) Using Platform
 <br>
