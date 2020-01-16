@@ -1,0 +1,5 @@
+- Switch Theme
+    - <a href="#" data-link-title="Simple">:snowflake: Default</a>
+    - <a href="#" data-link-title="Simple Dark">:waning_crescent_moon: Dark</a>
+    - <a href="#" data-link-title="Vue">:four_leaf_clover: Slim</a>
+    - <a href="#" data-link-title="Plain">:newspaper: Plain</a>

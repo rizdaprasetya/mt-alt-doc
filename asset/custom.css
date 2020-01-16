@@ -1,4 +1,5 @@
 :root {
+    --theme-color: #0a87da;
     --main-bg-color: #0a87da;
     --main-bg-color-transparent: #0a87da15;
     --main-border-color: #00000024;
@@ -91,7 +92,9 @@ iframe{
 
 /* Override non aesthetic "-" prefix on sidebar h2 link*/
 .section-link::before,
-.sidebar-nav li>a:before {
+.sidebar-nav li>a:before, 
+.app-sub-sidebar li::before 
+{
     display: none !important;
 }
 
