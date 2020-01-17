@@ -25,7 +25,8 @@
 		- [Direct Debit](en/core-api/direct-debit.md)
 		- [Convenience Store](en/core-api/convenience-store.md)
 		- [Cardless Credit](en/core-api/cardless-credit.md)
-	- Advanced Features
+	- [Advanced Features](en/core-api/advanced-features.md)
+	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 
 - **Payment Link**
 
