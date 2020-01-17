@@ -7,6 +7,11 @@
     --hover-box-shadow: rgba(116, 129, 141, 0.15) 0em 0.8em 0.8em 0.1em;
     --high-box-shadow: rgba(116, 129, 141, 0.35) 0em 0.3em 0.8em 0em;
     --main-transition: 250ms ease 0s;
+
+    /* override smaller font size for less crowded feel */
+    font-size: 95%;
+    /* override to widen sidebar */
+    --sidebar-width: 20rem;
 }
 
 /* fix <code> overflowing to edge on small width screen. */
