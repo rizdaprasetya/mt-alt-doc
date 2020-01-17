@@ -1,0 +1,5 @@
+- :art: Theme
+    - [:snowflake: Default](# 'Simple')
+    - [:waning_crescent_moon: Dark](# 'Simple Dark')
+    - [:zap: Lite](# 'Vue')
+    - [:page_facing_up: Plain](# 'Plain')
