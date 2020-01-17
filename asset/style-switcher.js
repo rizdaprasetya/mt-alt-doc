@@ -7,13 +7,20 @@
     /**
      * Adds event listeners to change active stylesheet and restore previously
      * activated stylesheet on reload.
+     * @customized:
+     * - Replaced to use `title` attribute for <a> instead of `data-title`
+     * So it can be rendered from markdown e.g `[Foo](# 'Foo')`
+     * - Edited to activate all <link> element with target "title", 
+     * instead of previously just 1 element. So we can have two or more <link>
+     * activated with just one <a> trigger
      *
      * @example
      *
      * This link:
-     *   <a href="#" data-link-title="Foo">Foo</a>
-     * Will active this existing link:
+     *   <a href="#" title="Foo">Foo</a>
+     * Will active all of these existing links:
      *   <link rel="stylesheet alternate" title="Foo" href="..." >
+     *   <link rel="stylesheet alternate" title="Foo" href="...other css...">
      *
      * @example
      *
@@ -109,7 +116,7 @@
             // Update active stylesheet
             document.addEventListener('click', function(evt) {
                 var dataHref  = evt.target.getAttribute('data-link-href');
-                var dataTitle = evt.target.getAttribute('data-link-title')
+                var dataTitle = evt.target.getAttribute('title')
 
                 if (dataHref || dataTitle) {
                     dataTitle = dataTitle
