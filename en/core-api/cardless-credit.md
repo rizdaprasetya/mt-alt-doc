@@ -5,13 +5,12 @@ At this moment, Midtrans has integrated with
 
 <img width="242px" height="127px" src="./../../asset/image/coreapi/akulaku_logo.svg" />
 
-
 Basic integration process of Cardless Credit will be explained below.
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
 <article>
 
-![Direct Debit Payment Flow](./../../asset/image/coreapi/seq_cardless_credit.png)
+![Carless Credit Payment Flow](./../../asset/image/coreapi/seq_cardless_credit.png)
 
 </article>
 </details>
