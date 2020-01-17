@@ -55,6 +55,15 @@ td{
     display: inline;
 }
 
+/* Override for Vue themes, to remove too high of default padding of <h> */
+.my-card h4,
+.my-card h3,
+.my-card h5
+{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
 .my-btn{
     padding: 0.5em;
     padding-left: 1em;
