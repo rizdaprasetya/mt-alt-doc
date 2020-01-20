@@ -6,13 +6,13 @@ We have partnered with various platfroms to make integration process as easy as 
 
 <div class="my-card">
 
-#### [Shopify](/en/snap/platform/shopify.md)
+#### [Shopify &#187;](/en/snap/platform/shopify.md)
 </div>
 <div class="my-card">
 
-#### [Sirclo](/en/snap/platform/sirclo.md)
+#### [Sirclo &#187;](/en/snap/platform/sirclo.md)
 </div>
 <div class="my-card">
 
-#### [Jejualan](/en/snap/platform/jejualan.md)
+#### [Jejualan &#187;](/en/snap/platform/jejualan.md)
 </div>

@@ -72,3 +72,13 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 #### Definition
 
 The same [status definition with notification](/en/after-payment/http-notification?id=status-definition) applies.
+
+
+### Other API Action / Method
+
+Other API action that you can perform to an transaction is listed at this section:
+
+<div class="my-card">
+	
+#### [API Action / Method &#187;](/en/after-payment/status-cycle.md#api-action-method)
+</div>

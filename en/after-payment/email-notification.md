@@ -9,3 +9,5 @@ Merchant can configure the email notification setting at [Settings - Email Notif
 ![Email Notification Configuration](./../../asset/image/after-payment-email-dashboard.png)
 
 ?> For multiple emails, please use comma as a separator. Example : `me@tokoecomm.com, you@tokoecomm.com`
+
+<!-- TODO provide sample image of email notification -->

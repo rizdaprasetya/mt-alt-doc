@@ -4,7 +4,7 @@ Before integrating with Midtrans, you need to register for Account.
 
 <div class="my-card">
 
-#### [Register Midtrans Account here](https://account.midtrans.com/register)
+#### [Register Midtrans Account here &#187;](https://account.midtrans.com/register)
 </div>
 
 After completing the registration you will be given access to your Merchant Administration Portal (MAP), where you shall have access to both sandbox and production environment.
@@ -13,7 +13,7 @@ After completing the registration you will be given access to your Merchant Admi
 
 ## Access Midtrans Administration Portal
 
-Please click the "Login" button on the top right of the Midtrans page (www.midtrans.com). Enter the email and password the user used to create the Midtrans account, then click the "Login" button.
+Please click the "Login" button on the top right of the Midtrans page (www.midtrans.com) or directly at https://account.midtrans.com. Enter the email and password the user used to create the Midtrans account, then click the "Login" button.
 
 ![Login page](./../../asset/image/snap-prep-login-page-url.png)
 

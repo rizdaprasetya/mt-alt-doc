@@ -11,7 +11,7 @@ Midtrans API use JSON format as the input and output, so you must specify JSON a
 
 ## Authorization Header
 
-The **Authorization header** will be used by Midtrans API to identify "which merchant ID" is initiating the request (and which feature is authorized to be used), so that your request can be processed accordingly. Authorization Header is based on [**Server Key**](/en/midtrans-account/overview?id=retrieving-api-access-keys)
+The **Authorization header** will be used by Midtrans API to identify "which merchant ID" is initiating the request (and which feature is authorized to be used), so that your request can be processed accordingly. Authorization Header is based on [**Server Key**](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 As analogy in physical world, it can be considered as "a key to your car", so that only you can access your car (and only your car can be accessed by you).
 
@@ -25,9 +25,9 @@ The mechanism to generate `Authorization` header value is:
 2. Username and password is separated by `:` character.
 3. Server Key is used as `username`, there is no password, so password is blank/empty string.
 	- For example if your Server Key is `SB-Mid-server-abc123cde456`, then it should be `SB-Mid-server-abc123cde456:`.
-4. Encode this value into base64 format: `U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`
-5. Add the word `Basic ` as prefix: `Basic U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`
-6. Finally the final header is: `Authorization: Basic U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`
+4. Encode this value into base64 format (e.g: `U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`)
+5. Add the word `Basic ` as prefix (e.g: `Basic U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`)
+6. Finally that is the final result of the header (e.g `Authorization: Basic U0ItTWlkLXNlcnZlci1hYmMxMjNjZGU0NTY6`)
 
 You can test with this tools to try out Authorization Header calculation:
 
