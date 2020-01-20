@@ -4,7 +4,7 @@ This section will explain what preparation is needed to start Snap integration.
 
 ## Retrieving API Access Keys
 
-Retrieve your API [Server Key & Client Key, by following previous section.](/en/midtrans-account/overview.md?id=retrieving-api-access-keys)
+Retrieve your API [Server Key & Client Key, by following previous section.](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 ## Configure Redirection URL
 

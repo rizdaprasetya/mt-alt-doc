@@ -21,53 +21,42 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
 </p>
 
 ## Integration
-
-Choose any of one integration method below that is suitable to your liking:
+**Choose** any of **one** integration method below that is suitable to your liking:
 
 ### A) Step by Step Guide
 <br>
 <div class="my-card">
 
-#### [Integration Guide](/en/snap/integration-guide.md)
+#### [Integration Guide &#187;](/en/snap/integration-guide.md)
 </div>
 
-### B) Follow Sample Code
+### B) Interactive Demo
 <br>
 <div class="my-card">
 
-#### [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-</div>
-<div class="my-card">
-
-#### [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-</div>
-<div class="my-card">
-
-#### [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-</div>
-<div class="my-card">
-
-#### [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
+#### [Interactive Demo &#187;](/en/snap/interactive-demo.md)
 </div>
 
-### C) Interactive Demo
-<br>
-<div class="my-card">
+### C) Follow Sample Code
+- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
+- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
+- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
+- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
 
-#### [Interactive Demo](/en/snap/interactive-demo.md)
-</div>
+<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin?id=language-library)</sup></sub>
 
-### D) Install Plugin / Module on Your CMS
-<br>
-
+### D) Install as Plugin / Module on Your CMS
 Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc? Simply install these plugins:
 
 <div class="my-card">
 
-#### [Install Snap as CMS Plugin](/en/snap/with-plugins.md)
+#### [Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
 </div>
 
-
 ### E) Using Platform
-<br>
-TODO: link these to affiliated platform
+If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, Jejualan etc.
+
+<div class="my-card">
+
+#### [Using Platform &#187;](/en/snap/platform/overview.md)
+</div>

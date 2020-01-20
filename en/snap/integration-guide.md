@@ -31,12 +31,12 @@ API request should be done from Merchant’s backend to acquire Snap transaction
 
 Requirement | Description
 --- | ---
-`Server Key`| Explained on [previous section](/en/midtrans-account/overview.md)
+`Server Key`| Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 `order_id`| Unique transaction order ID, defined from your side. One ID could be used only be paid once. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50.
 `gross_amount`| Total amount of transaction, defined from your side. Integer.
 
 ### API Request
-
+<!-- TODO add more lang like ruby, link Postman to postman page -->
 The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **API-Request**
@@ -286,11 +286,11 @@ transaction_token = transaction['token']
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
 3. Navigate to `1.a.  SNAP transaction token request (minimum)`
-4. For more detail please [follow this usage instruction](https://github.com/midtrans/Midtrans-Payment-API-Postman-Collections#usage-instruction).
+4. For more detail please [follow this usage instruction](/en/technical-reference/postman-collection.md).
 
 <!-- tabs:end -->
 
-?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
+?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included. Also checkout [advanced feature](/en/snap/advanced-feature.md)
 
 ### API Response
 
@@ -321,7 +321,7 @@ There are at least 3 components that are required to do this:
 
 Requirement | Description
 --- | ---
-Client Key | Explained on [previous section](/en/midtrans-account/overview.md)
+Client Key | Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 `snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
 transaction `token` | retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend)
 
@@ -431,4 +431,4 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#b-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#c-follow-sample-code)

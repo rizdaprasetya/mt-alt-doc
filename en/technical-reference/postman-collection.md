@@ -44,7 +44,7 @@ Simply remove the `sandbox.` from url.
 ### Troubleshooting
 
 If you encounter this error message:
-```
+```javascript
 {
   "error_messages": [
     "Access denied due to unauthorized transaction, please check client or server key",

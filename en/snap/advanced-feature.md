@@ -7,7 +7,7 @@ It's recommended to send as much detail so on report/dashboard those information
 
 You can customize `transaction_details` data. To include data like `customer_details`, `item_details`. 
 
-Below are the recommended JSON params for general use (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Below are the recommended JSON params for general use (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -144,7 +144,7 @@ Snap.js support callbacks, which you can utilize to trigger your custom javascri
 * `onError`: Function that will be triggered when payment failure after several attempts.
 * `onClose`: Function that will be triggered when customer closed the Snap popup.
 
-Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide.md?id=_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
+Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
 
 <!-- tabs:start -->
 #### **Frontend JS**
@@ -173,7 +173,7 @@ snap.pay('SNAP_TRANSACTION_TOKEN', {
 ### Custom Finish URL
 By default Snap will redirect customer to [Finish Redirect URL configured on Dashboard](/en/snap/preparation.md?id=configure-redirection-url), but you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -224,7 +224,7 @@ You can set Enable Payment with Snap Preference on Midtrans Dashboard. This will
 #### B) Specify Payment Channel via API Request
 Alternatively, you can add and customize `enabled_payments` parameter. That will apply specifically for the transaction.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -350,7 +350,7 @@ You can set custom expiry with Snap Preference on Midtrans Dashboard. This will 
 #### B) Custom Expiry via API Request 
 This will apply specifically for the transaction.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 
 <!-- tabs:start -->
 #### **JSON Param**
@@ -394,7 +394,7 @@ curl -X POST \
 
 Custom field allow you to send your own (custom) data to Snap API, and then it will be send back from Midtrans to your backend on HTTP notification. Also will be displayed on Dashboard under the order detail.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 
 <!-- tabs:start -->
 #### **JSON Param**
@@ -437,7 +437,7 @@ Three Domain Secure (3DS) feature can be enabled/disabled for certain transactio
 * Set the `secure` value to `true` to enable 3DS
 * Set the `secure` value to `false` to disable 3DS
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -466,14 +466,14 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-### Saving Cards for Easy Subsequent Payment
+### Saving Cards for Seamless Subsequent Payment
 You can allow customer to save their card credentials within Snap payment page, for easier and faster future transactions. Card credentials will be saved securely on Midtrans side, and will not require merchant to manage the card data.
 
 Merchant will only need to store and associate each unique customer with unique `user_id` defined by merchant.
 
 * Add `"save_card" : true` and `user_id`
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -531,7 +531,7 @@ Please refer to sequence below to understand the recommended flow:
 ![snap recurring sequence](./../../asset/image/snap-adv-snap-recurring-sequence.png)
 </div> 
 
-During the first transaction, example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+During the first transaction, example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -570,7 +570,7 @@ curl -X POST \
 
 As result of successful first transaction, you will receive `saved_token_id` in the JSON of HTTP notification. `saved_token_id` is unique for each customer's card, you will need to store on your database and associate that card token to your customer.
 
-When you want to charge that particular customer, you will need to proceed with `/charge` API via [Core API](https://docs.midtrans.com/en/core_api/integration_card_basic.html). The recurring transaction is non 3DS and will directly deduct customer fund associated with the card.
+When you want to charge that particular customer, you will need to proceed with `/charge` API via [Core API](/en/core-api/credit-card.md). The recurring transaction is non 3DS and will directly deduct customer fund associated with the card.
 
 To better understand the use cases, you an also further refer to [this article](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
@@ -579,7 +579,7 @@ Merchant can specify which Acquring Bank they prefer to use for specific Snap tr
 
 * Specify the bank name inside the `bank` parameter
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -619,7 +619,7 @@ BIN filter is a feature that allows the merchant to accept only Credit Cards wit
 
 To use this feature, merchant needs to accumulate the list of BIN that accepts the promotion or simply uses the issuing bank's name. This list of BIN or issuing bank name will then become a transaction parameter whitelist_bins. This transaction can only be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -662,7 +662,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-?> Note: We already populate BIN number for bni, mandiri, cimb, bca, and other partner bank. You can add the bank name as whitelist bins value.
+?> Note: We already pre-populate BIN number for bni, mandiri, cimb, bca, and other partner bank. You can add the bank name as whitelist bins value.
 
 The following figure displays the Snap payment page with BIN Filter feature:
 ![snap bin filter](./../../asset/image/snap-adv-bin-filter.png)
@@ -673,7 +673,7 @@ This is the type of Installment where the Card Issuer and Acquiring Bank is the 
 
 To activate the installment feature, merchant are required to have agreement with the bank. For online installments, the bank will issue special MID for installment. By using this installment MID, the transaction will be converted automatically into an installment. Please consult to Midtrans Activation Team for installment MID. If MID is ready, merchant simply need to add the installment parameter.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -725,7 +725,7 @@ curl -X POST \
 The following figure displays the Snap payment page with online installment feature:
 ![snap online installment](./../../asset/image/snap-adv-online-installment.png)
 
-?> Note: Installment term will show in Snap payment page after customer insert credit card number.
+?> Note: Installment term will show in Snap payment page after customer insert installment-compatible credit card number. [Sandbox test card available here](/en/technical-reference/sandbox-test.md#card-number)
 
 #### Offline Installment
 This is the type of Installment where the Card Issuer and Acquiring Bank don't have to be same entity (e.g: BNI Card and Mandiri Acquiring Bank).
@@ -735,7 +735,7 @@ To allow installment feature with banks which do not issue MID Installment, merc
 Merchant simply need to add the `installment` parameter with combination of bin filter feature. The purpose of bin filter is to limit certain cards from being allowed to do offline installment, based on the agreement between merchant and issuing banks.
 
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -801,7 +801,7 @@ Param | Description
 ### Pre-Authorization Payment
 Pre-authorization feature means customer's fund will not directly deducted after transaction, but it's amount/limit will be temprorary reserved (blocked). Then merchant can initiate "capture" action later via [Core API](https://api-docs.midtrans.com/#capture-transaction). By default fund reservation will be released after 7 days if there is no "capture" action for that transaction.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -842,7 +842,7 @@ curl -X POST \
 ### Redirect Customer From Gojek App
 After GoPay payment completed, by default customer will remain on Gojek app, so they need to manually close Gojek app to switch back to merchant web/app. Using parameter `gopay.callback_url` will allow customer to be automatically redirected to merchant web/app from Gojek app.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -882,11 +882,14 @@ You can input `callback_url` value with http/https url protocol for website, or 
 > **Note**: 
 > The final redirect url will be appended with query parameter like `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
 > 
-> For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
-> 
+> For example the final redirect url might looks like this: 
+> ```
+https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&
+status_code=200&transaction_status=capture 
+```
 > You could utilize those information to display custom message to your customer on your finish url.
 
-Note: `gopay.callback_url` will only affect customer who pay with Deeplink mode, customer who pay with QR scan mode, will be redirected to Snap finish redirect url. Which you can also [specify here](/en/snap/advanced-feature.md?id=custom-finish-url)
+Note: `gopay.callback_url` will only affect customer who pay with Deeplink mode, customer who pay with QR scan mode, will be redirected to Snap finish redirect url. Which you can also [specify here](/en/snap/advanced-feature.md#custom-finish-url)
 
 ### Specify GoPay Mode
 Snap payment screen by default will autodetect customer device being used for transaction:
@@ -900,7 +903,7 @@ Option | Type | Required? | Description
 --- | --- | --- | ---
 gopayMode | String | (optional) | Choose the UI mode for GoPay. <br>Supported values are `deeplink`, `qr`, and `auto`. Set to auto by default.
 
-Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide.md?id=_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
+Example of the Snap.js callback option usage (this param is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)`:
 
 <!-- tabs:start -->
 #### **Frontend JS**
@@ -923,7 +926,7 @@ For full reference please refer to [this doc](https://snap-docs.midtrans.com/#go
 
 By default Midtrans will randomize VA number used for bank transfer transaction. In some cases, you might want to specify/customize VA Number for Bank Transfer payment channels. You can do that with the following parameters.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -992,7 +995,7 @@ Note: On Production mode, not all Bank support custom VA number, it depends on t
 
 Some VA description and recepient name can be customized.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -1087,7 +1090,7 @@ recipient_name | String | (optional) | Recipient name shown on the on the bankâ€
 ### Specify Alfamart
 Text that will be shown/printend on Alfamart receipt can be customized.
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
+Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
 ```javascript
@@ -1132,7 +1135,7 @@ alfamart_free_text_3 | String(40) | (optional) | Third row of printed receipt de
 
 ## Reference
 
-Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition.
+Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition:
 
 <div class="my-card">
 

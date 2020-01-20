@@ -1,6 +1,8 @@
-# Get Notified of Payment
+# Getting Notified of Payment Status
 
-After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, also Merchant can also retrieve transaction status to Midtrans.
+As Merchant you would like to know or get notified when a payment has been successfully accepted. So you can proceed customer order accordingly.
+
+After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, alternatively Merchant can pro-actively retrieve transaction status to Midtrans.
 
 Midtrans provides various means for merchant to obtain the transaction status:
 
