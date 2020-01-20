@@ -3,7 +3,7 @@ One of the payment method offered by Midtrans is Cardless Credit. By using this 
 
 At this moment, Midtrans has integrated with 
 
-<img width="242px" height="127px" src="./../../asset/image/coreapi/akulaku_logo.svg" />
+![akulaku](./../../asset/image/coreapi/akulaku_logo.svg ':size=242x127')
 
 Basic integration process of Cardless Credit will be explained below.
 <details>

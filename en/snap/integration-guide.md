@@ -31,12 +31,12 @@ API request should be done from Merchant’s backend to acquire Snap transaction
 
 Requirement | Description
 --- | ---
-Server Key| Explained on [previous section](/en/midtrans-account/overview.md)
-`order_id`| Transaction order ID, defined from your side
-`gross_amount`| Total amount of transaction, defined from your side
+`Server Key`| Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+`order_id`| Unique transaction order ID, defined from your side. One ID could be used only be paid once. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50.
+`gross_amount`| Total amount of transaction, defined from your side. Integer.
 
 ### API Request
-
+<!-- TODO add more lang like ruby, link Postman to postman page -->
 The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **API-Request**
@@ -58,7 +58,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Snap validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
 
 #### Full HTTP Request
 
@@ -286,11 +286,11 @@ transaction_token = transaction['token']
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
 3. Navigate to `1.a.  SNAP transaction token request (minimum)`
-4. For more detail please [follow this usage instruction](https://github.com/midtrans/Midtrans-Payment-API-Postman-Collections#usage-instruction).
+4. For more detail please [follow this usage instruction](/en/technical-reference/postman-collection.md).
 
 <!-- tabs:end -->
 
-?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
+?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included. Also checkout [advanced feature](/en/snap/advanced-feature.md)
 
 ### API Response
 
@@ -321,7 +321,7 @@ There are at least 3 components that are required to do this:
 
 Requirement | Description
 --- | ---
-Client Key | Explained on [previous section](/en/midtrans-account/overview.md)
+Client Key | Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 `snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
 transaction `token` | retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend)
 
@@ -396,7 +396,7 @@ Exp Month | Any month (e.g: `02`)
 Exp Year | Any future year (e.g: `2025`)
 OTP/3DS | `112233`
 
-You can refer to more test credentials [available on our sandbox payment simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index)
+You can use more test payment credentials [available on our sandbox payment simulator](/en/technical-reference/sandbox-test.md)
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
@@ -406,7 +406,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Next Step:
@@ -414,7 +414,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
@@ -424,11 +424,11 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview.md?id=b-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#c-follow-sample-code)

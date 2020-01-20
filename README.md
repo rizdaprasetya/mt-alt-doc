@@ -32,6 +32,11 @@
 - Edit the markdown docs content within `en` & `id` folder.
 - To add/edit/remove sidebar menu, edit `_sidebar.md` file.
 - After editing, just refresh from browser.
+	- Sometimes browser refresh might fail to load new editted content like sidebar or current page content because browser didn't load the modified file but load from cache, workaround: 
+		- On the page `Right Click > Inspect` (open Chrome dev tools)
+		- Go to tab `Network`
+		- Click checkbox `Disable cache`
+		- Refresh browser while dev tools still open (alternatively `cmd + shift + R` to hard refresh)
 
 ### Custom CSS elements
 There are some custom elements to make UX better:
