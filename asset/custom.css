@@ -11,7 +11,7 @@
     /* override smaller font size for less crowded feel */
     font-size: 95%;
     /* override to widen sidebar */
-    --sidebar-width: 20rem;
+    --sidebar-width: 19rem;
 }
 
 /* fix <code> overflowing to edge on small width screen. */
@@ -29,7 +29,7 @@ td{
 }/**/
 
 .my-card{
-    font-size: 80%;
+    font-size: 90%;
     margin-bottom: 1em;
     padding: 1.7em;
     border-style: solid;
