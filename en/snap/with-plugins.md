@@ -41,9 +41,21 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
         `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
    * Error Redirect URL:<br>
         `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=failure`
+        
+#### Prestashop Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![Prestashop Payment Test](./../../asset/image/presta-pay-show.gif)
 
 
-### Magento
+### Magento 2
 
 Midtrans ❤️ Magento! Midtrans highly concerned with customer experience (UX). We strive to make payments simple for both the merchant and customers. With this plugin you can make your Magento store using Midtrans payment.
 
@@ -104,6 +116,18 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
    * Error Redirect URL:<br>
         `http://[your-site-url]/snap/index/finish`
 
+#### Magento 2 Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![Magento 2 Payment Test](./../../asset/image/mag2-pay-show.gif)
+
 ### Opencart
 
 Midtrans ❤️ Opencart! This is official Midtrans extension for the OpenCart E-Commerece platform.
@@ -138,6 +162,18 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
         `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
    * Error Redirect URL:<br>
         `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
+        
+#### Opencart Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![Opencart Payment Test](./../../asset/image/opencart-pay-show.gif)
 
 ### WooCommerce
 
@@ -178,6 +214,18 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
         `http://[your web]/?wc-api=WC_Gateway_Midtrans`
    * Error Redirect URL:<br>
         `http://[your web]/?wc-api=WC_Gateway_Midtrans`
+        
+#### WooCommerce Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![WooCommerce Payment Test](./../../asset/image/woo-pay-show.gif)
 
 ### WHMCS
 
@@ -210,6 +258,16 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
    * Error Redirect URL:<br>
         `http://[your website url]`
         
+#### WHMCS Testing Payment
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
 
 ### Drupal 8
 
@@ -252,6 +310,18 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
         `http://[your website url]`
    * Error Redirect URL:<br>
         `http://[your website url]`
+
+#### Drupal Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![Drupal Payment Test](./../../asset/image/drupal8-pay-show.gif)
 
 ### Easy Digital Download
 
@@ -301,3 +371,15 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
         `http://[Your Website URL]`
    * Error Redirect URL:<br>
         `http://[Your Website URL]`
+
+#### EDD Payment Test
+Perform successful transaction in your online store by inputing a dummy credit card number as followed (Sandbox Mode):
+
+Type | Visa
+------|-----
+Card Number	| 4811 1111 1111 1114
+CVV	| 123
+Exp. Month	| 01
+Exp. Year	| 2025
+
+![EDD Payment Test](./../../asset/image/edd-show-pay.gif)

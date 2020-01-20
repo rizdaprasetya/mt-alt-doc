@@ -24,6 +24,7 @@
 	- [Advanced Feature](en/core-api/advanced-features.md)
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 - **Payment Link**
+    - [Overview](en/payment-link/overview.md)
 - [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
 - **After Payment**
 	- [Overview](en/after-payment/overview.md)

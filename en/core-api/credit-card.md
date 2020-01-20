@@ -1,3 +1,8 @@
+<H2> Credit Card Integration </H2>
+One of the payment method offered by Midtrans is Credit Card. By using this payment method, customers will have the option to make a payment via basic credit card will send real time notification when the customer complete the payment.
+
+<img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/mastercard.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/jcb.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/american_express.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/visa.svg" />   
+
 Basic integration process of Credit Card (3DS) will be explained below.
 
 ?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview), before proceeding with this section.
