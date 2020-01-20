@@ -28,8 +28,7 @@
 	- Advanced Features
 
 - **Payment Link**
-
-	- Overview
+    - [Overview](en/payment-link/overview.md)
 
 - [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
 
