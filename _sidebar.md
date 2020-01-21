@@ -31,9 +31,9 @@
 	- [Email Notification](en/after-payment/email-notification.md)
 	- [Handling HTTPs Notification Webhook](en/after-payment/http-notification.md)
 	- [Get Status API](en/after-payment/get-status.md)
-	- Dashboard Usage and Action
 	- [Transaction Status Cycle](en/after-payment/status-cycle.md)
-	- Receiving Your Fund / Payout
+	- [Dashboard Usage and Action](en/after-payment/dashboard-usage.md)
+	- [Receiving Your Fund (Payout)](en/after-payment/payout.md)
 	- Fraud and Dispute
 - **Technical Reference**
 	- [API Authorization & Headers](en/technical-reference/api-header.md)

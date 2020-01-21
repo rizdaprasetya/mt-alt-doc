@@ -9,11 +9,11 @@ To create Payment Link, click the Payment Link menu on the left sidebar, then cl
 
 On the Create Payment Link page, the following fields are required for Link Creation:
 
-1. Order ID - Unique ID for each Payment Link. You can search for created Payment Links using this ID
-2. Payment Link ID - The URL address of the Payment Link, for ease of sharing
-3. Usage Limit - The maximum number of times the Payment Link can be used
-4. Item Name - The name of the product or service you are selling
-5. Item Price - The price of the product or service you are charging
+1. **Order ID** - Unique ID for each Payment Link. You can search for created Payment Links using this ID
+2. **Payment Link ID** - The URL address of the Payment Link, for ease of sharing
+3. **Usage Limit** - The maximum number of times the Payment Link can be used
+4. **Item Name** - The name of the product or service you are selling
+5. **Item Price** - The price of the product or service you are charging
 
 ![Create Payment Link](../../asset/image/paymentlink_create.png)
 
