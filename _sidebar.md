@@ -9,9 +9,6 @@
 	- [Advanced Feature](en/snap/advanced-feature.md)
 	- [Install as CMS Plugin](en/snap/with-plugins.md)
 	- [Platform](en/snap/platform/overview.md)
-		- [Shopify](en/snap/platform/shopify.md)
-		- [Sirclo](en/snap/platform/sirclo.md)
-		- [Jejualan](en/snap/platform/jejualan.md)
 - **:diamond_shape_with_a_dot_inside: Core API**
 	- [Overview](en/core-api/overview.md)
 	- [Integration Guide](en/core-api/overview?id=integration)
@@ -34,10 +31,9 @@
 	- [Email Notification](en/after-payment/email-notification.md)
 	- [Handling HTTPs Notification Webhook](en/after-payment/http-notification.md)
 	- [Get Status API](en/after-payment/get-status.md)
-	- Dashboard Usage and Action
 	- [Transaction Status Cycle](en/after-payment/status-cycle.md)
-	- Receiving Your Fund / Payout
-	- Fraud and Dispute
+	- [Dashboard Usage and Action](en/after-payment/dashboard-usage.md)
+	- [Receiving Your Fund (Payout)](en/after-payment/payout.md)
 - **Technical Reference**
 	- [API Authorization & Headers](en/technical-reference/api-header.md)
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md)
