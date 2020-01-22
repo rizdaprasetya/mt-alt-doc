@@ -1,6 +1,7 @@
-- [**Home**](/)
-- [**Midtrans Account**](en/midtrans-account/overview.md)
-- **Snap**
+- [:house:**Home**](/)
+- **:bust_in_silhouette: Midtrans Account**
+	- [Overview](en/midtrans-account/overview.md)
+- **:beginner: Snap**
 	- [Overview](en/snap/overview.md)
 	- [Preparation](en/snap/preparation.md)
 	- [Integration Guide](en/snap/integration-guide.md)
@@ -11,8 +12,7 @@
 		- [Shopify](en/snap/platform/shopify.md)
 		- [Sirclo](en/snap/platform/sirclo.md)
 		- [Jejualan](en/snap/platform/jejualan.md)
-- [**Mobile SDK**](https://mobile-docs.midtrans.com)
-- **Core API**
+- **:diamond_shape_with_a_dot_inside: Core API**
 	- [Overview](en/core-api/overview.md)
 	- [Integration Guide](en/core-api/overview?id=integration)
 		- [Credit Card](en/core-api/credit-card.md)
@@ -23,10 +23,13 @@
 		- [Cardless Credit](en/core-api/cardless-credit.md)
 	- [Advanced Feature](en/core-api/advanced-features.md)
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
-- **Payment Link**
+- **:link: Payment Link**
     - [Overview](en/payment-link/overview.md)
-- [**IRIS - Disbursement**](https://iris-docs.midtrans.com/)
-- **After Payment**
+- **:iphone: Mobile SDK**
+	- [Docs](https://mobile-docs.midtrans.com)
+- **:money_with_wings: IRIS - Disbursement**
+	- [Docs](https://iris-docs.midtrans.com/)
+- **:memo: After Payment**
 	- [Overview](en/after-payment/overview.md)
 	- [Email Notification](en/after-payment/email-notification.md)
 	- [Handling HTTPs Notification Webhook](en/after-payment/http-notification.md)
@@ -44,8 +47,10 @@
 	- [Error Code & Response](en/technical-reference/error-response-code.md)
 	- [Snap API Docs](https://snap-docs.midtrans.com)
 	- [Core API Docs](https://api-docs.midtrans.com)
-- **Security**	
-	- HTTPS/TLS	
-	- PCI DSS	
-	- 3 Domain Secure (3DS)	
-- [**Technical FAQ**](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+- **:lock: Security**	
+	- [Overview](en/security/overview.md)
+	- [PCI DSS](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
+	- [3 Domain Secure (3DS)](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
+	- [Fraud and Dispute](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)
+- **:question: Technical FAQ**
+	- [FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
