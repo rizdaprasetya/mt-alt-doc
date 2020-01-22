@@ -34,7 +34,6 @@
 	- [Transaction Status Cycle](en/after-payment/status-cycle.md)
 	- [Dashboard Usage and Action](en/after-payment/dashboard-usage.md)
 	- [Receiving Your Fund (Payout)](en/after-payment/payout.md)
-	- Fraud and Dispute
 - **Technical Reference**
 	- [API Authorization & Headers](en/technical-reference/api-header.md)
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md)
@@ -45,7 +44,9 @@
 	- [Snap API Docs](https://snap-docs.midtrans.com)
 	- [Core API Docs](https://api-docs.midtrans.com)
 - **Security**	
-	- HTTPS/TLS	
-	- PCI DSS	
-	- 3 Domain Secure (3DS)	
-- [**Technical FAQ**](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+	- [Overview](en/security/overview.md)
+	- [PCI DSS](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
+	- [3 Domain Secure (3DS)](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
+	- [Fraud and Dispute](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)
+- **:question: Technical FAQ**
+	- [FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
