@@ -9,7 +9,7 @@ You can customize `transaction_details` data. To include data like `customer_det
 Below are the recommended JSON param for general use (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -133,7 +133,7 @@ Custom Expiry feature enables merchants to set an expiry time of payment with pe
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/bank-transfer.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "custom_expiry": {
       "order_time": "2016-12-07 11:54:12 +0700",
@@ -166,7 +166,7 @@ curl -X POST \
 
 | Parameter | Type | Description |
 --- | --- | ---
-`order_time` | String(50)(***optional***) | Timestamp in `yyyy-MM-dd hh:mm:ss Z` format. <br>**If not specified, transaction time will be used as start time** (when customer confirm payment channel).
+`order_time` | String(50)(***optional***) | Timestamp in `yyyy-MM-dd hh:mm:ss Z` format. <br>**If not specified, transaction time will be used as order time** (when customer confirm payment channel).
 `expiry_duration` | String(50)(***required***) | Time duration the payment will remain valid.
 `unit` | String(50)(***required***) | Valid values are: `second, minute, hour, or day`. <br>**NOTE:** If attribute undefined, default unit is minute. 
 
@@ -177,7 +177,7 @@ Custom field allow you to send your own (custom) data to Core API, and then it w
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/bank-transfer.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "custom_field1": "this is custom text defined by merchant",
   "custom_field2": "order come from web",
@@ -215,7 +215,7 @@ Metadata is similar with custom field which enables merchant to put **free-form 
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/bank-transfer.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "metadata": {
 	"you": "can",
@@ -251,7 +251,7 @@ metadata | JSON Object | Object containing the metadata parameters
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
-Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should always enable 3DS**, unless you understand the risk of disabling 3DS and the requirement (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Activation team.
+Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction. By default you **should always enable 3DS**, unless you understand the risk of disabling 3DS and the requirement (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Activation team.
 
 * Set the `authentication` value to `true` to enable 3DS
 * Set the `authentication` value to `false` to disable 3DS
@@ -259,7 +259,7 @@ Three Domain Secure (3DS) feature can be enabled/disabled for certain transactio
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "credit_card": {
     "token_id": "<token_id from Get Card Token Step>",
@@ -295,7 +295,7 @@ Merchant can specify which Acquring Bank they prefer to use for specific transac
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -338,7 +338,7 @@ You can allow customer to save their card credentials for easier and faster futu
 <article>
 The overall Recurring/One Click end-to-end payment proccess can be illustrated in following sequence diagram:
 
-![one click sequence diagram](./../../asset/image/core_api-sequence_one_click.png)
+![one click sequence diagram](../../asset/image/core_api-sequence_one_click.png)
 </article>
 </details>
 
@@ -350,7 +350,7 @@ Add additional attribute in charge request credit_card object when charging the 
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -387,7 +387,7 @@ curl -X POST \
 <!-- tabs:end -->
 
 #### One Click Initials Charge Response
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "Success, Credit Card transaction is successful",
@@ -419,7 +419,7 @@ saved_token_id | Token ID of a credit card to be charged for the following trans
 saved_token_id_expired_at | Expiry date of the Token ID
 
 You will get the **response and notifications** like the following:
-```javascript
+```json
 {
   "status_code": "200"
   "status_message": "Success, Credit Card transaction is successful"
@@ -450,7 +450,7 @@ Add `saved_token_id` in value of `token_id` attribute when charging the followin
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 ##### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -486,7 +486,7 @@ curl -X POST \
 Following One Click Charge Response is identical with [Card Payment Charge Response and Response](https://api-docs.midtrans.com/#card-payment-charge-response-and-notifications). Successful One Click transaction is described as `capture` status and is ready for settlement.
 
 You will get the **response and notifications** like the following:
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "Success, Credit Card transaction is successful",
@@ -518,7 +518,7 @@ You can allow customer to save their card credentials for easier and faster futu
 <article>
 The overall Register Card API end-to-end payment proccess can be illustrated in following sequence diagram:
 
-![one click sequence diagram](./../../asset/image/core_api-sequence_register_card.png)
+![one click sequence diagram](../../asset/image/core_api-sequence_register_card.png)
 </article>
 </details>
 
@@ -537,7 +537,7 @@ curl -X GET \
 #### Register Card API Response
 You will get the **API response** like the following:
 
-```javascript
+```json
 {
     "status_code": "200",
     "saved_token_id": "521111nHlLvTuKywNOOLhTlHZcab1117",
@@ -548,7 +548,7 @@ You will get the **API response** like the following:
 You need to store `saved_token_id` to your database.
 
 #### Register Card Initials Get Card Token
-You need a `saved_token_id` from [Register Card API Response Step](/en/core-api/advanced-features.md?id=register-card-api-response).
+You need a `saved_token_id` from [Register Card API Response Step](/id/core-api/advanced-features.md?id=register-card-api-response).
 To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` on [MidtransNew3ds JS library](/en/core-api/credit-card?id=include-midtrans-js). Implement the following Javascript on our payment page.
 ```javascript
 // card data from customer input, for example
@@ -581,7 +581,7 @@ API request should be done from **Merchant’s backend** to acquire `redirect_ur
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -620,7 +620,7 @@ Requirement | Description |
 Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id` | Transaction order ID, defined from your side
 `gross_amount` | Total amount of transaction, defined from your side
-`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/advanced-features.md?id=register-card-initials-get-card-token)
+`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](/id/core-api/advanced-features.md?id=register-card-initials-get-card-token)
 `authentication` | Flag to enable the 3D secure authentication.
 
 #### Register Card Initials Open 3DS Authentication Page
@@ -629,11 +629,11 @@ As part of API response, we now have `redirect_url`. It should be opened (displa
 To open 3DS page we can use `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function. Input the `redirect_url` retrieved previously. Please take a look [Open 3DS Authenticate Page JS Implementation Step](/en/core-api/credit-card?id=open-3ds-authenticate-page-js-implementation) for more details.
 
 #### Register Card Following Transaction
-When it's time to charge another transaction, retrieve `saved_token_id` from database ([Register Card API Response](/en/core-api/advanced-features.md?id=register-card-api-response)).
+When it's time to charge another transaction, retrieve `saved_token_id` from database ([Register Card API Response](/id/core-api/advanced-features.md?id=register-card-api-response)).
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -679,7 +679,7 @@ You can allow customer to save their card credentials (**except card cvv**) for 
 <article>
 The overall Two Clicks end-to-end payment proccess can be illustrated in following sequence diagram:
 
-![one click sequence diagram](./../../asset/image/core_api-sequence_two_clicks.png)
+![one click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
 </article>
 </details>
 
@@ -691,7 +691,7 @@ Add additional attribute in charge request credit_card object when charging the 
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -729,7 +729,7 @@ curl -X POST \
 <!-- tabs:end -->
 
 #### Two Clicks InitialsTwo Clicks Initials  Charge Response
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "Success, Credit Card transaction is successful",
@@ -761,34 +761,34 @@ saved_token_id | Token ID of a credit card to be charged for the following trans
 saved_token_id_expired_at | Expiry date of the Token ID
 
 You will get the **response and notifications** like the following:
-```javascript
+```json
 {
-  "status_code": "200"
-  "status_message": "Success, Credit Card transaction is successful"
-  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398"
-  "order_id": "1578977094"
-  "merchant_id": "G816197673"
-  "gross_amount": "200000.00"
-  "currency": "IDR"
-  "payment_type": "credit_card"
-  "transaction_time": "2020-01-14 11:44:55"
-  "transaction_status": "capture"
-  "fraud_status": "accept"
-  "approval_code": "1578977095472"
-  "eci": "05"
-  "masked_card": "481111-1114"
-  "bank": "mandiri"
-  "card_type": "credit"
-  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114"
-  "saved_token_id_expired_at": "2020-12-31 07:00:00"
-  "channel_response_code": "00"
-  "channel_response_message": "Approved"
+  "status_code": "200",
+  "status_message": "Success, Credit Card transaction is successful",
+  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398",
+  "order_id": "1578977094",
+  "merchant_id": "G816197673",
+  "gross_amount": "200000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-01-14 11:44:55",
+  "transaction_status": "capture",
+  "fraud_status": "accept",
+  "approval_code": "1578977095472",
+  "eci": "05",
+  "masked_card": "481111-1114",
+  "bank": "mandiri",
+  "card_type": "credit",
+  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
+  "saved_token_id_expired_at": "2020-12-31 07:00:00",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved",
 }
 ```
 You need to store `saved_token_id` to your Database.
 
 #### Two Clicks Following Transaction Get Card Token
-You need `saved_token_id` which you can get from [Two Clicks Initial Charge Response](/en/core-api/advanced-features.md?id=two-clicks-initials-3ds-authenticate-json-response).
+You need `saved_token_id` which you can get from [Two Clicks Initial Charge Response](/id/core-api/advanced-features.md?id=two-clicks-initials-3ds-authenticate-json-response).
 
 To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` function. Implement the following Javascript on our payment page.
 ```javascript
@@ -825,7 +825,7 @@ To use this feature, merchant needs to accumulate the list of BIN that accepts t
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -874,7 +874,7 @@ To activate the installment feature, merchant are required to have agreement wit
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -922,7 +922,7 @@ Merchant simply need to add the `installment` parameter with combination of bin 
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "credit_card",
   "transaction_details": {
@@ -975,7 +975,7 @@ Pre-authorization feature means customer's fund will not directly deducted after
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -1030,7 +1030,7 @@ After GoPay payment completed, by default customer will remain on Gojek app, so 
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/e-wallet.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "payment_type": "gopay",
   "transaction_details": {
@@ -1046,7 +1046,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/core
 #### **As CURL**
 ```bash
 curl -X POST \
-  https://app.sandbox.midtrans.com/snap/v1/transactions \
+  https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json'\
   -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
   -H 'Content-Type: application/json' \
@@ -1079,7 +1079,7 @@ By default Midtrans will randomize VA number used for bank transfer transaction.
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **BCA**
-```javascript
+```json
 ...
    "bank_transfer":{
      "bank": "bca",
@@ -1115,7 +1115,7 @@ en | String(50)<br>(***required***) | Free text message in English.
 sub_company_code | String<br>(***optional***) | BCA sub company code directed for this transactions<br>**NOTE:** Default is 00000.
 
 #### **BNI**
-```javascript
+```json
 ...
   "bank_transfer":{
      "bank": "bni",
@@ -1129,7 +1129,7 @@ bank | String(255)<br>(***required***) | Bank name which process bank transfer t
 va_number | String(255)<br>(***optional***) | Custom va number assigned by merchant. **Length should be within 1 to 8**.
 
 #### **Mandiri Bill**
-```javascript
+```json
 ...
 	"echannel" : {
 	    "bill_info1" : "Payment For:",
@@ -1155,7 +1155,7 @@ bill_info7 | String<br>(***optional***) | Label 4. Mandiri only allows 10 charac
 bill_info8 | String<br>(***optional***) | Value for Label 4. Mandiri only allows 30 characters.<br>Exceeding characters will be **truncated**.
 
 #### **Permata**
-```javascript
+```json
 ...
 	"bank_transfer":{
 	  "bank": "permata",

@@ -61,7 +61,7 @@ Some sample notification of successful transaction based on payment channel:
 
 <!-- tabs:start -->
 #### **Card**
-```javascript
+```json
 {
   "transaction_time": "2020-01-09 18:27:19",
   "transaction_status": "capture",
@@ -86,7 +86,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **GoPay**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -101,7 +101,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Permata VA**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -118,7 +118,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BCA VA**
-```javascript
+```json
 {
   "va_numbers": [
     {
@@ -140,7 +140,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Mandiri Bill**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -158,7 +158,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BNI VA**
-```javascript
+```json
 {
   "va_numbers": [
     {
@@ -186,7 +186,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BCA Klikpay**
-```javascript
+```json
 {
   "approval_code": "91231",
   "transaction_time": "2016-06-19 15:46:16",
@@ -203,7 +203,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **KlikBCA**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -220,7 +220,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Mandiri ClickPay**
-```javascript
+```json
 {
   "approval_code": "166JF5644001",
   "transaction_time": "2016-06-19 15:56:45",
@@ -237,7 +237,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **CIMB Clicks**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -253,7 +253,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Danamon Online Banking**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -270,7 +270,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Indomaret**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -288,7 +288,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Alfamart**
-```javascript
+```json
 {
   "status_code": "200",
   "status_message": "midtrans payment notification",
@@ -306,7 +306,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Akulaku**
-```javascript
+```json
 {
   "transaction_time": "2018-08-24 16:20:36",
   "gross_amount": "11000.00",
@@ -322,7 +322,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BRI Epay**
-```javascript
+```json
 {
   "approval_code": "201373311528",
   "transaction_time": "2016-06-19 16:04:02",

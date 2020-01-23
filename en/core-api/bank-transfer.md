@@ -124,7 +124,7 @@ You will get the **API response** like the following.
 
 <!-- tabs:start -->
 #### **BCA**
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "Success, Bank Transfer transaction is created",
@@ -148,7 +148,7 @@ You will get the **API response** like the following.
 You will get the `va_numbers` attribute which can be performed this transaction.
 
 #### **BNI**
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "Success, Bank Transfer transaction is created",
@@ -172,7 +172,7 @@ You will get the `va_numbers` attribute which can be performed this transaction.
 You will get the `va_numbers` attribute which can be performed this transaction.
 
 #### **Mandiri Bill**
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "OK, Mandiri Bill transaction is successful",
@@ -192,7 +192,7 @@ You will get the `va_numbers` attribute which can be performed this transaction.
 You will get the `bill_key` and `bill_code` attribute which can be performed this transaction.
 
 #### **Permata**
-```javascript
+```json
 {
     "status_code": "201",
     "status_message": "Success, PERMATA VA transaction is successful",
@@ -245,7 +245,7 @@ By default Midtrans will randomize VA number used for bank transfer transaction.
 Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-transfer.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **BCA**
-```javascript
+```json
 ...
   "bank_transfer":{
     "bank": "bca",
@@ -256,7 +256,7 @@ Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-tr
 ```
 
 #### **BNI**
-```javascript
+```json
 ...
   "bank_transfer":{
     "bank": "bni",
@@ -266,7 +266,7 @@ Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-tr
 ```
 
 #### **Permata**
-```javascript
+```json
 ...
   "bank_transfer":{
     "bank": "permata",

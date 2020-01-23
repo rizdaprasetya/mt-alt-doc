@@ -10,7 +10,7 @@ You can customize `transaction_details` data. To include data like `customer_det
 Below are the recommended JSON params for general use (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -176,7 +176,7 @@ By default Snap will redirect customer to [Finish Redirect URL configured on Das
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -227,7 +227,7 @@ Alternatively, you can add and customize `enabled_payments` parameter. That will
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
 "enabled_payments": [
     "credit_card",
@@ -354,7 +354,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "expiry": {
     "start_time": "2020-04-13 18:11:08 +0700",
@@ -398,7 +398,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "custom_field1": "this is custom text defined by merchant",
   "custom_field2": "order come from web",
@@ -440,7 +440,7 @@ Three Domain Secure (3DS) feature can be enabled/disabled for certain transactio
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "credit_card": {
     "secure": true
@@ -476,7 +476,7 @@ Merchant will only need to store and associate each unique customer with unique 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -534,7 +534,7 @@ Please refer to sequence below to understand the recommended flow:
 During the first transaction, example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -582,7 +582,7 @@ Merchant can specify which Acquring Bank they prefer to use for specific Snap tr
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -622,7 +622,7 @@ To use this feature, merchant needs to accumulate the list of BIN that accepts t
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -676,7 +676,7 @@ To activate the installment feature, merchant are required to have agreement wit
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -738,7 +738,7 @@ Merchant simply need to add the `installment` parameter with combination of bin 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -804,7 +804,7 @@ Pre-authorization feature means customer's fund will not directly deducted after
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -845,7 +845,7 @@ After GoPay payment completed, by default customer will remain on Gojek app, so 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -929,7 +929,7 @@ By default Midtrans will randomize VA number used for bank transfer transaction.
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -998,7 +998,7 @@ Some VA description and recepient name can be customized.
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -1093,7 +1093,7 @@ Text that will be shown/printend on Alfamart receipt can be customized.
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
