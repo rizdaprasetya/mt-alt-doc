@@ -1,3 +1,4 @@
+- [:question:Tech FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
 - :art:Theme
     - [:snowflake:Default](# 'Simple')
     - [:waning_crescent_moon:Dark](# 'Simple Dark')

@@ -48,5 +48,4 @@
 	- [PCI DSS](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
 	- [3 Domain Secure (3DS)](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
 	- [Fraud and Dispute](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)
-- **:question: Technical FAQ**
-	- [FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+	
