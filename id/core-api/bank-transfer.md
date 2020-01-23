@@ -233,7 +233,7 @@ Secara default expiry time untuk Transfer Bank / VA adalah 24jam, periksa halama
 
 <div class="my-card">
 
-#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md?id=)
+#### [Set Custom Expiry &#187;](/id/core-api/advanced-features.md?id=)
 </div>
 
 ## 3. Terima notifikasi transaksi
