@@ -114,6 +114,10 @@
             });
 
             // Update active stylesheet
+            /** 
+            * @OPTIMIZE: this will add event listener on all click
+            * Optimize me so that it will only add to link with specific attribute?
+            */
             document.addEventListener('click', function(evt) {
                 var dataHref  = evt.target.getAttribute('data-link-href');
                 var dataTitle = evt.target.getAttribute('title')

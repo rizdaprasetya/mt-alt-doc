@@ -32,9 +32,11 @@
          * `[subfolder]/_sidebar.md`, if not exist then slowly move up to root.
          * which can be slow to wait for 404 call. It impacted UI to be seem 
          * unresponsive for few second on prod
-         * @WARNING:
+         * @HACK:
          * - Overriding XMLHttpRequest.prototype.open might trigger unwanted side effect
          * - _sidebar is hardcoded
+         * @OPTIMIZE:
+         * - probably only override if url contains `/en/`, `/id/` etc.
          */
         function rewriteAjax(){
             const isOverrideActive = 1; // on-off switch
@@ -78,7 +80,7 @@
                 /**
                  * Custom plugin to replace all relative URL with absolute
                  * So when crawled, asset links are not broken
-                 * @warn: Not tested on and might broke on sub path, e.g: example.com/sub/path/
+                 * @HACK: Not tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
                 function (hook, vm) {
                     hook.ready(function(){
@@ -110,6 +112,7 @@
                 /**
                  * custom plugin to replace various relative url to point to 
                  * proper github repo url
+                 * @NOTE: looks like unused, because no sidebar refer to ext repo
                  */
                 function (hook, vm) {
                     hook.beforeEach(function (rawMarkdown) {
@@ -139,6 +142,9 @@
                  * Docsify have scrolling issue on page load of a page with image.
                  * https://github.com/docsifyjs/docsify/issues/351
                  * This will ensure scroll to element id based on id found on url.
+                 * @HACK: 
+                 * - it use constant delay of 2 sec, then scroll, what if page load
+                 * more than 2 sec?
                  */
                 function (hook, vm) {
                     hook.doneEach(function () {
@@ -174,11 +180,13 @@
                             }, SCROLL_DELAY);
                         }
                         // only scroll after browser tab focused
+                        // @HACK: to handle url being opened on background tab
                         if(isBrowserTabFocused){
                             performDelayedScroll()
                             return
                         }
                         // if not focused, wait on focus
+                        // @HACK: to handle url being opened on background tab
                         window.addEventListener('focus', function() {
                             browserTabFocusedCount++
                             dd&&console.log('browser tab is focused',browserTabFocusedCount)
@@ -222,7 +230,7 @@
     <script src="https://unpkg.com/prismjs@1.17.1/components/prism-ruby.min.js"></script>
     <script src="https://unpkg.com/prismjs@1.17.1/components/prism-php.min.js"></script>
     <script src="https://unpkg.com/prismjs@1.17.1/components/prism-java.min.js"></script>
-
+    <!-- @OPTIMIZE: add snap js only on certain page when needed? -->
     <script type="text/javascript"
     src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
