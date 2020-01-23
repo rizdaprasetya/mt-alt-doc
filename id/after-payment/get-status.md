@@ -36,7 +36,7 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 
 #### Respon Sukses
 
-```javascript
+```json
 {
   "masked_card": "481111-1114",
   "approval_code": "1578569243927",
@@ -62,7 +62,7 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 ```
 
 #### Respon Fail / Not found
-```javascript
+```json
 {
   "status_code": "404",
   "status_message": "The requested resource is not found"
