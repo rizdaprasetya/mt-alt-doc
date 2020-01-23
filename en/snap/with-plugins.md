@@ -355,8 +355,17 @@ The manual installation method involves downloading our feature-rich plugin and 
 5. Activate Easy Digital Downloads - Midtrans Gateway plugin from Plugin menu in your WordPress admin page.
 
 #### Midtrans Easy Digital Download Configuration
+1. Login to your Wordpress admin panel.
+2. Go to menu **Download (1)** -> **Settings (2)** -> Choose Tab **Payment Gateways (3)** 
+3. Enable module by ticking the checkbox `Midtrans` module (4)
+4. Choose `Midtrans` as Default Gateway (5)
+6. Click button **Save Changes (6)** 
 
 ![Edd Config 1](./../../asset/image/EDD-Config-1.png)
+
+7. Go to Midtrans Module Configuration page by click `Midtrans` like on the picture (7)
+8. Fill the following config fields as instructed on each settings description.
+9. To save your configuration, Click button **Save Changes (9)**
 
 ![Edd Config 2](./../../asset/image/EDD-Config-2.png)
 
