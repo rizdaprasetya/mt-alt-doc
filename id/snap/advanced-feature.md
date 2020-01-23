@@ -7,7 +7,7 @@ Kami sangat menyarankan anda untuk mengirim detail-detail informasi mengenai tra
 
 Anda dapat menambahkan data `transaction_details` seperti data `customer_details` dan `item_details`. 
 
-Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [API Request](/id/snap/integration-guide.md?id=api-request)
+Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [Langkah Request API](/id/snap/integration-guide.md?id=api-request)
 
 <!-- tabs:start -->
 #### **JSON Param**
@@ -123,7 +123,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-Detail Referensi [Snap Docs](https://snap-docs.midtrans.com/#json-objects).
+Detail Referensi [Dokumentasi Snap](https://snap-docs.midtrans.com/#json-objects).
 
 ### Fungsi dan Opsi pada Snap.js
 
@@ -402,9 +402,9 @@ Berikut adalah contoh JSON parameter yang dikirim pada saat [Request API](/id/sn
 #### **JSON Param**
 ```javascript
 ...
-  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda butuhkan"
+  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda inginkan"
 ...
 ```
 #### **As CURL**
@@ -419,18 +419,18 @@ curl -X POST \
     "order_id": "CustOrder-102",
     "gross_amount": 13000
   },
-  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda butuhkan"
+  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda inginkan"
 }'
 ```
 <!-- tabs:end -->
 
-| Parameter | Type | Required? | Description |
----|---|---|---
-custom_field1 | String(255) | (optional) | Custom field 1 anda dapat mengisi dengan data/nilai yang anda butuhkan
-custom_field2 | String(255) | (optional) | Custom field 2 anda dapat mengisi dengan data/nilai yang anda butuhkan
-custom_field3 | String(255) | (optional) | Custom field 3 anda dapat mengisi dengan data/nilai yang anda butuhkan
+| Parameter | Tipe | Deskripsi |
+--- | --- | ---
+custom_field1 | String(255)<br>(***optional***) | Custom field 1 anda dapat mengisi dengan data/nilai yang anda inginkan
+custom_field2 | String(255)<br>(***optional***) | Custom field 2 anda dapat mengisi dengan data/nilai yang anda inginkan
+custom_field3 | String(255)<br>(***optional***) | Custom field 3 anda dapat mengisi dengan data/nilai yang anda inginkan
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
@@ -576,7 +576,7 @@ Ketika Anda ingin melakukan penagihan/recurring kepada pelanggan terkait dengan 
 
 Untuk detail informasi menganai subscription/recurring, anda dapat membaca [artikel](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction) berikut.
 
-### Routing Transactions to Specific Acquiring
+### Mengarahkan Transaksi ke Bank Acquiring Spesifik
 Anda dapat menentukan Bank Acquring mana yang dipilih untuk digunakan setiap transaksi Snap tertentu. Dana transaksi akan dialihkan ke acquiring bank tersebut. Silakan konsultasikan dengan Tim Aktivasi Midtrans untuk pemilihan bank yang ingin anda gunakan sebagai acquiring bank.
 
 * Anda dapat menentukan nama bank didalam parameter `bank`
