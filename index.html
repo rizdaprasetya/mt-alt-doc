@@ -24,36 +24,6 @@
 <body>
     <div id="app"></div>
     <script>
-        /**
-         * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
-         * to `[root folder]/_sidebar.md``
-         * Problem: 
-         * if docs is located on subfolder, on page load Docsify tried to fetch 
-         * `[subfolder]/_sidebar.md`, if not exist then slowly move up to root.
-         * which can be slow to wait for 404 call. It impacted UI to be seem 
-         * unresponsive for few second on prod
-         * @HACK:
-         * - Overriding XMLHttpRequest.prototype.open might trigger unwanted side effect
-         * - _sidebar is hardcoded
-         * @OPTIMIZE:
-         * - probably only override if url contains `/en/`, `/id/` etc.
-         */
-        function rewriteAjax(){
-            const isOverrideActive = 1; // on-off switch
-            if(!isOverrideActive){ return }
-            // Override XMLHttpRequest to modify Ajax request destination url
-            var proxiedAjax = window.XMLHttpRequest.prototype.open;
-            window.XMLHttpRequest.prototype.open = function() {
-                if( arguments.length>=2 && 
-                    arguments[1].includes('/_sidebar.md')
-                ){
-                    arguments[1] = './' + '_sidebar.md'
-                }
-                return proxiedAjax.apply(this, [].slice.call(arguments));
-            };
-        }; 
-        rewriteAjax();
-
         window.$docsify = {
             loadSidebar: true,
             loadNavbar: true,
@@ -64,6 +34,18 @@
             alias: {
                 // proxy for any /gh/ url to fetch markdown from real github url
                 '.*?/gh/(.*)': 'https://raw.githubusercontent.com/$1',
+                /**
+                 * Based on https://docsify.js.org/#/more-pages?id=nested-sidebars
+                 * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
+                 * to `[root folder]/_sidebar.md``
+                 * Problem: 
+                 * Prevent unnecessary fallback.
+                 * If docs is located on subfolder, on page load Docsify tried to fetch 
+                 * `[subfolder]/_sidebar.md`, if not exist then slowly move up to root.
+                 * which can be slow to wait for 404 call. It impacted UI to be seem 
+                 * unresponsive for few second on prod
+                 */
+                '/en/.*/_sidebar.md': '/_sidebar.md',
             },
             search: {
                 // set to 1 hour on development, change to 1 day on prod
