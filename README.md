@@ -16,12 +16,17 @@
 	- Change `master` with any branch you want to preview
 	- Note: Githack is free service so it might not be always available
 
-## Structure
+## Structure & Standard
 
 - Documentation content are located at `en` (english) & `id` (indonesia) folder. i.e: `/en/snap/overview.md`.
 - Subfolder are grouped in accordance with how it listed in Sidebar Menu. i.e: snap, midtrans_account, etc.
 - Docs content are in markdown format.
 - Docs content can contain html tags, but please use markdown as much as possible, to minimize custom html tags.
+- Url/links:
+	- For best compatibility, please use absolute path like `/en/snap/overview.md`, instead of `en/snap/overview.md`
+	- If the link refer to some html id, use this `/en/snap/overview.md#integration`, instead of `?id=integration`
+- Sidebar menu is rendered from `_sidebar.md` file
+	- Link title will be used as the page title, to define title, e.g: `- [menu name](/en/menu/path.md "Page Title Here")`
 - This project are using [Docsify](https://docsify.js.org/).
 - `index.html` contains all the Docsify script, plugins, and config.
 - custom css & js can be embedded in `index.html` and also located at `asset` folder.
