@@ -8,7 +8,7 @@
 	- [Interactive Demo](en/snap/interactive-demo.md)
 	- [Advanced Feature](en/snap/advanced-feature.md)
 	- [Install as CMS Plugin](en/snap/with-plugins.md)
-	- [Platform](en/snap/platform/overview.md)
+	- [Ecommerce Platform](en/snap/platform/overview.md)
 - **:diamond_shape_with_a_dot_inside: Core API**
 	- [Overview](en/core-api/overview.md)
 	- [Integration Guide](en/core-api/overview?id=integration)

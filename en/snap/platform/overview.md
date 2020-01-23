@@ -1,4 +1,4 @@
-# Integrated Platform
+# 3rd Party Ecommerce Platform
 
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
@@ -10,15 +10,15 @@ Step by step guide to integrate Snap to your platform of choice, will be explain
 
 <div class="my-card">
 
-#### [Shopify](#shopify)
+#### [ Shopify](#shopify)
 </div>
 <div class="my-card">
 
-#### [Sirclo](#sirclo)
+#### [ Sirclo](#sirclo)
 </div>
 <div class="my-card">
 
-#### [Jejualan](#jejualan)
+#### [ Jejualan](#jejualan)
 </div>
 <hr><br><br>
 

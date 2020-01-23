@@ -53,10 +53,10 @@ Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, O
 #### [Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
 </div>
 
-### E) Using Platform
+### E) Using Ecommerce Platform
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, Jejualan etc.
 
 <div class="my-card">
 
-#### [Using Platform &#187;](/en/snap/platform/overview.md)
+#### [Using Ecommerce Platform &#187;](/en/snap/platform/overview.md)
 </div>
