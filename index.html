@@ -25,6 +25,7 @@
     <div id="app"></div>
     <script>
         window.$docsify = {
+            logo: 'asset/image/main/midtrans-logo.svg',
             loadSidebar: true,
             loadNavbar: true,
             name: 'Midtrans Docs',
@@ -60,6 +61,32 @@
             maxLevel: 3,
             subMaxLevel: 3,
             plugins: [
+                /**
+                 * Custom plugin to replace all wrong sidebar image path
+                 * So it point to right asset directory
+                 * @HACK: Not extensively tested on and might broke on sub path, e.g: example.com/sub/path/
+                 */
+                function (hook, vm) {
+                    hook.doneEach(function(){
+                        console.log(vm);
+                        // @HACK: use $docsify.logo as assetPath source, use hard coded .svg extension
+                        // might break when $docsify.logo is changed.
+                        let assetPath = window.$docsify.logo.replace(/(.*)\/.*?\.svg/g,"$1/");
+                        // all sidebar img tag
+                        document
+                            .querySelectorAll(`.sidebar-nav ul>li>strong>img`)
+                            .forEach(function(el){
+                                // filter out element that have '.emoji' class
+                                if(el.classList.length > 0){
+                                    return;
+                                }
+                                el.src = el.src
+                                    .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
+                            })
+
+
+                    })
+                },
                 /**
                  * Custom plugin to replace all relative URL with absolute
                  * So when crawled, asset links are not broken
