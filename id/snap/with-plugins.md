@@ -353,17 +353,8 @@ The manual installation method involves downloading our feature-rich plugin and 
 5. Masuk ke menu `Downloads` **->** `Settings` **->** `Payment Gateways`, masukan data-data yang diperlukan.
 
 #### Konfigurasi Midtrans Easy Digital Download
-1. Masuk ke halaman admin Wordpress anda.
-2. Pilih menu **Download (1)** -> **Settings (2)** -> Choose Tab **Payment Gateways (3)** 
-3. Aktifkan module `Midtrans` denga meng-klik checkbox (4)
-4. Pilih `Midtrans` sebagai Default Gateway (5)
-6. Klik tombol **Save Changes (6)** 
 
 ![Edd Config 1](./../../asset/image/EDD-Config-1.png)
-
-7. Untuk melakukan konfigurasi Modul Midtrans, anda dapat klik link `Midtrans` seperti pada gambar (7)
-8. Masukan data akun Midtrans seperti access key dan konfigurasi lain yang anda inginkan.
-9. Klik tombol **Save Changes (9)** untuk menyimpan konfigurasi anda
 
 ![Edd Config 2](./../../asset/image/EDD-Config-2.png)
 
