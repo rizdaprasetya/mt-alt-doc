@@ -1,7 +1,7 @@
 - [:house:**Home**](/ "Midtrans Payment Gateway Technical Documentation")
 - **:bust_in_silhouette: Midtrans Account**
 	- [Overview](en/midtrans-account/overview.md "Midtrans - Account Documentation")
-- **:beginner: Snap**
+- **![Snap](asset/image/main/snap-logo.svg)**
 	- [Overview](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
@@ -9,7 +9,7 @@
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
 	- [Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
 	- [Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
-- **:diamond_shape_with_a_dot_inside: Core API**
+- **:diamond_shape_with_a_dot_inside: ![Core API](asset/image/main/core-api-logo.svg)**
 	- [Overview](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=integration "Midtrans - Core API Integration Guide Documentation")
 		- [Credit Card](en/core-api/credit-card.md "Midtrans - Core API Credit Card Documentation")
@@ -20,11 +20,11 @@
 		- [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
-- **:link: Payment Link**
+- **:link: ![Payment Link](asset/image/main/payment-link-logo.svg)**
     - [Overview](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
-- **:iphone: Mobile SDK**
+- **:iphone: ![Mobile SDK](asset/image/main/mobile-sdk-logo.svg)**
 	- [Docs](https://mobile-docs.midtrans.com)
-- **:money_with_wings: IRIS - Disbursement**
+- **![IRIS - Disbursement](asset/image/main/iris-logo.svg) - Disbursement**
 	- [Docs](https://iris-docs.midtrans.com/)
 - **:memo: After Payment**
 	- [Overview](en/after-payment/overview.md "Midtrans - After Payment Documentation")
