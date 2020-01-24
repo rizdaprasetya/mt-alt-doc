@@ -1,9 +1,10 @@
-# Overview
+<hr>
+
+![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')<hr>
 
 Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
 
-<br>
-
+<!-- TODO: add more image for each product so it doesn't look to plain? -->
 ## Accept Online Payments on Your Website and App
 
 <div class="my-card">
@@ -12,22 +13,21 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
 <br>
 <p style="text-align: center;">
-	<button onclick="
-	let label = event.target.innerText;
-	event.target.innerText = `Processing...`;
-	fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
-		.then(res=>res.json())
-		.then(res=>{
-			let snapToken = res.token;
-			snap.pay(snapToken,{
-				onSuccess: function(res){ console.log('Snap result:',res) },
-				onPending: function(res){ console.log('Snap result:',res) },
-				onError: function(res){ console.log('Snap result:',res) },
-			});
-		})
-		.catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-		.finally( e=>{ event.target.innerText = label })
-	" class="my-btn">Try Snap Demo &#9099;</button>
+  <button onclick="
+  event.target.innerText = `Processing...`;
+  fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
+    .then(res=>res.json())
+    .then(res=>{
+      let snapToken = res.token;
+      snap.pay(snapToken,{
+        onSuccess: function(res){ console.log('Snap result:',res) },
+        onPending: function(res){ console.log('Snap result:',res) },
+        onError: function(res){ console.log('Snap result:',res) },
+      });
+    })
+    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
+    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
+  " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 </div>
 

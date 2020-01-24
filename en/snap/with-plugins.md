@@ -2,6 +2,9 @@
 
 Content Management System (CMS) allow you to easily have website / web store without building (programming) from scratch. Most of the time CMS don't require you to know too much about technical knowledge, by just installing the CMS and then configure or customize it to suit your desire. It means most of the time you just need to care about managing the content (Content Management). Example of CMS are: Wordpress, Magento 2, Prestashop, WHMCS, etc.
 
+?>**Note:**
+Make sure to follow [preparation section to retrieve Client Key & Server Key](/en/midtrans-account/overview.md#retrieving-api-access-keys), before proceeding.
+
 Step by step guide to install Snap integration plugin to your CMS of choice, will be explained below.
 #### Choose from any CMS of your choice:
 <br>
@@ -41,9 +44,6 @@ Step by step guide to install Snap integration plugin to your CMS of choice, wil
 
 #### [ Wordpress - Easy Digital Download](#wordpress-easy-digital-download)
 </div>
-
-?>**Note:**
-Make sure to follow [preparation section](/en/snap/preparation.md), before proceeding.
 <hr><br><br>
 
 ### Wordpress - WooCommerce
