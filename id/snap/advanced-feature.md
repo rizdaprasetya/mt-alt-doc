@@ -669,7 +669,7 @@ curl -X POST \
 Pada gambar dibawah ini Anda akan melihat halaman snap yang menggunakan fitur Filter BIN:
 ![snap bin filter](./../../asset/image/snap-adv-bin-filter.png)
 
-### Pembayaran Cicilan / *Installment*
+### Fitur Cicilan / *Installment*
 #### Cicilan Online / *Online Installment*
 Installment Online adalah pembayaran angsuran/cicilan dimana bank penerbit kartu dan Acquiring Bank adalah entitas yang sama (mis: Kartu BNI dan Acquiring Bank BNI)
 
@@ -733,7 +733,7 @@ Pada gambar dibawah ini Anda akan melihat halaman snap yang menggunakan fitur On
 #### Offline Installment
 Offline Installment adalah jenis installment dimana Penerbit Kartu dan Acquiring Bank bukan entitas yang sama (mis: Kartu BNI dan Acquiring Bank Mandiri).
 
-Untuk mengaktifkan fitur offline installment, anda hanya perlu menambahkan `installment` dengan kombinasi fitur filter bin `whitelist_bins`. Tujuan bin filter adalah untuk membatasi kartu tertentu yang dapat melakukan cicilan offline, berdasarkan perjanjian antara anda dan acquiring bank.
+Offline Installment memungkinkan fitur cicilan / installment dengan bank yang tidak mengeluarkan MID Installment. Untuk mengaktifkan fitur offline installment, anda hanya perlu menambahkan `installment` dengan kombinasi fitur filter bin `whitelist_bins`. Tujuan bin filter adalah untuk membatasi kartu tertentu yang dapat melakukan cicilan offline, berdasarkan perjanjian antara anda dan acquiring bank.
 
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
