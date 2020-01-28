@@ -86,7 +86,7 @@ Atribut          | Deskripsi
 Server Key       | Dijelaskan pada halaman [akun midtrans](/id/midtrans-account/overview.md)
 `order_id`       | Order ID transaksi yang dapat anda isi sesuai dengan kebutuhan anda
 `gross_amount`   | Total nilai transaksi
-`token_id`       | Representasi informasi kartu kredit pelanggan anda yang didapatkan dari [Respon Token](id/core-api/credit-card.md?id=mendapatkan-respon-token)
+`token_id`       | Representasi informasi kartu kredit pelanggan anda yang didapatkan dari [Respon Token](/id/core-api/credit-card.md?id=mendapatkan-respon-token)
 `authentication` | Atribut sebagai penanda bahwa transaki yang diminta adalah trasaksi 3D Secure, nilai default adalah false
 
 ### Request Charge API
@@ -379,7 +379,7 @@ Pada saat mendapatkan API response, terdapat atribut `redirect_url`. anda diwaji
 
 Untuk membuka halaman 3DS, anda dapat menggunakan fungsi pada midtrans js `MidtransNew3ds.authenticate` atau `MidtransNew3ds.redirect`. Lalu berikan nilai yang ada pada atribut `redirect_url`.
 
-### Open 3DS Authenticate Page JS Implementation
+### Membuka Halaman Otentikasi 3DS Dengan Implementasi JS
 
 ```javascript
 var redirect_url = '<redirect_url didapatkan dari response Charge>';
