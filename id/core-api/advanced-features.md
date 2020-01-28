@@ -2,13 +2,13 @@ Pada halaman ini akan menjelaskan opsional parameter yang ada pada layanan Core 
 
 ## Umum
 ### Parameter Rekomendasi
-ami sangat menyarankan anda untuk mengirim detail-detail informasi mengenai transaksi yang anda kirim ke Midtrans. Dengan begitu data dashboard dan laporan transaksi anda akan sangat informatif dan memudahkan anda dalam membaca detail setiap transaksi.
+Kami sangat menyarankan anda untuk mengirim detail-detail informasi mengenai transaksi yang anda kirim ke Midtrans. Dengan begitu data dashboard dan laporan transaksi anda akan sangat informatif dan memudahkan anda dalam membaca detail setiap transaksi.
 
 Anda dapat menambahkan data `transaction_details` seperti data `customer_details` dan `item_details`. 
 
-Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [Langkah Request API](/id/core-api/credit-card.md?id=charge-api-request)):
+Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [Langkah Request API](/id/core-api/credit-card.md?id=request-charge-api)):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -130,7 +130,7 @@ Detail Referensi [Dokumentasi Core API](https://api-docs.midtrans.com/#json-obje
 ### Kustomisasi Waktu Expire Transaksi
 Salah satu fitur Core API yang ada pada transaksi adalah melakukan perubahan waktu expire transaksi sesuai dengan kebutuhan anda. Transaksi yang telah melewati batas waktu yang telah ditentukan sebelumnya akan berubah status secara otomatis menjadi `expire` dan pelanggan tidak dapat melakukan pembayaran pada transaksi tersebut. Dibawah ini adalah cara melakukan custom expiry pada semua transaksi, kecuali transaksi kartu kredit:
 
-Berikut adalah contoh JSON parameter yang dikirim pada [Langkah Request API](/id/core-api/bank-transfer.md?id=_1-kirim-data-traksaksi-ke-api-charge):
+Berikut adalah contoh Parameter JSONeter yang dikirim pada [Langkah Request API](/id/core-api/bank-transfer.md?id=_1-kirim-data-traksaksi-ke-api-charge):
 <!-- tabs:start -->
 #### **Parameter JSON**
 ```json
@@ -173,7 +173,7 @@ curl -X POST \
 ### Custom Fields
 Fitur Custom field memberikan kebebasan bagi anda yang membutuhkan parameter data / nilai tertentu yang akan dikirim ke *backend* anda melalui HTTP Notifikasi midtrans. Nilai custom field juga akan tampil pada halaman detail transaksi Dashboard Midtrans. Anda dapat mengirim parameter Custom Fields pada saat melakukan API Request ke Midtrans.
 
-Berikut adalah contoh JSON parameter yang dikirim pada [Langkah Request API](/id/core-api/bank-transfer.md?id=_1-kirim-data-traksaksi-ke-api-charge):
+Berikut adalah contoh Parameter JSONeter yang dikirim pada [Langkah Request API](/id/core-api/bank-transfer.md?id=_1-kirim-data-traksaksi-ke-api-charge):
 <!-- tabs:start -->
 #### **Parameter JSON**
 ```json
@@ -256,7 +256,7 @@ Berikut cara mengaktifkan/nonaktifkan fitur 3DS:
 * Untuk mengaktifkan fitur 3DS, anda dapat mengisi nilai parameter `authentication` dengan nilai `true`
 * Untuk menonaktifkan fitur 3DS, anda dapat mengisi nilai parameter  `authentication` dengan nilai `false`
 
-Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
 #### **Parameter JSON**
 ```json
@@ -292,7 +292,7 @@ Anda dapat menentukan Bank Acquring mana yang dipilih untuk digunakan setiap tra
 
 * Anda dapat menentukan nama bank didalam parameter `bank`
 
-Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
 #### **Parameter JSON**
 ```json
@@ -348,7 +348,7 @@ Untuk menggunakan fitur one click, Anda membutuhkan nilai dari parameter `token_
 #### Inisialisasi Charge Request Transaksi One Click 
 Saat melakukan inisialisasi transaksi one click, Anda dapat menambahkan beberapa atribut pada objek `credit_card`
 
-Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
 #### **Parameter JSON**
 ```json
@@ -361,7 +361,7 @@ Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-
   "credit_card": {
 	"token_id": "<token_id from Get Card Token Step>",
 	"authentication": true,
-	"save_token_id": true     // <-- To flag that token is saved during initial charge
+	"save_token_id": true     // <-- Flag untuk mengaktifkan simpan token kartu kredit
   }
 }
 ```
@@ -408,10 +408,10 @@ curl -X POST \
 }
 ```
 
-#### Inisilisasai Membuka Halaman 3DS Transaksi One Click
+#### Inisialisasi Membuka Halaman 3DS Transaksi One Click
 Pada saat anda mendapatkan repson request transaksi pertama one click anda akan mendapatkan parameter `redirect_url`. Anda diwajibkan untuk menampilkan halaman `redirect_url` kepada pelanggan anda. Untuk menampilkan halaman Otentikasi 3DS pada website anda dengan mudah, Anda dapat menggunakan library javascript [MidtransNew3ds](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-Dengan menggunakan salah satu fungsi pada midtrans js `MidtransNew3ds.authenticate` atau `MidtransNew3ds.redirect`. Lalu berikan nilai yang ada pada atribut `redirect_url`. Untuk penjelasan lebih detail silahkan mengunjungi halaman [Implementasi JS 3DS Authenticate](/id/core-api/credit-card?id=_3-Membuka-halaman-3DS)
+Dengan menggunakan salah satu fungsi pada midtrans js `MidtransNew3ds.authenticate` atau `MidtransNew3ds.redirect`. Lalu berikan nilai yang ada pada atribut `redirect_url`. Untuk penjelasan lebih detail silahkan mengunjungi halaman [Implementasi JS 3DS Authenticate](/id/core-api/credit-card.md?id=_3-Membuka-halaman-3DS)
 
 #### Respon JSON pada transaksi pertama One Click 3DS
 Atribut JSON | Deskripsi |
@@ -446,11 +446,12 @@ Pada saat pertama kali melakukan charge transaksi one click, Anda akan mendapatk
 ```
 Anda dapat menyimpan nilai dari parameter `saved_token_id` kedalam database anda.
 
-#### Request Charge Transaksi One Click
+#### Request Charge Transaksi One Click Selanjutnya
 Untuk melakukan charge transaksi one click kedua dan berikutnya, anda harus menambahkan nilai dari parameter `saved_token_id` kedalam parameter `token_id`.
-Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge)):
+
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge)):
 <!-- tabs:start -->
-##### **JSON Param**
+##### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -459,7 +460,7 @@ Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-
     "gross_amount": 10000
   },
   "credit_card": {
-	"token_id": "481111xDUgxnnredRMAXuklkvAON1114" // <-- nilai saved_token_id didapatkan dari respon transaksi pertama one click
+	"token_id": "481111xDUgxnnredRMAXuklkvAON1114" // <-- nilai token_id didapatkan dari parameter saved_token_id, respon transaksi pertama one click
   }
 }
 ```
@@ -477,7 +478,7 @@ curl -X POST \
     "gross_amount": 10000
   },
   "credit_card": {
-	"token_id": "<saved_token_id from One Click Initial Transaction Response>",
+	"token_id": "<nilai saved_token_id dari respon tansaksi pertama One Click>",
   }
 }'
 ```
@@ -486,7 +487,7 @@ curl -X POST \
 #### Respon Charge dan Notifikasi Transaksi One Click
 Untuk detail respon pada transaksi one click anda dapat mengunjungi halaman [Respon Charge dan Respon Pembayaran Kartu](https://api-docs.midtrans.com/#card-payment-charge-response-and-notifications). Transaksi one click dapat dikatakan berhasi jika sudah mendapatkan status transaksi `capture` dan akan siap menjadi `settlement` pada hari berikutnya.
 
-Pada transaksi one click kedua dan seterusnya anda akan mendapatkan **respon dan notifikasi** seperti dibawah ini:
+Anda akan mendapatkan **respon dan notifikasi** seperti dibawah ini:
 ```json
 {
   "status_code": "200",
@@ -512,31 +513,31 @@ Pada transaksi one click kedua dan seterusnya anda akan mendapatkan **respon dan
 Untuk lebih memahami beberapa use case yang dapat terjadi pada transaksi one click, anda dapat [membaca artikel berikut ini](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
 ### Transaksi Recurring Menggunakan API Register Kartu
-Melalui fitur recurring memungkinkan pelanggan dan anda memiliki opsi untuk menyimpan informasi kartu kredit yang dapat digunakan secara cepat untuk transaksi berikutnya. Anda tidak perlu khawatir, Midtrans akan menyimpan informasi kartu kredit dengan aman. Untuk menggunakan fitur recurring anda hanya perlu menyimpan nilai `saved_token_id yang` didapatkan melalui respon notifikasi Midtrans dan mengasosiasikan dengan data pelanggan anda.
+Melalui fitur recurring memungkinkan pelanggan dan anda memiliki opsi untuk menyimpan informasi kartu kredit yang dapat digunakan secara cepat untuk transaksi berikutnya. Anda tidak perlu khawatir, Midtrans akan menyimpan informasi kartu kredit dengan aman. Untuk menggunakan fitur recurring anda hanya perlu menyimpan nilai `saved_token_id` yang didapatkan melalui respon notifikasi Midtrans dan mengasosiasikan dengan data pelanggan anda.
 
 <details>
-<summary><b>Sequence Diagram</b></summary>
+<summary><b>Diagram Sequence</b></summary>
 <article>
-The overall Register Card API end-to-end payment proccess can be illustrated in following sequence diagram:
+Secara keseluruhan proses pembayaran menggunakan API Register Card dapat anda lihat melalui diagram squence dibawah ini:
 
 ![one click sequence diagram](../../asset/image/core_api-sequence_register_card.png)
 </article>
 </details>
 
-#### Register Card Status Method
-HTTP Method | API Endpoint |
+#### Status Metode Register Card
+Metode HTTP | API Endpoint |
 --- | ---
 GET | `https://api.sandbox.midtrans.com/v2/card/register`
 
-#### Register Card HTTP Request
+#### HTTP Request Register Card
 ```bash
 curl -X GET \
   'https://api.sandbox.midtrans.com/v2/card/register?card_number=5211111111111117&card_exp_month=12&card_exp_year=2021&client_key=<YOUR CLIENT KEY HERE>' \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json'
 ```
-#### Register Card API Response
-You will get the **API response** like the following:
+#### Respon API Register Card
+Anda akan mendapatkan **Respon API** seperti dibawah ini:
 
 ```json
 {
@@ -546,13 +547,14 @@ You will get the **API response** like the following:
     "masked_card": "521111-1117"
 }
 ```
-You need to store `saved_token_id` to your database.
+Anda dapat menyimpan nilai dari parameter `saved_token_id` ke dalam database anda.
 
-#### Register Card Initials Get Card Token
-You need a `saved_token_id` from [Register Card API Response Step](/id/after-payment/advanced-features.mdes.md?id=register-card-api-response).
-To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` on [MidtransNew3ds JS library](/en/core-api/credit-card?id=include-midtrans-js). Implement the following Javascript on our payment page.
+#### Inisialisasi Untuk Mendapatkan Token Kartu Melalui Register Card
+Anda membutuhkan nilai dari parameter `saved_token_id` yang didaptkan dari respon pada saat melakukan [Register Kartu](/id/core-api/advanced-features.md?id=respon-api-register-card).
+
+Untuk mendapatkan `token_id` kartu, kita akan menggunakan fungsi `MidtransNew3ds.getCardToken` pada [MidtransNew3ds JS library](/id/core-api/credit-card.md?id=include-midtrans-js). Yang diimplementasi dengan javascript pada halaman website anda.
 ```javascript
-// card data from customer input, for example
+// contoh input data kartu kredit dari halaman pelanggan
 var cardData = {
   "token_id": <saved_token_id from Register Card API Response Step>,
   "card_cvv": 123,
@@ -575,13 +577,13 @@ var options = {
 // trigger `getCardToken` function
 MidtransNew3ds.getCardToken(cardData, options);
 ```
-If all goes well, we will be able to get card `token_id` inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/advanced-features.md?id=register-card-initials-send-transaction-data-to-api-charge).
+Jika semua berjalan dengan baik, maka anda akan mendapatkan nilai `token_id` kartu pada fungsi `onSuccess` yang akan gunakan sebagai salah satau parameter pada saat melakukan [request API `/charge`](/id/core-api/advanced-features.md?id=register-card-initials-send-transaction-data-to-api-charge).
 
-#### Register Card Initials Send Transaction Data to API Charge
-API request should be done from **Merchant’s backend** to acquire `redirect_url` which will need to proceed to next step, opening 3DS authentication page by providing payment information. There are several components that are required:
+#### Insisialisasi Mengirim Data Transaksi ke API Charge menggunakan Token Register Card.
+Permintaan API harus dilakukan dari **backend Merchant** untuk mendapatkan `redirect_url` yang perlu melanjutkan ke langkah berikutnya, membuka halaman otentikasi 3DS dengan memberikan informasi pembayaran. Ada beberapa komponen yang diperlukan:
 
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -616,24 +618,25 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-Requirement | Description |
+Requirement | Deskripsi |
 --- | ---
-Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
-`order_id` | Transaction order ID, defined from your side
-`gross_amount` | Total amount of transaction, defined from your side
-`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](/id/after-payment/advanced-features.mdes.md?id=register-card-initials-get-card-token)
-`authentication` | Flag to enable the 3D secure authentication.
+Server Key | Dijelaskan pada halaman [akun midtrans](/id/midtrans-account/overview.md?id=melihat-informasi-access-keys)
+`order_id` | Order ID transaksi yang dapat anda isi sesuai dengan kebutuhan anda
+`gross_amount` | Total nilai transaksi
+`token_id` | Representasi informasi kartu kredit pelanggan anda yang didapatkan dari [Mendapatkan Respon Token](/id/core-api/advanced-features.md?id=inisialisasi-untuk-mendapatkan-token-kartu-melalui-register-card)
+`authentication` | Atribut sebagai penanda bahwa transaki yang diminta adalah trasaksi 3D Secure
 
-#### Register Card Initials Open 3DS Authentication Page
-As part of API response, we now have `redirect_url`. It should be opened (displayed to customer) using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant's website frontend.
+#### Inisialisasi Membuka Halaman Otentikasi 3DS Register Kartu
+Setelah anda mendapatkan parameter `redirect_url` dari Respon API, Pelanggan anda diwajibkan untuk membuka halaman 3ds dari nilai parameter `redirect_url` pada halaman website anda dengan menggunakan [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-To open 3DS page we can use `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function. Input the `redirect_url` retrieved previously. Please take a look [Open 3DS Authenticate Page JS Implementation Step](/en/core-api/credit-card?id=open-3ds-authenticate-page-js-implementation) for more details.
+Untuk membuka halaman 3DS anda dapat  menggunakan fungsi `MidtransNew3ds.authenticate` atau `MidtransNew3ds.redirect` dengan memberikan input parameter `redirect_url`. Untuk lebih detail Anda dapat mengunjungi halaman [Membuka Halaman Otentikasi 3DS Dengan Implementasi JS](/id/core-api/credit-card.md?id=_3-membuka-halaman-3ds)
 
 #### Register Card Following Transaction
-When it's time to charge another transaction, retrieve `saved_token_id` from database ([Register Card API Response](/id/after-payment/advanced-features.mdes.md?id=register-card-api-response)).
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+Saat anda ingin melakukan transaksi berikutnya, ada dapat menggunakan nilai `saved_token_id` yang telah anda simpan di database anda sebelumnya. ([Respon API Register Card](/id/core-api/advanced-features.md?id=respon-api-register-card)).
+
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge)):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -667,31 +670,32 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-### Recurring Transaction with Subscriptions API
-[Recurring Transaction with Subscriptions API](https://api-docs.midtrans.com/#recurring-api)
+### Transaksi Recurring Menggunakan API Subscriptions
+[Transaksi Recurring Menggunakan API Subscriptions](https://api-docs.midtrans.com/#recurring-api)
 
 <!-- <TODO: elaborate Subscriptions API> -->
 
-### Two Clicks Transaction
-You can allow customer to save their card credentials (**except card cvv**) for easier and faster future transactions. Card credentials will be saved securely on Midtrans side. Merchant will only need to store and associate each unique customer with unique `saved_token_id` from initial Charge Response.
+### Transaksi Two Clicks
+Melalui two click memungkinkan pelanggan dan anda memiliki opsi untuk menyimpan informasi kartu kredit **kecuali cvv** yang dapat digunakan secara cepat untuk transaksi berikutnya. Anda tidak perlu khawatir, Midtrans akan menyimpan informasi kartu kredit dengan aman. Untuk menggunakan fitur two click anda hanya perlu menyimpan nilai `saved_token_id` yang didapatkan melalui respon notifikasi Midtrans dan mengasosiasikan dengan data pelanggan anda.
 
 <details>
-<summary><b>Sequence Diagram</b></summary>
+<summary><b>Diagram Sequence</b></summary>
 <article>
-The overall Two Clicks end-to-end payment proccess can be illustrated in following sequence diagram:
+Seluruh ilustrasi proses transaksi Two Click dapat anda lihat pada diagram sequence dibawah ini:
 
-![one click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
+![two click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
 </article>
 </details>
 
-#### Retrieve *token_id*
-You need a `token_id` from [Get Card Token Step](/en/core-api/credit-card.md?id=get-card-token) to charge with One Click feature.
+#### Mendapatkan *token_id*
+Untuk charge menggunakan fitur two click, Anda membutuhkan nilai dari parameter `token_id` yang didapatkan dari langkah [Mendapatkan Card Token](/en/core-api/credit-card.md?id=get-card-token).
 
-#### Two Clicks Initials Charge Request
-Add additional attribute in charge request credit_card object when charging the initial transaction for Two Clicks feature.
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+#### Inisialisasi Request Charge Transaksi Two Clicks
+Untuk mendapatkan nilai `saved_token_id` transaksi two click melalui respon/notifikasi, anda dapat menambahkan paramater seperti dibawah ini.
+
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge)):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -702,7 +706,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/core
   "credit_card": {
 	"token_id": "<token_id from Get Card Token Step>",
 	"authentication": true,
-	"save_token_id": true     // <-- To flag that token is saved during initial charge
+	"save_token_id": true     // <--Flag untuk mengaktifkan simpan token kartu kredit selama transaksi
   }
 }
 ```
@@ -729,7 +733,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-#### Two Clicks InitialsTwo Clicks Initials  Charge Response
+#### Respon Charge Inisialisasi Transaksi Two Click
 ```json
 {
     "status_code": "201",
@@ -750,18 +754,18 @@ curl -X POST \
 }
 ```
 
-#### Two Clicks Initials Open 3DS Authentication Page
-As part of API response, we now have `redirect_url`. It should be opened (displayed to customer) using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant's website frontend.
+#### Membuka Halaman Otentikasi 3DS Pada Transksi Insialisasi Two Cick 33333
+Pada saat anda mendapatkan repson request transaksi pertama two click anda akan mendapatkan parameter `redirect_url`. Anda diwajibkan untuk menampilkan halaman `redirect_url` kepada pelanggan anda. Untuk menampilkan halaman Otentikasi 3DS pada website anda dengan mudah, Anda dapat menggunakan library javascript [MidtransNew3ds](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-To open 3DS page we can use `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function. Input the `redirect_url` retrieved previously. Please take a look [Open 3DS Authenticate Page JS Implementation Step](/en/core-api/credit-card?id=open-3ds-authenticate-page-js-implementation) for more details.
+Dengan menggunakan salah satu fungsi pada midtrans js `MidtransNew3ds.authenticate` atau `MidtransNew3ds.redirect`. Lalu berikan nilai yang ada pada atribut `redirect_url`. Untuk penjelasan lebih detail silahkan mengunjungi halaman [Implementasi JS 3DS Authenticate](/id/core-api/credit-card.md?id=_3-Membuka-halaman-3DS)
 
-#### Two Clicks Initials 3DS Authenticate JSON Response
-JSON Attribute | Description |
+#### Respon JSON pada Inisialisasi Transaksi Two Click 3DS
+Atribut JSON | Deskripsi |
 --- | --- 
-saved_token_id | Token ID of a credit card to be charged for the following transaction	
-saved_token_id_expired_at | Expiry date of the Token ID
+saved_token_id | Token ID dari kartu kredit yang akan digunakan untuk transaksi berikutnya
+saved_token_id_expired_at | Masa expire token ID.
 
-You will get the **response and notifications** like the following:
+Pada saat pertama kali/inisialisasai charge transaksi two click, Anda akan mendapatkan **respon dan notifikasi** seperti dibawah ini:
 ```json
 {
   "status_code": "200",
@@ -786,14 +790,14 @@ You will get the **response and notifications** like the following:
   "channel_response_message": "Approved"
 }
 ```
-You need to store `saved_token_id` to your Database.
+Anda dapat menyimpan nilai dari parameter `saved_token_id` kedalam database anda.
 
-#### Two Clicks Following Transaction Get Card Token
-You need `saved_token_id` which you can get from [Two Clicks Initial Charge Response](/id/after-payment/advanced-features.mdes.md?id=two-clicks-initials-3ds-authenticate-json-response).
+#### Inisialisasi Untuk Mendapatkan Token Kartu Melalui Transaksi Two CLick
+Anda membutuhkan nilai dari parameter `saved_token_id` yang didapatkan dari [Respon Insialisasi Charge Transaksi Two Click](/id/core-api/advanced-features.md?id=respon-json-pada-inisialisasi-transaksi-two-click-3ds).
 
-To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` function. Implement the following Javascript on our payment page.
+Untuk mendapatkan `token_id` kartu, kita akan menggunakan fungsi `MidtransNew3ds.getCardToken` pada [MidtransNew3ds JS library](/id/core-api/credit-card.md?id=include-midtrans-js). Yang diimplementasi dengan javascript pada halaman website anda.
 ```javascript
-// card data from customer input, for example
+// contoh input data kartu kredit dari halaman pelanggan
 var cardData = {
   "token_id": <saved_token_id from Two Clicks Initials Charge Response>,
   "card_cvv": 123,
@@ -816,16 +820,17 @@ var options = {
 // trigger `getCardToken` function
 MidtransNew3ds.getCardToken(cardData, options);
 ```
-If all goes well, we will be able to get card `token_id` inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
+Jika semua berjalan dengan baik, maka anda akan mendapatkan nilai `token_id` kartu pada fungsi `onSuccess` yang akan gunakan sebagai salah satau parameter pada saat melakukan [request API `/charge`](/id/core-api/credit-card.md?id=request-charge-api).
 
-### BIN Filter
-BIN filter is a feature that allows the merchant to accept only Credit Cards within specific set of BIN numbers, it is useful for certain bank promo/discount payment by accepting only credit cards issued by that bank. BIN (Bank Identification Number) is the **first 1-6 digits of a card number**, which identifies the bank that issues the card. A bank generally has more than one BIN.
 
-To use this feature, merchant needs to accumulate the list of BIN that accepts the promotion or simply uses the issuing bank's name. This transaction can only be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
+### Filter BIN
+Filter BIN Bank Identifier Number adalah fitur yang memungkinkan anda hanya menerima pembayaran dengan Kartu Kredit yang telah diset pada parameter BIN. Biasanya BIN digunakan untuk pembayaran promo / diskon tertentu yang hanya dapat menerima pembayaran dengan kartu kredit bank tersebut. BIN mempunyai panjang **1-6 digit angka**, yang mengidentifikasi bank penerbit kartu. Pada umumnya Bank memiliki lebih dari satu BIN.
 
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+Untuk menggunakan fitur filter BIN, anda harus menuliskan daftar BIN atau bisa juga dengan menggunakan nama bank penerbit yang kemudian kumupulan daftar nilai bin tersebut menjadi nilai untuk parameter `bins`. Sehingga transaksi tersebut hanya dapat dibayar secara eksklusif, sesuai dengan kartu kredit yang telah didaftarkan didalam parameter `bins`.
+
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card.md?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -864,17 +869,18 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-?> Note: We already populate BIN number for bni, mandiri, cimb, bca, and other partner bank. You can add the bank name as bins value.
+?> Catatan: Kami sudah melakukan automasi nomor BIN untuk sebagian besar bank seperti bni, mandiri, cimb, bca, dan bank mitra lainnya. Anda dapat menambahkan nama bank sebagai nilai pada parameter `bins`
 
-### Installment Payment
-#### Online Installment
-This is the type of Installment where the Card Issuer and Acquiring Bank is the same entity (e.g: BNI Card and BNI Acquiring bank).
 
-To activate the installment feature, merchant are required to have agreement with the bank. For online installments, the bank will issue special MID for installment. By using this installment MID, the transaction will be converted automatically into an installment. Please consult to Midtrans Activation Team for installment MID. If MID is ready, merchant simply need to add the installment parameter.
+### Fitur Cicilan
+#### Cicilan Online / Online Installment
+Installment Online adalah pembayaran angsuran/cicilan dimana bank penerbit kartu dan Acquiring Bank adalah entitas yang sama (mis: Kartu BNI dan Acquiring Bank BNI)
 
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+Untuk mengaktifkan fitur Online Installment, anda harus memiliki perjanjian dengan bank. Bank akan mengeluarkan MID khusus untuk cicilan / Online Installment. Dengan menggunakan MID ini, transaksi akan dikonversi secara otomatis menjadi cicilan/Online Installment. Silakan berkonsultasi dengan Tim Aktivasi Midtrans untuk MID Online Installment. Jika MID sudah siap, anda hanya perlu menambahkan parameter Online Installment pada saat Request API.
+
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -913,16 +919,16 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-#### Offline Installment
-This is the type of Installment where the Card Issuer and Acquiring Bank don't have to be same entity (e.g: BNI Card and Mandiri Acquiring Bank).
+#### Cicilan Offline / Offline Installment
+Offline Installment adalah jenis installment dimana Penerbit Kartu dan Acquiring Bank bukan entitas yang sama (mis: Kartu BNI dan Acquiring Bank Mandiri).
 
-To allow installment feature with banks which do not issue MID Installment, merchant can use offline installment feature. With offline installment feature, the transaction will be charged in full amount and the transaction will be converted into installment later. Please consult to Midtrans Activation Team for installment agreement first.
+Offline Installment memungkinkan fitur cicilan / installment dengan bank yang tidak mengeluarkan MID Installment. Dengan fitur installment offline, transaksi akan dibebankan dalam jumlah penuh dan nantinya transaksi akan diubah menjadi angsuran. Silakan berkonsultasi dengan Tim Aktivasi Midtrans untuk perjanjian offline installment
 
-Merchant simply need to add the `installment` parameter with combination of bin filter feature. The purpose of bin filter is to limit certain cards from being allowed to do offline installment, based on the agreement between merchant and issuing banks.
+Untuk mengaktifkan fitur offline installment, anda hanya perlu menambahkan `installment` dengan kombinasi fitur filter bin. Tujuan bin filter adalah untuk membatasi kartu tertentu yang dapat melakukan cicilan offline, berdasarkan perjanjian antara anda dan acquiring bank.
 
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "credit_card",
@@ -961,21 +967,22 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-#### Definition
-Param | Type | Description |
+#### Definisi Parameter
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-token_id | String | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response).
-authentication | Boolean | Flag to enable the 3D secure authentication.
-bank | String | Acquiring bank. To make sure transaction is going on-us.<br>Else, it will be treated as offline installment.
-installment_term | Integer | Installment Tenor.
-bins | Array | List of credit card's BIN (Bank Identification Number) that is allowed for transaction.
+token_id | String | Representasi informasi kartu kredit pelanggan yang didapatkan dari [Mendapatkan Respo Token Kartu](/en/core-api/credit-card.md?id=get-card-token-response).
+authentication | Boolean | Flag untuk mengaktifkan autentikasi 3D secure.
+bank | String | Bank acquiring. Untuk memastikan transaksi masuk ke dalam acquirnig bank yang sesuai.<br>Jika tidak maka transaksi akan ditandai sebagai transaksi offline installment.
+installment_term | Integer | Tenor Cicilan.
+bins | Array | Daftar informasi BIN (Bank Identification Number) kartu kredit yang diperbolehkan untuk digunakan pada transaksi.
 
-### Pre-Authorization Payment
-Pre-authorization feature means customer's fund will not directly deducted after transaction, but it's amount/limit will be temprorary reserved (blocked). Then merchant can initiate "capture" action later via [capture API](https://api-docs.midtrans.com/#capture-transaction). By default fund reservation will be released after 7 days if there is no "capture" action for that transaction.
+### Pembayaran Pre-Authorization
+Fitur Pre-Authorization memungkinkan dana kartu kredit pelanggan tidak akan langsung dipotong setelah transaksi selesai, tetapi jumlah limit kartu sementara akan ditahan (reserved). Kemudian anda dapat melakukan "capture" melalui [Core API](https://api-docs.midtrans.com/#capture-transaction) Midtrans yang akan melepas dana yang telah di-reserved masuk ke acquiring bank. Jika tidak ada tindakan "capture" untuk transaksi Pre-Authorization, secara default setelah 7 hari dana reserved akan dirilis otomatis.
 
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/credit-card?id=_2-kirim-data-transaksi-ke-api-charge):
+
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "transaction_details": {
@@ -1011,13 +1018,13 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-#### Definition
-Param | Type | Description |
+#### Definisi Parameter
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-token_id | String | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response).
-bank | String | Acquiring bank. To make sure transaction is going on-us.<br>Else, it will be treated as offline installment.
-authentication | Boolean | Flag to enable the 3D secure authentication.
-type | String | Attribute to enable the pre-authorization feature. Valid value `authorize`.
+token_id | String | Representasi informasi kartu kredit pelanggan yang didapatkan dari [Mendapatkan Respo Token Kartu](/en/core-api/credit-card.md?id=get-card-token-response).
+bank | String | Bank acquiring. Untuk memastikan transaksi masuk ke dalam acquirnig bank yang sesuai.<br>Jika tidak maka transaksi akan ditandai sebagai transaksi offline installment.
+authentication | Boolean | Flag untuk mengaktifkan autentikasi 3D secure.
+type | String | Atribut untuk mengaktifkan fitur pre-authorizatio. Nilai valid adalah `authorize`.
 
 ## Credit Card - Full PAN
 [Credit Card - Full PAN](https://api-docs.midtrans.com/#credit-card-full-pan)
@@ -1025,12 +1032,12 @@ type | String | Attribute to enable the pre-authorization feature. Valid value `
 <!-- <TODO: elaborate Full PAN> -->
 
 ## GoPay
-### Redirect Customer From Gojek App
-After GoPay payment completed, by default customer will remain on Gojek app, so they need to manually close Gojek app to switch back to merchant web/app. Using parameter `gopay.callback_url` will allow customer to be automatically redirected to merchant web/app from Gojek app.
+### Redirect Pelanggan Anda Dari Aplikasi Gojek
+Setelah pembayaran dengan Gopay selesai, secara default pelanggan anda akan tetap berada di aplikasi Gojek, perlu secara manual untuk kembali ke halaman website atau aplikasi anda. Namun untuk dapat kembali secara otomatis ke halaman web atau aplikasi anda, bisa menggunakan parameter `gopay.callback_url` 
 
-Example of the JSON param (this param is used during [API Request Step](/en/core-api/e-wallet.md?id=charge-api-request)):
+Berikut adalah contoh parameter JSON pada saat melakukan [Request API](/id/core-api/e-wallet.md?id=charge-api-request)):
 <!-- tabs:start -->
-#### **JSON Param**
+#### **Parameter JSON**
 ```json
 {
   "payment_type": "gopay",
@@ -1064,20 +1071,19 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-You can input `callback_url` value with http/https url protocol for website, or Deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
+Anda dapat menambahkan nilai pada parameter `callback_url` dengan alamat URL website menggunakan protokol http/https atau bisa juga dengan protokol Deeplink untuk kembali ke aplikasi mobile anda seperti berikut ini `"callback_url": "tokoecommerce://gopay_finish/"`
 
-> **Note**: 
-> The final redirect url will be appended with query parameter like `?order_id=xx&result=success`. Possible `result` values: success or failure.
+> **Catatan**: 
+> Alamat URL yang telah anda tambahkan pada parameter `callback_url` secara otomatis akan ditambahkan parameter `?order_id=xx&result=success`.  Nilai parameter `result` dapat bernilai success atau failure.
 > 
-> For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`. 
+> Sebagai contoh URL anda akan terlihat sebagai berikut ini: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`.
 > 
-> You could utilize those information to display custom message to your customer on your finish url.
+> Anda dapat memanfaatkan nilai yang ditambakan pada parameter untuk menampilkan pesan tertentu kepada pelanggan anda.
 
 ## Bank Transfer / VA
-### Specify VA Number and VA Description
-By default Midtrans will randomize VA number used for bank transfer transaction. In some cases, you might want to specify/customize VA Number for Bank Transfer payment channels. You can do that with the following parameters.
+### Spesifik VA Number and VA Description
+Untuk bank transfer secara default Midtrans akan memberikan nomor virtual account secara acak. Dalam beberapa situasi anda memerlukan kustomisasi nomor VA silahkan menambahkan parameter dibawah ini pada saat melakukan [API Request](/id/core-api/bank-transfer.md?id=charge-api-request).
 
-Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **BCA**
 ```json
@@ -1105,15 +1111,15 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
    }
 ...
 ```
-| Parameter | Type | Description |
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-bank | String(255)<br>(***required***) | Bank name which process bank transfer transaction.
-va_number | String(255)<br>(***optional***) | Custom va number assigned by merchant.<br>**Length should be within 1 to 11**.
-inquiry	| JSON Array(10)<br>(***optional***) | Free texts will be displayed on ATM (if supported)<br>when customer attempt to check/inquire the VA number.
-payment	| JSON Array(10)<br>(***optional***) | Free texts will be displayed on ATM (if supported)<br>when customer attempt to pay the VA number.
-id | String(50)<br>(***required***)	| Free text message in Bahasa Indonesia.
-en | String(50)<br>(***required***) | Free text message in English.
-sub_company_code | String<br>(***optional***) | BCA sub company code directed for this transactions<br>**NOTE:** Default is 00000.
+bank | String(255)<br>(***required***) | Nama bank yang akan memproses transaksi.
+va_number | String(255)<br>(***optional***) | Custom va number yand diajukan oleh merchant. **Panjang karakter harus diantara 1 sampai dengan 11**.
+inquiry	| JSON Array(10)<br>(***optional***) | Jika support, pada saat pelanggan cek / inquire no VA nilai dari parameter akan tampil dilayar ATM.
+payment	| JSON Array(10)<br>(***optional***) | Jika support, pada saat pelanggan melakukan pembayaran dengan no VA, nilai dari parameter tersebut akan tampil dilayar ATM
+id | String(50)<br>(***required***)	| Text bebas dalam Bahasa Indonesia.
+en | String(50)<br>(***required***) | Text bebas dalam bahasa Inggris.
+sub_company_code | String<br>(***optional***) | Kode sub BCA yang diarahkan untuk transaksi ini<br>**Catatan:** Nilai Default adalah 00000.
 
 #### **BNI**
 ```json
@@ -1124,10 +1130,10 @@ sub_company_code | String<br>(***optional***) | BCA sub company code directed fo
   }
 ...
 ```
-| Parameter | Type | Description |
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-bank | String(255)<br>(***required***) | Bank name which process bank transfer transaction.
-va_number | String(255)<br>(***optional***) | Custom va number assigned by merchant. **Length should be within 1 to 8**.
+bank | String(255)<br>(***required***) | Nama bank yang akan memproses transaksi.
+va_number | String(255)<br>(***optional***) | Custom va number yand diajukan oleh merchant. **Panjang karakter harus diantara 1 sampai dengan 8**.
 
 #### **Mandiri Bill**
 ```json
@@ -1144,16 +1150,16 @@ va_number | String(255)<br>(***optional***) | Custom va number assigned by merch
 	}
 ...
 ```
-| JSON Attribute | Type | Description |
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-bill_info1 | String<br>(***required***) | Label 1. Mandiri only allows 10 characters.<br>Exceeding characters will be **truncated**.
-bill_info2 | String<br>(***required***) | Value for Label 1. Mandiri only allows 30 characters.<br>Exceeding characters will be **truncated**.
-bill_info3 | String<br>(***optional***) | Label 2. Mandiri only allows 10 characters.<br>Exceeding characters will be **truncated**.
-bill_info4 | String<br>(***optional***) | Value for Label 2. Mandiri only allows 30 characters.<br>Exceeding characters will be **truncated**.
-bill_info5 | String<br>(***optional***) | Label 3. Mandiri only allows 10 characters.<br>Exceeding characters will be **truncated**.
-bill_info6 | String<br>(***optional***) | Value for Label 3. Mandiri only allows 30 characters.<br>Exceeding characters will be **truncated**.
-bill_info7 | String<br>(***optional***) | Label 4. Mandiri only allows 10 characters.<br>Exceeding characters will be **truncated**.
-bill_info8 | String<br>(***optional***) | Value for Label 4. Mandiri only allows 30 characters.<br>Exceeding characters will be **truncated**.
+bill_info1 | String<br>(***required***) | Label 1. Panjang karakter yang diperbolehkan hanya 10 karakter.<br>Jika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info2 | String<br>(***required***) | Nilai untuk Label 1. Panjang karakter yang diperbolehkan hanya 30 karakter.<br>ika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info3 | String<br>(***opsional***) | Label 2. Panjang karakter yang diperbolehkan hanya 10 karakter.<br>Jika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info4 | String<br>(***opsional***) | Value for Label 2. Panjang karakter yang diperbolehkan hanya 30 karakter.<br>ika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info5 | String<br>(***opsional***) | Label 3. Panjang karakter yang diperbolehkan hanya 10 karakter.<br>Jika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info6 | String<br>(***opsional***) | Value for Label 3. Panjang karakter yang diperbolehkan hanya 30 karakter.<br>ika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info7 | String<br>(***opsional***) | Label 4. Panjang karakter yang diperbolehkan hanya 10 karakter.<br>Jika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
+bill_info8 | String<br>(***opsional***) | Value for Label 4. Panjang karakter yang diperbolehkan hanya 30 karakter.<br>ika lebih dari yang telah ditentukan akan otomatis **dihilangkan**.
 
 #### **Permata**
 ```json
@@ -1167,19 +1173,20 @@ bill_info8 | String<br>(***optional***) | Value for Label 4. Mandiri only allows
 	}
 ...
 ```
-| Parameter | Type | Description |
+| Parameter | Tipe | Deskripsi |
 --- | --- | ---
-bank | String(255)<br>(***required***) | Bank name which process bank transfer transaction.
-va_number | String(10)<br>(***optional***) | Custom va number assigned by merchant. **Length should be 10**.<br>Only supported for b2b VA type.
-recipient_name | String(20)<br>(***optional***) | Recipient name shown on the payment details.<br>**NOTE:** Default is merchant name.
+bank | String(255)<br>(***required***) | Nama bank yang akan memproses transaksi.
+va_number | String(10)<br>(***opsional***) | Custom va number yand diajukan oleh merchant. **Panjang karakter harus 10 karakter**.<br>Hanya support untuk tipe VA b2b.
+recipient_name | String(20)<br>(***opsional***) | Nama penerima pada detail pembayaran.<br>**NOTE:** Default adalah nama merchant.
 <!-- tabs:end -->
 
-Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part is the part that can be customized.
+Nomor virtual account berisi company code dan unique code. Contoh VA Number : `{91012}{12435678}` bagian pertama adalah *company code* dan bagian kedua adalah *unique code*. Hanya unique code yang bisa di kustomisasi untuk pembayaran bank **BCA**, **BNI** dan **Permata** (hanya untuk transaksi b2b).
 
-* Only digits are allowed.
-* Different banks have different specs on their custom VA numbers. Please see the documentation on the respective banks.
-* If the number provided is already utilized for another order, then a different unique number will be used instead.
-* If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
-* If the number provided is shorter than required, then the number will be prefixed with zeros.
+* Nilai unique code hanya dapat diisi dengan angka.
+* Setiap bank memiliki aturan dan spesifikasi custom VA yang berbeda. Mohon untuk melihat dokumentasi bank yang akan digunakan sebelum melakukan custom va.
+* Jika nomor VA yang direquest sudah digunakan untuk transaksi lain, maka akan ditampilkan unique code secara random.
+* Jika nomor VA yang direquest lebih panjang dari yang dibutuhkan, maka angka yang tidak perlu akan dipangkas.
+* Jika nomor VA yang direquest lebih pendek dari yang dibutuhkan, maka nomor tersebut akan diawali dengan nol.
+* Jika anda melakukan request charge dengan custom VA sebelumnya dan transaksi sebelumnya belum dilakukan pembayaran atau `/cancel` transaksi, maka Midtrans akan memberikan random unique VA Number.
 
-Note: On Production mode, not all Bank support custom VA number, it depends on the agreement, please consult with Midtrans Activation team for further info.
+Catatan: Pada environment Production, tidak semua Bank terdapat fitur custom VA, beberapa bank bergantung kepada perjanjian yang dilakukan sebelumnya. Untuk info lebih lanjut, anda dapat konsultasiskan dengan TIM Aktivasi Midtrans.
