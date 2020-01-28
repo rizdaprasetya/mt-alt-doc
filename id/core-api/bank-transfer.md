@@ -30,7 +30,7 @@ Untuk mendapatkan *virtual account* *Request API charge* akan dilakukan melalui 
 
 
 ### Charge API request
-Berikut contoh dari request API `/charge` dalam CURL, silahkan implementasikan sesuai bahasa pemrograman backend Anda (Anda juga bisa cek [library-library pemrograman yang tersedia](/en/developer_resource/library_plugin)).
+Berikut contoh dari request API `/charge` dalam CURL, silahkan implementasikan sesuai bahasa pemrograman backend Anda (Anda juga bisa cek [library-library pemrograman yang tersedia](/id/developer_resource/library_plugin)).
 
 #### Request Details
 Tipe | Nilai
@@ -52,7 +52,7 @@ Authorization: Basic AUTH_STRING
 
 Atribut          | Deskripsi
 ---------------- | ---
-Server Key       | Dijelaskan pada halaman [akun midtrans](/id/midtrans-account/overview.md)
+Server Key       | Dijelaskan pada halaman [akun midtrans](/id/midtrans-account/overview.md?id=melihat-informasi-access-keys)
 `order_id`       | Order ID transaksi yang dapat anda isi sesuai dengan kebutuhan anda
 `gross_amount`   | Total nilai transaksi
 `payment_type`   | Berikan nilai `bank_transfer` sebagai metode pembayaran
@@ -243,7 +243,7 @@ Request HTTP POST dengan body JSON akan dikirimkan ke notification url Merchant 
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/id/)
 </div>
 
 ## Specify VA Number
@@ -256,7 +256,7 @@ Nomor virtual account berisi company code dan unique code. Contoh VA Number : `{
 * Jika nomor VA yang direquest lebih pendek dari yang dibutuhkan, maka nomor tersebut akan diawali dengan nol.
 * Jika anda melakukan request charge dengan custom VA sebelumnya dan transaksi sebelumnya belum dilakukan pembayaran atau `/cancel` transaksi, maka Midtrans akan memberikan random unique VA Number.
 
-Untuk bank transfer secara default Midtrans akan memberikan nomor virtual account secara acak. Dalam beberapa situasi anda memerlukan custom VA silahkan menambahkan parameter dibawah ini pada saat melakukan [API Request](/en/core-api/bank-transfer.md?id=charge-api-request).
+Untuk bank transfer secara default Midtrans akan memberikan nomor virtual account secara acak. Dalam beberapa situasi anda memerlukan custom VA silahkan menambahkan parameter dibawah ini pada saat melakukan [API Request](/id/core-api/bank-transfer.md?id=charge-api-request).
 
 <!-- tabs:start -->
 #### **BCA**
@@ -319,7 +319,7 @@ Link: [*Definisi lebih detail mengenai transaction_status*](https://api-docs.mid
 
 <div class="my-card">
 
-#### [Fitur lain Core API &#187;](/en/core-api/advanced-feature)
+#### [Fitur lain Core API &#187;](/id/core-api/advanced-feature)
 </div>
 
 For more detail: [Dokumentasi lengkap Core API &#187;](https://api-docs.midtrans.com/)
