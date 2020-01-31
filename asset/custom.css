@@ -153,3 +153,18 @@ iframe{
     margin-left: -2em !important;
     border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
 }
+
+/* @HACK: Override main logo on sidebar for nicer smaller img */
+.sidebar>h1 img {
+    max-width: 75%;
+}
+/* @HACK: Override image on sidebar for product logo, for nicer smaller img */
+.sidebar-nav ul>li>strong>img {
+    height: 1.5rem;
+    padding-right: 0.4rem;
+}
+/* @HACK: Vertical align center between img & text on navbar section menu*/
+.sidebar-nav ul>li>strong {
+    display: flex;
+    align-items: center;
+}

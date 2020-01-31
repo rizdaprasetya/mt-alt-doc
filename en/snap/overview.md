@@ -15,7 +15,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
         onError: function(res){ console.log('Snap result:',res) },
       });
     })
-    .catch( e=>console.error(e) )
+    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
     .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>

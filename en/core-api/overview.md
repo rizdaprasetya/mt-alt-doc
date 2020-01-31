@@ -1,3 +1,5 @@
+<!-- TODO: standardize linking accross Core API section -->
+<!-- TODO: replace any <img> tag with markdown image format -->
 Midtrans’ Core API is a RESTful Web Service used as a communication bridge between merchant and our payment channels. By using our Core API services, our partners can fully customize their payment page, without any redirection to Midtrans’ page. Setup is easy. Core API is suitable for medium sized businesses to large enterprises.
 
 ## Integration
@@ -8,7 +10,7 @@ Choose any of one integration method below that is suitable to your liking:
 <br>
 <div class="my-card">
 
-#### [Credit Card Integration Guide](en/core-api/credit-card.md)
+#### [Credit Card Integration Guide](/en/core-api/credit-card.md)
 </div>
 <div class="my-card">
 
