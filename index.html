@@ -69,7 +69,6 @@
                  */
                 function (hook, vm) {
                     hook.doneEach(function(){
-                        console.log(vm);
                         // @HACK: use $docsify.logo as assetPath source, use hard coded .svg extension
                         // might break when $docsify.logo is changed.
                         let assetPath = window.$docsify.logo.replace(/(.*)\/.*?\.svg/g,"$1/");

@@ -44,6 +44,7 @@ Step by step guide to install Snap integration plugin to your CMS of choice, wil
 
 #### [ Wordpress - Easy Digital Download](#wordpress-easy-digital-download)
 </div>
+<!-- TODO: explain what is notifcation URL for non dev user. Why it is important, and what's the benefit of using notification url -->
 <hr><br><br>
 
 ### Wordpress - WooCommerce

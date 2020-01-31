@@ -66,6 +66,7 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 
 ## Misc
 
+<!-- TODO: write this page -->
 <div class="my-card">
 
 #### [Integrate Payment to POS &#187;](/en/pos/overview.md)
@@ -80,32 +81,39 @@ Here are some popular use cases that may help you choose
 
 #### Accept payment on your e-commerce web, app
 
-Accept payment from your customer straight within your website/app with [Card Transaction, Bank Transfer, Direct Debit, E-Wallet, and more](https://midtrans.com/payments) as payment methods. Use [Snap beautiful interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your web and app to accept payment securely in a few simple steps.
+Accept payment from your customer straight within your website/app with Card Transaction, Bank Transfer, Direct Debit, E-Wallet, [and more](https://midtrans.com/payments) as payment methods. Use [Snap beautiful interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your web and app to accept payment securely in a few simple steps.
 
 #### Subscription / Recurring Service
 
-<TODO: elaborate>
+Charge customer for recurring payment. For example payment of repeat item purchase, subscription, membership, or billing with flexible interval period according to your business needs. So your customer can be automatically charged via Midtrans, without asking your customer to do manual payment each time. Recurring payment is available via [Snap](/en/snap/advanced-feature.md#recurring-subscription-card-transaction) and [Core API](/en/core-api/advanced-features.md#recurringone-click-transaction) product. \**Recurring only available for some specific payment channels*.
 
 #### Sending Payment Invoices via Email, Link, Whatsapp, Instagram, Social Media, Messaging App, etc
-
-<TODO: elaborate payment link or maybe also selly?>
+<!-- <TODO: elaborate payment link or maybe also selly?> -->
+Accept payment and invoice your customer via [Payment Link](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers via your favorite messaging app. whether you are selling stuff on social media, freelancer, service provider, teacher, business that need to quickly invoice payment to specific customers, etc.
 
 #### Accept payment on Point of Sales, IoT devices, etc
 
-<TODO: elaborate>
+For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium.
 
 #### Paying out users/merchants on your platform
-
-<TODO: elaborate iris>
+<!-- <TODO: elaborate iris> -->
+Owning Ecommerce marketplace/platform (whether it is B2C, B2B, or any other model) that connect services/goods seller to buyer, will require solution to easily manage payout or disburse fund to huge number of sellers and buyers. We got this covered with easy to use, automation ready [Fund Disbursement System: Iris](https://midtrans.com/iris).
 
 #### Paying out vendors/contractors of your business
+<!-- <TODO: elaborate iris> -->
+Owning big business (whether online, offline, or traditional business) means having to deal with a lot of vendors, contractors, and suppliers. It require solution to easily manage payment-out or transfer of fund to them. We got this covered with easy to use, automation ready [Fund Disbursement System: Iris](https://midtrans.com/iris).
 
-<TODO: elaborate iris>
-
-#### <Add More Use Case>
+<!-- < TODO:Add More Use Case> -->
+<!-- Case Topup -->
 
 # Non Technical Person? 
 
-<TODO: elaborate plugin, payment link, or snap plugin for non-dev reader>
+<!-- <TODO: elaborate plugin, payment link, or snap plugin for non-dev reader> -->
 
-Not familiar with coding, technical integration, and all the complexity? We have a way for you to integrate without any technical knowledge.
+Not familiar with programming, technical integration, and all the complexity? We have a way for you to integrate without any technical knowledge:
+
+- Simplest way to use Midtrans to accept payment without website or technical knowledge is via [**Payment Link**](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers.
+
+- Did you know you can use ready to use Content Management System (CMS) to create online store? Are you familiar with CMS like: **Wordpress - Woocommerce, Magento, Prestashop, Opencart, WHMCS**, etc. ? You can setup those CMS online mostly without any programming knowledge, and then install Midtrans plugin/extension to start accepting payment right away! With useful feature of payment status on the CMS will automatically be updated in accordance to real time payment status provided by Midtrans. Check out [Midtrans list of supported CMS plugin/extension](/en/snap/with-plugins.md).
+
+- Did you know there are also 3rd party Ecommerce solution like **Shopify, Sirclo, Jejualan**, etc. that are ready to use, easy to use, user friendly, and require very minimal setup? You can simply integrate Midtrans to start accepting payment with those 3rd party platform. Check out [Midtrans list of supported 3rd party Ecommerce platform](/en/snap/platform/overview.md).
