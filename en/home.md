@@ -5,7 +5,7 @@
 Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
 
 <!-- TODO: add more image for each product so it doesn't look to plain? -->
-## Accept Online Payments on Your Website and App
+## Accept Online Payments on Your Website and App {docsify-ignore}
 
 <div class="my-card">
 
@@ -55,7 +55,7 @@ Not a developer, or already using e-commerce CMS? Integrate to Midtrans via your
 Whether you need to invoice your customers or want to receive payments without having a website, you can do it with Midtrans - as easy as sharing a link that redirects your customers to Midtrans's payment page. No technical integration is required, create links with just a few taps or clicks from our dashboard with customizable payment details just like an invoice.
 </div>
 
-## Pay Out / Disburse Fund
+## Pay Out / Disburse Fund {docsify-ignore}
 
 <div class="my-card">
 
@@ -64,7 +64,7 @@ Whether you need to invoice your customers or want to receive payments without h
 Pay out money to your partners, sellers, customers, vendors or any third parties with our Iris Disbursement system. Whether you have a marketplace or business needing to disburse money to your sellers, doing payrolls transfers to your employees, all of your payout needs can be catered by Iris. Iris supports disbursing money to Gopay accounts or any kind of bank accounts in Indonesia.
 </div>
 
-## Misc
+## Misc {docsify-ignore}
 
 <!-- TODO: write this page -->
 <div class="my-card">
@@ -75,7 +75,7 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 <br> <br>
 
 
-# Choose based on Business Use Cases
+# Choose based on Business Use Cases {docsify-ignore}
 
 Here are some popular use cases that may help you choose
 
@@ -106,7 +106,7 @@ Owning big business (whether online, offline, or traditional business) means hav
 <!-- < TODO:Add More Use Case> -->
 <!-- Case Topup -->
 
-# Non Technical Person? 
+# Non Technical Person? {docsify-ignore}
 
 <!-- <TODO: elaborate plugin, payment link, or snap plugin for non-dev reader> -->
 
