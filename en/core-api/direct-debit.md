@@ -1,10 +1,12 @@
 <H2> Direct Debit Transfer Integration </H2>
 One of the payment method offered by Midtrans is Direct Debit. By using this payment method, customers will have the option to make a payment via bank website and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 4 different direct debit payment methods:
+At this moment, Midtrans has integrated with some direct debit payment methods:
 
-<img width="170px" height="50px" src="./../../asset/image/coreapi/bca_klikpay.svg" /> <img width="170px" height="50px" src="./../../asset/image/coreapi/cimb_clicks.svg" /> <br>
-<img width="170px" height="50px" src="./../../asset/image/coreapi/danamon.png" /> <img width="180px" height="40px" src="./../../asset/image/coreapi/epay_bri.png" />
+![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
+![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
+![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=150") <br>
+![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=150") <br>
 
 Basic integration process of Direct Debit will be explained below.
 <details>

@@ -1,10 +1,11 @@
 <H1> Convenience Store </H1>
 One of the payment method offered by Midtrans is Convenience Store. By using this payment method, customers will have the option to make a payment via Convenience Store and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 2 different with Convenience Store:
+At this moment, Midtrans has integrated with some Convenience Store:
 
-<img width="170px" height="50px" src="./../../asset/image/coreapi/alfamart_logo.svg" />
-<img width="170px" height="50px" src="./../../asset/image/coreapi/indomaret_logo.png" />
+![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
+<br>
+![indomaret logo](./../../asset/image/coreapi/indomaret_logo.png ":size=150")
    
 
 Basic integration process of Convenience Store will be explained below.
