@@ -104,6 +104,12 @@ iframe{
     border: 0
 }
 
+/* @HACK: Override font size for smaller and denser looking*/
+.sidebar-nav
+{
+    font-size: 90%;
+}
+
 /* @HACK: Override non aesthetic "-" prefix on sidebar h2 link*/
 .section-link::before,
 .sidebar-nav li>a:before, 
