@@ -278,7 +278,39 @@
                 responsiveTables: false
             }
         }
+
+        // Callback handler for LikeBtn
+        // Prompt feedback popup on page getting like/dislike
+        window.likebtnCallback = function (event) {
+            let promptFeedback = function(){
+                Swal.fire({
+                    // title: '<strong>HTML <u>example</u></strong>',
+                    icon: 'success',
+                    html:`
+<b>Thanks for your valuable feedback!</b>
+<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
+<hr>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdaIKWnc4iKJKH2g2VgTWBYYxCRniZ6a5H_bmSbaLtztarn5Q/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    `,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    cancelButtonText:'Close',
+                    width:600,
+                })
+            }
+            if (event.type == "likebtn.like") {
+                console.log("page liked");
+                promptFeedback();
+            }
+            else if (event.type == "likebtn.dislike") {
+                console.log("page disliked");
+                promptFeedback();
+            }
+        }
     </script>
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- LikeBtn library -->
     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- Docsify library -->
