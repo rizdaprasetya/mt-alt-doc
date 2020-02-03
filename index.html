@@ -24,6 +24,7 @@
 <body>
     <div id="app"></div>
     <script>
+        // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
             loadSidebar: true,
@@ -209,6 +210,60 @@
                         })
                     })
                 },
+                /**
+                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element
+                 * This will dynamically change the ID and re-init LikeBtn each page load
+                 * ref: https://likebtn.com/en/faq#change_identifier
+                 */
+                function (hook, vm) {
+                    hook.doneEach(function() {
+                        let likeBtnSiteId = "5e37e9f3fa8fdf4161f15869";
+                        let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
+                        let isDevelopmentEnv = document.location.href.indexOf("://localhost") >= 0;
+                        let labelBeforeLikeBtn = "Is this page helpful?";
+                        let pageId = vm.route.path;
+                        let likeBtnWrapperSelector = ".likebtn-wrapper";
+                        let docsifyContentWrapperSelector = ".markdown-section";
+                        isDevelopmentEnv&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev);
+
+                        /* @FIXME: sometime LikeBtn script is on race condition with
+                        * Docsify doneEach, if LikeBtn late to be loaded, below function
+                        * doesn't get executed. Quite hard to replicate consistently.
+                        */
+                        if (typeof(LikeBtn) != "undefined") {
+                            isDevelopmentEnv&&console.log("initializing likebtn");
+                            // remove last page LikeBtn element, if exist.
+                            try{
+                                document.querySelector(likeBtnWrapperSelector).remove();
+                            } catch(e) { };
+                            // (re)inject LikeBtn element.
+                            document.querySelector(docsifyContentWrapperSelector).innerHTML+=
+                            `
+                            <div style="text-align:center;">
+                                <p><small>${labelBeforeLikeBtn}</small></p>
+                                <span class="likebtn-wrapper"
+                                    data-identifier="${pageId}"
+                                    data-site_id="${isDevelopmentEnv?likeBtnSiteIdDev:likeBtnSiteId}"
+                                    data-theme="elegant"
+                                    data-ef_voting="push"
+                                    data-show_like_label="false"
+                                    data-counter_type="percent"
+                                    data-counter_clickable="true"
+                                    data-share_size="small"
+                                    data-loader_show="true"
+                                    data-event_handler="likebtnCallback"
+                                    data-i18n_like_tooltip="Helpful"
+                                    data-i18n_dislike_tooltip="Not Helpful"
+                                    data-i18n_popup_close="Later"
+                                \<\/span\>
+                            \<\/div\>
+                            <br>
+                            `;
+                            // (re)init LikeBtn script for the new element.
+                            LikeBtn.init();
+                        }
+                    })
+                }
             ],
             // config for tabs plugin
             tabs: {
@@ -224,6 +279,8 @@
             }
         }
     </script>
+    <!-- LikeBtn library -->
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- Docsify library -->
     <script src="https://unpkg.com/docsify@4.9.4/lib/docsify.min.js"></script>
     <!-- Docsify plugins -->
