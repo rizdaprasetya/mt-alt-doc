@@ -357,9 +357,9 @@ Referring to the steps above, the sample displayed Snap page is as follows:
 
 Or try the demo here:
 
+
 <p style="text-align: center;">
   <button onclick="
-  let label = event.target.innerText;
   event.target.innerText = `Processing...`;
   fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
     .then(res=>res.json())
@@ -372,7 +372,7 @@ Or try the demo here:
       });
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = label })
+    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 

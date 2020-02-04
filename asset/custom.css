@@ -60,7 +60,7 @@ td{
     display: inline;
 }
 
-/* Override for Vue themes, to remove too high of default padding of <h> */
+/* @HACK: Override for Vue themes, to remove too high of default padding of <h> */
 .my-card h4,
 .my-card h3,
 .my-card h5
@@ -104,7 +104,7 @@ iframe{
     border: 0
 }
 
-/* Override non aesthetic "-" prefix on sidebar h2 link*/
+/* @HACK: Override non aesthetic "-" prefix on sidebar h2 link*/
 .section-link::before,
 .sidebar-nav li>a:before, 
 .app-sub-sidebar li::before 
@@ -134,7 +134,7 @@ iframe{
     padding: 0.25em 0 0.25em 0;
 }
 
-/* Override sidebar nav menu effect*/
+/* @HACK: Override sidebar nav menu effect*/
 :root{
     --sidebar-nav-indent: 0.7em;
 }
@@ -152,4 +152,19 @@ iframe{
     padding-left: 2em !important;
     margin-left: -2em !important;
     border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
+}
+
+/* @HACK: Override main logo on sidebar for nicer smaller img */
+.sidebar>h1 img {
+    max-width: 75%;
+}
+/* @HACK: Override image on sidebar for product logo, for nicer smaller img */
+.sidebar-nav ul>li>strong>img {
+    height: 1.5rem;
+    padding-right: 0.4rem;
+}
+/* @HACK: Vertical align center between img & text on navbar section menu*/
+.sidebar-nav ul>li>strong {
+    display: flex;
+    align-items: center;
 }

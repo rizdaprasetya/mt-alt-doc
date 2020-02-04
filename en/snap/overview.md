@@ -15,7 +15,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
         onError: function(res){ console.log('Snap result:',res) },
       });
     })
-    .catch( e=>console.error(e) )
+    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
     .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
@@ -53,10 +53,10 @@ Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, O
 #### [Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
 </div>
 
-### E) Using Platform
+### E) Using Ecommerce Platform
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, Jejualan etc.
 
 <div class="my-card">
 
-#### [Using Platform &#187;](/en/snap/platform/overview.md)
+#### [Using Ecommerce Platform &#187;](/en/snap/platform/overview.md)
 </div>

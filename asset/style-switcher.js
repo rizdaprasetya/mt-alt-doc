@@ -9,31 +9,33 @@
      * activated stylesheet on reload.
      * @customized:
      * - Replaced to use `title` attribute for <a> instead of `data-title`
-     * So it can be rendered from markdown e.g `[Foo](# 'Foo')`
-     * - Edited to activate all <link> element with target "title", 
+     * So it can be rendered from markdown e.g `[Foo](# 'style::Foo')`
+     * it require `style::` prefix on the `title` attribute
+     * - Edited to activate all <link> element with target "style::title", 
      * instead of previously just 1 element. So we can have two or more <link>
      * activated with just one <a> trigger
      *
      * @example
      *
      * This link:
-     *   <a href="#" title="Foo">Foo</a>
+     *   <a href="#" title="style::Foo">Foo</a>
      * Will active all of these existing links:
-     *   <link rel="stylesheet alternate" title="Foo" href="..." >
-     *   <link rel="stylesheet alternate" title="Foo" href="...other css...">
+     *   <link rel="stylesheet alternate" title="style::Foo" href="..." >
+     *   <link rel="stylesheet alternate" title="style::Foo" href="...other css...">
      *
      * @example
      *
      * This link:
      *   <a href="#" data-link-href="path/to/file.css">Bar</a>
      * Will activate this existing link:
-     *   <link rel="stylesheet alternate" title="[someID]" href="path/to/file.css" >
+     *   <link rel="stylesheet alternate" title="style::Bar" href="path/to/file.css" >
      * Or generate this active link:
-     *   <link rel="stylesheet" title="Bar" href="path/to/file.css" >
+     *   <link rel="stylesheet" title="style::Bar" href="path/to/file.css" >
      */
     function initStyleSwitcher() {
         var isInitialzed      = false;
         var sessionStorageKey = 'activeStylesheetHref';
+        var titlePrefix = 'style::';
 
         function handleSwitch(activeHref, activeTitle) {
             var activeElm = document.querySelector('link[href*="' + activeHref +'"],link[title="' + activeTitle +'"]');
@@ -114,11 +116,18 @@
             });
 
             // Update active stylesheet
+            /** 
+            * @OPTIMIZE: this will add event listener on all click
+            * Optimize me so that it will only add to link with specific attribute?
+            */
             document.addEventListener('click', function(evt) {
                 var dataHref  = evt.target.getAttribute('data-link-href');
                 var dataTitle = evt.target.getAttribute('title')
+                var dataTitleIncludePrefix = dataTitle? 
+                    dataTitle.toLowerCase().includes(titlePrefix):
+                    false;
 
-                if (dataHref || dataTitle) {
+                if (dataHref || dataTitleIncludePrefix) {
                     dataTitle = dataTitle
                         || evt.target.textContent
                         || '_' + Math.random().toString(36).substr(2, 9); // UID

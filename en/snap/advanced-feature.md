@@ -1,3 +1,4 @@
+<!-- TODO:add sample code for lang other than CURL? -->
 Snap have various optional parameters that can be utilized for more advanced use case that can help your integration.
 
 ## General
@@ -466,6 +467,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
+<!-- TODO: explain about 3DS and non 3DS save card feature -->
 ### Saving Cards for Seamless Subsequent Payment
 You can allow customer to save their card credentials within Snap payment page, for easier and faster future transactions. Card credentials will be saved securely on Midtrans side, and will not require merchant to manage the card data.
 

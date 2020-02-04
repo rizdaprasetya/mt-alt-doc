@@ -20,7 +20,7 @@ details > summary::-webkit-details-marker {
     border-color: var(--main-border-color);
 }
 
-/* Workaround to allow h1-5 to be inline with ::before / arrow icon */
+/* @HACK: Workaround to allow h1-5 to be inline with ::before / arrow icon */
 .collaps-label h1,
 .collaps-label h2,
 .collaps-label h3,
