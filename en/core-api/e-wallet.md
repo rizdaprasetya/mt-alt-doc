@@ -260,7 +260,7 @@ charge_response = core_api.charge(param)
 ### Charge API response
 You will get the **API response** like the following.
 
-```javascript
+```json
 {
   "status_code": "201",
   "status_message": "GO-PAY transaction is created",
@@ -338,7 +338,7 @@ Instruction Example for **Deeplink** :
 In addition to the standard mobile apps flow, you may opt to implement a deeplink callback to redirect customer back from Gojek to their apps.
 Please add gopay parameter in the [charge API request](/en/core-api/e-wallet?id=charge-api-request) .
 
-```javascript
+```json
   "gopay": {
       "enable_callback": true,
       "callback_url": "someapps://callback" //you can also use web url like https://myshop.com/finish

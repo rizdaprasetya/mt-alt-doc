@@ -7,11 +7,11 @@ Kami sangat menyarankan anda untuk mengirim detail-detail informasi mengenai tra
 
 Anda dapat menambahkan data `transaction_details` seperti data `customer_details` dan `item_details`. 
 
-Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [API Request](/id/snap/integration-guide.md?id=api-request)
+Dibawah ini akan menjelaskan bagaimana cara menambahkan detail informasi pada parameter JSON yang akan dikrim melalui [Langkah Request API](/id/snap/integration-guide.md?id=api-request)
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -123,7 +123,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-Detail Referensi [Snap Docs](https://snap-docs.midtrans.com/#json-objects).
+Detail Referensi [Dokumentasi Snap](https://snap-docs.midtrans.com/#json-objects).
 
 ### Fungsi dan Opsi pada Snap.js
 
@@ -179,7 +179,7 @@ Secara default setelah selesai, Snap akan redirect ke halaman [URL Finish](/id/s
 Berikut ini adalah contoh parameter JSON yang harus anda kirim saat melakukan [Request API](/id/snap/integration-guide.md?id=api-request):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -230,7 +230,7 @@ Alternatif lain dalam membatasi metode pembayaran yang akan tampil adalah dengan
 Berikut adalah contoh JSON parameter yang dikirim pada saat [Request API](/id/snap/integration-guide.md?id=api-request)
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
 "enabled_payments": [
     "credit_card",
@@ -356,7 +356,7 @@ Berikut adalah contoh JSON parameter yang dikirim pada saat [Request API](/id/sn
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "expiry": {
     "start_time": "2020-04-13 18:11:08 +0700",
@@ -400,11 +400,11 @@ Berikut adalah contoh JSON parameter yang dikirim pada saat [Request API](/id/sn
 
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
-  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda butuhkan"
+  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda inginkan"
 ...
 ```
 #### **As CURL**
@@ -419,18 +419,18 @@ curl -X POST \
     "order_id": "CustOrder-102",
     "gross_amount": 13000
   },
-  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda butuhkan",
-  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda butuhkan"
+  "custom_field1": "1 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field2": "2 Anda dapat mengisi dengan nilai yang anda inginkan",
+  "custom_field3": "3 Anda dapat mengisi dengan nilai yang anda inginkan"
 }'
 ```
 <!-- tabs:end -->
 
-| Parameter | Type | Required? | Description |
----|---|---|---
-custom_field1 | String(255) | (optional) | Custom field 1 anda dapat mengisi dengan data/nilai yang anda butuhkan
-custom_field2 | String(255) | (optional) | Custom field 2 anda dapat mengisi dengan data/nilai yang anda butuhkan
-custom_field3 | String(255) | (optional) | Custom field 3 anda dapat mengisi dengan data/nilai yang anda butuhkan
+| Parameter | Tipe | Deskripsi |
+--- | --- | ---
+custom_field1 | String(255)<br>(***optional***) | Custom field 1 anda dapat mengisi dengan data/nilai yang anda inginkan
+custom_field2 | String(255)<br>(***optional***) | Custom field 2 anda dapat mengisi dengan data/nilai yang anda inginkan
+custom_field3 | String(255)<br>(***optional***) | Custom field 3 anda dapat mengisi dengan data/nilai yang anda inginkan
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
@@ -443,7 +443,7 @@ Berikut cara mengaktifkan/nonaktifkan fitur 3DS:
 Contoh parameter JSON pada saat melakukan [Request API](/id/snap/integration-guide.md?id=api-request):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 ...
   "credit_card": {
     "secure": true
@@ -479,7 +479,7 @@ Anda juga diharuskan menyimpan nilai balik / repson dari parameter `user_id` yan
 Contoh parameter JSON pada saat melakukan [Request API](/id/snap/integration-guide.md?id=api-request):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -536,7 +536,7 @@ Anda dapat melihat proses transaksi secara detail melalui diagram sequence dibaw
 Melakukan transaksi pertama pada recurring/subscription. Contoh parameter JSON pada saat melakukan [Request API](/id/snap/integration-guide.md?id=api-request):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -576,7 +576,7 @@ Ketika Anda ingin melakukan penagihan/recurring kepada pelanggan terkait dengan 
 
 Untuk detail informasi menganai subscription/recurring, anda dapat membaca [artikel](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction) berikut.
 
-### Routing Transactions to Specific Acquiring
+### Mengarahkan Transaksi ke Bank Acquiring Spesifik
 Anda dapat menentukan Bank Acquring mana yang dipilih untuk digunakan setiap transaksi Snap tertentu. Dana transaksi akan dialihkan ke acquiring bank tersebut. Silakan konsultasikan dengan Tim Aktivasi Midtrans untuk pemilihan bank yang ingin anda gunakan sebagai acquiring bank.
 
 * Anda dapat menentukan nama bank didalam parameter `bank`
@@ -584,7 +584,7 @@ Anda dapat menentukan Bank Acquring mana yang dipilih untuk digunakan setiap tra
 Contoh param JSON (param ini digunakan pada panduan [API Request](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -624,7 +624,7 @@ Untuk menggunakan fitur BIN, anda harus menuliskan daftar BIN atau bisa juga den
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -669,7 +669,7 @@ curl -X POST \
 Pada gambar dibawah ini Anda akan melihat halaman snap yang menggunakan fitur Filter BIN:
 ![snap bin filter](./../../asset/image/snap-adv-bin-filter.png)
 
-### Pembayaran Cicilan / *Installment*
+### Fitur Cicilan / *Installment*
 #### Cicilan Online / *Online Installment*
 Installment Online adalah pembayaran angsuran/cicilan dimana bank penerbit kartu dan Acquiring Bank adalah entitas yang sama (mis: Kartu BNI dan Acquiring Bank BNI)
 
@@ -678,7 +678,7 @@ Untuk mengaktifkan fitur Online Installment, anda harus memiliki perjanjian deng
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -733,12 +733,12 @@ Pada gambar dibawah ini Anda akan melihat halaman snap yang menggunakan fitur On
 #### Offline Installment
 Offline Installment adalah jenis installment dimana Penerbit Kartu dan Acquiring Bank bukan entitas yang sama (mis: Kartu BNI dan Acquiring Bank Mandiri).
 
-Untuk mengaktifkan fitur offline installment, anda hanya perlu menambahkan `installment` dengan kombinasi fitur filter bin `whitelist_bins`. Tujuan bin filter adalah untuk membatasi kartu tertentu yang dapat melakukan cicilan offline, berdasarkan perjanjian antara anda dan acquiring bank.
+Offline Installment memungkinkan fitur cicilan / installment dengan bank yang tidak mengeluarkan MID Installment. Untuk mengaktifkan fitur offline installment, anda hanya perlu menambahkan `installment` dengan kombinasi fitur filter bin `whitelist_bins`. Tujuan bin filter adalah untuk membatasi kartu tertentu yang dapat melakukan cicilan offline, berdasarkan perjanjian antara anda dan acquiring bank.
 
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -804,7 +804,7 @@ Fitur Pre-Authorization memungkinkan dana pelanggan tidak akan langsung dipotong
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -845,7 +845,7 @@ Setelah pembayaran GoPay selesai, secara default pelanggan akan tetap berada pad
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -926,7 +926,7 @@ Untuk bank transfer secara default Midtrans akan memberikan nomor virtual accoun
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -995,7 +995,7 @@ Pada beberapa virtual account, anda dapat melakukan kustomisasi nama dan pesan d
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",
@@ -1091,7 +1091,7 @@ Menampilkan pesan pada struk belanja alfamart
 Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration-guide.md?id=api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
-```javascript
+```json
 {
   "transaction_details": {
     "order_id": "CustOrder-102",

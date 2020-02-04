@@ -1,15 +1,14 @@
 # Overview
 
-Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
-
+Midtrans ingin membantu anda agar dapat dengan mudah menerima, mendistribusikan pembayaran melalui automasi yang dapat anda lakukan. Untuk itu dibawah ini adalah detail dokumentasi teknis terkait layanan Midtrans.
 <br>
 
-## Accept Online Payments on Your Website and App
+## Menerima Pembayaran Online melalui Website dan Aplikasi anda
 
 <div class="my-card">
 
-#### [Use Midtrans Checkout Page (SNAP Checkout) &#187;](/en/snap/overview.md?id=overview)
-Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
+#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md?id=overview)
+Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pelanggan anda akan dihadapkan dengan tampilan halaman pembayaran, langsung didalam halaman web dan aplikasi anda dengan menampilkan jendela pop-up yang mudah serta mobile-friendly. Atau anda juga dapat mengarahkan pelanggan anda ke halaman pembayaran Midtrans. Halaman Pembayaran Snap mengizinkan pelanggan anda untuk memilih beberapa [jenis pembayaran tertentu](https://midtrans.com/payments)
 <br>
 <p style="text-align: center;">
 	<button onclick="
@@ -27,70 +26,69 @@ Securely accept payment on your web and app with few simple steps! Your customer
 		})
 		.catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
 		.finally( e=>{ event.target.innerText = label })
-	" class="my-btn">Try Snap Demo &#9099;</button>
+	" class="my-btn">Coba Demo Snap &#9099;</button>
 </p>
 </div>
 
 <div class="my-card">
 
 #### [Mobile SDK &#187;](https://mobile-docs.midtrans.com)
-Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this [video](https://www.youtube.com/watch?v=EefsTMXCscg) for the default SDK example. Just like Snap, but for native mobile platforms.
+Midtrans juga menyediakan Mobile SDK bagi merchant yang ingin implmentasi beberapa pembayaran online secara cepat melalui aplikasi mobile Android dan iOS. Untuk sample aplikasi Anda dapat melihat [video](https://www.youtube.com/watch?v=EefsTMXCscg) berikut. Tampilan Mobile SDK layaknya seperti tampilan Snap namun versi native mobile.
 </div>
 
 <div class="my-card">
 
-#### [Build Your Own Checkout Page (Core API) &#187;](/en/core-api/overview.md?id=overview)
-Need to customize the payment flow or user interface to fit your unique needs? We have Core API for your web, app, point of sales, IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
+#### [Buat Halaman Pembayaran Sesuka Anda (Core API) &#187;](/id/core-api/overview.md?id=overview)
+Bagi anda yang membutuhkan kustomisasi alur pembayaran atau tampilan pembayaran yang unik sesuai dengan selara anda baik itu pada aplikasi web, point of sales, IoT, maka anda dapat melakukannya dengan Core API midtrans. Layanan Core API Midtrans menggunakan teknologi REST API dengan basis payload JSON.
 </div>
 
 <div class="my-card">
 
-#### [Use CMS Payment Plugin &#187;](/en/snap/overview.md?id=c-install-as-cms-plugin-module)
-Not a developer, or already using e-commerce CMS? Integrate to Midtrans via your choice of CMS plugin in a few simple clicks. 
+#### [Menggunakan Plugin CMS &#187;](/id/snap/overview.md?id=c-install-as-cms-plugin-module)
+Jika anda bukan developer atau anda sudah menggunakan CMS e-Commerce? Anda dapat dengan mudah melakukan integrasi dengan Midtrans. Dengan Plugin CMS yang kami sediakan anda hanya perlu mengikuti instruksi yang telah kami buat agar dapat menerima pembayaran online pada toko e-Commerce anda.
 </div>
 
 <div class="my-card">
 
-#### [Create Invoice via Payment Link &#187;](/en/payment-link/overview.md?id=overview)
-Whether you need to invoice your customers or want to receive payments without having a website, you can do it with Midtrans - as easy as sharing a link that redirects your customers to Midtrans's payment page. No technical integration is required, create links with just a few taps or clicks from our dashboard with customizable payment details just like an invoice.
+#### [Membuat Tagihan Dengan Payment Link &#187;](/id/payment-link/overview.md?id=overview)
+Midtrans menyediakan layanan Payment Link untuk anda yang ingin melakukan tagihan pembayaran tanpa harus memiliki Website. Payment link tidak membutuhkan integrasi sama sekali, untuk menggunakannya anda hanya perlu masuk ke Akun Midtrans dan mengisi detail pembayaran pada halaman Payment Link. Maka dalam sekejap anda akan mendapatkan link pembayaran yang dapat anda bagikan ke pelanggan anda.
 </div>
 
-## Pay Out / Disburse Fund
+## Pay Out / Mendistribusikan Dana
 
 <div class="my-card">
 
-#### [Pay Out via Iris Disbursement System &#187;](/en/iris/overview.md?id=overview)
+#### [Distirbusikan Dana Anda Melalui Iris Disbursement System &#187;](/id/iris/overview.md?id=overview)
 
-Pay out money to your partners, sellers, customers, vendors or any third parties with our Iris Disbursement system. Whether you have a marketplace or business needing to disburse money to your sellers, doing payrolls transfers to your employees, all of your payout needs can be catered by Iris. Iris supports disbursing money to Gopay accounts or any kind of bank accounts in Indonesia.
+Distribusikan pembayaran untuk mitra, penjual, pelanggan, vendor atau pihak ketiga mana pun dengan sistem Disbursement Iris kami. Apakah Anda memiliki pasar atau bisnis yang perlu mendistribusikan uang kepada penjual, vendor, atau  melakukan transfer gaji karyawan Anda, semua kebutuhan distibusi pembayaran Anda dapat dipenuhi oleh Iris. Iris mendukung pengiriman uang ke rekening Gopay atau segala jenis rekening bank di Indonesia.
 </div>
 
 ## Misc
 
 <div class="my-card">
 
-#### [Integrate Payment to POS &#187;](/en/pos/overview.md?id=overview)
+#### [Integrasi Pembayaran Dengan Aplikasi POS &#187;](/id/pos/overview.md?id=overview)
 </div>
 
 <br> <br>
 
 
-# Choose based on Business Use Cases
+# Solusi Berdasarkan Use Case Bisnis Anda
 
-Here are some popular use cases that may help you choose
+Dibawah ini beberapa use case populer yang dapat menjadi solusi bisnis anda 
+#### Menerima pembayaran melalui website e-commerce atau aplikasi anda
 
-#### Accept payment on your e-commerce web, app
+Anda dapat menerima berbagai metode pembayaran [Kartu Kredit, Transfer Bank, Direct Debit, E-Wallet, dan lainnya](https://midtrans.com/payments) langsung melalui website/aplikasi yang telah anda kembangkan. Untuk dapat mengaktifkan layanan pembayaran online yang aman, Anda dapat menggunakan Midtrans Snap sebagai halaman pembayaran atau kustomisasi sesuai dengan yang anda inginkan melalui Midtrans Core API.
 
-Accept payment from your customer straight within your website/app with [Card Transaction, Bank Transfer, Direct Debit, E-Wallet, and more](https://midtrans.com/payments) as payment methods. Use [Snap beautiful interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your web and app to accept payment securely in a few simple steps.
-
-#### Subscription / Recurring Service
+#### Layanan Recurring / Subscription (Langganan)
 
 <TODO: elaborate>
 
-#### Sending Payment Invoices via Email, Link, Whatsapp, Instagram, Social Media, Messaging App, etc
+#### Mengirim Invoice Pembayaran melalui Email, Link, Whatsapp, Instagram, Social Media dan lainnya.
 
 <TODO: elaborate payment link or maybe also selly?>
 
-#### Accept payment on Point of Sales, IoT devices, etc
+#### Menerima pembayaran melalui aplikasi Point of Sales, IoT devices, dan lainnya
 
 <TODO: elaborate>
 

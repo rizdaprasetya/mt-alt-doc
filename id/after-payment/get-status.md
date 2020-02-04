@@ -1,15 +1,15 @@
-# API Get Status
+# Mendapaatkan Status Transaksi Melalui API
 
-Merchant can also request to Midtrans API to inquire transaction status of a transaction, using the transaction `order_id` (or `transaction_id`) as identifier.
+Untuk melihat status transaksi anda dapat melakukan API Request ke Midtrans dengan menggunakan parameter `order_id` atau `transaction_id`
 
 
-#### Request Details
-Type | Value
+#### Detail Request
+Tipe | Nilai
 --- | ---
 HTTP Method | `GET`
 API endpoint | `https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status`
 
-#### HTTP Headers
+#### Header HTTP
 ```
 Accept: application/json
 Content-Type: application/json
@@ -18,11 +18,11 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
+?> Request HTTP dengan menggunakan metode Basic Otentikasi. Username diisi dengan data server key Anda. Sedangkan kata sandi dibiarkan kosong. Nilai header *Authorization* diwakili oleh nilai AUTH_STRING. AUTH_STRING adalah string dari Base-64 dimana terdiri dari gabungan antara nama pengguna & kata sandi Anda yang dipisahkan oleh **:** (simbol titik dua). [Untuk lebih detail silahkan mengunjungihalaman ini](/id/technical-reference/api-header.md).
 
-### Sample Get Status Request
+### Contoh Mendapatkan Status Transaksi
 
-Replace the `[ORDER_ID]` with the transaction `order_id` (or `transaction_id` is also supported).
+Ubah parameter `[ORDER_ID]` dengan nilai `order_id` pada transaksi yang ingin anda cek atau bisa juga menggunakan nilai pada parameter `transaction_id`.
 <!-- TODO: add more language sample -->
 ```bash
 curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status' \
@@ -30,11 +30,11 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87'
 ```
-?> Each of official [Midtrans Language Library](/en/technical-reference/library-plugin.md) will also have `status` function to call Get Status API.
+?> Pada Official [Midtrans Language Library](/id/technical-reference/library-plugin.md) selalu ada method/function untuk API Request `status`.
 
-### Sample Response
+### Contoh Respon
 
-#### Success Response
+#### Respon Sukses
 
 ```json
 {
@@ -61,7 +61,7 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 }
 ```
 
-#### Fail / Not Found Response
+#### Respon Fail / Not found
 ```json
 {
   "status_code": "404",
@@ -69,14 +69,14 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 }
 ```
 
-#### Definition
+#### Definisi
 
-The same [status definition with notification](/en/after-payment/http-notification?id=status-definition) applies.
+Definisi pada status transaksi bisa anda lihat pada halaman berikut [Definisi Notifikasi Status Transaksi](/id/after-payment/http-notification?id=definisi-status).
 
 
-### Other API Action / Method
+### API Request Aksi Transaksi Lainnya
 
-Other API action that you can perform to an transaction is listed at this section:
+Untuk aksi API Request lainnya terkait transaksi anda dapat mengunjungi halaman berikut ini:
 
 <div class="my-card">
 	
