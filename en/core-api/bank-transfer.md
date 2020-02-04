@@ -38,7 +38,7 @@ Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 Charge API request should be done from Merchant's backend.
 
 ### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/developer_resource/library_plugin)). The example below shows a sample codes to obtain transaction token:
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)). The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **BCA**
 
@@ -218,7 +218,7 @@ To display the virtual account number, use `va_number` that retrieved from API r
 By default the expiry time for Bank Transfer / VA is **24 hours**, follow this link if you wanna customize the expiry time:
 <div class="my-card">
 
-#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md?id=)
+#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
 
 ## 3. Handling Post-Transaction
@@ -227,7 +227,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Specify VA Number
@@ -300,10 +300,23 @@ BNI `va_number` | String | (optional)| Length should be within 1 to 8.
 Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
 
 ## Next Step:
+<br>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
+
+<div class="my-card">
+
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+</div>
+
+<hr>
 
 For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)

@@ -5,7 +5,7 @@ GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek app
 
 Basic integration process of GoPay will be explained below.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview), before proceeding with this section.
+?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview.md), before proceeding with this section.
 
 ## Integration Step
 1. Send transaction data to API Charge.
@@ -45,7 +45,7 @@ The example below shows a sample codes of the charge request:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library_plugin))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/technical-reference/library-plugin.md))*
 
 #### Request Details
 Type | Value
@@ -336,7 +336,7 @@ Instruction Example for **Deeplink** :
 ### Implementing GoPay Deeplink Callback
 
 In addition to the standard mobile apps flow, you may opt to implement a deeplink callback to redirect customer back from Gojek to their apps.
-Please add gopay parameter in the [charge API request](/en/core-api/e-wallet?id=charge-api-request) .
+Please add gopay parameter in the [charge API request](#charge-api-request) .
 
 ```javascript
   "gopay": {
@@ -357,7 +357,7 @@ You needs to prepare a `callback_url` which accept two query parameters.
 | order_id | Order ID sent on the Charge Request|
 | result | Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`|
 
-?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](/en/core-api/e-wallet?id=_3-handling-post-transaction) or 
+?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or 
 [API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
 
 ## 3. Handling Post-Transaction
@@ -366,7 +366,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Additional Notes
@@ -424,10 +424,23 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
 
 ## Next Step:
+<br>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
+
+<div class="my-card">
+
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+</div>
+
+<hr>
 
 For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)

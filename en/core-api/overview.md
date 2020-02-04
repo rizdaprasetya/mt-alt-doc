@@ -34,20 +34,9 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 
 ### B) Follow Sample Code
-<br>
-<div class="my-card">
+- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
+- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
+- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
+- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
 
-#### [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-</div>
-<div class="my-card">
-
-#### [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-</div>
-<div class="my-card">
-
-#### [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-</div>
-<div class="my-card">
-
-#### [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
-</div>
+<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
