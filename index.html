@@ -269,6 +269,9 @@
                     hook.ready(function(){
                         if (typeof(LikeBtn) != "undefined") {
                             reInitLikeBtn(vm,"docsify-ready")
+                        } else {
+                            // retry after 2 second @OPTIMIZE the hardcoded 2 sec
+                            setTimeout(function(){ reInitLikeBtn(vm,"delayed-ready") }, 2000);
                         }
                     });
                 }
