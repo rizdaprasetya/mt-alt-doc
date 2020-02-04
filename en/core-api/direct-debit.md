@@ -1,10 +1,12 @@
 <H2> Direct Debit Transfer Integration </H2>
 One of the payment method offered by Midtrans is Direct Debit. By using this payment method, customers will have the option to make a payment via bank website and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 4 different direct debit payment methods:
+At this moment, Midtrans has integrated with some direct debit payment methods:
 
-<img width="170px" height="50px" src="./../../asset/image/coreapi/bca_klikpay.svg" /> <img width="170px" height="50px" src="./../../asset/image/coreapi/cimb_clicks.svg" /> <br>
-<img width="170px" height="50px" src="./../../asset/image/coreapi/danamon.png" /> <img width="180px" height="40px" src="./../../asset/image/coreapi/epay_bri.png" />
+![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
+![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
+![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=150") <br>
+![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=150") <br>
 
 Basic integration process of Direct Debit will be explained below.
 <details>
@@ -22,7 +24,7 @@ All the steps below are using [Midtrans Sandbox environment](https://account.mid
 Server Key and Client Key can be retrieved on menu `Settings` > `Access Key`.
 
 ?>**Info:**
-[How to retrieved Access key](/en/midtrans-account/overview?id=retrieving-api-access-keys)
+[How to retrieved Access key](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 ### Integration Step
 1. Send transaction data to API Charge.
@@ -54,7 +56,7 @@ Authorization: Basic AUTH_STRING
 ### 1. Send Transaction Data to API Charge
 
 #### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available language libraries).
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)).
 <!-- tabs:start -->
 #### **BCA Kilkpay**
 ```bash
@@ -355,6 +357,11 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 ```
 <!-- tabs:end -->
 
+<div class="my-card">
+
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+</div>
+
 ### Switching To Production
 To use Midtrans production environment (accept real payment from real customer), please make sure to:
 
@@ -367,12 +374,17 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

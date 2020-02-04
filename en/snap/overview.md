@@ -43,7 +43,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
 - [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
 - [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
 
-<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin?id=language-library)</sup></sub>
+<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
 
 ### D) Install as Plugin / Module on Your CMS
 Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc? Simply install these plugins:

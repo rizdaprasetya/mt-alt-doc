@@ -1,11 +1,11 @@
 <hr>
 
-![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')<hr>
+[![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')](https://midtrans.com)<hr>
 
 Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
 
 <!-- TODO: add more image for each product so it doesn't look to plain? -->
-## Accept Online Payments on Your Website and App
+## Accept Online Payments on Your Website and App {docsify-ignore}
 
 <div class="my-card">
 
@@ -55,7 +55,7 @@ Not a developer, or already using e-commerce CMS? Integrate to Midtrans via your
 Whether you need to invoice your customers or want to receive payments without having a website, you can do it with Midtrans - as easy as sharing a link that redirects your customers to Midtrans's payment page. No technical integration is required, create links with just a few taps or clicks from our dashboard with customizable payment details just like an invoice.
 </div>
 
-## Pay Out / Disburse Fund
+## Pay Out / Disburse Fund {docsify-ignore}
 
 <div class="my-card">
 
@@ -64,18 +64,19 @@ Whether you need to invoice your customers or want to receive payments without h
 Pay out money to your partners, sellers, customers, vendors or any third parties with our Iris Disbursement system. Whether you have a marketplace or business needing to disburse money to your sellers, doing payrolls transfers to your employees, all of your payout needs can be catered by Iris. Iris supports disbursing money to Gopay accounts or any kind of bank accounts in Indonesia.
 </div>
 
-## Misc
+## Misc {docsify-ignore}
 
 <!-- TODO: write this page -->
 <div class="my-card">
 
-#### [Integrate Payment to POS &#187;](/en/pos/overview.md)
+<!-- #### [Integrate Payment to POS &#187;](/en/pos/overview.md) -->
+#### [Integrate Payment to POS &#187;](#accept-payment-on-point-of-sales-vending-machine-iot-devices-etc)
 </div>
 
 <br> <br>
 
 
-# Choose based on Business Use Cases
+# Choose based on Business Use Cases {docsify-ignore}
 
 Here are some popular use cases that may help you choose
 
@@ -89,11 +90,11 @@ Charge customer for recurring payment. For example payment of repeat item purcha
 
 #### Sending Payment Invoices via Email, Link, Whatsapp, Instagram, Social Media, Messaging App, etc
 <!-- <TODO: elaborate payment link or maybe also selly?> -->
-Accept payment and invoice your customer via [Payment Link](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers via your favorite messaging app. whether you are selling stuff on social media, freelancer, service provider, teacher, business that need to quickly invoice payment to specific customers, etc.
+Accept payment and invoice your customer via [Payment Link](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers via your favorite messaging app. Whether you are selling stuff on social media, freelancer, service provider, teacher, business that need to quickly invoice payment to specific customers, etc.
 
-#### Accept payment on Point of Sales, IoT devices, etc
+#### Accept payment on Point of Sales, Vending Machine, IoT devices, etc
 
-For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium.
+For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium. There is [specific Gopay guide for this type of integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos).
 
 #### Paying out users/merchants on your platform
 <!-- <TODO: elaborate iris> -->
@@ -106,7 +107,7 @@ Owning big business (whether online, offline, or traditional business) means hav
 <!-- < TODO:Add More Use Case> -->
 <!-- Case Topup -->
 
-# Non Technical Person? 
+# Non Technical Person? {docsify-ignore}
 
 <!-- <TODO: elaborate plugin, payment link, or snap plugin for non-dev reader> -->
 

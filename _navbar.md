@@ -1,4 +1,6 @@
-- [:question:Tech FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+- :question:FAQ
+    - [:book:General FAQ](https://support.midtrans.com)
+    - [:wrench:Technical FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
 - :art:Theme
     - [:snowflake:Default](# 'style::Simple')
     - [:waning_crescent_moon:Dark](# 'style::Simple Dark')

@@ -15,11 +15,17 @@
 }
 
 /* fix <code> overflowing to edge on small width screen. */
-/* NOT NEEDED on `themeable.responsiveTables: false`
-/*.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
+/* Except on table because
+/* covered by `themeable.responsiveTables: false`
+/*/
+table code:not([class*="lang-"]):not([class*="language-"]) {
+    white-space: nowrap !important;
+}
+.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
     white-space: pre-wrap;
     word-break: break-word;
-}/**/
+}
+/**/
 
 /* fix <a> & <td> overflowing to edge on small width screen .*/
 /* NOT NEEDED on `themeable.responsiveTables: false`
@@ -102,6 +108,12 @@ table{
 
 iframe{
     border: 0
+}
+
+/* @HACK: Override font size for smaller and denser looking*/
+.sidebar-nav
+{
+    font-size: 90%;
 }
 
 /* @HACK: Override non aesthetic "-" prefix on sidebar h2 link*/

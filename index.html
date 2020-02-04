@@ -24,6 +24,7 @@
 <body>
     <div id="app"></div>
     <script>
+        // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
             loadSidebar: true,
@@ -209,6 +210,71 @@
                         })
                     })
                 },
+                /**
+                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element
+                 * This will dynamically change the ID and re-init LikeBtn each page load
+                 * ref: https://likebtn.com/en/faq#change_identifier
+                 */
+                function (hook, vm) {
+                    let reInitLikeBtn = function(vm=vm,initBy="direct"){
+                        let likeBtnSiteId = "5e37e9f3fa8fdf4161f15869";
+                        let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
+                        let isDevelopmentEnv = document.location.href.indexOf("://localhost") >= 0;
+                        let labelBeforeLikeBtn = "Is this page helpful?";
+                        let pageId = vm.route.path;
+                        let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
+                        let likeBtnInWrapperClass = "likebtn-wrapper";
+                        let docsifyContentWrapperSelector = ".markdown-section";
+                        isDevelopmentEnv&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev,"init by:",initBy);
+
+                        isDevelopmentEnv&&console.log("initializing likebtn");
+                        // remove last page LikeBtn element, if exist.
+                        try{
+                            document.querySelector("."+likeBtnOutWrapperClass).remove();
+                        } catch(e) { };
+                        // (re)inject LikeBtn element.
+                        document.querySelector(docsifyContentWrapperSelector).innerHTML+=
+                        `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
+                            <p><small>${labelBeforeLikeBtn}</small></p>
+                            <span class="${likeBtnInWrapperClass}"
+                                data-identifier="${pageId}"
+                                data-site_id="${isDevelopmentEnv?likeBtnSiteIdDev:likeBtnSiteId}"
+                                data-theme="elegant"
+                                data-ef_voting="push"
+                                data-show_like_label="false"
+                                data-counter_type="percent"
+                                data-counter_clickable="true"
+                                data-share_size="small"
+                                data-loader_show="true"
+                                data-event_handler="likebtnCallback"
+                                data-i18n_like_tooltip="Helpful"
+                                data-i18n_dislike_tooltip="Not Helpful"
+                                data-i18n_popup_close="Later"
+                            \<\/span\>
+                        \<\/div\>`;
+                        // (re)init LikeBtn script for the new element.
+                        LikeBtn.init();
+                    }
+                    // Trigger on each page load
+                    hook.doneEach(function(){
+                        if (typeof(LikeBtn) != "undefined") {
+                            reInitLikeBtn(vm,"docsify-doneEach")
+                        }
+                    });
+                    /* @NOTE: sometime LikeBtn script is on race condition with
+                    * Docsify doneEach, if LikeBtn late to be loaded, init function
+                    * doesn't get executed. Tried to handle it with `ready` hook.
+                    */
+                    // Trigger on first load, after docsify ready
+                    hook.ready(function(){
+                        if (typeof(LikeBtn) != "undefined") {
+                            reInitLikeBtn(vm,"docsify-ready")
+                        } else {
+                            // retry after 2 second @OPTIMIZE the hardcoded 2 sec
+                            setTimeout(function(){ reInitLikeBtn(vm,"delayed-ready") }, 2000);
+                        }
+                    });
+                }
             ],
             // config for tabs plugin
             tabs: {
@@ -223,7 +289,41 @@
                 responsiveTables: false
             }
         }
+
+        // Callback handler for LikeBtn
+        // Prompt feedback popup on page getting like/dislike
+        window.likebtnCallback = function (event) {
+            let promptFeedback = function(){
+                Swal.fire({
+                    // title: '<strong>HTML <u>example</u></strong>',
+                    icon: 'success',
+                    html:`
+<b>Thanks for your valuable feedback!</b>
+<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
+<hr>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdaIKWnc4iKJKH2g2VgTWBYYxCRniZ6a5H_bmSbaLtztarn5Q/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    `,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    cancelButtonText:'Close',
+                    width:600,
+                })
+            }
+            if (event.type == "likebtn.like") {
+                console.log("page liked");
+                promptFeedback();
+            }
+            else if (event.type == "likebtn.dislike") {
+                console.log("page disliked");
+                promptFeedback();
+            }
+        }
     </script>
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- LikeBtn library -->
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- Docsify library -->
     <script src="https://unpkg.com/docsify@4.9.4/lib/docsify.min.js"></script>
     <!-- Docsify plugins -->

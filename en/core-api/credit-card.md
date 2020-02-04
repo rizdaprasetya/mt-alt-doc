@@ -1,11 +1,14 @@
 <H2> Credit Card Integration </H2>
 One of the payment method offered by Midtrans is Credit Card. By using this payment method, customers will have the option to make a payment via basic credit card will send real time notification when the customer complete the payment.
 
-<img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/mastercard.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/jcb.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/american_express.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/visa.svg" />   
+![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
+![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=80") <br>
+![jcb](./../../asset/image/coreapi/jcb.svg ":size=80") <br>
+![amex](./../../asset/image/coreapi/american_express.svg ":size=80") <br>
 
 Basic integration process of Credit Card (3DS) will be explained below.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview), before proceeding with this section.
+?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
 
 ## Integration Step
 1. Get Card Token, via Frontend
@@ -40,7 +43,7 @@ data-client-key="<INSERT YOUR CLIENT KEY HERE>"></script>
 | Attribute | Value |
 |-----------|-------|
 | `data-environment`| Input `sandbox` or `production` (API environment)|
-| `data-client-key`| Input **client key** [by following previous section.](/en/midtrans-account/overview.md?id=retrieving-api-access-keys) |
+| `data-client-key`| Input **client key** [by following previous section.](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
 
 Link: [*More detailed definition*](https://api-docs.midtrans.com/#get-token)
 
@@ -90,7 +93,7 @@ Requirement | Description
 Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id` | Transaction order ID, defined from your side
 `gross_amount` | Total amount of transaction, defined from your side
-`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](en/core-api/credit-card.md?id=get-card-token-response)
+`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](en/core-api/credit-card.md#get-card-token-response)
 `authentication` | Flag to enable the 3D secure authentication. Default value is `false`
 
 ### Charge API request
@@ -99,7 +102,7 @@ The example below shows a sample codes of the charge request:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library_plugin))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/technical-reference/library-plugin.md))*
 
 #### Request Details
 Type | Value
@@ -478,7 +481,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Description
@@ -501,7 +504,17 @@ Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
+</div>
+
+<div class="my-card">
+
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>
