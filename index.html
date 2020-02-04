@@ -216,53 +216,61 @@
                  * ref: https://likebtn.com/en/faq#change_identifier
                  */
                 function (hook, vm) {
-                    hook.doneEach(function() {
+                    let reInitLikeBtn = function(vm=vm,initBy="direct"){
                         let likeBtnSiteId = "5e37e9f3fa8fdf4161f15869";
                         let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
                         let isDevelopmentEnv = document.location.href.indexOf("://localhost") >= 0;
                         let labelBeforeLikeBtn = "Is this page helpful?";
                         let pageId = vm.route.path;
-                        let likeBtnWrapperSelector = ".likebtn-wrapper";
+                        let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
+                        let likeBtnInWrapperClass = "likebtn-wrapper";
                         let docsifyContentWrapperSelector = ".markdown-section";
-                        isDevelopmentEnv&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev);
+                        isDevelopmentEnv&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev,"init by:",initBy);
 
-                        /* @FIXME: sometime LikeBtn script is on race condition with
-                        * Docsify doneEach, if LikeBtn late to be loaded, below function
-                        * doesn't get executed. Quite hard to replicate consistently.
-                        */
+                        isDevelopmentEnv&&console.log("initializing likebtn");
+                        // remove last page LikeBtn element, if exist.
+                        try{
+                            document.querySelector("."+likeBtnOutWrapperClass).remove();
+                        } catch(e) { };
+                        // (re)inject LikeBtn element.
+                        document.querySelector(docsifyContentWrapperSelector).innerHTML+=
+                        `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
+                            <p><small>${labelBeforeLikeBtn}</small></p>
+                            <span class="${likeBtnInWrapperClass}"
+                                data-identifier="${pageId}"
+                                data-site_id="${isDevelopmentEnv?likeBtnSiteIdDev:likeBtnSiteId}"
+                                data-theme="elegant"
+                                data-ef_voting="push"
+                                data-show_like_label="false"
+                                data-counter_type="percent"
+                                data-counter_clickable="true"
+                                data-share_size="small"
+                                data-loader_show="true"
+                                data-event_handler="likebtnCallback"
+                                data-i18n_like_tooltip="Helpful"
+                                data-i18n_dislike_tooltip="Not Helpful"
+                                data-i18n_popup_close="Later"
+                            \<\/span\>
+                        \<\/div\>`;
+                        // (re)init LikeBtn script for the new element.
+                        LikeBtn.init();
+                    }
+                    // Trigger on each page load
+                    hook.doneEach(function(){
                         if (typeof(LikeBtn) != "undefined") {
-                            isDevelopmentEnv&&console.log("initializing likebtn");
-                            // remove last page LikeBtn element, if exist.
-                            try{
-                                document.querySelector(likeBtnWrapperSelector).remove();
-                            } catch(e) { };
-                            // (re)inject LikeBtn element.
-                            document.querySelector(docsifyContentWrapperSelector).innerHTML+=
-                            `
-                            <div style="text-align:center;">
-                                <p><small>${labelBeforeLikeBtn}</small></p>
-                                <span class="likebtn-wrapper"
-                                    data-identifier="${pageId}"
-                                    data-site_id="${isDevelopmentEnv?likeBtnSiteIdDev:likeBtnSiteId}"
-                                    data-theme="elegant"
-                                    data-ef_voting="push"
-                                    data-show_like_label="false"
-                                    data-counter_type="percent"
-                                    data-counter_clickable="true"
-                                    data-share_size="small"
-                                    data-loader_show="true"
-                                    data-event_handler="likebtnCallback"
-                                    data-i18n_like_tooltip="Helpful"
-                                    data-i18n_dislike_tooltip="Not Helpful"
-                                    data-i18n_popup_close="Later"
-                                \<\/span\>
-                            \<\/div\>
-                            <br>
-                            `;
-                            // (re)init LikeBtn script for the new element.
-                            LikeBtn.init();
+                            reInitLikeBtn(vm,"docsify-doneEach")
                         }
-                    })
+                    });
+                    /* @NOTE: sometime LikeBtn script is on race condition with
+                    * Docsify doneEach, if LikeBtn late to be loaded, init function
+                    * doesn't get executed. Tried to handle it with `ready` hook.
+                    */
+                    // Trigger on first load, after docsify ready
+                    hook.ready(function(){
+                        if (typeof(LikeBtn) != "undefined") {
+                            reInitLikeBtn(vm,"docsify-ready")
+                        }
+                    });
                 }
             ],
             // config for tabs plugin
