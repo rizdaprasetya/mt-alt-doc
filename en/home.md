@@ -1,6 +1,6 @@
 <hr>
 
-![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')<hr>
+[![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')](https://midtrans.com)<hr>
 
 Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
 
@@ -69,7 +69,8 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 <!-- TODO: write this page -->
 <div class="my-card">
 
-#### [Integrate Payment to POS &#187;](/en/pos/overview.md)
+<!-- #### [Integrate Payment to POS &#187;](/en/pos/overview.md) -->
+#### [Integrate Payment to POS &#187;](#accept-payment-on-point-of-sales-vending-machine-iot-devices-etc)
 </div>
 
 <br> <br>
@@ -89,11 +90,11 @@ Charge customer for recurring payment. For example payment of repeat item purcha
 
 #### Sending Payment Invoices via Email, Link, Whatsapp, Instagram, Social Media, Messaging App, etc
 <!-- <TODO: elaborate payment link or maybe also selly?> -->
-Accept payment and invoice your customer via [Payment Link](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers via your favorite messaging app. whether you are selling stuff on social media, freelancer, service provider, teacher, business that need to quickly invoice payment to specific customers, etc.
+Accept payment and invoice your customer via [Payment Link](/en/payment-link/overview.md). You will only need to login via browser to Midtrans Dashboard, generate payment link, and then send the link to your customers via your favorite messaging app. Whether you are selling stuff on social media, freelancer, service provider, teacher, business that need to quickly invoice payment to specific customers, etc.
 
-#### Accept payment on Point of Sales, IoT devices, etc
+#### Accept payment on Point of Sales, Vending Machine, IoT devices, etc
 
-For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium.
+For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium. There is [specific Gopay guide for this type of integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos).
 
 #### Paying out users/merchants on your platform
 <!-- <TODO: elaborate iris> -->

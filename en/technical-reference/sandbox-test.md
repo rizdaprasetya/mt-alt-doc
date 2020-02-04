@@ -95,6 +95,8 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |**Maybank** | 4055 7796 2846 0474 | 5520 0883 1465 3770|
 <!-- tabs:end -->
 
+?> **[General](#card-number)** card number is for general feature testing of card payment, **[Bank Specific](#card-number)** card number is useful for testing advanced card feature like on-us/off-us installment, whitelist BIN, promo, etc. that requires card from specific Bank.
+
 ### E-Wallet
 
 |Payment Methods | Description|
