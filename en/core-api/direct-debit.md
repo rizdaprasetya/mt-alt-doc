@@ -1,4 +1,4 @@
-<H2> Direct Debit Transfer Integration </H2>
+# Direct Debit Transfer Integration
 One of the payment method offered by Midtrans is Direct Debit. By using this payment method, customers will have the option to make a payment via bank website and Midtrans will send real time notification when the customer complete the payment.
 
 At this moment, Midtrans has integrated with some direct debit payment methods:

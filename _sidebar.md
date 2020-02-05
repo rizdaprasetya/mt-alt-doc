@@ -1,4 +1,4 @@
-- [:house:**Home**](/ "Midtrans Payment Gateway Technical Documentation")
+- [**:bank:HOME**](/ "Midtrans Payment Gateway Technical Documentation")
 - **:bust_in_silhouette: Midtrans Account**
 	- [Overview](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - **![Snap](asset/image/main/snap-logo.svg)**

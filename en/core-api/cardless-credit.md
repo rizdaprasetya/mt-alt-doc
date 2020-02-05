@@ -1,4 +1,4 @@
-<H1> Cardless Credit </H1>
+# Cardless Credit
 One of the payment method offered by Midtrans is Cardless Credit. By using this payment method, customers will have the option to make a payment via Cardless credit page and Midtrans will send real time notification when the customer complete the payment.
 
 At this moment, Midtrans has integrated with 

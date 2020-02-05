@@ -78,7 +78,7 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 
 # Choose based on Business Use Cases {docsify-ignore}
 
-Here are some popular use cases that may help you choose
+Here are some popular use cases that may help you choose:
 
 #### Accept payment on your e-commerce web, app
 

@@ -1,4 +1,4 @@
-<H1> Convenience Store </H1>
+# Convenience Store
 One of the payment method offered by Midtrans is Convenience Store. By using this payment method, customers will have the option to make a payment via Convenience Store and Midtrans will send real time notification when the customer complete the payment.
 
 At this moment, Midtrans has integrated with some Convenience Store:
