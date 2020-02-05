@@ -1,12 +1,14 @@
-<H2> Credit Card Integration </H2>
-One of the payment method offered by Midtrans is Credit Card. By using this payment method, customers will have the option to make a payment via basic credit card will send real time notification when the customer complete the payment.
+<!-- TODO: explain it also accept Debit card -->
+<!-- TODO: explain when the card is checked for balance/limit, after 3DS -->
+# Card Transaction Integration
+One of the payment method offered by Midtrans is Card transaction. By using this payment method, customers will have the option to pay using credit card (or online-transaction-capable debit card) that is within Visa, MasterCard, JCB, or Amex network. Midtrans will also send real time notification when the customer complete the payment.
 
 ![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
 ![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=80") <br>
 ![jcb](./../../asset/image/coreapi/jcb.svg ":size=80") <br>
 ![amex](./../../asset/image/coreapi/american_express.svg ":size=80") <br>
 
-Basic integration process of Credit Card (3DS) will be explained below.
+Basic integration process of Card Transaction (3DS) will be explained below.
 
 ?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
 
@@ -19,7 +21,7 @@ Basic integration process of Credit Card (3DS) will be explained below.
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
-The overall Credit Card (3DS) end-to-end payment proccess can be illustrated in following sequence diagram:
+The overall Card Transaction (3DS) end-to-end payment proccess can be illustrated in following sequence diagram:
 
 ![3ds sequence diagram](./../../asset/image/core_api-sequence_3ds.png)
 </article>
@@ -93,7 +95,7 @@ Requirement | Description
 Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id` | Transaction order ID, defined from your side
 `gross_amount` | Total amount of transaction, defined from your side
-`token_id` | Represents customer's credit card information acquired from [Get Card Token Response](en/core-api/credit-card.md#get-card-token-response)
+`token_id` | Represents customer's card information acquired from [Get Card Token Response](en/core-api/credit-card.md#get-card-token-response)
 `authentication` | Flag to enable the 3D secure authentication. Default value is `false`
 
 ### Charge API request
@@ -160,7 +162,7 @@ composer require midtrans/midtrans-php
 > require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
 > ```
 
-Credit Card Charge
+Card Transaction Charge
 ```php
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
@@ -193,7 +195,7 @@ Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client
 npm install --save midtrans-client
 ```
 
-Credit Card Charge
+Card Transaction Charge
 ```javascript
 const midtransClient = require('midtrans-client');
 // Create Core API instance
@@ -260,7 +262,7 @@ dependencies {
 }
 ```
 
-Credit Card Charge
+Card Transaction Charge
 ```java
 import com.midtrans.Config;
 import com.midtrans.ConfigFactory;
@@ -310,7 +312,7 @@ Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client)
 pip install midtransclient
 ```
 
-Credit Card Charge
+Card Transaction Charge
 ```python
 import midtransclient
 # Create Core API instance

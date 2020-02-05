@@ -10,7 +10,7 @@ Choose any of one integration method below that is suitable to your liking:
 <br>
 <div class="my-card">
 
-#### [Credit Card Integration Guide](/en/core-api/credit-card.md)
+#### [Card Integration Guide](/en/core-api/credit-card.md)
 </div>
 <div class="my-card">
 

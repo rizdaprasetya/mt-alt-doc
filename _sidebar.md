@@ -12,7 +12,7 @@
 - **:diamond_shape_with_a_dot_inside: ![Core API](asset/image/main/core-api-logo.svg)**
 	- [Overview](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=integration "Midtrans - Core API Integration Guide Documentation")
-		- [Credit Card](en/core-api/credit-card.md "Midtrans - Core API Credit Card Documentation")
+		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
 		- [Bank Transfer](en/core-api/bank-transfer.md "Midtrans - Core API Bank Transfer Documentation")
 		- [E-Wallet](en/core-api/e-wallet.md "Midtrans - Core API E-Wallet Documentation")
 		- [Direct Debit](en/core-api/direct-debit.md "Midtrans - Core API Direct Debit Documentation")
