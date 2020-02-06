@@ -1,6 +1,6 @@
 - [**![](asset/image/main/home-icon.svg)**HOME](/ "Midtrans Payment Gateway Technical Documentation")
 - **![](asset/image/main/user-icon.svg)Midtrans Account**
-	- [Overview](en/midtrans-account/overview.md "Midtrans - Account Documentation")
+	- [Midtrans Account](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - **![Snap](asset/image/main/snap-logo.svg)**
 	- [Overview](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
@@ -21,7 +21,7 @@
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 - **![](asset/image/main/payment-link-icon.svg)![Payment Link](asset/image/main/payment-link-logo.svg)**
-    - [Overview](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
+    - [Payment Link](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - **![](asset/image/main/mobile-sdk-icon.svg)![Mobile SDK](asset/image/main/mobile-sdk-logo.svg)**
 	- [Docs](https://mobile-docs.midtrans.com)
 - **![IRIS - Disbursement](asset/image/main/iris-logo.svg) - Disbursement**
