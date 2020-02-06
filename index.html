@@ -65,7 +65,7 @@
             subMaxLevel: 3,
             plugins: [
                 /**
-                 * Custom plugin to replace all wrong sidebar image path
+                 * Custom plugin to replace all wrong sidebar & navbar image path
                  * So it point to right asset directory
                  * @HACK: Not extensively tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
@@ -74,14 +74,10 @@
                         // @HACK: use $docsify.logo as assetPath source, use hard coded .svg extension
                         // might break when $docsify.logo is changed.
                         let assetPath = window.$docsify.logo.replace(/(.*)\/.*?\.svg/g,"$1/");
-                        // all sidebar img tag
+                        // all sidebar img tag and navbar img tag, except `.emoji``
                         document
-                            .querySelectorAll(`.sidebar-nav ul>li>strong>img`)
+                            .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
                             .forEach(function(el){
-                                // filter out element that have '.emoji' class
-                                if(el.classList.length > 0){
-                                    return;
-                                }
                                 el.src = el.src
                                     .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
                             })

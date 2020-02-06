@@ -1,7 +1,7 @@
-- :question:FAQ
+- ![](/asset/image/main/faq-icon.svg)FAQ
     - [:book:General FAQ](https://support.midtrans.com)
     - [:wrench:Technical FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
-- :art:Theme
+- ![](/asset/image/main/theme-icon.svg)Theme
     - [:snowflake:Default](# 'style::Simple')
     - [:waning_crescent_moon:Dark](# 'style::Simple Dark')
     - [:zap:Lite](# 'style::Vue')
