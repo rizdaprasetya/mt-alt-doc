@@ -78,11 +78,14 @@
                         document
                             .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
                             .forEach(function(el){
-                                el.src = el.src
+                                // @NOTE: hardcoded path
+                                let validSrc = el.src
                                     .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
+                                // only replace if path invalid
+                                if(!el.src.includes(validSrc)){
+                                    el.src = validSrc;
+                                }
                             })
-
-
                     })
                 },
                 /**
