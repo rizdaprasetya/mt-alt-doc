@@ -1,11 +1,11 @@
 - :question:FAQ
-    - [:book:General FAQ](https://support.midtrans.com)
-    - [:wrench:Technical FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
-- :art:Theme
+    - [:book:FAQ Umum](https://support.midtrans.com)
+    - [:wrench:FAQ Teknis](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+- :art:Tema
     - [:snowflake:Default](# 'style::Simple')
     - [:waning_crescent_moon:Dark](# 'style::Simple Dark')
     - [:zap:Lite](# 'style::Vue')
     - [:page_facing_up:Plain](# 'style::Plain')
-- :uk:Lang
+- :uk:Bahasa
     - [:uk:English](/)
     - [:id:Indonesia](/id/home.md)
