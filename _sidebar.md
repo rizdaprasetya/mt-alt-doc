@@ -23,9 +23,9 @@
 - **![](asset/image/main/payment-link-icon.svg)![Payment Link](asset/image/main/payment-link-logo.svg)**
     - [Payment Link](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - **![](asset/image/main/mobile-sdk-icon.svg)![Mobile SDK](asset/image/main/mobile-sdk-logo.svg)**
-	- [Docs](https://mobile-docs.midtrans.com)
+	- [Mobile SDK Docs](https://mobile-docs.midtrans.com)
 - **![IRIS - Disbursement](asset/image/main/iris-logo.svg) - Disbursement**
-	- [Docs](https://iris-docs.midtrans.com/)
+	- [IRIS Docs](https://iris-docs.midtrans.com/)
 - **![](asset/image/main/after-payment-icon.svg)After Payment**
 	- [Overview](en/after-payment/overview.md "Midtrans - After Payment Documentation")
 	- [Email Notification](en/after-payment/email-notification.md "Midtrans - Email Notification Documentation")
