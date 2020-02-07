@@ -8,4 +8,4 @@
     - [:page_facing_up:Plain](# 'style::Plain')
 - :uk:Lang
     - [:uk:English](/)
-    - [:id:Indonesia](/id/home.md)
+    <!-- - [:id:Indonesia](/id/home.md) -->
