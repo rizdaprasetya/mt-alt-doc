@@ -100,7 +100,7 @@
                                 let validSrc = el.src
                                     .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
                                 // only replace if path invalid
-                                if(!el.src.includes(validSrc)){
+                                if(el.src != validSrc){
                                     el.src = validSrc;
                                 }
                             })
