@@ -7,12 +7,28 @@
     <meta charset="UTF-8">
     
     <!-- Main Docsify Stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="style::Simple">
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-simple.css" 
+    title="style::Simple" 
+    integrity="sha256-jv9fwK4BTDbiYNJeimGKb3leNXsi+v2ZGmYd3/sEnvw=" 
+    crossorigin="anonymous">
 
     <!-- Alternate Docsify Stylesheet -->
-    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="style::Simple Dark">
-    <link rel="stylesheet alternate" href="https://unpkg.com/docsify@4.9.4/themes/vue.css" title="style::Vue">
-    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css" title="style::Plain">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify@4.9.4/themes/vue.css" 
+    title="style::Vue" 
+    integrity="sha256-kWms3xT2W1uxqv89DR5lkW56FtYSahQl5GjxTRwoT6Q=" 
+    crossorigin="anonymous">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-simple-dark.css" 
+    title="style::Simple Dark" 
+    integrity="sha256-zXOmOwlqZghO7eQG0TrFr6R0bIHXlbwVZM0RhsKYLPE=" 
+    crossorigin="anonymous">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-defaults.css" 
+    title="style::Plain" 
+    integrity="sha256-4gCCXjsEHXVxwv6II5/NH/pVA+fB3qLDctd4MLO4H3c=" 
+    crossorigin="anonymous">
 
     <!-- Manual style override -->
     <link rel="stylesheet" type="text/css" href="asset/custom.css" />
@@ -50,7 +66,9 @@
                  * unresponsive for few second on prod
                  */
                 '/en/.*/_sidebar.md': '/_sidebar.md',
-                '/en/.*/_navbar.md': '/_navbar.md'
+                '/en/.*/_navbar.md': '/_navbar.md',
+                '/id/.*/_sidebar.md': '/id/_sidebar.md',
+                '/en/.*/_navbar.md': '/id/_navbar.md'
             },
             search: {
                 // set to 1 hour on development, change to 1 day on prod
@@ -78,11 +96,14 @@
                         document
                             .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
                             .forEach(function(el){
-                                el.src = el.src
+                                // @NOTE: hardcoded path
+                                let validSrc = el.src
                                     .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
+                                // only replace if path invalid
+                                if(!el.src.includes(validSrc)){
+                                    el.src = validSrc;
+                                }
                             })
-
-
                     })
                 },
                 /**
@@ -153,6 +174,7 @@
                  * @HACK: 
                  * - it use constant delay of 2 sec, then scroll, what if page load
                  * more than 2 sec?
+                 * @OPTIMIZE: instead of constant delay, check if all image done loaded: https://stackoverflow.com/a/11071687
                  */
                 function (hook, vm) {
                     hook.doneEach(function () {
@@ -349,27 +371,75 @@
         }
     </script>
     <!-- SweetAlert library -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js" 
+       integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
+       crossorigin="anonymous">
+    </script>
     <!-- LikeBtn library -->
     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- Docsify library -->
-    <script src="https://unpkg.com/docsify@4.9.4/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/docsify.min.js" 
+       integrity="sha256-ibnuwhVxau9TedtaK4AuoTzq0LhAmjbtHtyUoIJ2gH4=" 
+       crossorigin="anonymous">
+    </script>
     <!-- Docsify plugins -->
-    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/ga.min.js"></script>
-    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/zoom-image.min.js"></script>
-    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/emoji.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
-    <script src="https://unpkg.com/docsify-pagination@2.4.0/dist/docsify-pagination.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/ga.min.js" 
+       integrity="sha256-IUguNo0T22vwAwWZnzpFB9nVTY00IUOvrBxOyY/i3Yk=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/zoom-image.min.js" 
+       integrity="sha256-QYPXHOsAicqyjr+Uc1I7WUnRe2xR1Y3ncJhse2HaCMM=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/emoji.min.js" 
+       integrity="sha256-6dICtD0wM98hdjoCiKe36HW2K/fZ2fqSMDv/0YG9ymo=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/search.min.js" 
+       integrity="sha256-ViD5PRVc6K5SpTXMQKRqENU7Tax9APfXS6HpAwfhazs=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.4.0/dist/docsify-pagination.min.js" 
+       integrity="sha256-9gyDjJ0fc71EF3idA+QW8lHIUqIjOSRE68a7n1ZiUfQ=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/js/docsify-themeable.min.js" 
+       integrity="sha256-DjxvhlioSi/lO1GN+agurPW4RNl7naaPyEYwB99ez/o=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1.1.2/dist/docsify-tabs.min.js" 
+        integrity="sha256-6UO8rzmxCWkk2KHPL6PUBJIIFfC5t0iL6W5Iy4moWDE=" 
+        crossorigin="anonymous">    
+    </script>
     <!-- Code highlighter language plugins -->
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-bash.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-python.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-go.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-ruby.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-php.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-java.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-bash.min.js" 
+       integrity="sha256-W7l8nP5GgjHSb7BvkoJKZQ+6+qFPM2VT6aF1lISibsA=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-python.min.js" 
+       integrity="sha256-zXSwQE9cCZ8HHjjOoy6sDGyl5/3i2VFAxU8XxJWfhC0=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-go.min.js" 
+       integrity="sha256-0gPlDXMlahNpCwHdKGf6TkjpLCXUS7mliN3nmbKOBCc=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-ruby.min.js" 
+       integrity="sha256-SGBXZakPP3Fv0P4U6jksuwZQU5FlC22ZAANstHSSp3k=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-php.min.js" 
+       integrity="sha256-gJj4RKQeXyXlVFu2I8jQACQZsii/YzVMhcDT99lr45I=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-java.min.js" 
+       integrity="sha256-xkjfLarZfrNcxmgjDVE2XGj4/OIti0A0+HMRz8fg1rI=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-json.min.js" 
+       integrity="sha256-tLgG7JGsKcY/xjGqVS3C/Rx8u5qq4OKmB9+g38o935c=" 
+       crossorigin="anonymous">
+    </script>
 
     <!-- @OPTIMIZE: add snap js only on certain page when needed? -->
     <script type="text/javascript"
@@ -377,13 +447,8 @@
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
     <!-- Style Switcher -->
     <script src="asset/style-switcher.js"></script>
-    <!-- start Mixpanel -->
-    <script type="text/javascript">(function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"state")&&(j=JSON.parse(decodeURIComponent(d(f,"state"))),"mpeditor"===j.action&&(b.sessionStorage.setItem("_mpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.mixpanel=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,
-    0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="mixpanel";e.people=e.people||[];e.toString=function(b){var a="mixpanel";"mixpanel"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
-    for(h=0;h<l.length;h++)c(e,l[h]);var f="set set_once union unset remove delete".split(" ");e.get_group=function(){function a(c){b[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));e.push([d,call2])}}for(var b={},d=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<f.length;c++)a(f[c]);return b};a._i.push([b,d,g])};a.__SV=1.2;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
-    MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
-    mixpanel.init("54122b1716627efb0e25aff45d83602f");</script>
-    <!-- end Mixpanel -->
+    <!-- Mixpanel -->
+    <script src="asset/mixpanel-init.js"></script>
 </body>
 
 </html>

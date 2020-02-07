@@ -29,6 +29,8 @@
 	- Link title will be used as the page title, to define title, e.g: `- [menu name](/en/menu/path.md "Page Title Here")`
 - This project are using [Docsify](https://docsify.js.org/).
 - `index.html` contains all the Docsify script, plugins, and config.
+	- External `css`,`js` file dependencies (`<script>` tag) should have ["intigrity" SRI attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). e.g: use [jsdelivr.com](https://www.jsdelivr.com/package/npm/prismjs?version=1.17.1&path=components), click `copy HTML + SRI`.
+	- SRI is additional security protection against external file being modified by unauthorized party.
 - custom css & js can be embedded in `index.html` and also located at `asset` folder.
 - image asset are in `asset/image` folder.
 
