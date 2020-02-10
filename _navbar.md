@@ -1,3 +1,6 @@
+- :uk:Lang
+    - [:uk:English](/)
+    <!-- - [:id:Indonesia](/id/home.md) -->
 - :question:FAQ
     - [:book:General FAQ](https://support.midtrans.com)
     - [:wrench:Technical FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)
@@ -6,6 +9,3 @@
     - [:waning_crescent_moon:Dark](# 'style::Simple Dark')
     - [:zap:Lite](# 'style::Vue')
     - [:page_facing_up:Plain](# 'style::Plain')
-- :uk:Lang
-    - [:uk:English](/)
-    <!-- - [:id:Indonesia](/id/home.md) -->
