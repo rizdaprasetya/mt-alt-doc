@@ -300,14 +300,25 @@
                  */
                 function (hook, vm){
                     document.ipfyied = 0;
+                    let dd = document.location.href.indexOf("://localhost") >= 0;
                     hook.doneEach(function(){
-                        let dd = document.location.href.indexOf("://localhost") >= 0;
-                        let sendEvent = function(ip){
+                        let regThenTrackPageLoad = function(ip){
                             if (typeof(mixpanel) != "undefined") {
-                                mixpanel.track(
-                                    "page-load", 
-                                    {"path":vm.route.path,"ip_address":ip}
+                                mixpanel.register(
+                                    {
+                                        "user_agent": navigator.userAgent,
+                                        "ip_address": ip
+                                    }
                                 );
+                                let sectionId = undefined;
+                                try {
+                                    sectionId = vm.route.query.id;
+                                } catch(e){}
+                                mixpanel.track("page-load",{
+                                    "path": vm.route.path,
+                                    "section_id": sectionId
+                                });
+                                dd&&console.log('track page-load:',vm.route.path,sectionId);
                             } else { dd&&console.log('mixpanel undefined'); }
                         };
                         if(!document.ipfyied){
@@ -315,14 +326,17 @@
                             .then(function(resp){ return resp.json() })
                             .then(function(resp){
                                 document.ipfyied = resp.ip;
-                                sendEvent(document.ipfyied);
+                                regThenTrackPageLoad(document.ipfyied);
                             })
                             .catch(function(err){
                                 dd&&console.log('ip fetch fail:',err);
                             })
                         }else {
-                            sendEvent(document.ipfyied);
+                            regThenTrackPageLoad(document.ipfyied);
                         }
+                        // @NOTE: not sure if this safe to be called on each pageload.
+                        // track all `<a href="x">` click
+                        mixpanel.track_links("a[href]","link-click");
                     });
                 }
             ],
@@ -370,6 +384,8 @@
             }
         }
     </script>
+    <!-- Mixpanel -->
+    <script src="asset/mixpanel-init.js"></script>
     <!-- SweetAlert library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js" 
        integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
@@ -447,8 +463,6 @@
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
     <!-- Style Switcher -->
     <script src="asset/style-switcher.js"></script>
-    <!-- Mixpanel -->
-    <script src="asset/mixpanel-init.js"></script>
 </body>
 
 </html>
