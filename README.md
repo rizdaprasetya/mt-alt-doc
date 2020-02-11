@@ -44,6 +44,10 @@
 		- Go to tab `Network`
 		- Click checkbox `Disable cache`
 		- Refresh browser while dev tools still open (alternatively `cmd + shift + R` to hard refresh)
+- Generate `sitemap.xml` file for SEO purpose, by: 
+	- Modify `config` within `tooling/sitemapper.js` if needed
+	- Go to "tooling" folder: `cd tooling`
+	- Run `node sitemapper.js`
 
 ### Custom CSS elements
 There are some custom elements to make UX better:
