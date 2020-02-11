@@ -1,4 +1,4 @@
-- :uk:Bahasa
+- :uk:Id
     - [:uk:English](/)
     - [:id:Indonesia](/id/home.md)
 - :question:FAQ

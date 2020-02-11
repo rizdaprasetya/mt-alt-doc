@@ -11,7 +11,7 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 
 #### [Use Midtrans Checkout Page (SNAP Checkout) &#187;](/en/snap/overview.md#overview)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
-<br>
+<br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
   <button onclick="
   event.target.innerText = `Processing...`;
