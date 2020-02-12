@@ -880,10 +880,19 @@ curl -X POST \
 Anda dapat meberikan nilai pada parameter `callback_url` dengan URL prtocol http/https atau protokol Deeplink untuk aplikasi mobile. Sebagai contoh mengisi parameter `callback_url` dengan deeplink `"callback_url": "tokoecommerce://gopay_finish/"`
 
 > **Note**: 
-> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
+> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&result=xxx`. 
 > 
-> Sebagai contoh, redirect_url akan terlihat seperti berikut: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
-> 
+> Sebagai contoh, redirect_url akan terlihat seperti berikut: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Tipe | Deskripsi
+--- | --- | ---
+order_id |  String |  Order ID yang dikirim pada Charge Request.  
+result  | String |  Hasil transaksi untuk menentukan page yang ditampilkan. Nilai yang memungkinkan: `success` or `failure`.
+
 > Anda dapat menggunakan informasi pada parameter untuk menampilkan pesan khusus kepada pelanggan Anda di url Anda.
 
 Catatan: `gopay.callback_url` hanya akan bekerja kepada pelanggan yang membayar dengan mode Deeplink, pelanggan yang membayar dengan mode Scan QR, akan diarahkan ke Snap finish redirect url. Yang bisa Anda konfigurasi di [sini](http://localhost:8000/#/id/snap/advanced-feature?id=custom-finish-url)

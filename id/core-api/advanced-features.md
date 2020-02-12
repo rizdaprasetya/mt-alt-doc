@@ -1073,12 +1073,21 @@ curl -X POST \
 
 Anda dapat menambahkan nilai pada parameter `callback_url` dengan alamat URL website menggunakan protokol http/https atau bisa juga dengan protokol Deeplink untuk kembali ke aplikasi mobile anda seperti berikut ini `"callback_url": "tokoecommerce://gopay_finish/"`
 
-> **Catatan**: 
-> Alamat URL yang telah anda tambahkan pada parameter `callback_url` secara otomatis akan ditambahkan parameter `?order_id=xx&result=success`.  Nilai parameter `result` dapat bernilai success atau failure.
+> **Note**: 
+> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&result=xxx`. 
 > 
-> Sebagai contoh URL anda akan terlihat sebagai berikut ini: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`.
-> 
-> Anda dapat memanfaatkan nilai yang ditambakan pada parameter untuk menampilkan pesan tertentu kepada pelanggan anda.
+> Sebagai contoh, redirect_url akan terlihat seperti berikut: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Tipe | Deskripsi
+--- | --- | ---
+order_id |  String |  Order ID yang dikirim pada Charge Request.  
+result  | String |  Hasil transaksi untuk menentukan page yang ditampilkan. Nilai yang memungkinkan: `success` or `failure`.
+
+> Anda dapat menggunakan informasi pada parameter untuk menampilkan pesan khusus kepada pelanggan Anda di url Anda.
 
 ## Bank Transfer / VA
 ### Spesifik VA Number and VA Description

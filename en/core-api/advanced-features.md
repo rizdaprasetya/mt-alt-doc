@@ -1067,10 +1067,19 @@ curl -X POST \
 You can input `callback_url` value with http/https url protocol for website, or Deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
 
 > **Note**: 
-> The final redirect url will be appended with query parameter like `?order_id=xx&result=success`. Possible `result` values: success or failure.
+> The final redirect url will be appended with query parameter like `?order_id=xxx&result=xxx`. 
 > 
-> For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`. 
-> 
+> For example the final redirect url might looks like this: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Type | Description
+--- | --- | ---
+order_id |  String |  Order ID sent on the Charge Request.  
+result  | String |  Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`.
+
 > You could utilize those information to display custom message to your customer on your finish url.
 
 ## Bank Transfer / VA
