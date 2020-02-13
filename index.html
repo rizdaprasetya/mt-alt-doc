@@ -359,7 +359,8 @@
                         }
                         // @NOTE: not sure if this safe to be called on each pageload.
                         // track all `<a href="x">` click
-                        mixpanel.track_links("a[href]","link-click");
+                        (typeof(mixpanel) != "undefined")&&
+                            mixpanel.track_links("a[href]","link-click");
                     });
                 }
             ],
