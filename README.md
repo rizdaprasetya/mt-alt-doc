@@ -106,6 +106,30 @@ Optional card body content, or actually you can use any html/markdown content wi
 - Just pull request or commit to `master` branch.
 - Commit pushed to `master` branch are auto-deployed to https://mt-alt-doc.netlify.com .
 
+## Using Docker (and Compose)
+
+- Using `nginx:alpine` image
+- By default, docker file will `COPY` the necessary files from project dir at build time.
+	- Changes on runtime will not be reflected.
+	- Probably ideal for deployment, but not for development.
+	- Usage:
+		- Build image: `docker build -t <username-or-anything>/staticsite:1.0 .`.
+		- Run as container: `docker run -itd --name <container-name> --publish 20080:80 <username-or-anything>/staticsite:1.0`.
+		- It will be accessible under `localhost:20080` on host machine.
+- For development easier to use **docker-compose**:
+	- Because it will use `volume`, so changes is realtime.
+	- Usage:
+		- Run with docker compose `docker-compose up -d`.
+		- if doesn't work try building the container 1st `docker-compose up --build -d`.
+		- It will be accessible under `localhost:20080` on host machine.
+	- Stopping
+		- To stop run `docker-compose stop`
+		- To stop and remove container `docker-compose down`
+	- Advanced:
+		- ssh to container: `docker exec -it nginx_static /bin/sh` on runtime
+		- restart nginx to apply new config on ssh: `/usr/sbin/nginx -s reload`
+
+
 ## Be Warned
 <details>
 <summary>Be Warned - (Click to expand)</summary>
