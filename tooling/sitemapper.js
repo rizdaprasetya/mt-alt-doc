@@ -88,6 +88,8 @@ let cleanUrls = parsedUrls.map((url)=>{
     return cleanUrl;
 })
 cleanUrls = cleanUrls.filter(url=>!url.includes(excludeUrl));
+// filter out any external (different domain) link
+cleanUrls = cleanUrls.filter(url=>url.includes(sitePrefix));
 // @HACK: remove `/#/` from 1st url, which is homepage
 cleanUrls[0] = cleanUrls[0].replace("/#/","");
 
