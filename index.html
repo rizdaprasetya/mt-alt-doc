@@ -141,33 +141,36 @@
                  * So when crawled, asset links are not broken
                  * @HACK: Not tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
-                function (hook, vm) {
-                    hook.ready(function(){
-                        const isPluginActivated = true
-                        if (!isPluginActivated){
-                            return false
-                        }
-                        // url in these attribute will be replaced
-                        const attributeQueries = [
-                            'href',
-                            'src'
-                        ]
-                        const httpPrefix = 'http'
-                        // loop all attribute
-                        attributeQueries.map(function(attr){
-                            // query all element with the attribute
-                            let elementFound = Array.from(document.querySelectorAll('['+attr+']'))
-                            elementFound.map(function(el){
-                                // if url doesn't start with http prefix, replace with absolute url
-                                if( (el[attr].toLocaleLowerCase()).startsWith(httpPrefix) ){
-                                    let newUrl = new URL(el[attr], document.location.href)
-                                    el[attr] = newUrl.href
-                                }
-                            })
+                // function (hook, vm) {
+                //     hook.ready(function(){
+                //         let isPluginActivated = true;
+                //         if($docsify.routerMode == 'hash'){
+                //             return false;
+                //         }
+                //         if (!isPluginActivated){
+                //             return false
+                //         }
+                //         // url in these attribute will be replaced
+                //         const attributeQueries = [
+                //             'href',
+                //             'src'
+                //         ]
+                //         const httpPrefix = 'http'
+                //         // loop all attribute
+                //         attributeQueries.map(function(attr){
+                //             // query all element with the attribute
+                //             let elementFound = Array.from(document.querySelectorAll('['+attr+']'))
+                //             elementFound.map(function(el){
+                //                 // if url doesn't start with http prefix, replace with absolute url
+                //                 if( (el[attr].toLocaleLowerCase()).startsWith(httpPrefix) ){
+                //                     let newUrl = new URL(el[attr], document.location.href)
+                //                     el[attr] = newUrl.href
+                //                 }
+                //             })
 
-                        })
-                    })
-                },
+                //         })
+                //     })
+                // },
                 /**
                  * custom plugin to replace various relative url to point to 
                  * proper github repo url
