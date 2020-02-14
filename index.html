@@ -55,15 +55,21 @@
     crossorigin="anonymous">
 
     <!-- Manual style override -->
-    <link rel="stylesheet" type="text/css" href="asset/custom.css" />
-    <link rel="stylesheet alternate" href="asset/custom-dark.css" title="style::Simple Dark"/>
-    <link rel="stylesheet" type="text/css" href="asset/mini-collapsible.css" />
+    <link rel="stylesheet" type="text/css" href="/asset/custom.css" />
+    <link rel="stylesheet alternate" href="/asset/custom-dark.css" title="style::Simple Dark"/>
+    <link rel="stylesheet" type="text/css" href="/asset/mini-collapsible.css" />
     <title>Midtrans Technical Documentation</title>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
+        window.willUseDocsifyHashRouter = 
+            document.location.href.includes("/#/") || 
+            // @OPTIMIZE: param checking.
+            document.location.href.includes("hash=1") ||
+            document.location.href.includes("hash=true")
+            ;
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
@@ -101,7 +107,7 @@
                 noData: 'No results!',
                 placeholder: 'Search...'
             },
-            routerMode: 'hash',
+            routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
             auto2top: true,
             maxLevel: 3,
             subMaxLevel: 3,
@@ -410,7 +416,7 @@
         }
     </script>
     <!-- Mixpanel -->
-    <script src="asset/mixpanel-init.js"></script>
+    <script src="/asset/mixpanel-init.js"></script>
     <!-- SweetAlert library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js" 
        integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
@@ -487,7 +493,10 @@
     src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
     <!-- Style Switcher -->
-    <script src="asset/style-switcher.js"></script>
+    <script src="/asset/style-switcher.js"></script>
+    <!-- helper to handle invalid absolute/relative asset path, on both docsify route mode -->
+    <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
+    <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 </body>
 
 </html>

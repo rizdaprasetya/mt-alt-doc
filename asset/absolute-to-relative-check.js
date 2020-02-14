@@ -1,0 +1,1 @@
+window.absoluteResourceLoaded = true;
