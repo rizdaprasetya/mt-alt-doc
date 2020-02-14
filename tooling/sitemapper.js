@@ -107,16 +107,15 @@ let urlPriority = cf.urlPriority;
 cleanUrls.map((url)=>{
     // @OPTIMIZE: hardcoded priority of `0.7`, use proper priority
     outputXml+=
-`<url>
-  <loc>${url}</loc>
-  <lastmod>${lastmod}</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>${urlPriority}</priority>
-</url>
+`  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${urlPriority}</priority>
+  </url>
 `
 })
-outputXml += `
-</urlset>`;
+outputXml += `</urlset>`;
 
 dd&&console.log(outputXml);
 // write the file
