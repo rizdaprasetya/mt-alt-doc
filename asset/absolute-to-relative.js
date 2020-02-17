@@ -5,6 +5,7 @@
 * like `localhost/docs/midtrans-alt-doc/#/`
 */
 (function replaceAbsoluteResourceWithRelative(){
+    // check if this script is loaded `/asset/absolute-to-relative-check.js``
     if (!window.absoluteResourceLoaded){
         // return 0;
         let dd = document.location.href.indexOf("://localhost") >= 0;
