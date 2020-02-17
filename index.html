@@ -332,45 +332,63 @@
                  * @NOTE: there are some global `document.xxx` var used
                  */
                 function (hook, vm){
-                    document.ipfyied = 0;
                     let dd = document.location.href.indexOf("://localhost") >= 0;
-                    hook.doneEach(function(){
-                        let regThenTrackPageLoad = function(ip){
-                            if (typeof(mixpanel) != "undefined") {
-                                mixpanel.register(
-                                    {
-                                        "user_agent": navigator.userAgent,
-                                        "ip_address": ip
-                                    }
-                                );
-                                let sectionId = undefined;
-                                try {
-                                    sectionId = vm.route.query.id;
-                                } catch(e){}
-                                mixpanel.track("page-load",{
-                                    "path": vm.route.path,
-                                    "section_id": sectionId
-                                });
-                                dd&&console.log('track page-load:',vm.route.path,sectionId);
-                            } else { dd&&console.log('mixpanel undefined'); }
+                    document.$usr = {
+                        "user_agent": navigator.userAgent,
+                        "ip_address": 0
+                    };
+                    let trackEvent = function(eventName,trackObj){
+                        if (typeof(mixpanel) == "undefined"){ 
+                            return dd&&console.log("mixpanel undefined",arguments); 
+                        }
+                        // merge trackObj with $usr
+                        for(attr in trackObj){
+                            document.$usr[attr] = trackObj[attr];
                         };
-                        if(!document.ipfyied){
+                        mixpanel.track(eventName,trackObj);
+                        dd&&console.log("mixpanel.track",arguments);
+                    };
+                    let trackPageload = function(vm){
+                            let sectionId = undefined;
+                            try {
+                                sectionId = vm.route.query.id;
+                            } catch(e){}
+                            trackEvent("page-load",{
+                                "path": vm.route.path,
+                                "section_id": sectionId
+                            });
+                    };
+
+                    hook.doneEach(function(){
+                        /* Track Page load part */
+                        // Try to get IP first, before trackPageLoad
+                        if(!document.$usr.ip_address){
                             fetch('https://api.ipify.org?format=json')
                             .then(function(resp){ return resp.json() })
                             .then(function(resp){
-                                document.ipfyied = resp.ip;
-                                regThenTrackPageLoad(document.ipfyied);
+                                document.$usr.ip_address = resp.ip;
+                                trackPageload(vm);
                             })
                             .catch(function(err){
                                 dd&&console.log('ip fetch fail:',err);
                             })
                         }else {
-                            regThenTrackPageLoad(document.ipfyied);
+                            // trackPageload anyway if fail to get IP
+                            trackPageload(vm);
                         }
-                        // @NOTE: not sure if this safe to be called on each pageload.
-                        // track all `<a href="x">` click
-                        (typeof(mixpanel) != "undefined")&&
-                            mixpanel.track_links("a[href]","link-click");
+                    });
+
+                    hook.ready(function(){
+                        /* Register Listener to track link click */
+                        // @NOTE: using body and "Event Bubbling" method
+                        document.body.addEventListener('click', function(e){
+                            // exec if `<a href="x">` tag only`
+                            if(event.target.tagName.toLowerCase() != 'a'){return 0;};
+                            if(!event.target.href){return 0;};
+                            trackEvent("link-click",{
+                                url: event.target.href
+                            });
+                        });
                     });
                 }
             ],
