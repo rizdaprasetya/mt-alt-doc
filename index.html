@@ -285,7 +285,8 @@
                             document.querySelector("."+likeBtnOutWrapperClass).remove();
                         } catch(e) { };
                         // (re)inject LikeBtn element.
-                        document.querySelector(docsifyContentWrapperSelector).innerHTML+=
+                        document.querySelector(docsifyContentWrapperSelector).insertAdjacentHTML(
+                        'beforeend',
                         `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
                             <p><small>${labelBeforeLikeBtn}</small></p>
                             <span class="${likeBtnInWrapperClass}"
@@ -303,7 +304,8 @@
                                 data-i18n_dislike_tooltip="Not Helpful"
                                 data-i18n_popup_close="Later"
                             \<\/span\>
-                        \<\/div\>`;
+                        \<\/div\>`
+                        );
                         // (re)init LikeBtn script for the new element.
                         LikeBtn.init();
                     }
@@ -517,6 +519,7 @@
     <script src="/asset/style-switcher.js"></script>
     <!-- helper to handle invalid absolute/relative asset path, on both docsify route mode -->
     <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
+    <!-- @TODO: prevent load failure on subdir url -->
     <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 </body>
 
