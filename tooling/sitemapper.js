@@ -8,7 +8,7 @@ const cf = {
     ],
     outputXmlPath: "./../sitemap.xml",
     urlPriority:"0.75",
-    sitePrefix: "https://mt-alt-doc.midtrans.com/#/", // append this prefix to url
+    sitePrefix: "https://beta-docs.midtrans.com/", // append this prefix to url
     removeSuffix: ".md", // delete this suffix from url
     ignorePrefix: "http", // any url that have this prefix will not be modified
     excludeUrl: ".svg",
@@ -88,6 +88,8 @@ let cleanUrls = parsedUrls.map((url)=>{
     return cleanUrl;
 })
 cleanUrls = cleanUrls.filter(url=>!url.includes(excludeUrl));
+// filter out any external (different domain) link
+cleanUrls = cleanUrls.filter(url=>url.includes(sitePrefix));
 // @HACK: remove `/#/` from 1st url, which is homepage
 cleanUrls[0] = cleanUrls[0].replace("/#/","");
 
@@ -105,16 +107,15 @@ let urlPriority = cf.urlPriority;
 cleanUrls.map((url)=>{
     // @OPTIMIZE: hardcoded priority of `0.7`, use proper priority
     outputXml+=
-`<url>
-  <loc>${url}</loc>
-  <lastmod>${lastmod}</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>${urlPriority}</priority>
-</url>
+`  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${urlPriority}</priority>
+  </url>
 `
 })
-outputXml += `
-</urlset>`;
+outputXml += `</urlset>`;
 
 dd&&console.log(outputXml);
 // write the file

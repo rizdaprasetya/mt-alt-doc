@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mt-alt-doc.netlify.com/sitemap.xml
+Sitemap: https://beta-docs.midtrans.com/sitemap.xml

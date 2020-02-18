@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <meta name="google-site-verification" content="IUkZKtVcIeoIBGWIh2XWp7jH9xuYIpviQWCFIAVmXbs" />
+    <!-- verif: beta-docs -->
+    <meta name="google-site-verification" content="2FsjXHulCMIalGc3OZqIXIKVThLV9KwcEgYj08iNbp8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -54,15 +57,21 @@
     crossorigin="anonymous">
 
     <!-- Manual style override -->
-    <link rel="stylesheet" type="text/css" href="asset/custom.css" />
-    <link rel="stylesheet alternate" href="asset/custom-dark.css" title="style::Simple Dark"/>
-    <link rel="stylesheet" type="text/css" href="asset/mini-collapsible.css" />
+    <link rel="stylesheet" type="text/css" href="/asset/custom.css" />
+    <link rel="stylesheet alternate" href="/asset/custom-dark.css" title="style::Simple Dark"/>
+    <link rel="stylesheet" type="text/css" href="/asset/mini-collapsible.css" />
     <title>Midtrans Technical Documentation</title>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
+        window.willUseDocsifyHashRouter = 
+            document.location.href.includes("/#/") || 
+            // @OPTIMIZE: param checking.
+            document.location.href.includes("hash=1") ||
+            document.location.href.includes("hash=true")
+            ;
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
@@ -100,7 +109,7 @@
                 noData: 'No results!',
                 placeholder: 'Search...'
             },
-            routerMode: 'hash',
+            routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
             auto2top: true,
             maxLevel: 3,
             subMaxLevel: 3,
@@ -131,12 +140,15 @@
                 },
                 /**
                  * Custom plugin to replace all relative URL with absolute
-                 * So when crawled, asset links are not broken
+                 * (Only useful on) So when crawled (for SEO), asset links are not broken
                  * @HACK: Not tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
                 function (hook, vm) {
                     hook.ready(function(){
-                        const isPluginActivated = true
+                        let isPluginActivated = true;
+                        if($docsify.routerMode == 'hash'){
+                            return false;
+                        }
                         if (!isPluginActivated){
                             return false
                         }
@@ -275,7 +287,8 @@
                             document.querySelector("."+likeBtnOutWrapperClass).remove();
                         } catch(e) { };
                         // (re)inject LikeBtn element.
-                        document.querySelector(docsifyContentWrapperSelector).innerHTML+=
+                        document.querySelector(docsifyContentWrapperSelector).insertAdjacentHTML(
+                        'beforeend',
                         `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
                             <p><small>${labelBeforeLikeBtn}</small></p>
                             <span class="${likeBtnInWrapperClass}"
@@ -293,7 +306,8 @@
                                 data-i18n_dislike_tooltip="Not Helpful"
                                 data-i18n_popup_close="Later"
                             \<\/span\>
-                        \<\/div\>`;
+                        \<\/div\>`
+                        );
                         // (re)init LikeBtn script for the new element.
                         LikeBtn.init();
                     }
@@ -322,45 +336,63 @@
                  * @NOTE: there are some global `document.xxx` var used
                  */
                 function (hook, vm){
-                    document.ipfyied = 0;
                     let dd = document.location.href.indexOf("://localhost") >= 0;
-                    hook.doneEach(function(){
-                        let regThenTrackPageLoad = function(ip){
-                            if (typeof(mixpanel) != "undefined") {
-                                mixpanel.register(
-                                    {
-                                        "user_agent": navigator.userAgent,
-                                        "ip_address": ip
-                                    }
-                                );
-                                let sectionId = undefined;
-                                try {
-                                    sectionId = vm.route.query.id;
-                                } catch(e){}
-                                mixpanel.track("page-load",{
-                                    "path": vm.route.path,
-                                    "section_id": sectionId
-                                });
-                                dd&&console.log('track page-load:',vm.route.path,sectionId);
-                            } else { dd&&console.log('mixpanel undefined'); }
+                    document.$usr = {
+                        "user_agent": navigator.userAgent,
+                        "ip_address": 0
+                    };
+                    let trackEvent = function(eventName,trackObj){
+                        if (typeof(mixpanel) == "undefined"){ 
+                            return dd&&console.log("mixpanel undefined",arguments); 
+                        }
+                        // merge trackObj with $usr
+                        for(attr in trackObj){
+                            document.$usr[attr] = trackObj[attr];
                         };
-                        if(!document.ipfyied){
+                        mixpanel.track(eventName,trackObj);
+                        dd&&console.log("mixpanel.track",arguments);
+                    };
+                    let trackPageload = function(vm){
+                            let sectionId = undefined;
+                            try {
+                                sectionId = vm.route.query.id;
+                            } catch(e){}
+                            trackEvent("page-load",{
+                                "path": vm.route.path,
+                                "section_id": sectionId
+                            });
+                    };
+
+                    hook.doneEach(function(){
+                        /* Track Page load part */
+                        // Try to get IP first, before trackPageLoad
+                        if(!document.$usr.ip_address){
                             fetch('https://api.ipify.org?format=json')
                             .then(function(resp){ return resp.json() })
                             .then(function(resp){
-                                document.ipfyied = resp.ip;
-                                regThenTrackPageLoad(document.ipfyied);
+                                document.$usr.ip_address = resp.ip;
+                                trackPageload(vm);
                             })
                             .catch(function(err){
                                 dd&&console.log('ip fetch fail:',err);
                             })
                         }else {
-                            regThenTrackPageLoad(document.ipfyied);
+                            // trackPageload anyway if fail to get IP
+                            trackPageload(vm);
                         }
-                        // @NOTE: not sure if this safe to be called on each pageload.
-                        // track all `<a href="x">` click
-                        (typeof(mixpanel) != "undefined")&&
-                            mixpanel.track_links("a[href]","link-click");
+                    });
+
+                    hook.ready(function(){
+                        /* Register Listener to track link click */
+                        // @NOTE: using body and "Event Bubbling" method
+                        document.body.addEventListener('click', function(e){
+                            // exec if `<a href="x">` tag only`
+                            if(event.target.tagName.toLowerCase() != 'a'){return 0;};
+                            if(!event.target.href){return 0;};
+                            trackEvent("link-click",{
+                                url: event.target.href
+                            });
+                        });
                     });
                 }
             ],
@@ -409,7 +441,7 @@
         }
     </script>
     <!-- Mixpanel -->
-    <script src="asset/mixpanel-init.js"></script>
+    <script src="/asset/mixpanel-init.js"></script>
     <!-- SweetAlert library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js" 
        integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
@@ -486,7 +518,11 @@
     src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
     <!-- Style Switcher -->
-    <script src="asset/style-switcher.js"></script>
+    <script src="/asset/style-switcher.js"></script>
+    <!-- helper to handle invalid absolute/relative asset path, on both docsify route mode -->
+    <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
+    <!-- @TODO: prevent load failure on subdir url -->
+    <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 </body>
 
 </html>
