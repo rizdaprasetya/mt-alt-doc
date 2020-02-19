@@ -346,11 +346,11 @@
                             return dd&&console.log("mixpanel undefined",arguments); 
                         }
                         // merge trackObj with $usr
-                        for(attr in trackObj){
-                            document.$usr[attr] = trackObj[attr];
+                        for(attr in document.$usr){
+                            trackObj[attr] = document.$usr[attr];
                         };
                         mixpanel.track(eventName,trackObj);
-                        dd&&console.log("mixpanel.track",arguments);
+                        dd&&console.log("mixpanel.track",arguments,trackObj);
                     };
                     let trackPageload = function(vm){
                             let sectionId = undefined;
@@ -521,7 +521,8 @@
     <script src="/asset/style-switcher.js"></script>
     <!-- helper to handle invalid absolute/relative asset path, on both docsify route mode -->
     <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
-    <!-- @TODO: prevent load failure on subdir url -->
+    <!-- @TODO: prevent load failure on subdir url using body.onerror ?-->
+    <!-- Replace with `onerror` to detect invalid asset path -->
     <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 </body>
 
