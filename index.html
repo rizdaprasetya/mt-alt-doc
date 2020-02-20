@@ -66,6 +66,13 @@
 <body>
     <div id="app"></div>
     <script>
+        // @HACK: redirect to HTTPS
+        if (window.location.hostname.includes('.midtrans.com') && 
+            window.location.protocol == "http:") {
+            console.log("attempt to change protocol to https");
+            window.location.protocol = "https:";
+        }
+        // Check which Docsify router mode should be used
         window.willUseDocsifyHashRouter = 
             document.location.href.includes("/#/") || 
             // @OPTIMIZE: param checking.
