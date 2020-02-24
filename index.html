@@ -2,6 +2,14 @@
 <html>
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-53F3D9F');</script>
+    <!-- End Google Tag Manager -->
+
     <meta name="google-site-verification" content="IUkZKtVcIeoIBGWIh2XWp7jH9xuYIpviQWCFIAVmXbs" />
     <!-- verif: beta-docs -->
     <meta name="google-site-verification" content="2FsjXHulCMIalGc3OZqIXIKVThLV9KwcEgYj08iNbp8" />
@@ -82,7 +90,6 @@
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
-            ga: 'UA-157800130-1',
             loadSidebar: true,
             loadNavbar: true,
             name: 'Midtrans Docs',
@@ -367,7 +374,8 @@
                     };
                     let trackEvent = function(eventName,trackObj){
                         if (typeof(mixpanel) == "undefined"){ 
-                            return dd&&console.log("mixpanel undefined",arguments); 
+                            dd&&console.log("mixpanel undefined",arguments);
+                            mixpanel = { track: function(){} }; // dummy mp
                         }
                         // merge trackObj with $usr
                         for(attr in document.$usr){
@@ -375,6 +383,17 @@
                         };
                         mixpanel.track(eventName,trackObj);
                         dd&&console.log("mixpanel.track",arguments,trackObj);
+                        
+                        if(eventName=="page-load"){
+                            // Push custom event to GTM
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({
+                                'event': 'CustPageview',
+                                'pagePath': trackObj.path,
+                                'pageSection': trackObj.section_id,
+                                'pageTitle': document.title,
+                            });
+                        }
                     };
                     let trackPageload = function(vm){
                             let sectionId = undefined;
@@ -479,10 +498,6 @@
        crossorigin="anonymous">
     </script>
     <!-- Docsify plugins -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/ga.min.js" 
-       integrity="sha256-IUguNo0T22vwAwWZnzpFB9nVTY00IUOvrBxOyY/i3Yk=" 
-       crossorigin="anonymous">
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/zoom-image.min.js" 
        integrity="sha256-QYPXHOsAicqyjr+Uc1I7WUnRe2xR1Y3ncJhse2HaCMM=" 
        crossorigin="anonymous">
