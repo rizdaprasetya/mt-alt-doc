@@ -20,7 +20,6 @@ Contoh sample lain untuk integrasi frontend (dihost di JSFiddle). Masukkan Snap 
 
 ### Selanjutnya Bagaimana?
 
-This is just demonstration of **Step 1 & Step 2** [explained in the guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next step from there.
 Ini hanya demonstrasi dari **langkah 1 & langkah 2** [dijelaskan pada panduan ini](/id/snap/integration-guide?id=langkah-langkah-integrasi). Silahkan ikuti langkah selanjutnya yang dijelaskan di sana.
 
 <div class="my-card">
