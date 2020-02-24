@@ -365,7 +365,42 @@
                         "user_agent": navigator.userAgent,
                         "ip_address": 0
                     };
+                    let trackEventGa = function(eventName,trackObj){
+                        if (typeof(ga) == "undefined"){ 
+                            return dd&&console.log("ga undefined",arguments); 
+                        }
+
+                        if(eventName=="page-load"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'page',
+                                eventAction: 'load',
+                                eventLabel: trackObj['path'],
+                                dimension1: trackObj['section_id'],
+                            });
+                        }
+
+                        if(eventName=="link-click"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'link',
+                                eventAction: 'click',
+                                eventLabel: trackObj['url'],
+                                transport: 'beacon'
+                            });
+                        }
+
+                        if(eventName=="theme-switch"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'theme',
+                                eventAction: 'switch',
+                                eventLabel: trackObj['theme_id']
+                            });
+                        }
+                    };
                     let trackEvent = function(eventName,trackObj){
+                        trackEventGa(eventName,trackObj);
                         if (typeof(mixpanel) == "undefined"){ 
                             return dd&&console.log("mixpanel undefined",arguments); 
                         }
@@ -413,6 +448,12 @@
                             // exec if `<a href="x">` tag only`
                             if(event.target.tagName.toLowerCase() != 'a'){return 0;};
                             if(!event.target.href){return 0;};
+                            // track style/theme switch event
+                            if(event.target.title && event.target.title.includes("style::")){
+                                return trackEvent("theme-switch",{
+                                    "theme_id": event.target.title
+                                });
+                            }
                             trackEvent("link-click",{
                                 url: event.target.href
                             });
