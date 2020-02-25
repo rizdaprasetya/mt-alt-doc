@@ -26,8 +26,13 @@ Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pel
 		})
 		.catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
 		.finally( e=>{ event.target.innerText = label })
-	" class="my-btn">Coba Demo Snap &#9099;</button>
+	" class="my-btn">Coba Interfece Payment Snap &#9099;</button>
 </p>
+</div>
+<div style="text-align: center;">
+
+<sup>[Coba contoh integrasi cepat (kurang dari 5 menit)!](/en/snap/interactive-demo.md)</sup>
+</div>
 </div>
 
 <div class="my-card">

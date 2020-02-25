@@ -27,8 +27,12 @@ Securely accept payment on your web and app with few simple steps! Your customer
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
     .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
-  " class="my-btn">Try Snap Demo &#9099;</button>
+  " class="my-btn">Try Snap Payment Interface &#9099;</button>
 </p>
+<div style="text-align: center;">
+
+<sup>[Try out the quick (less than 5 mins) integration sample!](/en/snap/interactive-demo.md)</sup>
+</div>
 </div>
 
 <div class="my-card">
