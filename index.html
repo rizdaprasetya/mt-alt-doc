@@ -366,8 +366,9 @@
                         "ip_address": 0
                     };
                     let trackEventGa = function(eventName,trackObj){
+                        dd&&console.log("trackEventGa",arguments);
                         if (typeof(ga) == "undefined"){ 
-                            return dd&&console.log("ga undefined",arguments); 
+                            return dd&&console.log("ga undefined"); 
                         }
 
                         if(eventName=="page-load"){
@@ -398,18 +399,31 @@
                                 eventLabel: trackObj['theme_id']
                             });
                         }
-                    };
-                    let trackEvent = function(eventName,trackObj){
-                        trackEventGa(eventName,trackObj);
-                        if (typeof(mixpanel) == "undefined"){ 
-                            return dd&&console.log("mixpanel undefined",arguments); 
+
+                        if(eventName.includes("likebtn-")){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'likebtn',
+                                // extract from eventName suffix
+                                eventAction: eventName.replace('likebtn-',''),
+                                eventLabel: trackObj['path']
+                            });
                         }
+                    };
+                    let trackEvent = function(eventName,trackObj={}){
+                        dd&&console.log("trackEvent",arguments);
                         // merge trackObj with $usr
                         for(attr in document.$usr){
                             trackObj[attr] = document.$usr[attr];
                         };
+                        // auto populate path from docsify if not defined
+                        trackObj.path = trackObj.path || vm.route.path;
+
+                        trackEventGa(eventName,trackObj);
+                        if (typeof(mixpanel) == "undefined"){ 
+                            return dd&&console.log("mixpanel undefined"); 
+                        }
                         mixpanel.track(eventName,trackObj);
-                        dd&&console.log("mixpanel.track",arguments,trackObj);
                     };
                     let trackPageload = function(vm){
                             let sectionId = undefined;
@@ -458,6 +472,8 @@
                                 url: event.target.href
                             });
                         });
+                        // Expose trackEvent function for global usage outside plugin
+                        document.$trackEvent=trackEvent;
                     });
                 }
             ],
@@ -495,6 +511,14 @@
                     width:600,
                 })
             }
+
+            // track all feedback related event: like, unlike, dislike, undislike
+            if( (event.type.replace('likebtn.','')).includes('like') ){
+                try{ 
+                    document.$trackEvent(event.type.replace('.','-'));
+                }catch(e){}
+            }
+
             if (event.type == "likebtn.like") {
                 console.log("page liked");
                 promptFeedback();
