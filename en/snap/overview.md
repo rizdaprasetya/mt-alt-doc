@@ -24,6 +24,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
 **Choose** any of **one** integration method below that is suitable to your liking:
 
 ### A) Step by Step Guide
+<sub><i>Including example for various programming languages</i></sub>
 <br>
 <div class="my-card">
 
@@ -37,15 +38,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
 #### [Interactive Demo &#187;](/en/snap/interactive-demo.md)
 </div>
 
-### C) Follow Sample Code
-- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
-
-<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
-
-### D) Install as Plugin / Module on Your CMS
+### C) Install as Plugin / Module on Your CMS
 Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc? Simply install these plugins:
 
 <div class="my-card">
@@ -53,10 +46,17 @@ Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, O
 #### [Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
 </div>
 
-### E) Using Ecommerce Platform
+### D) Using Ecommerce Platform
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, Jejualan etc.
 
 <div class="my-card">
 
 #### [Using Ecommerce Platform &#187;](/en/snap/platform/overview.md)
+</div>
+
+### E) Download Sample Code
+<br>
+<div class="my-card">
+
+#### [Sample Code Repo &#187;](/en/technical-reference/library-plugin.md#sample-code)
 </div>
