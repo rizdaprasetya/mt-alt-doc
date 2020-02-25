@@ -374,9 +374,9 @@
                         if(eventName=="page-load"){
                             return ga('send', {
                                 hitType: 'event',
-                                eventCategory: 'page',
-                                eventAction: 'load',
-                                eventLabel: trackObj['path'],
+                                eventCategory: 'pageload',
+                                eventAction: trackObj['path'],
+                                eventLabel: trackObj['section_id'],
                                 dimension1: trackObj['section_id'],
                             });
                         }
