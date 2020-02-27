@@ -1,6 +1,8 @@
-GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek apps. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
+?> This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-wallet or banking app**.
 
-1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using the Gojek apps.
+GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek apps, or any QRIS compatible app. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
+
+1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using any QRIS compatible app, like Gojek app.
 2. **Deeplink** - This is the user flow on a SmartPhone/mobile device. User gets redirected to the Gojek apps to finish payment.
 
 Basic integration process of GoPay will be explained below.
@@ -28,7 +30,7 @@ The overall GoPay end-to-end payment proccess can be illustrated in following se
 </details>
 
 ## 1. Send Transaction Data to API Charge
-API request should be done from **Merchant’s backend** to acquire qr code and deeplink to Gojek apps. There are several components that are required:
+API request should be done from **Merchant’s backend** to acquire qr code and deeplink to Gojek app. There are several components that are required:
 
 Requirement | Description |
 ----------- | ----------- |
@@ -311,10 +313,10 @@ Instruction Example for **QR Code** :
 
 1. Tap **Pay using GoPay**
 2. QR code will appear on the next page
-3. Open **Gojek** app on your mobile phone
+3. Open any **QRIS compatible app** (e.g: Gojek) on your mobile phone
 4. Tap **Pay** then scan the QR Code
 5. Check and verify your payment details then tap **PAY**
-6. Enter your security **PIN**
+6. Complete your security PIN / verification
 7. Your transaction is finished
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-qr-pay.png)
