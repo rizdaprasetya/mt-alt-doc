@@ -2,7 +2,7 @@
 You can interactively try integration demo below. Inspect the source code and see the live output.
 ### Snap Integration Demo
 
-Sample backend integration in NodeJS (hosted on CodeSandbox), and frontend integration in HTML+Javascript. Wait until the window/iframe below is fully loaded, you will see Snap Transaction Token as as result of API response, and you can click **"Pay"** to test the frontend. Click **"Open Sandbox"** to see/edit the full source code.
+Sample backend integration in NodeJS (hosted on CodeSandbox), and frontend integration in HTML+Javascript. Please wait until the window/iframe below is fully loaded, you will see Snap Transaction Token as as result of API response on backend, and you can click **"Pay"** to test the frontend. Click **"Open Sandbox"** to see/edit the full source code.
 
 [Repl.it demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px')
 
@@ -10,7 +10,7 @@ Sample backend integration in NodeJS (hosted on CodeSandbox), and frontend integ
 <summary><b>Alternative Frontend Integration Sample</b></summary>
 <article>
 
-Another sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 (backend) to below field, then press "Pay". Click **"HTML"** to see the source code.
+Another sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 (backend) to below field, then click **"Pay"**. Click **"HTML"** to see the source code.
 
 <!-- [JSFiddle demo Snap.js](https://jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark ':include :type=iframe width=100% height=400px') -->
 
