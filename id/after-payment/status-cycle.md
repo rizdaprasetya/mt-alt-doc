@@ -11,7 +11,8 @@ Status Transaksi | Deskripsi | Kemungkinan Perubahan
 `cancel` | Transaksi dibatalkan. pembatalan transaksi dapat dilakukan oleh Midtrans atau merchant.<br> Transaksi yang dibatalkan dapat disebabkan oleh berbagai alasan:<br> 1. `Capture` transaksi dibatalkan sebelum Settlement.<br> 2. `Challenge` Transaksi ditolak oleh merchant.
 `expire` | Transaksi sudah tidak tersedia / kadaluarsa, dikarenakan tidak ada pembayaran yang diterima atau lewat dari batas waktu yang telah ditentukan.
 `failure` | Kesalahan tak terduga selama pemrosesan transaksi. <br>Kegagalan transaksi dapat disebabkan oleh berbagai alasan, sebagian besar masalah ini terjadi dikarenakan seperti bank gagal memberikan respons (time-out) dan kasus ini sangat jarang terjadi.
-`refund` | Refund dapat dilakuan oleh Merchant. Transaksi akan ditandai sebagai refund. | 
+`refund` | Refund dapat dilakuan oleh Merchant. Transaksi ditandai sebagai refund. | 
+`chargeback` | Transaction ditandai sebagai chargeback. | 
 `partial_refund` | Transaksi ditandai sebagai partial refund | 
 `partial_chargeback` | Transaksi ditandai sebagai partial chrgeback | 
 

@@ -12,7 +12,8 @@ Transaction Status | Description | Possible changes(s)
 `cancel` | Transaction is cancelled. Can be triggered by Midtrans or Merchant themselves.<br> Cancelled transaction can be caused by various reasons:<br> 1. `Capture` transaction is cancelled before Settlement.<br> 2. `Challenge` Transaction is denied by merchant.
 `expire` | Transaction no longer available to be paid or processed, beacause the payment has not been completed after the expiry time period exceeded.
 `failure` | Unexpected error during transaction processing. <br>Failure transaction can be caused by various reasons, but mostly unhandled issue like bank fail to give response (time-out). Occurs rarely.
-`refund` | Transaction is marked to be refunded. | 
+`refund` | Transaction is marked to be refunded. Refund can be requested by Merchant. | 
+`chargeback` | Transaction is marked to be charged back. | 
 `partial_refund` | Transaction is marked to be partially refunded. | 
 `partial_chargeback` | Transaction is marked to be partially charged back. | 
 
