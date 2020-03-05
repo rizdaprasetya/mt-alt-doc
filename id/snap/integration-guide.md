@@ -383,7 +383,7 @@ Atau anda bisa mencobanya dengan klik tombol dibawah ini:
 
 ?> **Alternatif** Jika anda tidak inigin Tampilan Snap berada diatas halaman website anda. Anda juga dapat menggunakan nilai atribut `redirect_url` pada saat melakukan proses permintaan token transaksi ke backend, untuk mengarahkan pelanggan ke halaman Snap.
 
-Setelah pelanggan selesai melakukan pembayaran, pelanggan anda akan diarahkan ke halaman Finish URL yang telah anda konfigurasi sebelumnya di menu **Settings > Snap Preference > System Settings > `Finish URL`**
+Setelah pelanggan selesai melakukan pembayaran, pelanggan anda akan diarahkan ke halaman [Finish URL yang telah anda konfigurasi sebelumnya](/id/snap/preparation.md#konfigurasi-redirect-url) di menu **Settings > Snap Preference > System Settings > `Finish URL`**
 
 
 ## 3. Mencoba Test Pembayaran

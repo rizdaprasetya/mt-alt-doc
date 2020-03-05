@@ -434,7 +434,7 @@ custom_field3 | String(255)<br>(***optional***) | Custom field 3 anda dapat meng
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
-Dalam transaksi kartu kredit terdapat fitur otentikasi kemananan yaitu Three Domain Secure (3DS), anda dapat meng-aktifkan/nonaktifkan 3DS pada transaksi kartu kredit snap yang dikirim ke Midtrans. Secara default kami sangat menyarankan anda untuk tetap mengaktifkan fitur tersebut demi keamanan transaksi yang lebih baik. Namun jika anda ingin me-nonaktifkan fitur 3DS anda membutuhkan perjanjian khusus kepada Bank Aquiring yang akan menampung transksi kartu kredit Non-3DS anda. Silahkan konsultasikan dengan team Aktivasi Midtrans anda.
+Dalam transaksi kartu kredit terdapat fitur otentikasi kemananan yaitu Three Domain Secure (3DS), anda dapat meng-aktifkan/nonaktifkan 3DS pada transaksi kartu kredit snap yang dikirim ke Midtrans. Secara default kami sangat menyarankan anda untuk tetap mengaktifkan fitur tersebut demi keamanan transaksi yang lebih baik. Namun jika anda ingin me-nonaktifkan fitur 3DS anda membutuhkan perjanjian khusus kepada Bank Aquiring yang akan menampung transksi kartu kredit Non-3DS anda. Silahkan konsultasikan dengan team Partner Growth Midtrans anda.
 
 Berikut cara mengaktifkan/nonaktifkan fitur 3DS:
 * Untuk mengaktifkan fitur 3DS, anda dapat mengisi nilai parameter `secure` dengan nilai `true`
@@ -519,7 +519,7 @@ Pastikan untuk menggunakan `user_id` yang sama untuk pelanggan yang menggunakan 
 Untuk detail informasi menganai simpan kartu, anda dapat membaca [artikel](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction) berikut ini.
 
 ### Transaksi Recurring / Subscription
-Snap juga dapat digunakan untuk melakukan transaksi langganan/*subscription* atau pembayaran berulang /*recurring*. Namun ada beberapa persyaratan yang harus dipenuhi:
+Snap juga dapat digunakan untuk **memulai flow transaksi** langganan/*subscription* atau pembayaran berulang /*recurring*. Namun ada beberapa persyaratan yang harus dipenuhi:
 
 * Untuk melakukan transaksi recurring, Anda memerlukan layanan Core API Midtrans.
 * Saat ini transaksi recurring hanya didukung dengan metode kartu kredit.

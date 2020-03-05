@@ -381,7 +381,7 @@ Or try the demo here:
 
 ?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
 
-After payment completed, customer will be redirected back to `Finish URL` specified on Midtrans Dashboard, under menu **Settings > Snap Preference > System Settings > `Finish URL`**
+After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/preparation.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**
 
 
 ## 3. Creating Test Payment

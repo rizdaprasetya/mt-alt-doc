@@ -433,7 +433,7 @@ custom_field3 | String(255) | (optional) | Custom field 3 for custom parameter f
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
-Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should always enable 3DS**, unless you understand the risk of disabling 3DS and the requirement (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Activation team.
+Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should enable 3DS whenever possible**, to prevent unnecessary security & chargeback risks. Unless there are specific business needs, that you understand the risk of disabling 3DS and its requirements (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Partner Growth Team.
 
 * Set the `secure` value to `true` to enable 3DS
 * Set the `secure` value to `false` to disable 3DS
@@ -519,7 +519,7 @@ Be sure to use the same `user_id` for that particular customer on future transac
 To better understand the use cases, you an also further refer to [this article](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
 ### Recurring / Subscription Card Transaction
-Snap can be utilized to initialize subscription or recurring payment flow. Note that:
+Snap can be utilized **to initialize** subscription or recurring payment flow. Note that:
 
 * You will require Core API to do the recurring charge.
 * Currently, recurring only support card transaction.
