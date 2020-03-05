@@ -1,3 +1,4 @@
+<!-- @@@NOCONTENT -->
 - :uk:Id
     - [:uk:English](/)
     - [:id:Indonesia](/id/home.md)

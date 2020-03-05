@@ -1,3 +1,4 @@
+<!-- @@@NOCONTENT -->
 - [**![](asset/image/main/home-icon.svg)**HOME](/id/home.md "Dokumentasi Teknis Midtrans Payment Gateway")
 - **![](asset/image/main/user-icon.svg)Akun Midtrans**
 	- [Akun Midtrans](/id/midtrans-account/overview.md "Midtrans - Akun Dokumentasi")

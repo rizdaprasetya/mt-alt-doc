@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- @@@NOCONTENT -->
 <head>
     <meta name="google-site-verification" content="IUkZKtVcIeoIBGWIh2XWp7jH9xuYIpviQWCFIAVmXbs" />
     <!-- verif: beta-docs -->
@@ -79,6 +79,9 @@
             document.location.href.includes("hash=1") ||
             document.location.href.includes("hash=true")
             ;
+        window.predictedHomeUrl = window.willUseDocsifyHashRouter ? 
+            (document.location.href.split('/#/'))[0]+'/' :
+            document.location.origin;
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
@@ -121,6 +124,18 @@
             maxLevel: 3,
             subMaxLevel: 3,
             plugins: [
+                /**
+                 * Custom plugin to show 404 if non-content file is fetched by Docsify.
+                 * marked with specified keyword
+                 */
+                function (hook, vm) {
+                    hook.beforeEach(function(content){
+                        if(content.includes(`@@@NOCONTENT`)){
+                            content = `\r\n#### Page Not Found.\r\nProbably mis-type the url? Please navigate to [homepage](/) <br><br><br>`;
+                            return content;
+                        }
+                    })
+                },
                 /**
                  * Custom plugin to replace all wrong sidebar & navbar image path
                  * So it point to right asset directory

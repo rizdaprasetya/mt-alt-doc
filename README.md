@@ -155,9 +155,14 @@ Docsify as SPA (Single Page App) [support 2 different router mode](https://docsi
 
 #### `history`
 - Handle page navigation using proper `/page-url` route, like backend based web app. 
-- But, the **web server must route all the traffic to same `index.html` file** (check: `/tooling/docker-files/default.conf` for sample implementation of NGINX SPA routing).
+- But, the **web server must route all the traffic to same `index.html` file**
+	- Check: `/tooling/docker-files/default.conf` for sample implementation of NGINX SPA routing
+	- On Netlify deployment, routing is taken care by `_redirects` file. Which is a Netlify config file.
+	- To avoid unexpected non-content file (like `_sidebar.md`,`index.hmtl`) from being loaded by netlify markdown fetcher, custom Docsify plugin is implemented to show custom 404 page if those file (with keyword below) is loaded.
+		- Add this keyword to any non-content file `<!-- @@@NOCONTENT -->`
 - History route is more SEO friendly, so more favorable in production.
 
+#### Note on Router Mode
 This project implementation auto detect which mode to use, if url: 
 - contains `/#/`, or
 - contains `hash=1`/`hash=true`
