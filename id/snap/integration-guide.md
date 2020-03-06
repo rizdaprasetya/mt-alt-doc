@@ -48,7 +48,8 @@ Berikut contoh dari request API `/charge` dalam Curl, silahkan implementasikan s
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Sandbox) | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Production) | `https://app.midtrans.com/snap/v1/transactions`
 
 #### Headers HTTP
 ```
@@ -138,6 +139,7 @@ Send Snap transaction request
 const midtransClient = require('midtrans-client');
 // Create Snap API instance
 let snap = new midtransClient.Snap({
+        // Set to true if you want Production Environment (accept real transaction).
         isProduction : false,
         serverKey : 'YOUR_SERVER_KEY'
     });
@@ -221,6 +223,7 @@ public class MidtransExample {
     public static void main(String[] args) throws MidtransError {
       // Create new Object SnapAPI
       MidtransSnapApi snapApi = new ConfigFactory(new Config("YOU_SERVER_KEY","YOUR_CLIENT_KEY", false)).getSnapApi();
+      // Set 3rd param to true if you want Production Environment (accept real transaction).
 
       // Create params JSON Raw Object request
       public Map<String, Object> requestBody() {
@@ -258,6 +261,7 @@ Send Snap transaction request
 import midtransclient
 # Create Snap API instance
 snap = midtransclient.Snap(
+    # Set to true if you want Production Environment (accept real transaction).
     is_production=False,
     server_key='YOUR_SERVER_KEY'
 )
