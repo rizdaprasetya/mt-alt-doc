@@ -58,7 +58,8 @@ Contoh dibawah ini adalah kode program untuk charge request:
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Headers HTTP
 ```

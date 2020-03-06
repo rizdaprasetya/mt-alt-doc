@@ -102,7 +102,8 @@ Berikut contoh dari request API `/charge` dalam CURL, silahkan implementasikan s
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Header HTTP
 ```

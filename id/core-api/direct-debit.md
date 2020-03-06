@@ -36,7 +36,8 @@ Request API charge akan dilakukan melalui backend Merchant. Server Key (dari Das
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Headers HTTP
 ```

@@ -25,6 +25,26 @@ The overall Bank Tranfer end-to-end payment proccess can be illustrated in follo
 </article>
 </details>
 
+Charge API request should be done from Merchant's backend. Server Key (from your account's Dashboard) will be needed to [authenticate the request](https://api-docs.midtrans.com/#http-s-header).
+
+#### Request Details
+Type | Value
+--- | ---
+HTTP Method | `POST`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
+
+#### HTTP Headers
+```
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
+
+**AUTH_STRING**: Base64(`ServerKey + :`)
+
+?> HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+
 ## 1. Send Transaction Data to API Charge
 API request should be done from **Merchant’s backend** to acquire `va_number`. There are several components that are required:
 

@@ -110,7 +110,8 @@ The example below shows a sample codes of the charge request:
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### HTTP Headers
 ```
