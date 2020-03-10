@@ -131,7 +131,15 @@
                 function (hook, vm) {
                     hook.beforeEach(function(content){
                         if(content.includes(`@@@NOCONTENT`)){
-                            content = `\r\n#### Page Not Found.\r\nProbably mis-type the url? Please navigate to [homepage](/) <br><br><br>`;
+                            let isIndoVersion = document.location.href.includes('/id/');
+                            let englishVersionUrl = isIndoVersion? 
+                                document.location.href.replace('/id/','/en/'):
+                                false;
+                            content = `\r\n#### Page Not Found.\r\n<br>The `;
+                            content+= isIndoVersion? 
+                                `content you are looking for is currently not available in the language you have chosen, try the [English version](${englishVersionUrl}), or the `:
+                                '';
+                            content+= `url you are trying to visit is not available. Please navigate to the [homepage](/).<br><br><br>`;
                             return content;
                         }
                     })
