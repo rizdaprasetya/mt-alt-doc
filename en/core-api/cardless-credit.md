@@ -104,6 +104,8 @@ To redirect customer to Bank's Website, use redirect_url that retrieved from API
 
 Then customer can be redirected via server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#cardless-credit).
+
 ### 3. Create Landing Page After Customer Complete the Payment
 After the customer completes the payment via bank's website, the bank website automatically redirect customer to `Finish Redirect URL` which can be configured on MAP (Merchant Administration Portal). You must [login to MAP](https://account.midtrans.com/login). Go to setting -> configuration, and fill in the `Finish Redirect URL` with your landing page endpoint.
 ![Direct Debit Payment Flow](./../../asset/image/coreapi/direct_debit_map.png)

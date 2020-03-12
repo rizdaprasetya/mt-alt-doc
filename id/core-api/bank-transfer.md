@@ -247,6 +247,8 @@ Anda akan mendapatkan atribut `permata_va_number` yang dapat digunakan untuk mel
 ## 2. Tampilkan Nomor Virtual Account dan Waktu Expire.
 Anda bisa menggunakan `va_number` yang didapatkan dari respon API untuk menampilkan nomor virtual account.
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#bank-transfer).
+
 Secara default expiry time untuk Transfer Bank / VA adalah 24jam, periksa halaman dibawah ini jika anda ingin mengkustomisasi expiry time sesuai kehendak anda.
 
 <div class="my-card">

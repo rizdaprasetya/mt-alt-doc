@@ -346,6 +346,8 @@ Contoh instruksi untuk Deeplink :
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#e-wallet).
+
 ### Mengimplementasi GoPay deeplink callback
 
 Anda dapat mengimplementasikan deeplink callback untuk mengarahkan customer kembali ke aplikasi anda dari aplikasi Gojek.

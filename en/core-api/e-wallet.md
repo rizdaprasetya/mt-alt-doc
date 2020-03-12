@@ -336,6 +336,8 @@ Instruction Example for **Deeplink** :
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
+
 ### Implementing GoPay Deeplink Callback
 
 In addition to the standard mobile apps flow, you may opt to implement a deeplink callback to redirect customer back from Gojek to their apps.

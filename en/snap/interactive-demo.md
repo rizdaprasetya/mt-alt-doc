@@ -18,6 +18,20 @@ Another sample frontend integration (hosted on JSFiddle). Input the Snap Transac
 </article>
 </details>
 
+### Creating Test Payment
+
+You can use one of our test credentials for Card Payment:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+You can use more test payment credentials [available on our sandbox payment simulator](/en/technical-reference/sandbox-test.md)
+
 ### What's Next
 
 This is just demonstration of **Step 1 & Step 2** [explained in the guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next step from there.

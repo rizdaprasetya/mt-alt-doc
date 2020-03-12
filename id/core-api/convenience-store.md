@@ -165,6 +165,8 @@ Anda akan mendapatkan atribut `payment_code` yang dapat ditampilkan ke halaman *
 ### 2. Menampilkan payment code ke halaman frontend.
 Anda dapat menggunakan atribut `payment_code` yang didapatkan dari respons API untuk ditampilkan ke halaman frontend website atau aplikasi anda.
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#convenience-store).
+
 ### 3. Menerima Notifikasi HTTP
 
 Notifikasi HTTP dari Midtrans ke backend Merchant akan dikirimkan pada saat terjadi perubahan `transaction_status`, untuk memastikan Mercahant mendapat informasi secara aman. Termasuk pada saat status transaksi berubah jadi *success* atau *expired* (tidak dibayarkan). Jadi selain JSON pada callback di atas, Merchant juga akan menerima notifikasi dari Midtrans.

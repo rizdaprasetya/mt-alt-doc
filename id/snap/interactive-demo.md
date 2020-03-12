@@ -18,6 +18,20 @@ Contoh sample lain untuk integrasi frontend (dihost di JSFiddle). Masukkan Snap 
 </article>
 </details>
 
+### Melakukan Testing Pembayaran
+
+Anda bisa gunakan test credentials untuk transaksi Kartu berikut:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+Anda juga bisa gunakan credentials testing pembayaran lain [yang tersedia di  payment simulator sandbox kami](/id/technical-reference/sandbox-test.md)
+
 ### Selanjutnya Bagaimana?
 
 Ini hanya demonstrasi dari **langkah 1 & langkah 2** [dijelaskan pada panduan ini](/id/snap/integration-guide?id=langkah-langkah-integrasi). Silahkan ikuti langkah selanjutnya yang dijelaskan di sana.

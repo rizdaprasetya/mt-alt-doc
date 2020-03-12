@@ -79,6 +79,18 @@ var options = {
 MidtransNew3ds.getCardToken(cardData, options);
 ```
 
+You can use one of our test credentials for Card Payment:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+Link: [*More testing credentials*](/en/technical-reference/sandbox-test.md).
+
 ### Get Card Token Response
 If all goes well, we will be able to get card `token_id` inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
 

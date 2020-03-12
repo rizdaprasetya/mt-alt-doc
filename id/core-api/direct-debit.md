@@ -219,6 +219,8 @@ Anda akan mendapat response API seperti berikut:
 <!-- tabs:end -->
 Anda akan mendapatkan atribut `redirect_url` yang dapat digunakan untuk redirect ke halaman website pembayaran *credit cardless*.
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#direct-debit).
+
 ### 2. Menampilkan payment code ke halaman frontend.
 Anda dapat menggunakan `redirect_url` yang didapatkan dari respons API untuk mengarahkan pelanggan ke website pembayaran *credit cardless*.
 

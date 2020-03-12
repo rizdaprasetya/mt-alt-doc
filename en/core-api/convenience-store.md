@@ -169,6 +169,8 @@ To show payment code to your frontend, use `payment_code` that retrieved from AP
 
 Then customer can be payment to convenience store using payment code that shown on merchant website / apps.
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#convenience-store).
+
 ### 3. Handle transaction notification
 
 HTTP notification from Midtrans to Merchant backend will also be triggered on event of `transaction_status` getting updated, to ensure merchant is securely informed. Including if transaction success or expired (not paid). So apart of JSON result above, Merchant backend will be notified by Midtrans.

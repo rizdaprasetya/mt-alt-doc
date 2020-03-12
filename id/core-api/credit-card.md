@@ -71,6 +71,17 @@ var options = {
 // panggil function `getCardToken`
 MidtransNew3ds.getCardToken(cardData, options);
 ```
+Anda bisa gunakan test credenials untuk pembayaran kartu berikut:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+Link: [*testing credentials lainnya*](/id/technical-reference/sandbox-test.md).
 
 ### Mendapatkan Respon Token
 Jika semua lancar, kita akan mendapatkan `token_id` kartu di dalam callback function `onSuccess`. Yang akan digunakan sebagai salah satu parameter JSON untuk [`/charge` API request](id/core-api/credit-card.md?id=charge-api-request).

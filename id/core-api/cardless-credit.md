@@ -102,6 +102,8 @@ Anda dapat menggunakan `redirect_url` yang didapatkan dari respons API untuk men
 
 Kemudian pelanggan dapat diarahkan melalui server-side redirect, menggunakan javascript seperti `window.location = [URL REDIRECT]`, atau menggunakan link HTML `<a href="[REDIRECT URL]"> Bayar disini! </a>`.
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#cardless-credit).
+
 ### 3. Membuat Landing Page setelah pelanggan menyelesaikan pembayaran
 Setelah pelanggan menyelesaikan pembayaran melalui halaman website pembayaran *credit cardless* , pelanggan akan diarahkan ke *endpoint Finish Redirect URL* yang dapat dikonfigurasi pada MAP (dashboard Midtrans).
 

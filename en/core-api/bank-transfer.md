@@ -235,6 +235,8 @@ You will get the `permata_va_number` attribute which can be performed this trans
 
 To display the virtual account number, use `va_number` that retrieved from API response.
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
+
 By default the expiry time for Bank Transfer / VA is **24 hours**, follow this link if you wanna customize the expiry time:
 <div class="my-card">
 
