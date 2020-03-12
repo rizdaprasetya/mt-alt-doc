@@ -237,28 +237,12 @@ After the customer completes the payment via bank's website, the bank website au
 On the Finish Redirect URL script, we need to obtain the response sent to the finish url script. Please make sure the `Finish Redirect URL` endpoint can receive POST. The sample code below are written in native php. Please adjust to your own environment.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Raw response are formatted in JSON, however, in some rare case, sometime there are backslash () before the quotation mark (“). Below are the sample of the raw dirty response.
-```json
-{
-    \"status_code\" : \"200\",
-    \"status_message\" : \"Success, transaction is found\",
-    \"transaction_id\" : \"58b48d1c-3e51-46f8-a2fb-ad5fa668f534\",
-    \"order_id\" : \"34\",
-    \"gross_amount\" : \"19999998.00\",
-    \"payment_type\" : \"cimb_clicks\",
-    \"transaction_time\" : \"2018-01-26 08:57:45\",
-    \"transaction_status\" : \"settlement\",
-    \"approval_code\" : \"1516957074590\",
-    \"signature_key\" : \"30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb\"
-}
-```
-After the response being clean we got this result.
+The response is in JSON format:
 
 ```json
 {

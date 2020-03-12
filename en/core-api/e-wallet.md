@@ -340,7 +340,7 @@ Instruction Example for **Deeplink** :
 
 ### Implementing GoPay Deeplink Callback
 
-In addition to the standard mobile apps flow, you may opt to implement a deeplink callback to redirect customer back from Gojek to their apps.
+In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
 Please add gopay parameter in the [charge API request](#charge-api-request) .
 
 ```json

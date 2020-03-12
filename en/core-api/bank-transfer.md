@@ -233,7 +233,7 @@ You will get the `permata_va_number` attribute which can be performed this trans
 
 ## 2. Display Virtual Account Number and Expiry Time
 
-To display the virtual account number, use `va_number` that retrieved from API response.
+To display the virtual account number, use the value of `va_number` retrieved from API response.
 
 ?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
 

@@ -113,30 +113,12 @@ After the customer completes the payment via bank's website, the bank website au
 On the Finish Redirect URL script, we need to obtain the response sent to the finish url script. Please make sure the `Finish Redirect URL` endpoint can receive POST. The sample code below are written in native php. Please adjust to your own environment.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Raw response are formatted in JSON, however, in some rare case, sometime there are backslash () before the quotation mark (“). Below are the sample of the raw dirty response.
-```json
-{
-    \"status_code\": \"201\",
-    \"status_message\": \"Success, Akulaku transaction is created\",
-    \"transaction_id\": \"fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"order_id\": \"order-101-1578567480\",
-    \"redirect_url\": \"https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"merchant_id\": \"G812785002\",
-    \"gross_amount\": \"11000.00\",
-    \"currency\": \"IDR\",
-    \"payment_type\": \"akulaku\",
-    \"transaction_time\": \"2020-01-09 17:58:00\",
-    \"transaction_status\": \"pending\",
-    \"fraud_status\": \"accept\"
-}
-```
-After the response being clean we got this result.
+Raw response are formatted in JSON.
 
 ```json
 {

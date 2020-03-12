@@ -167,7 +167,7 @@ You will get the `payment_code` attribute which can be shown to your frontend.
 ### 2. Show payment code to frontend.
 To show payment code to your frontend, use `payment_code` that retrieved from API response.
 
-Then customer can be payment to convenience store using payment code that shown on merchant website / apps.
+Then customer can proceed with actual payment in their nearest convenience store using payment code that is shown on merchant website / apps.
 
 ?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#convenience-store).
 

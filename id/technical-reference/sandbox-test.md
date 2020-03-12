@@ -5,12 +5,12 @@ Pada environment Sandbox Midtrans menyediakan portal web untuk melakukan simulas
 Berikut adalah daftar data informasi metode pembayaran yang dapat anda gunakan pada simulator midtrans. Data tersebut tidak dapat digunakan pada environment Production:
 
 Metode Pembayaran :
-- [Credit Card](/en/technical-reference/sandbox-tes.md#credit-card)
-- [E-Wallet](/en/technical-reference/sandbox-tes.md#e-wallet)
-- [Bank Transfer](/en/technical-reference/sandbox-tes.md#bank-transfer)
-- [Direct Debit](/en/technical-reference/sandbox-tes.md#direct-debit)
-- [Convenience Store](/en/technical-reference/sandbox-tes.md#convenience-store)
-- [Cardless Credit](/en/techhalamnical-reference/sandbox-tes.md#cardless-credit)
+- [Credit Card](#kartu-kredit)
+- [E-Wallet](#e-wallet)
+- [Bank Transfer](#bank-transfer)
+- [Direct Debit](#direct-debit)
+- [Convenience Store](#convenience-store)
+- [Cardless Credit](#cardless-credit)
 
 ### Kartu Kredit
 

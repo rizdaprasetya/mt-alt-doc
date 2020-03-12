@@ -217,17 +217,17 @@ Anda akan mendapat response API seperti berikut:
 }
 ```
 <!-- tabs:end -->
-Anda akan mendapatkan atribut `redirect_url` yang dapat digunakan untuk redirect ke halaman website pembayaran *credit cardless*.
+Anda akan mendapatkan atribut `redirect_url` yang dapat digunakan untuk redirect ke halaman website pembayaran *direct debit*.
 
 ?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#direct-debit).
 
 ### 2. Menampilkan payment code ke halaman frontend.
-Anda dapat menggunakan `redirect_url` yang didapatkan dari respons API untuk mengarahkan pelanggan ke website pembayaran *credit cardless*.
+Anda dapat menggunakan `redirect_url` yang didapatkan dari respons API untuk mengarahkan pelanggan ke website pembayaran *direct debtit*.
 
 Kemudian pelanggan dapat diarahkan melalui server-side redirect, menggunakan javascript seperti `window.location = [URL REDIRECT]`, atau menggunakan link HTML `<a href="[REDIRECT URL]"> Bayar disini! </a>`.
 
 ### 3. Membuat Landing Page setelah pelanggan menyelesaikan pembayaran
-Setelah pelanggan menyelesaikan pembayaran melalui halaman website pembayaran *credit cardless* , pelanggan akan diarahkan ke *endpoint Finish Redirect URL* yang dapat dikonfigurasi pada MAP (dashboard Midtrans).
+Setelah pelanggan menyelesaikan pembayaran melalui halaman website pembayaran *direct debit* , pelanggan akan diarahkan ke *endpoint Finish Redirect URL* yang dapat dikonfigurasi pada MAP (dashboard Midtrans).
 
 Anda harus login ke MAP. Pilih menu `Setting` **->** `configuration`, dan isi *Finish Redirect URL* dengan *endpoint landing page* Anda.
 
@@ -236,29 +236,12 @@ Anda harus login ke MAP. Pilih menu `Setting` **->** `configuration`, dan isi *F
 Midtrans akan mengirimkan response yang perlu didapatkan di script pada Finish Redirect URL. Pastikan endpoint Finish Redirect URL anda dapat menerima POST. Contoh code dibawah dibuat dalam PHP native. Silahkan sesuaikan dengan environment website anda.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Response akan dikirim dalam format JSON, dalam beberapa kasus terjadi adanya penambahakn backslash () dan tanda petik ("). Berikut contoh response yang mungkin diterima.
-
-```json
-{
-    \"status_code\" : \"200\",
-    \"status_message\" : \"Success, transaction is found\",
-    \"transaction_id\" : \"58b48d1c-3e51-46f8-a2fb-ad5fa668f534\",
-    \"order_id\" : \"34\",
-    \"gross_amount\" : \"19999998.00\",
-    \"payment_type\" : \"cimb_clicks\",
-    \"transaction_time\" : \"2018-01-26 08:57:45\",
-    \"transaction_status\" : \"settlement\",
-    \"approval_code\" : \"1516957074590\",
-    \"signature_key\" : \"30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb\"
-}
-```
-Jika response yang didapatkan seperti itu, maka perlu dibersihkan terlebih dahulu sehingga menjadi seperti ini.
+Response akan dikirim dalam format JSON, Berikut contoh response yang mungkin diterima.
 
 ```json
 {
@@ -274,25 +257,8 @@ Jika response yang didapatkan seperti itu, maka perlu dibersihkan terlebih dahul
     "signature_key" : "30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb"
 }
 ```
-Kemudian dilakukan decode dari json tersebut sehingga bisa di baca oleh PHP. Berikut hasil `decode_response` tersebut:
 
-```json
-(
-   [status_code] => 200
-   [status_message] => Success, transaction is found
-   [transaction_id] => 58b48d1c-3e51-46f8-a2fb-ad5fa668f534
-   [order_id] => 34
-   [gross_amount] => 19999998.00
-   [payment_type] => cimb_clicks
-   [transaction_time] => 2018-01-26 08:57:45
-   [transaction_status] => settlement
-   [approval_code] => 1516957074590
-   [signature_key] => 30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb
-)
-```
 Sekarang kita dapat menggunakan response tersebut untuk memberikan informasi kepada customer.
-
-
 
 ### 4. Menerima Notifikasi HTTP
 Notifikasi HTTP dari Midtrans ke backend Merchant akan dikirimkan pada saat terjadi perubahan `transaction_status`, untuk memastikan Mercahant mendapat informasi secara aman. Termasuk pada saat status transaksi berubah jadi *success* atau *expired* (tidak dibayarkan). Jadi selain JSON pada callback di atas, Merchant juga akan menerima notifikasi dari Midtrans.

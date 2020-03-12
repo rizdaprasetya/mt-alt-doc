@@ -5,12 +5,12 @@ On Sandbox, Midtrans use web based simulator to simulate payment-provider's/bank
 This is the list of payment credentials that you can use on Midtrans **Sandbox environment**. Please note that, it will not work on Production environment.
 
 Payment category:
-- [Credit Card](/en/technical-reference/sandbox-test.md#credit-card)
-- [E-Wallet](/en/technical-reference/sandbox-test.md#e-wallet)
-- [Bank Transfer](/en/technical-reference/sandbox-test.md#bank-transfer)
-- [Direct Debit](/en/technical-reference/sandbox-test.md#direct-debit)
-- [Convenience Store](/en/technical-reference/sandbox-test.md#convenience-store)
-- [Cardless Credit](/en/technical-reference/sandbox-test.md#cardless-credit)
+- [Credit Card](#credit-card)
+- [E-Wallet](#e-wallet)
+- [Bank Transfer](#bank-transfer)
+- [Direct Debit](#direct-debit)
+- [Convenience Store](#convenience-store)
+- [Cardless Credit](#cardless-credit)
 
 ### Credit Card
 
