@@ -1199,3 +1199,12 @@ Nomor virtual account berisi company code dan unique code. Contoh VA Number : `{
 * Jika anda melakukan request charge dengan custom VA sebelumnya dan transaksi sebelumnya belum dilakukan pembayaran atau `/cancel` transaksi, maka Midtrans akan memberikan random unique VA Number.
 
 Catatan: Pada environment Production, tidak semua Bank terdapat fitur custom VA, beberapa bank bergantung kepada perjanjian yang dilakukan sebelumnya. Untuk info lebih lanjut, anda dapat konsultasiskan dengan TIM Aktivasi Midtrans.
+
+## Pertimbangan dan Limitasi
+Dengan menggunakan API Midtrans ada beberapa pertimbangan dan limitasi yang harus Anda catat, akan dibahas di bawah.
+
+### Limitasi Ukuran Request Maksimal
+
+API Midtrans memperbolehkan ukuran request maximum **16kb** setiap request (**\~16000 karkter total**). Mohon untuk menjaga ukuran request dibawah limit ini untuk menghindari kegagalan request.
+
+Tips: Anda bisa coba melimitasi jumlah `item_details` dari request, atau setidaknya dikelompokkan dalam jumlah yang lebih sedikit (atau dalam 1 buah secara umum).

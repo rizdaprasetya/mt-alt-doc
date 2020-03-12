@@ -1192,3 +1192,12 @@ Virtual Account number displayed to customer contains two parts. for example, in
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
 
 Note: On Production mode, not all Bank support custom VA number, it depends on the agreement, please consult with Midtrans Activation team for further info.
+
+## Consideration and Limitation
+By using Midtrans API there are some consideration and limitation you need to keep in mind, that will be explained below.
+
+### Maximum Request Size Limit
+
+Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
+
+Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.

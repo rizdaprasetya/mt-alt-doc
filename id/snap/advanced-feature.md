@@ -1140,6 +1140,15 @@ alfamart_free_text_1 | String(40) | Tidak  | Menampilkan pesan pada struk belanj
 alfamart_free_text_2 | String(40) | Tidak  | Menampilkan pesan pada struk belanja alfamart
 alfamart_free_text_2 | String(40) | Tidak  | Menampilkan pesan pada struk belanja alfamart
 
+## Pertimbangan dan Limitasi
+Dengan menggunakan API Midtrans ada beberapa pertimbangan dan limitasi yang harus Anda catat, akan dibahas di bawah.
+
+### Limitasi Ukuran Request Maksimal
+
+API Midtrans memperbolehkan ukuran request maximum **16kb** setiap request (**\~16000 karkter total**). Mohon untuk menjaga ukuran request dibawah limit ini untuk menghindari kegagalan request.
+
+Tips: Anda bisa coba melimitasi jumlah `item_details` dari request, atau setidaknya dikelompokkan dalam jumlah yang lebih sedikit (atau dalam 1 buah secara umum).
+
 ## Referensi
 
 Untuk penjelasan yang lebih detail anda dapat mengunjungi halaman [Snap Docs](https://snap-docs.midtrans.com/#json-objects)

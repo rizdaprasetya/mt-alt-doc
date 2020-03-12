@@ -1141,6 +1141,15 @@ alfamart_free_text_1 | String(40) | (optional) | First row of printed receipt de
 alfamart_free_text_2 | String(40) | (optional) | Second row of printed receipt description
 alfamart_free_text_3 | String(40) | (optional) | Third row of printed receipt description
 
+## Consideration and Limitation
+By using Midtrans API there are some consideration and limitation you need to keep in mind, that will be explained below.
+
+### Maximum Request Size Limit
+
+Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
+
+Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.
+
 ## Reference
 
 Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition:
