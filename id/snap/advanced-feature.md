@@ -688,11 +688,11 @@ Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }
@@ -713,11 +713,11 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }'
@@ -775,9 +775,9 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,

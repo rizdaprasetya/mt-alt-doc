@@ -688,11 +688,11 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }
@@ -713,11 +713,11 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }'
@@ -750,9 +750,9 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,
@@ -777,9 +777,9 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,
