@@ -524,7 +524,36 @@ Secara keseluruhan proses pembayaran menggunakan API Register Card dapat anda li
 </article>
 </details>
 
-#### Status Metode Register Card
+#### Register Card via MidtransNew3ds JS
+
+Untuk menyimpan credentials kartu di Midtrans dan mendapatkan `saved_token_id` dari kartu tersebut, gunakan `MidtransNew3ds.registerCard` via [MidtransNew3ds JS library](/id/core-api/credit-card#midtrans-js). Implementasikan code Javascript berikut di payment page.
+```javascript
+// Create the card object with the required fields
+var cardData = {
+    card_number: "4811111111111114",
+    card_cvv: "123",
+    card_exp_month: "12",
+    card_exp_year: "2025"
+};
+
+var options = {
+    onSuccess: function(response) {
+        // Implement success handling here, save the `saved_token_id` to your database
+        console.log('Saved Token ID:',response.saved_token_id);
+    },
+    onFailure: function(response) {
+        // Implement error handling here
+        console.log('Fail to get saved card token',response.status_message);
+    }
+}
+
+MidtransNew3ds.registerCard(cardData, options);
+```
+
+<details>
+<summary><b>Alternatif: Manual API Request</b></summary>
+<article>
+
 Metode HTTP | API Endpoint |
 --- | ---
 GET | `https://api.sandbox.midtrans.com/v2/card/register`
@@ -536,8 +565,11 @@ curl -X GET \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json'
 ```
+</article>
+</details>
+
 #### Respon API Register Card
-Anda akan mendapatkan **Respon API** seperti dibawah ini:
+Anda akan mendapatkan **response** seperti dibawah ini:
 
 ```json
 {
