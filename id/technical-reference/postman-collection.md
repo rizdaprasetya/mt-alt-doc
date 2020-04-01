@@ -1,18 +1,14 @@
-# Koleksi API Postman Midtrans
-
 [Postman](https://www.getpostman.com/) adalah aplikasi yang memudahkan Anda mengirim dan menguji permintaan REST API dengan cepat tanpa harus mengerti bahasa pemrograman yang rumit.
 
 Midtrans menyediakan Koleksi API Postman yang dapat Anda impor kemudian Anda dapat mencoba API Midtrans dalam waktu yang singkat.
 
-Berikut adalah Koleksi API Postman Midtrans: 
+## Koleksi API Postman Midtrans
+Koleksi Postman berikut akan mencakup API berikut: 
 * [Snap API](http://snap-docs.midtrans.com)
 * [Core API](http://api-docs.midtrans.com)
 
 ### Link Download
-
-- Download secara langsung:
-
-[![Jalankan di aplikai Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
+- [Download dari Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
 - Github : [Link Repositori](https://github.com/midtrans/Midtrans-Payment-API-Postman-Collections)
 
 
@@ -39,7 +35,7 @@ Semua request URL Endpoint yang ada pada koleksi Postman adalah untuk transaksi 
 `https://api.sandbox.midtrans.com/../..`
 menjadi `https://api.midtrans.com/../..`
 
-Mudahnya anda dapat menghapus kata `sandbox.` pada kolom URL.
+Cukup dengan menghapus kata `sandbox.` pada kolom URL. Kemudian update Server Key anda dengan Server Key akun production.
 
 ### Troubleshooting
 
@@ -54,3 +50,18 @@ Jika anda mendapatkan pesan seperti dibawah ini:
 ```
 - Pastikan kembali langkah yang anda lakukan pada 4-7 sudah sesuai dengan instruksi seperti pada halaman berikut **[Instruksi Penggunaan](#cara-penggunaan)**
 - Pastikan kembali anda menggunakan **Server Key** yang sesuai dengan environment yang akan anda gunakan Production/Sandbox.
+
+## Koleksi API Postman Midtrans Iris
+This Postman collection covers the Iris API
+
+### Cara Penggunaan
+
+1. Download dan buka aplikasi [Postman](https://www.getpostman.com)
+2. Import:
+    - Gunakan alamat URL dibawah ini untuk melakukan impor/download koleksi Postman:
+
+	[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f05d0d597076943acbb3)
+3. [Login](https://app.sandbox.midtrans.com/iris/) ke Iris Midtrans Sandbox, click username/email anda di kanan atas. Copy **API KEY** anda.
+4. Di dalam aplikasi Postman, pilih 1 request yang ingin dicoba, click tab `Authorization` (di samping tab Headers)
+5. Pilih **Type** sebagai `Basic Auth`, isi **Username** dengan **API Key** anda (contohnya seperti ini `IRIS-abcdeabc-23ed-2132-xxxx-xxxxxxxxxx`). Biarkan field **Password** kosong, click **Update Request**
+6. Sekarang anda bisa menekan tombol `Save` dan menekan tombol `Send` pada request. Jika anda lakukan benar, anda akan mendapatkan repon dari Midtrans.
