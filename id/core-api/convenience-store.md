@@ -37,7 +37,8 @@ Request API charge akan dilakukan melalui backend Merchant. Server Key (dari Das
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Headers HTTP
 ```
@@ -162,7 +163,9 @@ Anda akan mendapat response API seperti berikut:
 Anda akan mendapatkan atribut `payment_code` yang dapat ditampilkan ke halaman *frontend* sebagai kode pembayaran pada kasir convenince store.
 
 ### 2. Menampilkan payment code ke halaman frontend.
-Anda dapat menggunakan atribut `payment_code` yang didapatkan dari respons API untuk ditampilkan ke halaman frontend website atau aplikasi anda.
+Anda dapat menggunakan nilai dari `payment_code` yang didapatkan dari respons API untuk ditampilkan ke halaman frontend website atau aplikasi anda.
+
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#convenience-store).
 
 ### 3. Menerima Notifikasi HTTP
 

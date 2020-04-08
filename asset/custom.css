@@ -15,11 +15,17 @@
 }
 
 /* fix <code> overflowing to edge on small width screen. */
-/* NOT NEEDED on `themeable.responsiveTables: false`
-/*.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
+/* Except on table because
+/* covered by `themeable.responsiveTables: false`
+/*/
+table code:not([class*="lang-"]):not([class*="language-"]) {
+    white-space: nowrap !important;
+}
+.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
     white-space: pre-wrap;
     word-break: break-word;
-}/**/
+}
+/**/
 
 /* fix <a> & <td> overflowing to edge on small width screen .*/
 /* NOT NEEDED on `themeable.responsiveTables: false`
@@ -104,6 +110,12 @@ iframe{
     border: 0
 }
 
+/* @HACK: Override font size for smaller and denser looking*/
+.sidebar-nav
+{
+    font-size: 90%;
+}
+
 /* @HACK: Override non aesthetic "-" prefix on sidebar h2 link*/
 .section-link::before,
 .sidebar-nav li>a:before, 
@@ -159,12 +171,25 @@ iframe{
     max-width: 75%;
 }
 /* @HACK: Override image on sidebar for product logo, for nicer smaller img */
-.sidebar-nav ul>li>strong>img {
+.sidebar-nav ul>li img {
     height: 1.5rem;
     padding-right: 0.4rem;
 }
+.sidebar-nav a img:first-child {
+    margin-right: 0rem;
+}
+
 /* @HACK: Vertical align center between img & text on navbar section menu*/
-.sidebar-nav ul>li>strong {
+.sidebar-nav ul>li>strong,
+.sidebar-nav ul>li>a
+ {
     display: flex;
+}
+.sidebar-nav ul>li>strong {
     align-items: center;
+}
+/* @HACK: Vertical align center and apply .emoji style to custom icon on navbar */
+.app-nav li>img:not(.emoji){
+    height: var(--emoji-size);
+    vertical-align: middle;
 }

@@ -25,6 +25,24 @@ Gambaran dari flow transaksi dalam sequence diagram:
 </article>
 </details>
 
+#### Request Details
+Tipe | Nilai
+---- | -----
+HTTP Method | `POST`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
+
+#### Headers HTTP
+```
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
+
+**AUTH_STRING**: Base64(`ServerKey + :`)
+
+?> Request HTTP dengan menggunakan metode Basic Otentikasi. Username diisi dengan data server key Anda. Sedangkan kata sandi dibiarkan kosong. Nilai header *Authorization* diwakili oleh nilai AUTH_STRING. AUTH_STRING adalah string dari Base-64 dimana terdiri dari gabungan antara nama pengguna & kata sandi Anda yang dipisahkan oleh **:** (simbol titik dua).
+
 ## 1. Kirim Data Traksaksi ke API Charge
 Untuk mendapatkan *virtual account* *Request API charge* akan dilakukan melalui *backend Merchant*. *Server Key* (dari [Dashboard](https://dashboard.midtrans.com/) Anda) akan dibutuhkan untuk meng-otentikasi request.
 
@@ -228,6 +246,8 @@ Anda akan mendapatkan atribut `permata_va_number` yang dapat digunakan untuk mel
 <!-- tabs:end -->
 ## 2. Tampilkan Nomor Virtual Account dan Waktu Expire.
 Anda bisa menggunakan `va_number` yang didapatkan dari respon API untuk menampilkan nomor virtual account.
+
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#bank-transfer).
 
 Secara default expiry time untuk Transfer Bank / VA adalah 24jam, periksa halaman dibawah ini jika anda ingin mengkustomisasi expiry time sesuai kehendak anda.
 

@@ -434,7 +434,7 @@ custom_field3 | String(255)<br>(***optional***) | Custom field 3 anda dapat meng
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
-Dalam transaksi kartu kredit terdapat fitur otentikasi kemananan yaitu Three Domain Secure (3DS), anda dapat meng-aktifkan/nonaktifkan 3DS pada transaksi kartu kredit snap yang dikirim ke Midtrans. Secara default kami sangat menyarankan anda untuk tetap mengaktifkan fitur tersebut demi keamanan transaksi yang lebih baik. Namun jika anda ingin me-nonaktifkan fitur 3DS anda membutuhkan perjanjian khusus kepada Bank Aquiring yang akan menampung transksi kartu kredit Non-3DS anda. Silahkan konsultasikan dengan team Aktivasi Midtrans anda.
+Dalam transaksi kartu kredit terdapat fitur otentikasi kemananan yaitu Three Domain Secure (3DS), anda dapat meng-aktifkan/nonaktifkan 3DS pada transaksi kartu kredit snap yang dikirim ke Midtrans. Secara default kami sangat menyarankan anda untuk tetap mengaktifkan fitur tersebut demi keamanan transaksi yang lebih baik. Namun jika anda ingin me-nonaktifkan fitur 3DS anda membutuhkan perjanjian khusus kepada Bank Aquiring yang akan menampung transksi kartu kredit Non-3DS anda. Silahkan konsultasikan dengan team Partner Growth Midtrans anda.
 
 Berikut cara mengaktifkan/nonaktifkan fitur 3DS:
 * Untuk mengaktifkan fitur 3DS, anda dapat mengisi nilai parameter `secure` dengan nilai `true`
@@ -519,7 +519,7 @@ Pastikan untuk menggunakan `user_id` yang sama untuk pelanggan yang menggunakan 
 Untuk detail informasi menganai simpan kartu, anda dapat membaca [artikel](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction) berikut ini.
 
 ### Transaksi Recurring / Subscription
-Snap juga dapat digunakan untuk melakukan transaksi langganan/*subscription* atau pembayaran berulang /*recurring*. Namun ada beberapa persyaratan yang harus dipenuhi:
+Snap juga dapat digunakan untuk **memulai flow transaksi** langganan/*subscription* atau pembayaran berulang /*recurring*. Namun ada beberapa persyaratan yang harus dipenuhi:
 
 * Untuk melakukan transaksi recurring, Anda memerlukan layanan Core API Midtrans.
 * Saat ini transaksi recurring hanya didukung dengan metode kartu kredit.
@@ -688,11 +688,11 @@ Contoh param JSON (param ini digunakan selama [Request API](/id/snap/integration
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }
@@ -713,11 +713,11 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }'
@@ -775,9 +775,9 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,
@@ -880,10 +880,19 @@ curl -X POST \
 Anda dapat meberikan nilai pada parameter `callback_url` dengan URL prtocol http/https atau protokol Deeplink untuk aplikasi mobile. Sebagai contoh mengisi parameter `callback_url` dengan deeplink `"callback_url": "tokoecommerce://gopay_finish/"`
 
 > **Note**: 
-> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
+> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&result=xxx`. 
 > 
-> Sebagai contoh, redirect_url akan terlihat seperti berikut: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
-> 
+> Sebagai contoh, redirect_url akan terlihat seperti berikut: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Tipe | Deskripsi
+--- | --- | ---
+order_id |  String |  Order ID yang dikirim pada Charge Request.  
+result  | String |  Hasil transaksi untuk menentukan page yang ditampilkan. Nilai yang memungkinkan: `success` or `failure`.
+
 > Anda dapat menggunakan informasi pada parameter untuk menampilkan pesan khusus kepada pelanggan Anda di url Anda.
 
 Catatan: `gopay.callback_url` hanya akan bekerja kepada pelanggan yang membayar dengan mode Deeplink, pelanggan yang membayar dengan mode Scan QR, akan diarahkan ke Snap finish redirect url. Yang bisa Anda konfigurasi di [sini](http://localhost:8000/#/id/snap/advanced-feature?id=custom-finish-url)
@@ -1130,6 +1139,15 @@ Atribut JSON         | Tipe data  | Wajib  | Deskripsi
 alfamart_free_text_1 | String(40) | Tidak  | Menampilkan pesan pada struk belanja alfamart
 alfamart_free_text_2 | String(40) | Tidak  | Menampilkan pesan pada struk belanja alfamart
 alfamart_free_text_2 | String(40) | Tidak  | Menampilkan pesan pada struk belanja alfamart
+
+## Pertimbangan dan Limitasi
+Dengan menggunakan API Midtrans ada beberapa pertimbangan dan limitasi yang harus Anda catat, akan dibahas di bawah.
+
+### Limitasi Ukuran Request Maksimal
+
+API Midtrans memperbolehkan ukuran request maximum **16kb** setiap request (**\~16000 karkter total**). Mohon untuk menjaga ukuran request dibawah limit ini untuk menghindari kegagalan request.
+
+Tips: Anda bisa coba melimitasi jumlah `item_details` dari request, atau setidaknya dikelompokkan dalam jumlah yang lebih sedikit (atau dalam 1 buah secara umum).
 
 ## Referensi
 

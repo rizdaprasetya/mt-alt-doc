@@ -58,7 +58,8 @@ Contoh dibawah ini adalah kode program untuk charge request:
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Headers HTTP
 ```
@@ -344,6 +345,8 @@ Contoh instruksi untuk Deeplink :
 5. Transaksi anda telah selesai
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
+
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#e-wallet).
 
 ### Mengimplementasi GoPay deeplink callback
 

@@ -1,20 +1,36 @@
-## Interactive Demo
 
 You can interactively try integration demo below. Inspect the source code and see the live output.
-### 1. Backend Integration
+### Snap Integration Demo
 
-Sample backend integration in NodeJS (hosted on CodeSandbox). Wait until the window/iframe below is fully loaded, you will see Snap Transaction Token as output. Click **"Open Sandbox"** to see the source code used.
+Sample backend integration in NodeJS (hosted on CodeSandbox), and frontend integration in HTML+Javascript. Please wait until the window/iframe below is fully loaded, you will see Snap Transaction Token as as result of API response on backend, and you can click **"Pay"** to test the frontend. Click **"Open Sandbox"** to see/edit the full source code.
 
 [Repl.it demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px')
 
-### 2. Frontend Integration
+<details>
+<summary><b>Alternative Frontend Integration Sample</b></summary>
+<article>
 
-Sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 to below field, then press "Pay". Click **"HTML"** to see the source code.
+Another sample frontend integration (hosted on JSFiddle). Input the Snap Transaction Token from step 1 (backend) to below field, then click **"Pay"**. Click **"HTML"** to see the source code.
 
 <!-- [JSFiddle demo Snap.js](https://jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark ':include :type=iframe width=100% height=400px') -->
 
-<iframe width="100%" height="750" src="//jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe width="100%" height="750" src="//jsfiddle.net/kntfdzob/embedded/result,html/dark" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+</article>
+</details>
 
+### Creating Test Payment
+
+You can use one of our test credentials for Card Payment:
+
+Name | Value
+--- | ---
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month (e.g: `02`)
+Exp Year | Any future year (e.g: `2025`)
+OTP/3DS | `112233`
+
+You can use more test payment credentials [available on our sandbox payment simulator](/en/technical-reference/sandbox-test.md)
 
 ### What's Next
 

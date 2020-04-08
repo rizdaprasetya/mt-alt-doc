@@ -35,7 +35,8 @@ Request API charge akan dilakukan melalui backend Merchant. Server Key (dari Das
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### Headers HTTP
 ```
@@ -101,6 +102,8 @@ Anda dapat menggunakan `redirect_url` yang didapatkan dari respons API untuk men
 
 Kemudian pelanggan dapat diarahkan melalui server-side redirect, menggunakan javascript seperti `window.location = [URL REDIRECT]`, atau menggunakan link HTML `<a href="[REDIRECT URL]"> Bayar disini! </a>`.
 
+?> Baca [disini untuk simulate/test pembayaran sukses](/id/technical-reference/sandbox-test.md#cardless-credit).
+
 ### 3. Membuat Landing Page setelah pelanggan menyelesaikan pembayaran
 Setelah pelanggan menyelesaikan pembayaran melalui halaman website pembayaran *credit cardless* , pelanggan akan diarahkan ke *endpoint Finish Redirect URL* yang dapat dikonfigurasi pada MAP (dashboard Midtrans).
 
@@ -111,31 +114,12 @@ Anda harus login ke MAP. Pilih menu `Setting` **->** `configuration`, dan isi *F
 Midtrans akan mengirimkan response yang perlu didapatkan di script pada Finish Redirect URL. Pastikan endpoint Finish Redirect URL anda dapat menerima POST. Contoh code dibawah dibuat dalam PHP native. Silahkan sesuaikan dengan environment website anda.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Response akan dikirim dalam format JSON, dalam beberapa kasus terjadi adanya penambahakn backslash () dan tanda petik ("). Berikut contoh response yang mungkin diterima.
-
-```json
-{
-    \"status_code\": \"201\",
-    \"status_message\": \"Success, Akulaku transaction is created\",
-    \"transaction_id\": \"fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"order_id\": \"order-101-1578567480\",
-    \"redirect_url\": \"https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"merchant_id\": \"G812785002\",
-    \"gross_amount\": \"11000.00\",
-    \"currency\": \"IDR\",
-    \"payment_type\": \"akulaku\",
-    \"transaction_time\": \"2020-01-09 17:58:00\",
-    \"transaction_status\": \"pending\",
-    \"fraud_status\": \"accept\"
-}
-```
-Jika response yang didapatkan seperti itu, maka perlu dibersihkan terlebih dahulu sehingga menjadi seperti ini.
+Response akan dikirim dalam format JSON
 
 ```json
 {
@@ -153,28 +137,8 @@ Jika response yang didapatkan seperti itu, maka perlu dibersihkan terlebih dahul
     "fraud_status": "accept"
 }
 ```
-Kemudian dilakukan decode dari json tersebut sehingga bisa di baca oleh PHP. Berikut hasil `decode_response` tersebut:
-
-```json
-(
-    [status_code] => 201
-    [status_message] => Success, Akulaku transaction is created
-    [transaction_id] => fa05cba0-8ea3-4e46-a2b1-daea2a01785c
-    [order_id] => order-101-1578567480
-    [redirect_url] => https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c
-    [merchant_id] => G812785002
-    [gross_amount] => 11000.00
-    [currency] => IDR
-    [payment_type] => akulaku
-    [transaction_time] => 2020-01-09 17:58:00
-    [transaction_status] => pending
-    [fraud_status] => accept
-)
-```
 
 Sekarang kita dapat menggunakan response tersebut untuk memberikan informasi kepada customer.
-
-
 
 ### 4. Menerima Notifikasi HTTP
 Notifikasi HTTP dari Midtrans ke backend Merchant akan dikirimkan pada saat terjadi perubahan `transaction_status`, untuk memastikan Mercahant mendapat informasi secara aman. Termasuk pada saat status transaksi berubah jadi *success* atau *expired* (tidak dibayarkan). Jadi selain JSON pada callback di atas, Merchant juga akan menerima notifikasi dari Midtrans.

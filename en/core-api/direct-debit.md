@@ -1,10 +1,12 @@
-<H2> Direct Debit Transfer Integration </H2>
+# Direct Debit Transfer Integration
 One of the payment method offered by Midtrans is Direct Debit. By using this payment method, customers will have the option to make a payment via bank website and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 4 different direct debit payment methods:
+At this moment, Midtrans has integrated with some direct debit payment methods:
 
-<img width="170px" height="50px" src="./../../asset/image/coreapi/bca_klikpay.svg" /> <img width="170px" height="50px" src="./../../asset/image/coreapi/cimb_clicks.svg" /> <br>
-<img width="170px" height="50px" src="./../../asset/image/coreapi/danamon.png" /> <img width="180px" height="40px" src="./../../asset/image/coreapi/epay_bri.png" />
+![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
+![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
+![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=150") <br>
+![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=150") <br>
 
 Basic integration process of Direct Debit will be explained below.
 <details>
@@ -22,7 +24,7 @@ All the steps below are using [Midtrans Sandbox environment](https://account.mid
 Server Key and Client Key can be retrieved on menu `Settings` > `Access Key`.
 
 ?>**Info:**
-[How to retrieved Access key](/en/midtrans-account/overview?id=retrieving-api-access-keys)
+[How to retrieved Access key](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 ### Integration Step
 1. Send transaction data to API Charge.
@@ -36,7 +38,8 @@ Charge API request should be done from Merchant's backend. Server Key (from your
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### HTTP Headers
 ```
@@ -54,7 +57,7 @@ Authorization: Basic AUTH_STRING
 ### 1. Send Transaction Data to API Charge
 
 #### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available language libraries).
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)).
 <!-- tabs:start -->
 #### **BCA Kilkpay**
 ```bash
@@ -225,6 +228,8 @@ To redirect customer to Bank's Website, use redirect_url that retrieved from API
 
 Then customer can be redirected via server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#direct-debit).
+
 ### 3. Create Landing Page After Customer Complete the Payment
 After the customer completes the payment via bank's website, the bank website automatically redirect customer to `Finish Redirect URL` which can be configured on MAP (Merchant Administration Portal). You must [login to MAP](https://account.midtrans.com/login). Go to setting -> configuration, and fill in the `Finish Redirect URL` with your landing page endpoint.
 ![Direct Debit Payment Flow](./../../asset/image/coreapi/direct_debit_map.png)
@@ -232,28 +237,12 @@ After the customer completes the payment via bank's website, the bank website au
 On the Finish Redirect URL script, we need to obtain the response sent to the finish url script. Please make sure the `Finish Redirect URL` endpoint can receive POST. The sample code below are written in native php. Please adjust to your own environment.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Raw response are formatted in JSON, however, in some rare case, sometime there are backslash () before the quotation mark (“). Below are the sample of the raw dirty response.
-```json
-{
-    \"status_code\" : \"200\",
-    \"status_message\" : \"Success, transaction is found\",
-    \"transaction_id\" : \"58b48d1c-3e51-46f8-a2fb-ad5fa668f534\",
-    \"order_id\" : \"34\",
-    \"gross_amount\" : \"19999998.00\",
-    \"payment_type\" : \"cimb_clicks\",
-    \"transaction_time\" : \"2018-01-26 08:57:45\",
-    \"transaction_status\" : \"settlement\",
-    \"approval_code\" : \"1516957074590\",
-    \"signature_key\" : \"30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb\"
-}
-```
-After the response being clean we got this result.
+The response is in JSON format:
 
 ```json
 {
@@ -355,6 +344,11 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 ```
 <!-- tabs:end -->
 
+<div class="my-card">
+
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+</div>
+
 ### Switching To Production
 To use Midtrans production environment (accept real payment from real customer), please make sure to:
 
@@ -367,12 +361,17 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

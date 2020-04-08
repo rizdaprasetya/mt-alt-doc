@@ -433,7 +433,7 @@ custom_field3 | String(255) | (optional) | Custom field 3 for custom parameter f
 
 ## Credit Card
 ### 3 Domain Secure (3DS)
-Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should always enable 3DS**, unless you understand the risk of disabling 3DS and the requirement (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Activation team.
+Three Domain Secure (3DS) feature can be enabled/disabled for certain transaction on Snap. By default you **should enable 3DS whenever possible**, to prevent unnecessary security & chargeback risks. Unless there are specific business needs, that you understand the risk of disabling 3DS and its requirements (it will require you to have agreement and approved by the Acquiring Bank). To allow disabling 3DS please consult to Midtrans Partner Growth Team.
 
 * Set the `secure` value to `true` to enable 3DS
 * Set the `secure` value to `false` to disable 3DS
@@ -519,7 +519,7 @@ Be sure to use the same `user_id` for that particular customer on future transac
 To better understand the use cases, you an also further refer to [this article](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
 ### Recurring / Subscription Card Transaction
-Snap can be utilized to initialize subscription or recurring payment flow. Note that:
+Snap can be utilized **to initialize** subscription or recurring payment flow. Note that:
 
 * You will require Core API to do the recurring charge.
 * Currently, recurring only support card transaction.
@@ -688,11 +688,11 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }
@@ -713,11 +713,11 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "bca": [6,12],
         "bni": [6,12],
         "mandiri": [3,6,12]
-      ]
+      }
     }
   }
 }'
@@ -750,9 +750,9 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,
@@ -777,9 +777,9 @@ curl -X POST \
     "secure": true,
     "installment": {
       "required": true,
-      "terms": [
+      "terms": {
         "offline": [3,6,12]
-      ]
+      }
     },
     "whitelist_bins": [ 
       481111,
@@ -882,13 +882,19 @@ curl -X POST \
 You can input `callback_url` value with http/https url protocol for website, or Deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
 
 > **Note**: 
-> The final redirect url will be appended with query parameter like `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
+> The final redirect url will be appended with query parameter like `?order_id=xxx&result=xxx`. 
 > 
 > For example the final redirect url might looks like this: 
 > ```
-https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&
-status_code=200&transaction_status=capture 
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
 ```
+
+Query Parameter | Type | Description
+--- | --- | ---
+order_id |  String |  Order ID sent on the Charge Request.  
+result  | String |  Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`.
+
 > You could utilize those information to display custom message to your customer on your finish url.
 
 Note: `gopay.callback_url` will only affect customer who pay with Deeplink mode, customer who pay with QR scan mode, will be redirected to Snap finish redirect url. Which you can also [specify here](/en/snap/advanced-feature.md#custom-finish-url)
@@ -1134,6 +1140,15 @@ Parameter | Type | Required? | Description
 alfamart_free_text_1 | String(40) | (optional) | First row of printed receipt description
 alfamart_free_text_2 | String(40) | (optional) | Second row of printed receipt description
 alfamart_free_text_3 | String(40) | (optional) | Third row of printed receipt description
+
+## Consideration and Limitation
+By using Midtrans API there are some consideration and limitation you need to keep in mind, that will be explained below.
+
+### Maximum Request Size Limit
+
+Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
+
+Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.
 
 ## Reference
 

@@ -1,0 +1,12 @@
+<!-- @@@NOCONTENT -->
+- :uk:En / Id
+    - [:uk:English](/)
+    - [:id:Indonesia](/id/home.md)
+- :question:FAQ
+    - [:book:FAQ Umum](https://support.midtrans.com)
+    - [:wrench:FAQ Teknis](https://midtrans-advanced-faq.netlify.com/#/faq-general)
+- :art:Tema
+    - [:snowflake:Default](# 'style::Simple')
+    - [:waning_crescent_moon:Dark](# 'style::Simple Dark')
+    - [:zap:Lite](# 'style::Vue')
+    - [:page_facing_up:Plain](# 'style::Plain')

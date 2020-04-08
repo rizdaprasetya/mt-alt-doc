@@ -1,4 +1,4 @@
-<H1> Cardless Credit </H1>
+# Cardless Credit
 One of the payment method offered by Midtrans is Cardless Credit. By using this payment method, customers will have the option to make a payment via Cardless credit page and Midtrans will send real time notification when the customer complete the payment.
 
 At this moment, Midtrans has integrated with 
@@ -21,7 +21,7 @@ All the steps below are using [Midtrans Sandbox environment](https://account.mid
 Server Key and Client Key can be retrieved on menu `Settings` > `Access Key`.
 
 ?>**Info:**
-[How to retrieved Access key](/en/midtrans-account/overview?id=retrieving-api-access-keys)
+[How to retrieve Access key](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 ### Integration Step
 1. Send transaction data to API Charge.
@@ -35,7 +35,8 @@ Charge API request should be done from Merchant's backend. Server Key (from your
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### HTTP Headers
 ```
@@ -53,7 +54,7 @@ Authorization: Basic AUTH_STRING
 ### 1. Send Transaction Data to API Charge
 
 #### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available language libraries).
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check [available language libraries](/en/technical-reference/library-plugin.md)).
 <!-- tabs:start -->
 #### **Akulaku**
 ```bash
@@ -103,6 +104,8 @@ To redirect customer to Bank's Website, use redirect_url that retrieved from API
 
 Then customer can be redirected via server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#cardless-credit).
+
 ### 3. Create Landing Page After Customer Complete the Payment
 After the customer completes the payment via bank's website, the bank website automatically redirect customer to `Finish Redirect URL` which can be configured on MAP (Merchant Administration Portal). You must [login to MAP](https://account.midtrans.com/login). Go to setting -> configuration, and fill in the `Finish Redirect URL` with your landing page endpoint.
 ![Direct Debit Payment Flow](./../../asset/image/coreapi/direct_debit_map.png)
@@ -110,30 +113,12 @@ After the customer completes the payment via bank's website, the bank website au
 On the Finish Redirect URL script, we need to obtain the response sent to the finish url script. Please make sure the `Finish Redirect URL` endpoint can receive POST. The sample code below are written in native php. Please adjust to your own environment.
 ```php
 <?php
-    $raw_response = $_POST['response']; //get the json response
-    $response = preg_replace('/\\\\/', '', $_POST['raw_response']); //clean up response from backslash
+    $response = $_POST['response']; //get the json response
     $decoded_response = json_decode($response);
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-Raw response are formatted in JSON, however, in some rare case, sometime there are backslash () before the quotation mark (“). Below are the sample of the raw dirty response.
-```json
-{
-    \"status_code\": \"201\",
-    \"status_message\": \"Success, Akulaku transaction is created\",
-    \"transaction_id\": \"fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"order_id\": \"order-101-1578567480\",
-    \"redirect_url\": \"https://api.sandbox.midtrans.com/v2/akulaku/redirect/fa05cba0-8ea3-4e46-a2b1-daea2a01785c\",
-    \"merchant_id\": \"G812785002\",
-    \"gross_amount\": \"11000.00\",
-    \"currency\": \"IDR\",
-    \"payment_type\": \"akulaku\",
-    \"transaction_time\": \"2020-01-09 17:58:00\",
-    \"transaction_status\": \"pending\",
-    \"fraud_status\": \"accept\"
-}
-```
-After the response being clean we got this result.
+Raw response are formatted in JSON.
 
 ```json
 {
@@ -178,6 +163,11 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 ```
 <!-- tabs:end -->
 
+<div class="my-card">
+
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+</div>
+
 ### Switching To Production
 To use Midtrans production environment (accept real payment from real customer), please make sure to:
 
@@ -190,12 +180,17 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

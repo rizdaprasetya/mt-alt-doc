@@ -25,6 +25,26 @@ The overall Bank Tranfer end-to-end payment proccess can be illustrated in follo
 </article>
 </details>
 
+Charge API request should be done from Merchant's backend. Server Key (from your account's Dashboard) will be needed to [authenticate the request](https://api-docs.midtrans.com/#http-s-header).
+
+#### Request Details
+Type | Value
+--- | ---
+HTTP Method | `POST`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
+
+#### HTTP Headers
+```
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
+
+**AUTH_STRING**: Base64(`ServerKey + :`)
+
+?> HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+
 ## 1. Send Transaction Data to API Charge
 API request should be done from **Merchant’s backend** to acquire `va_number`. There are several components that are required:
 
@@ -38,7 +58,7 @@ Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 Charge API request should be done from Merchant's backend.
 
 ### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/developer_resource/library_plugin)). The example below shows a sample codes to obtain transaction token:
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)). The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **BCA**
 
@@ -213,12 +233,14 @@ You will get the `permata_va_number` attribute which can be performed this trans
 
 ## 2. Display Virtual Account Number and Expiry Time
 
-To display the virtual account number, use `va_number` that retrieved from API response.
+To display the virtual account number, use the value of `va_number` retrieved from API response.
+
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
 
 By default the expiry time for Bank Transfer / VA is **24 hours**, follow this link if you wanna customize the expiry time:
 <div class="my-card">
 
-#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md?id=)
+#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
 
 ## 3. Handling Post-Transaction
@@ -227,7 +249,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Specify VA Number
@@ -300,10 +322,23 @@ BNI `va_number` | String | (optional)| Length should be within 1 to 8.
 Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
 
 ## Next Step:
+<br>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
+
+<div class="my-card">
+
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+</div>
+
+<hr>
 
 For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)

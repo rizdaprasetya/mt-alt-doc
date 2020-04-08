@@ -47,7 +47,8 @@ The example below shows a sample codes to obtain transaction token:
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Sandbox) | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Production) | `https://app.midtrans.com/snap/v1/transactions`
 
 #### HTTP Headers
 ```
@@ -137,7 +138,8 @@ Send Snap transaction request
 const midtransClient = require('midtrans-client');
 // Create Snap API instance
 let snap = new midtransClient.Snap({
-        isProduction : false,
+        // Set to true if you want Production Environment (accept real transaction).
+        isProduction : false, 
         serverKey : 'YOUR_SERVER_KEY'
     });
 
@@ -219,6 +221,7 @@ public class MidtransExample {
     public static void main(String[] args) throws MidtransError {
       // Create new Object SnapAPI
       MidtransSnapApi snapApi = new ConfigFactory(new Config("YOU_SERVER_KEY","YOUR_CLIENT_KEY", false)).getSnapApi();
+      // Set 3rd param to true if you want Production Environment (accept real transaction).
 
       // Create params JSON Raw Object request
       public Map<String, Object> requestBody() {
@@ -256,6 +259,7 @@ Send Snap transaction request
 import midtransclient
 # Create Snap API instance
 snap = midtransclient.Snap(
+    # Set to true if you want Production Environment (accept real transaction).
     is_production=False,
     server_key='YOUR_SERVER_KEY'
 )
@@ -381,7 +385,7 @@ Or try the demo here:
 
 ?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
 
-After payment completed, customer will be redirected back to `Finish URL` specified on Midtrans Dashboard, under menu **Settings > Snap Preference > System Settings > `Finish URL`**
+After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/preparation.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**
 
 
 ## 3. Creating Test Payment

@@ -45,7 +45,7 @@ API Access Keys will be used to access Midtrans' API. You can find them in [Dash
 
 ## Switching Environment
 
-Keys between **Production & Sandbox** environment are different, please make sure you are accessing correct Dashboard **environment**. Environment can be switched easily on top left **Enviornment** Dropdown on the dashboard.
+Keys between **Production & Sandbox** environment are different, please make sure you are accessing correct dashboard **environment**. Environment can be switched easily on top left **Environment** Dropdown on the dashboard.
 
 ![environment switch](./../../asset/image/snap-prep-env-switch.png ':size=300')
 
@@ -54,9 +54,11 @@ The light and dark shade of blue indicates production and sandbox mode respectiv
 
 ## How to unlock account (locked account)
 
-Midtrans provides tolerance of up to 5x (five times) errors when the merchant tries to login into MAP. If the tolerance limit is exceeded, the account will be locked automatically.
+Midtrans provides tolerance of up to 5x (five times) errors when the merchant tries to login into MAP. If the tolerance limit is exceeded, the account will be locked automatically. This is to protect your account from illegitimate access.
 
-To unlock MAP, please inform the locked account to support@midtrans.com to begin unlock process. After the account has been unlocked, please log into midtrans account using your previous password.
+To unlock MAP, please wait for at least 15 minutes, account will be automatically unlocked. 
+
+If it still locked, please inform the locked account to support@midtrans.com to begin unlock process. After the account has been unlocked, please log into midtrans account using your previous password.
 
 ## Reset Password
 

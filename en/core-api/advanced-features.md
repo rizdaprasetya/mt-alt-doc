@@ -523,7 +523,36 @@ The overall Register Card API end-to-end payment proccess can be illustrated in 
 </article>
 </details>
 
-#### Register Card Status Method
+#### Register Card via MidtransNew3ds JS
+
+To save card credentials on Midtrans and retrieve card's `saved_token_id`, use `MidtransNew3ds.registerCard` via [MidtransNew3ds JS library](/en/core-api/credit-card#include-midtrans-js). Implement the following Javascript on the payment page.
+```javascript
+// Create the card object with the required fields
+var cardData = {
+    card_number: "4811111111111114",
+    card_cvv: "123",
+    card_exp_month: "12",
+    card_exp_year: "2025"
+};
+
+var options = {
+    onSuccess: function(response) {
+        // Implement success handling here, save the `saved_token_id` to your database
+        console.log('Saved Token ID:',response.saved_token_id);
+    },
+    onFailure: function(response) {
+        // Implement error handling here
+        console.log('Fail to get saved card token',response.status_message);
+    }
+}
+
+MidtransNew3ds.registerCard(cardData, options);
+```
+
+<details>
+<summary><b>Alternative: Manual API Request</b></summary>
+<article>
+
 HTTP Method | API Endpoint |
 --- | ---
 GET | `https://api.sandbox.midtrans.com/v2/card/register`
@@ -535,8 +564,11 @@ curl -X GET \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json'
 ```
-#### Register Card API Response
-You will get the **API response** like the following:
+</article>
+</details>
+
+#### Register Card Response
+You will get the **response** like the following:
 
 ```json
 {
@@ -549,8 +581,8 @@ You will get the **API response** like the following:
 You need to store `saved_token_id` to your database.
 
 #### Register Card Initials Get Card Token
-You need a `saved_token_id` from [Register Card API Response Step](/id/core-api/advanced-features.md?id=register-card-api-response).
-To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` on [MidtransNew3ds JS library](/en/core-api/credit-card?id=include-midtrans-js). Implement the following Javascript on our payment page.
+You need a `saved_token_id` from [Register Card API Response Step](#register-card-via-midtransnew3ds-js).
+To retrieve card `token_id`, we will be using `MidtransNew3ds.getCardToken` on [MidtransNew3ds JS library](/en/core-api/credit-card?id=include-midtrans-js). Implement the following Javascript on the payment page.
 ```javascript
 // card data from customer input, for example
 var cardData = {
@@ -1067,10 +1099,19 @@ curl -X POST \
 You can input `callback_url` value with http/https url protocol for website, or Deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
 
 > **Note**: 
-> The final redirect url will be appended with query parameter like `?order_id=xx&result=success`. Possible `result` values: success or failure.
+> The final redirect url will be appended with query parameter like `?order_id=xxx&result=xxx`. 
 > 
-> For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`. 
-> 
+> For example the final redirect url might looks like this: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Type | Description
+--- | --- | ---
+order_id |  String |  Order ID sent on the Charge Request.  
+result  | String |  Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`.
+
 > You could utilize those information to display custom message to your customer on your finish url.
 
 ## Bank Transfer / VA
@@ -1183,3 +1224,12 @@ Virtual Account number displayed to customer contains two parts. for example, in
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
 
 Note: On Production mode, not all Bank support custom VA number, it depends on the agreement, please consult with Midtrans Activation team for further info.
+
+## Consideration and Limitation
+By using Midtrans API there are some consideration and limitation you need to keep in mind, that will be explained below.
+
+### Maximum Request Size Limit
+
+Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
+
+Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.

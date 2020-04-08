@@ -48,7 +48,8 @@ Berikut contoh dari request API `/charge` dalam Curl, silahkan implementasikan s
 Tipe | Nilai
 ---- | -----
 HTTP Method | `POST`
-API endpoint | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Sandbox) | `https://app.sandbox.midtrans.com/snap/v1/transactions`
+API endpoint (Production) | `https://app.midtrans.com/snap/v1/transactions`
 
 #### Headers HTTP
 ```
@@ -138,6 +139,7 @@ Send Snap transaction request
 const midtransClient = require('midtrans-client');
 // Create Snap API instance
 let snap = new midtransClient.Snap({
+        // Set to true if you want Production Environment (accept real transaction).
         isProduction : false,
         serverKey : 'YOUR_SERVER_KEY'
     });
@@ -221,6 +223,7 @@ public class MidtransExample {
     public static void main(String[] args) throws MidtransError {
       // Create new Object SnapAPI
       MidtransSnapApi snapApi = new ConfigFactory(new Config("YOU_SERVER_KEY","YOUR_CLIENT_KEY", false)).getSnapApi();
+      // Set 3rd param to true if you want Production Environment (accept real transaction).
 
       // Create params JSON Raw Object request
       public Map<String, Object> requestBody() {
@@ -258,6 +261,7 @@ Send Snap transaction request
 import midtransclient
 # Create Snap API instance
 snap = midtransclient.Snap(
+    # Set to true if you want Production Environment (accept real transaction).
     is_production=False,
     server_key='YOUR_SERVER_KEY'
 )
@@ -383,7 +387,7 @@ Atau anda bisa mencobanya dengan klik tombol dibawah ini:
 
 ?> **Alternatif** Jika anda tidak inigin Tampilan Snap berada diatas halaman website anda. Anda juga dapat menggunakan nilai atribut `redirect_url` pada saat melakukan proses permintaan token transaksi ke backend, untuk mengarahkan pelanggan ke halaman Snap.
 
-Setelah pelanggan selesai melakukan pembayaran, pelanggan anda akan diarahkan ke halaman Finish URL yang telah anda konfigurasi sebelumnya di menu **Settings > Snap Preference > System Settings > `Finish URL`**
+Setelah pelanggan selesai melakukan pembayaran, pelanggan anda akan diarahkan ke halaman [Finish URL yang telah anda konfigurasi sebelumnya](/id/snap/preparation.md#konfigurasi-redirect-url) di menu **Settings > Snap Preference > System Settings > `Finish URL`**
 
 
 ## 3. Mencoba Test Pembayaran

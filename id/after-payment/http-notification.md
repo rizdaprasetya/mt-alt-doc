@@ -394,7 +394,7 @@ Anda dapat mencoba membuat signature_key dengan tools dibawah ini:
 
 #### **Verifikasi Langsung Notifikasi Melalui API Midtrans**
 
-Alternatif lain untuk memverifikasi notifikasi midtrans adalah dengan memanggil API [Get Status](/en/after-payment/action-payment.md?id=api-get-status). Dengan menggunakan API Get status anda akan mendapatkan respon langsung dari Midrans. Anda akan mendapatkan respon JSON yang sama persis dengan yang ada pada Notifikasi yang dikirim oleh Midtrans. Anda dapat melihat ilustrasi dibawah ini: 
+Alternatif lain untuk memverifikasi notifikasi midtrans adalah dengan memanggil API [Get Status](/id/after-payment/get-status.md). Dengan menggunakan API Get status anda akan mendapatkan respon langsung dari Midrans. Anda akan mendapatkan respon JSON yang sama persis dengan yang ada pada Notifikasi yang dikirim oleh Midtrans. Anda dapat melihat ilustrasi dibawah ini: 
 
 
 ![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)

@@ -27,3 +27,13 @@ Our library and plugins are **Open Source!** We are happy to accept any open sou
 |WHMCS| **v5.3.12 - v7**<br /> * [Github](https://github.com/veritrans/SNAP-whmcs)<br /><br />|
 |Drupal Commerce|**7.x**<br /> * [Github](https://github.com/Midtrans/Midtrans-Drupal7)<br />**v8.x**<br /> * [Github](https://github.com/Midtrans/Midtrans-Drupal8)<br /><br /> |
 |Wordpress <br> Easy Digital Downloads|**Wordpress v3.9.1 or Greater**<br />**v2.x**<br /> * [Github](https://github.com/Midtrans/midtrans-edd)<br /><br /> |
+
+## Sample Code
+
+|Platforms | Resources |
+|---|---|
+|PHP | [Github](https://github.com/Midtrans/midtrans-php/tree/master/examples)|
+|Java | [Github](https://github.com/Midtrans/midtrans-java/tree/master/example)|
+|NodeJS | [Github](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)|
+|Python | [Github](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)|
+|Other | please check <br />[respective language's repo](#language-library)|

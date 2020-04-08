@@ -524,7 +524,36 @@ Secara keseluruhan proses pembayaran menggunakan API Register Card dapat anda li
 </article>
 </details>
 
-#### Status Metode Register Card
+#### Register Card via MidtransNew3ds JS
+
+Untuk menyimpan credentials kartu di Midtrans dan mendapatkan `saved_token_id` dari kartu tersebut, gunakan `MidtransNew3ds.registerCard` via [MidtransNew3ds JS library](/id/core-api/credit-card#midtrans-js). Implementasikan code Javascript berikut di payment page.
+```javascript
+// Create the card object with the required fields
+var cardData = {
+    card_number: "4811111111111114",
+    card_cvv: "123",
+    card_exp_month: "12",
+    card_exp_year: "2025"
+};
+
+var options = {
+    onSuccess: function(response) {
+        // Implement success handling here, save the `saved_token_id` to your database
+        console.log('Saved Token ID:',response.saved_token_id);
+    },
+    onFailure: function(response) {
+        // Implement error handling here
+        console.log('Fail to get saved card token',response.status_message);
+    }
+}
+
+MidtransNew3ds.registerCard(cardData, options);
+```
+
+<details>
+<summary><b>Alternatif: Manual API Request</b></summary>
+<article>
+
 Metode HTTP | API Endpoint |
 --- | ---
 GET | `https://api.sandbox.midtrans.com/v2/card/register`
@@ -536,8 +565,11 @@ curl -X GET \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json'
 ```
+</article>
+</details>
+
 #### Respon API Register Card
-Anda akan mendapatkan **Respon API** seperti dibawah ini:
+Anda akan mendapatkan **response** seperti dibawah ini:
 
 ```json
 {
@@ -1073,12 +1105,21 @@ curl -X POST \
 
 Anda dapat menambahkan nilai pada parameter `callback_url` dengan alamat URL website menggunakan protokol http/https atau bisa juga dengan protokol Deeplink untuk kembali ke aplikasi mobile anda seperti berikut ini `"callback_url": "tokoecommerce://gopay_finish/"`
 
-> **Catatan**: 
-> Alamat URL yang telah anda tambahkan pada parameter `callback_url` secara otomatis akan ditambahkan parameter `?order_id=xx&result=success`.  Nilai parameter `result` dapat bernilai success atau failure.
+> **Note**: 
+> Pada Url redirect akan ditambahkan secara otomatis dengan parameter seperti `?order_id=xxx&result=xxx`. 
 > 
-> Sebagai contoh URL anda akan terlihat sebagai berikut ini: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102&result=success`.
-> 
-> Anda dapat memanfaatkan nilai yang ditambakan pada parameter untuk menampilkan pesan tertentu kepada pelanggan anda.
+> Sebagai contoh, redirect_url akan terlihat seperti berikut: 
+> ```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
+
+Query Parameter | Tipe | Deskripsi
+--- | --- | ---
+order_id |  String |  Order ID yang dikirim pada Charge Request.  
+result  | String |  Hasil transaksi untuk menentukan page yang ditampilkan. Nilai yang memungkinkan: `success` or `failure`.
+
+> Anda dapat menggunakan informasi pada parameter untuk menampilkan pesan khusus kepada pelanggan Anda di url Anda.
 
 ## Bank Transfer / VA
 ### Spesifik VA Number and VA Description
@@ -1190,3 +1231,12 @@ Nomor virtual account berisi company code dan unique code. Contoh VA Number : `{
 * Jika anda melakukan request charge dengan custom VA sebelumnya dan transaksi sebelumnya belum dilakukan pembayaran atau `/cancel` transaksi, maka Midtrans akan memberikan random unique VA Number.
 
 Catatan: Pada environment Production, tidak semua Bank terdapat fitur custom VA, beberapa bank bergantung kepada perjanjian yang dilakukan sebelumnya. Untuk info lebih lanjut, anda dapat konsultasiskan dengan TIM Aktivasi Midtrans.
+
+## Pertimbangan dan Limitasi
+Dengan menggunakan API Midtrans ada beberapa pertimbangan dan limitasi yang harus Anda catat, akan dibahas di bawah.
+
+### Limitasi Ukuran Request Maksimal
+
+API Midtrans memperbolehkan ukuran request maximum **16kb** setiap request (**\~16000 karkter total**). Mohon untuk menjaga ukuran request dibawah limit ini untuk menghindari kegagalan request.
+
+Tips: Anda bisa coba melimitasi jumlah `item_details` dari request, atau setidaknya dikelompokkan dalam jumlah yang lebih sedikit (atau dalam 1 buah secara umum).

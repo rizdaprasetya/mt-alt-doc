@@ -5,12 +5,12 @@ On Sandbox, Midtrans use web based simulator to simulate payment-provider's/bank
 This is the list of payment credentials that you can use on Midtrans **Sandbox environment**. Please note that, it will not work on Production environment.
 
 Payment category:
-- [Credit Card](/en/technical-reference/sandbox-test.md#credit-card)
-- [E-Wallet](/en/technical-reference/sandbox-test.md#e-wallet)
-- [Bank Transfer](/en/technical-reference/sandbox-test.md#bank-transfer)
-- [Direct Debit](/en/technical-reference/sandbox-test.md#direct-debit)
-- [Convenience Store](/en/technical-reference/sandbox-test.md#convenience-store)
-- [Cardless Credit](/en/technical-reference/sandbox-test.md#cardless-credit)
+- [Credit Card](#credit-card)
+- [E-Wallet](#e-wallet)
+- [Bank Transfer](#bank-transfer)
+- [Direct Debit](#direct-debit)
+- [Convenience Store](#convenience-store)
+- [Cardless Credit](#cardless-credit)
 
 ### Credit Card
 
@@ -94,6 +94,8 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |**MEGA** | 4201 9100 0000 0025 | 5221 0300 0000 0025|
 |**Maybank** | 4055 7796 2846 0474 | 5520 0883 1465 3770|
 <!-- tabs:end -->
+
+?> **[General](#card-number)** card number is for general feature testing of card payment, **[Bank Specific](#card-number)** card number is useful for testing advanced card feature like on-us/off-us installment, whitelist BIN, promo, etc. that requires card from specific Bank.
 
 ### E-Wallet
 

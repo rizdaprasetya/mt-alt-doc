@@ -1,31 +1,91 @@
 <!DOCTYPE html>
 <html>
-
+<!-- @@@NOCONTENT -->
 <head>
+    <meta name="google-site-verification" content="IUkZKtVcIeoIBGWIh2XWp7jH9xuYIpviQWCFIAVmXbs" />
+    <!-- verif: beta-docs -->
+    <meta name="google-site-verification" content="2FsjXHulCMIalGc3OZqIXIKVThLV9KwcEgYj08iNbp8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Meta @NOTE: taken from old docs-->
+    <meta property="og:site_name" content="Midtrans Documentation"/>
+    <meta property="og:title" content="Midtrans Payments || Technical Docs for online payment gateway"/>
+    <meta property="og:description" content="Technical Documentation to implement online payment system. Available for various payment methods, in various website programming language."/>
+    <meta property="fb:app_id" content="404252079606310"/>
+    <meta property="og:image" content="//docs.midtrans.com/images/midtrans/favicon/apple-touch-icon-120x120.png"/>
+    <meta name="description" content="Technical Documentation to implement online payment system. Available for various payment methods, in various website programming language.">
+    <meta name="keywords" content="Midtrans, payment gateway indonesia, Pembayaran Online Indonesia, online payment Indonesia, sistem transaksi online">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/asset/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/asset/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/asset/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/asset/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/asset/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/asset/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/asset/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/asset/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/asset/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/asset/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/asset/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/asset/favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="/asset/favicon/favicon.ico">
+    
     
     <!-- Main Docsify Stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="style::Simple">
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-simple.css" 
+    title="style::Simple" 
+    integrity="sha256-jv9fwK4BTDbiYNJeimGKb3leNXsi+v2ZGmYd3/sEnvw=" 
+    crossorigin="anonymous">
 
     <!-- Alternate Docsify Stylesheet -->
-    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="style::Simple Dark">
-    <link rel="stylesheet alternate" href="https://unpkg.com/docsify@4.9.4/themes/vue.css" title="style::Vue">
-    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css" title="style::Plain">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify@4.9.4/themes/vue.css" 
+    title="style::Vue" 
+    integrity="sha256-kWms3xT2W1uxqv89DR5lkW56FtYSahQl5GjxTRwoT6Q=" 
+    crossorigin="anonymous">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-simple-dark.css" 
+    title="style::Simple Dark" 
+    integrity="sha256-zXOmOwlqZghO7eQG0TrFr6R0bIHXlbwVZM0RhsKYLPE=" 
+    crossorigin="anonymous">
+    <link rel="stylesheet alternate" 
+    href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/css/theme-defaults.css" 
+    title="style::Plain" 
+    integrity="sha256-4gCCXjsEHXVxwv6II5/NH/pVA+fB3qLDctd4MLO4H3c=" 
+    crossorigin="anonymous">
 
     <!-- Manual style override -->
-    <link rel="stylesheet" type="text/css" href="asset/custom.css" />
-    <link rel="stylesheet alternate" href="asset/custom-dark.css" title="style::Simple Dark"/>
-    <link rel="stylesheet" type="text/css" href="asset/mini-collapsible.css" />
-    <title>Midtrans Alt Docs</title>
+    <link rel="stylesheet" type="text/css" href="/asset/custom.css" />
+    <link rel="stylesheet alternate" href="/asset/custom-dark.css" title="style::Simple Dark"/>
+    <link rel="stylesheet" type="text/css" href="/asset/mini-collapsible.css" />
+    <title>Midtrans Technical Documentation</title>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
+        // @HACK: redirect to HTTPS
+        if (window.location.hostname.includes('.midtrans.com') && 
+            window.location.protocol == "http:") {
+            console.log("attempt to change protocol to https");
+            window.location.protocol = "https:";
+        }
+        // Check which Docsify router mode should be used
+        window.willUseDocsifyHashRouter = 
+            document.location.href.includes("/#/") || 
+            // @OPTIMIZE: param checking.
+            document.location.href.includes("hash=1") ||
+            document.location.href.includes("hash=true")
+            ;
+        window.predictedHomeUrl = window.willUseDocsifyHashRouter ? 
+            (document.location.href.split('/#/'))[0]+'/' :
+            document.location.origin;
+        // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
+            ga: 'UA-157800130-1',
             loadSidebar: true,
             loadNavbar: true,
             name: 'Midtrans Docs',
@@ -48,7 +108,9 @@
                  * unresponsive for few second on prod
                  */
                 '/en/.*/_sidebar.md': '/_sidebar.md',
-                '/en/.*/_navbar.md': '/_navbar.md'
+                '/en/.*/_navbar.md': '/_navbar.md',
+                '/id/.*/_sidebar.md': '/id/_sidebar.md',
+                '/id/.*/_navbar.md': '/id/_navbar.md'
             },
             search: {
                 // set to 1 hour on development, change to 1 day on prod
@@ -57,13 +119,33 @@
                 noData: 'No results!',
                 placeholder: 'Search...'
             },
-            routerMode: 'hash',
+            routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
             auto2top: true,
             maxLevel: 3,
             subMaxLevel: 3,
             plugins: [
                 /**
-                 * Custom plugin to replace all wrong sidebar image path
+                 * Custom plugin to show 404 if non-content file is fetched by Docsify.
+                 * marked with specified keyword
+                 */
+                function (hook, vm) {
+                    hook.beforeEach(function(content){
+                        if(content.includes(`@@@NOCONTENT`)){
+                            let isIndoVersion = document.location.href.includes('/id/');
+                            let englishVersionUrl = isIndoVersion? 
+                                document.location.href.replace('/id/','/en/'):
+                                false;
+                            content = `\r\n#### Page Not Found.\r\n<br>The `;
+                            content+= isIndoVersion? 
+                                `content you are looking for is currently not available in the language you have chosen, try the [English version](${englishVersionUrl}), or the `:
+                                '';
+                            content+= `url you are trying to visit is not available. Please navigate to the [homepage](/).<br><br><br>`;
+                            return content;
+                        }
+                    })
+                },
+                /**
+                 * Custom plugin to replace all wrong sidebar & navbar image path
                  * So it point to right asset directory
                  * @HACK: Not extensively tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
@@ -72,29 +154,31 @@
                         // @HACK: use $docsify.logo as assetPath source, use hard coded .svg extension
                         // might break when $docsify.logo is changed.
                         let assetPath = window.$docsify.logo.replace(/(.*)\/.*?\.svg/g,"$1/");
-                        // all sidebar img tag
+                        // all sidebar img tag and navbar img tag, except `.emoji``
                         document
-                            .querySelectorAll(`.sidebar-nav ul>li>strong>img`)
+                            .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
                             .forEach(function(el){
-                                // filter out element that have '.emoji' class
-                                if(el.classList.length > 0){
-                                    return;
-                                }
-                                el.src = el.src
+                                // @NOTE: hardcoded path
+                                let validSrc = el.src
                                     .replace(/.*?\/asset\/image\/main\/(.*)/g,assetPath+"$1");
+                                // only replace if path invalid
+                                if(el.src != validSrc){
+                                    el.src = validSrc;
+                                }
                             })
-
-
                     })
                 },
                 /**
                  * Custom plugin to replace all relative URL with absolute
-                 * So when crawled, asset links are not broken
+                 * (Only useful on) So when crawled (for SEO), asset links are not broken
                  * @HACK: Not tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
                 function (hook, vm) {
                     hook.ready(function(){
-                        const isPluginActivated = true
+                        let isPluginActivated = true;
+                        if($docsify.routerMode == 'hash'){
+                            return false;
+                        }
                         if (!isPluginActivated){
                             return false
                         }
@@ -155,6 +239,7 @@
                  * @HACK: 
                  * - it use constant delay of 2 sec, then scroll, what if page load
                  * more than 2 sec?
+                 * @OPTIMIZE: instead of constant delay, check if all image done loaded: https://stackoverflow.com/a/11071687
                  */
                 function (hook, vm) {
                     hook.doneEach(function () {
@@ -209,6 +294,211 @@
                         })
                     })
                 },
+                /**
+                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element
+                 * This will dynamically change the ID and re-init LikeBtn each page load
+                 * ref: https://likebtn.com/en/faq#change_identifier
+                 */
+                function (hook, vm) {
+                    let likeBtnSiteId = "5e37e9f3fa8fdf4161f15869";
+                    let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
+                    let dd = document.location.href.indexOf("://localhost") >= 0; // isDevEnv
+                    let labelBeforeLikeBtn = "Is this page helpful?";
+                    let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
+                    let likeBtnInWrapperClass = "likebtn-wrapper";
+                    let docsifyContentWrapperSelector = ".markdown-section";
+
+                    let tryRemoveLikeBtn = function(){
+                        // @HACK: reverse engineered to reset current page LikeBtn instance counter.
+                        try{
+                            LikeBtn.bunch_btns = 0;
+                        } catch(e){ dd&&console.log("- fail to reset LikeBtn.bunch_btns",e); }
+
+                        try{
+                            (document.querySelector("."+likeBtnOutWrapperClass)).remove();
+                            dd&&console.log('- success to remove likeBtnOutWrapperClass',arguments);
+                        } catch(e) { dd&&console.log("- fail to remove likeBtnOutWrapperClass",e); };
+                    }
+
+                    let reInitLikeBtn = function(vm=vm,initBy="direct"){
+                        let pageId = vm.route.path;
+                        dd&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev,"init by:",initBy);
+
+                        dd&&console.log("initializing likebtn");
+                        // remove last page LikeBtn element, if exist.
+                        tryRemoveLikeBtn();
+                        // (re)inject LikeBtn element.
+                        (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
+                        'beforeend',
+                        `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
+                            <p><small>${labelBeforeLikeBtn}</small></p>
+                            <span class="${likeBtnInWrapperClass}"
+                                data-identifier="${pageId}"
+                                data-site_id="${dd?likeBtnSiteIdDev:likeBtnSiteId}"
+                                data-theme="elegant"
+                                data-ef_voting="push"
+                                data-show_like_label="false"
+                                data-counter_type="percent"
+                                data-counter_clickable="true"
+                                data-share_size="small"
+                                data-loader_show="true"
+                                data-event_handler="likebtnCallback"
+                                data-i18n_like_tooltip="Helpful"
+                                data-i18n_dislike_tooltip="Not Helpful"
+                                data-i18n_popup_close="Later"
+                            \<\/span\>
+                        \<\/div\>`
+                        );
+                        // (re)init LikeBtn script for the new element.
+                        LikeBtn.init();
+                    }
+                    // Trigger on each page load
+                    hook.doneEach(function(){
+                        if (typeof(LikeBtn) != "undefined") {
+                            reInitLikeBtn(vm,"docsify-doneEach")
+                        }
+                    });
+                    // Remove likeBtn on before page navigation / load of new page
+                    // hook.beforeEach(function(){
+                    //     tryRemoveLikeBtn();
+                    // });
+
+                    /* @NOTE: sometime LikeBtn script is on race condition with
+                    * Docsify doneEach, if LikeBtn late to be loaded, init function
+                    * doesn't get executed. Tried to handle it with `ready` hook.
+                    */
+                    // Trigger on first load, after docsify ready
+                    hook.ready(function(){
+                        if (typeof(LikeBtn) == "undefined") {
+                            // retry after 2 second @OPTIMIZE the hardcoded 2 sec
+                            setTimeout(function(){ reInitLikeBtn(vm,"delayed-ready") }, 2000);
+                            return 0;
+                        }
+                        // LikeBtn exist exec instantly
+                        reInitLikeBtn(vm,"docsify-ready")
+                    });
+                },
+                /**
+                 * Custom plugin for Mixpanel analytics event call
+                 * @NOTE: there are some global `document.xxx` var used
+                 */
+                function (hook, vm){
+                    let dd = document.location.href.indexOf("://localhost") >= 0;
+                    document.$usr = {
+                        "user_agent": navigator.userAgent,
+                        "ip_address": 0
+                    };
+                    let trackEventGa = function(eventName,trackObj){
+                        dd&&console.log("trackEventGa",arguments);
+                        if (typeof(ga) == "undefined"){ 
+                            return dd&&console.log("ga undefined"); 
+                        }
+
+                        if(eventName=="page-load"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'pageload',
+                                eventAction: trackObj['path'],
+                                eventLabel: trackObj['section_id'],
+                                dimension1: trackObj['section_id'],
+                            });
+                        }
+
+                        if(eventName=="link-click"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'link',
+                                eventAction: 'click',
+                                eventLabel: trackObj['url'],
+                                transport: 'beacon'
+                            });
+                        }
+
+                        if(eventName=="theme-switch"){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'theme',
+                                eventAction: 'switch',
+                                eventLabel: trackObj['theme_id']
+                            });
+                        }
+
+                        if(eventName.includes("likebtn-")){
+                            return ga('send', {
+                                hitType: 'event',
+                                eventCategory: 'likebtn',
+                                // extract from eventName suffix
+                                eventAction: eventName.replace('likebtn-',''),
+                                eventLabel: trackObj['path']
+                            });
+                        }
+                    };
+                    let trackEvent = function(eventName,trackObj={}){
+                        dd&&console.log("trackEvent",arguments);
+                        // merge trackObj with $usr
+                        for(attr in document.$usr){
+                            trackObj[attr] = document.$usr[attr];
+                        };
+                        // auto populate path from docsify if not defined
+                        trackObj.path = trackObj.path || vm.route.path;
+
+                        trackEventGa(eventName,trackObj);
+                        if (typeof(mixpanel) == "undefined"){ 
+                            return dd&&console.log("mixpanel undefined"); 
+                        }
+                        mixpanel.track(eventName,trackObj);
+                    };
+                    let trackPageload = function(vm){
+                            let sectionId = undefined;
+                            try {
+                                sectionId = vm.route.query.id;
+                            } catch(e){}
+                            trackEvent("page-load",{
+                                "path": vm.route.path,
+                                "section_id": sectionId
+                            });
+                    };
+
+                    hook.doneEach(function(){
+                        /* Track Page load part */
+                        // Try to get IP first, before trackPageLoad
+                        if(!document.$usr.ip_address){
+                            fetch('https://api.ipify.org?format=json')
+                            .then(function(resp){ return resp.json() })
+                            .then(function(resp){
+                                document.$usr.ip_address = resp.ip;
+                                trackPageload(vm);
+                            })
+                            .catch(function(err){
+                                dd&&console.log('ip fetch fail:',err);
+                            })
+                        }else {
+                            // trackPageload anyway if fail to get IP
+                            trackPageload(vm);
+                        }
+                    });
+
+                    hook.ready(function(){
+                        /* Register Listener to track link click */
+                        // @NOTE: using body and "Event Bubbling" method
+                        document.body.addEventListener('click', function(e){
+                            // exec if `<a href="x">` tag only`
+                            if(event.target.tagName.toLowerCase() != 'a'){return 0;};
+                            if(!event.target.href){return 0;};
+                            // track style/theme switch event
+                            if(event.target.title && event.target.title.includes("style::")){
+                                return trackEvent("theme-switch",{
+                                    "theme_id": event.target.title
+                                });
+                            }
+                            trackEvent("link-click",{
+                                url: event.target.href
+                            });
+                        });
+                        // Expose trackEvent function for global usage outside plugin
+                        document.$trackEvent=trackEvent;
+                    });
+                }
             ],
             // config for tabs plugin
             tabs: {
@@ -218,36 +508,139 @@
                 tabComments: true,      // default
                 tabHeadings: true       // default
             },
+            // config for pagination plugin
+            pagination: {
+                // routerMode: window.$docsify.routerMode, // default
+                crossChapter: true,
+                crossChapterText: true,
+            },
             // config for themeable plugin
             themeable: {
                 responsiveTables: false
             }
         }
+
+        // Callback handler for LikeBtn
+        // Prompt feedback popup on page getting like/dislike
+        window.likebtnCallback = function (event) {
+            let promptFeedback = function(){
+                Swal.fire({
+                    // title: '<strong>HTML <u>example</u></strong>',
+                    icon: 'success',
+                    html:`
+<b>Thanks for your valuable feedback!</b>
+<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
+<hr>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    `,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    cancelButtonText:'Close',
+                    width:600,
+                })
+            }
+
+            // track all feedback related event: like, unlike, dislike, undislike
+            if( (event.type.replace('likebtn.','')).includes('like') ){
+                try{ 
+                    document.$trackEvent(event.type.replace('.','-'));
+                }catch(e){}
+            }
+
+            if (event.type == "likebtn.like") {
+                console.log("page liked");
+                promptFeedback();
+            }
+            else if (event.type == "likebtn.dislike") {
+                console.log("page disliked");
+                promptFeedback();
+            }
+        }
     </script>
+    <!-- Mixpanel -->
+    <script src="/asset/mixpanel-init.js"></script>
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js" 
+       integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
+       crossorigin="anonymous">
+    </script>
+    <!-- LikeBtn library -->
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
     <!-- Docsify library -->
-    <script src="https://unpkg.com/docsify@4.9.4/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/docsify.min.js" 
+       integrity="sha256-ibnuwhVxau9TedtaK4AuoTzq0LhAmjbtHtyUoIJ2gH4=" 
+       crossorigin="anonymous">
+    </script>
     <!-- Docsify plugins -->
-    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/zoom-image.min.js"></script>
-    <script src="https://unpkg.com/docsify@4.9.4/lib/plugins/emoji.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
-    <script src="https://unpkg.com/docsify-pagination@2.4.0/dist/docsify-pagination.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/ga.min.js" 
+       integrity="sha256-IUguNo0T22vwAwWZnzpFB9nVTY00IUOvrBxOyY/i3Yk=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/zoom-image.min.js" 
+       integrity="sha256-QYPXHOsAicqyjr+Uc1I7WUnRe2xR1Y3ncJhse2HaCMM=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/plugins/emoji.min.js" 
+       integrity="sha256-6dICtD0wM98hdjoCiKe36HW2K/fZ2fqSMDv/0YG9ymo=" 
+       crossorigin="anonymous">
+    </script>
+    <!-- @HACK custom @FIX, @FIXME to use official search plugin once new docsify version (>4.10) is released -->
+    <script src="https://cdn.jsdelivr.net/gh/rizdaprasetya/docsify-search-plugin-fix@b7cca4a2511d85d54ae3e656bbb7a6c4b2002fa2/docsify-search.mod.js" >
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.6.0/dist/docsify-pagination.min.js" 
+        integrity="sha256-oOk2E9FgAV5qXm6x2zjDjF+MhlYNSexVsRAfg9MGNcY=" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/js/docsify-themeable.min.js" 
+       integrity="sha256-DjxvhlioSi/lO1GN+agurPW4RNl7naaPyEYwB99ez/o=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1.1.2/dist/docsify-tabs.min.js" 
+        integrity="sha256-6UO8rzmxCWkk2KHPL6PUBJIIFfC5t0iL6W5Iy4moWDE=" 
+        crossorigin="anonymous">    
+    </script>
     <!-- Code highlighter language plugins -->
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-bash.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-python.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-go.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-ruby.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-php.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-java.min.js"></script>
-    <script src="https://unpkg.com/prismjs@1.17.1/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-bash.min.js" 
+       integrity="sha256-W7l8nP5GgjHSb7BvkoJKZQ+6+qFPM2VT6aF1lISibsA=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-python.min.js" 
+       integrity="sha256-zXSwQE9cCZ8HHjjOoy6sDGyl5/3i2VFAxU8XxJWfhC0=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-go.min.js" 
+       integrity="sha256-0gPlDXMlahNpCwHdKGf6TkjpLCXUS7mliN3nmbKOBCc=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-ruby.min.js" 
+       integrity="sha256-SGBXZakPP3Fv0P4U6jksuwZQU5FlC22ZAANstHSSp3k=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-php.min.js" 
+       integrity="sha256-gJj4RKQeXyXlVFu2I8jQACQZsii/YzVMhcDT99lr45I=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-java.min.js" 
+       integrity="sha256-xkjfLarZfrNcxmgjDVE2XGj4/OIti0A0+HMRz8fg1rI=" 
+       crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-json.min.js" 
+       integrity="sha256-tLgG7JGsKcY/xjGqVS3C/Rx8u5qq4OKmB9+g38o935c=" 
+       crossorigin="anonymous">
+    </script>
 
     <!-- @OPTIMIZE: add snap js only on certain page when needed? -->
     <script type="text/javascript"
     src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="VT-client-yrHf-c8Sxr-ck8tx"></script>
     <!-- Style Switcher -->
-    <script src="asset/style-switcher.js"></script>
+    <script src="/asset/style-switcher.js"></script>
+    <!-- helper to handle invalid absolute/relative asset path, on both docsify route mode -->
+    <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
+    <!-- @TODO: prevent load failure on subdir url using body.onerror ?-->
+    <!-- Replace with `onerror` to detect invalid asset path -->
+    <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 </body>
 
 </html>

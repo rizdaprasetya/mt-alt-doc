@@ -1,10 +1,11 @@
-<H1> Convenience Store </H1>
+# Convenience Store
 One of the payment method offered by Midtrans is Convenience Store. By using this payment method, customers will have the option to make a payment via Convenience Store and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 2 different with Convenience Store:
+At this moment, Midtrans has integrated with some Convenience Store:
 
-<img width="170px" height="50px" src="./../../asset/image/coreapi/alfamart_logo.svg" />
-<img width="170px" height="50px" src="./../../asset/image/coreapi/indomaret_logo.png" />
+![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
+<br>
+![indomaret logo](./../../asset/image/coreapi/indomaret_logo.png ":size=150")
    
 
 Basic integration process of Convenience Store will be explained below.
@@ -23,7 +24,7 @@ All the steps below are using [Midtrans Sandbox environment](https://account.mid
 Server Key and Client Key can be retrieved on menu `Settings` > `Access Key`.
 
 ?>**Info:**
-[How to retrieved Access key](/en/midtrans-account/overview?id=retrieving-api-access-keys)
+[How to retrieve Access key](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 ### Integration Step
 1. Send transaction data to API Charge.
@@ -36,7 +37,8 @@ Charge API request should be done from Merchant's backend. Server Key (from your
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### HTTP Headers
 ```
@@ -54,7 +56,7 @@ Authorization: Basic AUTH_STRING
 ### 1. Send Transaction Data to API Charge
 
 #### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our available language libraries).
+This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)).
 <!-- tabs:start -->
 #### **Alfamart**
 
@@ -165,7 +167,9 @@ You will get the `payment_code` attribute which can be shown to your frontend.
 ### 2. Show payment code to frontend.
 To show payment code to your frontend, use `payment_code` that retrieved from API response.
 
-Then customer can be payment to convenience store using payment code that shown on merchant website / apps.
+Then customer can proceed with actual payment in their nearest convenience store using payment code that is shown on merchant website / apps.
+
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#convenience-store).
 
 ### 3. Handle transaction notification
 
@@ -216,6 +220,11 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 ```
 <!-- tabs:end -->
 
+<div class="my-card">
+
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+</div>
+
 ### Switching To Production
 To use Midtrans production environment (accept real payment from real customer), please make sure to:
 
@@ -228,12 +237,17 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

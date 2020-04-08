@@ -396,7 +396,7 @@ You can test with this tools to try out signature_key calculation:
 
 #### **Verify Directly to Midtrans API**
 
-Alternatively, verify by calling [the get status API](/en/after-payment/action-payment.md?id=api-get-status). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
+Alternatively, verify by calling [the get status API](/en/after-payment/get-status.md). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
 
 ![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)
 <!-- tabs:end -->

@@ -1,6 +1,7 @@
-- [:house:**Home**](/ "Midtrans Payment Gateway Technical Documentation")
-- **:bust_in_silhouette: Midtrans Account**
-	- [Overview](en/midtrans-account/overview.md "Midtrans - Account Documentation")
+<!-- @@@NOCONTENT -->
+- [**![](asset/image/main/home-icon.svg)**HOME](/ "Midtrans Payment Gateway Technical Documentation")
+- **![](asset/image/main/user-icon.svg)Midtrans Account**
+	- [Midtrans Account](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - **![Snap](asset/image/main/snap-logo.svg)**
 	- [Overview](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
@@ -9,10 +10,10 @@
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
 	- [Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
 	- [Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
-- **:diamond_shape_with_a_dot_inside: ![Core API](asset/image/main/core-api-logo.svg)**
+- **![](asset/image/main/core-api-icon.svg)![Core API](asset/image/main/core-api-logo.svg)**
 	- [Overview](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=integration "Midtrans - Core API Integration Guide Documentation")
-		- [Credit Card](en/core-api/credit-card.md "Midtrans - Core API Credit Card Documentation")
+		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
 		- [Bank Transfer](en/core-api/bank-transfer.md "Midtrans - Core API Bank Transfer Documentation")
 		- [E-Wallet](en/core-api/e-wallet.md "Midtrans - Core API E-Wallet Documentation")
 		- [Direct Debit](en/core-api/direct-debit.md "Midtrans - Core API Direct Debit Documentation")
@@ -20,13 +21,13 @@
 		- [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
-- **:link: ![Payment Link](asset/image/main/payment-link-logo.svg)**
-    - [Overview](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
-- **:iphone: ![Mobile SDK](asset/image/main/mobile-sdk-logo.svg)**
-	- [Docs](https://mobile-docs.midtrans.com)
+- **![](asset/image/main/payment-link-icon.svg)![Payment Link](asset/image/main/payment-link-logo.svg)**
+    - [Payment Link](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
+- **![](asset/image/main/mobile-sdk-icon.svg)![Mobile SDK](asset/image/main/mobile-sdk-logo.svg)**
+	- [Mobile SDK Docs](https://mobile-docs.midtrans.com)
 - **![IRIS - Disbursement](asset/image/main/iris-logo.svg) - Disbursement**
-	- [Docs](https://iris-docs.midtrans.com/)
-- **:memo: After Payment**
+	- [IRIS Docs](https://iris-docs.midtrans.com/)
+- **![](asset/image/main/after-payment-icon.svg)After Payment**
 	- [Overview](en/after-payment/overview.md "Midtrans - After Payment Documentation")
 	- [Email Notification](en/after-payment/email-notification.md "Midtrans - Email Notification Documentation")
 	- [Handling HTTPs Notification Webhook](en/after-payment/http-notification.md "Midtrans - Handling HTTPs Notification Webhook Documentation")
@@ -34,7 +35,7 @@
 	- [Transaction Status Cycle](en/after-payment/status-cycle.md "Midtrans - Transaction Status Cycle Documentation")
 	- [Dashboard Usage and Action](en/after-payment/dashboard-usage.md "Midtrans - Dashboard Usage and Action Documentation")
 	- [Receiving Your Fund (Payout)](en/after-payment/payout.md "Midtrans - Receiving Your Fund (Payout) Documentation")
-- **:wrench: Technical Reference**
+- **![](asset/image/main/tech-ref-icon.svg)Technical Reference**
 	- [API Authorization & Headers](en/technical-reference/api-header.md "Midtrans - API Authorization & Headers Documentation")
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md "Midtrans - Testing Payment on Sandbox Documentation")
 	- [Library & Plugins](en/technical-reference/library-plugin.md "Midtrans - Library & Plugins Documentation")
@@ -43,7 +44,7 @@
 	- [Error Code & Response](en/technical-reference/error-response-code.md "Midtrans - Error Code & Response Documentation")
 	- [Snap API Docs](https://snap-docs.midtrans.com)
 	- [Core API Docs](https://api-docs.midtrans.com)
-- **:lock: Security**	
+- **![](asset/image/main/security-icon.svg)Security**	
 	- [Overview](en/security/overview.md "Midtrans - Brief Security Documentation")
 	- [PCI DSS](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
 	- [3 Domain Secure (3DS)](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)

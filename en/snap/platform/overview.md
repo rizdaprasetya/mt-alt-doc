@@ -42,10 +42,10 @@ Please complete the following steps in advance:
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
-	Fill __Payment Notification URL__ with: `http://vt-pixels.herokuapp.com/veritrans/callback_url`.<br />
-	Fill __Finish Redirect URL__ with: `<your_website>`.<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>`.<br />
-	Fill __Error Redirect URL__ with: `<your_website>`.
+	Fill __Payment Notification URL__ with: `http://vt-pixels.herokuapp.com/veritrans/callback_url`<br />
+	Fill __Finish Redirect URL__ with: `<your_website>`<br />
+	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
+	Fill __Error Redirect URL__ with: `<your_website>`
 
 3. Choose __Settings - Access Keys__.
 
@@ -142,12 +142,12 @@ Please complete the following steps in advance:
 
 2. Choose __Settings - Configuration__.
 
-	Fill __Payment Notification URL__ with : `<your_website>/payment_ipn/veritrans/notify`.<br />
+	Fill __Payment Notification URL__ with : `<your_website>/payment_ipn/veritrans/notify`<br />
 	E.g: If your website is www.abc.com, so your Payment Notification URL should be filled with “http://www.abc.com/payment_ipn/veritrans/notify”.
 
-	Fill __Finish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/completed`.<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/unfinish`.<br />
-	Fill __Error Redirect URL__ with: `<your_website>/payment_ipn/veritrans/error`.
+	Fill __Finish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/completed`<br />
+	Fill __Unfinish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/unfinish`<br />
+	Fill __Error Redirect URL__ with: `<your_website>/payment_ipn/veritrans/error`
 
 	![Setting](./../../../asset/image/sirclo-1.png)
 
@@ -206,9 +206,9 @@ Please complete the following steps in advance:
 
 	Fill __Payment Notification URL__ with: `<your_website>`.<br />__E.g__ : if your website is http://abc.jejualan.com, so your Payment Notification URL should be filled with “http://abc.jejualan.com”.<br />
 
-	Fill __Finish Redirect URL__ with: `<your_website>/store/payment/veritrans/success`.<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>/store/payment/`.<br />
-	Fill __Error Redirect URL__ with: `<your_website>/store/payment/veritrans/failed`.
+	Fill __Finish Redirect URL__ with: `<your_website>/store/payment/veritrans/success`<br />
+	Fill __Unfinish Redirect URL__ with: `<your_website>/store/payment/`<br />
+	Fill __Error Redirect URL__ with: `<your_website>/store/payment/veritrans/failed`
 
 3. Choose __Settings - Access Keys__.
 

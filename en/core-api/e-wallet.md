@@ -1,11 +1,13 @@
-GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek apps. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
+?> This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-wallet or banking app**.
 
-1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using the Gojek apps.
+GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek apps, or any QRIS compatible app. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
+
+1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using any QRIS compatible app, like Gojek app.
 2. **Deeplink** - This is the user flow on a SmartPhone/mobile device. User gets redirected to the Gojek apps to finish payment.
 
 Basic integration process of GoPay will be explained below.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview), before proceeding with this section.
+?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview.md), before proceeding with this section.
 
 ## Integration Step
 1. Send transaction data to API Charge.
@@ -28,7 +30,7 @@ The overall GoPay end-to-end payment proccess can be illustrated in following se
 </details>
 
 ## 1. Send Transaction Data to API Charge
-API request should be done from **Merchant’s backend** to acquire qr code and deeplink to Gojek apps. There are several components that are required:
+API request should be done from **Merchant’s backend** to acquire qr code and deeplink to Gojek app. There are several components that are required:
 
 Requirement | Description |
 ----------- | ----------- |
@@ -45,13 +47,14 @@ The example below shows a sample codes of the charge request:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library_plugin))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/technical-reference/library-plugin.md))*
 
 #### Request Details
 Type | Value
 --- | ---
 HTTP Method | `POST`
-API endpoint | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
+API endpoint (Production) | `https://api.midtrans.com/v2/charge`
 
 #### HTTP Headers
 ```
@@ -311,10 +314,10 @@ Instruction Example for **QR Code** :
 
 1. Tap **Pay using GoPay**
 2. QR code will appear on the next page
-3. Open **Gojek** app on your mobile phone
+3. Open any **QRIS compatible app** (e.g: Gojek) on your mobile phone
 4. Tap **Pay** then scan the QR Code
 5. Check and verify your payment details then tap **PAY**
-6. Enter your security **PIN**
+6. Complete your security PIN / verification
 7. Your transaction is finished
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-qr-pay.png)
@@ -333,10 +336,12 @@ Instruction Example for **Deeplink** :
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
 
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
+
 ### Implementing GoPay Deeplink Callback
 
-In addition to the standard mobile apps flow, you may opt to implement a deeplink callback to redirect customer back from Gojek to their apps.
-Please add gopay parameter in the [charge API request](/en/core-api/e-wallet?id=charge-api-request) .
+In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
+Please add gopay parameter in the [charge API request](#charge-api-request) .
 
 ```json
   "gopay": {
@@ -357,7 +362,7 @@ You needs to prepare a `callback_url` which accept two query parameters.
 | order_id | Order ID sent on the Charge Request|
 | result | Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`|
 
-?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](/en/core-api/e-wallet?id=_3-handling-post-transaction) or 
+?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or 
 [API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
 
 ## 3. Handling Post-Transaction
@@ -366,7 +371,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/)
+#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
 </div>
 
 ## Additional Notes
@@ -424,10 +429,23 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
 
 ## Next Step:
+<br>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
 </div>
+
+<div class="my-card">
+
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+</div>
+
+<div class="my-card">
+
+#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+</div>
+
+<hr>
 
 For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)
