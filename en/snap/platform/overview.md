@@ -42,7 +42,16 @@ Please complete the following steps:
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
-	Fill __Payment Notification URL__ with: `http://vt-pixels.herokuapp.com/veritrans/callback_url`<br />
+	On **Production** mode:
+
+	Fill __Payment Notification URL__ with: `http://vt-pixels.midtrans.com/veritrans/callback_url`<br />
+	Fill __Finish Redirect URL__ with: `<your_website>`<br />
+	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
+	Fill __Error Redirect URL__ with: `<your_website>`
+
+	On **Sandbox** mode:
+
+	Fill __Payment Notification URL__ with: `http://vt-pixels.sandbox.midtrans.com/veritrans/callback_url`<br />
 	Fill __Finish Redirect URL__ with: `<your_website>`<br />
 	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
 	Fill __Error Redirect URL__ with: `<your_website>`
