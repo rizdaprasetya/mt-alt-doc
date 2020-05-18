@@ -120,6 +120,7 @@ For example:
 	- [Akulaku](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055295)
 	- [Other bank transfer & debit](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055297)
 	- [Card Payment](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055299)
+	- [Card Installment Payment](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055413)
 
 2. Login with your Shopify account when prompted, then you will need to click **Install** on the payment gateway:
 ![shopify](./../../../asset/image/shopify-13.png ':size=400')
