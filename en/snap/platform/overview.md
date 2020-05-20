@@ -97,6 +97,8 @@ Please complete the following steps:
 
 	![shopify](./../../../asset/image/shopify-7.png ':size=400')
 
+With this integration, your customer will be redirected to Snap Redirect payment page. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
+
 <hr><br><br><hr><br><br>
 
 ### Available Payment Methods

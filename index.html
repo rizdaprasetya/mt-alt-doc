@@ -295,7 +295,7 @@
                     })
                 },
                 /**
-                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element
+                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element (footer)
                  * This will dynamically change the ID and re-init LikeBtn each page load
                  * ref: https://likebtn.com/en/faq#change_identifier
                  */
@@ -304,6 +304,7 @@
                     let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
                     let dd = document.location.href.indexOf("://localhost") >= 0; // isDevEnv
                     let labelBeforeLikeBtn = "Is this page helpful?";
+                    let labelFeedback = "<a href='javascript:promptFeedback();'>Let us hear your feedback!</a>"
                     let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
                     let likeBtnInWrapperClass = "likebtn-wrapper";
                     let docsifyContentWrapperSelector = ".markdown-section";
@@ -331,7 +332,7 @@
                         (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
                         'beforeend',
                         `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
-                            <p><small>${labelBeforeLikeBtn}</small></p>
+                            <p><small>${labelBeforeLikeBtn} ${labelFeedback}</small></p>
                             <span class="${likeBtnInWrapperClass}"
                                 data-identifier="${pageId}"
                                 data-site_id="${dd?likeBtnSiteIdDev:likeBtnSiteId}"
@@ -523,7 +524,7 @@
         // Callback handler for LikeBtn
         // Prompt feedback popup on page getting like/dislike
         window.likebtnCallback = function (event) {
-            let promptFeedback = function(){
+            window.promptFeedback = function(){
                 Swal.fire({
                     // title: '<strong>HTML <u>example</u></strong>',
                     icon: 'success',
@@ -550,11 +551,11 @@
 
             if (event.type == "likebtn.like") {
                 console.log("page liked");
-                promptFeedback();
+                window.promptFeedback();
             }
             else if (event.type == "likebtn.dislike") {
                 console.log("page disliked");
-                promptFeedback();
+                window.promptFeedback();
             }
         }
     </script>
