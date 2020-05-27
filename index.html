@@ -295,91 +295,6 @@
                     })
                 },
                 /**
-                 * Custom plugin to inject LikeBtn on the bottom of ".markdown-section" element (footer)
-                 * This will dynamically change the ID and re-init LikeBtn each page load
-                 * ref: https://likebtn.com/en/faq#change_identifier
-                 */
-                function (hook, vm) {
-                    let likeBtnSiteId = "5e37e9f3fa8fdf4161f15869";
-                    let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
-                    let dd = document.location.href.indexOf("://localhost") >= 0; // isDevEnv
-                    let labelBeforeLikeBtn = "Is this page helpful?";
-                    let labelFeedback = "<a href='#' onclick='promptFeedback();'>Let us hear your feedback!</a>"
-                    let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
-                    let likeBtnInWrapperClass = "likebtn-wrapper";
-                    let docsifyContentWrapperSelector = ".markdown-section";
-
-                    let tryRemoveLikeBtn = function(){
-                        // @HACK: reverse engineered to reset current page LikeBtn instance counter.
-                        try{
-                            LikeBtn.bunch_btns = 0;
-                        } catch(e){ dd&&console.log("- fail to reset LikeBtn.bunch_btns",e); }
-
-                        try{
-                            (document.querySelector("."+likeBtnOutWrapperClass)).remove();
-                            dd&&console.log('- success to remove likeBtnOutWrapperClass',arguments);
-                        } catch(e) { dd&&console.log("- fail to remove likeBtnOutWrapperClass",e); };
-                    }
-
-                    let reInitLikeBtn = function(vm=vm,initBy="direct"){
-                        let pageId = vm.route.path;
-                        dd&&console.log("LikeBtn plugin is on dev env, id:",likeBtnSiteIdDev,"init by:",initBy);
-
-                        dd&&console.log("initializing likebtn");
-                        // remove last page LikeBtn element, if exist.
-                        tryRemoveLikeBtn();
-                        // (re)inject LikeBtn element.
-                        (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
-                        'beforeend',
-                        `<div class="${likeBtnOutWrapperClass}" style="text-align:center; margin-bottom:1rem;">
-                            <p><small>${labelBeforeLikeBtn} ${labelFeedback}</small></p>
-                            <span class="${likeBtnInWrapperClass}"
-                                data-identifier="${pageId}"
-                                data-site_id="${dd?likeBtnSiteIdDev:likeBtnSiteId}"
-                                data-theme="elegant"
-                                data-ef_voting="push"
-                                data-show_like_label="false"
-                                data-counter_type="percent"
-                                data-counter_clickable="true"
-                                data-share_size="small"
-                                data-loader_show="true"
-                                data-event_handler="likebtnCallback"
-                                data-i18n_like_tooltip="Helpful"
-                                data-i18n_dislike_tooltip="Not Helpful"
-                                data-i18n_popup_close="Later"
-                            \<\/span\>
-                        \<\/div\>`
-                        );
-                        // (re)init LikeBtn script for the new element.
-                        LikeBtn.init();
-                    }
-                    // Trigger on each page load
-                    hook.doneEach(function(){
-                        if (typeof(LikeBtn) != "undefined") {
-                            reInitLikeBtn(vm,"docsify-doneEach")
-                        }
-                    });
-                    // Remove likeBtn on before page navigation / load of new page
-                    // hook.beforeEach(function(){
-                    //     tryRemoveLikeBtn();
-                    // });
-
-                    /* @NOTE: sometime LikeBtn script is on race condition with
-                    * Docsify doneEach, if LikeBtn late to be loaded, init function
-                    * doesn't get executed. Tried to handle it with `ready` hook.
-                    */
-                    // Trigger on first load, after docsify ready
-                    hook.ready(function(){
-                        if (typeof(LikeBtn) == "undefined") {
-                            // retry after 2 second @OPTIMIZE the hardcoded 2 sec
-                            setTimeout(function(){ reInitLikeBtn(vm,"delayed-ready") }, 2000);
-                            return 0;
-                        }
-                        // LikeBtn exist exec instantly
-                        reInitLikeBtn(vm,"docsify-ready")
-                    });
-                },
-                /**
                  * Custom plugin for Mixpanel analytics event call
                  * @NOTE: there are some global `document.xxx` var used
                  */
@@ -421,16 +336,6 @@
                                 eventCategory: 'theme',
                                 eventAction: 'switch',
                                 eventLabel: trackObj['theme_id']
-                            });
-                        }
-
-                        if(eventName.includes("likebtn-")){
-                            return ga('send', {
-                                hitType: 'event',
-                                eventCategory: 'likebtn',
-                                // extract from eventName suffix
-                                eventAction: eventName.replace('likebtn-',''),
-                                eventLabel: trackObj['path']
                             });
                         }
                     };
@@ -499,6 +404,40 @@
                         // Expose trackEvent function for global usage outside plugin
                         document.$trackEvent=trackEvent;
                     });
+                },
+                /**
+                 * Custom plugin to inject feedback footer on the bottom of ".markdown-section" element
+                 */
+                function (hook, vm) {
+                    let docsifyContentWrapperSelector = ".markdown-section";
+
+                    // Trigger on each page load
+                    hook.doneEach(function(){
+                        (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
+                        'beforeend',
+                        `<div class="footer-custom" style="text-align:center; margin-bottom:1rem;">
+                            <p><small>Is this page helpful? <a href='#' onclick='promptFeedback();'>Let us hear your feedback!</a></small></p>
+                        \<\/div\>`
+                        );
+                    });
+                    
+                    // Prompt feedback popup
+                    window.promptFeedback = function(){
+                        Swal.fire({
+                            // title: '<strong>HTML <u>example</u></strong>',
+                            icon: 'success',
+                            html:`
+<b>Thanks for your valuable feedback!</b>
+<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
+<hr>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`,
+                            showCloseButton: true,
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            cancelButtonText:'Close',
+                            width:600,
+                        })
+                    };
                 }
             ],
             // config for tabs plugin
@@ -520,45 +459,6 @@
                 responsiveTables: false
             }
         }
-
-        // Prompt feedback popup on page getting like/dislike
-        window.promptFeedback = function(){
-            Swal.fire({
-                // title: '<strong>HTML <u>example</u></strong>',
-                icon: 'success',
-                html:`
-<b>Thanks for your valuable feedback!</b>
-<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
-<hr>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                `,
-                showCloseButton: true,
-                showCancelButton: false,
-                showConfirmButton: false,
-                cancelButtonText:'Close',
-                width:600,
-            })
-        };
-
-        // Callback handler for LikeBtn
-        window.likebtnCallback = function (event) {
-
-            // track all feedback related event: like, unlike, dislike, undislike
-            if( (event.type.replace('likebtn.','')).includes('like') ){
-                try{ 
-                    document.$trackEvent(event.type.replace('.','-'));
-                }catch(e){}
-            }
-
-            if (event.type == "likebtn.like") {
-                console.log("page liked");
-                window.promptFeedback();
-            }
-            else if (event.type == "likebtn.dislike") {
-                console.log("page disliked");
-                window.promptFeedback();
-            }
-        }
     </script>
     <!-- Mixpanel -->
     <script src="/asset/mixpanel-init.js"></script>
@@ -567,9 +467,6 @@
        integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" 
        crossorigin="anonymous">
     </script>
-    <!-- LikeBtn library -->
-    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-    <!-- Docsify library -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/docsify.min.js" 
        integrity="sha256-ibnuwhVxau9TedtaK4AuoTzq0LhAmjbtHtyUoIJ2gH4=" 
        crossorigin="anonymous">
