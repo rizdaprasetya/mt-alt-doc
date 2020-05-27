@@ -304,7 +304,7 @@
                     let likeBtnSiteIdDev = "5e37e9f3fa8fdf4161f15869";
                     let dd = document.location.href.indexOf("://localhost") >= 0; // isDevEnv
                     let labelBeforeLikeBtn = "Is this page helpful?";
-                    let labelFeedback = "<a href='javascript:promptFeedback();'>Let us hear your feedback!</a>"
+                    let labelFeedback = "<a href='#' onclick='promptFeedback();'>Let us hear your feedback!</a>"
                     let likeBtnOutWrapperClass = "likebtn-outer-wrapper";
                     let likeBtnInWrapperClass = "likebtn-wrapper";
                     let docsifyContentWrapperSelector = ".markdown-section";
@@ -521,26 +521,27 @@
             }
         }
 
-        // Callback handler for LikeBtn
         // Prompt feedback popup on page getting like/dislike
-        window.likebtnCallback = function (event) {
-            window.promptFeedback = function(){
-                Swal.fire({
-                    // title: '<strong>HTML <u>example</u></strong>',
-                    icon: 'success',
-                    html:`
+        window.promptFeedback = function(){
+            Swal.fire({
+                // title: '<strong>HTML <u>example</u></strong>',
+                icon: 'success',
+                html:`
 <b>Thanks for your valuable feedback!</b>
 <p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
 <hr>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                    `,
-                    showCloseButton: true,
-                    showCancelButton: false,
-                    showConfirmButton: false,
-                    cancelButtonText:'Close',
-                    width:600,
-                })
-            }
+                `,
+                showCloseButton: true,
+                showCancelButton: false,
+                showConfirmButton: false,
+                cancelButtonText:'Close',
+                width:600,
+            })
+        };
+
+        // Callback handler for LikeBtn
+        window.likebtnCallback = function (event) {
 
             // track all feedback related event: like, unlike, dislike, undislike
             if( (event.type.replace('likebtn.','')).includes('like') ){
