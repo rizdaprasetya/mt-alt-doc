@@ -9,14 +9,15 @@ Library dan plugin kami bersifat **Open Source!** Kami dengan senang hati meneri
 |Platforms | Resources |
 |---|---|
 |PHP|[Composer](https://packagist.org/packages/midtrans/midtrans-php)<br>[Github](https://github.com/Midtrans/midtrans-php)|
-|Ruby|[Github](https://github.com/veritrans/veritrans-ruby)|
+|Ruby|[Gem](https://rubygems.org/gems/veritrans)<br>[Github](https://github.com/veritrans/veritrans-ruby)|
 |Node JS|[NPM](https://www.npmjs.org/package/midtrans-client)<br>[Github](https://github.com/Midtrans/midtrans-nodejs-client)|
 |Python|[PyPI](https://pypi.org/project/midtransclient/1.0.6/)<br>[Github](https://github.com/Midtrans/midtrans-python-client)|
 |Java|[Bintray](https://bintray.com/midtrans/midtrans-java/com.midtrans)<br>[Java Doc](https://midtrans.github.io/midtrans-java/index.html)<br>[Github](https://github.com/Midtrans/midtrans-java)|
 |Go|[Github](https://github.com/veritrans/go-midtrans)|
-|Postman Collection| [Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)|
+|Postman Collection| [Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)<br>[Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)|
 
 ## Plugin Snap untuk CMS E-Commerce
+Petunjuk penggunaan [langkah demi langkah ada di sini](/id/snap/with-plugins).
 
 |Platforms | Resources |
 |---|---|

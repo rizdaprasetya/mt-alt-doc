@@ -1,7 +1,9 @@
 <!-- @@@NOCONTENT -->
+<!-- @FIXME: commented out until ID lang translation is ready.
 - :uk:En
     - [:uk:English](/)
-    <!-- - [:id:Indonesia](/id/home.md) -->
+    - [:id:Indonesia](/id/home.md) 
+-->
 - :question:FAQ
     - [:book:General FAQ](https://support.midtrans.com)
     - [:wrench:Technical FAQ](https://midtrans-advanced-faq.netlify.com/#/faq-general)

@@ -412,6 +412,7 @@
                     let docsifyContentWrapperSelector = ".markdown-section";
 
                     // Trigger on each page load
+                    // @FIXME: on router mode JS based href will throw error, fix it
                     hook.doneEach(function(){
                         (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
                         'beforeend',
