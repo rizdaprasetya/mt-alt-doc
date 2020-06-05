@@ -81,3 +81,9 @@
 - add production endpoint on Core API sections - done
 - add production endpoint on Snap API sections - done
 - remove any `.` on each notif url example, because it cause confusion - done
+- add how to get VA number again on bank transfer after `pending`
+- add which payment method is available for refunds
+- add info to not manually pin/download Midtrans API's SSL cert
+- add info to not reverse-proxy Midtrans API, refer to tech faq
+- pages/section that explain common flow for each payment methods, e.g: how bank transfer works, explain pending can become settlement/expire, default expiry time, etc.
+- Drop or replace LikeBtn because it is slow and can cause privacy issue.
