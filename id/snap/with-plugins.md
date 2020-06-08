@@ -56,7 +56,8 @@ Exp. Year	| 2025
 
 ### Magento 2
 
-Midtrans ❤️ Magento2! Integrasikan website magento Anda dengan Midtrans Snap. Plugin kami memungkinkan website magento anda dapat menerima berbagai pembayaran online. Kami berupaya untuk membuat halaman pembayaran sesederhana mungkin, demi pengalaman pembayaran yang menakjubkan.
+Midtrans ❤️ Magento2! Integrasikan website magento Anda dengan Midtrans Snap. Plugin kami memungkinkan website magento anda dapat menerima berbagai pembayaran online. Kami berupaya untuk membuat halaman pembayaran sesederhana mungkin, demi pengalaman pembayaran yang menakjubkan. Extension ini juga tersedia di [Magento Marketplace](https://marketplace.magento.com/midtrans-snap.html).
+
 #### Apa yang diperlukan::
 
 * Sebuah toko online berbasis Magento. Plugin ini di-test dengan **Magento v2.3.2**
