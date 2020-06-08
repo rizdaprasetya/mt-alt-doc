@@ -1,5 +1,5 @@
 <!-- @@@NOCONTENT -->
-- [**![](asset/image/main/home-icon.svg)**HOME](/ "Midtrans Payment Gateway Technical Documentation")
+- [**![](asset/image/main/home-icon.svg)**Home](/ "Midtrans Payment Gateway Technical Documentation")
 - **![](asset/image/main/user-icon.svg)Midtrans Account**
 	- [Midtrans Account](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - **![Snap](asset/image/main/snap-logo.svg)**

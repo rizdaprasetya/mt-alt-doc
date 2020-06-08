@@ -92,6 +92,7 @@
             // themeColor: '#3F51B5',
             homepage: 'en/home.md',
             // repo: 'https://github.com/rizdaprasetya/mt-alt-doc/',
+            // @TODO: combining `basePath` with `willUseDocsifyHashRouter` might solve absolute-relative stuff hacks
             // basePath: "/",
             alias: {
                 // proxy for any /gh/ url to fetch markdown from real github url
@@ -139,7 +140,7 @@
                             content+= isIndoVersion? 
                                 `content you are looking for is currently not available in the language you have chosen, try the [English version](${englishVersionUrl}), or the `:
                                 '';
-                            content+= `url you are trying to visit is not available. Please navigate to the [homepage](/).<br><br><br>`;
+                            content+= `url you are trying to visit is not available. Please navigate to the [homepage](${window.predictedHomeUrl}).<br><br><br>`;
                             return content;
                         }
                     })
@@ -167,6 +168,17 @@
                                 }
                             })
                     })
+                },
+                /**
+                 * Custom plugin to replace wrong home-logo href link on hash router mode
+                 * So it can be detected as `willUseDocsifyHashRouter` upon homepage load
+                 */
+                function (hook, vm) {
+                    if($docsify.routerMode != 'hash'){ return false; }
+                    hook.doneEach(function(){
+                        let homeLinkEl = document.querySelector('.app-name-link');
+                        homeLinkEl.href += "#/";
+                    });
                 },
                 /**
                  * Custom plugin to replace all relative URL with absolute
