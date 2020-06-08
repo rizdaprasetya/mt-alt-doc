@@ -265,6 +265,18 @@ Not all payment type support online `refund` on Midtrans side, capability is mos
 
 However, `cancel` or `refund` action triggered on Midtrans dashboard/API, may or may not be synced to Shopify due to some limitation.
 
+##### Note on Canceling Order
+Canceling a paid order will auto trigger attempt to refund/cancel payment on Payment Gateway (Midtrans) side . That is the flow of Shopify that Merchant & Payment Gateway follows. Please avoid canceling a paid order when you mean to edit/customize the item or size.
+
+As per Shopify docs, `cancel order` are not supposed to be used to change item/size:
+https://help.shopify.com/en/manual/orders/refund-cancel-order#cancel-an-order
+
+Merchants supposed to `edit order` if they need to change the item/size:
+https://help.shopify.com/en/manual/orders/edit-orders
+
+Or archive the order, if they really need to remove it from order list:
+https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-order
+
 <!-- @TODO: waiting to be deployed, uncomment below once deployed -->
 
 <!---
