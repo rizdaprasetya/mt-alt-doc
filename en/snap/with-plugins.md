@@ -128,57 +128,168 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 Midtrans ❤️ Magento! Midtrans highly concerned with customer experience (UX). We strive to make payments simple for both the merchant and customers. With this plugin you can make your Magento store using Midtrans payment.
 
 #### Requirements:
-* An online store with Magento infrastructure. This plugin is tested with **Magento v2.3.2**
-* PHP v5.4 or greater.
-* MySQL v5.0 or greater.
+* An online store with Magento infrastructure. This plugin is tested with **Magento v2.3.4**
+* PHP v5.6 or greater.
+* MySQL v5.7 or greater.
 * Midtrans plugin for Magento For Magento v2.x [ [Github](https://github.com/Midtrans/Midtrans-Magento2) | [Zip](https://github.com/Midtrans/Midtrans-Magento2/archive/master.zip) ] , For Magento v1.9 [ [Github](https://github.com/veritrans/SNAP-Magento) | [Zip](https://github.com/veritrans/SNAP-Magento/archive/master.zip) ] 
+*   This plugin supports Magento2 version 2.1.0, 2.2.0, 2.3.4 and higher.
+
 
 #### Installation:
-#### Simple Installation
-1. Download and extract the zip.
-2. Locate the root Magento directory of your shop via FTP connection.
-3. Copy the `app` & `lib` folders into magento root folder.
-4. Login to your Magento Admin Panel.
-5. Go to `System (1)` -> `Web Setup Wizard (2)` -> `Module Manager(3)`.
-![Magento 2 step 5](./../../asset/image/Magento2-1.png)
-6. Scroll or go to the next page until you find `Midtrans/Snap`.
-![Magento 2 step 6](./../../asset/image/Magento2-3.png)
-7. Click **Select** -> **Enable** to enable the module.
-8. Proceed to [Plugins Configurations](#magento-2-plugin-configuration) section.
+#### Install Midtrans Snap plugins through Magento marketplace 
+You can install Midtrans Snap plugins through Magento Marketplace. Please, visit Midtrans on [Magento Marketplace](https://marketplace.magento.com/midtrans-snap.html) and follow step-by-step installation instructions from the [Official Magento extension docs](https://docs.magento.com/user-guide/system/web-setup-extension-manager.html)
 
-#### Manual Installation:
-1. Download and extract the zip.
-2. Locate the root Magento directory of your shop via FTP connection
-3. Copy the `app` & `lib` folders into magento root folder
-4. On Magento root folder, run below command:
-    * `php bin/magento module:enable --clear-static-content Midtrans_Snap`
-    * `php bin/magento setup:upgrade`
-    * `php bin/magento cache:clean`
-5. Proceed to [Plugins Configurations](#magento-2-plugin-configuration) section.
+#### Install Midtrans Snap plugins through Composer
+Before you begin to install through the composer, you need Magento marketplace account and make sure that you have installed Composer. In your terminal, go to the Magento folder and run the following commands:
+1. Install the plugins: `composer require midtrans/snap`
+2. Enable the plugin:  `bin/magento module:enable Midtrans_Snap`
+3. Execute upgrade script : `bin/magento setup:upgrade`
+4. Flush cache storage :  `bin/magento cache:flush`
+5. Login to your Magento Admin Panel.
+6. Proceed to [Plugins Configurations](#magento-2-plugin-configuration) section.
+#### Install Midtrans Snap plugins from GitHub project
+With these steps, you can custom/modify our Magento plugins to handle the business model that you want
+
+1. Download and extract the plugin you have previously downloaded from GitHub and rename the folder as Snap.
+2. Make a directory structure like this: 
+![Magento folder structure](./../../asset/image/magento-folder-structure.png)
+3. Locate the root Magento directory of your shop via FTP connection.
+4. Copy the app folders into the Magento root folder.
+5. Run this command on terminal
+
+    `bin/magento module:enable Midtrans_Snap`
+    
+    `bin/magento setup:upgrade`
+    
+    `bin/magento cache:flush`
+
+6. Login to your Magento Admin Panel.
+7. Proceed to [Plugins Configurations](#magento-2-plugin-configuration) section.
 
 #### Magento 2 Plugin Configuration
+Before you begin, make sure that you have successfully installed and enabled Midtrans Snap plugins.
+Configure the Midtrans plugin in your Magento admin panel: 
 1. Login to your Magento Admin Panel.
-2. Go to menu **Stores** (1) -> **Configuration** (2) -> **Sales** (3) -> **Payment** **Method** (4) -> Tab "**Midtrans Snap**" (5)
+2. In the left navigation bar, go to **Stores(1)** -> **Configuration(2)**. 
+3. In the menu, go to **Sales(3)** -> **Payment Methods(4)**
 ![Magento 2 step config 1](./../../asset/image/Magento2-7.png)
-![Magento 2 step config 2](./../../asset/image/Magento2-Snap-Config.png)
-3. Fill in the **Title**, **Merchant Id**, **Client Key**, **Server Key** on the field of section area (6)
-4. Then finally **Save Config** (7)
+
+4. In the **Midtrans - Accept Online Payment** section, click **Basic Settings** and fill out the following fields:
+
+| Field                   | Description									                               |
+|-------------------------| ---------------------------------------------------------------------------|
+| Is Production           | Select whether you want to use a sandbox or production mode\.			|
+| Merchant ID             | Unique id of your Midtrans account for which the payments will be processed\.|
+| Sandbox \- ClientKey    | Used as an API key to be used for authorization sandbox environment on frontend API request/configuration\. So it is safe to put in your HTML / client code publicly\.    |
+| Sandbox \- ServerKey    | Used as an API key to be used for authorization sandbox environment while calling Midtrans API from the backend\. So keep it stored confidentially\.                      |
+| Production \- ClientKey | Used as an API key to be used for authorization production environment on frontend API request/configuration\. So it is safe to put in your HTML / client code publicly\. |
+| Production \- ServerKey | Used as an API key to be used for authorization production environments while calling Midtrans API from the backend\. So keep it stored confidentially                    |
+| Enable Snap redirect    | Change to Snap redirect mode, the default value is No\.			 |
+
+
+>Note: Access Keys are unique for every merchant. Server Key is secret, please always keep Server Key confidential.
+
+#### Log options
+
+The plugins will store log file in directory `/var/log/midtrans`. The default value is on for request, notification and error log. Except Throw Exception, is off by default.
+![magento_log_options](./../../asset/image/magento-log-options.png)
+
+
+#### Config Plugins Payment Integration
+
+In the Midtrans Magento plugins we have 4 option to use Snap model payment method, with the following description:
+
+
+1. **Snap payment integration**
+    
+    This is the default Snap for Midtrans Magento plugins, Snap payment will be auto-enabled when installing the Midtrans plugins. Midtrans will show the available payment method on the Snap payment screen.
+
+2. **Specific Payment integration | Optional** 
+    
+    Enabling this will display additional payment options to customer, for specific payment that are specified in the "Allowed Payment Method" field, Midtrans Snap will show only the listed payment method on the Snap screen.
+
+3. **Online Installment payment integration | Optional**
+
+    Enabling this will display additional payment options to customer, for online installment payment where the Card Issuer and Acquiring Bank is the same entity (e.g: BNI Card and BNI Acquiring bank).
+
+4. **Offline Installment payment integration | Optional**
+
+    Enabling this will display additional payment options to customer, for offline Installment where the Card Issuer and Acquiring Bank don't have to be same entity (e.g: BNI Card and Mandiri Acquiring Bank)
+
+
+>Note: You can use different Midtrans Account for every Snap model payment method, should configure the access-key in Optional section `“Use different Midtrans account”`. If the optional access-key is empty, the plugins will automatically use access key on Basic Settings.
+
+>INFO: The built-in BCA Klikpay landing page for now will only use server key from basic settings of Snap payment integration
+
+<details>
+<summary>
+
+#### Customize configuration
+</summary>
+In case you need to customize configuration these field are configurable, and described as follows:
+<article>
+
+| Field                  | Description            
+|------------------------|---------------------------------------------------------------------------|
+| Enable                 | Payment snap section enable                                                                        
+| Title                  | The title for the payment method in the checkout page
+| Custom Expiry          | This field will allow you to set a custom duration on how long the transaction is available to be paid\.                                                                                                        
+| Allowed Payment Method | Customize allowed payment method, separate payment method code with a comma\. e\.g: bank\_transfer,credit\_card\. Leave it default if you are not sure\.                                                        
+| Acquiring Bank         | You can specify which Acquiring Bank they prefer to use for a specific transaction\. The transaction fund will be routed to that specific acquiring bank\. Leave it blank if you are not sure\!                 
+| BIN Number             | It is a feature that allows the merchant to accept only Credit Cards within a specific set of BIN numbers\. Separate BIN number with comma Example: 4,5,4811,bni,mandiri\. Leave it blank if you are not sure\! |
+| Installment Terms      | An arrangement for payment by installments\.                             
+| 3D Secure              | You must enable 3D Secure for secure card transactions\. Please contact us if you wish to disable this feature in the Production environment\.                                                                  
+| Save Card              | This will allow your customer to save their card on the payment popup, for faster payment flow on the following purchase\.  
+
+</article>
+</details>
 
 #### Magento 2 Plugin Notification Configuration
-Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings > configuration`
+1. Login to your [Midtrans&nbsp;  Account](https://dashboard.midtrans.com), select your environment (sandbox/production), go to menu `settings -> configuration`
+   * Payment Notification URL: 
+    >`http://[your-site-url]/snap/payment/notification`
+   * Finish Redirect URL: 
+    >`http://[your-site-url]/snap/index/finish`
+   * Unfinish Redirect URL: 
+    >`http://[your-site-url]/snap/index/finish`
+   * Error Redirect URL: 
+    >`http://[your-site-url]/snap/index/finish`
 
-   * Payment Notification URL:<br>
-        `http://[your-site-url]/snap/payment/notification`
-   * Finish Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
-   * Unfinish Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
-   * Error Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
+2. Go to menu **Settings > Snap Preference > System Settings**
+  * Insert `http://[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
+
 
 <details>
 <summary>
   
+#### How to online refund transaction
+</summary>
+You can request refunds either from the [Midtrans Dashboard](https://dashboard.midtrans.com/transactions) or from the Magento admin. After a refund is issued, it cannot be cancelled or undone. Before you trigger this request, make sure that the refund amount and any other details are correct. The online refund feature is available for payment method gopay and credit card.
+
+If you make refund from the Midtrans Dashboard, Refund notification is sent to Magento, set transaction state to CLOSED and for now is not created the credit memo.
+<article>
+
+#### Request refund from Magento Admin:
+
+1. Log in to your Magento admin panel. 
+2. In the menu, go to **Sales** > **Orders**. This opens the order overview page. 
+3. Click on the **order** you want to refund.
+4. In the **Order list View** left-hand navigation sidebar, click **Invoices** tab.
+5. In the **invoice list page**, selected the **order**. click the **view button** on invoice you need to request online refund.
+6. Click **Credit Memo** on the top-right corner of the page.
+7. In the **New Memo for Invoice** page, scroll down to the **Refund Totals** section.
+8. In this section, you can request online **Refund** or **Refund Offline**.
+    *   **Refund:** This option will request refund Online to Midtrans, Midtrans automatically send refund notification and changes order status to **Closed** from notification.
+    *   **Refund Offline**: An offline refund does not trigger request refund to midtrans it’s only refund in Magento side. You need to take action and carry out the refund manually from Midtrans dashboard.After a refund operation, the order status changes to **Closed**. This order status change is controlled by the Magento system. 
+    
+    The status change may not mean that the refund has carried out successfully on Midtrans side. When the transaction status in Midtrans dashboard changes to REFUND, then the refund went through successfully
+    
+</article>
+</details>
+
+<details>
+<summary>
+
 #### Transaction Test
 </summary>
 <article>

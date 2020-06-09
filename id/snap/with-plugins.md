@@ -59,48 +59,115 @@ Exp. Year	| 2025
 Midtrans ❤️ Magento2! Integrasikan website magento Anda dengan Midtrans Snap. Plugin kami memungkinkan website magento anda dapat menerima berbagai pembayaran online. Kami berupaya untuk membuat halaman pembayaran sesederhana mungkin, demi pengalaman pembayaran yang menakjubkan.
 #### Apa yang diperlukan::
 
-* Sebuah toko online berbasis Magento. Plugin ini di-test dengan **Magento v2.3.2**
-* PHP v5.4 or greater.
-* MySQL v5.0 or greater.
-* Plugin Midtrans untuk Magento  v2.x [ [Github](https://github.com/Midtrans/Midtrans-Magento2) | [Zip](https://github.com/Midtrans/Midtrans-Magento2/archive/master.zip) ] , Magento v1.9 [ [Github](https://github.com/veritrans/SNAP-Magento) | [Zip](https://github.com/veritrans/SNAP-Magento/archive/master.zip) ] 
+* Sebuah toko online berbasis Magento. Plugin ini telah ditest menggunakan **Magento v2.3.4**
+* PHP v5.6 atau lebih tinggi.
+* MySQL v5.7 atau lebih tinggi.
+* Plugin Midtrans untuk Magento  v2.x [ [Github](https://github.com/Midtrans/Midtrans-Magento2) | [Zip](https://github.com/Midtrans/Midtrans-Magento2/archive/master.zip) ] , Magento v1.9 [ [Github](https://github.com/veritrans/SNAP-Magento) | [Zip](https://github.com/veritrans/SNAP-Magento/archive/master.zip) ]
+*   Plugin Midtrans Snap mendukung Magento 2 versi 2.1.0, 2.2.0, 2.3.4 atau versi lebih tinggi.
 
 #### Instalasi:
-#### Langkah Instalasi Sederhana
+#### Instalasi melalui Magento Marketplace
+Anda dapat menginstall plugin Midtrans Snap melalui Magento Marketplace, dengan mungunjungi [Magento Marketplace](https://marketplace.magento.com/midtrans-snap.html) dan mengikuti tata cara instalasi melalui halaman [dokumentasi resmi Magento](https://docs.magento.com/user-guide/system/web-setup-extension-manager.html).
 
-1. Download dan ekstrak plugin yang telah anda unduh.
-2. Masuk ke direktori Magento Anda melalui koneksi FTP.
-3. Upload/copy folder `app`, `lib` dan `skin` yang baru diekstrak ke dalam direktori Magento Anda.
-4. Masuk ke halaman Admin Magento anda.
-5. Buka menu `System (1)` -> `Web Setup Wizard (2)` -> `Module Manager(3)`.
-![Magento 2 step 5](./../../asset/image/Magento2-1.png)
-6. Cari modul dengan nama Midtrans_Snap.
-![Magento 2 step 6](./../../asset/image/Magento2-3.png)
-7. Untuk mengaktifkan modul klik **Select** -> **Enable**
-8. Lakukan langakah ke 5, untuk mengaktifkan modul midtrans lainnya.
-9. [Konfigurasi plugin](#konfigurasi-plugin-midtrans-magento-2) Midtrans Magento 2.
+#### Instalasi melalui Composer
+Sebelum anda melakukan instalasi melalui Composer, pastikan kembali perangkat/server anda telah terinstall aplikasi Composer. Buka aplikasi terminal, masuk kedalam folder root Magento, jalankan perintah berikut ini:
+1. Install plugins: `composer require midtrans/snap`
+2. Aktivasi plugin:  `bin/magento module:enable Midtrans_Snap`
+3. Jalankan upgrade script : `bin/magento setup:upgrade`
+4. Flush cache storage :  `bin/magento cache:flush`
+5. Login ke halaman Magento Admin Panel.
+6. [Konfigurasi plugin](#konfigurasi-plugin-midtrans-magento-2) Midtrans Magento 2.
 
-`simbol (6),(4) pada setiap langkah adalah nomor yang ada di gambar`
+#### Instalasi melalui Midtrans Magento GitHub porject
+Pada langkah instalasi berikut ini, anda dapat melakukan modifikasi pada plugins Midtrans Magento, sesuai dengan keinginan Anda:
 
-#### Cara instalasi manual:
+1. Download dan ekstrak plugin yang telah anda unduh pada halaman Github dan Rename folder plugins menjadi **Snap**.
+2. Buat folder struktu seperti berikut ini:
+![Magento folder structure](./../../asset/image/magento-folder-structure.png)
+3. Temukan direktori root Magento pada Backend web Anda melalui koneksi FTP.
+4. Copy folder app kedalam folder root Magento.
+5. Jalankan perintah dibawah ini pada aplikasi terminal:
 
-1. Download dan ekstrak plugin yang telah anda unduh.
-2. Masuk ke direktori Magento Anda melalui koneksi FTP.
-3. Upload/copy folder `app`, `lib` dan `skin` yang baru diekstrak ke dalam direktori Magento Anda.
-4. Pada root direktori Magento, jalankan perintah pada terminal:
-    * `php bin/magento module:enable --clear-static-content Midtrans_Snap`
-    * `php bin/magento setup:upgrade`
-    * `php bin/magento cache:clean`
-5. [Konfigurasi plugin](#konfigurasi-plugin-midtrans-magento-2) Midtrans Magento 2.
+    `bin/magento module:enable Midtrans_Snap`
+    
+    `bin/magento setup:upgrade`
+    
+    `bin/magento cache:flush`
+6. Login ke halaman Magento Admin Panel.
+7. [Konfigurasi plugin](#konfigurasi-plugin-midtrans-magento-2) Midtrans Magento 2.
 
 #### Konfigurasi plugin Midtrans Magento 2
+Sebelum anda memluai konfigurasi plugin Snap, pastikan kembali anda telah berhasil melewati proses instalasi dengan benar.
 
-1. Masuk ke halaman Admin Magento.
-2. Pilih menu **Stores** (1) -> **Configuration** (2) -> **Sales** (3) -> **Payment** **Method** (4) -> Tab "**Midtrans_Snap**" (5)
+Langkah konfigurasi plugin pada Magento admin:
+1. Masuk ke halaman Magento Admin Panel.
+2. Pada menu bar sebelah kiri, pilih **Stores(1)** -> **Configuration(2)**. 
+3. Pada menu Configuration, pilih **Sales(3)** -> **Payment Methods(4)**
 ![Magento 2 step config 1](./../../asset/image/Magento2-7.png)
-![Magento 2 step config 2](./../../asset/image/Magento2-Snap-Config.png)
-3. Isi kolom **Title**, **Merchant Id**, **Client Key**, **Server Key** seperti pada gambar (6)
-4. Terakhir anda dapat menyimpan konfigurasi dengan klik tombol **Save Config** (7)
-5. Selesai
+4. Jika Anda telah meilhat bagian **Midtrans - Accept Online Payment** , klik **Basic Settings** dan isi kolom yang dibutuhkan seperti berikut ini:
+
+| Kolom Basic Settings    | Deskripsi|
+|-------------------------| ---------------------------------------------------------------------------|
+| Is Production           | Pilih environment yang akan Anda gunakan, Ya untuk prodcution dan No untuk Sandbox.			|
+| Merchant ID             | Id Merchant unik yang terdapat pada akun Midtrans Anda.|
+| Sandbox-ClientKey    | Kunci API pada environment Sandbox yang digunakan untuk otorisasi konfigurasi pada halaman frontend.   |
+| Sandbox-ServerKey    | Kunci API  pada environment Sandbox yang digunakan untuk otorisasi pada saat memanggil API Midtrans.                      |
+| Production-ClientKey | Kunci API pada environment Production yang digunakan untuk otorisasi konfigurasi pada halaman frontend. |
+| Production-ServerKey | Kunci API  pada environment Production yang digunakan untuk otorisasi pada saat memanggil API Midtrans                    |
+| Enable Snap redirect    | Merubah mode Snap pop-up ke mode redirect.			 |
+
+
+>Catatan: Setiap merchant memiliki Access Keys yang berbeda. Mohon jaga kerahasiaan Server key anda.
+
+#### Opsi Log
+
+Secara default fungsi log equest, notification dan error otomatis aktif. Plugin Snap akan menulis log pada direktori `/var/log/midtrans`.
+![magento_log_options](./../../asset/image/magento-log-options.png)
+
+#### Konfigurasi Plugins Payment Integration
+Pada plugin Snap, terdapat 4 opsi untuk mengunakan model pembayaran dengan detail sebagai berikut:
+
+
+1. **Snap payment integration**
+
+    Snap payment integration adalah mode default Snap plugins, Snap payment aktif secara otomatis pada saat anda melakukan instalasi plugins. Midtrans akan menampilkan metode pembayaran yang aktif pada halaman Snap.
+
+2. **Specific Payment integration | Optional** 
+    
+    Specific Payment integration adalah fitur opsional untuk Anda yang ingin memberikan spesifik metode pembayaran kepada pelanggan Anda. Anda dapat mengisi nama payment method pada kolom "Allowed Payment Method", maka Snap hanya akan menampilkan metode pembayaran yang Anda inginkan.
+
+3. **Online Installment payment integration | Optional**
+    Online Installment payment adalah fitur opsional untuk Anda yang ingin mengaktifkan pembayaran cicilan / Online Installment dimana penerbit kartu dan bank penampung adalah entitas yang sama. Contoh: Kartu kredit BNI dengan Bank Acquiring BNI
+
+4. **Offline Installment payment integration | Optional**
+    Offline Installment payment adalah fitur opsional untuk Anda yang ingin mengaktifkan pembayaran cicilan offline / Offline Installment dimana penerbit kartu dan bank penampung adalah entitas yang berbeda. Contoh: Kartu kredit BNI dengan Bank Acquiring Mandiri
+
+>Catatan: Anda dapat menggunakan akun Midtrans spesifik pada masing-masing Snap model integrations. Secara default Snap plugins akan otomatis menggunakan akun Midtrans pada konfigurasi Basic Settings.
+
+>INFO: Untuk BCA Klikpay landing page hanya dapat berjalan normal pada Snap payment integration.
+
+<details>
+<summary>
+  
+#### Detail kolom konfigurasi
+</summary>
+Berikut adalah detail kolom pada konfigurasi plugins
+<article>
+
+| Kolom                  | Deskripsi            
+|------------------------|---------------------------------------------------------------------------|
+| Enable                 | Aktivasi mode pembayaran Snap                                                                         
+| Title                  | Judul metode pembayaran pada halaman checkout Magento
+| Custom Expiry          | Digunakan untuk kustomisasi waktu berapa lama transaksi anda dapat dibayar.                                                                                                        
+| Allowed Payment Method | Digunakan untuk menampilkan spesifik metode pembayaran kepada pelanggan Anda. Anda dapat membiarkan kosong jika belum yakin.                                                  
+| Acquiring Bank         | Anda dapat menentukan spesifik Acquriing Bank penampung transaksi kartu kredit yang akan digunakan. Anda dapat membiarkan kosong jika belum yakin.                
+| BIN Number             | Ini adalah fitur yang memungkinkan Anda untuk hanya menerima Kartu Kredit dalam set angka BIN tertentu. Pisahkan nomor BIN dengan koma Contoh: 4,5,4811, bni, mandiri. Biarkan kosong jika Anda tidak yakin! |
+| Installment Terms      | Pengaturan untuk pembayaran cicilan.                             
+| 3D Secure              | Untuk transaksi kartu Anda diwajibkan mengaktifkan 3D Secure. Silakan hubungi Tim Bisnins kami jika Anda ingin menonaktifkan fitur ini.                                                                  
+| Save Card              | Fitur ini memungkinkan pelanggan Anda untuk menyimpan kartu mereka, untuk dapat digunakan pada transaksi selanjutnya.  
+
+</article>
+</details>
 
 #### Magento2 Terima Notifikasi Midtrans
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
