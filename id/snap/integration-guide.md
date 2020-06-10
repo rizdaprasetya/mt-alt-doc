@@ -402,7 +402,7 @@ Exp Month | Any month (e.g: `02`)
 Exp Year | Any future year (e.g: `2025`)
 OTP/3DS | `112233`
 
-Anda dapat mengunjungi halaman berikut untuk mendapakan test credential lainnya [simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index)
+Anda dapat mengunjungi halaman berikut untuk mendapakan test credential lainnya [simulator](https://simulator.sandbox.midtrans.com/qris/ui/index)
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
