@@ -127,6 +127,8 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 
 Midtrans ❤️ Magento! Midtrans highly concerned with customer experience (UX). We strive to make payments simple for both the merchant and customers. With this plugin you can make your Magento store using Midtrans payment. This extension also available on [Magento Marketplace](https://marketplace.magento.com/midtrans-snap.html).
 
+> This is for Magento 2, for Magento 1 please refer to this [list of plugins](/en/technical-reference/library-plugin.md#snap-plugin-for-e-commerce-cms)
+
 #### Requirements:
 * An online store with Magento infrastructure. This plugin is tested with **Magento v2.3.4**
 * PHP v5.6 or greater.
