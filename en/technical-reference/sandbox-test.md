@@ -102,6 +102,7 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |Payment Methods | Description|
 |----------|------------|
 |Go-Pay | On mobile platform you will be auto redirected to Gopay Simulator. <br> On desktop, QR Code image will be displayed, copy the QR Code image URL then use this [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index), or if fail, use [Gopay Simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index).|
+|QRIS | QR Code image will be displayed, copy the QR Code image URL then use this [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index)|
 |Indosat Dompetku | **Accept number:** 08123456789 <br> **Deny number:** other than 08123456789|
 |Mandiri E-cash | **Accept number:** 0987654321 <br> **PIN:** 12345 <br> **OTP:** 12123434|
 

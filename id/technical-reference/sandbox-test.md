@@ -102,6 +102,7 @@ Ini dapat anda gunakan untuk sekenario transaksi Cicilan/Promo yang membutuhkan 
 |Payment Methods | Description|
 |----------|------------|
 |Go-Pay | Di platform mobile Gopay Simulator akan otomatis terbuka. Di desktop, QR Code image akan ditampilkan, copy URL QR Code image URL kemudian gunakan [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index), atau jika tidak bisa coba [Gopay Simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index) berikut.|
+|QRIS | QR Code image akan ditampilkan, copy URL dari QR Code image kemudian gunakan [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index)|
 |Indosat Dompetku | **Nomor transaksi berhasil:** 08123456789 <br> **Nomor transaksi gagal:** other than 08123456789|
 |Mandiri E-cash | **Nomor transaksi berhasil:** 0987654321 <br> **PIN:** 12345 <br> **OTP:** 12123434|
 
