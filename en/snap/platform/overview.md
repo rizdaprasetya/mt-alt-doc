@@ -279,13 +279,12 @@ https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-orde
 
 <!-- @TODO: waiting to be deployed, uncomment below once deployed -->
 
-<!---
 ##### Item Stock & Status
 This try to answer in which point item stock is reduced and restocked from your Shopify store.
 - Item stock will be reduced whenever order status become `pending` on Shopify side.
 - Item stock will be reduced immediately after customer reach Snap payment page, regardless of he will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment.
 - Card transaction with `deny` status will be updated as failed on Shpy by Pixels after 2 hours if left without any success attempt. if success pay attempt is found, it will be updated as success on Shopify.
-- Abandoned Snap payment page (customer left without proceeding with  any payment method) will be updated as failed on Shopify after 2 hours.
+- Abandoned Snap payment page (customer left without proceeding with  any payment method) will be updated as failed on Shopify after 2 hours, and may not show up in Midtrans Dashboard.
 - When customer reach Snap payment page (status `pending` and stock reduced) unfortunately Shopify may send email to cust with body order ready to be shipped although from Shopify side it is still waiting for payment.
 
 ##### Basic Status Mapping
@@ -298,7 +297,6 @@ Cust successfully paid | Settlement/Capture | Paid
 Cust abandoned Snap payment page <br> without proceeding payment | \- | Canceled
 Cust abandoned denied card transaction | Deny | Canceled
 Merchant cancel/refund order via Shopify | Cancel/Refund | Canceled/Refunded
--->
 </article>
 </details>
 
