@@ -108,9 +108,14 @@
                  * which can be slow to wait for 404 call. It impacted UI to be seem 
                  * unresponsive for few second on prod
                  */
-                '/en/.*/_sidebar.md': '/_sidebar.md',
+                // match any-word-except, allow load sub folder sidebar
+                '/en/^(?!payment|pay)\w*/_sidebar.md': '/_sidebar.md',
+                '/id/^(?!payment|pay)\w*/_sidebar.md': '/id/_sidebar.md',
+                // match either of these words, use common sidebar
+                '/en/(?:snap|core-api|payment-link)/_sidebar.md': '/en/payment/_sidebar.md',
+                '/id/(?:snap|core-api|payment-link)/_sidebar.md': '/id/payment/_sidebar.md',
+                // redirect to root navbar
                 '/en/.*/_navbar.md': '/_navbar.md',
-                '/id/.*/_sidebar.md': '/id/_sidebar.md',
                 '/id/.*/_navbar.md': '/id/_navbar.md'
             },
             search: {
