@@ -97,6 +97,9 @@
             alias: {
                 // proxy for any /gh/ url to fetch markdown from real github url
                 '.*?/gh/(.*)': 'https://raw.githubusercontent.com/$1',
+                // match either of these words, use common sidebar
+                '/en/(?:snap|core-api|payment-link)/_sidebar.md': '/en/payments/_sidebar.md',
+                '/id/(?:snap|core-api|payment-link)/_sidebar.md': '/id/payments/_sidebar.md',
                 /**
                  * Based on https://docsify.js.org/#/more-pages?id=nested-sidebars
                  * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
@@ -109,11 +112,8 @@
                  * unresponsive for few second on prod
                  */
                 // match any-word-except, allow load sub folder sidebar
-                '/en/^(?!payment|pay)\w*/_sidebar.md': '/_sidebar.md',
-                '/id/^(?!payment|pay)\w*/_sidebar.md': '/id/_sidebar.md',
-                // match either of these words, use common sidebar
-                '/en/(?:snap|core-api|payment-link)/_sidebar.md': '/en/payment/_sidebar.md',
-                '/id/(?:snap|core-api|payment-link)/_sidebar.md': '/id/payment/_sidebar.md',
+                '/en/(?!payments|pays).*/_sidebar.md': '/_sidebar.md',
+                '/id/(?!payments|pays).*/_sidebar.md': '/id/_sidebar.md',
                 // redirect to root navbar
                 '/en/.*/_navbar.md': '/_navbar.md',
                 '/id/.*/_navbar.md': '/id/_navbar.md'
