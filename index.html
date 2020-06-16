@@ -98,8 +98,8 @@
                 // proxy for any /gh/ url to fetch markdown from real github url
                 '.*?/gh/(.*)': 'https://raw.githubusercontent.com/$1',
                 // match either of these words, use common sidebar
-                '/en/(?:snap|core-api|payment-link)/_sidebar.md': '/en/payments/_sidebar.md',
-                '/id/(?:snap|core-api|payment-link)/_sidebar.md': '/id/payments/_sidebar.md',
+                '/en/(?:snap|core-api|payment-link).*/_sidebar.md': '/en/payments/_sidebar.md',
+                '/id/(?:snap|core-api|payment-link).*/_sidebar.md': '/id/payments/_sidebar.md',
                 /**
                  * Based on https://docsify.js.org/#/more-pages?id=nested-sidebars
                  * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
