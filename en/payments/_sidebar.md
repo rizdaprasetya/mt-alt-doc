@@ -1,5 +1,5 @@
 <!-- @@@NOCONTENT -->
-- [< Back Home](/ "Midtrans Payment Gateway Technical Documentation")
+- [← Back Home](/ "Midtrans Payment Gateway Technical Documentation")
 - [**![Snap](asset/image/main/snap-icon.svg)Payment with Interface**](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
@@ -19,3 +19,4 @@
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 - [**![](asset/image/main/payment-link-icon.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - [**![](asset/image/main/mobile-sdk-icon.svg)Payment for Native Mobile App**](https://mobile-docs.midtrans.com)
+- [**![](asset/image/main/after-payment-icon.svg)Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
