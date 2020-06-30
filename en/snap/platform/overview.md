@@ -294,6 +294,7 @@ Merchant cancel/refund order via Shopify | Cancel/Refund | Canceled/Refunded
 
 <hr><br><br><hr><br><br>
 
+<!-- @TODO: explain if payment page closed, it may lost forever -->
 <!-- @TODO: explain shopify void & refund feature -->
 <!-- @TODO: explain item stock deduction / restock scenarios -->
 

@@ -1,3 +1,9 @@
+- Graphic illustration
+- Beautify font
+- Live demo for Core API payment types
+- error code explanations
+
+
 # TODO:
 
 ## UI
@@ -10,6 +16,13 @@
 - Add collapsible element - done
 - Add tool tip on hover for certain terms
 	- https://kazzkiq.github.io/balloon.css/
+- Allow card element to have grid system
+	- https://blog.fullstackdigital.com/how-to-create-a-flawless-responsive-post-grid-with-flexbox-e5c7cc9d28e
+- Beautify font:
+	- use font pair https://fontpair.co/
+	- https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website
+	- https://davidwalsh.name/css-variables-javascript#:~:text=To%20set%20the%20value%20of,style%20.
+	- https://www.webfx.com/blog/web-design/css-typography-02/
 
 ## Tech
 
@@ -30,8 +43,10 @@
 	- https://www.analyticsmania.com/post/how-to-install-google-tag-manager/
 - Follow sample code section confuse people to open github
 - check & fix search exception on `cms` `plugin` `status` keyword
+	- ref: https://docs.woocommerce.com/wp-content/uploads/2013/05/woocommerce-order-process-diagram.png
 - check & fix next/previous page extension, seems doesn't work - done
 - check and patch any XSS potential on any input from URL, eg: part when reading split of `#/` from urls
+- update sitemap generator to also include sub folder sidebar?
 
 ## Content
 
@@ -87,3 +102,17 @@
 - add info to not reverse-proxy Midtrans API, refer to tech faq
 - pages/section that explain common flow for each payment methods, e.g: how bank transfer works, explain pending can become settlement/expire, default expiry time, etc.
 - Drop or replace LikeBtn because it is slow and can cause privacy issue.
+- add trouble shooting section on notif handling, what to check if pay status is not updated on merchant's side
+	- ref: https://midtrans.slack.com/archives/CC7E717LH/p1591687437007100?thread_ts=1591683037.006900&cid=CC7E717LH
+- add notes on one click that typically recurring need special MID which is BNI recurring MID, and they need to specify the bank during recurring charge.
+- consolidate similar content
+	- `/en/after-payment/status-cycle?id=transaction-status` and 
+	- `/en/after-payment/http-notification?id=status-definition`
+- add how to check notification history on the section `dashboard-usage`
+- explain why status_code can be different on get-status & notif
+	- `/en/after-payment/http-notification?id=status-definition`
+- multi code-lang should be available on Core API & advanced features section
+- Snap section: explain it can be used as link based payment
+- Diagram for high level use-case / flow of fund ?
+- Check every link for 404 e.g: `next step` `core api advanced feature` link is 404
+- list of things that can be illustrated. Provide list, context, criteria (format, size, etc)
