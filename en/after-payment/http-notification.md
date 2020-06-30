@@ -585,3 +585,22 @@ Else if merchant set header `X-Override-Notification: https://example.com/test1,
 - https://example.com/test2
 </article>
 </details>
+
+### View Notification History
+<br>
+<details>
+<summary><b>View Notification History</b></summary>
+<article>
+
+In some cases you might want to know if HTTP notification is successfully sent to your notification url or backend server.
+
+To audit if notification is sent, and if it sent successfuly or not you can login to your Midtrans Dashboard. Go to menu `Settings > Configuration > See History`. You will find HTTP Notification as well as email notification records for each Order ID, and you can see the status if it successfully sent or not. You can also search by Order ID.
+
+- You may find some notification failed to be sent, most likely that is because your notification url is rejecting the HTTP notification delivery. Please check your notification url implementation on your backend server. Make it also follows the [best practice](#best-practice-to-handle-notification).
+
+- You may find notification shown as `success` to be sent, but your server wasn't able to change the payment status on your side. Please check, most likely there is mis-implementation or issue on the implementation on your backend server.
+
+- If there is issue of Midtrans having delay or issue that unable to send the HTTP Notification, you can always use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
+
+</article>
+</details>
