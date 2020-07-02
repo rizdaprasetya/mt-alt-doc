@@ -331,7 +331,7 @@ Link: [*More detailed definition of transaction_status*](https://api-docs.midtra
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">
