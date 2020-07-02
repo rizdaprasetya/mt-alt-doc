@@ -526,7 +526,7 @@ Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">
