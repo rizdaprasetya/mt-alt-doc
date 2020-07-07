@@ -1,7 +1,10 @@
 <H2> Integrasi Pembayaran Kartu Kredit </H2>
 Dengan menggunakan metode pembayaran kartu kredit, pelanggan anda akan mempunyai pilihan untuk melakukan pembayaran melalui berabagai macam kartu kredit dan Midtrans akan mengirimkan notifikasi pemberitahuan secara real time setelah pelanggan anda menyelesaikan pembayarannya.
 
-<img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/mastercard.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/jcb.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/american_express.svg" /> <img align="center" width="80px" height="70px" src="./../../asset/image/coreapi/visa.svg" />   
+![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
+![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=80") <br>
+![jcb](./../../asset/image/coreapi/jcb.svg ":size=80") <br>
+![amex](./../../asset/image/coreapi/american_express.svg ":size=80") <br>
 
 Proses integrasi dasar untuk pembayaran kartu akan dijelaskan di bawah.
 
@@ -98,7 +101,9 @@ Server Key       | Dijelaskan pada halaman [akun midtrans](/id/midtrans-account/
 `order_id`       | Order ID transaksi yang dapat anda isi sesuai dengan kebutuhan anda
 `gross_amount`   | Total nilai transaksi
 `token_id`       | Representasi informasi kartu kredit pelanggan anda yang didapatkan dari [Respon Token](/id/core-api/credit-card.md?id=mendapatkan-respon-token)
-`authentication` | Atribut sebagai penanda bahwa transaki yang diminta adalah trasaksi 3D Secure, nilai default adalah false
+`authentication` | Atribut sebagai penanda bahwa transaki yang diminta adalah trasaksi 3D Secure.
+
+?> **Catatan**: Untuk keamanan & pencegahan aktifitas _fraud_, sebaiknya set `authentication` dengan _value_ `true`. Hanya set `false` jika anda sudah konfirmasi dengan Midtrans & Bank acquiring.
 
 ### Request Charge API
 

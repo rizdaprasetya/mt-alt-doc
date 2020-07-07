@@ -185,7 +185,7 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">

@@ -108,7 +108,9 @@ Server Key | Explained on [previous section](/en/midtrans-account/overview.md)
 `order_id` | Transaction order ID, defined from your side
 `gross_amount` | Total amount of transaction, defined from your side
 `token_id` | Represents customer's card information acquired from [Get Card Token Response](en/core-api/credit-card.md#get-card-token-response)
-`authentication` | Flag to enable the 3D secure authentication. Default value is `false`
+`authentication` | Flag to enable the 3D secure authentication.
+
+?> **Note**: For better security & fraud prevention, you should set `authentication` to `true`. Only set `false` if you have confirmed with Midtrans & acquiring bank
 
 ### Charge API request
 
@@ -524,7 +526,7 @@ Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature.md)
+#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">
