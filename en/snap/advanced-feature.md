@@ -675,6 +675,23 @@ This is the type of Installment where the Card Issuer and Acquiring Bank is the 
 
 To activate the installment feature, merchant are required to have agreement with the bank. For online installments, the bank will issue special MID for installment. By using this installment MID, the transaction will be converted automatically into an installment. Please consult to Midtrans Activation Team for installment MID. If MID is ready, merchant simply need to add the installment parameter.
 
+```json
+...
+  "credit_card": {
+    "secure": true,
+    "installment": {
+      // set to `true` to force customer pay with installment for this transaction
+      // set to `false` to add option for customer to pay with regular fullpayment
+      "required": true,
+      "terms": {
+        // input the desired bank & installment terms
+        "<bank-name>": [ <installment terms as array of integers> ] 
+      }
+    }
+  }
+...
+```
+
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
@@ -689,9 +706,13 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "installment": {
       "required": true,
       "terms": {
-        "bca": [6,12],
-        "bni": [6,12],
-        "mandiri": [3,6,12]
+        "bca": [3,6,12],
+        "bni": [3,6,12],
+        "mandiri": [3,6,12],
+        "cimb": [3,6,12],
+        "bri": [3,6,12],
+        "maybank": [3,6,12],
+        "mega": [3,6,12]
       }
     }
   }
@@ -736,6 +757,22 @@ To allow installment feature with banks which do not issue MID Installment, merc
 
 Merchant simply need to add the `installment` parameter with combination of bin filter feature. The purpose of bin filter is to limit certain cards from being allowed to do offline installment, based on the agreement between merchant and issuing banks.
 
+```json
+...
+  "credit_card": {
+    "secure": true,
+    "installment": {
+      // set to `true` to force customer pay with installment for this transaction
+      // set to `false` to add option for customer to pay with regular fullpayment
+      "required": true,
+      "terms": {
+        // input the desired installment terms
+        "offline": [ <installment terms as array of integers> ] 
+      }
+    }
+  }
+...
+```
 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->

@@ -116,3 +116,10 @@
 - Diagram for high level use-case / flow of fund ?
 - Check every link for 404 e.g: `next step` `core api advanced feature` link is 404
 - list of things that can be illustrated. Provide list, context, criteria (format, size, etc)
+- check this doc for insights/ideas
+	- https://poynt.github.io/developer-docs/
+	- https://barba.js.org/docs/getstarted/intro/ beautiful UI & transition
+- Put notes for features that require additional biz requirements, e.g:
+	- "To use the following features in Production, you might need an additional commercial agreement. Please contact your Account Manager to use this feature."
+- on payment landing page add more discoverability to each payment-method?
+- clarify core api installment feature to explain which param to change, e.g: `bank` & `term`

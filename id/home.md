@@ -7,7 +7,7 @@ Midtrans ingin membantu anda agar dapat dengan mudah menerima, mendistribusikan 
 
 <div class="my-card">
 
-#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md?id=overview)
+#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md)
 Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pelanggan anda akan dihadapkan dengan tampilan halaman pembayaran, langsung didalam halaman web dan aplikasi anda dengan menampilkan jendela pop-up yang mudah serta mobile-friendly. Atau anda juga dapat mengarahkan pelanggan anda ke halaman pembayaran Midtrans. Halaman Pembayaran Snap mengizinkan pelanggan anda untuk memilih beberapa [jenis pembayaran tertentu](https://midtrans.com/payments)
 <br>
 <p style="text-align: center;">
@@ -38,7 +38,17 @@ Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pel
 <div class="my-card">
 
 #### [Mobile SDK &#187;](https://mobile-docs.midtrans.com)
-Midtrans juga menyediakan Mobile SDK bagi merchant yang ingin implmentasi beberapa pembayaran online secara cepat melalui aplikasi mobile Android dan iOS. Untuk sample aplikasi Anda dapat melihat [video](https://www.youtube.com/watch?v=EefsTMXCscg) berikut. Tampilan Mobile SDK layaknya seperti tampilan Snap namun versi native mobile.
+Midtrans juga menyediakan Mobile SDK bagi merchant yang ingin implmentasi beberapa pembayaran online secara cepat melalui aplikasi mobile Android dan iOS. Untuk sample aplikasi Anda dapat mencoba di bawah. Tampilan Mobile SDK layaknya seperti tampilan Snap namun versi native mobile.
+<details>
+<summary><b>Coba Mobile SDK via Android Simulator</b></summary>
+<article>
+<!-- tabs:start -->
+<div style="text-align: center;">
+<iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=nexus5&scale=75&orientation=portrait&osVersion=8.1"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!-- tabs:end -->
+</article>
+</details>
 </div>
 
 <div class="my-card">

@@ -1,5 +1,21 @@
 # Instruction
 
+<details>
+<summary><b>Tech Stack Summary </b>(click to expand)</summary>
+<article>
+
+### Tech Stack
+- [Docsify](https://docsify.js.org/) as **JS based frontend-framework**, can also be considered as the CMS.
+- Content is written as `Markdown`, stored on Github repo.
+- Continuous Delivery configured to **auto deploy** to `Netlify` (frontend hosting service), served as static files.
+- Netlify also act as an **optional router**.
+- Somekind of `frontend-only` **Single Page Application**.
+- Requires `no backend, no DB`, any web server (like Nginx) will just work (as it is not full stack CMS).
+- Consist of regular `HTML, JS, CSS,` files, which will auto render the `Markdown` content on runtime.
+
+</article>
+</details>
+
 ## Usage
 
 - Download/clone and extract this folder to your local machine.
@@ -130,9 +146,9 @@ Optional card body content, or actually you can use any html/markdown content wi
 		- restart nginx to apply new config on ssh: `/usr/sbin/nginx -s reload`
 
 
-## Be Warned
+## Additional Notes
 <details>
-<summary>Be Warned - (Click to expand)</summary>
+<summary>Additional Notes - (Click to expand)</summary>
 <article>
 
 ### CodeAnotation
