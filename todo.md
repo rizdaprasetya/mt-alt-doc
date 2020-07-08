@@ -30,6 +30,8 @@
 	- https://www.analyticsmania.com/post/how-to-install-google-tag-manager/
 - Follow sample code section confuse people to open github
 - check & fix search exception on `cms` `plugin` `status` keyword
+- add order status lifecycle for CMS?
+	- ref: https://docs.woocommerce.com/wp-content/uploads/2013/05/woocommerce-order-process-diagram.png
 - check & fix next/previous page extension, seems doesn't work - done
 - check and patch any XSS potential on any input from URL, eg: part when reading split of `#/` from urls
 
@@ -87,3 +89,23 @@
 - add info to not reverse-proxy Midtrans API, refer to tech faq
 - pages/section that explain common flow for each payment methods, e.g: how bank transfer works, explain pending can become settlement/expire, default expiry time, etc.
 - Drop or replace LikeBtn because it is slow and can cause privacy issue.
+- add trouble shooting section on notif handling, what to check if pay status is not updated on merchant's side - done
+	- ref: https://midtrans.slack.com/archives/CC7E717LH/p1591687437007100?thread_ts=1591683037.006900&cid=CC7E717LH
+- add notes on one click that typically recurring need special MID which is BNI recurring MID, and they need to specify the bank during recurring charge.
+- consolidate similar content
+	- `/en/after-payment/status-cycle?id=transaction-status` and 
+	- `/en/after-payment/http-notification?id=status-definition`
+- add how to check notification history on the section `dashboard-usage`
+- explain why status_code can be different on get-status & notif
+	- `/en/after-payment/http-notification?id=status-definition`
+- multi code-lang should be available on Core API & advanced features section
+- Snap section: explain it can be used as link based payment
+- Diagram for high level use-case / flow of fund ?
+- Check every link for 404 e.g: `next step` `core api advanced feature` link is 404
+- list of things that can be illustrated. Provide list, context, criteria (format, size, etc)
+- check this doc for insights/ideas
+	- https://poynt.github.io/developer-docs/
+	- https://barba.js.org/docs/getstarted/intro/ beautiful UI & transition
+- Put notes for features that require additional biz requirements, e.g:
+	- "To use the following features in Production, you might need an additional commercial agreement. Please contact your Account Manager to use this feature."
+- on payment landing page add more discoverability to each payment-method?
