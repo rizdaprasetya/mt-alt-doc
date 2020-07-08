@@ -7,7 +7,7 @@ Midtrans ingin membantu anda agar dapat dengan mudah menerima, mendistribusikan 
 
 <div class="my-card">
 
-#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md?id=overview)
+#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md)
 Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pelanggan anda akan dihadapkan dengan tampilan halaman pembayaran, langsung didalam halaman web dan aplikasi anda dengan menampilkan jendela pop-up yang mudah serta mobile-friendly. Atau anda juga dapat mengarahkan pelanggan anda ke halaman pembayaran Midtrans. Halaman Pembayaran Snap mengizinkan pelanggan anda untuk memilih beberapa [jenis pembayaran tertentu](https://midtrans.com/payments)
 <br>
 <p style="text-align: center;">

@@ -9,7 +9,7 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 
 <div class="my-card">
 
-#### [Add Payment Page on Your Web & Web App (Snap) &#187;](/en/snap/overview.md#overview)
+#### [Add Payment Page on Your Web & Web App (Snap) &#187;](/en/snap/overview.md)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
