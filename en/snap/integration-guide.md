@@ -306,7 +306,9 @@ You will receive API Response like the following:
 }
 ```
 
-### Other Sample Response
+<details>
+<summary><b>Other Sample Response</b></summary>
+<article>
 
 Status Code | Description | Example
 --- | --- | ---
@@ -315,11 +317,16 @@ Status Code | Description | Example
 4xx | Failed. Wrong parameter sent. Follow the error_message and check your parameter | "transaction_details.gross_amount is not equal to the sum of item_details"
 5xx | Failed. Midtrans internal error. Most of the time this is temprorary, you can retry the request later | "Sorry, we encountered internal server error. We will fix this soon."
 
-<br><br>
+</article>
+</details>
+
+<br>
 
 ## 2. Show Snap Payment Page on Frontend
 
 To show Snap payment page within your site, include `snap.js` library into your payment page HTML.
+
+?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
 
 There are at least 3 components that are required to do this:
 
@@ -335,6 +342,7 @@ You will need to put your Client Key as the value of `data-client-key` attribute
 ```html
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script 
       type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
@@ -383,10 +391,9 @@ Or try the demo here:
 >**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
 `<meta name="viewport" content="width=device-width, initial-scale=1">`
 
-?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
+After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/preparation.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
 
-After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/preparation.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**
-
+> **Tips:** Optionally, you can also [use Javascript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
 ## 3. Creating Test Payment
 
