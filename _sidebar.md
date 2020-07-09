@@ -1,6 +1,6 @@
 <!-- @@@NOCONTENT -->
 - [**![](asset/image/main/home-icon.svg)Home**](/ "Midtrans Payment Gateway Technical Documentation")
-- [**![](asset/image/main/snap-icon.svg)Payments**](en/payments/overview.md#accept-online-payments-on-your-website-and-app "Midtrans - Payments Technical Documentation")
+- [**![](asset/image/main/snap-icon.svg)Payments**](en/payments/overview.md "Midtrans - Payments Technical Documentation")
 - [**![](asset/image/main/iris-icon.svg)Disbursement**](https://iris-docs.midtrans.com/)
 - [**![](asset/image/main/user-icon.svg)Account**](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - [**![](asset/image/main/after-payment-icon.svg)Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
