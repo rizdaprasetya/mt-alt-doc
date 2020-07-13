@@ -1,11 +1,16 @@
 ## Payments Overview {docsify-ignore}
 
-Midtrans helps your business to easily accept & manage payments. We offer various options of integration, from the easiest to integrate and the most customizable. The freedom to choose, is yours.
+Midtrans helps your business to easily accept payments [from cards, bank transfer, wallets, direct debit, and other methods](https://midtrans.com/payments); and helps you manage them.
+
+<!-- TODO: put image of all payment methodss icon here? -->
+<!-- ![payment methods](https://midtrans.com/assets/images/channels/payment-channels-sprite-v4.png) -->
+
+Along with giving your customer freedom to pay with their favorite payment methods, we also offers various options for you to integrate. From the easiest to the most customizable. The choice is yours:
 
 - [Get familiar with each options](#choose-integration-options)
 - [Compare the differences](#integration-comparison)
 
-Decide which is best suited for your needs. Or if you still haven't figure, try [the other options](#other-options).
+Decide which is best suited for your needs. Or if you still haven't figure it out, try [the other options](#other-options).
 
 ## Choose Integration Options {docsify-ignore}
 
