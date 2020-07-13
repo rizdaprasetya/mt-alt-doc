@@ -184,8 +184,6 @@ iframe{
 .sidebar-nav ul>li>a
  {
     display: flex;
-}
-.sidebar-nav ul>li>strong {
     align-items: center;
 }
 /* @HACK: Vertical align center and apply .emoji style to custom icon on navbar */
