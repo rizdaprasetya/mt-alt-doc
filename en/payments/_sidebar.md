@@ -1,5 +1,5 @@
 <!-- @@@NOCONTENT -->
-- [← Back Home](/ "Midtrans Payment Gateway Technical Documentation")
+- [<small>← Back Home</small>](/ "Midtrans Payment Gateway Technical Documentation")
 - [Payments Overview](en/payments/overview.md "Midtrans - Payments Technical Documentation")
 - **Payments**
 - [**![Snap](asset/image/main/snap-icon.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
@@ -24,3 +24,4 @@
 - [![](asset/image/main/tech-ref-icon.svg)Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
 - **After Payment**
 - [![](asset/image/main/after-payment-icon.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
+- [![](asset/image/main/tech-ref-icon.svg)Technical Reference](en/technical-reference/api-header.md "Midtrans - API Authorization & Headers Documentation")
