@@ -306,6 +306,10 @@ transaction_token = transaction['token']
 3. Navigate to `1.a.  SNAP transaction token request (minimum)`
 4. For more detail please [follow this usage instruction](/en/technical-reference/postman-collection.md).
 
+#### **Other**
+
+- Please check our [available **language libraries**](/en/developer_resource/library-plugin.md)
+
 <!-- tabs:end -->
 
 ?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included. Also checkout [advanced feature](/en/snap/advanced-feature.md)
@@ -376,6 +380,8 @@ You will need to put your Client Key as the value of `data-client-key` attribute
   </body>
 </html>
 ```
+>**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
+`<meta name="viewport" content="width=device-width, initial-scale=1">`
 
 Referring to the steps above, the sample displayed Snap page is as follows:
 
@@ -402,10 +408,7 @@ Or try the demo here:
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
->**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
-`<meta name="viewport" content="width=device-width, initial-scale=1">`
-
-After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/preparation.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
+After payment completed, customer will be redirected back to `Finish URL` [specified on Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
 
 > **Tips:** Optionally, you can also [use Javascript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
@@ -432,14 +435,16 @@ Other than customer being redirected, when the status of payment is updated/chan
 <div class="my-card">
 
 #### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+Learn how technically your system should handle the Webhook HTTP notification, which will be triggered when transaction status updated.
 </div>
 
-## Next Step:
+## Next Step
 <br>
 
 <div class="my-card">
 
 #### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
+Learn how you should handle the events of payment completed by customer, and other status changes.
 </div>
 
 <div class="my-card">

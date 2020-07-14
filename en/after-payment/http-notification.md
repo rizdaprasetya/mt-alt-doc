@@ -6,9 +6,9 @@ Enable Midtrans HTTP(S) POST Notification by setting the Payment Notification UR
 
 ![HTTP Notification Configuration](./../../asset/image/after-payment-notifurl-dashboard.png)
 
-!> Make sure to input Notification URL that **can be reached from Public Internet**. Midtrans **will not be able** to send notification to localhost, url protected with auth/password, url behind VPN, unusual destination port, etc. Though don't worry, you can then utilize `signature_key` or method explained below to make sure it's security.
+!> Make sure to input Notification URL that **can be reached from Public Internet**. Midtrans **will not be able** to send notification to localhost, url protected with auth/password, url behind VPN, unusual destination port, etc. You can then utilize `signature_key` or method that will be explained below as security measures.
 
-?> **Tips**: If you are still developing your notification handler on localhost, you can utilize these service to expose your localhost server to public internet: [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), etc. Once you have obtain the internet accessible url, you can input it to the `notification url` field on Dashboard.
+?> **Tips**: If you are still running/developing your notification handler on localhost, you can utilize these service to expose your localhost server to public internet: [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), etc. Once you have obtain the internet accessible url, you can input it to the `notification url` field on Dashboard.
 
 ### Sample Notification
 
