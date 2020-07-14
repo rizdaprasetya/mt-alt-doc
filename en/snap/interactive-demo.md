@@ -1,5 +1,20 @@
 
 You can interactively try integration demo below. Inspect the source code and see the live output.
+
+### Preparation
+<br>
+<div class="my-card">
+
+#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration.
+</div>
+
+<div class="my-card">
+
+#### [Retrieve API Keys &#187;](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+Retrieve Sandbox mode API keys that will be used for this guide.
+</div>
+
 ### Snap Integration Demo
 
 Sample backend integration in NodeJS (hosted on CodeSandbox), and frontend integration in HTML+Javascript. Please wait until the window/iframe below is fully loaded, you will see Snap Transaction Token as as result of API response on backend, and you can click **"Pay"** to test the frontend. Click **"Open Sandbox"** to see/edit the full source code.

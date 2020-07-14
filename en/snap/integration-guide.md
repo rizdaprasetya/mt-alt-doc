@@ -3,6 +3,20 @@ The steps to do technical integration of Snap will be explained below
 ?>**Note:**
 All the steps below are using Midtrans **Sandbox environment**, not production, to easily test the integration process. Make sure to follow [preparation section](/en/snap/preparation.md), before proceeding.
 
+## Preparation
+
+<div class="my-card">
+
+#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration.
+</div>
+
+<div class="my-card">
+
+#### [Retrieve API Keys &#187;](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+Retrieve Sandbox mode API keys that will be used for this guide.
+</div>
+
 ## Integration Steps
 1. Obtain Transaction `token` on Backend
 2. Show Snap Payment Page on Frontend
