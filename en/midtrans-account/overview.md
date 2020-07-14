@@ -73,3 +73,12 @@ Input the email that registered as Midtrans Account, instructions for the passwo
 
 > **Info :**
 > - Forgot password link in the email is only valid for 1 hour. If the link has expired, you must repeat from the beginning the password reset process.
+
+
+## Next Step
+<br>
+
+<div class="my-card">
+
+#### [Proceed with Payment Integration &#187;](/en/payments/overview.md#choose-integration-options)
+</div>

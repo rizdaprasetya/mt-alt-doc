@@ -53,5 +53,6 @@ This is just demonstration of **Step 1 & Step 2** [explained in the guide](/en/s
 
 <div class="my-card">
 
-#### [Next Step &#187;](/en/snap/integration-guide.md?id=integration-steps)
+#### [Next Step &#187;](/en/snap/integration-guide.md?id=_4-handling-post-transaction)
+Follow Snap integration Guide next steps, to proceed with complete integration.
 </div>

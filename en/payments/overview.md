@@ -105,9 +105,11 @@ Ready to use, user friendly, and require very minimal setup. You can simply inte
 <div class="my-card">
 
 #### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration. Also the production mode to start accepting real payment.
 </div>
 
 <div class="my-card">
 
-#### [Explore The Integration Options &#187;](#choose-integration-options)
+#### [Explore Integration Options &#187;](#choose-integration-options)
+Check out all the available choices and learn the integration.
 </div>

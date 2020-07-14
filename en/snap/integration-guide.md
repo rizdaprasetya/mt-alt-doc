@@ -445,11 +445,13 @@ Other than customer being redirected, when the status of payment is updated/chan
 <div class="my-card">
 
 #### [Snap Advanced Feature &#187;](/en/snap/advanced-feature.md)
+Learn the various useful features that Snap API provides.
 </div>
 
 <div class="my-card">
 
 #### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+Learn how transaction status can change, and what are the available actions to take.
 </div>
 
 <hr>
