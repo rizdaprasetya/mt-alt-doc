@@ -2,7 +2,7 @@
 
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
-We have partnered with various platfroms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans, if you are using 3rd party platform and would like for us to integrate with it, please contact [support@midtrans.com](mailto:support@midtrans.com "email support")
+We have partnered with various platfroms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans, if you are using 3rd party platform that are not listed, and would like for us to integrate with it, please let us know via [support@midtrans.com](mailto:support@midtrans.com "email support")
 
 Step by step guide to integrate Snap to your platform of choice, will be explained below.
 #### Choose from any platform of your choice:

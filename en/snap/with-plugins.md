@@ -5,7 +5,7 @@ Content Management System (CMS) allow you to easily have website / web store wit
 ?>**Note:**
 Make sure to follow [preparation section to retrieve Client Key & Server Key](/en/midtrans-account/overview.md#retrieving-api-access-keys), before proceeding.
 
-Step by step guide to install Snap integration plugin to your CMS of choice, will be explained below.
+Here is the list of Content Management System plugins and extensions that are supported by Midtrans. Step by step guide to install Snap integration plugin to your CMS of choice, will be explained below.
 #### Choose from any CMS of your choice:
 <br>
 

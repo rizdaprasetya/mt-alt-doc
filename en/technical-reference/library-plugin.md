@@ -1,4 +1,4 @@
-We are trying to make the integration process as frictionless as possible. This page contains a list of open sourced plugins and libraries that can help you speed up integration with Midtrans API.
+Midtrans strives to make the integration process as frictionless as possible. This page contains a list of open sourced plugins and libraries that can help you speed up integration with Midtrans API.
 
 Our library and plugins are **Open Source!** We are happy to accept any open source contribution or feedback, feel free to check the Github repo. If you write your own plugin or library and would like us to link it, contact [support@midtrans.com](mailto:support@midtrans.com "support email").
 
