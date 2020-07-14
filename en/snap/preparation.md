@@ -1,9 +1,20 @@
 This section will explain what preparation is needed to start Snap integration.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
+### 1. Sign Up for Midtrans Account
+<br>
+<div class="my-card">
 
-## Retrieving API Access Keys
+#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration.
+</div>
 
-Retrieve your API [Server Key & Client Key, by following previous section.](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+### 2. Retrieve API Keys
+<br>
+<div class="my-card">
 
+#### [Retrieve API Keys &#187;](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+Retrieve Sandbox mode API keys that will be used for next sections.
+</div>
 
+?>**Note:**
+Make sure to complete this preparation section to retrieve Client Key & Server Key, before proceeding.
