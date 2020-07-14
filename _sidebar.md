@@ -10,8 +10,7 @@
 	- [Transaction Status Cycle](en/after-payment/status-cycle.md "Midtrans - Transaction Status Cycle Documentation")
 	- [Dashboard Usage and Action](en/after-payment/dashboard-usage.md "Midtrans - Dashboard Usage and Action Documentation")
 	- [Receiving Your Fund (Payout)](en/after-payment/payout.md "Midtrans - Receiving Your Fund (Payout) Documentation")	
-<!-- TODO create overview page for technical reference -->
-- [**![](asset/image/main/tech-ref-icon.svg)Technical Reference**](en/technical-reference/api-header.md "Midtrans - API Authorization & Headers Documentation")
+- [**![](asset/image/main/tech-ref-icon.svg)Technical Reference**](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
 	- [API Authorization & Headers](en/technical-reference/api-header.md "Midtrans - API Authorization & Headers Documentation")
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md "Midtrans - Testing Payment on Sandbox Documentation")
 	- [Library & Plugins](en/technical-reference/library-plugin.md "Midtrans - Library & Plugins Documentation")
