@@ -15,7 +15,7 @@
 	- [Testing Payment on Sandbox](en/technical-reference/sandbox-test.md "Midtrans - Testing Payment on Sandbox Documentation")
 	- [Library & Plugins](en/technical-reference/library-plugin.md "Midtrans - Library & Plugins Documentation")
 	- [Postman Collection](en/technical-reference/postman-collection.md "Midtrans - Postman Collection Documentation")
-	- [IP Address](en/technical-reference/ip-address.md "Midtrans - IP Address Documentation")
+	- [IP Address & API domain](en/technical-reference/ip-address.md "Midtrans - IP Address & API domain Documentation")
 	- [Error Code & Response](en/technical-reference/error-response-code.md "Midtrans - Error Code & Response Documentation")
 	- [Snap API Docs](https://snap-docs.midtrans.com)
 	- [Core API Docs](https://api-docs.midtrans.com)
