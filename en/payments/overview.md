@@ -1,6 +1,6 @@
 ## Payments Overview {docsify-ignore}
 
-Midtrans helps your business to easily accept payments [from cards, bank transfer, wallets, direct debit, and other methods](https://midtrans.com/payments); and helps you manage them.
+Midtrans helps your business to easily accept payments [from cards, bank transfer, wallets, over the counter, cardless credits, direct debit, and other methods](https://midtrans.com/payments); and helps you manage them.
 
 <!-- TODO: put image of all payment methodss icon here? -->
 <!-- ![payment methods](https://midtrans.com/assets/images/channels/payment-channels-sprite-v4.png) -->
@@ -10,13 +10,13 @@ Along with giving your customer freedom to pay with their favorite payment metho
 - [Get familiar with each options](#choose-integration-options)
 - [Compare the differences](#integration-comparison)
 
-Decide which is best suited for your needs. Or if you still haven't figure it out, try [the other options](#other-options).
+Decide which is best suited for your needs. Or, if you're looking for integration method [for offline usecases, see here](#other-options).
 
 ## Choose Integration Options {docsify-ignore}
 
 <div class="my-card">
 
-#### [Payment Built-In Interface (Snap) for Your Web & App &#187;](/en/snap/overview.md)
+#### [Built-In Interface (Snap) for Your Web & App &#187;](/en/snap/overview.md)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with [all Midtrans' various payment methods](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
@@ -44,7 +44,7 @@ Securely accept payment on your web and app with few simple steps! Your customer
 
 <div class="my-card">
 
-#### [Payment Native Mobile App SDK &#187;](https://mobile-docs.midtrans.com)
+#### [Native Mobile App SDK &#187;](https://mobile-docs.midtrans.com)
 Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this Simulator for the SDK example. Just like Snap, but for native mobile platforms.
 <details>
 <summary><b>Try Mobile SDK via Android Simulator</b></summary>
@@ -60,7 +60,7 @@ Easily embed our Android and iOS Mobile SDK within your app to start accepting p
 
 <div class="my-card">
 
-#### [Payment Custom Interface (Core API) &#187;](/en/core-api/overview.md)
+#### [Custom Interface (Core API) &#187;](/en/core-api/overview.md)
 Need to customize the payment flow or user interface to fit your unique needs? We have Core API for your web, app, point of sales, IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
 </div>
 
@@ -86,9 +86,9 @@ Ready to use, user friendly, and require very minimal setup. You can simply inte
 
 | Integration Type | Features | Sample Use Case |
 | --- | --- | --- |
-| **Payment with Interface** (Snap) | • All-in-one payment UI that can display all available payment methods. <br>• Quick, you can integrate just one time, and new payment methods will be auto added within it. <br>• Can customize the displayed payment methods, and expiry time via Dashboard or API param. <br>• Customizable display name, brand logo, and theme color. | • You want an easy way to integrate payment quickly, which allow some customization. <br>• Your platform is web based or able to display web based payment page (webview). <br><br>**Can either:** <br>• Embed payment page directly within your web & app (via webview) using our Javascript library, or <br>• Redirect customer to Midtrans-hosted payment web page. |
-| **Payment Native Mobile App SDK** | • About the same features as above, but optimized for native Android & iOS app, instead of web. <br>• Integrate by importing our SDK within your app codebase.  | • Your business is native mobile app based, for Android & iOS. <br>• You want to integrate payment quickly for mobile app, with native performance & feels.
-| **Payment Custom Interface** (Core API) | • Freedom to render and customize your own payment interface (UI).<br> • Build your own payment interface (UI) for each payment methods. <br>• Utilize API only, can be used for non-web/app, like hardware device or custom software. <br>• Further advanced features, like on-demand recurring charges. | • You want to fully customize the payment interface/UI, for each payment methods. <br>• Your business probably unable to use web/app based integration (e.g: Vending Machine, POS, hardware devices, etc). <br>• Your business is probably PCI compliant. |
+| **Built-in Interface** (Snap) | • All-in-one payment UI that can display all available payment methods. <br>• Quick, you can integrate just one time, and new payment methods will be auto added within it. <br>• Can customize the displayed payment methods, and expiry time via Dashboard or API param. <br>• Customizable display name, brand logo, and theme color. | • You want an easy way to integrate payment quickly, which allow some customization. <br>• Your platform is web based or able to display web based payment page (webview). <br><br>**Can either:** <br>• Embed payment page directly within your web & app (via webview) using our Javascript library, or <br>• Redirect customer to Midtrans-hosted payment web page. |
+| **Native Mobile App SDK** | • About the same features as above, but optimized for native Android & iOS app, instead of web. <br>• Integrate by importing our SDK within your app codebase.  | • Your business is native mobile app based, for Android & iOS. <br>• You want to integrate payment quickly for mobile app, with native performance & feels.
+| **Custom Interface** (Core API) | • Freedom to render and customize your own payment interface (UI).<br> • Build your own payment interface (UI) for each payment methods. <br>• Utilize API only, can be used for non-web/app, like hardware device or custom software. <br>• Further advanced features, like on-demand recurring charges. | • You want to fully customize the payment interface/UI, for each payment methods. <br>• Your business probably unable to use web/app based integration (e.g: Vending Machine, POS, hardware devices, etc). <br>• Your business is probably PCI compliant. |
 | **Payment Link** | • Require no code or programming <br>• Create payment link from Midtrans Dashboard, with easy to use UI. <br> • Copy-paste the payment link to anywhere you need; Blog post, social media, messanger, WA, IG, email, etc.  | • You want to quickly invoice your customer without any complex system/integration. <br>• You are a social media based seller. <br>• You are selling product at certain price for many potential customers (e.g: webinar tickets, virtual products, etc.). |
 | **CMS Payment Plugins** | • As feature rich as Snap <br>• Designed for simple installation & usage for each CMS, no programming needed. | • You want same benefit as Snap, without complexity of manual programming/integration.<br>• You already (or want to) use ready-to-use CMS like: Wordpress, Magento, Prestashop, WHMCS, etc. |
 | **Ecommerce Platform** | • As feature rich as Snap <br>• Designed for simple installation & usage for 3rd party ecommerce platform, no programming needed. | • You want same benefit as Snap, without complexity of manual programming/integration.<br>• You already (or want to) use ready-to-use Platform like: Shopify, Sirclo, Jejualan etc. |
