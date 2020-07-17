@@ -25,7 +25,7 @@ The sample integration's:
 
 #### Demo Usage
 
-You will see Snap Transaction Token as vizualization of API response on backend integration. Then you can click **"Pay"** to test the frontend.
+You will see Snap Transaction Token as vizualization of API response on backend integration. Then you can click **"Proceed to Payment"** to test the frontend.
 
 ?> Please wait until the window/iframe below is fully loaded. It may take some time as it try to build the backend.
 
