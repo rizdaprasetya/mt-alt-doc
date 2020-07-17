@@ -38,5 +38,5 @@ Ini hanya demonstrasi dari **langkah 1 & langkah 2** [dijelaskan pada panduan in
 
 <div class="my-card">
 
-#### [Langkah Integrasi &#187;](/id/snap/integration-guide?id=langkah-langkah-integrasi)
+#### [Langkah Integrasi](/id/snap/integration-guide?id=langkah-langkah-integrasi)
 </div>

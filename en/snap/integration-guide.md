@@ -7,13 +7,13 @@ All the steps below are using Midtrans **Sandbox environment**, not production, 
 
 <div class="my-card">
 
-#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
 Sign up for an Account to get your Sandbox API keys ready to test integration.
 </div>
 
 <div class="my-card">
 
-#### [Retrieve API Keys &#187;](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+#### [Retrieve API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 Retrieve Sandbox mode API keys that will be used for this guide.
 </div>
 
@@ -434,7 +434,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
 Learn how technically your system should handle the Webhook HTTP notification, which will be triggered when transaction status updated.
 </div>
 
@@ -443,19 +443,19 @@ Learn how technically your system should handle the Webhook HTTP notification, w
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
+#### [Taking Action of Payment](/en/after-payment/overview.md)
 Learn how you should handle the events of payment completed by customer, and other status changes.
 </div>
 
 <div class="my-card">
 
-#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature.md)
+#### [Snap Advanced Feature](/en/snap/advanced-feature.md)
 Learn the various useful features that Snap API provides.
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+#### [Transaction Status Cycle and Action](/en/after-payment/status-cycle.md)
 Learn how transaction status can change, and what are the available actions to take.
 </div>
 

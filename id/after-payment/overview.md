@@ -8,24 +8,24 @@ Midtrans menyediakan berbagai cara bagi anda untuk mendapatkan status transaksi:
 
 <div class="my-card">
 
-#### [A. Notifikasi Email &#187;](/en/after-payment/email-notification.md)
+#### [A. Notifikasi Email](/en/after-payment/email-notification.md)
 Implementasi yang mudah, anda tidak akan menemukan kesulitan dalam integrasi notifikasi email
 </div>
 
 <div class="my-card">
 
-#### [B. Notifikasi HTTP(S) / Webhook &#187;](/en/after-payment/http-notification.md)
+#### [B. Notifikasi HTTP(S) / Webhook](/en/after-payment/http-notification.md)
 Kami sangat merekomendasikan Notifikasi HTTP(s), jika anda ingin melakukan automasi dalam melakukan update transaksi melalui sistem / aplikasi anda
 </div>
 
 <div class="my-card">
 
-#### [C. Dashboard / Merchant Administration Portal &#187;](/en/after-payment/dashboard-usage.md)
+#### [C. Dashboard / Merchant Administration Portal](/en/after-payment/dashboard-usage.md)
 Sederhana dan mudah, dengan memanfaatkan infromasi Dashboard Midtrans.
 </div>
 
 <div class="my-card">
 
-#### [D. Memanggil API Get Status &#187;](/en/after-payment/get-status.md)
+#### [D. Memanggil API Get Status](/en/after-payment/get-status.md)
 Anda bisa mendapatkan status transaksi ke Midtrans melalui Request API.
 </div>

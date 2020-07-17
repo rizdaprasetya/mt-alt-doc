@@ -5,13 +5,13 @@ You can interactively try integration demo below. Inspect the source code and se
 <br>
 <div class="my-card">
 
-#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
 Sign up for an Account to get your Sandbox API keys ready to test integration.
 </div>
 
 <div class="my-card">
 
-#### [Retrieve API Keys &#187;](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+#### [Retrieve API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 Retrieve Sandbox mode API keys that will be used for this guide.
 </div>
 
@@ -68,6 +68,6 @@ Now that you understand the basic of how Snap integration works, this is just de
 
 <div class="my-card">
 
-#### [Next Step &#187;](/en/snap/integration-guide.md?id=_4-handling-post-transaction)
+#### [Next Step](/en/snap/integration-guide.md?id=_4-handling-post-transaction)
 Follow Snap integration Guide next steps, to proceed with complete integration.
 </div>

@@ -27,31 +27,31 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
 
 <div class="my-card">
 
-#### [A. Integration Guide &#187;](/en/snap/integration-guide.md)
+#### [A. Integration Guide](/en/snap/integration-guide.md)
 Easy to follow step by step basic integration guide. Also includes example for various programming languages.
 </div>
 
 <div class="my-card">
 
-#### [B. Interactive Demo &#187;](/en/snap/interactive-demo.md)
+#### [B. Interactive Demo](/en/snap/interactive-demo.md)
 Quickly understand how integration works by looking at an interactive code example, which the output is displayed in real-time. That you can replicate yourself within few minutes.
 </div>
 
 <div class="my-card">
 
-#### [C. Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
+#### [C. Install Snap as CMS Plugin](/en/snap/with-plugins.md)
 Simply install these ready to use plugins to start integration with e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc.
 </div>
 
 <div class="my-card">
 
-#### [D. Using Ecommerce Platform &#187;](/en/snap/platform/overview.md)
+#### [D. Using Ecommerce Platform](/en/snap/platform/overview.md)
 Use 3rd party E-commerce platform solutions (SaaS like Shopify, Sirclo, Jejualan etc.) to quickly integrate with Midtrans.
 </div>
 
 <div class="my-card">
 
-#### [E. Sample Code Repo &#187;](/en/technical-reference/library-plugin.md#sample-code)
+#### [E. Sample Code Repo](/en/technical-reference/library-plugin.md#sample-code)
 Collections of integration code examples for various programming languages, available as public Github repositories.
 </div>
 
@@ -60,6 +60,6 @@ Collections of integration code examples for various programming languages, avai
 
 <div class="my-card">
 
-#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature.md)
+#### [Snap Advanced Feature](/en/snap/advanced-feature.md)
 Learn the various useful features that Snap API provides.
 </div>

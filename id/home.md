@@ -7,7 +7,7 @@ Midtrans ingin membantu anda agar dapat dengan mudah menerima, mendistribusikan 
 
 <div class="my-card">
 
-#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout) &#187;](/id/snap/overview.md)
+#### [Menggunakan Halaman Checkout Midtrans (SNAP Checkout)](/id/snap/overview.md)
 Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pelanggan anda akan dihadapkan dengan tampilan halaman pembayaran, langsung didalam halaman web dan aplikasi anda dengan menampilkan jendela pop-up yang mudah serta mobile-friendly. Atau anda juga dapat mengarahkan pelanggan anda ke halaman pembayaran Midtrans. Halaman Pembayaran Snap mengizinkan pelanggan anda untuk memilih beberapa [jenis pembayaran tertentu](https://midtrans.com/payments)
 <br>
 <p style="text-align: center;">
@@ -37,7 +37,7 @@ Menerima pembayaran online pada web dan aplikasi anda dengan mudah dan aman! Pel
 
 <div class="my-card">
 
-#### [Mobile SDK &#187;](https://mobile-docs.midtrans.com)
+#### [Mobile SDK](https://mobile-docs.midtrans.com)
 Midtrans juga menyediakan Mobile SDK bagi merchant yang ingin implmentasi beberapa pembayaran online secara cepat melalui aplikasi mobile Android dan iOS. Untuk sample aplikasi Anda dapat mencoba di bawah. Tampilan Mobile SDK layaknya seperti tampilan Snap namun versi native mobile.
 <details>
 <summary><b>Coba Mobile SDK via Android Simulator</b></summary>
@@ -53,19 +53,19 @@ Midtrans juga menyediakan Mobile SDK bagi merchant yang ingin implmentasi bebera
 
 <div class="my-card">
 
-#### [Buat Halaman Pembayaran Sesuka Anda (Core API) &#187;](/id/core-api/overview.md?id=overview)
+#### [Buat Halaman Pembayaran Sesuka Anda (Core API)](/id/core-api/overview.md?id=overview)
 Bagi anda yang membutuhkan kustomisasi alur pembayaran atau tampilan pembayaran yang unik sesuai dengan selara anda baik itu pada aplikasi web, point of sales, IoT, maka anda dapat melakukannya dengan Core API midtrans. Layanan Core API Midtrans menggunakan teknologi REST API dengan basis payload JSON.
 </div>
 
 <div class="my-card">
 
-#### [Menggunakan Plugin CMS &#187;](/id/snap/overview.md?id=c-install-as-cms-plugin-module)
+#### [Menggunakan Plugin CMS](/id/snap/overview.md?id=c-install-as-cms-plugin-module)
 Jika anda bukan developer atau anda sudah menggunakan CMS e-Commerce? Anda dapat dengan mudah melakukan integrasi dengan Midtrans. Dengan Plugin CMS yang kami sediakan anda hanya perlu mengikuti instruksi yang telah kami buat agar dapat menerima pembayaran online pada toko e-Commerce anda.
 </div>
 
 <div class="my-card">
 
-#### [Membuat Tagihan Dengan Payment Link &#187;](/id/payment-link/overview.md?id=overview)
+#### [Membuat Tagihan Dengan Payment Link](/id/payment-link/overview.md?id=overview)
 Midtrans menyediakan layanan Payment Link untuk anda yang ingin melakukan tagihan pembayaran tanpa harus memiliki Website. Payment link tidak membutuhkan integrasi sama sekali, untuk menggunakannya anda hanya perlu masuk ke Akun Midtrans dan mengisi detail pembayaran pada halaman Payment Link. Maka dalam sekejap anda akan mendapatkan link pembayaran yang dapat anda bagikan ke pelanggan anda.
 </div>
 
@@ -73,7 +73,7 @@ Midtrans menyediakan layanan Payment Link untuk anda yang ingin melakukan tagiha
 
 <div class="my-card">
 
-#### [Distirbusikan Dana Anda Melalui Iris Disbursement System &#187;](/id/iris/overview.md?id=overview)
+#### [Distirbusikan Dana Anda Melalui Iris Disbursement System](/id/iris/overview.md?id=overview)
 
 Distribusikan pembayaran untuk mitra, penjual, pelanggan, vendor atau pihak ketiga mana pun dengan sistem Disbursement Iris kami. Apakah Anda memiliki pasar atau bisnis yang perlu mendistribusikan uang kepada penjual, vendor, atau  melakukan transfer gaji karyawan Anda, semua kebutuhan distibusi pembayaran Anda dapat dipenuhi oleh Iris. Iris mendukung pengiriman uang ke rekening Gopay atau segala jenis rekening bank di Indonesia.
 </div>
@@ -82,7 +82,7 @@ Distribusikan pembayaran untuk mitra, penjual, pelanggan, vendor atau pihak keti
 
 <div class="my-card">
 
-#### [Integrasi Pembayaran Dengan Aplikasi POS &#187;](/id/pos/overview.md?id=overview)
+#### [Integrasi Pembayaran Dengan Aplikasi POS](/id/pos/overview.md?id=overview)
 </div>
 
 <br> <br>

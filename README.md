@@ -112,7 +112,7 @@ Custom implementation, sample usage:
 ```html
 <div class="my-card">
 
-### [Card Title With Link (optional) &#187;](https://example.com)
+### [Card Title With Link (optional)](https://example.com)
 Optional card body content, or actually you can use any html/markdown content within card.
 </div>
 ```

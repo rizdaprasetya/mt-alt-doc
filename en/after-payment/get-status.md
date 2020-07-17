@@ -80,5 +80,5 @@ Other API action that you can perform to an transaction is listed at this sectio
 
 <div class="my-card">
 	
-#### [API Action / Method &#187;](/en/after-payment/status-cycle.md#api-action-method)
+#### [API Action / Method](/en/after-payment/status-cycle.md#api-action-method)
 </div>

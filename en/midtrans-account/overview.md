@@ -4,7 +4,7 @@ Before integrating with Midtrans, you need to register for Account.
 
 <div class="my-card">
 
-#### [Register Midtrans Account here &#187;](https://account.midtrans.com/register)
+#### [Register Midtrans Account here](https://account.midtrans.com/register)
 </div>
 
 After completing the registration you will be given access to your Merchant Administration Portal (MAP), where you shall have access to both sandbox and production environment.
@@ -80,5 +80,5 @@ Input the email that registered as Midtrans Account, instructions for the passwo
 
 <div class="my-card">
 
-#### [Proceed with Payment Integration &#187;](/en/payments/overview.md#choose-integration-options)
+#### [Proceed with Payment Integration](/en/payments/overview.md#choose-integration-options)
 </div>

@@ -80,5 +80,5 @@ Untuk aksi API Request lainnya terkait transaksi anda dapat mengunjungi halaman 
 
 <div class="my-card">
 	
-#### [API Action / Method &#187;](/en/after-payment/status-cycle.md#api-action-method)
+#### [API Action / Method](/en/after-payment/status-cycle.md#api-action-method)
 </div>

@@ -1227,5 +1227,5 @@ Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more deta
 
 <div class="my-card">
 
-#### [Snap Docs &#187;](https://snap-docs.midtrans.com/#json-objects)
+#### [Snap Docs](https://snap-docs.midtrans.com/#json-objects)
 </div>

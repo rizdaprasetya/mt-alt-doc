@@ -228,12 +228,12 @@ Untuk menggunakan environment production (menerima pembayaran dari pelanggan ses
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment](/en/)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Transaction Status Cycle and Action](/en/)
 </div>
 
 <hr>

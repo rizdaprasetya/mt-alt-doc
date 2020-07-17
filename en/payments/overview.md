@@ -16,7 +16,7 @@ Decide which is best suited for your needs. Or, if you're looking for integratio
 
 <div class="my-card">
 
-#### [Built-In Interface (Snap) for Your Web & App &#187;](/en/snap/overview.md)
+#### [Built-In Interface (Snap) for Your Web & App](/en/snap/overview.md)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with [all Midtrans' various payment methods](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
@@ -33,8 +33,8 @@ Securely accept payment on your web and app with few simple steps! Your customer
       });
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
-  " class="my-btn">Try Snap Payment Interface &#9099;</button>
+    .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
+  " class="my-btn">Try Snap Payment Interface ⎋</button>
 </p>
 <div style="text-align: center;">
 
@@ -44,7 +44,7 @@ Securely accept payment on your web and app with few simple steps! Your customer
 
 <div class="my-card">
 
-#### [Native Mobile App SDK &#187;](https://mobile-docs.midtrans.com)
+#### [Native Mobile App SDK](https://mobile-docs.midtrans.com)
 Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this Simulator for the SDK example. Just like Snap, but for native mobile platforms.
 <details>
 <summary><b>Try Mobile SDK via Android Simulator</b></summary>
@@ -60,25 +60,25 @@ Easily embed our Android and iOS Mobile SDK within your app to start accepting p
 
 <div class="my-card">
 
-#### [Custom Interface (Core API) &#187;](/en/core-api/overview.md)
+#### [Custom Interface (Core API)](/en/core-api/overview.md)
 Need to customize the payment flow or user interface to fit your unique needs? We have Core API for your web, app, point of sales, IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
 </div>
 
 <div class="my-card">
 
-#### [Payment Link &#187;](/en/payment-link/overview.md)
+#### [Payment Link](/en/payment-link/overview.md)
 Whether you need to invoice your customers or want to receive payments without having a website, you can do it with Midtrans - as easy as sharing a link that redirects your customers to Midtrans's payment page. No technical integration is required, create links with just a few taps or clicks from our dashboard with customizable payment details just like an invoice.
 </div>
 
 <div class="my-card">
 
-#### [CMS Payment Plugins &#187;](/en/snap/with-plugins.md)
+#### [CMS Payment Plugins](/en/snap/with-plugins.md)
 Not a developer, or already using e-commerce Content Management System like **Wordpress-Woocommerce, Magento, Prestashop, Opencart, WHMCS**, etc? Easily integrate with Midtrans payment page by installing plugin in a few simple clicks. 
 </div>
 
 <div class="my-card">
 
-#### [Ecommerce Platform &#187;](/en/snap/platform/overview.md)
+#### [Ecommerce Platform](/en/snap/platform/overview.md)
 Ready to use, user friendly, and require very minimal setup. You can simply integrate Midtrans to start accepting payment with 3rd party platform like **Shopify, Sirclo, Jejualan**, etc.
 </div>
 
@@ -104,12 +104,12 @@ Ready to use, user friendly, and require very minimal setup. You can simply inte
 
 <div class="my-card">
 
-#### [Sign Up for Midtrans Account &#187;](/en/midtrans-account/overview.md)
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
 Sign up for an Account to get your Sandbox API keys ready to test integration. Also the production mode to start accepting real payment.
 </div>
 
 <div class="my-card">
 
-#### [Explore Integration Options &#187;](#choose-integration-options)
+#### [Explore Integration Options](#choose-integration-options)
 Check out all the available choices and learn the integration.
 </div>
