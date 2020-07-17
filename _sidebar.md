@@ -1,7 +1,7 @@
 <!-- @@@NOCONTENT -->
 - [**![](asset/image/main/home-icon.svg)Home**](/ "Midtrans Payment Gateway Technical Documentation")
 - [**![](asset/image/main/snap-icon.svg)Payments**](en/payments/overview.md "Midtrans - Payments Technical Documentation")
-- [**![](asset/image/main/iris-icon.svg)Disbursement**](https://iris-docs.midtrans.com/)
+- [**![](asset/image/main/iris-icon.svg)Disbursement ↗**](https://iris-docs.midtrans.com/)
 - [**![](asset/image/main/user-icon.svg)Account**](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - [**![](asset/image/main/after-payment-icon.svg)Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
 	- [Email Notification](en/after-payment/email-notification.md "Midtrans - Email Notification Documentation")
@@ -22,6 +22,6 @@
 	- [Core API Docs ↗](https://api-docs.midtrans.com)
 	- [Iris API Docs ↗](https://iris-docs.midtrans.com/)
 - [**![](asset/image/main/security-icon.svg)Security**](en/security/overview.md "Midtrans - Brief Security Documentation")
-	- [PCI DSS](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
-	- [3 Domain Secure (3DS)](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
-	- [Fraud and Dispute](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)
+	- [PCI DSS ↗](https://support.midtrans.com/hc/en-us/articles/202710560-How-secure-is-my-information-i-e-payments-customer-details-in-Midtrans-system-)
+	- [3 Domain Secure (3DS) ↗](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
+	- [Fraud and Dispute ↗](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)

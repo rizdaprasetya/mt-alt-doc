@@ -7,7 +7,7 @@
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
 	- [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
-- [**![](asset/image/main/mobile-sdk-icon.svg)Native Mobile App SDK**](https://mobile-docs.midtrans.com)
+- [**![](asset/image/main/mobile-sdk-icon.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
 - [**![](asset/image/main/core-api-icon.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")
 		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
@@ -17,7 +17,7 @@
 		- [Convenience Store](en/core-api/convenience-store.md "Midtrans - Core API Convenience Store Documentation")
 		- [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
-	- [API Methods](https://api-docs.midtrans.com/#api-methods)
+	- [API Methods ↗](https://api-docs.midtrans.com/#api-methods)
 - [**![](asset/image/main/payment-link-icon.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - **Plugins**
 - [![](asset/image/main/tech-ref-icon.svg)Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
