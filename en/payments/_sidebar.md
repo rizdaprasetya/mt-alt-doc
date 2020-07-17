@@ -7,6 +7,7 @@
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
 	- [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
+- [**![](asset/image/main/mobile-sdk-icon.svg)Native Mobile App SDK**](https://mobile-docs.midtrans.com)
 - [**![](asset/image/main/core-api-icon.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")
 		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
@@ -18,10 +19,9 @@
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
 	- [API Methods](https://api-docs.midtrans.com/#api-methods)
 - [**![](asset/image/main/payment-link-icon.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
-- [**![](asset/image/main/mobile-sdk-icon.svg)Native Mobile App SDK**](https://mobile-docs.midtrans.com)
 - **Plugins**
 - [![](asset/image/main/tech-ref-icon.svg)Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
 - [![](asset/image/main/tech-ref-icon.svg)Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
 - **After Payment**
 - [![](asset/image/main/after-payment-icon.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
-- [![](asset/image/main/tech-ref-icon.svg)Technical Reference](en/technical-reference/api-header.md "Midtrans - API Authorization & Headers Documentation")
+- [![](asset/image/main/tech-ref-icon.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
