@@ -240,7 +240,7 @@ To display the virtual account number, use the value of `va_number` retrieved fr
 By default the expiry time for Bank Transfer / VA is **24 hours**, follow this link if you wanna customize the expiry time:
 <div class="my-card">
 
-#### [Set Custom Expiry &#187;](/en/core-api/advanced-features.md#custom-transaction-expiry)
+#### [Set Custom Expiry](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
 
 ## 3. Handling Post-Transaction
@@ -249,7 +249,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
 </div>
 
 ## Specify VA Number
@@ -326,17 +326,17 @@ Link: [*More detailed definition of transaction_status*](https://api-docs.midtra
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
+#### [Taking Action of Payment](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
+#### [Core API Advanced Feature](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+#### [Transaction Status Cycle and Action](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

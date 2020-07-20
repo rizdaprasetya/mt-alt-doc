@@ -165,7 +165,7 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/en/after-payment/http-notification.md)
+#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
 </div>
 
 ### Switching To Production
@@ -180,17 +180,17 @@ To use Midtrans production environment (accept real payment from real customer),
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/after-payment/overview.md)
+#### [Taking Action of Payment](/en/after-payment/overview.md)
 </div>
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-features.md)
+#### [Core API Advanced Feature](/en/core-api/advanced-features.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/after-payment/status-cycle.md)
+#### [Transaction Status Cycle and Action](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>

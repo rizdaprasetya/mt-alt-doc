@@ -413,7 +413,7 @@ Notifikasi HTTP dari Midtrans ke backend Merchant akan dikirimkan pada saat terj
 Request HTTP POST dengan body JSON akan dikirimkan ke `notification url` Merchant yang dikonfigurasi pada dashboard (`Settings` **->** `Configuration` **->** `Notification URL`), berikut contoh body JSON yang akan diterima Merchant:
 <div class="my-card">
 
-#### [Terima Webhook HTTP Notification &#187;](/en/)
+#### [Terima Webhook HTTP Notification](/en/)
 </div>
 
 ## Next Step:
@@ -421,17 +421,17 @@ Request HTTP POST dengan body JSON akan dikirimkan ke `notification url` Merchan
 
 <div class="my-card">
 
-#### [Taking Action of Payment &#187;](/en/)
+#### [Taking Action of Payment](/en/)
 </div>
 
 <div class="my-card">
 
-#### [Snap Advanced Feature &#187;](/en/snap/advanced-feature.md)
+#### [Snap Advanced Feature](/en/snap/advanced-feature.md)
 </div>
 
 <div class="my-card">
 
-#### [Transaction Status Cycle and Action &#187;](/en/)
+#### [Transaction Status Cycle and Action](/en/)
 </div>
 
 <hr>

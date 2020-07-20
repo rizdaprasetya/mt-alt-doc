@@ -1155,5 +1155,5 @@ Untuk penjelasan yang lebih detail anda dapat mengunjungi halaman [Snap Docs](ht
 
 <div class="my-card">
 
-#### [Snap Docs &#187;](https://snap-docs.midtrans.com/#json-objects)
+#### [Snap Docs](https://snap-docs.midtrans.com/#json-objects)
 </div>

@@ -1,11 +1,23 @@
-## Available CMS plugin/module
-
 Content Management System (CMS) allow you to easily have website / web store without building (programming) from scratch. Most of the time CMS don't require you to know too much about technical knowledge, by just installing the CMS and then configure or customize it to suit your desire. It means most of the time you just need to care about managing the content (Content Management). Example of CMS are: Wordpress, Magento 2, Prestashop, WHMCS, etc.
 
-?>**Note:**
-Make sure to follow [preparation section to retrieve Client Key & Server Key](/en/midtrans-account/overview.md#retrieving-api-access-keys), before proceeding.
+### Preparation
+<br>
+<div class="my-card">
 
-Step by step guide to install Snap integration plugin to your CMS of choice, will be explained below.
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration.
+</div>
+
+<div class="my-card">
+
+#### [Retrieve API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+Retrieve Sandbox mode API keys that will be used for this guide.
+</div>
+
+?>**Note:**
+Make sure to follow [preparation section](#preparation) to retrieve Client Key & Server Key, before proceeding.
+
+Here is the list of Content Management System plugins and extensions that are supported by Midtrans. Step by step guide to install Snap integration plugin to your CMS of choice, will be explained below.
 #### Choose from any CMS of your choice:
 <br>
 

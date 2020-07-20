@@ -2,7 +2,7 @@
 
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
-We have partnered with various platfroms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans, if you are using 3rd party platform and would like for us to integrate with it, please contact [support@midtrans.com](mailto:support@midtrans.com "email support")
+We have partnered with various platfroms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans, if you are using 3rd party platform that are not listed, and would like for us to integrate with it, please let us know via [support@midtrans.com](mailto:support@midtrans.com "email support")
 
 Step by step guide to integrate Snap to your platform of choice, will be explained below.
 #### Choose from any platform of your choice:
@@ -26,9 +26,13 @@ Step by step guide to integrate Snap to your platform of choice, will be explain
 
 Please complete the following steps:
 
-1. Create an online store with Shopify (You must be in an active paid Shopify-plan in order to allow your customer to do checkout).
+1. Create an online store with [Shopify](https://shopify.com).
 2. Register to Midtrans account [here](https://account.midtrans.com/register).
 3. Complete the account registration form, or get help by contacting [Midtrans activation team](mailto:activation@midtrans.com) with __SHOPIFY - URL Name__ as a subject header and mention your registered _Midtrans Merchant ID_.
+
+Note:
+- You can try with Shopify Trial plan to test payment integration in Sandbox mode.
+- You may be required by Shopify to have an active paid-plan in order to allow your customer to do checkout on Production mode.
 
 ### Integrate Midtrans to Shopify Platform by following the steps below:
 
@@ -294,6 +298,7 @@ Merchant cancel/refund order via Shopify | Cancel/Refund | Canceled/Refunded
 
 <hr><br><br><hr><br><br>
 
+<!-- @TODO: explain if payment page closed, it may lost forever -->
 <!-- @TODO: explain shopify void & refund feature -->
 <!-- @TODO: explain item stock deduction / restock scenarios -->
 

@@ -27,14 +27,14 @@ Silahkan pilih salah satu integrasi yang paling sesuai dengan anda:
 <br>
 <div class="my-card">
 
-#### [Petunjuk Integrasi &#187;](/id/snap/integration-guide.md)
+#### [Petunjuk Integrasi](/id/snap/integration-guide.md)
 </div>
 
 ### B) Demo Interaktif
 <br>
 <div class="my-card">
 
-#### [Demo Interaktif &#187;](/id/snap/interactive-demo.md)
+#### [Demo Interaktif](/id/snap/interactive-demo.md)
 </div>
 
 ### C) Install as Plugin / Module on Your CMS
@@ -42,7 +42,7 @@ Sudah menggunakan e-commerce CMS seperti: Wordpress Woocommerce, Magento, Presta
 
 <div class="my-card">
 
-#### [Install Snap sebagai Plugin CMS &#187;](/id/snap/with-plugins.md)
+#### [Install Snap sebagai Plugin CMS](/id/snap/with-plugins.md)
 </div>
 
 ### D) Menggunakan Ecommerce Platform
@@ -50,12 +50,12 @@ Jika menggunakan platform E-commerce pihak ke-3 platform atau SaaS seperti Shopi
 
 <div class="my-card">
 
-#### [Menggunakan Ecommerce Platform &#187;](/id/snap/platform/overview.md)
+#### [Menggunakan Ecommerce Platform](/id/snap/platform/overview.md)
 </div>
 
 ### E) Download Contoh Kode
 <br>
 <div class="my-card">
 
-#### [Repo Contoh Kode &#187;](/id/technical-reference/library-plugin.md#kode-sample)
+#### [Repo Contoh Kode](/id/technical-reference/library-plugin.md#kode-sample)
 </div>

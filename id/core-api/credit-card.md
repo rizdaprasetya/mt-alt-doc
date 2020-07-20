@@ -495,7 +495,7 @@ Pada saat pelanggan telah selesai melakukan otentikasi 3DS, status pembayaran ak
 
 <div class="my-card">
 
-#### [Terima Notifikasi HTTP &#187;](/en/)
+#### [Terima Notifikasi HTTP](/en/)
 </div>
 
 ## Deskripsi
@@ -518,7 +518,7 @@ Link: [*Definisi lebih detail fraud_status*](https://api-docs.midtrans.com/#frau
 
 <div class="my-card">
 
-#### [Core API Advanced Feature &#187;](/en/core-api/advanced-feature)
+#### [Core API Advanced Feature](/en/core-api/advanced-feature)
 </div>
 
 <hr>

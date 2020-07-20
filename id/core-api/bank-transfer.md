@@ -253,7 +253,7 @@ Secara default expiry time untuk Transfer Bank / VA adalah 24jam, periksa halama
 
 <div class="my-card">
 
-#### [Set Custom Expiry &#187;](/id/core-api/advanced-features.md?id=)
+#### [Set Custom Expiry](/id/core-api/advanced-features.md?id=)
 </div>
 
 ## 3. Terima notifikasi transaksi
@@ -263,7 +263,7 @@ Request HTTP POST dengan body JSON akan dikirimkan ke notification url Merchant 
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification &#187;](/id/)
+#### [Handling Webhook HTTP Notification](/id/)
 </div>
 
 ## Specify VA Number
@@ -339,7 +339,7 @@ Link: [*Definisi lebih detail mengenai transaction_status*](https://api-docs.mid
 
 <div class="my-card">
 
-#### [Fitur lain Core API &#187;](/id/core-api/advanced-feature)
+#### [Fitur lain Core API](/id/core-api/advanced-feature)
 </div>
 
-For more detail: [Dokumentasi lengkap Core API &#187;](https://api-docs.midtrans.com/)
+For more detail: [Dokumentasi lengkap Core API](https://api-docs.midtrans.com/)

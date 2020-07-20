@@ -1,4 +1,4 @@
-# IP Addresses
+# IP Addresses & API Domain
 
 ### Midtrans Outgoing Notification IP Address
 
@@ -16,7 +16,7 @@ Sandbox Environment:
 
 In case you are unable to receive notification from Midtrans, please ensure that your infrastructure already allow/whitelist the IP above.
 
-### API Endpoint
+### API Domain Endpoint
 
 Midtrans API endpoint is distributed and protected with multiple layers of security, so it will not have any specific IP address. Please whitelist our API domain name instead:  
 ```

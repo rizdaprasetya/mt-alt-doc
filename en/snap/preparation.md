@@ -1,41 +1,20 @@
 This section will explain what preparation is needed to start Snap integration.
 
-?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
+### 1. Sign Up for Midtrans Account
+<br>
+<div class="my-card">
 
-## Retrieving API Access Keys
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
+Sign up for an Account to get your Sandbox API keys ready to test integration.
+</div>
 
-Retrieve your API [Server Key & Client Key, by following previous section.](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+### 2. Retrieve API Keys
+<br>
+<div class="my-card">
 
-## Configure Redirection URL
+#### [Retrieve API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+Retrieve Sandbox mode API keys that will be used for next sections.
+</div>
 
-Redirection URL is used to redirect your customer after the payment process through Snap is completed. 
-
-<!-- tabs:start -->
-#### **Snap Popup (Default)**
-
-To set your redirection URL if you are using pop-up mode, please go to [**Settings > Snap Preference > System Settings**](https://dashboard.sandbox.midtrans.com/settings/snap_preference).
-
-![Redirect URL Configuration Snap JS](./../../asset/image/snap-prep-redirect-url-snapjs.png)
-
-Please refer to the diagram below on how redirection URLs are being handled.
-
-![Diagram Snap JS](./../../asset/image/snap-prep-diagram-snapjs.png)
-
-#### **Snap Redirect (Alternative)**
-
-To set your redirection URL if you are using redirect mode, please go to [**Settings > Configuration**](https://dashboard.sandbox.midtrans.com/settings/vtweb_configuration).
-
-![Redirect URL Configuration Snap Redirect](./../../asset/image/snap-prep-redirect-url-snapredir.png)
-
-Please refer to the diagram below on how redirection URLs are being handled.
-
-![Diagram Snap Redirect](./../../asset/image/snap-prep-diagram-snapredir.png)
-
-<!-- tabs:end -->
-
-**Note**: 
-The final redirect url will be appended with query parameter like `?order_id=xxx&status_code=xxx&transaction_status=xxx`. 
-
-For example the final redirect url might looks like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`. 
-
-You could utilize those information to display custom message to your customer on your finish url.
+?>**Note:**
+Make sure to complete this preparation section to retrieve Client Key & Server Key, before proceeding.

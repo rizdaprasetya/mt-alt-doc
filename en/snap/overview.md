@@ -1,5 +1,7 @@
 Snap is a payment service that allows our partners to use Midtrans payments system, where Midtrans’ payment page pops-up on your web page after checkout. Setting up Snap is easy and there is no monthly fees. The simple and quick integration is suitable for any size of business spanning from small to corporate/unicorn size business.
 
+ With single integration, Snap user interface allows you to accept payment with [all Midtrans' various payment methods](https://midtrans.com/payments).
+
 ![Snap Overview](./../../asset/image/snap-overview-main.png)
 
 <p style="text-align: center;">
@@ -20,43 +22,44 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
-## Integration
+## Available Ways to Integrate {docsify-ignore}
 **Choose** any of **one** integration method below that is suitable to your liking:
 
-### A) Step by Step Guide
-<sub><i>Including example for various programming languages</i></sub>
-<br>
 <div class="my-card">
 
-#### [Integration Guide &#187;](/en/snap/integration-guide.md)
+#### [A. Integration Guide](/en/snap/integration-guide.md)
+Easy to follow step by step basic integration guide. Also includes example for various programming languages.
 </div>
 
-### B) Interactive Demo
-<br>
 <div class="my-card">
 
-#### [Interactive Demo &#187;](/en/snap/interactive-demo.md)
+#### [B. Interactive Demo](/en/snap/interactive-demo.md)
+Quickly understand how integration works by looking at an interactive code example, which the output is displayed in real-time. That you can replicate yourself within few minutes.
 </div>
 
-### C) Install as Plugin / Module on Your CMS
-Already using e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc? Simply install these plugins:
-
 <div class="my-card">
 
-#### [Install Snap as CMS Plugin &#187;](/en/snap/with-plugins.md)
+#### [C. Install Snap as CMS Plugin](/en/snap/with-plugins.md)
+Simply install these ready to use plugins to start integration with e-commerce CMS like: Wordpress Woocommerce, Magento, Prestashop, Opencart, WHMCS, etc.
 </div>
 
-### D) Using Ecommerce Platform
-If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, Jejualan etc.
-
 <div class="my-card">
 
-#### [Using Ecommerce Platform &#187;](/en/snap/platform/overview.md)
+#### [D. Using Ecommerce Platform](/en/snap/platform/overview.md)
+Use 3rd party E-commerce platform solutions (SaaS like Shopify, Sirclo, Jejualan etc.) to quickly integrate with Midtrans.
 </div>
 
-### E) Download Sample Code
-<br>
 <div class="my-card">
 
-#### [Sample Code Repo &#187;](/en/technical-reference/library-plugin.md#sample-code)
+#### [E. Sample Code Repo](/en/technical-reference/library-plugin.md#sample-code)
+Collections of integration code examples for various programming languages, available as public Github repositories.
+</div>
+
+
+## Advanced Usage {docsify-ignore}
+
+<div class="my-card">
+
+#### [Snap Advanced Feature](/en/snap/advanced-feature.md)
+Learn the various useful features that Snap API provides.
 </div>

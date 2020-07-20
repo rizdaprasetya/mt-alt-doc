@@ -9,7 +9,7 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 
 <div class="my-card">
 
-#### [Add Payment Page on Your Web & Web App (Snap) &#187;](/en/snap/overview.md)
+#### [Add Payment Page on Your Web & Web App (Snap)](/en/snap/overview.md)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
@@ -26,8 +26,8 @@ Securely accept payment on your web and app with few simple steps! Your customer
       });
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
-  " class="my-btn">Try Snap Payment Interface &#9099;</button>
+    .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
+  " class="my-btn">Try Snap Payment Interface ⎋</button>
 </p>
 <div style="text-align: center;">
 
@@ -37,7 +37,7 @@ Securely accept payment on your web and app with few simple steps! Your customer
 
 <div class="my-card">
 
-#### [Payment Page For Your Native Mobile App (Payment Mobile SDK) &#187;](https://mobile-docs.midtrans.com)
+#### [Payment Page For Your Native Mobile App (Payment Mobile SDK)](https://mobile-docs.midtrans.com)
 Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Check out this Simulator for the SDK example. Just like Snap, but for native mobile platforms.
 <details>
 <summary><b>Try Mobile SDK via Android Simulator</b></summary>
@@ -53,19 +53,19 @@ Easily embed our Android and iOS Mobile SDK within your app to start accepting p
 
 <div class="my-card">
 
-#### [Customize Your Own Payment Page (Core API) &#187;](/en/core-api/overview.md)
+#### [Customize Your Own Payment Page (Core API)](/en/core-api/overview.md)
 Need to customize the payment flow or user interface to fit your unique needs? We have Core API for your web, app, point of sales, IoT (or any internet-capable device) to connect with us and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
 </div>
 
 <div class="my-card">
 
-#### [Use CMS Payment Plugin &#187;](/en/snap/with-plugins.md)
+#### [Use CMS Payment Plugin](/en/snap/with-plugins.md)
 Not a developer, or already using e-commerce Content Management System like Magento 2, WooCommerce, etc? Easily integrate with Midtrans payment page by installing plugin in a few simple clicks. 
 </div>
 
 <div class="my-card">
 
-#### [Create Invoice via Payment Link &#187;](/en/payment-link/overview.md)
+#### [Create Invoice via Payment Link](/en/payment-link/overview.md)
 Whether you need to invoice your customers or want to receive payments without having a website, you can do it with Midtrans - as easy as sharing a link that redirects your customers to Midtrans's payment page. No technical integration is required, create links with just a few taps or clicks from our dashboard with customizable payment details just like an invoice.
 </div>
 
@@ -73,7 +73,7 @@ Whether you need to invoice your customers or want to receive payments without h
 
 <div class="my-card">
 
-#### [Pay Out via Iris Disbursement System &#187;](https://iris-docs.midtrans.com/)
+#### [Pay Out via Iris Disbursement System](https://iris-docs.midtrans.com/)
 
 Pay out money to your partners, sellers, customers, vendors or any third parties with our Iris Disbursement system. Whether you have a marketplace or business needing to disburse money to your sellers, doing payrolls transfers to your employees, all of your payout needs can be catered by Iris. Iris supports disbursing money to Gopay accounts or any kind of bank accounts in Indonesia.
 </div>
@@ -83,8 +83,8 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 <!-- TODO: write this page -->
 <div class="my-card">
 
-<!-- #### [Integrate Payment to POS &#187;](/en/pos/overview.md) -->
-#### [Integrate Payment to POS &#187;](#accept-payment-on-point-of-sales-vending-machine-iot-devices-etc)
+<!-- #### [Integrate Payment to POS](/en/pos/overview.md) -->
+#### [Integrate Payment to POS](#accept-payment-on-point-of-sales-vending-machine-iot-devices-etc)
 </div>
 
 <br> <br>
