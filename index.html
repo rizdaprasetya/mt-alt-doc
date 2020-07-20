@@ -66,9 +66,9 @@
 <body>
     <div id="app"></div>
     <script>
+        window.isUnderMidtransDomain = window.location.hostname.includes('.midtrans.com');
         // @HACK: redirect to HTTPS
-        if (window.location.hostname.includes('.midtrans.com') && 
-            window.location.protocol == "http:") {
+        if (window.isUnderMidtransDomain && window.location.protocol == "http:") {
             console.log("attempt to change protocol to https");
             window.location.protocol = "https:";
         }
@@ -82,10 +82,14 @@
         window.predictedHomeUrl = window.willUseDocsifyHashRouter ? 
             (document.location.href.split('/#/'))[0]+'/' :
             document.location.origin;
+        // Check which GA UA-id should be used based on domain
+        window.GA_UA_ID = window.isUnderMidtransDomain ?
+            'UA-157800130-1':
+            'UA-157800130-2'; // secondary GA UA-id for dev env
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
-            ga: 'UA-157800130-2',
+            ga: window.GA_UA_ID,
             loadSidebar: true,
             loadNavbar: true,
             name: 'Midtrans Docs',
