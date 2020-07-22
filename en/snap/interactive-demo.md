@@ -29,11 +29,33 @@ You will see Snap Transaction Token as vizualization of API response on backend 
 
 ?> Please wait until the window/iframe below is fully loaded. It may take some time as it try to build the backend.
 
-[Repl.it demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px')
+<!-- [Codesandbox demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px') -->
 
 Click **"Open Sandbox"** to see/edit the full source code. You can modify and play with the sample code yourself, or simply copy it as reference to your own machine.
 
 **Note**: In real case scenario, the `token_id` shouldn't necessarily be displayed to customer. This example display the `token_id` string to make it easier for you to understand the basic.
+
+<br>
+<details>
+<summary><b>Alternative Backend Integration Sample</b></summary>
+<article>
+
+Another sample backend integration (hosted on Runkit). Click **"Run"** to run the backend code.
+
+<script type="text/javascript">
+var script = document.createElement('script');
+script.src = 'https://embed.runkit.com';
+script.setAttribute('data-element-id','snap-backend-demo');
+</script>
+
+<div id="snap-backend-demo">
+// GeoJSON!
+var getJSON = require("async-get-json");
+await getJSON("https://storage.googleapis.com/maps-devrel/google.json");
+</div>
+
+</article>
+</details>
 
 <br>
 <details>
