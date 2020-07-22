@@ -14,7 +14,7 @@ Sandbox Environment:
 103.58.103.177
 ```
 
-In case you are unable to receive notification from Midtrans, please ensure that your infrastructure already allow/whitelist the IP above.
+In case you are unable to **receive notification from Midtrans**, please ensure that your infrastructure already allow/whitelist the IP above.
 
 ### API Domain Endpoint
 
@@ -24,7 +24,7 @@ api.midtrans.com
 app.midtrans.com
 ```
 
-In any case you are unable to send request to Midtrans, please ensure that you already whitelisted the domain above.
+In any case you are unable to **send request to Midtrans**, please ensure that you already whitelisted the domain above.
 
 If it really necessary to whitelist IP address instead of Domain, you can refer to the [following IP address list](https://www.cloudflare.com/ips-v4). Although not recommended.
 
