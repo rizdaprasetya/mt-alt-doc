@@ -4,6 +4,7 @@ const cf = {
     // Add any sidebar or file w/ list of urls to array below
     sidebarFiles: [
         "./../_sidebar.md",
+        "./../en/payments/_sidebar.md",
         "./../id/_sidebar.md"
     ],
     outputXmlPath: "./../sitemap.xml",
