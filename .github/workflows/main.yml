@@ -1,10 +1,12 @@
 # ref: https://medium.com/@puuga/deploy-to-firebase-hosting-with-github-actions-f795785fde6b
 name: deploy_to_firebase_hosting
 
+# Trigger deploy when: commit is pushed to the specified branches
 on:
   push:
-    tags:
-      - release-production-*
+    branches:
+      # Push events on master branch
+      - master
 
 jobs:
   deploy_to_firebase_hosting:
