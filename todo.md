@@ -119,7 +119,20 @@
 - check this doc for insights/ideas
 	- https://poynt.github.io/developer-docs/
 	- https://barba.js.org/docs/getstarted/intro/ beautiful UI & transition
+	- https://ned.im/noty/#/ use same docsify, with nice UI customization
+		- apparently using this nice icon pack https://github.com/PrestaShop/prestashop-icon-font
 - Put notes for features that require additional biz requirements, e.g:
 	- "To use the following features in Production, you might need an additional commercial agreement. Please contact your Account Manager to use this feature."
 - on payment landing page add more discoverability to each payment-method?
 - clarify core api installment feature to explain which param to change, e.g: `bank` & `term`
+- add notes on https <> http for CMS notif url config
+- add more sample response for non 200 status code, with schema of it
+	- like this example: https://developers.pepipost.com/email-api/email-api/sendemail
+- deal with / replace the &#187; symbols - done
+- Search-result's links behave unexpectedly, whenever the result title is a link. eg: search for "snap".
+- Make snap.js script only load on pages that requires it, not on index.html
+- optimize image assets so it will rank better on Google Search Console
+	- https://github.com/semiromid/compress-images
+- consider double deploy to firebase
+	- https://medium.com/@puuga/deploy-to-firebase-hosting-with-github-actions-f795785fde6b
+	- https://firebase.google.com/docs/hosting/full-config

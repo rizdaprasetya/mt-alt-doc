@@ -132,6 +132,11 @@ iframe{
     display: none !important;
 }
 
+/* slightly pull left to make clear hierarchical distinction */
+/*li.open>ul.app-sub-sidebar.open>li {
+    margin-left: -0.2rem;
+}*/
+
 /* Center all image of body content */
 .markdown-section img {
     margin-left: auto;
