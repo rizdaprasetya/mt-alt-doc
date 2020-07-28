@@ -2,6 +2,8 @@
   "hosting": {
     "public": "./",
     "ignore": [
+      ".DS_Store",
+      ".idea/**",
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
