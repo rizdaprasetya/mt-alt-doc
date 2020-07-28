@@ -46,14 +46,14 @@ Securely accept payment on your web and app with few simple steps! Your customer
 
 #### [Native Mobile App SDK](https://mobile-docs.midtrans.com)
 Easily embed our Android and iOS Mobile SDK within your app to start accepting payments natively within the app. We provide the drop-in User Interface to accept payment using multiple methods supported by Midtrans. Just like Snap, but for native mobile platforms.
-<!-- <details>
+<details>
 <summary><b>Try Mobile SDK via Android Simulator</b></summary>
 <article>
 <div style="text-align: center;">
 <iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=nexus5&scale=75&orientation=portrait&osVersion=8.1"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
 </div>
 </article>
-</details> -->
+</details>
 </div>
 
 <div class="my-card">
