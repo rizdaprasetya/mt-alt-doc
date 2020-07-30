@@ -48,17 +48,21 @@ Note:
 
 	On **Production** mode:
 
-	Fill __Payment Notification URL__ with: `https://vt-pixels.midtrans.com/veritrans/callback_url`<br />
-	Fill __Finish Redirect URL__ with: `<your_website>`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
-	Fill __Error Redirect URL__ with: `<your_website>`
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | `https://vt-pixels.midtrans.com/veritrans/callback_url` |
+	| Finish Redirect URL | [your-site-url] |
+	| Error Redirect URL | [your-site-url] |
+	| Unfinish Redirect URL | [your-site-url] |
 
 	On **Sandbox** mode:
 
-	Fill __Payment Notification URL__ with: `https://vt-pixels.sandbox.midtrans.com/veritrans/callback_url`<br />
-	Fill __Finish Redirect URL__ with: `<your_website>`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
-	Fill __Error Redirect URL__ with: `<your_website>`
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | `https://vt-pixels.sandbox.midtrans.com/veritrans/callback_url` |
+	| Finish Redirect URL | [your-site-url] |
+	| Error Redirect URL | [your-site-url] |
+	| Unfinish Redirect URL | [your-site-url] |
 
 3. Choose __Settings - Access Keys__.
 
@@ -161,17 +165,21 @@ For example:
 
 	On **Production** mode:
 
-	Fill __Payment Notification URL__ with: `https://vt-pixels.midtrans.com/veritrans/callback_url`<br />
-	Fill __Finish Redirect URL__ with: `<your_website>`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
-	Fill __Error Redirect URL__ with: `<your_website>`
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | `https://vt-pixels.midtrans.com/veritrans/callback_url` |
+	| Finish Redirect URL | [your-site-url] |
+	| Error Redirect URL | [your-site-url] |
+	| Unfinish Redirect URL | [your-site-url] |
 
 	On **Sandbox** mode:
 
-	Fill __Payment Notification URL__ with: `https://vt-pixels.sandbox.midtrans.com/veritrans/callback_url`<br />
-	Fill __Finish Redirect URL__ with: `<your_website>`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>`<br />
-	Fill __Error Redirect URL__ with: `<your_website>`
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | `https://vt-pixels.sandbox.midtrans.com/veritrans/callback_url` |
+	| Finish Redirect URL | [your-site-url] |
+	| Error Redirect URL | [your-site-url] |
+	| Unfinish Redirect URL | [your-site-url] |
 
 7. Done! Now your Shopify online shop is ready to use Midtrans as payment gateway.
 ![shopify](./../../../asset/image/shopify-17.png ':size=400')
@@ -321,12 +329,14 @@ Please complete the following steps:
 
 2. Choose __Settings - Configuration__.
 
-	Fill __Payment Notification URL__ with : `<your_website>/payment_ipn/veritrans/notify`<br />
-	E.g: If your website is www.abc.com, so your Payment Notification URL should be filled with “http://www.abc.com/payment_ipn/veritrans/notify”.
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | [your-site-url]/payment_ipn/veritrans/notify |
+	| Finish Redirect URL | [your-site-url]/payment_ipn/veritrans/completed |
+	| Error Redirect URL | [your-site-url]/payment_ipn/veritrans/error |
+	| Unfinish Redirect URL | [your-site-url]/payment_ipn/veritrans/unfinish |
 
-	Fill __Finish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/completed`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>/payment_ipn/veritrans/unfinish`<br />
-	Fill __Error Redirect URL__ with: `<your_website>/payment_ipn/veritrans/error`
+	> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
 
 	![Setting](./../../../asset/image/sirclo-1.png ':size=400')
 
@@ -383,11 +393,14 @@ Please complete the following steps:
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
-	Fill __Payment Notification URL__ with: `<your_website>`.<br />__E.g__ : if your website is http://abc.jejualan.com, so your Payment Notification URL should be filled with “http://abc.jejualan.com”.<br />
+	| URL Role | Redirect URL|
+	|----------|-------------|
+	| Payment Notification URL | [your-site-url] |
+	| Finish Redirect URL | [your-site-url]/store/payment/veritrans/success |
+	| Error Redirect URL | [your-site-url]/store/payment/veritrans/failed |
+	| Unfinish Redirect URL | [your-site-url]/store/payment/ |
 
-	Fill __Finish Redirect URL__ with: `<your_website>/store/payment/veritrans/success`<br />
-	Fill __Unfinish Redirect URL__ with: `<your_website>/store/payment/`<br />
-	Fill __Error Redirect URL__ with: `<your_website>/store/payment/veritrans/failed`
+	> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
 
 3. Choose __Settings - Access Keys__.
 

@@ -32,15 +32,15 @@ Midtrans ❤️ Prestashop! Integrasikan website Prestashop Anda dengan Midtrans
 #### Prestashop Terima Notifikasi Midtrans
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=notification`
-   * Finish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Unfinish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Error Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=failure`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=notification |
+| Finish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+| Error Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=failure |
+| Unfinish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
+
 #### Prestashop Payment Test
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
 
@@ -173,16 +173,19 @@ Berikut adalah detail kolom pada konfigurasi plugins
 </details>
 
 #### Magento2 Terima Notifikasi Midtrans
-Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
+1. Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your-site-url]/snap/payment/notification`
-   * Finish Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
-   * Unfinish Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
-   * Error Redirect URL:<br>
-        `http://[your-site-url]/snap/index/finish`
+    | URL Role | Redirect URL|
+    |----------|-------------|
+    | Payment Notification URL | [your-site-url]/snap/payment/notification |
+    | Finish Redirect URL | [your-site-url]/snap/index/finish |
+    | Error Redirect URL | [your-site-url]/snap/index/finish |
+    | Unfinish Redirect URL | [your-site-url]/snap/index/finish |
+
+    > Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
+
+2. Masuk ke menu **Settings > Snap Preference > System Settings**
+    * Masukan `[your-site-url]/snap/index/finish` di field Finish/Unfinish/Error Redirect URL.
 
 #### Magento 2 Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -222,15 +225,15 @@ Midtrans ❤️ Opencart! Integrasikan website opencart Anda dengan Midtrans Sna
 #### Opencart Terima Notifikasi Midtrans
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your shop's homepage]/index.php?route=payment/snap/payment_notification`
-   * Finish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Unfinish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Error Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?route=payment/snap/payment_notification |
+| Finish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
+
 #### Opencart Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
 
@@ -273,15 +276,15 @@ Midtrans ❤️ WooCommerce! Integrasikan website WooCommerce Anda dengan Midtra
 #### WooCommerce Handling Notification
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Unfinish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Error Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Finish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Error Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
+
 #### WooCommerce Payment Test
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
 
@@ -318,15 +321,15 @@ Midtrans ❤️ WHMCS! Integrasikan website WHMCS Anda dengan Midtrans Snap. Plu
 #### WHMCS Terima Notifikasi Midtrans
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration` dan `settings` **->** `Snap Preference` **->** `System Settings`
 
-   * Payment Notification URL:<br>
-        `http://[your website url]/modules/gateways/callback/veritrans.php`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/modules/gateways/callback/veritrans.php |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
+
 #### WHMCS Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
 
@@ -371,14 +374,15 @@ Midtrans ❤️ Drupal! Integrasikan website Drupal Anda dengan Midtrans Snap. P
 
 #### Drupal Terima Notifikasi Midtrans
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
-   * Payment Notification URL:<br>
-        `http://[your web]/payment/notify/midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/payment/notify/midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
 
 #### Drupal Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -431,14 +435,15 @@ The manual installation method involves downloading our feature-rich plugin and 
 
 #### Easy Digital Download Handling Notification
 Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
-   * Payment Notification URL:<br>
-        `http://[Your Website URL]/?edd-listener=midtrans`
-   * Finish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Unfinish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Error Redirect URL:<br>
-        `http://[Your Website URL]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?edd-listener=midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Mohon lengkapi URL dengan **http://** atau **https://** ketika mengisi Notification URL and Redirect URL.
 
 #### EDD Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):

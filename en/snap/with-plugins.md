@@ -97,15 +97,15 @@ Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on yo
 #### WooCommerce Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
 
-   * Payment Notification URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Unfinish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Error Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Finish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Error Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+
+>Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+
 <details>
 <summary>
   
@@ -260,18 +260,18 @@ In case you need to customize configuration these field are configurable, and de
 
 #### Magento 2 Plugin Notification Configuration
 1. Login to your [Midtrans&nbsp;  Account](https://dashboard.midtrans.com), select your environment (sandbox/production), go to menu `settings -> configuration`
-   * Payment Notification URL: 
-    >`http://[your-site-url]/snap/payment/notification`
-   * Finish Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
-   * Unfinish Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
-   * Error Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
+
+    | URL Role | Redirect URL|
+    |----------|-------------|
+    | Payment Notification URL | [your-site-url]/snap/payment/notification |
+    | Finish Redirect URL | [your-site-url]/snap/index/finish |
+    | Error Redirect URL | [your-site-url]/snap/index/finish |
+    | Unfinish Redirect URL | [your-site-url]/snap/index/finish |
+
+    > Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
 
 2. Go to menu **Settings > Snap Preference > System Settings**
-  * Insert `http://[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
-
+    * Insert `[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
 
 <details>
 <summary>
@@ -358,15 +358,15 @@ Midtrans ❤️ Prestashop! Integrate your Prestashop store with Midtrans Snap p
 #### Prestashop Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=notification`
-   * Finish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Unfinish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Error Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=failure`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=notification |
+| Finish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+| Error Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=failure |
+| Unfinish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+
+> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+
 <details>
 <summary>
   
@@ -433,15 +433,15 @@ Midtrans ❤️ Opencart! This is official Midtrans extension for the OpenCart E
 #### Opencart Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your shop's homepage]/index.php?route=payment/snap/payment_notification`
-   * Finish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Unfinish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Error Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?route=payment/snap/payment_notification |
+| Finish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+
+> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+
 <details>
 <summary>
   
@@ -493,15 +493,15 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 #### WHMCS Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
 
-   * Payment Notification URL:<br>
-        `http://[your website url]/modules/gateways/callback/veritrans.php`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/modules/gateways/callback/veritrans.php |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+
 <details>
 <summary>
   
@@ -561,14 +561,15 @@ Midtrans ❤️ Drupal 8! This is the official Midtrans extension for the Drupal
 
 #### Drupal Handling Notification
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
-   * Payment Notification URL:<br>
-        `http://[your web]/payment/notify/midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/payment/notify/midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
 
 <details>
 <summary>
@@ -639,14 +640,15 @@ The manual installation method involves downloading our feature-rich plugin and 
 
 #### Easy Digital Download Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
-   * Payment Notification URL:<br>
-        `http://[Your Website URL]/?edd-listener=midtrans`
-   * Finish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Unfinish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Error Redirect URL:<br>
-        `http://[Your Website URL]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?edd-listener=midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
 
 <details>
 <summary>
