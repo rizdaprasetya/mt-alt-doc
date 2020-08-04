@@ -24,9 +24,9 @@
 	- You can run Python `python -m SimpleHTTPServer`, and open `localhost:8000/index.html`.
 	- You can use [Serve NPM package](https://www.npmjs.com/package/serve) on NodeJS
 	- Or even from browser itself, via [Chrome Web Server Extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
-	- Or preview online with codesandbox: https://codesandbox.io/s/github/rizdaprasetya/mt-alt-doc
+	- Or preview online with codesandbox: https://codesandbox.io/s/github/Midtrans/technical-documentation-site
 	- etc.
-- Open web browser and point it to the `index.html` file. i.e: `localhost/mt-alt-doc/index.html`.
+- Open web browser and point it to the `index.html` file. i.e: `localhost/technical-documentation-site/index.html`.
 - Live preview from Github repo are might also be possible:
 	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
 	- Change `master` with any branch you want to preview
@@ -121,7 +121,7 @@ Optional card body content, or actually you can use any html/markdown content wi
 ## Deploying
 
 - Just pull request or commit to `master` branch.
-- Commit pushed to `master` branch are auto-deployed to https://mt-alt-doc.netlify.com .
+- Commit pushed to `master` branch are auto-deployed to https://midtrans-docs.netlify.com .
 
 ## Using Docker (and Compose)
 
