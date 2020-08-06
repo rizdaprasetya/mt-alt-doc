@@ -336,7 +336,7 @@ Please complete the following steps:
 	| Error Redirect URL | [your-site-url]/payment_ipn/veritrans/error |
 	| Unfinish Redirect URL | [your-site-url]/payment_ipn/veritrans/unfinish |
 
-	> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+	> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 	![Setting](./../../../asset/image/sirclo-1.png ':size=400')
 
@@ -400,7 +400,7 @@ Please complete the following steps:
 	| Error Redirect URL | [your-site-url]/store/payment/veritrans/failed |
 	| Unfinish Redirect URL | [your-site-url]/store/payment/ |
 
-	> Note: Do not forget to use **http://** or **https://** when you fill Notification URL and Redirect URL.
+	> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 3. Choose __Settings - Access Keys__.
 
