@@ -39,7 +39,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=failure |
 | Unfinish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### Prestashop Payment Test
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -175,14 +179,18 @@ Berikut adalah detail kolom pada konfigurasi plugins
 #### Magento2 Terima Notifikasi Midtrans
 1. Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environment (sandbox/production), lalu masuk ke menu `settings > configuration`
 
-    | URL Role | Redirect URL|
-    |----------|-------------|
-    | Payment Notification URL | [your-site-url]/snap/payment/notification |
-    | Finish Redirect URL | [your-site-url]/snap/index/finish |
-    | Error Redirect URL | [your-site-url]/snap/index/finish |
-    | Unfinish Redirect URL | [your-site-url]/snap/index/finish |
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/snap/payment/notification |
+| Finish Redirect URL | [your-site-url]/snap/index/finish |
+| Error Redirect URL | [your-site-url]/snap/index/finish |
+| Unfinish Redirect URL | [your-site-url]/snap/index/finish |
 
-    > Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 2. Masuk ke menu **Settings > Snap Preference > System Settings**
     * Masukan `[your-site-url]/snap/index/finish` di field Finish/Unfinish/Error Redirect URL.
@@ -232,7 +240,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
 | Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### Opencart Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -283,7 +295,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
 | Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### WooCommerce Payment Test
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -328,7 +344,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### WHMCS Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -382,7 +402,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### Drupal Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):
@@ -443,7 +467,11 @@ Masuk ke [Midtrans Account](https://account.midtrans.com/login), pilih environme
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
+> **Note:**
+>
+> Mohon lengkapi URL dengan **http://** atau **https://** saat mengisi Notification URL dan Redirect URL, sesuai konfigurasi web server anda. 
+>
+> Jika anda tidak yakin, silakan buka URL website anda di browser, dan cek URL anda menggunakan **http** atau **https**.
 
 #### EDD Coba Transaksi
 Lakukan transaksi sukses di toko Anda dengan menggunakan nomor kartu kredit dummy berikut (sandbox mode):

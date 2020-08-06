@@ -104,7 +104,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
 | Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
 
->Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -261,14 +265,18 @@ In case you need to customize configuration these field are configurable, and de
 #### Magento 2 Plugin Notification Configuration
 1. Login to your [Midtrans&nbsp;  Account](https://dashboard.midtrans.com), select your environment (sandbox/production), go to menu `settings -> configuration`
 
-    | URL Role | Redirect URL|
-    |----------|-------------|
-    | Payment Notification URL | [your-site-url]/snap/payment/notification |
-    | Finish Redirect URL | [your-site-url]/snap/index/finish |
-    | Error Redirect URL | [your-site-url]/snap/index/finish |
-    | Unfinish Redirect URL | [your-site-url]/snap/index/finish |
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/snap/payment/notification |
+| Finish Redirect URL | [your-site-url]/snap/index/finish |
+| Error Redirect URL | [your-site-url]/snap/index/finish |
+| Unfinish Redirect URL | [your-site-url]/snap/index/finish |
 
-    > Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 2. Go to menu **Settings > Snap Preference > System Settings**
     * Insert `[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
@@ -365,7 +373,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=failure |
 | Unfinish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
 
-> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -440,7 +452,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
 | Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
 
-> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -500,7 +516,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -569,7 +589,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -648,7 +672,11 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-> Note: Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
