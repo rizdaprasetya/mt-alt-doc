@@ -88,7 +88,7 @@ Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on yo
    5. Proceed to Configuration Process.
    
 #### WooCommerce Plugin Configuration Process
-1. Go to **WooCommerce - Settings - Checkout - Midtrans** menu, fill the configuration fields.
+1. Go to **WooCommerce - Settings - Payments - Midtrans** menu, fill the configuration fields.
     - Fill **Title** with text button that you want to display to customer
     - Select **Environment**. `Sandbox` for testing transaction and `Production` for real transaction
     - Fill **Merchant ID, Client Key, and Server key**. You can find [this credential on Midtrans MAP Dashboard](/en/snap/preparation.md).
