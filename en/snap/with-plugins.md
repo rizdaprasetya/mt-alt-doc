@@ -62,21 +62,23 @@ Here is the list of Content Management System plugins and extensions that are su
 ### Wordpress - WooCommerce
 <hr>
 
-Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on your WooCommerce store, without your customer ever need to leave your WooCommerce store! With beautiful responsive payment interface built-in. We strive to make payments simple for both the merchant and customers. Support various online payment channel. Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). Support WooCommerce v3 & v2
+Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on your WooCommerce store, without your customer ever need to leave your WooCommerce store! With beautiful responsive payment interface built-in. We strive to make payments simple for both the merchant and customers. Support various online payment channel. Support WooCommerce v3 & v2.
+
+<!-- Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). -->
 
 #### Requirements:
-* WordPress v3.9 or greater **|** Tested up to v5.0.0
+* WordPress v3.9 or greater **|** Tested up to v5.x
 * [WooCommerce v2](https://github.com/veritrans/SNAP-Woocommerce) or greater **|** Tested up to v3.5.2
 * PHP version v5.4 or greater
 * MySQL version v5.0 or greater
 * PHP CURL enabled server/host
 
 #### Installation:
-#### A. Simple Installation
+<!-- #### A. Simple Installation
    1. Login to your Wordpress admin panel.
    2. Go to Plugins menu, click add new. Search for Midtrans-WooCommerce plugin.
    3. Install and follow on screen instructions.
-   4. Proceed to Configuration Process.
+   4. Proceed to Configuration Process. -->
 
 #### B. Manual Installation
    1. Download the plugin from [Zip](https://github.com/veritrans/SNAP-Woocommerce/archive/master.zip).
