@@ -365,6 +365,21 @@ fraud_status | 🔍 | description
 `challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
 <!-- tabs:end -->
 
+#### Notes When Using Snap API
+<br>
+<details>
+<summary><b>Notes When Using Snap API</b></summary>
+<article>
+
+When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 
+
+So please expect that you may encounter `404` or payment not found response upon calling Core API get-status even if the payment page is activated on Snap API. 
+
+It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
+
+</article>
+</details>
+
 ### Verify Notification Authenticity
 
 To ensure the content integrity and the notification is securely sent by Midtrans, not by other unverified party, we recommend you to verify the notification by one of these mechanisms:
