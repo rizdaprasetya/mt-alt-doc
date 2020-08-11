@@ -67,6 +67,7 @@
     <div id="app"></div>
     <script>
         window.isUnderMidtransDomain = window.location.hostname.includes('.midtrans.com');
+        window.isUnderNonBetaDomain = !(window.location.hostname.includes('beta'));
         // @HACK: redirect to HTTPS
         if (window.isUnderMidtransDomain && window.location.protocol == "http:") {
             console.log("attempt to change protocol to https");
@@ -82,10 +83,15 @@
         window.predictedHomeUrl = window.willUseDocsifyHashRouter ? 
             (document.location.href.split('/#/'))[0]+'/' :
             document.location.origin;
+
         // Check which GA UA-id should be used based on domain
-        window.GA_UA_ID = window.isUnderMidtransDomain ?
-            'UA-157800130-1':
-            'UA-157800130-2'; // secondary GA UA-id for dev env
+        window.GA_UA_ID = 'UA-157800130-2'; // secondary GA UA-id for dev env, default.
+        if (window.isUnderMidtransDomain && window.isUnderNonBetaDomain){
+            window.GA_UA_ID = 'UA-85529823-1'; // docs.midtrans.com GA UA-id for prod
+        } else if (window.isUnderMidtransDomain){
+            window.GA_UA_ID = 'UA-157800130-1'; // beta-docs subdomain GA UA-id
+        }
+
         // Main Docsify setup
         window.$docsify = {
             logo: 'asset/image/main/midtrans-logo.svg',
