@@ -1,4 +1,5 @@
-# 3rd Party Ecommerce Platform
+# Integrate Midtrans Snap to 3rd Party Ecommerce Platform
+<hr>
 
 If you are using 3rd party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 

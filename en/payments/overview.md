@@ -1,4 +1,5 @@
-## Payments Overview {docsify-ignore}
+# Midtrans Payments Overview {docsify-ignore}
+<hr>
 
 Midtrans helps your business to easily accept payments [from cards, bank transfer, wallets, over the counter, cardless credits, direct debit, and other methods](https://midtrans.com/payments); and helps you manage them.
 
@@ -80,7 +81,7 @@ Not a developer, or already using e-commerce Content Management System like **Wo
 Ready to use, user friendly, and require very minimal setup. You can simply integrate Midtrans to start accepting payment with 3rd party platform like **Shopify, Sirclo, Jejualan**, etc.
 </div>
 
-## Integration Comparison {docsify-ignore}
+## Comparison of Integration Options {docsify-ignore}
 
 | Integration Type | Features | Sample Use Case |
 | --- | --- | --- |
@@ -94,7 +95,7 @@ Ready to use, user friendly, and require very minimal setup. You can simply inte
 
 ?> **Note:** Those sample use case **does not limit** how you could fits the integration-type with your own unique requirement. You can get creative and go beyond those sample use case, and invent your own use case for that type of integration.
 
-## Other Options {docsify-ignore}
+## Other Options to Integrate {docsify-ignore}
 - [**Gopay Integration for POS**](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos): For business with non conventional web/app platform like: vending machine, TV box, IoT, point of sales, etc. as long as it connect to the internet, it can be integrated with **Core API** to start accepting payment on the device. With Core API device can easily integrate via API call/command as communication medium.
 
 ## Next Step {docsify-ignore}

@@ -1,5 +1,6 @@
-
-You can interactively try integration demo below. Inspect the source code and see the live output.
+# Snap Interactive Integration Demo
+<hr>
+Snap integration will be explained simply using interactive demo. Which you can interactively try the Snap integration demo below. Inspect the source code and see the live output.
 
 ### Preparation
 <br>
@@ -15,15 +16,13 @@ Sign up for an Account to get your Sandbox API keys ready to test integration.
 Retrieve Sandbox mode API keys that will be used for this guide.
 </div>
 
-### Snap Integration Demo
-
-#### Technology Stack
+### Technology Stack
 
 The sample integration's:
 - **Backend** is **NodeJS** (hosted on CodeSandbox).
 - **Frontend** is plain **HTML & Javascript**.
 
-#### Demo Usage
+### Usage Explanation
 
 You will see Snap Transaction Token as vizualization of API response on backend integration. Then you can click **"Proceed to Payment"** to test the frontend.
 
@@ -66,7 +65,7 @@ Another sample frontend integration (hosted on JSFiddle). Input the Snap Transac
 </article>
 </details>
 
-### Creating Test Payment
+### Create Test Payment
 
 You can use one of our test credentials for Card Payment:
 
@@ -86,6 +85,6 @@ Now that you understand the basic of how Snap integration works, this is just de
 
 <div class="my-card">
 
-#### [Next Step](/en/snap/integration-guide.md?id=_4-handling-post-transaction)
+#### [Next Step](/en/snap/integration-guide.md?id=_4-handle-after-payment)
 Follow Snap integration Guide next steps, to proceed with complete integration.
 </div>

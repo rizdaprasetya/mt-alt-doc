@@ -1,4 +1,5 @@
 # HTTP(S) Notification / Webhook
+<hr>
 
 Notification through HTTP(S) POST / Webhook will be sent to the merchant's server when customer completes the payment process and when transaction status changes (transaction refunded, pending, etc). Merchant can utilize the HTTP(S) POST notification to update a payment status or send the item of a transaction in real time.
 

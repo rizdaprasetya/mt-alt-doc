@@ -1,3 +1,5 @@
+# Core API Bank Transfer Integration
+<hr>
 Basic integration process of Bank Transfer (Virtual Account) will be explained below.
 
 ?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans_account/overview), before proceeding with this section.
@@ -319,7 +321,7 @@ BNI `va_number` | String | (optional)| Length should be within 1 to 8.
 | `cancel` | Transaction is canceled by trigger from Merchant. |
 | `deny` | The bank rejected the transaction. |
 
-Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
+Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>

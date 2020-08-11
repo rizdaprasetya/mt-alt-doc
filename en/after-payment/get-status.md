@@ -1,4 +1,5 @@
 # API Get Status
+<hr>
 
 Merchant can also request to Midtrans API to inquire transaction status of a transaction, using the transaction `order_id` (or `transaction_id`) as identifier.
 

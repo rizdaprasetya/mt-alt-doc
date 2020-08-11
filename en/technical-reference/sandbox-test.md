@@ -1,4 +1,5 @@
 # Testing Payment on Sandbox
+<hr>
 
 On Sandbox, Midtrans use web based simulator to simulate payment-provider's/bank's system response, so that you can test most success and failure scenario that might happen on production, **without actually doing real payment**.
 

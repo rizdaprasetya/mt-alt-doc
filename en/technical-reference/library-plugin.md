@@ -1,3 +1,6 @@
+# Midtrans API Libraries & Plugins
+<hr>
+
 Midtrans strives to make the integration process as frictionless as possible. This page contains a list of open sourced plugins and libraries that can help you speed up integration with Midtrans API.
 
 Our library and plugins are **Open Source!** We are happy to accept any open source contribution or feedback, feel free to check the Github repo. If you write your own plugin or library and would like us to link it, contact [support@midtrans.com](mailto:support@midtrans.com "support email").
@@ -29,7 +32,7 @@ Step by step [user guide is available here](/en/snap/with-plugins)
 |Drupal Commerce|**7.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal7)<br>**v8.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal8)<br><br> |
 |Wordpress <br> Easy Digital Downloads|**Wordpress v3.9.1 or Greater**<br>**v2.x**<br> * [Github](https://github.com/Midtrans/midtrans-edd)<br> * [Wordpress Plugin Site](https://wordpress.org/plugins/edd-midtrans-gateway/)<br><br> |
 
-## Sample Code
+## Sample Integration Code
 
 |Platforms | Resources |
 |---|---|

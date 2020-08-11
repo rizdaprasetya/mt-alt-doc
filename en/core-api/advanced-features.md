@@ -1,3 +1,5 @@
+# Core API Advanced Features
+<hr>
 <!-- TODO:add sample code for lang other than CURL? -->
 Core API have various optional parameters that can be utilized for more advanced use case that can help your integration.
 
@@ -288,7 +290,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-### Routing Transactions to Specific Acquiring
+### Route Transactions to Specific Acquiring
 Merchant can specify which Acquring Bank they prefer to use for specific transaction. Transaction fund will be routed to that specific acquiring bank. Please consult to Midtrans Activation Team for the availability of the acquiring bank.
 
 * Specify the bank name inside the `bank` parameter
@@ -1005,6 +1007,8 @@ bins | Array | List of credit card's BIN (Bank Identification Number) that is al
 ### Pre-Authorization Payment
 Pre-authorization feature means customer's fund will not directly deducted after transaction, but it's amount/limit will be temprorary reserved (blocked). Then merchant can initiate "capture" action later via [capture API](https://api-docs.midtrans.com/#capture-transaction). By default fund reservation will be released after 7 days if there is no "capture" action for that transaction.
 
+To use this feature, merchant need to add `"type": "authorize"` parameter.
+
 Example of the JSON param (this param is used during [API Request Step](/en/core-api/credit-card.md?id=charge-api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
@@ -1056,7 +1060,7 @@ type | String | Attribute to enable the pre-authorization feature. Valid value `
 
 <!-- <TODO: elaborate Full PAN> -->
 
-## GoPay
+## Gopay
 ### Redirect Customer From Gojek App
 After GoPay payment completed, by default customer will remain on Gojek app, so they need to manually close Gojek app to switch back to merchant web/app. Using parameter `gopay.callback_url` will allow customer to be automatically redirected to merchant web/app from Gojek app.
 

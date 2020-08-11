@@ -1,6 +1,7 @@
 <!-- TODO: explain it also accept Debit card -->
 <!-- TODO: explain when the card is checked for balance/limit, after 3DS -->
-# Card Transaction Integration
+# Core API Card Transaction Integration
+<hr>
 One of the payment method offered by Midtrans is Card transaction. By using this payment method, customers will have the option to pay using credit card (or online-transaction-capable debit card) that is within Visa, MasterCard, JCB, or Amex network. Midtrans will also send real time notification when the customer complete the payment.
 
 ![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
@@ -12,11 +13,11 @@ Basic integration process of Card Transaction (3DS) will be explained below.
 
 ?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
 
-## Integration Step
+## Integration Step Overview
 1. Get Card Token, via Frontend
 2. Send transaction data to API Charge, via Backend
 3. Open 3DS Authentication Page, via Frontend
-4. Handling Post-Transaction
+4. Handle After Payment
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -357,7 +358,7 @@ charge_response = core_api.charge(param)
 ?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
 
 ### Charge API response
-You will get the **API response** like the following:
+Upon successful request, you will get the **API response** like the following:
 
 ```json
 {
@@ -492,13 +493,13 @@ If the `transaction_status` is `capture` and `fraud_status` is `accept`, it mean
 
 > **IMPORTANT NOTE:** To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status).
 
-## 4. Handling Post-Transaction
+## 4. Handle After Payment
 
 Other than customer being redirected, when the status of payment is updated/changed (i.e: payment has been successfully received), Midtrans will send **HTTP Notification** (or webhook) to your server's `Notification Url` (specified on Midtrans Dashboard, under menu **Settings > Configuration `Notification URL`**). Follow this link for more details:
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+#### [Handle Webhook HTTP Notification](/en/after-payment/http-notification.md)
 </div>
 
 ## Description
@@ -512,9 +513,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 | `deny` | Transaction is denied, further check `channel_response_message` or `fraud_status` |
 | `expire` | Transaction failure because customer did not complete 3DS within allowed time |
 
-Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
-
-Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com/#fraud-status)
+Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>

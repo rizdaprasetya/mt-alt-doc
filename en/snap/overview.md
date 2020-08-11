@@ -1,3 +1,6 @@
+# Snap Overview
+<hr>
+
 Snap is a payment service that allows our partners to use Midtrans payments system, where Midtrans’ payment page pops-up on your web page after checkout. Setting up Snap is easy and there is no monthly fees. The simple and quick integration is suitable for any size of business spanning from small to corporate/unicorn size business.
 
  With single integration, Snap user interface allows you to accept payment with [all Midtrans' various payment methods](https://midtrans.com/payments).
@@ -22,7 +25,7 @@ Snap is a payment service that allows our partners to use Midtrans payments syst
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
-## Available Ways to Integrate {docsify-ignore}
+## Various Ways to Integrate with Snap {docsify-ignore}
 **Choose** any of **one** integration method below that is suitable to your liking:
 
 <div class="my-card">
