@@ -5,7 +5,7 @@ const cf = {
     sidebarFiles: [
         "./../_sidebar.md",
         "./../en/payments/_sidebar.md",
-        "./../id/_sidebar.md"
+        // "./../id/_sidebar.md"
     ],
     outputXmlPath: "./../sitemap.xml",
     urlPriority:"0.75",
