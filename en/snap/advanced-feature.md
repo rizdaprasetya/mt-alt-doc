@@ -1226,6 +1226,12 @@ Midtrans API allow maximum size of **16kb** per request (**\~16000 total charact
 
 Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.
 
+### Snap Token Expiry Time
+
+For regular snap transaction, snap `token` and also the `redirect_url` default lifetime is **24 hours**. It can be customized by following "Custom Expiry" section.
+
+Within that time limit the payment page is available for customer to proceed payment. Beyond that, it will shows that the payment page is no longer available.
+
 ### Note on Core API Get Status
 
 When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 

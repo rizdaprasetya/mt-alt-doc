@@ -1237,3 +1237,9 @@ By using Midtrans API there are some consideration and limitation you need to ke
 Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
 
 Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.
+
+### Card Token ID Expiry Time
+
+For regular card transaction, card's `token_id` (for non-recurring, non-one-click, non-two-click token) and also the 3ds `redirect_url` lifetime is **10 minutes**. 
+
+Because it is designed to be 1 time card token for 1 transaction, to ensure security. Please make sure you complete the card transaction within that time limit to avoid token expired.
