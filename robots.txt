@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://beta-docs.midtrans.com/sitemap.xml
+Sitemap: https://docs.midtrans.com/sitemap.xml
