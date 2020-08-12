@@ -68,11 +68,17 @@ var options = {
     // Success to get card token_id, implement as you wish here
     console.log('Success to get card token_id, response:', response);
     var token_id = response.token_id;
+
     console.log('This is the card token_id:', token_id);
+    // Implement sending the token_id to backend to proceed to next step
   },
   onFailure: function(response){
     // Fail to get card token_id, implement as you wish here
     console.log('Fail to get card token_id, response:', response);
+
+    // you may want to implement displaying failure message to customer.
+    // Also record the error message to your log, so you can review
+    // what causing failure for this transaction.
   }
 };
 
@@ -93,11 +99,46 @@ OTP/3DS | `112233`
 Link: [*More testing credentials*](/en/technical-reference/sandbox-test.md).
 
 ### Get Card Token Response
-If all goes well, we will be able to get card `token_id` inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
+If all goes well, we will be able to get card `token_id` from `response` object inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
 
 `token_id` will need to be passed from frontend to backend for next step, it can be done using AJAX via Javascript, or html form POST, etc. Merchant are free to implement.
 
 > **Note:** This `token_id` is only valid for 1 transaction. For each card transaction it is required to go through this process, to help ensure card data is transmitted securely. If you are looking to persist/save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click)/[Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
+
+<details>
+<summary><b>Sample Get Token Response</b></summary>
+<article>
+
+<!-- tabs:start -->
+#### **Success Response**
+Sample onSuccess `response` object:
+```json
+{
+  "status_code": "200",
+  "status_message": "Credit card token is created as Token ID.",
+  "token_id": "481111-1114-77328ff4-eba6-4201-b31a-1070d8f19ae9",
+  "hash": "481111-1114-xxxx"
+}
+```
+
+#### **Failure Response**
+Sample onFailure `response` object, it may contains the `validation_messages`:
+```json
+{
+  "status_code": "400",
+  "status_message": "One or more parameters in the payload is invalid.",
+  "validation_messages": [
+    "This card is not supported for online transactions. Please contact your bank", 
+    "card_number does not match with luhn algorithm"
+  ],
+  "id": "02197189-7cab-4006-8379-51edcd0a253b"
+}
+```
+
+<!-- tabs:end -->
+
+</article>
+</details>
 
 ## 2. Send Transaction Data to API Charge
 
@@ -465,29 +506,55 @@ var popupModal = (function(){
 ```
 
 ### 3DS Authenticate JSON Response
-On the JS callback function, we will get JSON of the transaction result like below.
+On the JS callback function, we will get the transaction result as JSON response like the followings.
 
+<!-- tabs:start -->
+#### **Success Response**
+Sample of success transaction callback response:
 ```json
 {
   "status_code": "200",
   "status_message": "Success, Credit Card transaction is successful",
-  "transaction_id": "226ba26f-b050-4fc5-aa25-b7f8169bc67b",
-  "order_id": "order102",
-  "gross_amount": "789000.00",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved",
+  "bank": "bni",
+  "eci": "05",
+  "transaction_id": "405d27d5-5ad9-43ac-bdd6-0ccbde7d7dda",
+  "order_id": "test-transaction-54321",
+  "merchant_id": "G490526303",
+  "gross_amount": "100000.00",
   "currency": "IDR",
   "payment_type": "credit_card",
-  "transaction_time": "2019-08-27 17:22:08",
+  "transaction_time": "2020-08-12 16:04:23",
   "transaction_status": "capture",
   "fraud_status": "accept",
-  "approval_code": "1566901334936",
-  "eci": "05",
+  "approval_code": "1597223068747",
   "masked_card": "481111-1114",
-  "bank": "bni",
-  "card_type": "credit",
-  "channel_response_code": "00",
-  "channel_response_message": "Approved"
+  "card_type": "credit"
 }
 ```
+
+#### **Failure Response**
+Sample of failure transaction callback response:
+```json
+{
+  "status_code": "202",
+  "status_message": "Card is not authenticated.",
+  "bank": "bni",
+  "eci": "07",
+  "transaction_id": "1063cc1f-f07e-4755-ab85-19a4592de097",
+  "order_id": "test-transaction-54321",
+  "merchant_id": "G490526303",
+  "gross_amount": "100000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-08-12 16:03:49",
+  "transaction_status": "deny",
+  "fraud_status": "accept",
+  "masked_card": "481111-1114",
+}
+```
+<!-- tabs:end -->
 
 If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means the transaction is success, and is now complete.
 
