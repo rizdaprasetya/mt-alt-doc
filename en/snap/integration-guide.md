@@ -58,7 +58,7 @@ The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library-plugin.md))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/technical-reference/library-plugin.md))*
 
 #### Request Details
 Type | Value
@@ -311,7 +311,7 @@ transaction_token = transaction['token']
 
 #### **Other**
 
-- Please check our [available **language libraries**](/en/developer_resource/library-plugin.md)
+- Please check our [available **language libraries**](/en/technical-reference/library-plugin.md)
 
 <!-- tabs:end -->
 
