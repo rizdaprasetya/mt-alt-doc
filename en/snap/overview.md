@@ -54,7 +54,7 @@ Use 3rd party E-commerce platform solutions (SaaS like Shopify, Sirclo, Jejualan
 
 <div class="my-card">
 
-#### [E. Sample Code Repo](/en/technical-reference/library-plugin.md#sample-code)
+#### [E. Sample Code Repo](/en/technical-reference/library-plugin.md#sample-integration-code)
 Collections of integration code examples for various programming languages, available as public Github repositories.
 </div>
 

@@ -466,4 +466,4 @@ Learn how transaction status can change, and what are the available actions to t
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#c-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/technical-reference/library-plugin.md#sample-integration-code)
