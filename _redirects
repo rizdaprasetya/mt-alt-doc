@@ -52,5 +52,10 @@
 # TODO id/snap/integration_php_wizard.html
 /id/snap/integration_php_manual.html 		/en/snap/integration-guide
 
+
+# Handle redirect to prevent ID content being accessed, redirect to EN version
+# @TODO: remove this when ID lang content start being used again
+/id/*	/en/:splat  302
+
 # Handle non-exist file for SPA
 /*    /index.html   200
