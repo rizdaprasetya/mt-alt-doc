@@ -179,6 +179,11 @@ iframe{
     border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
 }
 
+/* @FIX: sub-sidebar click scroll issue, which highlight the wrong preceeding sub-sidebar */
+h2>a>span {
+    padding-top: 2em;
+}
+
 /* @HACK: Override main logo on sidebar for nicer smaller img */
 .sidebar>h1 img {
     max-width: 75%;

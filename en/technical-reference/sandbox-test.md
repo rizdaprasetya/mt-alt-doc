@@ -1,4 +1,5 @@
 # Testing Payment on Sandbox
+<hr>
 
 On Sandbox, Midtrans use web based simulator to simulate payment-provider's/bank's system response, so that you can test most success and failure scenario that might happen on production, **without actually doing real payment**.
 
@@ -133,6 +134,9 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |Indomaret | Midtrans will generate a dummy Indomaret Payment Code. To perform a test transaction, use the [Indomaret Simulator](https://simulator.sandbox.midtrans.com/indomaret/index).|
 |Alfamart | Midtrans will generate a dummy Alfamart Payment Code. To perform a test transaction, use the [Alfamart Simulator](https://simulator.sandbox.midtrans.com/alfamart/index).|
 |Kioson | Midtrans will generate a dummy Kioson Payment Code. To perform a test transaction, use the [Kioson Simulator](https://simulator.sandbox.midtrans.com/kioson/index).|
+
+
+**Note on Alfamart:** *If you are unable to find out what to input in `Product Code` field, please contact us via support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
 ### Cardless Credit 
 

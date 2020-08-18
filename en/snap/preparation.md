@@ -1,3 +1,6 @@
+# Preparation Before Integrating with Snap
+<hr>
+
 This section will explain what preparation is needed to start Snap integration.
 
 ### 1. Sign Up for Midtrans Account

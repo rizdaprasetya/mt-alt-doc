@@ -1,3 +1,5 @@
+# Integrate Midtrans Snap to Ecommerce Content Management System
+<hr>
 Content Management System (CMS) allow you to easily have website / web store without building (programming) from scratch. Most of the time CMS don't require you to know too much about technical knowledge, by just installing the CMS and then configure or customize it to suit your desire. It means most of the time you just need to care about managing the content (Content Management). Example of CMS are: Wordpress, Magento 2, Prestashop, WHMCS, etc.
 
 ### Preparation

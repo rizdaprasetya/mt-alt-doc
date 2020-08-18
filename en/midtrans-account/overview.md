@@ -1,4 +1,5 @@
-## Midtrans Account
+# Midtrans Account
+<hr>
 
 Before integrating with Midtrans, you need to register for Account.
 
@@ -80,5 +81,5 @@ Input the email that registered as Midtrans Account, instructions for the passwo
 
 <div class="my-card">
 
-#### [Proceed with Payment Integration](/en/payments/overview.md#choose-integration-options)
+#### [Proceed with Payment Integration](/en/payments/overview.md)
 </div>

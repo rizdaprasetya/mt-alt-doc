@@ -2,6 +2,8 @@
 
 [![Midtrans Logo](/asset/image/main/midtrans-logo.svg ':size=220')](https://midtrans.com)<hr>
 
+# Get Started with Midtrans
+<hr>
 Midtrans helps your business to easily accept payments, disburse payments, and more in automated manners. Get to know the technical details and documentation of each product below.
 
 <!-- TODO: add more image for each product so it doesn't look to plain? -->
@@ -9,7 +11,7 @@ Midtrans helps your business to easily accept payments, disburse payments, and m
 
 <div class="my-card">
 
-#### [Add Payment Page on Your Web & Web App (Snap)](/en/snap/overview.md)
+#### [Add Payment Page on Your Web or Web App (Snap)](/en/snap/overview.md)
 Securely accept payment on your web and app with few simple steps! Your customer will be presented with a sleek, mobile-friendly interface to do payment with, straight inside your web and app in the form of a pop-up dialogue box (or redirected to Midtrans' url if you choose to). With single integration, Snap user interface allows you to accept payment with Midtrans' [various payment methods](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 <p style="text-align: center;">
@@ -88,7 +90,7 @@ Pay out money to your partners, sellers, customers, vendors or any third parties
 <br> <br>
 
 
-# Choose based on Business Use Cases {docsify-ignore}
+## Choose based on Top Business Use Cases {docsify-ignore}
 
 Here are some popular use cases that may help you choose:
 
@@ -119,7 +121,7 @@ Owning big business (whether online, offline, or traditional business) means hav
 <!-- < TODO:Add More Use Case> -->
 <!-- Case Topup -->
 
-# Non Technical Person? {docsify-ignore}
+## Non Technical Person? {docsify-ignore}
 
 <!-- <TODO: elaborate plugin, payment link, or snap plugin for non-dev reader> -->
 

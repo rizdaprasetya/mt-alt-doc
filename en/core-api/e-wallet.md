@@ -1,3 +1,6 @@
+# Core API E-Wallet Integration
+<hr>
+
 ?> This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-wallet or banking app**.
 
 GoPay is an e-Wallet payment method by Gojek. Users will pay using the Gojek apps, or any QRIS compatible app. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
@@ -21,10 +24,10 @@ The overall GoPay end-to-end payment proccess can be illustrated in following se
 
 <!-- tabs:start -->
 #### **QR Code Mode (Default)**
-![Snap JS sequence diagram](./../../asset/image/core-api_sequence_qr.png)
+![Core API Gopay QR sequence diagram](./../../asset/image/core-api_sequence_qr.png)
 
 #### **Deeplink Mode**
-![Snap Redirect sequence diagram](./../../asset/image/core-api_sequence_deeplink.png)
+![Core API Gopay Deeplink sequence diagram](./../../asset/image/core-api_sequence_deeplink.png)
 <!-- tabs:end -->
 </article>
 </details>
@@ -426,7 +429,7 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 
 <br>
 
-Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
+Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>

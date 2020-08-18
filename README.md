@@ -28,7 +28,7 @@
 	- etc.
 - Open web browser and point it to the `index.html` file. i.e: `localhost/technical-documentation-site/index.html`.
 - Live preview from Github repo are might also be possible:
-	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/
+	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
 	- Change `master` with any branch you want to preview
 	- Note: Githack is free service so it might not be always available
 
@@ -62,6 +62,7 @@
 		- Refresh browser while dev tools still open (alternatively `cmd + shift + R` to hard refresh)
 - Generate `sitemap.xml` file for SEO purpose, by: 
 	- Modify `config` within `tooling/sitemapper.js` if needed
+		- If you add new sidebar files, add the path to `sidebarFiles`
 	- Run `node tooling/sitemapper.js` from project folder
 		- or, go to "tooling" folder: `cd tooling`, run `node sitemapper.js`
 
@@ -188,6 +189,11 @@ It will use `hash` routing. Else, by default will use `history` route mode.
 	- To handle this, some workaround/hacks are used, like:
 		- `/asset/absolute-to-relative.js` script, custom docsify plugins, etc.
 		- For now most of it works, but **there might be unexpected asset path invalid issues**.
+
+#### Note on domain migration which replace docs.midtrans.com contents
+- To preserve SEO, old docs url paths are 301 redirected to new structure url paths
+	- @WARN: the 301 redirect currently just implemented on Netlify `_redirect` file, which doesn't cover if the site is hosted on non-netlify hosting. 
+	- Might need to replicate the 301 redirect on Nginx config files as well.
 
 </article>
 </details>

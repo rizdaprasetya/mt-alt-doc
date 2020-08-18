@@ -25,3 +25,4 @@
 - **After Payment**
 - [![](asset/image/main/after-payment-icon.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
 - [![](asset/image/main/tech-ref-icon.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
+- [![](asset/image/main/tech-ref-icon.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")

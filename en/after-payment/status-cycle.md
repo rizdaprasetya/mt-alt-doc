@@ -1,3 +1,6 @@
+# Midtrans Transaction Status Cycle Description
+<hr>
+
 <!-- TODO: create status diagram similar to this https://docs.woocommerce.com/wp-content/uploads/2013/05/woocommerce-order-process-diagram.png -->
 The life cycle of `transaction_status` and its possible changes will be listed below.
 
