@@ -194,6 +194,10 @@ It will use `hash` routing. Else, by default will use `history` route mode.
 - To preserve SEO, old docs url paths are 301 redirected to new structure url paths
 	- @WARN: the 301 redirect currently just implemented on Netlify `_redirect` file, which doesn't cover if the site is hosted on non-netlify hosting. 
 	- Might need to replicate the 301 redirect on Nginx config files as well.
+- Old `beta-docs.midtrans.com` domain is now served via separated repo https://github.com/Midtrans/beta-technical-documentation-site
+
+#### Misc
+- If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.
 
 </article>
 </details>
