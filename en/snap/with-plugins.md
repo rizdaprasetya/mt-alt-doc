@@ -66,31 +66,36 @@ Here is the list of Content Management System plugins and extensions that are su
 
 Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on your WooCommerce store, without your customer ever need to leave your WooCommerce store! With beautiful responsive payment interface built-in. We strive to make payments simple for both the merchant and customers. Support various online payment channel. Support WooCommerce v3 & v2.
 
-<!-- Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). -->
+Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). If it's not listed there, you can always download and [install as described below](#b-manual-installation).
 
 #### Requirements:
 * WordPress v3.9 or greater **|** Tested up to v5.x
-* [WooCommerce v2](https://github.com/veritrans/SNAP-Woocommerce) or greater **|** Tested up to v3.5.2
+* WooCommerce v2 or greater **|** Tested up to v3.5.2
 * PHP version v5.4 or greater
 * MySQL version v5.0 or greater
 * PHP CURL enabled server/host
 
 #### Installation:
-<!-- #### A. Simple Installation
+
+Choose **one** from installation options **A or B**:
+
+#### A. Simple Installation
    1. Login to your Wordpress admin panel.
    2. Go to Plugins menu, click add new. Search for Midtrans-WooCommerce plugin.
    3. Install and follow on screen instructions.
-   4. Proceed to Configuration Process. -->
+   4. Proceed to Configuration Process.
+
+If you are unable to install using this method, please proceed with [manual installation below](#b-manual-installation).
 
 #### B. Manual Installation
    1. Download the plugin from [Zip](https://github.com/veritrans/SNAP-Woocommerce/archive/master.zip).
    2. Extract the plugin, then rename the modules folder as **midtrans-woocommerce**.
-   3. Upload the unzipped plugin folder to your WordPress installation's `wp-content/plugins/ directory`.
+   3. Upload the unzipped plugin folder to your WordPress installation's `./wp-content/plugins/` directory.
    4. Install and activate the plugin from plugins menu within the WordPress admin panel
    5. Proceed to Configuration Process.
    
 #### WooCommerce Plugin Configuration Process
-1. Go to **WooCommerce - Settings - Payments - Midtrans** menu, fill the configuration fields.
+1. Go to **WooCommerce -> Settings -> Payments -> Midtrans** menu, fill the configuration fields.
     - Fill **Title** with text button that you want to display to customer
     - Select **Environment**. `Sandbox` for testing transaction and `Production` for real transaction
     - Fill **Merchant ID, Client Key, and Server key**. You can find [this credential on Midtrans MAP Dashboard](/en/snap/preparation.md).
@@ -109,6 +114,8 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 | Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
 
 > **Note:**
+>
+> The `your-site-url` is where you install your Wordpress, it can be the domain root directory (e.g: `https://myshop.com` or `https://shop.myshop.com`) or within a sub directory (e.g: `https://myshop.com/wordpress/`)
 >
 > Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
 > 
@@ -140,6 +147,8 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 
 </article>
 </details>
+
+For more detailed and further configurations, you can also visit this [specific Midtrans Woocommerce wiki documentation](https://github.com/veritrans/SNAP-Woocommerce/wiki).
 <hr><br><br>
 
 ### Magento
