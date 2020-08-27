@@ -62,5 +62,9 @@
 /id/core_api/integration_bank_transfer.html	/en/core-api/bank-transfer 301
 /id/core_api/integration_direct_debit.html	/en/core-api/direct-debit 301
 
+# Handle redirect to prevent ID content being accessed, redirect to EN version
+# @TODO: remove this when ID lang content start being used again
+/id/*	/en/:splat  302
+
 # Handle non-exist file for SPA
 /*    /index.html   200
