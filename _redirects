@@ -48,9 +48,19 @@
 /id/snap/integration_drupal.html 			/en/snap/with-plugins?id=drupal 301
 /id/snap/integration_edd.html 				/en/snap/with-plugins?id=wordpress-easy-digital-download 301
 # TODO /en/snap/integration_php_wizard.html 
+/en/snap/integration_php_wizard.html		/en/snap/integration-guide 301
 /en/snap/integration_php_manual.html 		/en/snap/integration-guide 301
 # TODO id/snap/integration_php_wizard.html
-/id/snap/integration_php_manual.html 		/en/snap/integration-guide
+/id/snap/integration_php_wizard.html		/en/snap/integration-guide 301
+/id/snap/integration_php_manual.html 		/en/snap/integration-guide 301
+/en/core_api/integration_card_basic.html	/en/core-api/credit-card 301
+/en/core_api/integration_gopay.html			/en/core-api/e-wallet 301
+/en/core_api/integration_bank_transfer.html	/en/core-api/bank-transfer 301
+/en/core_api/integration_direct_debit.html	/en/core-api/direct-debit 301
+/id/core_api/integration_card_basic.html	/en/core-api/credit-card 301
+/id/core_api/integration_gopay.html			/en/core-api/e-wallet 301
+/id/core_api/integration_bank_transfer.html	/en/core-api/bank-transfer 301
+/id/core_api/integration_direct_debit.html	/en/core-api/direct-debit 301
 
 # Handle non-exist file for SPA
 /*    /index.html   200
