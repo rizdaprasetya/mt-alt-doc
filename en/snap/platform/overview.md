@@ -123,6 +123,7 @@ For example:
 1. Choose your preferred payment methods, and click the link:
 	- [Bank Transfer BNI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055281)
 	- [Bank Transfer BCA](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055283)
+	- [Bank Transfer BRI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1056041)
 	- [Bank Transfer Permata](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055285)
 	- [Bank Transfer Mandiri Bill](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055287)
 	- [Gopay](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055289)
