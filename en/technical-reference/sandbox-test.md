@@ -96,6 +96,8 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |**Maybank** | 4055 7796 2846 0474 | 5520 0883 1465 3770|
 
 ##### Offline Card 
+For testing scenario: Deny because card is not eligible for online transaction
+
 |Brand | Card Number |
 |---|---|
 | VISA | 4705 8595 1098 4866
