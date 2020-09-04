@@ -641,7 +641,7 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 
 Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Snap payment gateway. We strive to make payments simple for both the merchant and customers. This plugin will allow online payment on your EDD store using various online payment channel. 
 
-<!-- Our EDD plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/edd-midtrans-gateway/)  -->
+Our EDD plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/edd-midtrans-gateway/) 
 
 #### Requirements:
    * WordPress 3.9.1 or greater
@@ -652,15 +652,17 @@ Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Sn
 
 #### Installation:
 
-<!-- #### Simple Installation:
+Choose **one** from installation options **A or B**:
+
+#### A. Simple Installation:
 
 1. Login to your Wordpress admin panel.
 2. Go to Plugins menu, click add new. Search for **Midtrans-Easy-Digital-Downloads** plugin.
 3. Install and follow on screen instructions.
 4. Proceed to configuration section.
-![EDD Install](./../../asset/image/Edd-Install.gif) -->
+![EDD Install](./../../asset/image/Edd-Install.gif)
 
-#### Manual Installation:
+#### B. Manual Installation:
 
 The manual installation method involves downloading our feature-rich plugin and uploading it to your webserver via your favorite FTP application.
 
