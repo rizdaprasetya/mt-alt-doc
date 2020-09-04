@@ -273,6 +273,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "permata_va",
     "bca_va",
     "bni_va",
+    "bri_va",
     "echannel",
     "other_va",
     "danamon_online",
@@ -308,6 +309,7 @@ curl -X POST \
     "permata_va",
     "bca_va",
     "bni_va",
+    "bri_va",
     "echannel",
     "other_va",
     "danamon_online",
@@ -340,7 +342,7 @@ An alias refers to a list of payment types. Adding an alias is the equivalent of
 
 Supported aliases:
 
-* `bank_transfer` = `permata_va, bca_va, bni_va, echannel`
+* `bank_transfer` = `permata_va, bca_va, bni_va, bri_va, echannel`
 * `store` = `kioson, indomaret, alfamart`.
 
 Example usage:
@@ -1026,6 +1028,9 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
   "bni_va": {
     "va_number": "12345678"
   },
+  "bri_va": {
+    "va_number": "12345678"
+  },
   "permata_va": {
     "va_number": "1234567890"
   }
@@ -1048,6 +1053,9 @@ curl -X POST \
     "sub_company_code": "00000"
   },
   "bni_va": {
+    "va_number": "12345678"
+  },
+  "bri_va": {
     "va_number": "12345678"
   },
   "permata_va": {
