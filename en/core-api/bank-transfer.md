@@ -4,12 +4,13 @@ Basic integration process of Bank Transfer (Virtual Account) will be explained b
 
 One of the payment method offered by Midtrans is Bank Transfer. By using this payment method, customers will have the option to make a payment via bank transfer and Midtrans will send real time notification when the customer complete the payment.
 
-At this moment, Midtrans has integrated with 4 different bank transfer payment methods:
+At this moment, Midtrans has integrated with the following bank transfer payment methods:
 
 1. BCA Virtual Account
 2. BNI Virtual Account
-3. Mandiri Bill Payment
-4. Permata Virtual Account
+3. BRI Virtual Account
+4. Mandiri Bill Payment
+5. Permata Virtual Account
 
 ## Integration Step
 1. Send transaction data to API Charge.
@@ -97,6 +98,26 @@ curl -X POST \
   }
   "bank_transfer":{
       "bank": "bni"
+  }
+}'
+```
+
+#### **BRI**
+```bash
+# sample charge in CURL
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "payment_type": "bank_transfer",
+  "transaction_details": {
+      "order_id": "order-101",
+      "gross_amount": 44000
+  }
+  "bank_transfer":{
+      "bank": "bri"
   }
 }'
 ```
@@ -191,6 +212,29 @@ You will get the `va_numbers` attribute which can be performed this transaction.
 ```
 You will get the `va_numbers` attribute which can be performed this transaction.
 
+#### **BRI**
+```json
+{
+    "status_code": "201",
+    "status_message": "Success, Bank Transfer transaction is created",
+    "transaction_id": "9aed5972-5b6a-401e-894b-a32c91ed1a3a",
+    "order_id": "1466323342",
+    "gross_amount": "20000.00",
+    "payment_type": "bank_transfer",
+    "transaction_time": "2016-06-19 15:02:22",
+    "transaction_status": "pending",
+    "va_numbers": [
+      {
+        "bank": "bri",
+        "va_number": "8578000000111111"
+      }
+    ],
+    "fraud_status": "accept",
+    "currency": "IDR"
+}
+```
+You will get the `va_numbers` attribute which can be performed this transaction.
+
 #### **Mandiri Bill**
 ```json
 {
@@ -254,7 +298,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 
 ## Specify VA Number
 
-Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part can be customized for **BCA**, **BNI** and **Permata** (Only supported for b2b transactions) payment types.
+Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part can be customized (For **Permata** only supported for b2b agreement model).
 
 * Only digits are allowed.
 * Different banks have different specs on their custom VA numbers. Please see the documentation on the respective banks.
@@ -287,6 +331,16 @@ Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-tr
 ...
 ```
 
+#### **BRI**
+```json
+...
+  "bank_transfer":{
+    "bank": "bri",
+    "va_number": "12345678"
+  }
+...
+```
+
 #### **Permata**
 ```json
 ...
@@ -304,6 +358,7 @@ BCA `va_number`| String | (optional) | Length should be within 1 to 11.
 BCA `sub_company_code` | String | (optional) | BCA sub company code directed for this transactions. <br>NOTE: Don't use it if you don't know.
 Permata `va_number` | String | (optional) | Length should be 10. Only supported for b2b VA type.
 BNI `va_number` | String | (optional)| Length should be within 1 to 8.
+BRI `va_number` | String | (optional)| Length should be within 1 to 13.
 
 ?> On Production mode, not all Bank support custom VA number, it depends on the agreement, please consult with Midtrans Activation team for further info.
 

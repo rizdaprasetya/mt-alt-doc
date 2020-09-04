@@ -115,6 +115,7 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |BCA Virtual Account | Midtrans will generate a dummy BCA Virtual Account Number. To perform a test transaction, use the [BCA  Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bca/va/index).|
 |Mandiri Bill Payment | Midtrans will generate a Payment Code to complete payment via Mandiri e-channel (Internet Banking, SMS Banking, Mandiri ATM). To perform a test transaction, use the [Mandiri Bill Payment Simulator](https://simulator.sandbox.midtrans.com/mandiri/bill/index).|
 |BNI Virtual Account | Midtrans will generate a dummy BNI Virtual Account Number. To perform a test transaction, use the [BNI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bni/va/index).|
+|BRI Virtual Account | Midtrans will generate a dummy BRI Virtual Account Number. To perform a test transaction, use the [BRI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bri/va/index).|
 
 ### Direct Debit
 
