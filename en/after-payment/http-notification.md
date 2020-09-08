@@ -620,3 +620,17 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 
 </article>
 </details>
+
+### In Case of Notification Not Received or Delayed
+
+Although Midtrans strive for its best to keep notification service reliable, there may be some exceptional cases that can cause notification to be unable to be sent from Midtrans or received from merchant side / your end.
+
+This includes cases like: delay, network/infra issues, unexpected downtime, vendor/service disruption, etc. In this kind of exceptional rare case, merchant should anticipate by performing [Get Status API call](/en/after-payment/get-status) to check for latest status on Midtrans side, to reconcile the status with merchant's internal/database status. Merchant can for example plan the timing of the Get Status:
+- Upon after certain defined time (e.g: after 24 hours) notification is not received, do Get Status.
+- Before transaction considered as failure/canceled on Merchant side, do Get Status.
+- Upon merchant's operations team want to reconcile status, provide function to trigger Get Status.
+- Upon manual checking, when customer complain their fund is deducted but not marked as success on Merchant side.
+- Any scenario that may fits your requirements.
+- etc.
+
+But first remember to make sure to check if the notification issue is not from your end, please refer to the "Best Practice" & "View Notification History" section explained above.
