@@ -175,6 +175,29 @@ This section is **not required**, but if you prefer using Docker, or want to dep
 </article>
 </details>
 
+## Config/Tool Files
+Additionally some config files are presents in this repo, mostly their purpose are for infra/deployment related config.
+
+<details>
+<summary>Config/Tool Files - (Click to expand)</summary>
+<article>
+
+### Netlify Config Files
+These are specific to Netlify, might not be usable outside Netlify scope. These will be read & applied by Netlify during deployment on their infra.
+- `_redirects`: Specify HTTP/server [redirect]((https://docs.netlify.com/routing/redirects/) for the specified url patterns
+
+### Tooling
+These are for helper tools during development.
+- `tooling/`: Folder contains some helper tools.
+	- `sitemapper.js`: Helper tool to generate static sitemap, run manually.
+	- `docker-files/`: Folder containing the files that will be mounted inside docker container. e.g: Nginx config file.
+- `Dockerfile`, `docker-compose.yml`: Docker related resource, to allow using docker during dev or deployment. Run manually.
+
+### Other
+- `firebase.json`: Firebase specific config, will be read when deployed on their infra.
+</article>
+</details>
+
 ## Additional Notes
 <details>
 <summary>Additional Notes - (Click to expand)</summary>
@@ -219,8 +242,9 @@ It will use `hash` routing. Else, by default will use `history` route mode.
 		- For now most of it works, but **there might be unexpected asset path invalid issues**.
 
 #### Note on domain migration which replace docs.midtrans.com contents
-- To preserve SEO, old docs url paths are 301 redirected to new structure url paths
-	- @WARN: the 301 redirect currently just implemented on Netlify `_redirect` file, which doesn't cover if the site is hosted on non-netlify hosting. 
+Historically this docs was deployed as `beta-docs.midtrans.com` before previous docs deprecated, and then fully migrated to `docs.midtrans.com` as of mid August '20.
+- To preserve SEO, url paths previously used on old docs are 301 redirected to new structure url paths
+	- @WARN: the 301 redirect currently just implemented on Netlify `_redirects` file, which doesn't cover if the site is hosted on non-netlify hosting. 
 	- Might need to replicate the 301 redirect on Nginx config files as well.
 - Old `beta-docs.midtrans.com` domain is now served via separated repo https://github.com/Midtrans/beta-technical-documentation-site
 
