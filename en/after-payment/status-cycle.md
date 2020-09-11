@@ -1,3 +1,6 @@
+# Midtrans Transaction Status Cycle Description
+<hr>
+
 <!-- TODO: create status diagram similar to this https://docs.woocommerce.com/wp-content/uploads/2013/05/woocommerce-order-process-diagram.png -->
 The life cycle of `transaction_status` and its possible changes will be listed below.
 
@@ -17,6 +20,20 @@ Transaction Status | Description | Possible changes(s)
 `partial_refund` | Transaction is marked to be partially refunded. | 
 `partial_chargeback` | Transaction is marked to be partially charged back. | 
 
+#### Notes When Using Snap API
+<br>
+<details>
+<summary><b>Notes When Using Snap API</b></summary>
+<article>
+
+When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 
+
+So please expect that you may encounter `404` or payment not found response upon calling Core API get-status even if the payment page is activated on Snap API. 
+
+It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
+
+</article>
+</details>
 
 ### Fraud Status
 

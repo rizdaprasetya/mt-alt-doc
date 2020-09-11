@@ -1,4 +1,5 @@
 # Getting Notified of Payment Status
+<hr>
 
 As Merchant you would like to know or get notified when a payment has been successfully accepted. So you can proceed customer order accordingly.
 

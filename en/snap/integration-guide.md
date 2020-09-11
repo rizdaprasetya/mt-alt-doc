@@ -1,3 +1,6 @@
+# Snap Integration Guide
+<hr>
+
 The steps to do technical integration of Snap will be explained below
 
 ?>**Note:**
@@ -17,11 +20,11 @@ Sign up for an Account to get your Sandbox API keys ready to test integration.
 Retrieve Sandbox mode API keys that will be used for this guide.
 </div>
 
-## Integration Steps
+## Integration Steps Overview
 1. Obtain Transaction `token` on Backend
 2. Show Snap Payment Page on Frontend
-3. Creating Test Payment
-4. Handling Post-Transaction
+3. Create Test Payment
+4. Handle After Payment
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -55,7 +58,7 @@ The example below shows a sample codes to obtain transaction token:
 <!-- tabs:start -->
 #### **API-Request**
 
-*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/developer_resource/library-plugin.md))*
+*This is an example in Curl, please implement according to your backend language, you can switch to other language on the "tab" above. (you can also check our [available language libraries](/en/technical-reference/library-plugin.md))*
 
 #### Request Details
 Type | Value
@@ -308,7 +311,7 @@ transaction_token = transaction['token']
 
 #### **Other**
 
-- Please check our [available **language libraries**](/en/developer_resource/library-plugin.md)
+- Please check our [available **language libraries**](/en/technical-reference/library-plugin.md)
 
 <!-- tabs:end -->
 
@@ -316,7 +319,7 @@ transaction_token = transaction['token']
 
 ### API Response
 
-You will receive API Response like the following:
+Upon successful request, you will receive API Response like the following:
 ```json
 {
   "token":"66e4fa55-fdac-4ef9-91b5-733b97d1b862",
@@ -344,7 +347,7 @@ Status Code | Description | Example
 
 To show Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
-?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
+?> **Alternatively**, you can also use `redirect_url` retrieved from backend on [previous step](#api-response) to redirect customer to Midtrans-hosted payment page. This can be useful if you don't want or can't display payment page on your web page.
 
 There are at least 3 components that are required to do this:
 
@@ -352,7 +355,7 @@ Requirement | Description
 --- | ---
 Client Key | Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 `snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
-transaction `token` | retrieved from backend on [previous step](#_1-obtain-transaction-token-on-backend)
+transaction `token` | retrieved from backend on [previous step](#api-response)
 
 You will need to put your Client Key as the value of `data-client-key` attribute in snap.js script tag. Then you can start the payment process by calling `snap.pay` with transaction `token`.
 
@@ -412,7 +415,7 @@ After payment completed, customer will be redirected back to `Finish URL` [speci
 
 > **Tips:** Optionally, you can also [use Javascript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
-## 3. Creating Test Payment
+## 3. Create Test Payment
 
 Create a test payment to make sure you have integrated Snap successfully. You can use one of our test credentials for Card Payment:
 
@@ -428,7 +431,7 @@ You can use more test payment credentials [available on our sandbox payment simu
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
-## 4. Handling Post-Transaction
+## 4. Handle After Payment
 
 Other than customer being redirected, when the status of payment is updated/changed (i.e: payment has been successfully received), Midtrans will send **HTTP Notification** (or webhook) to your server's `Notification Url` (specified on Midtrans Dashboard, under menu **Settings > Configuration `Notification URL`**). Follow this link for more details:
 
@@ -463,4 +466,4 @@ Learn how transaction status can change, and what are the available actions to t
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/snap/overview.md#c-follow-sample-code)
+> Integration sample codes are also available on our [Github repos](/en/technical-reference/library-plugin.md#sample-integration-code)

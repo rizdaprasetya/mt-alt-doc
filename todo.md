@@ -47,6 +47,7 @@
 - check & fix next/previous page extension, seems doesn't work - done
 - check and patch any XSS potential on any input from URL, eg: part when reading split of `#/` from urls
 - update sitemap generator to also include sub folder sidebar?
+- prevent duplicate entry on sitemapper
 
 ## Content
 
@@ -136,3 +137,4 @@
 - consider double deploy to firebase
 	- https://medium.com/@puuga/deploy-to-firebase-hosting-with-github-actions-f795785fde6b
 	- https://firebase.google.com/docs/hosting/full-config
+- store theme preference across tab session

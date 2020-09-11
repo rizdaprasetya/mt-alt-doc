@@ -17,6 +17,7 @@
 	- [Postman Collection](en/technical-reference/postman-collection.md "Midtrans - Postman Collection Documentation")
 	- [IP Address & API domain](en/technical-reference/ip-address.md "Midtrans - IP Address & API domain Documentation")
 	- [Error Code & Response](en/technical-reference/error-response-code.md "Midtrans - Error Code & Response Documentation")
+	- [Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 	- [Snap API Docs ↗](https://snap-docs.midtrans.com)
 	- [Mobile SDK Docs ↗](https://mobile-docs.midtrans.com)
 	- [Core API Docs ↗](https://api-docs.midtrans.com)

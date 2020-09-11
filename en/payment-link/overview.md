@@ -1,4 +1,5 @@
-# Payment Link
+# Payment Link Overview
+<hr>
 Payment link provides an easy way to accept payments from your customers. Midtrans will generate a link that redirects the customer to Midtrans’s payment page. No technical integration is required, suitable for small business owners of social media sellers (Instagram, Facebook, etc).
 
 ## Create Payment Link
@@ -23,7 +24,7 @@ Additional options are available if (a) you want to send the Payment Link to a s
 
 If the transaction is directed towards a specific customer, the Payment Link will be sent straight to the specified customer’s email address. Expiration Date is the last day the Payment Link can be used and accessed.
 
-## Managing Payment Link
+## Manage Payment Link
 
 After creating the Payment Link, you will be redirected to the Payment Link List page where you can view a list of Payment Links created. You can copy and share any of your links to your customers. You can also see details and delete your links from this page.
 

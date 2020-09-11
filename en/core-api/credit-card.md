@@ -1,6 +1,7 @@
 <!-- TODO: explain it also accept Debit card -->
 <!-- TODO: explain when the card is checked for balance/limit, after 3DS -->
-# Card Transaction Integration
+# Core API Card Transaction Integration
+<hr>
 One of the payment method offered by Midtrans is Card transaction. By using this payment method, customers will have the option to pay using credit card (or online-transaction-capable debit card) that is within Visa, MasterCard, JCB, or Amex network. Midtrans will also send real time notification when the customer complete the payment.
 
 ![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
@@ -12,11 +13,11 @@ Basic integration process of Card Transaction (3DS) will be explained below.
 
 ?> Please make sure you have already done [creating your Midtrans Account](/en/midtrans-account/overview.md), before proceeding with this section.
 
-## Integration Step
+## Integration Step Overview
 1. Get Card Token, via Frontend
 2. Send transaction data to API Charge, via Backend
 3. Open 3DS Authentication Page, via Frontend
-4. Handling Post-Transaction
+4. Handle After Payment
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -67,11 +68,17 @@ var options = {
     // Success to get card token_id, implement as you wish here
     console.log('Success to get card token_id, response:', response);
     var token_id = response.token_id;
+
     console.log('This is the card token_id:', token_id);
+    // Implement sending the token_id to backend to proceed to next step
   },
   onFailure: function(response){
     // Fail to get card token_id, implement as you wish here
     console.log('Fail to get card token_id, response:', response);
+
+    // you may want to implement displaying failure message to customer.
+    // Also record the error message to your log, so you can review
+    // what causing failure for this transaction.
   }
 };
 
@@ -92,11 +99,46 @@ OTP/3DS | `112233`
 Link: [*More testing credentials*](/en/technical-reference/sandbox-test.md).
 
 ### Get Card Token Response
-If all goes well, we will be able to get card `token_id` inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
+If all goes well, we will be able to get card `token_id` from `response` object inside `onSuccess` callback function. It will be used as one of JSON parameter for [`/charge` API request](en/core-api/credit-card.md?id=charge-api-request).
 
 `token_id` will need to be passed from frontend to backend for next step, it can be done using AJAX via Javascript, or html form POST, etc. Merchant are free to implement.
 
 > **Note:** This `token_id` is only valid for 1 transaction. For each card transaction it is required to go through this process, to help ensure card data is transmitted securely. If you are looking to persist/save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click)/[Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
+
+<details>
+<summary><b>Sample Get Token Response</b></summary>
+<article>
+
+<!-- tabs:start -->
+#### **Success Response**
+Sample onSuccess `response` object:
+```json
+{
+  "status_code": "200",
+  "status_message": "Credit card token is created as Token ID.",
+  "token_id": "481111-1114-77328ff4-eba6-4201-b31a-1070d8f19ae9",
+  "hash": "481111-1114-xxxx"
+}
+```
+
+#### **Failure Response**
+Sample onFailure `response` object, it may contains the `validation_messages`:
+```json
+{
+  "status_code": "400",
+  "status_message": "One or more parameters in the payload is invalid.",
+  "validation_messages": [
+    "This card is not supported for online transactions. Please contact your bank", 
+    "card_number does not match with luhn algorithm"
+  ],
+  "id": "02197189-7cab-4006-8379-51edcd0a253b"
+}
+```
+
+<!-- tabs:end -->
+
+</article>
+</details>
 
 ## 2. Send Transaction Data to API Charge
 
@@ -357,7 +399,7 @@ charge_response = core_api.charge(param)
 ?> **Optional:** You can customize [transaction_details](https://snap-docs.midtrans.com/#json-objects) data. To include data like `customer_details`, `item_details`, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
 
 ### Charge API response
-You will get the **API response** like the following:
+Upon successful request, you will get the **API response** like the following:
 
 ```json
 {
@@ -464,41 +506,67 @@ var popupModal = (function(){
 ```
 
 ### 3DS Authenticate JSON Response
-On the JS callback function, we will get JSON of the transaction result like below.
+On the JS callback function, we will get the transaction result as JSON response like the followings.
 
+<!-- tabs:start -->
+#### **Success Response**
+Sample of success transaction callback response:
 ```json
 {
   "status_code": "200",
   "status_message": "Success, Credit Card transaction is successful",
-  "transaction_id": "226ba26f-b050-4fc5-aa25-b7f8169bc67b",
-  "order_id": "order102",
-  "gross_amount": "789000.00",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved",
+  "bank": "bni",
+  "eci": "05",
+  "transaction_id": "405d27d5-5ad9-43ac-bdd6-0ccbde7d7dda",
+  "order_id": "test-transaction-54321",
+  "merchant_id": "G490526303",
+  "gross_amount": "100000.00",
   "currency": "IDR",
   "payment_type": "credit_card",
-  "transaction_time": "2019-08-27 17:22:08",
+  "transaction_time": "2020-08-12 16:04:23",
   "transaction_status": "capture",
   "fraud_status": "accept",
-  "approval_code": "1566901334936",
-  "eci": "05",
+  "approval_code": "1597223068747",
   "masked_card": "481111-1114",
-  "bank": "bni",
-  "card_type": "credit",
-  "channel_response_code": "00",
-  "channel_response_message": "Approved"
+  "card_type": "credit"
 }
 ```
+
+#### **Failure Response**
+Sample of failure transaction callback response:
+```json
+{
+  "status_code": "202",
+  "status_message": "Card is not authenticated.",
+  "bank": "bni",
+  "eci": "07",
+  "transaction_id": "1063cc1f-f07e-4755-ab85-19a4592de097",
+  "order_id": "test-transaction-54321",
+  "merchant_id": "G490526303",
+  "gross_amount": "100000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-08-12 16:03:49",
+  "transaction_status": "deny",
+  "fraud_status": "accept",
+  "masked_card": "481111-1114",
+}
+```
+<!-- tabs:end -->
 
 If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means the transaction is success, and is now complete.
 
 > **IMPORTANT NOTE:** To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status).
 
-## 4. Handling Post-Transaction
+## 4. Handle After Payment
 
 Other than customer being redirected, when the status of payment is updated/changed (i.e: payment has been successfully received), Midtrans will send **HTTP Notification** (or webhook) to your server's `Notification Url` (specified on Midtrans Dashboard, under menu **Settings > Configuration `Notification URL`**). Follow this link for more details:
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+#### [Handle Webhook HTTP Notification](/en/after-payment/http-notification.md)
 </div>
 
 ## Description
@@ -512,9 +580,7 @@ Other than customer being redirected, when the status of payment is updated/chan
 | `deny` | Transaction is denied, further check `channel_response_message` or `fraud_status` |
 | `expire` | Transaction failure because customer did not complete 3DS within allowed time |
 
-Link: [*More detailed definition of transaction_status*](https://api-docs.midtrans.com/#transaction-status)
-
-Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com/#fraud-status)
+Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>

@@ -1,3 +1,6 @@
+# Midtrans Dashboard Usage
+<hr>
+
 The general usage of Dashboard or Merchant Administration Portal (MAP) will be explained below.
 
 The initial page is the dashboard. On this page, you can see information on transaction volumes, most used payment methods, as well as the level of acceptance of transactions that occur, etc.

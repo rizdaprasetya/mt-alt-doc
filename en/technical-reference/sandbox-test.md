@@ -1,4 +1,5 @@
 # Testing Payment on Sandbox
+<hr>
 
 On Sandbox, Midtrans use web based simulator to simulate payment-provider's/bank's system response, so that you can test most success and failure scenario that might happen on production, **without actually doing real payment**.
 
@@ -93,6 +94,14 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |**BRI** | 4365 0286 6251 2583 | 5520 0219 0920 3008|
 |**MEGA** | 4201 9100 0000 0025 | 5221 0300 0000 0025|
 |**Maybank** | 4055 7796 2846 0474 | 5520 0883 1465 3770|
+
+##### Offline Card 
+For testing scenario: Deny because card is not eligible for online transaction
+
+|Brand | Card Number |
+|---|---|
+| VISA | 4705 8595 1098 4866
+| MASTERCARD | 5597 5189 2656 1951
 <!-- tabs:end -->
 
 ?> **[General](#card-number)** card number is for general feature testing of card payment, **[Bank Specific](#card-number)** card number is useful for testing advanced card feature like on-us/off-us installment, whitelist BIN, promo, etc. that requires card from specific Bank.
@@ -115,6 +124,7 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |BCA Virtual Account | Midtrans will generate a dummy BCA Virtual Account Number. To perform a test transaction, use the [BCA  Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bca/va/index).|
 |Mandiri Bill Payment | Midtrans will generate a Payment Code to complete payment via Mandiri e-channel (Internet Banking, SMS Banking, Mandiri ATM). To perform a test transaction, use the [Mandiri Bill Payment Simulator](https://simulator.sandbox.midtrans.com/mandiri/bill/index).|
 |BNI Virtual Account | Midtrans will generate a dummy BNI Virtual Account Number. To perform a test transaction, use the [BNI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bni/va/index).|
+|BRI Virtual Account | Midtrans will generate a dummy BRI Virtual Account Number. To perform a test transaction, use the [BRI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bri/va/index).|
 
 ### Direct Debit
 
@@ -133,6 +143,9 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |Indomaret | Midtrans will generate a dummy Indomaret Payment Code. To perform a test transaction, use the [Indomaret Simulator](https://simulator.sandbox.midtrans.com/indomaret/index).|
 |Alfamart | Midtrans will generate a dummy Alfamart Payment Code. To perform a test transaction, use the [Alfamart Simulator](https://simulator.sandbox.midtrans.com/alfamart/index).|
 |Kioson | Midtrans will generate a dummy Kioson Payment Code. To perform a test transaction, use the [Kioson Simulator](https://simulator.sandbox.midtrans.com/kioson/index).|
+
+
+**Note on Alfamart:** *If you are unable to find out what to input in `Product Code` field, please contact us via support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
 ### Cardless Credit 
 

@@ -1,4 +1,5 @@
 # HTTP(S) Notification / Webhook
+<hr>
 
 Notification through HTTP(S) POST / Webhook will be sent to the merchant's server when customer completes the payment process and when transaction status changes (transaction refunded, pending, etc). Merchant can utilize the HTTP(S) POST notification to update a payment status or send the item of a transaction in real time.
 
@@ -365,6 +366,21 @@ fraud_status | 🔍 | description
 `challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
 <!-- tabs:end -->
 
+#### Notes When Using Snap API
+<br>
+<details>
+<summary><b>Notes When Using Snap API</b></summary>
+<article>
+
+When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 
+
+So please expect that you may encounter `404` or payment not found response upon calling Core API get-status even if the payment page is activated on Snap API. 
+
+It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
+
+</article>
+</details>
+
 ### Verify Notification Authenticity
 
 To ensure the content integrity and the notification is securely sent by Midtrans, not by other unverified party, we recommend you to verify the notification by one of these mechanisms:
@@ -604,3 +620,17 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 
 </article>
 </details>
+
+### In Case of Notification Not Received or Delayed
+
+Although Midtrans strive for its best to keep notification service reliable, there may be some exceptional cases that can cause notification to be unable to be sent from Midtrans or received from merchant side / your end.
+
+This includes cases like: delay, network/infra issues, unexpected downtime, vendor/service disruption, etc. In this kind of exceptional rare case, merchant should anticipate by performing [Get Status API call](/en/after-payment/get-status) to check for latest status on Midtrans side, to reconcile the status with merchant's internal/database status. Merchant can for example plan the timing of the Get Status:
+- Upon after certain defined time (e.g: after 24 hours) notification is not received, do Get Status.
+- Before transaction considered as failure/canceled on Merchant side, do Get Status.
+- Upon merchant's operations team want to reconcile status, provide function to trigger Get Status.
+- Upon manual checking, when customer complain their fund is deducted but not marked as success on Merchant side.
+- Any scenario that may fits your requirements.
+- etc.
+
+But first remember to make sure to check if the notification issue is not from your end, please refer to the "Best Practice" & "View Notification History" section explained above.

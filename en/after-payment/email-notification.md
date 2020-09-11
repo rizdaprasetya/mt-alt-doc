@@ -1,4 +1,5 @@
 # Email Notification
+<hr>
 
 Whenever transaction status changes: success, failure, cancel, etc. Midtrans by default will notify by email the status of the transaction to Merchant email (email configured on dashboard) & Customer email (email inputted on Snap payment page). 
 

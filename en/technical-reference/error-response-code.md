@@ -1,4 +1,5 @@
 # Error Code And Response Code
+<hr>
 
 ### Definiton
 

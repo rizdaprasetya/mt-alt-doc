@@ -1,4 +1,5 @@
 # API Authorization & Headers
+<hr>
 
 For backend based API request/call, Midtrans API require HTTP(s) headers that will be explained below.
 

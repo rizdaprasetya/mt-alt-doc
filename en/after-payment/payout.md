@@ -1,3 +1,6 @@
+# Receiving Your Fund as Payout
+<hr>
+
 ## Billings Page
 Billings page is a page to view financial information between merchant and Midtrans. On this page merchant can find out the amount of funds that can be withdrawn to merchant (payout), the bank account information to which the funds are disbursed, and the history of payouts.
 

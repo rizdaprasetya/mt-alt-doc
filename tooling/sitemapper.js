@@ -5,11 +5,11 @@ const cf = {
     sidebarFiles: [
         "./../_sidebar.md",
         "./../en/payments/_sidebar.md",
-        "./../id/_sidebar.md"
+        // "./../id/_sidebar.md"
     ],
     outputXmlPath: "./../sitemap.xml",
     urlPriority:"0.75",
-    sitePrefix: "https://beta-docs.midtrans.com/", // append this prefix to url
+    sitePrefix: "https://docs.midtrans.com/", // append this prefix to url
     removeSuffix: ".md", // delete this suffix from url
     ignorePrefix: "http", // any url that have this prefix will not be modified
     excludeUrl: ".svg",

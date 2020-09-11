@@ -1,3 +1,6 @@
+# Snap Advanced Features
+<hr>
+
 <!-- TODO:add sample code for lang other than CURL? -->
 Snap have various optional parameters that can be utilized for more advanced use case that can help your integration.
 
@@ -270,6 +273,7 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
     "permata_va",
     "bca_va",
     "bni_va",
+    "bri_va",
     "echannel",
     "other_va",
     "danamon_online",
@@ -305,6 +309,7 @@ curl -X POST \
     "permata_va",
     "bca_va",
     "bni_va",
+    "bri_va",
     "echannel",
     "other_va",
     "danamon_online",
@@ -337,7 +342,7 @@ An alias refers to a list of payment types. Adding an alias is the equivalent of
 
 Supported aliases:
 
-* `bank_transfer` = `permata_va, bca_va, bni_va, echannel`
+* `bank_transfer` = `permata_va, bca_va, bni_va, bri_va, echannel`
 * `store` = `kioson, indomaret, alfamart`.
 
 Example usage:
@@ -502,7 +507,7 @@ curl -X POST \
 <!-- tabs:end -->
 
 <!-- TODO: explain about 3DS and non 3DS save card feature -->
-### Saving Cards for Seamless Subsequent Payment
+### Save Card for Seamless Subsequent Payments
 You can allow customer to save their card credentials within Snap payment page, for easier and faster future transactions. Card credentials will be saved securely on Midtrans side, and will not require merchant to manage the card data.
 
 Merchant will only need to store and associate each unique customer with unique `user_id` defined by merchant.
@@ -555,7 +560,7 @@ To better understand the use cases, you an also further refer to [this article](
 ### Recurring / Subscription Card Transaction
 Snap can be utilized **to initialize** subscription or recurring payment flow. Note that:
 
-* You will require Core API to do the recurring charge.
+* You will require [Core API](/en/core-api/overview.md) to do the recurring charge.
 * Currently, recurring only support card transaction.
 
 Please refer to sequence below to understand the recommended flow:
@@ -610,7 +615,7 @@ When you want to charge that particular customer, you will need to proceed with 
 
 To better understand the use cases, you an also further refer to [this article](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
-### Routing Transactions to Specific Acquiring
+### Route Transactions to Specific Acquiring
 Merchant can specify which Acquring Bank they prefer to use for specific Snap transaction. Transaction fund will be routed to that specific acquiring bank. Please consult to Midtrans Activation Team for the availability of the acquiring bank.
 
 * Specify the bank name inside the `bank` parameter
@@ -653,7 +658,7 @@ curl -X POST \
 ### BIN Filter
 BIN filter is a feature that allows the merchant to accept only Credit Cards within specific set of BIN numbers, it is useful for certain bank promo/discount payment by accepting only credit cards issued by that bank. BIN (Bank Identification Number) is the **first 1-6 digits of a card number**, which identifies the bank that issues the card. A bank generally has more than one BIN.
 
-To use this feature, merchant needs to accumulate the list of BIN that accepts the promotion or simply uses the issuing bank's name. This list of BIN or issuing bank name will then become a transaction parameter whitelist_bins. This transaction can only be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
+To use this feature, merchant needs to accumulate the list of BIN that accepts the promotion or simply uses the issuing bank's name. This list of BIN or issuing bank name will then become a transaction parameter `whitelist_bins`. This transaction can only be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
@@ -703,11 +708,11 @@ curl -X POST \
 The following figure displays the Snap payment page with BIN Filter feature:
 ![snap bin filter](./../../asset/image/snap-adv-bin-filter.png)
 
-### Installment Payment
+### Card Installment Payment
 #### Online Installment
 This is the type of Installment where the Card Issuer and Acquiring Bank is the same entity (e.g: BNI Card and BNI Acquiring bank).
 
-To activate the installment feature, merchant are required to have agreement with the bank. For online installments, the bank will issue special MID for installment. By using this installment MID, the transaction will be converted automatically into an installment. Please consult to Midtrans Activation Team for installment MID. If MID is ready, merchant simply need to add the installment parameter.
+To activate the installment feature, merchant are required to have agreement with the bank. For online installments, the bank will issue special MID for installment. By using this installment MID, the transaction will be converted automatically into an installment. Please consult to Midtrans Activation Team for installment MID. If MID is ready, merchant simply need to add the `installment` parameter.
 
 ```json
 ...
@@ -874,6 +879,8 @@ Param | Description
 ### Pre-Authorization Payment
 Pre-authorization feature means customer's fund will not directly deducted after transaction, but it's amount/limit will be temprorary reserved (blocked). Then merchant can initiate "capture" action later via [Core API](https://api-docs.midtrans.com/#capture-transaction). By default fund reservation will be released after 7 days if there is no "capture" action for that transaction.
 
+To use this feature, merchant need to add `"type": "authorize"` parameter.
+
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
 <!-- tabs:start -->
 #### **JSON Param**
@@ -1021,6 +1028,9 @@ Example of the JSON param (this param is used during [API Request Step](/en/snap
   "bni_va": {
     "va_number": "12345678"
   },
+  "bri_va": {
+    "va_number": "12345678"
+  },
   "permata_va": {
     "va_number": "1234567890"
   }
@@ -1043,6 +1053,9 @@ curl -X POST \
     "sub_company_code": "00000"
   },
   "bni_va": {
+    "va_number": "12345678"
+  },
+  "bri_va": {
     "va_number": "12345678"
   },
   "permata_va": {
@@ -1166,7 +1179,7 @@ recipient_name | String | (optional) | Recipient name shown on the on the bankâ€
 
 ## Convenience Store
 
-### Specify Alfamart
+### Specify Alfamart Free Text
 Text that will be shown/printend on Alfamart receipt can be customized.
 
 Example of the JSON param (this param is used during [API Request Step](/en/snap/integration-guide.md#api-request)):
@@ -1220,6 +1233,20 @@ By using Midtrans API there are some consideration and limitation you need to ke
 Midtrans API allow maximum size of **16kb** per request (**\~16000 total characters**). Please strive to keep it under this limit to avoid request failure.
 
 Tips: You can try to limit the number of `item_details` from your request, or atleast group it into fewer (or 1 generic) `item_details`.
+
+### Snap Token Expiry Time
+
+For regular snap transaction, snap `token` and also the `redirect_url` default lifetime is **24 hours**. It can be customized by following "Custom Expiry" section.
+
+Within that time limit the payment page is available for customer to proceed payment. Beyond that, it will shows that the payment page is no longer available.
+
+### Note on Core API Get Status
+
+When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 
+
+So please expect that you may encounter `404` or payment not found response upon calling Core API get-status even if the payment page is activated on Snap API. 
+
+It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
 
 ## Reference
 

@@ -1,4 +1,4 @@
-# Instruction
+# Instructions
 
 <details>
 <summary><b>Tech Stack Summary </b>(click to expand)</summary>
@@ -19,31 +19,40 @@
 ## Usage
 
 - Download/clone and extract this folder to your local machine.
-- Run any local webserver and make sure you can open the `index.html` from the webserver. For example:
-	- You can run MAMP/XAMPP and copy this project folder to your `htdocs` folder. Access it from localhost url.
-	- You can run Python `python -m SimpleHTTPServer`, and open `localhost:8000/index.html`.
-	- You can use [Serve NPM package](https://www.npmjs.com/package/serve) on NodeJS
-	- Or even from browser itself, via [Chrome Web Server Extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
-	- Or preview online with codesandbox: https://codesandbox.io/s/github/rizdaprasetya/mt-alt-doc
-	- etc.
-- Open web browser and point it to the `index.html` file. i.e: `localhost/mt-alt-doc/index.html`.
-- Live preview from Github repo are might also be possible:
-	- Preview using Githack: https://raw.githack.com/rizdaprasetya/mt-alt-doc/master/
-	- Change `master` with any branch you want to preview
-	- Note: Githack is free service so it might not be always available
+- Run any local webserver and make sure you can open the `index.html` from the webserver. (See example below this paragraph for some reference).
+- Open web browser and point it to the `index.html` file. i.e: `localhost/technical-documentation-site/index.html`.
+- Live preview from Github repo can also be possible:
+	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
+		- You can also change `master` with any branch you want to preview
+		- Note: Githack is free service so it might not be always available
+
+<details>
+<summary>Example Web Server - (Click to Expand)</summary>
+<article>
+
+### Example Web Server
+For example (choose one of it, not all):
+- You can run MAMP/XAMPP and copy this project folder to your `htdocs` folder. Access it from localhost url.
+- You can run Python `python -m SimpleHTTPServer`, and open `localhost:8000/index.html`.
+- You can use [Serve NPM package](https://www.npmjs.com/package/serve) on NodeJS
+- Or even from browser itself, via [Chrome Web Server Extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en)
+- Or preview online with codesandbox: https://codesandbox.io/s/github/Midtrans/technical-documentation-site
+- etc.
+</article>
+</details>
 
 ## Structure & Standard
 
-- Documentation content are located at `en` (english) & `id` (indonesia) folder. i.e: `/en/snap/overview.md`.
-- Subfolder are grouped in accordance with how it listed in Sidebar Menu. i.e: snap, midtrans_account, etc.
-- Docs content are in markdown format.
-- Docs content can contain html tags, but please use markdown as much as possible, to minimize custom html tags.
-- Url/links:
-	- For best compatibility, please use absolute path like `/en/snap/overview.md`, instead of `en/snap/overview.md`
+- Documentation content is located at `en` (english) & `id` (indonesia) folder. i.e: `/en/snap/overview.md`.
+- Subfolders are grouped in accordance with how it listed in Sidebar Menu. i.e: `snap`,` midtrans_account`, etc.
+- Docs content is in markdown format.
+- Docs content can contain html tags, but try to use markdown as much as possible, to minimize custom html tags.
+- Url/links within content:
+	- For best compatibility, please use absolute path like `[link to snap](/en/snap/overview.md)`, instead of `[link to snap](en/snap/overview.md)`
 	- If the link refer to some html id, use this `/en/snap/overview.md#integration`, instead of `?id=integration`
 - Sidebar menu is rendered from `_sidebar.md` file
 	- Link title will be used as the page title, to define title, e.g: `- [menu name](/en/menu/path.md "Page Title Here")`
-- This project are using [Docsify](https://docsify.js.org/).
+- This project is using [Docsify](https://docsify.js.org/).
 - `index.html` contains all the Docsify script, plugins, and config.
 	- External `css`,`js` file dependencies (`<script>` tag) should have ["intigrity" SRI attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). e.g: use [jsdelivr.com](https://www.jsdelivr.com/package/npm/prismjs?version=1.17.1&path=components), click `copy HTML + SRI`.
 	- SRI is additional security protection against external file being modified by unauthorized party.
@@ -62,11 +71,21 @@
 		- Refresh browser while dev tools still open (alternatively `cmd + shift + R` to hard refresh)
 - Generate `sitemap.xml` file for SEO purpose, by: 
 	- Modify `config` within `tooling/sitemapper.js` if needed
+		- If you add new sidebar files, add the path to `sidebarFiles`
 	- Run `node tooling/sitemapper.js` from project folder
 		- or, go to "tooling" folder: `cd tooling`, run `node sitemapper.js`
 
-### Custom CSS elements
+### Customizing CSS
+To customize CSS in order to stylize the overall looks and feel of the docs, we can override the default Docsify's theme CSS. For example we have our own custom CSS file located in: `/asset/custom.css`.
+
+Edit the above file to add your own custom CSS style and rule.
+
+### Using Custom CSS elements
 There are some custom elements to make UX better:
+
+<details>
+<summary>Custom Element Usage - (Click to expand)</summary>
+<article>
 
 #### Tabs
 Using [docsify tabs plugin](https://jhildenbiddle.github.io/docsify-tabs), sample usage
@@ -82,7 +101,7 @@ Tabs content 2
 ```
 
 #### Collapsible
-Custom implementation. 
+Custom html implementation. 
 Sample usage via native html `details` & `summary` tag (recommended, also markdown compatible): 
 
 ```html
@@ -107,7 +126,7 @@ input's "id" attribute must be unique from other collapsible instances, and must
 ```
 
 #### Card
-Custom implementation, sample usage:
+Custom implementation in html, sample usage:
 
 ```html
 <div class="my-card">
@@ -116,13 +135,22 @@ Custom implementation, sample usage:
 Optional card body content, or actually you can use any html/markdown content within card.
 </div>
 ```
+</article>
+</details>
 
-## Deploying
+## Deploying to Production
 
-- Just pull request or commit to `master` branch.
-- Commit pushed to `master` branch are auto-deployed to https://mt-alt-doc.netlify.com .
+- Just open pull request or commit to `master` branch.
+- Commit pushed to `master` branch will be auto-deployed to https://midtrans-docs.netlify.com .
+	- Each pull request will also trigger Netlify to deploy as preview branch. So you can preview how it will looks like before merging to `master` branch.
 
-## Using Docker (and Compose)
+<details>
+<summary>Optional Advanced Usage - (Click to expand)</summary>
+<article>
+
+## Optional Advanced Usage: Using Docker (and Compose)
+
+This section is **not required**, but if you prefer using Docker, or want to deploy as container.
 
 - Using `nginx:alpine` image
 - By default, docker file will `COPY` the necessary files from project dir at build time.
@@ -144,7 +172,31 @@ Optional card body content, or actually you can use any html/markdown content wi
 	- Advanced:
 		- ssh to container: `docker exec -it nginx_static /bin/sh` on runtime
 		- restart nginx to apply new config on ssh: `/usr/sbin/nginx -s reload`
+</article>
+</details>
 
+## Config/Tool Files
+Additionally some config files are presents in this repo, mostly their purpose are for infra/deployment related config.
+
+<details>
+<summary>Config/Tool Files - (Click to expand)</summary>
+<article>
+
+### Netlify Config Files
+These are specific to Netlify, might not be usable outside Netlify scope. These will be read & applied by Netlify during deployment on their infra.
+- `_redirects`: Specify HTTP/server [redirect]((https://docs.netlify.com/routing/redirects/) for the specified url patterns
+
+### Tooling
+These are for helper tools during development.
+- `tooling/`: Folder contains some helper tools.
+	- `sitemapper.js`: Helper tool to generate static sitemap, run manually.
+	- `docker-files/`: Folder containing the files that will be mounted inside docker container. e.g: Nginx config file.
+- `Dockerfile`, `docker-compose.yml`: Docker related resource, to allow using docker during dev or deployment. Run manually.
+
+### Other
+- `firebase.json`: Firebase specific config, will be read when deployed on their infra.
+</article>
+</details>
 
 ## Additional Notes
 <details>
@@ -188,6 +240,16 @@ It will use `hash` routing. Else, by default will use `history` route mode.
 	- To handle this, some workaround/hacks are used, like:
 		- `/asset/absolute-to-relative.js` script, custom docsify plugins, etc.
 		- For now most of it works, but **there might be unexpected asset path invalid issues**.
+
+#### Note on domain migration which replace docs.midtrans.com contents
+Historically this docs was deployed as `beta-docs.midtrans.com` before previous docs deprecated, and then fully migrated to `docs.midtrans.com` as of mid August '20.
+- To preserve SEO, url paths previously used on old docs are 301 redirected to new structure url paths
+	- @WARN: the 301 redirect currently just implemented on Netlify `_redirects` file, which doesn't cover if the site is hosted on non-netlify hosting. 
+	- Might need to replicate the 301 redirect on Nginx config files as well.
+- Old `beta-docs.midtrans.com` domain is now served via separated repo https://github.com/Midtrans/beta-technical-documentation-site
+
+#### Misc
+- If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.
 
 </article>
 </details>

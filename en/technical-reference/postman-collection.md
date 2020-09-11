@@ -1,3 +1,6 @@
+# Midtrans API Postman Collection
+<hr>
+
 [Postman](https://www.getpostman.com/) is a user friendly tool that make it easy for you to quickly send and test REST API request without doing complex programming.
 
 Midtrans provide Postman Collection that you can import and then you can play and test around with Midtrans API in no time.

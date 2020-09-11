@@ -1,3 +1,5 @@
+# Integrate Midtrans Snap to Ecommerce Content Management System
+<hr>
 Content Management System (CMS) allow you to easily have website / web store without building (programming) from scratch. Most of the time CMS don't require you to know too much about technical knowledge, by just installing the CMS and then configure or customize it to suit your desire. It means most of the time you just need to care about managing the content (Content Management). Example of CMS are: Wordpress, Magento 2, Prestashop, WHMCS, etc.
 
 ### Preparation
@@ -62,31 +64,38 @@ Here is the list of Content Management System plugins and extensions that are su
 ### Wordpress - WooCommerce
 <hr>
 
-Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on your WooCommerce store, without your customer ever need to leave your WooCommerce store! With beautiful responsive payment interface built-in. We strive to make payments simple for both the merchant and customers. Support various online payment channel. Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). Support WooCommerce v3 & v2
+Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on your WooCommerce store, without your customer ever need to leave your WooCommerce store! With beautiful responsive payment interface built-in. We strive to make payments simple for both the merchant and customers. Support various online payment channel. Support WooCommerce v3 & v2.
+
+Our WooCommerce plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). If it's not listed there, you can always download and [install as described below](#b-manual-installation).
 
 #### Requirements:
-* WordPress v3.9 or greater **|** Tested up to v5.0.0
-* [WooCommerce v2](https://github.com/veritrans/SNAP-Woocommerce) or greater **|** Tested up to v3.5.2
+* WordPress v3.9 or greater **|** Tested up to v5.x
+* WooCommerce v2 or greater **|** Tested up to v3.5.2
 * PHP version v5.4 or greater
 * MySQL version v5.0 or greater
 * PHP CURL enabled server/host
 
 #### Installation:
+
+Choose **one** from installation options **A or B**:
+
 #### A. Simple Installation
    1. Login to your Wordpress admin panel.
    2. Go to Plugins menu, click add new. Search for Midtrans-WooCommerce plugin.
    3. Install and follow on screen instructions.
    4. Proceed to Configuration Process.
 
+If you are unable to install using this method, please proceed with [manual installation below](#b-manual-installation).
+
 #### B. Manual Installation
    1. Download the plugin from [Zip](https://github.com/veritrans/SNAP-Woocommerce/archive/master.zip).
    2. Extract the plugin, then rename the modules folder as **midtrans-woocommerce**.
-   3. Upload the unzipped plugin folder to your WordPress installation's `wp-content/plugins/ directory`.
+   3. Upload the unzipped plugin folder to your WordPress installation's `./wp-content/plugins/` directory.
    4. Install and activate the plugin from plugins menu within the WordPress admin panel
    5. Proceed to Configuration Process.
    
 #### WooCommerce Plugin Configuration Process
-1. Go to **WooCommerce - Settings - Checkout - Midtrans** menu, fill the configuration fields.
+1. Go to **WooCommerce -> Settings -> Payments -> Midtrans** menu, fill the configuration fields.
     - Fill **Title** with text button that you want to display to customer
     - Select **Environment**. `Sandbox` for testing transaction and `Production` for real transaction
     - Fill **Merchant ID, Client Key, and Server key**. You can find [this credential on Midtrans MAP Dashboard](/en/snap/preparation.md).
@@ -97,15 +106,21 @@ Midtrans  ❤️ WooCommerce! This plugin will allow secure online payment on yo
 #### WooCommerce Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
 
-   * Payment Notification URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Unfinish Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-   * Error Redirect URL:<br>
-        `http://[your web]/?wc-api=WC_Gateway_Midtrans`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Finish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Error Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+| Unfinish Redirect URL | [your-site-url]/?wc-api=WC_Gateway_Midtrans |
+
+> **Note:**
+>
+> The `your-site-url` is where you install your Wordpress, it can be the domain root directory (e.g: `https://myshop.com` or `https://shop.myshop.com`) or within a sub directory (e.g: `https://myshop.com/wordpress/`)
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+
 <details>
 <summary>
   
@@ -132,6 +147,8 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 
 </article>
 </details>
+
+For more detailed and further configurations, you can also visit this [specific Midtrans Woocommerce wiki documentation](https://github.com/veritrans/SNAP-Woocommerce/wiki).
 <hr><br><br>
 
 ### Magento
@@ -260,18 +277,22 @@ In case you need to customize configuration these field are configurable, and de
 
 #### Magento 2 Plugin Notification Configuration
 1. Login to your [Midtrans&nbsp;  Account](https://dashboard.midtrans.com), select your environment (sandbox/production), go to menu `settings -> configuration`
-   * Payment Notification URL: 
-    >`http://[your-site-url]/snap/payment/notification`
-   * Finish Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
-   * Unfinish Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
-   * Error Redirect URL: 
-    >`http://[your-site-url]/snap/index/finish`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/snap/payment/notification |
+| Finish Redirect URL | [your-site-url]/snap/index/finish |
+| Error Redirect URL | [your-site-url]/snap/index/finish |
+| Unfinish Redirect URL | [your-site-url]/snap/index/finish |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 2. Go to menu **Settings > Snap Preference > System Settings**
-  * Insert `http://[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
-
+    * Insert `[your-site-url]/snap/index/finish` link as Finish/Unfinish/Error Redirect URL.
 
 <details>
 <summary>
@@ -358,15 +379,19 @@ Midtrans ❤️ Prestashop! Integrate your Prestashop store with Midtrans Snap p
 #### Prestashop Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings > configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=notification`
-   * Finish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Unfinish Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=success`
-   * Error Redirect URL:<br>
-        `http://[your-site-url]/index.php?fc=module&module=midtranspay&controller=failure`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=notification |
+| Finish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+| Error Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=failure |
+| Unfinish Redirect URL | [your-site-url]/index.php?fc=module&module=midtranspay&controller=success |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+
 <details>
 <summary>
   
@@ -433,15 +458,19 @@ Midtrans ❤️ Opencart! This is official Midtrans extension for the OpenCart E
 #### Opencart Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration`
 
-   * Payment Notification URL:<br>
-        `http://[your shop's homepage]/index.php?route=payment/snap/payment_notification`
-   * Finish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Unfinish Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-   * Error Redirect URL:<br>
-        `http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir&`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/index.php?route=payment/snap/payment_notification |
+| Finish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+
 <details>
 <summary>
   
@@ -493,15 +522,19 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 #### WHMCS Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
 
-   * Payment Notification URL:<br>
-        `http://[your website url]/modules/gateways/callback/veritrans.php`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
-        
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/modules/gateways/callback/veritrans.php |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+
 <details>
 <summary>
   
@@ -561,14 +594,19 @@ Midtrans ❤️ Drupal 8! This is the official Midtrans extension for the Drupal
 
 #### Drupal Handling Notification
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
-   * Payment Notification URL:<br>
-        `http://[your web]/payment/notify/midtrans`
-   * Finish Redirect URL:<br>
-        `http://[your website url]`
-   * Unfinish Redirect URL:<br>
-        `http://[your website url]`
-   * Error Redirect URL:<br>
-        `http://[your website url]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/payment/notify/midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
@@ -601,7 +639,9 @@ Customer receives email notification| Receive notification|  Check MAP menu sett
 ### Wordpress - Easy Digital Download
 <hr>
 
-Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Snap payment gateway. We strive to make payments simple for both the merchant and customers. This plugin will allow online payment on your EDD store using various online payment channel. Our EDD plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/edd-midtrans-gateway/) 
+Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Snap payment gateway. We strive to make payments simple for both the merchant and customers. This plugin will allow online payment on your EDD store using various online payment channel. 
+
+Our EDD plugins also available on [Wordpress plugins store](https://wordpress.org/plugins/edd-midtrans-gateway/) 
 
 #### Requirements:
    * WordPress 3.9.1 or greater
@@ -612,7 +652,9 @@ Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Sn
 
 #### Installation:
 
-#### Simple Installation:
+Choose **one** from installation options **A or B**:
+
+#### A. Simple Installation:
 
 1. Login to your Wordpress admin panel.
 2. Go to Plugins menu, click add new. Search for **Midtrans-Easy-Digital-Downloads** plugin.
@@ -620,7 +662,7 @@ Midtrans ❤️ EDD! Integrate your Easy Digital Download store with Midtrans Sn
 4. Proceed to configuration section.
 ![EDD Install](./../../asset/image/Edd-Install.gif)
 
-#### Manual Installation:
+#### B. Manual Installation:
 
 The manual installation method involves downloading our feature-rich plugin and uploading it to your webserver via your favorite FTP application.
 
@@ -639,14 +681,19 @@ The manual installation method involves downloading our feature-rich plugin and 
 
 #### Easy Digital Download Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration` and `settings` **->** `Snap Preference` **->** `System Settings`
-   * Payment Notification URL:<br>
-        `http://[Your Website URL]/?edd-listener=midtrans`
-   * Finish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Unfinish Redirect URL:<br>
-        `http://[Your Website URL]`
-   * Error Redirect URL:<br>
-        `http://[Your Website URL]`
+
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | [your-site-url]/?edd-listener=midtrans |
+| Finish Redirect URL | [your-site-url] |
+| Error Redirect URL | [your-site-url] |
+| Unfinish Redirect URL | [your-site-url] |
+
+> **Note:**
+>
+> Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
+> 
+> If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 <details>
 <summary>
