@@ -185,6 +185,7 @@ Additionally some config files are presents in this repo, mostly their purpose a
 ### Netlify Config Files
 These are specific to Netlify, might not be usable outside Netlify scope. These will be read & applied by Netlify during deployment on their infra.
 - `_redirects`: Specify HTTP/server [redirect]((https://docs.netlify.com/routing/redirects/) for the specified url patterns
+- `_headers`: Specify HTTP/server [response headers](https://docs.netlify.com/routing/headers/) for the specified url patterns
 
 ### Tooling
 These are for helper tools during development.
@@ -247,6 +248,11 @@ Historically this docs was deployed as `beta-docs.midtrans.com` before previous 
 	- @WARN: the 301 redirect currently just implemented on Netlify `_redirects` file, which doesn't cover if the site is hosted on non-netlify hosting. 
 	- Might need to replicate the 301 redirect on Nginx config files as well.
 - Old `beta-docs.midtrans.com` domain is now served via separated repo https://github.com/Midtrans/beta-technical-documentation-site
+
+#### Note on hosted file caching
+Due to some of the hosted assets (e.g: images) are big in terms of file size. It eat up lots of hosting bandwidth quickly.
+
+To reduce hosting bandwidth usage, this requires CDN caching strategy. Since the domain is managed via CF by Network Team, CF theoritically should also be available for CDN caching. What need to be done is make sure the hosting (Netlify) respond with correct cache http headers, upon http request of asset files. So CF will cache the assets, reducing direct hits to hosting, hence reducing bandwidth usage. This is implemented on `_headers` file.
 
 #### Misc
 - If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.
