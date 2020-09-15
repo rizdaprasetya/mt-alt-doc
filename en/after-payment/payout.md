@@ -2,9 +2,15 @@
 <hr>
 
 ## Billings Page
-Billings page is a page to view financial information between merchant and Midtrans. On this page merchant can find out the amount of funds that can be withdrawn to merchant (payout), the bank account information to which the funds are disbursed, and the history of payouts.
+Billings page displays the financial information between merchant and Midtrans. 
 
-### Configure billing information
+This pages displays 
+
+* The amount of funds that can be withdrawn 
+* The bank account information to which the funds are disbursed
+* The history of payouts.
+
+### Configure Billing Information
 Midtrans will only payout funds to the account configured on the MAP. Please ensure that the account listed on MAP is in accordance with the Agreement (PKS). Make sure you fill out your Billing Information properly. You can change the destination account on the bank account information. Merchant can change billing account from **Billings** menu or **Settings > Billings**
 
 Configure the billing information on **Settings > Billing** in MAP:
