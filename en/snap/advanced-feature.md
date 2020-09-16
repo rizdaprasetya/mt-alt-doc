@@ -1248,6 +1248,20 @@ So please expect that you may encounter `404` or payment not found response upon
 
 It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
 
+### Content Security Policy (CSP) Whitelist
+
+If you are using Content Security Policy (CSP) on your payment web page, please whitelist the following domains/urls, as this is required by the Snap.js to work properly from within your payment web page:
+
+```
+cloudfront.net
+*.midtrans.com
+*.veritrans.co.id
+*.mixpanel.com
+*.google-analytics.com
+```
+
+Please whitelist the above domains/urls in your CSP header/rule, to ensure Snap.js will be able to work properly.
+
 ## Reference
 
 Refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects) for more detail & definition:
