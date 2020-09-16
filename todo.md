@@ -138,3 +138,7 @@
 	- https://medium.com/@puuga/deploy-to-firebase-hosting-with-github-actions-f795785fde6b
 	- https://firebase.google.com/docs/hosting/full-config
 - store theme preference across tab session
+- Explain 2 technical group of payment type: async vs sync
+- optimize image for bandwith saving, especially gifs
+	- or put gifs/images to cdn?
+- explain what criteria to be able to use /refund/direct API

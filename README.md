@@ -184,7 +184,7 @@ Additionally some config files are presents in this repo, mostly their purpose a
 
 ### Netlify Config Files
 These are specific to Netlify, might not be usable outside Netlify scope. These will be read & applied by Netlify during deployment on their infra.
-- `_redirects`: Specify HTTP/server [redirect]((https://docs.netlify.com/routing/redirects/) for the specified url patterns
+- `_redirects`: Specify HTTP/server [redirect](https://docs.netlify.com/routing/redirects/) for the specified url patterns
 - `_headers`: Specify HTTP/server [response headers](https://docs.netlify.com/routing/headers/) for the specified url patterns
 
 ### Tooling
