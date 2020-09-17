@@ -460,10 +460,10 @@ Login to your [Midtrans Account](https://account.midtrans.com/login), select you
 
 | URL Role | Redirect URL|
 |----------|-------------|
-| Payment Notification URL | [your-site-url]/index.php?route=payment/snap/payment_notification |
-| Finish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
-| Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
-| Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Payment Notification URL | https://[your-site-url]]/index.php?route=extension/payment/snap/payment_notification |
+| Finish Redirect URL | https://[your-site-url]]/index.php?route=extension/payment/snap/landing_redir& |
+| Error Redirect URL | https://[your-site-url]]/index.php?route=extension/payment/snap/landing_redir& |
+| Unfinish Redirect URL | https://[your-site-url]]/index.php?route=extension/payment/snap/landing_redir& |
 
 > **Note:**
 >
