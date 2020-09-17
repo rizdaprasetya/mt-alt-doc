@@ -457,13 +457,25 @@ Midtrans ❤️ Opencart! This is official Midtrans extension for the OpenCart E
 
 #### Opencart Plugin Notification Configuration
 Login to your [Midtrans Account](https://account.midtrans.com/login), select your environment (sandbox/production), go to menu `settings` **->** `configuration`
-
+<!-- tabs:start -->
+#### **Opencart v2.3 & 3**
 | URL Role | Redirect URL|
 |----------|-------------|
-| Payment Notification URL | [your-site-url]/index.php?route=payment/snap/payment_notification |
-| Finish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
-| Error Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
-| Unfinish Redirect URL | [your-site-url]/index.php?route=payment/snap/landing_redir& |
+| Payment Notification URL | http://[your shop's homepage]/index.php?route=extension/payment/snap/payment_notification |
+| Finish Redirect URL | http://[your shop’s homepage]/index.php?route=extension/payment/snap/landing_redir& |
+| Error Redirect URL | http://[your shop’s homepage]/index.php?route=extension/payment/snap/landing_redir& |
+| Unfinish Redirect URL | http://[your shop’s homepage]/index.php?route=extension/payment/snap/landing_redir& |
+
+#### **Opencart v2, v2.1, v2.2**
+| URL Role | Redirect URL|
+|----------|-------------|
+| Payment Notification URL | http://[your shop's homepage]/index.php?route=payment/snap/payment_notification |
+| Finish Redirect URL | http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir& |
+| Error Redirect URL | http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir& |
+| Unfinish Redirect URL | http://[your shop’s homepage]/index.php?route=payment/snap/landing_redir& |
+
+
+<!-- tabs:end -->
 
 > **Note:**
 >
