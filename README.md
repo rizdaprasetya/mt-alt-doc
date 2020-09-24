@@ -20,7 +20,11 @@
 
 - Download/clone and extract this folder to your local machine.
 - Run any local webserver and make sure you can open the `index.html` from the webserver. (See example below this paragraph for some reference).
-- Open web browser and point it to the `index.html` file. i.e: `localhost/technical-documentation-site/index.html`.
+- Open web browser and point it to where the folder where `index.html` file is located. i.e: `localhost/technical-documentation-site/`
+	- If that didn't load / didn't work properly: 
+		- Open web browser and point the destination url to the folder and add `/#/` at the end of it, e.g: `localhost/technical-documentation-site/#/`
+		- or try including the index.html file e.g: `localhost/technical-documentation-site/index.html`
+		- or try serving this folder in root folder of your `localhost`
 - Live preview from Github repo can also be possible:
 	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
 		- You can also change `master` with any branch you want to preview
