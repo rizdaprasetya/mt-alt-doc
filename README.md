@@ -195,6 +195,7 @@ These are specific to Netlify, might not be usable outside Netlify scope. These 
 These are for helper tools during development.
 - `tooling/`: Folder contains some helper tools.
 	- `sitemapper.js`: Helper tool to generate static sitemap, run manually.
+	- `changelogger.js`: Helper tool to generate changelog based on Github commit message. Note: it read from Github, not local git commit, so it can be outdated and not pretty.
 	- `docker-files/`: Folder containing the files that will be mounted inside docker container. e.g: Nginx config file.
 - `Dockerfile`, `docker-compose.yml`: Docker related resource, to allow using docker during dev or deployment. Run manually.
 
