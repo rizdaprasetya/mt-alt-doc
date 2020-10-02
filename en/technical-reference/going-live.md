@@ -7,7 +7,7 @@ This documentation will assist you in switching from Sandbox environment to Prod
 
 ### 1. Login to Your Midtrans Production Account Dashboard
 
-Please visit https://account.midtrans.com . Enter the email and password of your Midtrans account, then click the **Login** button. [Also explained here](/en/midtrans-account/overview.md#access-midtrans-administration-portal).
+Please visit https://account.midtrans.com . Enter the email and password of your Midtrans account, then click the **Login** button. [Also explained here](/en/midtrans-account/overview.md#accessing-midtrans-administration-portal).
 
 Make sure the **Environment** indicator shows `Production`. Or please [switch to production mode](/en/midtrans-account/overview.md#switching-environment).
 
