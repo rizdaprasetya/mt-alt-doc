@@ -88,7 +88,7 @@ Send money to your partners, sellers, customers, vendors or any third parties wi
 <div class="my-card">
 
 <!-- #### [Integrate Payment to POS](/en/pos/overview.md) -->
-#### [Integrate Payment to POS (Point of Sales)](#accept-payment-on-point-of-sales-vending-machine-iot-devices-etc)
+#### [Integrate Payment to POS (Point of Sales)](#accept-payment-on-point-of-sales-vending-machines-iot-devices)
 
 For conventional business with no website or apps, as long as the Point of Sales (POS) peripherals are connected through the Internet, it can be integrated with Midtrans Core API.  The device can easily integrate to the Core API via API calls. There is a specific GoPay guide for this type of integration.
 
