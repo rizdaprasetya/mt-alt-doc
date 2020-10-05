@@ -127,6 +127,7 @@ For example:
 	- [Bank Transfer Permata](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055285)
 	- [Bank Transfer Mandiri Bill](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055287)
 	- [Gopay](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055289)
+	- [ShopeePay](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1056193)
 	- [Indomaret](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055291)
 	- [Alfamart](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055293)
 	- [Akulaku](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055295)
