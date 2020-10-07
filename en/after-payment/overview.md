@@ -4,11 +4,12 @@ You can get notifications when the payment is accepted successfully on Midtrans,
 
 
 
+
 <div class="my-card">
 
 #### [Email Notification](/en/after-payment/email-notification.md)
 - You can get notified to your inbox at the event of a transaction.
-- It is the simplest way to get notified.
+- It is the simplest way to receive notifications.
 - It requires no complicated set up.
 
 </div>
@@ -17,7 +18,7 @@ You can get notifications when the payment is accepted successfully on Midtrans,
 
 #### [HTTP(S) Notification / Webhook](/en/after-payment/http-notification.md)
 - You can have automated transaction status update on your system.
-- This is the most recommended way to get notification.
+- This is the most recommended way to receive notifications.
 
 </div>
 
