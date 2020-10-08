@@ -1,6 +1,14 @@
 # Docs Changelog
 <hr>
 
+#### 2020/10/08 
+- general copy writing & explanation improvements
+- some minor formatting & internal ref link fix
+
+#### 2020/10/05 
+- add shopeepay separated gateway on Shopify guide
+- update Shopify separated gateway image preview
+
 #### 2020/09/28 
 - general copy writing & explanation improvements
 - add docs changelog page
