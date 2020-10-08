@@ -1,111 +1,219 @@
 # Switching to Production Mode
 <hr>
 
-This documentation will assist you in switching from Sandbox environment to Production environment, in order to start accepting real world payment for your business. Also known as "Going Live".
+This document is designed to assist you in switching from *Sandbox* environment to *Production* environment, in order to start accepting real world payment for your business. This is also known as "Going Live".
 
-*If further assistance is required, don't hesitate to contact us at support@midtrans.com .*
 
-### 1. Login to Your Midtrans Production Account Dashboard
+### 1. Login to Your Midtrans Production Environment Dashboard
 
-Please visit https://account.midtrans.com . Enter the email and password of your Midtrans account, then click the **Login** button. [Also explained here](/en/midtrans-account/overview.md#access-midtrans-administration-portal).
+To login to your Midtrans *Production* environment, follow the steps given below.
 
-Make sure the **Environment** indicator shows `Production`. Or please [switch to production mode](/en/midtrans-account/overview.md#switching-environment).
+1. Login to your account at https://account.midtrans.com. 
 
-### 2. Check Your Production Account is Active
+   For more information, refer to [Access Midtrans Administration Portal](/en/midtrans-account/overview.md#access-midtrans-administration-portal) for more details.
 
-To check, please go to your [Dashboard > Settings > Snap Preferences](https://dashboard.midtrans.com/settings/snap_preference) and choose **Payment Channels** tab to see your active payment methods.
+2. Select **Production** Environment.
 
-> Please contact your Midtrans Business PIC or support@midtrans.com if you have any question.
+   For more information, refer to [Switching Environment](/en/midtrans-account/overview.md#switching-environment) for more details.
 
-### 3. Retrieve Production Server Key & Client Key
+### 2. Checking Your Production Account
 
-Server Key & Client Key for Production mode is different to Sandbox mode, so you will need to [retrieve the Production mode keys, by following this step](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+To make sure your production account is active, follow the steps given below.
 
-### 4. Setup HTTP Notification Webhook URL
+1. On the home page, go to **SETTINGS > SNAP PREFERENCES**.
 
-Ensure you have [set **Notification URL** configuration for Production, by following this step](/en/after-payment/http-notification.md).
+   *SNAP Preferences* page is displayed.
 
-#### For Snap Integration:
-You can also optionally [ensure to set Redirect URL configuration](/en/snap/advanced-feature.md#configure-redirection-url).
+2. Select **Payment Channels** tab.
+   A list of active payment methods is displayed.
 
-### 5. Configure the Integration
+### 3. Retrieving Server Key and Client Key
 
-Based on your integration method, please select the one most relevant:
+Server Key and Client Key for *Production* environment and *Sandbox* environment are different. For more information, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+
+### 4. Configuring HTTP Notification Webhooks URL
+
+For more information on how to configure HTTP notification URL, refer to [Configuring HTTP Notifications On MAP](/en/after-payment/http-notification.md).
+
+For **Snap Integration** you can opt to configure redirect URL. For more information, refer to [Configuring Redirect URL](/en/snap/advanced-feature.md#configure-redirection-url).
+
+### 5. Configuring the Integration
+
+Based on your requirement, please select the best suitable integration method from the following options.
 
 <!-- tabs:start -->
 #### **Language Libraries**
 
-If you use Languang Libraries provided by Midtrans. (e.g: Midtrans PHP, Midtrans Ruby, Midtrans NodeJS, etc.)
+If you are using Language Libraries provided by Midtrans (Midtrans PHP, Midtrans Ruby, Midtrans NodeJS, and so on), follow the steps given below.
 
-- Make sure to replace `isProduction` variable on Backend with value `true`.
-- Make sure to replace `serverKey` variable value on Backend with the one retrieved from step 3.
-- Make sure to replace `data-client-key` variable value on Frontend with the one retrieved from step 3.
+1. Replace `isProduction` variable on Backend with value `true`.
+2. Replace `ServerKey` variable value on the Backend with the *Server Key* retrieved from *Retrieving Server Key & Client Key*.
+3. Replace `data-client-key` variable value on Frontend with the *Client Key* retrieved from *Retrieving Server Key & Client Key*.
 
 #### **Manual API Request**
 
-If you are directly integrating by doing direct API call/request
+To integrate by directly making API calls or requests, follow the steps given below.
 
-- Make sure to point API domain destination to **Production API**, on Backend by removing `.sandbox` from the domain. e.g: change from `app.sandbox.midtrans.com/` to `app.midtrans.com/`
-- Make sure to replace `serverKey` variable value used for API auth on Backend with the one retrieved from step 3.
-- Make sure to replace `data-client-key` variable value on Frontend with the one retrieved from step 3.
+1. Replace API domain destination to Production API on Backend by removing `.sandbox` from the domain. <br>
 
-#### **Wordpress Woocommerce CMS**
+   For example, change the API domain from `app.sandbox.midtrans.com/` to `app.midtrans.com/`.
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Change `Environment` in Midtrans plugin from `sandbox` into `production`.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+2. Replace the `ServerKey` variable value used for API auth on the Backend with the *Server Key* retrieved from *Retrieving Server Key & Client Key*.
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+3. Replace the `data-client-key` variable value on Frontend with the *Client Key* retrieved from *Retrieving Server Key & Client Key*.
+
+#### **WordPress WooCommerce CMS**
+
+To integrate Midtrans with your WordPress WooCommerce CMS, follow the steps given below.
+
+1. Login to your website as an administrator.
+
+2. Go to Midtrans plugin configuration page.
+
+3. Go to **Settings > Payment**.
+
+4. Select **Production** from Environment drop-down list.
+
+5. Enter the **Merchant Key**.
+6. Enter **Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+7. Enter **Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+
+   Your website is now integrated with Midtrans.
+
+   For more information, refer to [Configuring WooCommerce Plugin Notification](/en/snap/with-plugins).
 
 #### **Magento CMS**
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Change `Environment` in Midtrans plugin from `sandbox` into `production`.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+To integrate Midtrans with your Magento CMS, follow the steps given below.
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+1. Login to your website as an administrator.
 
-#### **Prestashop CMS**
+2. Go to Midtrans plugin configuration page.
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Change `Environment` in Midtrans plugin from `sandbox` into `production`.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+3. Go to **Sales > Payment Method**.
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+4. Select **Production** from Environment drop-down list.
 
-#### **Opencart CMS**
+5. Enter **Sandbox Client Key**.
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Change `Environment` in Midtrans plugin from `sandbox` into `production`.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+6. Enter **Sandbox Server Key.**
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+7. Enter **Production Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
 
-#### **Wordpress EDD CMS**
+8. Enter **Production Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+  
+   Your website is now integrated with Midtrans.
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Uncheck `Test Mode` in Midtrans plugin (Settings > Payment Gateway > General).
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+For more information, refer to [Configuring Magento CMS Notification](/en/snap/with-plugins).
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+#### **PrestaShop CMS**
+
+To integrate Midtrans with your PrestaShop CMS, follow the steps given below.
+
+1. Login to your website as an administrator.
+
+2. Go to the Midtrans plugin configuration page.
+
+3. Select **Production** from Environment drop-down list.
+
+4. Enter the **Merchant ID**.
+
+5. Enter **Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+
+6. Enter **Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+
+   Your website is now integrated with Midtrans.
+
+  For more information, refer to [Configuring PrestaShop CMS Notification](/en/snap/with-plugins).
+#### **OpenCart CMS**
+
+To integrate Midtrans with your OpenCart CMS, follow the steps given below.
+
+1. Login to your website as an administrator.
+
+2. Go to the Midtrans plugin configuration page.
+
+3. Enter the **Merchant Id**.
+
+4. Select **Production** from Environment drop-down list.
+
+5. Enter **Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+
+6. Enter **Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+
+   Your website is now integrated with Midtrans.
+
+    For more information, refer to [Configuring OpenCart CMS Notification](/en/snap/with-plugins).
+
+#### **WordPress Easy Digital Download CMS**
+
+To integrate Midtrans with your WordPress EDD CMS, follow the steps given below.
+
+1. Login to your website as an administrator.
+
+2. Go to the Midtrans plugin configuration page.
+
+3. Go to **Settings > Payment Gateway > General**.
+
+4. Enter the **Merchant ID**.
+5. Enter **Production Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+6. Enter **Production Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+7. Enter **Sandbox Server Key.**
+
+8. Enter **Sandbox Client Key**.
+
+   Your website is now integrated with Midtrans.
+
+For more information, refer to [Configuring WordPress Easy Digital Download CMS Notification](/en/snap/with-plugins).
 
 #### **WHMCS CMS**
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Tick `Production Mode` in Midtrans plugin.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+To integrate Midtrans with your WHMCS CMS, follow the steps given below.
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+1. Login to your website as an administrator.
+
+2. Go to the Midtrans plugin configuration page.
+3. Enter **Midtrans Client Key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+4. Enter **Midtrans Server Key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+5. Select **Production Mode** checkbox.
+
+6. Click **Save Changes**.
+
+   Your website is now integrated with Midtrans.
+
+For more information, refer to [Configuring WHMCS CMS Notification](/en/snap/with-plugins).
+
+
 
 #### **Drupal CMS**
 
-- Login to your website as admin, then go to the plugin configuration page.
-- Change `Mode` in Midtrans plugin from `sandbox` into `production`.
-- Input your `Client Key` and `Server Key` with the one retrieved from step 3.
+To integrate Midtrans with your Drupal CMS, follow the steps given below.
 
-[Check here to know where to find the configuration page](/en/snap/with-plugins).
+1. Login to your website as an administrator.
+
+2. Go to the **Commerce > Configuration > Payment > Payment Gateways**.
+
+3. Enter your name.
+
+4. Click **Midtrans** *Plugin* option button.
+
+5. Click **Production** *Mode* option button.
+6. Enter **Server key** with the *Server Key* retrieved from *Retrieve Production Server Key and Client Key.*
+7. Enter **Client key** with the *Client Key* retrieved from *Retrieve Production Server Key and Client Key.*
+8. Click **Save**.
+
+
+
+Your website is now integrated with Midtrans.
+
+   For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins).
+
 <!-- tabs:end -->
 
-## 6. Done, Ready for Production Mode
+### 6. Done! Ready for Production Mode
 
 Now you are ready to accept real world payments in Production mode! You can test it yourself.
+
+
+
+?> If further assistance is required, please contact your Midtrans Business PIC or write to us at [support@midtrans.com](mailto:support@midtrans.com).
