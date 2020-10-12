@@ -1,41 +1,169 @@
-# API Get Status
+# GET Status API Requests
 <hr>
 
-Merchant can also request to Midtrans API to inquire transaction status of a transaction, using the transaction `order_id` (or `transaction_id`) as identifier.
+To get the status of a transaction, you can send a request to Midtrans API. It will then send back the transaction status. This method requires the transaction `order_id` (or `transaction_id`) as an identifier.
 
+### Endpoint
 
-#### Request Details
-Type | Value
+| Method | URL                                                   |
+| ------ | ----------------------------------------------------- |
+| GET    | https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status |
+
+ This retrieves the transaction details for a specified *ORDER_ID*.
+
+### Path Parameters
+
+ Parameters | Description                                          
 --- | ---
-HTTP Method | `GET`
-API endpoint | `https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status`
+ ORDER_ID   | The order id of the transaction you want to look up. 
+ status     | The status of the transaction.                       
 
-#### HTTP Headers
-```
-Accept: application/json
-Content-Type: application/json
-Authorization: Basic AUTH_STRING
-```
+### Headers
+
+| Header Name   | Description                                            | Required | Values                |
+| ------------- | ------------------------------------------------------ | -------- | --------------------- |
+| Accept        | The format of the data to be returned.                 | Required | application/json      |
+| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
+| Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol). [Follow this reference for more detail about API header](/en/technical-reference/api-header.md).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by a colon symbol (**:**) (colon symbol). For more information, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
-### Sample Get Status Request
+### Sample Request
 
-Replace the `[ORDER_ID]` with the transaction `order_id` (or `transaction_id` is also supported).
-<!-- TODO: add more language sample -->
+<!-- tabs:start -->
+
+#### **Curl**
+
 ```bash
 curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87'
 ```
-?> Each of official [Midtrans Language Library](/en/technical-reference/library-plugin.md) will also have `status` function to call Get Status API.
 
-### Sample Response
+In the above request, replace *[ORDER_ID]* with your Order ID or Transaction ID.
 
-#### Success Response
+#### **JavaScript**
+
+```JavaScript
+var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Basic Og==");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.sandbox.midtrans.com/v2/SANDBOX-G710367688-806/status", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
+
+#### **PHP**
+
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.sandbox.midtrans.com/v2/SANDBOX-G710367688-806/status');
+$request->setMethod(HTTP_Request2::METHOD_GET);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Accept' => 'application/json',
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Basic Og=='
+));
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+
+#### **Python**
+
+```Python
+import requests
+
+url = "https://api.sandbox.midtrans.com/v2/SANDBOX-G710367688-806/status"
+
+payload = {}
+headers = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': 'Basic Og=='
+}
+
+response = requests.request("GET", url, headers=headers, data = payload)
+
+print(response.text.encode('utf8'))
+
+```
+
+#### **Ruby**
+
+```Ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.sandbox.midtrans.com/v2/SANDBOX-G710367688-806/status")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Content-Type"] = "application/json"
+request["Authorization"] = "Basic Og=="
+
+response = https.request(request)
+puts response.read_body
+
+```
+
+#### **Node.JS**
+
+```node.js
+ar request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'https://api.sandbox.midtrans.com/v2/SANDBOX-G710367688-806/status',
+  'headers': {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic Og=='
+  }
+};
+request(options, function (error, response) {
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+
+```
+
+<!-- tabs:end -->
+
+?> Each of the official [Midtrans Language Library](/en/technical-reference/library-plugin.md) has *status* function to call Get Status API.
+
+#### Sample Response
+
+The sample response from *[ORDER_ID]/status* endpoint is shown below.
 
 ```json
 {
@@ -62,7 +190,43 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 }
 ```
 
-#### Fail / Not Found Response
+The table given below describes elements in the response.
+
+| Element                  | Description                                                  | Type   |
+| ------------------------ | ------------------------------------------------------------ | ------ |
+| approval_code            | The approval code for the transaction.                       | String |
+| bank                     | Name of the bank through which the transaction was done.     | String |
+| card_type                | The type of card used for the transaction.                   | String |
+| channel_response_code    | The response code from the payment channel.                  | String |
+| channel_response_message | The response message from the payment channel is specified.  | String |
+| currency                 | The type of currency in which the transaction was done is shown here. | String |
+| eci                      | The 3D secure ECI Code for card transaction                  | String |
+| fraud_status             | The fraud status indicates if the transaction was flagged by the Fraud detection system. For more information, refer to [Fraud Status](./../http-notification.md/#Fraud Status). | String |
+| gross_amount             | The total amount of transaction for the specific order.      | String |
+| merchant_id              | The merchant ID is shown here.                               | String |
+| masked_card              | The first six-digit and last four-digit of customer's credit card number | String |
+| order_id                 | The specific *Order ID*.                                     | String |
+| payment_type             | The type of payment used by the customer for the transaction. | String |
+| settlement_time          | The date and time of settlement of the transaction. The date is in YYYY-MM-DD form and the time is in HH:MM:SS form. The time zone is (GMT+7). | String |
+| signature_key            | This is generated by appending `order_id`, `status_code`, `gross_amount`, and *Server Key* into a string | String |
+| status_code              | This is the status of the API call. For more information, refer to [Status Codes and Error](Status Codes and Errors). | String |
+| status_message           | The status message is shown here.                            | String |
+| transaction_id           | The specific *Transaction ID*.                               | String |
+| transaction_status       | The status of the transaction. For more information, refer to [Transaction Status](./../http-notification.md/#Transaction Status). | String |
+| transaction_time         | The date and time of the transaction. The date is in YYYY-MM-DD form and the time is in HH:MM:SS form. The time zone is (GMT+7) | String |
+
+### Status Codes and Errors
+
+| Status Code | Message                              |
+| ----------- | ------------------------------------ |
+| 400         | Missing or invalid data.             |
+| 401         | Authentication error.                |
+| 404         | The requested resource is not found. |
+
+### Sample Error Response
+
+ Sample error response is given below.
+
 ```json
 {
   "status_code": "404",
@@ -70,16 +234,40 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 }
 ```
 
-#### Definition
+#### **Transaction Status**
+
+The following table describes the transaction status.
+
+| Transaction Status | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| cancel             | The transaction is canceled. It can be triggered by you.<br> You can trigger *Cancel* status in the following cases:<br> 1. If you cancel the transaction after *Capture* status.<br> 2. If you deny a transaction after *Challenge* status.<br>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. |
+| capture            | The transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*. <br/>It is safe to assume a successful payment. |
+| deny               | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. |
+| expire             | The transaction is not available for processing, because the payment was delayed. |
+| pending            | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-wallet, and so on. |
+| refund             | The transaction is marked to be refunded. Refund status is triggered by you. |
+| settlement         | The transaction is successfully settled. Funds have been received. |
+
+#### **Fraud Status**
+
+The following table describes the fraud status.
+
+| Fraud Status | Description                                                  |
+| ------------ | ------------------------------------------------------------ |
+| accept       | The transaction is safe to proceed. It is not considered as fraud. |
+| deny         | The transaction is considered as fraud. It is rejected by Midtrans. |
+| challenge    | The transaction is flagged as potential fraud, but cannot be determined precisely. <br>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API ](https://api-docs.midtrans.com/#approve-transaction)or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br>If no action is taken, the transaction is denied automatically. |
+
+
 
 The same [status definition with notification](/en/after-payment/http-notification?id=status-definition) applies.
 
 
 ### Other API Action / Method
 
-Other API action that you can perform to an transaction is listed at this section:
+Other API actions that you can perform to an transaction are listed in this section:
 
 <div class="my-card">
-	
+
 #### [API Action / Method](/en/after-payment/status-cycle.md#api-action-method)
 </div>
