@@ -29,9 +29,9 @@ To generate `Authorization` header value, follow the steps given below.
 
 2. Username and password are separated by `:` character.
 
-3. *Server Key* is used as `username`, there is no password, so password is blank/empty string.
+3. *Server Key* is used as `Username`, there is no password, so password is blank/empty string.
 
-  For example, if your *Server Key* is `SB-Mid-server-abc123cde456`, then `username:password` would be `SB-Mid-server-abc123cde456:`.
+  For example, if your *Server Key* is `SB-Mid-server-abc123cde456`, then `Username:Password` would be `SB-Mid-server-abc123cde456:`.
 
 4. Encode this value into base64 format.
 
@@ -47,13 +47,14 @@ To generate `Authorization` header value, follow the steps given below.
 
 You can use the below tool to try out Authorization Header calculation.
 
+
 <details>
 <summary><b>Authorization Header Generator</b></summary>
 <article>
+
 [Authorization Header Generator](https://jsfiddle.net/wx3hbcen/embedded/result,html/dark ':include :type=iframe width=100% height=600px')
 </article>
-</details>
-<br>
+</details><br>
 
 ## Complete HTTP(s) Headers
 
@@ -85,7 +86,7 @@ curl -X POST \
 
 #### Exception on Frontend API Request
 
-For API request from your side, such as GET Card Token API, the headers explained earlier **are not required**. To avoid the risk of exposing your *Server Key* on your publicly accessible frontend, you **should not** use *Server Key* to authorize the request. Instead, *Client Key* is used to authorize the HTTP(s) request.
+For API request from frontend/client side, such as GET Card Token API, the headers explained earlier **are not required**. To avoid the risk of exposing your *Server Key* on your publicly accessible frontend, you **should not** use *Server Key* to authorize the request. Instead, *Client Key* is used to authorize the HTTP(s) request.
 
 The table given below describes the `/v2/token`endpoint.
 

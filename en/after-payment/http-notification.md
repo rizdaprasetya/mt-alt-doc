@@ -678,7 +678,7 @@ Some sample HTTP notifications for a successful transaction on different payment
 ```
 <!-- tabs:end -->
 
-?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is *settlement* (or *capture* incase of card transaction) **and** `fraud_status` value is *accept*. Then you are safe to deliver good/service to customer.
+?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is *settlement* (or *capture* in case of card transaction) **and** `fraud_status` value is *accept*. Then you are safe to deliver good/service to customer.
 
 ### Status Definition
 
@@ -688,9 +688,9 @@ Some sample HTTP notifications for a successful transaction on different payment
 
 Transaction Status | Description 
 --- | ---
-`capture` | Transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*. <br/>It is safe to assume a successful payment. 
-`settlement` | The transaction is successfully settled. Funds have been received. 
-`pending` | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-wallet, and so on. 
+`capture` | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. 
+`settlement` | The transaction is successfully settled. Funds have been credited to your account. 
+`pending` | The transaction is created and is waiting to be paid by the customer at the payment providers like Direct debit, Bank Transfer, E-wallets, and so on. 
 `deny` | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. 
 `cancel` | The transaction is canceled. It can be triggered by you.<br/> You can trigger *Cancel* status in the following cases:<br/> 1. If you cancel the transaction after *Capture* status.<br/> 2. If you deny a transaction after *Challenge* status.<br/>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. 
 `expire` | Transaction is not available for processing, because the payment was delayed. 
@@ -803,7 +803,7 @@ The table given below describes the status codes and errors.
 	- for `503`: Retry 4 times
 	- for `400/404`: Retry 2 times
 	- for `301/302/303`: No retries. We suggest the notification endpoint should be update in setting instead of reply these status code.
-	- for `307/308`: Follow the new url with POST method and same notification body. Max redirect is 5 times
+	- for `307/308`: Follow the new URL with POST method and same notification body. Max redirect is 5 times
 	- for all other failures: Retry 5 times
 - We do retry at most 5 times with following policy.
 - Different retry intervals are:
@@ -937,8 +937,8 @@ This is used to add or change the notification URL.
 
 | Header Name             | Description                                                  | Required | Values            | Notes                                                        |
 | ----------------------- | ------------------------------------------------------------ | -------- | ----------------- | ------------------------------------------------------------ |
-| Accept                  | The format of the data to be returned.                       | Optional | application/json  | –                                                            |
-| Content-Type            | The format of the data to be posted                          | Optional | application/json  | –                                                            |
+| Accept                  | The format of the data to be returned.                       | Required | application/json  | –                                                            |
+| Content-Type            | The format of the data to be posted                          | Required | application/json  | –                                                            |
 | Authorization           | The authentication method used to access the resource        | Required | Basic AUTH_STRING | –                                                            |
 | X-Append-Notification   | New notification URL(S) can be added with the settings on dashboard | Optional | URL               | It can receive a maximum of 2 URLs, separated by comma (,). For more details, refer to the table given below. |
 | X-Override-Notification | New notification URL(S) can be added ignoring the settings on dashboard | Optional | URL               | It can receive a maximum of 2 URLs, separated by comma (,). For more details, refer to the table given below. |

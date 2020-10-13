@@ -6,14 +6,14 @@ In the Sandbox environment, Midtrans uses web-based simulator to simulate a resp
 This is the list of payment credentials that you can use on Midtrans **Sandbox environment**. Please note that, it will not work on Production environment.
 
 Payment category:
-- [Credit Card](#credit-card)
-- [E-Wallet](#e-wallet)
+- [Card Payment](#credit-card)
+- [E-Wallets](#e-wallet)
 - [Bank Transfer](#bank-transfer)
-- [Direct Debit](#direct-debit)
 - [Convenience Store](#convenience-store)
+- [Direct Debit](#direct-debit)
 - [Cardless Credit](#cardless-credit)
 
-### Credit Card
+### Card Payments
 
 The table given below lists the details to be entered for simulating credit card transactions.
 
@@ -94,6 +94,7 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |**Maybank** | 4055 7796 2846 0474 | 5520 0883 1465 3770|
 
 ##### Offline Card 
+
 It is used for testing a transaction with transaction status *Deny*, because the card is not eligible for online transactions.
 
 | Brand      | Card Number         |
@@ -107,7 +108,7 @@ It is used for testing a transaction with transaction status *Deny*, because the
 
 ?> **[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
 
-### E-Wallet
+### E-Wallets
 
 |Payment Methods | Description|
 |----------|------------|
@@ -128,6 +129,16 @@ It is used for testing a transaction with transaction status *Deny*, because the
 |BNI Virtual Account | Midtrans will generate a dummy BNI Virtual Account Number. To perform a test transaction, use the [BNI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bni/va/index).|
 |BRI Virtual Account | Midtrans will generate a dummy BRI Virtual Account Number. To perform a test transaction, use the [BRI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bri/va/index).|
 
+### Convenience Store
+
+| Payment Methods | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| Indomaret       | Midtrans will generate a dummy Indomaret Payment Code. To perform a test transaction, use the [Indomaret Simulator](https://simulator.sandbox.midtrans.com/indomaret/index). |
+| Alfamart        | Midtrans will generate a dummy Alfamart Payment Code. To perform a test transaction, use the [Alfamart Simulator](https://simulator.sandbox.midtrans.com/alfamart/index). |
+| Kioson          | Midtrans will generate a dummy Kioson Payment Code. To perform a test transaction, use the [Kioson Simulator](https://simulator.sandbox.midtrans.com/kioson/index). |
+
+**Note on Alfamart:** *If you are unable to find out what to input in `Product Code` field, please contact us via support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
+
 ### Direct Debit
 
 |Payment Methods | Description|
@@ -138,17 +149,11 @@ It is used for testing a transaction with transaction status *Deny*, because the
 |BCA Klikpay | Midtrans will redirect BCA Klikpay test transaction to a payment simulator.|
 |KlikBCA | Midtrans will register user id filled in KlikBCA input. To perform a test transaction, use the [KlikBca Simulator](https://simulator.sandbox.midtrans.com/bca/klikbca/index).|
 
-### Convenience Store
-
-|Payment Methods | Description|
-|----------|------------|
-|Indomaret | Midtrans will generate a dummy Indomaret Payment Code. To perform a test transaction, use the [Indomaret Simulator](https://simulator.sandbox.midtrans.com/indomaret/index).|
-|Alfamart | Midtrans will generate a dummy Alfamart Payment Code. To perform a test transaction, use the [Alfamart Simulator](https://simulator.sandbox.midtrans.com/alfamart/index).|
-|Kioson | Midtrans will generate a dummy Kioson Payment Code. To perform a test transaction, use the [Kioson Simulator](https://simulator.sandbox.midtrans.com/kioson/index).|
 
 ?> ***Note on Alfamart:*** *If you are unable to find out what to input in `Product Code` field, please contact us at support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
-### Cardless Credit
+
+### Cardless Credit 
 
 |Payment Methods | Description|
 |----------|------------|

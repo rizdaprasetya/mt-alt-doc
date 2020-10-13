@@ -22,8 +22,8 @@ To get the status of a transaction, you can send a request to Midtrans API. It w
 
 | Header Name   | Description                                            | Required | Values                |
 | ------------- | ------------------------------------------------------ | -------- | --------------------- |
-| Accept        | The format of the data to be returned.                 | Optional | application/json      |
-| Content-Type  | The format of the data to be posted.                   | Optional | application/json      |
+| Accept        | The format of the data to be returned.                 | Required | application/json      |
+| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
 | Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
@@ -241,7 +241,7 @@ The following table describes the transaction status.
 | Transaction Status | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
 | cancel             | The transaction is canceled. It can be triggered by you.<br> You can trigger *Cancel* status in the following cases:<br> 1. If you cancel the transaction after *Capture* status.<br> 2. If you deny a transaction after *Challenge* status.<br>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. |
-| capture            | Transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*. <br/>It is safe to assume a successful payment. |
+| capture            | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. |
 | deny               | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. |
 | expire             | Transaction is not available for processing, because the payment was delayed. |
 | pending            | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-wallet, and so on. |
