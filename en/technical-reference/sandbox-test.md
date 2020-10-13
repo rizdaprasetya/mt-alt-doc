@@ -50,7 +50,7 @@ The table given below lists the details to be entered for simulating credit card
 |Full Authentication <br> *Cardholder is 3DS ready* | **Accept Transaction:** 3701 9216 9722 458 <br> **Denied by Bank Transaction:** 3742 9635 4400 881|
 |Attempted Authentication <br> *Cardholder is not  <br>  enrolled for 3DS* | **Accept Transaction:** 3737 4772 6661 940 <br> **Challenge by FDS Transaction:** 3706 6568 4049 309 <br> **Denied by FDS Transaction:** 3780 9621 8340 018 <br> **Denied by Bank Transaction:** 3703 5609 7975 856|
 
-> **IMPORTANT**: All acquiring banks might not be able to accept JCB and Amex card. You can use BNI & BCA acquiring for JCB. BCA acquiring can accept Amex.
+> **IMPORTANT**: Not every acquiring banks might be able to accept JCB and Amex card. You can use BNI & BCA acquiring for JCB. BCA acquiring can accept Amex.
 
 #### **Bank-Specific**
 
@@ -95,7 +95,7 @@ This is useful for Installment/Promo scenario which require bank specific card.
 
 ##### Offline Card 
 
-It is used for testing a transaction with transaction status *Deny*, because the card is not eligible for online transactions.
+It is used for testing a specific scenario where the card is not eligible for online transactions, which result in *Deny* transaction status.
 
 | Brand      | Card Number         |
 | ---------- | ------------------- |

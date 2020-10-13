@@ -26,7 +26,9 @@ api.midtrans.com
 app.midtrans.com
 ```
 
-?>If you are unable to **send request to Midtrans**, please ensure that you have whitelisted the above-mentioned domain name. <br>If it is necessary to whitelist IP address instead of the Domain name, please refer to the [IP address list](https://www.cloudflare.com/ips-v4). Although it is not recommended.
+?>If you are unable to **send request to Midtrans**, please ensure that you have whitelisted the above-mentioned domain name.
+
+If it is necessary to whitelist IP address instead of the Domain name, please refer to the [IP address list](https://www.cloudflare.com/ips-v4). Although it is not recommended.
 
 
 
