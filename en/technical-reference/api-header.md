@@ -48,12 +48,9 @@ To generate `Authorization` header value, follow the steps given below.
 You can use the below tool to try out Authorization Header calculation.
 
 
-
 <details>
 <summary><b>Authorization Header Generator</b></summary>
 <article>
-
-
 
 [Authorization Header Generator](https://jsfiddle.net/wx3hbcen/embedded/result,html/dark ':include :type=iframe width=100% height=600px')
 </article>
