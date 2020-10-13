@@ -1,14 +1,12 @@
 # Getting Notified of Payment Status
 <hr>
-You can get notifications when the payment is accepted successfully on Midtrans, so that you can process the customer order accordingly. Once the payment process is completed by the customer, Midtrans sends notification to you. Alternatively, you can retrieve the transaction status from the Midtrans Administrative Portal (MAP). You can access transaction notifications in any of the following ways.
-
-
-
+You can get notifications when the payment is accepted successfully on Midtrans, so that you can process the customer order accordingly. Once the payment process is completed by the customer, Midtrans sends notification to you. Alternatively, you can actively retrieve the transaction status from the Midtrans side. You can access transaction notifications in any of the following ways.
+<br><br>
 
 <div class="my-card">
 
 #### [Email Notification](/en/after-payment/email-notification.md)
-- You can get notified to your inbox at the event of a transaction.
+- You can get notified to your email inbox at the event of a transaction.
 - It is the simplest way to receive notifications.
 - It requires no complicated set up.
 

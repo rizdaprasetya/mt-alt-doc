@@ -26,12 +26,9 @@ Transaction Status | Description | Possible changes(s)
 <summary><b>Notes When Using Snap API</b></summary>
 <article>
 
-
-
 When a transaction is created on Snap API, it does not immediately assign any payment status on *Core API GET Status* response. Even if the payment page is activated on Snap API, you might encounter `404` or *Payment not found* response while calling *Core API GET Status*.
 
 This is because the customer did not yet choose any payment method within the Snap payment page (idling or abandoning the Snap payment page). Once the customer proceeds with a payment method, then the transaction status is assigned and is available on *Core API GET Status*. 
-
 </article>
 </details>
 
