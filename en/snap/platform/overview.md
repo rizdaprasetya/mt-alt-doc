@@ -120,13 +120,14 @@ You can optionally follow these steps, if **you prefer to have the payment metho
 For example:
 ![shopify](./../../../asset/image/shopify-17.png ':size=400')
 
-1. Choose your preferred payment methods, and click the link:
+1. Choose your preferred payment methods, and **click the links below to install the individual payment method**:
 	- [Bank Transfer BNI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055281)
 	- [Bank Transfer BCA](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055283)
 	- [Bank Transfer BRI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1056041)
 	- [Bank Transfer Permata](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055285)
 	- [Bank Transfer Mandiri Bill](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055287)
 	- [Gopay](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055289)
+	- [ShopeePay](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1056193)
 	- [Indomaret](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055291)
 	- [Alfamart](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055293)
 	- [Akulaku](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055295)

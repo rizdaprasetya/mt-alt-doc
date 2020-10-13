@@ -60,7 +60,7 @@ To get access to the Client Key and Server Key, follow the steps given below.
 > **Notes**
 >
 > - `Client Key`: Used as API key to be used for authorization on **frontend** API request/configuration. So it safe to put in your HTML / client code publicly.
-> - `Server Key`: Used as API key to be used for authorization while calling Midtrans API from **backend**. So keep it confidential**.
+> - `Server Key`: Used as API key to be used for authorization while calling Midtrans API from **backend**. So **keep it confidential**.
 
 !> Access Keys are unique for every merchant. **Always keep Server Key confidential**.
 

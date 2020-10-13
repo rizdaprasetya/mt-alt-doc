@@ -20,7 +20,11 @@
 
 - Download/clone and extract this folder to your local machine.
 - Run any local webserver and make sure you can open the `index.html` from the webserver. (See example below this paragraph for some reference).
-- Open web browser and point it to the `index.html` file. i.e: `localhost/technical-documentation-site/index.html`.
+- Open web browser and point it to where the folder where `index.html` file is located. i.e: `localhost/technical-documentation-site/`
+	- If that didn't load / didn't work properly: 
+		- Open web browser and point the destination url to the folder and add `/#/` at the end of it, e.g: `localhost/technical-documentation-site/#/`
+		- or try including the index.html file e.g: `localhost/technical-documentation-site/index.html`
+		- or try serving this folder in root folder of your `localhost`
 - Live preview from Github repo can also be possible:
 	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
 		- You can also change `master` with any branch you want to preview
@@ -175,6 +179,31 @@ This section is **not required**, but if you prefer using Docker, or want to dep
 </article>
 </details>
 
+## Config/Tool Files
+Additionally some config files are presents in this repo, mostly their purpose are for infra/deployment related config.
+
+<details>
+<summary>Config/Tool Files - (Click to expand)</summary>
+<article>
+
+### Netlify Config Files
+These are specific to Netlify, might not be usable outside Netlify scope. These will be read & applied by Netlify during deployment on their infra.
+- `_redirects`: Specify HTTP/server [redirect](https://docs.netlify.com/routing/redirects/) for the specified url patterns
+- `_headers`: Specify HTTP/server [response headers](https://docs.netlify.com/routing/headers/) for the specified url patterns
+
+### Tooling
+These are for helper tools during development.
+- `tooling/`: Folder contains some helper tools.
+	- `sitemapper.js`: Helper tool to generate static sitemap, run manually.
+	- `changelogger.js`: Helper tool to generate changelog based on Github commit message. Note: it read from Github, not local git commit, so it can be outdated and not pretty.
+	- `docker-files/`: Folder containing the files that will be mounted inside docker container. e.g: Nginx config file.
+- `Dockerfile`, `docker-compose.yml`: Docker related resource, to allow using docker during dev or deployment. Run manually.
+
+### Other
+- `firebase.json`: Firebase specific config, will be read when deployed on their infra.
+</article>
+</details>
+
 ## Additional Notes
 <details>
 <summary>Additional Notes - (Click to expand)</summary>
@@ -219,10 +248,16 @@ It will use `hash` routing. Else, by default will use `history` route mode.
 		- For now most of it works, but **there might be unexpected asset path invalid issues**.
 
 #### Note on domain migration which replace docs.midtrans.com contents
-- To preserve SEO, old docs url paths are 301 redirected to new structure url paths
-	- @WARN: the 301 redirect currently just implemented on Netlify `_redirect` file, which doesn't cover if the site is hosted on non-netlify hosting. 
+Historically this docs was deployed as `beta-docs.midtrans.com` before previous docs deprecated, and then fully migrated to `docs.midtrans.com` as of mid August '20.
+- To preserve SEO, url paths previously used on old docs are 301 redirected to new structure url paths
+	- @WARN: the 301 redirect currently just implemented on Netlify `_redirects` file, which doesn't cover if the site is hosted on non-netlify hosting. 
 	- Might need to replicate the 301 redirect on Nginx config files as well.
 - Old `beta-docs.midtrans.com` domain is now served via separated repo https://github.com/Midtrans/beta-technical-documentation-site
+
+#### Note on hosted file caching
+Due to some of the hosted assets (e.g: images) are big in terms of file size. It eat up lots of hosting bandwidth quickly.
+
+To reduce hosting bandwidth usage, this requires CDN caching strategy. Since the domain is managed via CF by Network Team, CF theoritically should also be available for CDN caching. What need to be done is make sure the hosting (Netlify) respond with correct cache http headers, upon http request of asset files. So CF will cache the assets, reducing direct hits to hosting, hence reducing bandwidth usage. This is implemented on `_headers` file.
 
 #### Misc
 - If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.

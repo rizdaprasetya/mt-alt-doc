@@ -36,6 +36,7 @@ Snap user interface helps to securely accept payments on your website and mobile
   " class="my-btn">Try Snap Payment Interface ⎋</button>
 </p>
 <div style="text-align: center;">
+
 <sup>[Try out the quick (less than 5 mins) integration sample!](/en/snap/interactive-demo.md)</sup>
 </div>
 </div>
