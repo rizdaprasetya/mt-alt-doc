@@ -4,7 +4,7 @@ You can register to the Merchant Administration Portal (MAP) and login to your a
 
 
 
-## Viewing Dashboard
+## Dashboard
 
 To view *Dashboard*, follow the steps given below.
 
@@ -37,7 +37,9 @@ The table given below describes the fields and icons on the *Dashboard*.
 | 12    | Top Issuing Bank pane      | It displays a graphical representation of the banks, issuing the card, used for transactions. | You can click on any part of the graph to be directed to the *Transactions* page with the specific search criteria. |
 | 13    | Payment Type pane          | It displays a graphical representation of payment type used for the transactions. | You can click on any part of the graph to be directed to the *Transactions* page with the specific search criteria. |
 
-## Viewing Transaction Details
+## Transaction
+
+### Viewing Transaction Details
 
 All the transactions recorded on MAP can be viewed on the *Transactions* page. The following details are displayed on *Transition* page.
 
@@ -79,7 +81,7 @@ The table given below describes the fields and buttons on *Transactions* pane.
 | Settlement         | The transaction is successfully settled. Funds have been received. |
 | Success            | The transaction is successful.                               |
 
-## Searching for Transaction
+### Searching for Transaction
 
 You can filter the transactions by criteria, using search feature.
 
@@ -122,7 +124,7 @@ The table given below describes the fields on *Search Transactions* screen.
 
 > ***Note***: You do not have to enter all the fields for search. However, more criteria for search will help to narrow down the results.
 
-## Sending Transaction Report to Email
+### Sending Transaction Report to Email
 
 The details of the transaction like payment information, payment details, customer information, item details, and promo details can be sent as XLS or CSV file to your email address. You can easily customize these details to suit your requirement by selecting the various check boxes. 
 
@@ -136,7 +138,7 @@ The table given below describes the fields and description on *Send Transactions
 | Item Details    | Under Item Details, click the appropriate check box like Item ID, Item name, Item price, Item quantity, Item subtotal. The selected information is included in the report. Click **Item Details** check box to include all the item details in the report. |
 | Promo Details   | Under Promo Details, click the appropriate  check box like Promo code and Promo original amount. The selected information is included in the report. Click **Promo Details** check box to include Promo code and Other Promo original amount in the report. |
 
-###  Sending Transaction Report as XSL file
+####  Sending Transaction Report as XSL file
 
 To send the transaction report to your email, follow the steps given below.
 
@@ -159,7 +161,7 @@ To send the transaction report to your email, follow the steps given below.
 
 
 
-### Sending Transaction Report as CSV file
+#### Sending Transaction Report as CSV file
 To send the transaction report to your email, follow the steps given below.
 
 1. Login to your MAP account.
@@ -178,7 +180,7 @@ To send the transaction report to your email, follow the steps given below.
 >* Please check your spam folder if you cannot find the report in your inbox.
 >* If you do not receive your report within 30 minutes, please retry or contact support@midtrans.com.
 
-## Viewing Transaction Details
+### Viewing Transaction Details
 You can see the transaction details of a specific order ID.
 
 To view the transaction details, follow the steps given below.
@@ -203,11 +205,11 @@ The table given below describes the different sections on *Transaction* pane.
 | 6     | Item details        | Item number, Product name, Quantity, Price, and Total amount are displayed here. |
 | 7     | Payment history     | Any history of earlier payments done by the same customer is displayed here. |
 
-##  Handling Fraudulent Transaction
+###  Handling Fraudulent Transaction
 
 When a transaction triggers indication of potential fraud activity, it is detected by Midtrans FDS (Fraud Detection System). **Challenge** status is returned when a transaction has been successfully authorized, but it is flagged by our fraud prevention system. This  does not always mean that the transaction is fraudulent. But it may require further review. You can accept the transaction if you trust it.
 
-### Accepting Fraudulent Transaction
+#### Accepting Fraudulent Transaction
 To accept a fraudulent transaction, follow the steps given below.
 
 1. Login to your MAP account.
@@ -226,7 +228,7 @@ To accept a fraudulent transaction, follow the steps given below.
 >* The default settlement time is scheduled on the same day at 12:00 a.m. or the next day at 4:00 p.m. 
 
 
-###  Denying Fraudulent Transaction
+####  Denying Fraudulent Transaction
 To deny a fraudulent transaction, follow the steps given below.
 
 1. Login to your MAP account.
@@ -244,7 +246,7 @@ To deny a fraudulent transaction, follow the steps given below.
 >* If transactions with a **Challenge** status is neither accepted nor denied by you, it will be denied by Midtrans at the default settlement time or a custom settlement time defined by you.
 >* The default settlement time is scheduled on the same day at 12:00 a.m. or the next day at 4:00 p.m. 
 
-## Refunding the Transaction Amount
+#### Refunding the Transaction Amount
 The transaction amount can be refunded to the customer.
 
 To refund a transaction, follow the steps given below.
@@ -264,7 +266,7 @@ To refund a transaction, follow the steps given below.
 
 ***Note***: Not every transactions type is refundable from the *Dashboard*. To know more about types of transactions that are refundable from *Dashboard*, please contact your Midtrans PIC.
 
-## Cancelling Transactions
+#### Cancelling Transactions
 
 After a successful transaction,  you can choose to cancel the transaction. For this, the transaction status should be **Success** or **Pending**.
 
@@ -281,253 +283,9 @@ To cancel a transaction, follow the steps given below.
 5. Click **OK**.
   The transaction is cancelled.
 
-# Account
+## API & Product Configuration
 
-The *Account* menu has some important functionalities that can help you manage your account. You can edit and manage the following:
-
-- User Profile
-- IP whitelisting
-- Manage users
-- Change roles
-- View activity log
-
-### Updating User Profile
-You can update your profile details such as your full name, email address, and phone number. You can also reset your password.
-
-#### Updating User Profile from Accounts Menu
-To edit or update your profile, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNTS > USER PROFILE**.
-  *User Profile* page is displayed.
-3. Edit the required fields.
-4. Click **Save Changes**.
-  ![Dashboard Usage](./../../asset/image/after-payment-user-profile.png)
-  The profile is updated successfully.
-
-#### Updating User Profile from Account Information  
-To edit your profile from the Account Information, follow the steps given below.
-
-1. Login to your MAP account.
-2. Click on your *Account* *Information* icon.
-  Drop-down menu appears.
-3. Click the settings icon.
-  *User Profile* page is displayed.
-4. Follow steps 3 and 4 from [*Updating User Profile from Accounts Menu*](#updating-user-profile-from-accounts-menu).
-  ![Dashboard Usage](./../../asset/image/after-payment-user-profile2.png)
-​  The profile is updated successfully.
-
-## Resetting Password
-To reset your password, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNTS > USER PROFILE**.
-  *User Profile* page is displayed.
-3. Enter **Current Password**.
-4. Enter the **New Password**. 
-5. Enter **New Password Conformation**.
-6. Select the **Enable Two-factor authentication**  check box. 
-7. Click **Save Changes**.
-  ![Dashboard Usage](./../../asset/image/after-payment-reset-password.png)
-  Your password is changed successfully.
-
->***Notes***: 
->
->* Make sure your password has at least eight characters, including minimum of one number, one lowercase letter, and one uppercase letter.
->* The Two-Factor Authentication (2FA) is an additional security feature to authenticate the user. Install Google Authenticator on your Android or iOS enabled device and scan the barcode.
-   
-     
-
-### IP Whitelisting
-IP whitelisting is an additional security feature often used for limiting and controlling the access to trusted users only. IP whitelisting allows MAP to be accessible only through the specified IP addresses. If someone tries to login with an IP address other than the one specified here, the access is denied.
-
-To whitelist an IP address, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNTS > IP WHITELIST**.
-  *Setting IP* page is displayed. 
-  Enter the IP address in **IP Address Whitelist** field.
-3. Click **Add**.
-  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-20.png)
-  A message to confirm your action is displayed.
-4. Click **Ok**.
-  The new IP address is whitelisted. Any access to the MAP account from any other IP address is prohibited.
-
-   
-
->***Note***: 
->
->Make sure that you are using **static IP address** from your internet provider. If you use **dynamic IP address**, your **access to the MAP might be denied**, because your IP address may be changed depending on the Internet provider assignment.
-
-## Managing Other Users on your Account
-
-MAP allows you to add new users and manage the accessibilities of these users. You can also edit or delete a user.
-
-To view and manage users, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNTS > USER MANAGEMENT**.
-  ![Dashboard Usage](./../../asset/image/after-payment-user-management.png)
-  *User Management* page is displayed.
-   
-The table given below describes the different panes on *User Management* pane.
-
-| Label | Name                 | Description                                                  |
-| ----- | -------------------- | ------------------------------------------------------------ |
-| 1     | User List Pane       | It has a list of different users in your account with their User ID, Full Name, Role, and Action.  You can also edit or delete the users here. |
-| 2     | Create New User Pane | You can create new users on your account and allow different accessibilities. |
-
-The table given below describes different roles and their accessibilities.
-
-| Role                 | Access                                                       |
-| -------------------- | ------------------------------------------------------------ |
-| Administrator        | The super user with complete access rights. It is usually reserved for business owner/CEO/GM. |
-| Operation Staff      | They can Cancel/Accept/Deny transaction.                     |
-| Finance Staff        | They can manage payout and edit billing information.         |
-| Developer / IT Staff | They can access technical configurations.                    |
-| Customer Service     | They can access transaction status only.                     |
-| Sandbox IT Staff     | They have access to technical configuration in *Sandbox* environment only. |
-
-### Creating New Users
-
-To create a new user, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
-  *Create New User* pane is displayed.
-3. Enter the **Full Name**.
-4. Enter the **Email Address**.
-5. To **Activate Account**, select *Yes*; select *No* otherwise.
-6. Select the appropriate **Role** check box. 
-7. Click **Create User**.
-  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-create-user.png)
-  A message to confirm your action is displayed.
-8. Click Ok.
-  The new user is created and listed in the *User List* pane.
-
-### Editing User Details
-
-To edit the details of a user, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
-  *User Management* page is displayed.
-3. Click the specific **User ID**.
-   **Or**
-   Click **Edit** under *Action* corresponding to the *User ID* you want to edit.
-  ![Dashboard Usage](./../../asset/image/after-payment-user-management-edit.png)
-  *Edit User Form* is displayed.
-4. Edit the required fields.
-5. Click **Update User**.
-  ![Dashboard Usage](./../../asset/image/after-payment-edit-user-form.png)
-  A message to confirm your action is displayed.
-6. Click **OK**.
-  User details are updated. The *User List* pane is updated with the new details.
-
-### Deleting User Details
-To delete the user details, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
-  *User Management* page is displayed.
-3. Click **Delete** under *Action*, corresponding to the *User ID* you want to delete.
-  ![Dashboard Usage](./../../asset/image/after-payment-delete-user.png)
-  A message to confirm your action is displayed.
-4. Click **OK**.
-  The user details are deleted. The updated *User List* is displayed.
-
-## Monitoring Activities of Users
-You can monitor the following details of activities of different users on your account:
-
-- User name
-- IP address used to access the account
-- Action taken after login
-- Time of login (Western Indonesian Time)
-
-To monitor the activities of the users, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNT > ACTIVITY LOG**.
-  *Activity Log* page is displayed.
-  ![Dashboard Usage](./../../asset/image/after-payment-activity-log.png)
-  Log record of all the activities on the account is displayed on the *Log* pane. 
-  The table given below describes different panes on *Activity Log* page.
-
-| Label | Name      | Description                                                  |
-| ----- | --------- | ------------------------------------------------------------ |
-| 1     | Pencarian | Search activity of other users using email address, email id or action |
-| 2     | Log       | Log of all the activities on the account is displayed with User name, IP address, action taken, and time |
-
-![Dashboard Usage](./../../asset/image/after-payment-dash-usage-22.png)
-
-## Searching for Activity Log
-Search feature makes it easier for you to find activity logs of specific accounts. You can either search using email address, IP address, or action.
-
-To search an activity, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **ACCOUNT > ACTIVITY LOG**.
-  *Activity Log* page is displayed.
-3. Enter the search criteria (**Email address**, **User name**, **IP Address**, or **Action**).
-4. Click **Search**.
-  The result is displayed in the *Log* pane.
-
-
-  > ***Note***: 
-  >
-  > You do not have to enter all the fields for search. But it will help you to narrow down your search results. 
-  For example, the image below shows the search result for the *User name*: Asri. 
-  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-22.png)
-
-## Editing General Settings
-You can edit the general settings on your account. The following details can be edited.
-
--  Merchant Name
--  Official Merch. Name
--  Director Name
--  Director Phone Number
--  Fax
--  NPWP (Nomor Pokok Wajib Pajak)
--  NPWP Name
--  URL Merchant
--  Merchant email
--  Timezone
--  Business Address
--  Branch Address
-
-To edit, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > GENERAL SETTINGS**.
-  *General Settings* page is displayed.
-3. Enter the required details on *Business Settings* pane.
-4. Click **Save**.
- ![Dashboard Usage](./../../asset/image/after-payment-business-settings.png)
- Your settings are updated.
- > ***Note***: You can hover over ⓘ to learn more about the respective fields.
-   
-
-
-
-## Editing Interface Settings
-Custom Fields is a feature that enables you to charge a transaction with unique data according to your need. Custom field allows you to send your own (custom) data to Core API. This data is then sent back from Midtrans to your backend on HTTP notification. It is displayed on Dashboard under the order detail.
-
-To edit the interface settings, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > GENERAL SETTINGS**.
-  *General Settings* page is displayed.
-3. Enter the **Custom field 1 label**.
-4. Enter the **Custom field 2 label**.
-5. Enter the **Custom field 3 label**.
-6. Click **Save**.
-7. Click **Enable Beta Release**.
-  ![Dashboard Usage](./../../asset/image/after-payment-interface-settings.png)
-  The interface settings are updated.
-
-
-
-## Accessing Client and Server Keys
+### Accessing Client and Server Keys
 To communicate with the Midtrans API, you have to use *Client Key* and *Server Key*.
 
 To get access to the *Client Key* and *Server Key*, follow the steps given below.
@@ -573,7 +331,7 @@ To customize VT Web preferences, follow the steps given below.
 
 
 
-### Changing VT-WEB Payment Page Logo
+#### Changing VT-WEB Payment Page Logo
 
 To change VT Web payment page logo, follow the steps given below.
 
@@ -656,7 +414,7 @@ To configure bank transfer, follow the steps given below.
 4. Select **Other Bank/ATM Bank Processor** from the drop-down list.
 5. Click **Save**.
   ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-24.png)
-  The table given below describes the Payment List and Payment Methods on Snap.	
+  The table given below describes the Payment List and Payment Methods on Snap. 
 
 | Payment List on Snap       | Payment Method          | Description                                      |
 | -------------------------- | ----------------------- | ------------------------------------------------ |
@@ -666,7 +424,7 @@ To configure bank transfer, follow the steps given below.
 | Bank Transfer - BNI        | BNI Virtual Account     | Payment via BNI Channel                          |
 | Bank Transfer - Other Bank | Permata VA / BNI VA     | Payment via ATM Bersama, ALTO and Prima networks |
 
-### Configuring Custom Payment Expiry Settings on Snap
+#### Configuring Custom Payment Expiry Settings on Snap
 You can set custom preferences for payment expiry on **Snap** payment page.
 
 To set the payment expiry to a custom duration, follow the steps given below.
@@ -687,7 +445,7 @@ To set the payment expiry to a custom duration, follow the steps given below.
 > - The default settings for GoPay is 15 Minutes.
 > - The default settings for other payment methods is one day.
 
-### Configuring Default Payment Expiry Settings on Snap
+#### Configuring Default Payment Expiry Settings on Snap
 You can set preferences for payment expiry on **Snap** payment Page.
 
 To set the payment expiry to a default, follow the steps given below.
@@ -701,7 +459,82 @@ To set the payment expiry to a default, follow the steps given below.
   ![Dashboard Usage](./../../asset/image/after-payment-snap-default-settings.png)
   Snap is configured for default payment expiry date settings.
 
-## Update Billing Information
+### Enabling Payment Link
+Customers can make payments to you through links sent to the them through blogs, Facebook, Instagram, or Email.
+
+To configure the payment link, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **SETTINGS > PAYMENT LINK**.
+  *Notifications Settings* page is displayed.
+3. Select the **Yes** check box to enable payment link.
+4. Click **Save**.
+  ![Dashboard Usage](./../../asset/image/after-payment-enable-payment-link.png)
+  A message to confirm your action is displayed.
+5. Click **OK**.
+  The payment link is enabled.
+
+#### Disabling Payment Link
+To disable payment link, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **SETTINGS > PAYMENT LINK**.
+  *Notifications Settings* is displayed.
+3. Select the **No** check box to disable payment link.
+4. Click **Save**.
+  ![Dashboard Usage](./../../asset/image/after-payment-disable-payment-link.png)A message to confirm your action is displayed.
+5. Click **OK**.
+  The payment link is disabled.
+
+## Settings
+
+### Editing General Settings
+You can edit the general settings on your account. The following details can be edited.
+
+-  Merchant Name
+-  Official Merch. Name
+-  Director Name
+-  Director Phone Number
+-  Fax
+-  NPWP (Nomor Pokok Wajib Pajak)
+-  NPWP Name
+-  URL Merchant
+-  Merchant email
+-  Timezone
+-  Business Address
+-  Branch Address
+
+To edit, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **SETTINGS > GENERAL SETTINGS**.
+  *General Settings* page is displayed.
+3. Enter the required details on *Business Settings* pane.
+4. Click **Save**.
+ ![Dashboard Usage](./../../asset/image/after-payment-business-settings.png)
+ Your settings are updated.
+ > ***Note***: You can hover over ⓘ to learn more about the respective fields.
+   
+
+
+
+### Editing Interface Settings
+Custom Fields is a feature that enables you to charge a transaction with unique data according to your need. Custom field allows you to send your own (custom) data to Core API. This data is then sent back from Midtrans to your backend on HTTP notification. It is displayed on Dashboard under the order detail.
+
+To edit the interface settings, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **SETTINGS > GENERAL SETTINGS**.
+  *General Settings* page is displayed.
+3. Enter the **Custom field 1 label**.
+4. Enter the **Custom field 2 label**.
+5. Enter the **Custom field 3 label**.
+6. Click **Save**.
+7. Click **Enable Beta Release**.
+  ![Dashboard Usage](./../../asset/image/after-payment-interface-settings.png)
+  The interface settings are updated.
+
+### Update Billing Information
 You can configure the billing information such as bank name, branch name, and account number.
 
 To update and configure billing information, follow the steps given below.
@@ -722,7 +555,7 @@ To update and configure billing information, follow the steps given below.
 9. Click **OK**.
   The billing information is updated.
 
-## Scheduling Automated Payouts
+### Scheduling Automated Payouts
 On MAP, you can configure the frequency of payout, so that payouts occur automatically according to the schedule. This makes sure that you do not miss any deadline for payouts.
 
 To configure the frequency of payout, follow the steps given below.
@@ -758,33 +591,6 @@ To configure email notifications, follow the steps given below.
   A message to confirm your actions is displayed,
 13. Click **OK**.
   The email notifications are configured.
-
-### Enabling Payment Link
-Customers can make payments to you through links sent to the them through blogs, Facebook, Instagram, or Email.
-
-To configure the payment link, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > PAYMENT LINK**.
-  *Notifications Settings* page is displayed.
-3. Select the **Yes** check box to enable payment link.
-4. Click **Save**.
-  ![Dashboard Usage](./../../asset/image/after-payment-enable-payment-link.png)
-  A message to confirm your action is displayed.
-5. Click **OK**.
-  The payment link is enabled.
-
-### Disabling Payment Link
-To disable payment link, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > PAYMENT LINK**.
-  *Notifications Settings* is displayed.
-3. Select the **No** check box to disable payment link.
-4. Click **Save**.
-  ![Dashboard Usage](./../../asset/image/after-payment-disable-payment-link.png)A message to confirm your action is displayed.
-5. Click **OK**.
-  The payment link is disabled.
 
 ### Configuring Daily Report
 You can customize and choose the information to be available in the daily report. The daily reports can be configured to be sent to several email addresses at the same time. You can also disable the daily report feature.
@@ -831,7 +637,205 @@ To resend a daily report for a particular day, follow the steps given below.
 5. Click **OK**.
    The Daily transaction report of the specified date is delivered to your email id. Please check your inbox.
 
-## Contacting Us for Help
+## Account
+
+The *Account* menu has some important functionalities that can help you manage your account. You can edit and manage the following:
+
+- User Profile
+- IP whitelisting
+- Manage users
+- Change roles
+- View activity log
+
+### Updating User Profile
+You can update your profile details such as your full name, email address, and phone number. You can also reset your password.
+
+#### Updating User Profile from Accounts Menu
+To edit or update your profile, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNTS > USER PROFILE**.
+  *User Profile* page is displayed.
+3. Edit the required fields.
+4. Click **Save Changes**.
+  ![Dashboard Usage](./../../asset/image/after-payment-user-profile.png)
+  The profile is updated successfully.
+
+#### Updating User Profile from Account Information  
+To edit your profile from the Account Information, follow the steps given below.
+
+1. Login to your MAP account.
+2. Click on your *Account* *Information* icon.
+  Drop-down menu appears.
+3. Click the settings icon.
+  *User Profile* page is displayed.
+4. Follow steps 3 and 4 from [*Updating User Profile from Accounts Menu*](#updating-user-profile-from-accounts-menu).
+  ![Dashboard Usage](./../../asset/image/after-payment-user-profile2.png)
+​  The profile is updated successfully.
+
+### Resetting Password
+To reset your password, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNTS > USER PROFILE**.
+  *User Profile* page is displayed.
+3. Enter **Current Password**.
+4. Enter the **New Password**. 
+5. Enter **New Password Conformation**.
+6. Select the **Enable Two-factor authentication**  check box. 
+7. Click **Save Changes**.
+  ![Dashboard Usage](./../../asset/image/after-payment-reset-password.png)
+  Your password is changed successfully.
+
+>***Notes***: 
+>
+>* Make sure your password has at least eight characters, including minimum of one number, one lowercase letter, and one uppercase letter.
+>* The Two-Factor Authentication (2FA) is an additional security feature to authenticate the user. Install Google Authenticator on your Android or iOS enabled device and scan the barcode.
+   
+     
+
+### IP Whitelisting
+IP whitelisting is an additional security feature often used for limiting and controlling the access to trusted users only. IP whitelisting allows MAP to be accessible only through the specified IP addresses. If someone tries to login with an IP address other than the one specified here, the access is denied.
+
+To whitelist an IP address, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNTS > IP WHITELIST**.
+  *Setting IP* page is displayed. 
+  Enter the IP address in **IP Address Whitelist** field.
+3. Click **Add**.
+  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-20.png)
+  A message to confirm your action is displayed.
+4. Click **Ok**.
+  The new IP address is whitelisted. Any access to the MAP account from any other IP address is prohibited.
+
+   
+
+>***Note***: 
+>
+>Make sure that you are using **static IP address** from your internet provider. If you use **dynamic IP address**, your **access to the MAP might be denied**, because your IP address may be changed depending on the Internet provider assignment.
+
+### Managing Other Users on your Account
+
+MAP allows you to add new users and manage the accessibilities of these users. You can also edit or delete a user.
+
+To view and manage users, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNTS > USER MANAGEMENT**.
+  ![Dashboard Usage](./../../asset/image/after-payment-user-management.png)
+  *User Management* page is displayed.
+   
+The table given below describes the different panes on *User Management* pane.
+
+| Label | Name                 | Description                                                  |
+| ----- | -------------------- | ------------------------------------------------------------ |
+| 1     | User List Pane       | It has a list of different users in your account with their User ID, Full Name, Role, and Action.  You can also edit or delete the users here. |
+| 2     | Create New User Pane | You can create new users on your account and allow different accessibilities. |
+
+The table given below describes different roles and their accessibilities.
+
+| Role                 | Access                                                       |
+| -------------------- | ------------------------------------------------------------ |
+| Administrator        | The super user with complete access rights. It is usually reserved for business owner/CEO/GM. |
+| Operation Staff      | They can Cancel/Accept/Deny transaction.                     |
+| Finance Staff        | They can manage payout and edit billing information.         |
+| Developer / IT Staff | They can access technical configurations.                    |
+| Customer Service     | They can access transaction status only.                     |
+| Sandbox IT Staff     | They have access to technical configuration in *Sandbox* environment only. |
+
+### Creating New Users
+
+To create a new user, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
+  *Create New User* pane is displayed.
+3. Enter the **Full Name**.
+4. Enter the **Email Address**.
+5. To **Activate Account**, select *Yes*; select *No* otherwise.
+6. Select the appropriate **Role** check box. 
+7. Click **Create User**.
+  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-create-user.png)
+  A message to confirm your action is displayed.
+8. Click Ok.
+  The new user is created and listed in the *User List* pane.
+
+### Editing User Details
+
+To edit the details of a user, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
+  *User Management* page is displayed.
+3. Click the specific **User ID**.
+   **Or**
+   Click **Edit** under *Action* corresponding to the *User ID* you want to edit.
+  ![Dashboard Usage](./../../asset/image/after-payment-user-management-edit.png)
+  *Edit User Form* is displayed.
+4. Edit the required fields.
+5. Click **Update User**.
+  ![Dashboard Usage](./../../asset/image/after-payment-edit-user-form.png)
+  A message to confirm your action is displayed.
+6. Click **OK**.
+  User details are updated. The *User List* pane is updated with the new details.
+
+### Deleting User Details
+To delete the user details, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNT > USER MANAGEMENT**.
+  *User Management* page is displayed.
+3. Click **Delete** under *Action*, corresponding to the *User ID* you want to delete.
+  ![Dashboard Usage](./../../asset/image/after-payment-delete-user.png)
+  A message to confirm your action is displayed.
+4. Click **OK**.
+  The user details are deleted. The updated *User List* is displayed.
+
+### Monitoring Activities of Users
+You can monitor the following details of activities of different users on your account:
+
+- User name
+- IP address used to access the account
+- Action taken after login
+- Time of login (Western Indonesian Time)
+
+To monitor the activities of the users, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNT > ACTIVITY LOG**.
+  *Activity Log* page is displayed.
+  ![Dashboard Usage](./../../asset/image/after-payment-activity-log.png)
+  Log record of all the activities on the account is displayed on the *Log* pane. 
+  The table given below describes different panes on *Activity Log* page.
+
+| Label | Name      | Description                                                  |
+| ----- | --------- | ------------------------------------------------------------ |
+| 1     | Pencarian | Search activity of other users using email address, email id or action |
+| 2     | Log       | Log of all the activities on the account is displayed with User name, IP address, action taken, and time |
+
+![Dashboard Usage](./../../asset/image/after-payment-dash-usage-22.png)
+
+### Searching for Activity Log
+Search feature makes it easier for you to find activity logs of specific accounts. You can either search using email address, IP address, or action.
+
+To search an activity, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the home page, go to **ACCOUNT > ACTIVITY LOG**.
+  *Activity Log* page is displayed.
+3. Enter the search criteria (**Email address**, **User name**, **IP Address**, or **Action**).
+4. Click **Search**.
+  The result is displayed in the *Log* pane.
+
+
+  > ***Note***: 
+  >
+  > You do not have to enter all the fields for search. But it will help you to narrow down your search results. 
+  For example, the image below shows the search result for the *User name*: Asri. 
+  ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-22.png)
+
+## Contact Us
 To send us your questions, concerns or feedbacks from *Dashboard*.
 
 1. Login to your MAP account.
