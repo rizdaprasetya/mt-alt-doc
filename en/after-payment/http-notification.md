@@ -1,19 +1,44 @@
-# HTTP(S) Notification / Webhook
+# HTTP(S) Notification / Webhooks
 <hr>
 
-Notification through HTTP(S) POST / Webhook will be sent to the merchant's server when customer completes the payment process and when transaction status changes (transaction refunded, pending, etc). Merchant can utilize the HTTP(S) POST notification to update a payment status or send the item of a transaction in real time.
+HTTP(S) POST notifications or Webhooks are sent to your server when the customer completes the payment process or when transaction status changes. These notifications help you to update payment status or take suitable actions in real-time.
 
-Enable Midtrans HTTP(S) POST Notification by setting the Payment Notification URL at [Settings - Configuration](https://dashboard.sandbox.midtrans.com/settings/vtweb_configuration/). URL protocol prefix  (`https://` or `http://`) are required, we highly recommended to use `https://` to ensure security.
+Midtrans HTTP(S) POST Notification can be configured by configuring the *Payment Notification URL* from SETTINGS on *Dashboard*.
 
-![HTTP Notification Configuration](./../../asset/image/after-payment-notifurl-dashboard.png)
+## Configuring HTTP Notifications On MAP
 
-!> Make sure to input Notification URL that **can be reached from Public Internet**. Midtrans **will not be able** to send notification to localhost, url protected with auth/password, url behind VPN, unusual destination port, etc. You can then utilize `signature_key` or method that will be explained below as security measures.
+To receive notifications of transactions, HTTP notifications are configured as explained in the steps given below.
 
-?> **Tips**: If you are still running/developing your notification handler on localhost, you can utilize these service to expose your localhost server to public internet: [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), etc. Once you have obtain the internet accessible url, you can input it to the `notification url` field on Dashboard.
+1. Login to your MAP account.
+2. On the Home page, go to **SETTINGS > CONFIGURATION**.
+3. Enter Required fields.
+4. Click **Update**.
+  ![HTTP Notification Configuration](./../../asset/image/after-payment_http_notification_redirect_settings.png)
 
-### Sample Notification
+> ***Note***: URL protocol prefix `https://` or `http://` are required. We highly recommended to use `https://` for security purposes.
 
-The HTTP(S) POST notification is HTTP request with:
+<details>
+<summary><b>Definition Table</b></summary>
+<article>
+  
+The table given below describes the fields that can be configured from the Merchant Administrative Portal (MAP).
+
+| Field                      | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| Payment Notification URL   | The URL to which notification is to be sent when a payment is made by a customer. |
+| Recurring Notification URL | The URL to which notification is to be sent when a payment recurs. |
+| Finish Redirect URL        | The URL to which the customer is redirected when a transaction is finished. |
+| Unfinished Redirect URL    | The URL to which the notifications are sent when a transaction is unfinished or if the customer clicks *Back* to order. |
+| Error Redirect URL         | The URL to which the notifications are sent when an error occurs during payment or if the payment is unsuccessful. |
+
+</article>
+</details>
+
+!> Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. You can then utilize *signature_key* or method that is explained below as security measures.
+
+?> **Tips**: If you are still running/developing your notification handler on localhost, you can utilize the services (such as [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), and so on) to expose your localhost server to public Internet. Once you have obtained the Internet accessible URL, you can add it to the *Notification URL* field on *Dashboard*.
+
+## Sample HTTP Notifications Sent From Midtrans
 
 Key | Type
 --- | ---
@@ -22,11 +47,14 @@ Request Method | `POST`
 Request Header | `Content-Type: application/json`
 Request Body | `string` of JSON
 
-<details>
+### Sample in CURL
+
+Some example of how the HTTP notification will be sent from Midtrans side:
+
+<details open>
 <summary><b>Sample Notification Request in CURL</b></summary>
 <article>
 
-Here's example of how the HTTP notification will be sent from Midtrans side:
 ```bash
 curl -X POST \
   https://tokoecommerc.com/payment-notification-handler/ \
@@ -54,14 +82,20 @@ curl -X POST \
   "approval_code": "1578569243927"
 }'
 ```
+
 </article>
 </details>
 
-Some sample notification of successful transaction based on payment channel:
+### Sample of Different Payment Channels
+
+Some sample HTTP notifications for a successful transaction on different payment channels are given below.
+
 <!-- TODO: Update the notification sample with actual test result-->
 
 <!-- tabs:start -->
+
 #### **Card**
+
 ```json
 {
   "transaction_time": "2020-01-09 18:27:19",
@@ -87,6 +121,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **GoPay**
+
 ```json
 {
   "status_code": "200",
@@ -102,6 +137,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Permata VA**
+
 ```json
 {
   "status_code": "200",
@@ -119,6 +155,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BCA VA**
+
 ```json
 {
   "va_numbers": [
@@ -141,6 +178,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Mandiri Bill**
+
 ```json
 {
   "status_code": "200",
@@ -159,6 +197,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BNI VA**
+
 ```json
 {
   "va_numbers": [
@@ -187,6 +226,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BCA Klikpay**
+
 ```json
 {
   "approval_code": "91231",
@@ -204,6 +244,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **KlikBCA**
+
 ```json
 {
   "status_code": "200",
@@ -221,6 +262,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Mandiri ClickPay**
+
 ```json
 {
   "approval_code": "166JF5644001",
@@ -238,6 +280,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **CIMB Clicks**
+
 ```json
 {
   "status_code": "200",
@@ -254,6 +297,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Danamon Online Banking**
+
 ```json
 {
   "status_code": "200",
@@ -271,6 +315,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Indomaret**
+
 ```json
 {
   "status_code": "200",
@@ -289,6 +334,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Alfamart**
+
 ```json
 {
   "status_code": "200",
@@ -307,6 +353,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **Akulaku**
+
 ```json
 {
   "transaction_time": "2018-08-24 16:20:36",
@@ -323,6 +370,7 @@ Some sample notification of successful transaction based on payment channel:
 ```
 
 #### **BRI Epay**
+
 ```json
 {
   "approval_code": "201373311528",
@@ -340,65 +388,358 @@ Some sample notification of successful transaction based on payment channel:
 ```
 <!-- tabs:end -->
 
-?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` incase of card transaction) **and**  `fraud_status` value is `accept`. Then you are safe to deliver good/service to customer.
-
-### Status Definition
-
-<!-- tabs:start -->
-#### **Transaction Status**
-
-transaction_status | 🔍 | description
---- | --- | ---
-`capture` | ✅ | Transaction successfully capture the credit card balance. <br>Will be settled automatically next day if no manual action taken. <br>Safe to assume as success payment.
-`settlement` | ✅ | Transaction is successfully settled. Funds has been received.
-`pending` | 🕒 | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/ebanking/E-wallet app/ store).
-`deny` | ❌| Payment provider / Fraud Detection System rejects the credentials used for payment. See `status_message` field for deny reason/details.
-`cancel` | ❌| Transaction is cancelled. Can be triggered by Midtrans or Merchant themselves.
-`expire` | ❌| Transaction no longer available to be paid or processed, beacause the payment has not been completed after the expiry time period exceeded.
-`refund` | ↩️| Refund is triggered by Merchant. Transaction is marked to be refunded.
-
-#### **Fraud Status**
-
-fraud_status | 🔍 | description
---- | --- | ---
-`accept` | ✅ | Transaction is safe, not considered as fraud.
-`deny` | ❌ | Transaction is considered as fraud. And denied/rejected for safety reason.
-`challenge` | ⚠️ | Transaction have indication of potential fraud, but cannot be determined precisely. <br>Merchant should take action to accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API
-<!-- tabs:end -->
-
-#### Notes When Using Snap API
-<br>
 <details>
-<summary><b>Notes When Using Snap API</b></summary>
+<summary><b>Definition Table</b></summary>
 <article>
 
-When a transaction is created on Snap API, it does not immediately assign any payment status on Core API's get-status response. 
+<!-- tabs:start -->
+#### **Card**
 
-So please expect that you may encounter `404` or payment not found response upon calling Core API get-status even if the payment page is activated on Snap API. 
+#### POST Body 
 
-It is because of customer may not yet choose any payment method within the Snap payment page (e.g: idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on Core API get-status. The possible status is as defined on the table above. 
+| Element                  | Description                                                  | Type   | Notes                                                        |
+| ------------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| transaction_time         | Time at which the transaction happened.                      | String | –                                                            |
+| transaction_status       | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](#status-definition). |
+| transaction_id           | The transaction id of the specific transaction.              | String | –                                                            |
+| status_message           | The status message.                                          | String | –                                                            |
+| status_code              | The transaction status code.                                 | String | –                                                            |
+| signature_key            | The Signature Key.                                           | String | This is a very important data that informs you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| payment_type             | The type of payment method used.                             | String | –                                                            |
+| order_id                 | The order id of the transaction.                             | String | –                                                            |
+| merchant_id              | Your merchant ID.                                            | String | –                                                            |
+| masked_card              | The first six-digit and last four-digit of customer's credit card number. | String | –                                                            |
+| gross_amount             | Total amount for which the transaction was done.             | String | –                                                            |
+| fraud_status             | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](#status-definition).    |
+| eci                      | The 3D secure ECI code for a card transaction.               | String | –                                                            |
+| currency                 | The unit of currency used for the transaction.               | String | –                                                            |
+| channel_response_message | The response from payment channel.                           | String | –                                                            |
+| channel_response_code    | The response code from the payment channel.                  | String | –                                                            |
+| card_type                | The type of card used for the transaction.                   | String | Possible values are Credit, Debit.                           |
+| bank                     | Name of the bank through which the transaction was processed. | String | –                                                            |
+| approval_code            | The approval code from the bank.                             | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+
+#### **GoPay**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+
+#### **Permata VA**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| permata_va_number  | The Permata VA number.                           | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+
+#### **BCA VA**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| :----------------- | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| bank               | The name of the bank.                            | String | –                                                            |
+| va_number          | The virtual account number.                      | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| status_message     | The status message.                              | String | –                                                            |
+
+#### **Mandiri Bill**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| bill_key           | The bill key number.                             | String | –                                                            |
+| biller_code        | The code for the biller.                         | String | –                                                            |
+
+#### **BNI VA**
+
+#### POST Body 
+
+| Element            | Description                                                  | Type   | Notes                                                        |
+| :----------------- | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| bank               | Name of the bank.                                            | String | –                                                            |
+| va_number          | VA number.                                                   | String | –                                                            |
+| payment_amounts    | Payment details such as the amount paid and the time of payment. | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*                |
+| paid_at            | The time and date at which the payment was done.            | String | –                                                            |
+| amount             | The amount paid.                                             | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.                      | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done.             | String | –                                                            |
+| order_id           | The order id of the transaction.                             | String | –                                                            |
+| payment_type       | The type of payment method used.                             | String | –                                                            |
+| signature_key      | The Signature Key.                                           | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                                 | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.              | String | –                                                            |
+| transaction_status | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](#status-definition).    |
+| bank               | Name of the bank through which the transaction was processed. | String | –                                                            |
+| status_message     | The status message.                                          | String | –                                                            |
+
+#### **BCA Klikpay**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| status_message     | The status message.                              | String | –                                                            |
+
+#### **KlikBCA**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+
+#### **Mandiri ClickPay**
+
+#### POST Body
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| status_message     | The status message.                              | String | –                                                            |
+
+#### **CIMB Clicks**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+
+#### **Danamon Online Banking**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+
+#### **Indomaret**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied. |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| payment_code       | 14 digit payment code.                           | String | –                                                            |
+| store              | Name of the store.                               | String | –                                                            |
+
+#### **Alfamart**
+
+#### POST Body
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| status_message     | The status message.                              | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| transaction_time   | The time of transaction with date.               | String | It is in the format, YYYY-MM-DD HH:MM:SS.                    |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied. |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| payment_code       | 14 digit payment code.                           | String | –                                                            |
+| store              | Name of the store.                               | String | –                                                            |
+
+#### **Akulaku**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| status_message     | The status message.                              | String | –                                                            |
+
+#### **BRI Epay**
+
+#### POST Body 
+
+| Element            | Description                                      | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| approval_code      | The approval code from the bank.                 | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
+| merchant_id        | Your merchant ID.                                | String | –                                                            |
+| transaction_time   | Time at which the transaction happened.          | String | –                                                            |
+| gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
+| order_id           | The order id of the transaction.                 | String | –                                                            |
+| payment_type       | The type of payment method used.                 | String | –                                                            |
+| signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| status_code        | The transaction status code.                     | String | –                                                            |
+| transaction_id     | The transaction id of the specific transaction.  | String | –                                                            |
+| transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
+| fraud_status       | The fraud status of the transaction.             | String | For more details, refer to [Fraud Status](#status-definition).    |
+| status_message     | The status message.                              | String | –                                                            |
+<!-- tabs:end -->
 
 </article>
 </details>
 
-### Verify Notification Authenticity
+?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is *settlement* (or *capture* in case of card transaction) **and** `fraud_status` value is *accept*. Then you are safe to deliver good/service to customer.
 
-To ensure the content integrity and the notification is securely sent by Midtrans, not by other unverified party, we recommend you to verify the notification by one of these mechanisms:
+## Status Definition
 
 <!-- tabs:start -->
-#### **Verify Signature Key**
 
-On the JSON notification body, we provided `signature_key` which generated using Server Key as one of its component. Since presumably only Midtrans and that specific Merchant knows the Server Key, it can be use to ensure the notification is signed by Midtrans, and can be verified by Merchant.
+#### **Transaction Status**
 
-The logic to generate or calculate signature key is explaine below:
+Transaction Status | Fund Received | Description 
+--- | --- | ---
+`capture` | ✅ | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. 
+`settlement` | ✅ | The transaction is successfully settled. Funds have been credited to your account. 
+`pending` | 🕒 | The transaction is created and is waiting to be paid by the customer at the payment providers like Direct debit, Bank Transfer, E-wallets, and so on. 
+`deny` | ❌ | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. 
+`cancel` | ❌ | The transaction is canceled. It can be triggered by you.<br/> You can trigger *Cancel* status in the following cases:<br/> 1. If you cancel the transaction after *Capture* status.<br/> 2. If you deny a transaction after *Challenge* status.<br/>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. 
+`expire` | ❌ | Transaction is not available for processing, because the payment was delayed. 
+`refund` | ↩️ | Transaction is marked to be refunded. Refund status is triggered by you. 
+
+#### **Fraud Status**
+
+Fraud Status | Fund Received | Description 
+--- | --- | ---
+`accept` | ✅ | Transaction is safe to proceed. It is not considered as a fraud. 
+`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans. 
+`challenge` | ⚠️ | Transaction is flagged as potential fraud, but cannot be determined precisely. <br/>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API](https://api-docs.midtrans.com/#approve-transaction) or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br/>If no action is taken, the transaction is denied automatically. 
+<!-- tabs:end -->
+
+#### Notes When Using Snap API
+<br>
+
+<details>
+<summary><b>Notes When Using Snap API</b></summary>
+<article>
+
+When a transaction is created on Snap API, it does not immediately assign any payment status on*Core API* *GET Status* response. 
+
+Even if the payment page is activated on Snap API, you might encounter `404` or *Payment not found* response while calling *Core API GET Status*.
+
+This is because the customer is yet to choose any payment method within the Snap payment page. Once the customer chooses and proceeds with a payment method, then the transaction status will be assigned and available on *Core API GET Status*.
+</article>
+</details>
+
+## Verifying Notification Authenticity
+
+To ensure the integrity of the notifications and the content, it is recommended to verify the notification using one of the following mechanisms.
+
+<!-- tabs:start -->
+#### **Verifying Signature Key**
+
+In the notification response body, Midtrans provides `signature_key` which is generated by appending `order_id`, `status_code`, `gross_amount`, and `ServerKey` into a string. *ServerKey* is confidential information known only to Midtrans and you. Thus, you can verify the `signature_key` to ensure that the notification is signed by Midtrans.
+
+The logic to generate or calculate signature_key is explained below:
 
 ```
-SHA512(order_id+status_code+gross_amount+serverkey)
+SHA512(order_id+status_code+gross_amount+ServerKey)
 ```
 
 > It basically means append the value of `order_id`,`status_code`,`gross_amount`,`ServerKey` into one string, then use it as input to SHA512 hash function. Then the output should match with `signature_key` from notification.
 
-You can test with this tools to try out signature_key calculation:
+Try out *signature_key* calculation using the tool given below.
 
 
 <details>
@@ -410,58 +751,88 @@ You can test with this tools to try out signature_key calculation:
 </details>
 <br>
 
-#### **Verify Directly to Midtrans API**
+#### **Verify Using GET Status API Call**
 
-Alternatively, verify by calling [the get status API](/en/after-payment/get-status.md). This means the request is directly responded by Midtrans, not other party. The JSON response will be generally the same as the notification status. Illustrated below:
+You can verify authenticity using the [GET status API Request](/en/after-payment/get-status.md). This means the request is directly responded by Midtrans. The JSON response will be the same as the notification status. This process of verification is illustrated below.
 
 ![Verify Notification Diagram](./../../asset/image/after-payment-notif-diag.png)
+
+?> **Tips**: Official Midtrans language library will perform "Verify Directly to Midtrans API" mechanism automatically within the built in `notification` function. As well as official Midtrans CMS plugin.
 <!-- tabs:end -->
 
-?> **Tips**: Official Midtrans language library will automatically do "Verify Directly to Midtrans API" mechanism within the built in `notification` function. As well as official Midtrans CMS plugin.
+## Responding HTTP Notification from Midtrans
 
-### Response
+To confirm that you received the notification, your notification URL or backend must respond to the HTTP notification with HTTP `status code: 200`. On most backend or web frameworks you can achieve that by printing a string similar to *OK*. This will automatically sends HTTP `status code: 200` to Midtrans. 
 
-Your notification url / backend must response with http status code `200` to confirm notification is received. On most backend / web framework you can also achive that by simply printing string, like `ok` it will automatically send http status code `200`.
-
-### Best Practice to Handle Notification
-<br>
 <details>
-<summary><b>Best Practice</b></summary>
+<summary><b>Status Codes and Errors</b></summary>
 <article>
 
-- Always use an HTTPS endpoint. It is secure and there cannot be MITM attacks because we validate the certificates match the hosts. Also do not use self signed certificates.
-- Use standard port (80/443) for notification callback url
-- Always implement notification in an idempotent way, in extremely rare cases, we may send multiple notifications for the same transaction event twice. It should not cause double entries in the merchant end, The simple way of achieving this is to use orderid as the key to track the entries.
-- Always check the signature hash of the notification, This will confirm that the notification was actually sent by Midtrans, because we encode the shared secret (server key). Nobody else can build this signature hash.
-- Always check all the following three fields for confirming success transaction
+#### Status Codes and Errors
+
+Your server can respond with the following status and error codes, which will trigger Midtrans' Notification engine to perform following actions.
+
+| Code        | Midtrans Will Perform                                        |
+| ----------- | ------------------------------------------------------------ |
+| 2XX         | No retries, it is considered successful.                     |
+| 500         | Retry only *once*.                                           |
+| 503         | Retry *four* times.                                          |
+| 400/404     | Retry *two* times.                                           |
+| 301/302/303 | No retries. Update notification endpoint in SETTINGS menu, instead of replying to these status codes. |
+| 307/308     | Follow the new URL with POST method and the same notification body. Maximum number of redirect is five times. |
+| Other       | Retry five times.                                            |
+
+</article>
+</details>
+
+### Best Practice to Handle Notification
+
+<br>
+
+<details>
+<summary><b>Best Practices</b></summary>
+<article>
+
+- Always use an HTTPS endpoint. It is secure and there cannot be Man-in-the-Middle (MITM) attacks because we validate the certificates match with the hosts. Also do not use self signed certificates.
+- Use standard port (80/443) for notification callback URL.
+- Always implement notification in an idempotent way. In extremely rare cases, we may send multiple notifications for the same transaction event. It should not cause duplicate entries at your end, The simple way of achieving this is to use *order_id* as the key to track the entries.
+- Always check the signature hash of the notification, This will confirm that the notification was actually sent by Midtrans, because we encode the *Server Key*. Nobody else can build this signature hash.
+- Always check the following three fields for confirming success transactions:
 	- `status_code`: Should be 200 for successful transactions
 	- `fraud_status`: ACCEPT
-	- `transaction_status` : settlement/capture
-- We strive to send the notification immediately after the transaction has occurred, but in extremely rare cases, it may be delayed because of transaction spikes. If you have not received a notification, please use the Status API to check for current status of the transaction.
-- It is safe to call Status API to get the latest status of the transaction/order on each notification.
-- We set the HTTP timeout to 15 seconds.
-- Please strive to keep the response time of the the HTTP notifications under 5 seconds.
-In extremely rare cases we may send the HTTP notifications out of order, ie. a `settlement` status for a notification before the notification for `pending` status. It's important that such later notifications are ignored. Here's the state transition diagram that you could use. But again, use our /status API to confirm the actual status.
-- We send the notification body as JSON, please parse the JSON with a JSON parser. Always expect new fields will be added to the notification body, so parse it in a non strict format, so if the parser sees new fields, it should not throw exception. It should gracefully ignore the new fields. This allows us to extend our notification system for newer use cases without breaking old clients.
-- Always use the right HTTP Status code for responding to the notification, we handle retry for error cases differently based on the status code
+	- `transaction_status` : *settlement* or *capture*
+- We strive to send the notification immediately after the transaction has occurred. In extremely rare cases, it may be delayed because of transaction spikes. If you have not received a notification, please use the *GET Status API* to check for current status of the transaction.
+- It is safe to call *GET Status API* to get the latest status of a transaction or an order.
+- The HTTP timeout is configured for 15 seconds. Please respond as soon as possible, ideally, within 5 seconds, to reduce the load on Midtrans' infrastructure. 
+- In extremely rare cases we may send the HTTP notifications out of order - a `settlement` status for a notification before the notification for `pending` status. It's important that such later notifications are ignored. Here's the state transition diagram that you could use. But it is recommended to use *GET Status API* to confirm the actual status.
+- We send the notification body as JSON, please parse the JSON with a JSON parser. Always expect new fields will be added to the notification body, so parse it in a non strict format. This prevents the parser from throwing an exception for new fields. It should gracefully ignore the new fields. This allows us to extend our notification system for newer use cases without breaking old clients.
+- Always use the right HTTP Status code for responding to the notifications. 
+- we handle retry for error cases differently based on the status code.
 	- for `2xx`: No retries, it is considered success
 	- for `500`: Retry only once
 	- for `503`: Retry 4 times
 	- for `400/404`: Retry 2 times
-	- for `301/302/303`: No retries. We suggest the notificaiton endpoint should be update in setting instead of reply these status code.
-	- for `307/308`: Follow the new url with POST method and same notification body. Max redirect is 5 times
+	- for `301/302/303`: No retries. We suggest the notification endpoint should be update in setting instead of reply these status code.
+	- for `307/308`: Follow the new URL with POST method and same notification body. Max redirect is 5 times
 	- for all other failures: Retry 5 times
-- We do retry at most 5 times with following policy
-- Different retry interval from 1st time to 5th time (2m, 10m, 30m, 1.5hour, 3.5hour)
-- Put a random time shift for each time retry base on above interval. For example, the first time retry might be 33s(at most 2m) after the job failed.
+- We do retry at most 5 times with following policy.
+- Different retry intervals are:
+
+  - First time - two minutes
+  - Second time - ten minutes
+  - Third time - 30 minutes (0.5 hours)
+  - Fourth time - 90 minutes (1.5 hours)
+  - Fifth time - 210 minutes (3.5 hours)
+- Put a random time shift for each time retry base on above interval. For example, the first time retry might be 33s (at most 2m) after the job failed.
 </article>
 </details>
 
-### Example
+### Example on Handling HTTP Notifications
 
-Sample code for merchant to receive HTTP(S) POST and JSON object by utilizing **Midtrans Official Library**. Assume that this code will be executed when notification URL endpoint (https://tokoecomm.com/notification) is accessed.
+Some sample codes to handle HTTP(S) POST and JSON object by utilizing **Midtrans Official Library** are given below. Assume that this code will be executed when the notification URL endpoint (https://yourwebsite.com/notification) is accessed.
 
 <!-- tabs:start -->
+
 #### **Node JS**
 ```javascript
 const midtransClient = require('midtrans-client');
@@ -556,13 +927,15 @@ else if ($transaction == 'settlement'){
 ```
 <!-- tabs:end -->
 
-### Customize Notification URL via API
+## Advanced
+
+### Customizing Notification URL via API
 <br>
 <details>
 <summary><b>Customize Notification URL via API</b></summary>
 <article>
-	
-Optionally, if required Merchant can option to change or add custom notification URLs on each transaction. It can be achieved by adding additional HTTP(s) headers on the API request.
+
+Optionally, if required Merchant can opt-in to change or add custom notification URLs on each transaction. It can be achieved by adding additional HTTP(s) headers on the API request.
 
 There are two optional headers that we can accept:
 - `X-Append-Notification` : to add new notification url(s) alongside the settings on dashboard
@@ -599,38 +972,40 @@ Assuming merchant has set `https://example.com` as notification url on the dashb
 Else if merchant set header `X-Override-Notification: https://example.com/test1,https://example.com/test2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
 - https://example.com/test1 and
 - https://example.com/test2
+
 </article>
 </details>
 
-### View Notification History
+### Viewing Notification History
 <br>
 <details>
-<summary><b>View Notification History</b></summary>
+<summary><b>Viewing Notification History</b></summary>
 <article>
 
 In some cases you might want to know if HTTP notification is successfully sent to your notification url or backend server.
 
 To audit if notification is sent, and if it sent successfuly or not you can login to your Midtrans Dashboard. Go to menu `Settings > Configuration > See History`. You will find HTTP Notification as well as email notification records for each Order ID, and you can see the status if it successfully sent or not. You can also search by Order ID.
 
-- You may find some notification failed to be sent, most likely that is because your notification url is rejecting the HTTP notification delivery. Please check your notification url implementation on your backend server. Make it also follows the [best practice](#best-practice-to-handle-notification).
+- If notification fails to be sent,  your notification URL might be rejecting the HTTP notification delivery. Please check your notification URL implementation on your backend server. For more information, refer to [Best Practices](#best-practice-to-handle-notification).
 
-- You may find notification shown as `success` to be sent, but your server wasn't able to change the payment status on your side. Please check, most likely there is mis-implementation or issue on the implementation on your backend server.
+- If you find that the notification has been sent (shown as `success`), but your server wasn't able to change the payment status on your backend, it might be because of an issue in the implementation on your backend server.
 
-- If there is issue of Midtrans having delay or issue that unable to send the HTTP Notification, you can always use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
+- If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
 
 </article>
 </details>
 
-### In Case of Notification Not Received or Delayed
+### Delayed or Missed Notification 
 
-Although Midtrans strive for its best to keep notification service reliable, there may be some exceptional cases that can cause notification to be unable to be sent from Midtrans or received from merchant side / your end.
+Although Midtrans strives for its best to keep notification service reliable, there may be some exceptional cases that can cause failure in sending notification from Midtrans or failure in receiving from merchant side.
 
-This includes cases like: delay, network/infra issues, unexpected downtime, vendor/service disruption, etc. In this kind of exceptional rare case, merchant should anticipate by performing [Get Status API call](/en/after-payment/get-status) to check for latest status on Midtrans side, to reconcile the status with merchant's internal/database status. Merchant can for example plan the timing of the Get Status:
-- Upon after certain defined time (e.g: after 24 hours) notification is not received, do Get Status.
-- Before transaction considered as failure/canceled on Merchant side, do Get Status.
-- Upon merchant's operations team want to reconcile status, provide function to trigger Get Status.
-- Upon manual checking, when customer complain their fund is deducted but not marked as success on Merchant side.
-- Any scenario that may fits your requirements.
-- etc.
+This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status).
 
-But first remember to make sure to check if the notification issue is not from your end, please refer to the "Best Practice" & "View Notification History" section explained above.
+You can make [GET Status API call](https://docs.midtrans.com/en/after-payment/get-status), in any of the following scenarios:
+
+- Notifications are not received within the defined time (24 hours, 12 hours, and so on).
+- Before a transaction is considered as failure/canceled on your side.
+- Your operations team wants to reconcile status.
+- Funds are deducted from the customer but the transaction status is not updated to *success*.
+
+Please make sure to check if the notification issue is not from your end. For more information, please refer to the [Best Practices to Handle Notification](#best-practice-to-handle-notification) and [View Notification History](#viewing-notification-history) sections explained earlier.
