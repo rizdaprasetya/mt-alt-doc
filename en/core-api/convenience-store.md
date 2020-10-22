@@ -1,14 +1,16 @@
-# Over the Counter Payment Method
+# Over the Counter Payment Integration
 <hr>
-<i>Over the Counter</i> is one of the payment methods offered by Midtrans. Using this payment method, customers can make payments at a convenience store. Midtrans sends you real-time notifications when the customer completes the payment.
-<!--I think there should be small description of how customer can pay through convenience store and how merchant can access it. If detailed information is not given on their website then may be we can ask them through mail??-->
+<i>Over the Counter</i> is one of the payment methods offered by Midtrans. Using this payment method, customers can shop online and make payments at a nearest convenience store. Midtrans sends you real-time notifications when the customer completes the payment.
 
 
 
 
 
 
-Currently, Midtrans has integrated with some convenience stores like Alfamart and Indomaret.
+
+
+
+Currently, Midtrans has integrated with the convenience stores like Alfamart and Indomaret.
 
 ![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
 <br>
@@ -23,17 +25,19 @@ Currently, Midtrans has integrated with some convenience stores like Alfamart an
 </article>
 </details>
 
-?>***Note***: The steps given below are used to test the integration process in the *Sandbox* environment. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+## Sandbox Environment
+
+The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
 
 
-## Steps for Integration
+### Steps for Integration
 
 To integrate with *Over the Counter* payment method, follow the steps given below.
 
-### 1. Sending transaction data to API Charge
+#### 1. Sending transaction data to API Charge
 
-The *Charge API* request is sent with the transaction details, from the merchant's backend.
+The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
 
@@ -58,7 +62,7 @@ The *Charge API* request is sent with the transaction details, from the merchant
 
    #### Sample Request and Request Body
 
-The sample request for *Charge API* for *Over the Counter* payment method, in CURL is shown below. Please implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). You can implement according to your backend language.
+The sample CURL request for *Charge API* for *Over the Counter* payment method is shown below. Please implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). You can implement according to your backend language.
 
  <!-- tabs:start -->
 
@@ -140,10 +144,10 @@ curl -X POST \
 
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details`to include more information like customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
+?>***Tips***: You can customize the `transaction_details` to include more information like customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
 
 #### Sample Response and Response Body
-The sample API responses and a description of the response body for the *Over the Counter* payment method is shown below.
+The sample API responses and a description of the response body for the *Over the Counter* payment method are shown below.
 <!-- tabs:start -->
 
 #### **Alfamart**
@@ -220,10 +224,10 @@ The sample API responses and a description of the response body for the *Over th
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | merchant_id        | Your merchant ID.                                            | String |                                                              |
 | payment_code       | The code required for making payment at the convenience store. | String |                                                              |
-| store              | The name of the conenience store                             | String |                                                              |
+| store              | The name of the conenience store.                            | String |                                                              |
 
 <!-- tabs:end -->
-?>***Note***: The `payment_code` attribute can be displayed to your frontend.
+?>***Note***: The `payment_code` attribute for the transaction is recieved.
 
 #### Status Codes and Errors
 
@@ -234,16 +238,16 @@ The sample API responses and a description of the response body for the *Over th
 | 413  | There is syntax error.                 | Check the syntax.                                         |
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
-### 2. Displaying payment code
-To display payment code to your frontend, use `payment_code` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/convenience-store.md#sending-transaction-data-to-api).
+#### 2. Displaying payment code
+To display the payment code on your frontend, use `payment_code` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/convenience-store.md#sending-transaction-data-to-api).
 
-The customer can proceed with actual payment, in the nearest convenience store by confirming with the payment code that is shown on merchant website / apps.
+The customer can proceed with actual payment, at the nearest convenience store by confirming the payment code and the transaction amount. The payment code is shown on merchant website or apps.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#convenience-store).
 
-### 3. Handling transaction notification
+#### 3. Handling transaction notification
 
-When the transaction status changes, you will be directly notified about the changes in the transaction through the redirect url and through merchant's backend. Midtrans sends HTTP notification to merchant's backend. This ensures that you are updated of the transaction status securely. 
+When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely. 
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard. 
 
@@ -255,9 +259,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
 
-   
-
-   ​	*Configuration* page is displayed.
+   *Configuration* page is displayed.
 
 3. Enter **Payment Notification URL**.
 
@@ -273,7 +275,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 For more details, refer to [HTTP(S) Notification/ Webhooks](/en/after-payment/http-notification.md)
 
-The sample HTTP notification request received at merchant's backend for *Over the Counter* payment method is given below.
+The sample HTTP notification request received at merchant backend for *Over the Counter* payment method is given below.
 
 <!-- tabs:start -->
 
@@ -322,11 +324,11 @@ The sample HTTP notification request received at merchant's backend for *Over th
 
 
 ## Switching To Production
-To use Midtrans *Production* environment (accept real payment from real customer), please make sure to follow the steps given below.
+Follow the steps given below to switch to Midtrans *Production* environment and to accept real payments from real customers.
 
-1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`
+1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
 
-2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 
 

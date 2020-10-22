@@ -1,10 +1,9 @@
-# Direct Debit Transfer Integration
+# Direct Debit Payment Integration
 <hr>
-<i>Direct Debit</i> is one of the payment methods offered by Midtrans. Using this payment method, the customer can authorize you to withdraw funds from the bank account. It is usually done for recurring payments, where the payment amount varies from one payment to another. This payment method can also be used for irregular payments such as for mail order transactions or at a point of sale. Midtrans sends real-time notifications when the customer completes the payment.
+<i>Direct Debit</i> is one of the payment methods offered by Midtrans. Using this payment method, the customer can authorize you to withdraw funds from the bank account. It is usually done for recurring payments, where the payment amount varies from one payment to another. This payment method can also be used for irregular payments such as for mail order transactions or at a point of sale (POS). Midtrans sends real-time notifications when the customer completes the payment.
 
 
-
-Currently, Midtrans can integrate with the following *Direct Debit* payment methods like BCA KlikPay, CIMB Clicks, Danamon Online Banking, and e-Pay BRI
+Currently, Midtrans can integrate with the following *Direct Debit* payment methods like BCA KlikPay, CIMB Clicks, Danamon Online Banking, and e-Pay BRI.
 
 ![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
 ![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
@@ -20,14 +19,16 @@ Currently, Midtrans can integrate with the following *Direct Debit* payment meth
 </article>
 </details>
 
-?>***Note***: The steps given below are used to test the integration process in the *Sandbox* environment. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+## Sandbox Environment
 
-## Steps for Integration 
+The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+
+### Steps for Integration 
 To integrate with *Direct Debit* payment method, follow the steps given below.
 
-### 1. Sending transaction data to API Charge
+#### 1. Sending transaction data to API Charge
 
-The *Charge API* request is sent with the transaction details, from the merchant's backend.
+The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
 
@@ -60,7 +61,7 @@ The *Charge API* request is sent with the transaction details, from the merchant
 
 #### Sample Request
 
-The sample request for *Charge API* for *Direct Debit* payment methods in CURL, is shown below. Please implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+The sample CURL request for *Charge API* for *Direct Debit* payment methods are shown below. Please implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 <!-- tabs:start -->
 
 #### **BCA Kilkpay**
@@ -133,9 +134,7 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details`to include more information like customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>
-
-It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard. 
+?>***Tips***: You can customize the `transaction_details` to include more information like customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard. 
 
 #### Sample Response and Response Body
 
@@ -188,11 +187,11 @@ The sample API responses and a description of the response body for the availabl
 | transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
 | order_id           | The specific *Order ID*.                                     | String |                                                              |
 | redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
-| merchant_id        | Your merchant ID                                             | String |                                                              |
+| merchant_id        | Your merchant ID.                                            | String |                                                              |
 | gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
 | currency           | The unit of currency used for the transaction.               | String |                                                              |
 | payment_type       | The type of payment method used.                             | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 | redirect_data      | These are som technical information from BCA.                | Object |                                                              |
@@ -229,7 +228,7 @@ The sample API responses and a description of the response body for the availabl
 | gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
 | currency           | The unit of currency used for the transaction.               | String |                                                              |
 | payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | merchant_id        | Your merchant ID.                                            | String |                                                              |
 
@@ -266,7 +265,7 @@ The sample API responses and a description of the response body for the availabl
 | gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
 | currency           | The unit of currency used for the transaction.               | String |                                                              |
 | payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
@@ -321,16 +320,16 @@ The sample API responses and a description of the response body for the availabl
 | 413  | There is syntax error.                 | Check the syntax.                                         |
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
-### 2. Redirecting the customer to bank's website
+#### 2. Redirecting the customer to bank's website
 The `redirect_url` retrieved from [Sending transaction data to API](/en/technical-reference/core-api/direct-debit.md#sending-transaction-data-to-api) is used to redirect the customer to the bank's website.
 
-The customer is redirected through server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
+The customer is redirected through server-side redirect, using JavaScript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 
 The customer can complete the payment on this page.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#cardless-credit).
 
-### 3. Configuring landing page
+#### 3. Configuring landing page
 After the customer completes the payment, the bank's website automatically redirects the customer to *Finish Redirect URL* which can be configured on MAP (Merchant Administration Portal). 
 
 #### **Configuring Finish Redirect URL**
@@ -343,7 +342,7 @@ To configure the *Finish Redirect URL*, follow the steps given below.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
 
-   ​	*Configuration* page is displayed.
+   *Configuration* page is displayed.
 
 3. Enter **Finish Redirect URL** with your landing page endpoint.
 
@@ -357,7 +356,7 @@ To configure the *Finish Redirect URL*, follow the steps given below.
 
 ?>***Note***: Please make sure the *Finish Redirect URL* endpoint can receive the POST request . 
 
-The sample code given below is written in *Native PHP*. Please make appropriate changes according to your environment.
+The sample code in *Native PHP* is given below. Please make appropriate changes according to your environment.
 
 #### Sample Code
 
@@ -385,9 +384,9 @@ The sample code given below is written in *Native PHP*. Please make appropriate 
 }
 ```
 
-### 4. Handling post-transaction
+#### 4. Handling post-transaction
 
-When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant's backend. Midtrans sends HTTP notification to merchant's backend. This ensures that you are updated of the transaction status securely.
+When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant backend. Midtrans sends HTTP notification to merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard. 
 
@@ -399,7 +398,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
 
-   ​	*Configuration* page is displayed.
+   *Configuration* page is displayed.
 
 3. Enter **Payment Notification URL**.
 
@@ -407,15 +406,15 @@ To configure the Payment Notification URL, follow the steps given below.
 
    A confirmation message is displayed.
 
-   ![Core API](./../../asset/image/core-api-payment-notification-1.png)
+   ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
    
    
    
    The *Payment Notification URL* is configured.
 
-For more details, refer to [HTTP(S) Notification/ Webhooks](/en/after-payment/http-notification.md)
+For more details, refer to [HTTP(S) Notification/ Webhooks](/en/after-payment/http-notification.md).
 
-The sample HTTP notification request received at merchant's backend for *Direct Debit* payment method is given below.
+The sample HTTP notification request received at merchant backend for *Direct Debit* payment method is given below.
 
 <!-- tabs:start -->
 
@@ -500,11 +499,11 @@ The sample HTTP notification request received at merchant's backend for *Direct 
 
 
 ## Switching To Production
-To use Midtrans *Production* environment (accept real payment from real customer), please make sure to follow the steps given below.
+Follow the steps given below to switch to Midtrans *Production* environment and to accept real payments from real customers.
 
-1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`
+1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
 
-2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
    
 

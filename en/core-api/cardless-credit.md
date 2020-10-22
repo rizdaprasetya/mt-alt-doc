@@ -1,6 +1,7 @@
-# Cardless Credit
+# Cardless Credit Payment Integration
 <hr>
-<i>Cardless Credit</i> is one of the payment method offered by Midtrans. Using this payment method, the customers can shop online and make payments in installments. Midtrans sends real-time notifications to you when the customer completes the payment.
+<i>Cardless Credit</i> is one of the payment methods offered by Midtrans. Using this payment method, the customers can shop online and make payments in installments. Midtrans sends real-time notifications to you when the customer completes the payment.
+
 
 
 
@@ -18,19 +19,18 @@ Currently, Midtrans can integrate with [Akulaku Inc](https://www.akulaku.com).
 </article>
 </details>
 
+## Sandbox Environment
+The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 
-?>***Note***: The steps given below are used to test the integration process in the *Sandbox* environment. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 
-
-
-## Steps for integration
+### Steps for integration
 
 To integrate with *Cardless Credit* payment method, follow the steps given below.
 
-### 1. Sending transaction data to Charge API 
+#### 1. Sending transaction data to Charge API 
 
-The *Charge API* request is sent with the transaction details, from the merchant's backend.
+The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
 
@@ -57,15 +57,15 @@ The *Charge API* request is sent with the transaction details, from the merchant
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | Cardless Credit payment type                                 | String | Required |
-| transaction_details | The details of the transaction like the order_id and gross_amount | -      | Required |
-| order_id            | The order_id of the transaction                              | String | Required |
-| gross_amount        | The total amount of transaction                              | Long   | Required |
+| payment_type        | Cardless Credit payment type.                                | String | Required |
+| transaction_details | The details of the transaction like the order_id and gross_amount. | -      | Required |
+| order_id            | The order_id of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction.                             | Long   | Required |
 
 
 
 #### Sample Request
-The sample requests for *Charge API* for Akulaku *Cardless Credit* payment method, in CURL is shown below. You can implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). 
+The sample CURL request for *Charge API* for Akulaku *Cardless Credit* payment method, is shown below. You can implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). 
 
 **<!-- tabs:start -->**
 
@@ -151,16 +151,16 @@ The sample response and description of response body for Akulaku *Cardless Credi
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
 
-### 2. Redirecting customer to Cardless Credit Website
+#### 2. Redirecting customer to Cardless Credit Website
 The `redirect_url` retrieved from [Sending transaction data to API](/en/technical-reference/core-api/cardless-credit.md#sending-transaction-data-to-api) is used to redirect the customer to the bank's website.
 
-The customer is then redirected through server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
+The customer is then redirected through server-side redirect, using JavaScript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 
 The customer can complete the payment on this page.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#cardless-credit).
 
-### 3. Configuring landing page 
+#### 3. Configuring landing page 
 
 After the customer completes the payment, the bank's website automatically redirects the customer to *Finish Redirect URL* which can be configured on MAP (Merchant Administration Portal). 
 
@@ -174,7 +174,7 @@ To configure the *Finish Redirect URL*, follow the steps given below.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
 
-   ​	*Configuration* page is displayed.
+   *Configuration* page is displayed.
 
 3. Enter **Finish Redirect URL** with your landing page endpoint.
 
@@ -188,7 +188,7 @@ To configure the *Finish Redirect URL*, follow the steps given below.
 
 ?>***Note***: Please make sure the *Finish Redirect URL* endpoint can receive the POST request . 
 
-The sample code given below is written in *Native PHP*. Please adjust the code to your own environment.
+The sample code in *Native PHP* is given below. Please adjust the code to your own environment.
 
 #### Sample Code
 
@@ -220,9 +220,9 @@ The sample code given below is written in *Native PHP*. Please adjust the code t
 
 
 
-### 4. Handling post-transaction
+#### 4. Handling post-transaction
 
-When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant's backend. Midtrans sends HTTP notification to merchant's backend. This ensures that you are updated of the transaction status securely.
+When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely. 
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard. 
 
@@ -234,7 +234,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
 
-   ​	*Configuration* page is displayed.
+   *Configuration* page is displayed.
 
 3. Enter **Payment Notification URL**.
 
@@ -249,7 +249,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 For more details, refer to [HTTP(S) Notification/ Webhooks](/en/after-payment/http-notification.md)
 
-The sample HTTP notification request received at merchant's backend for Akulaku *Cardless Credit* payment method is given below.
+The sample HTTP notification request received at merchant backend for Akulaku *Cardless Credit* payment method is given below.
 
 <!-- tabs:start -->
 
@@ -276,15 +276,14 @@ The sample HTTP notification request received at merchant's backend for Akulaku 
 <!-- tabs:end -->
 
 
-## Switching To Production
+## Switching To Production Environment
 
-To use Midtrans *Production* environment (accept real payment from real customer), please make sure to follow the steps given below.
+Follow the steps given below to switch to Midtrans *Production* environment and to accept real payments from real customers.
 
-1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`
+1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
 
-2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-   
 
 
 ## Next Step:
@@ -306,4 +305,3 @@ To use Midtrans *Production* environment (accept real payment from real customer
 </div>
 
 <hr>
-
