@@ -2,14 +2,6 @@
 <hr>
 <i>Over the Counter</i> is one of the payment methods offered by Midtrans. Using this payment method, customers can shop online and make payments at a nearest convenience store. Midtrans sends you real-time notifications when the customer completes the payment.
 
-
-
-
-
-
-
-
-
 Currently, Midtrans has integrated with the convenience stores like Alfamart and Indomaret.
 
 ![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
@@ -26,17 +18,12 @@ Currently, Midtrans has integrated with the convenience stores like Alfamart and
 </details>
 
 ## Sandbox Environment
-
-The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving Access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
-
-
+The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 ### Steps for Integration
-
 To integrate with *Over the Counter* payment method, follow the steps given below.
 
-#### 1. Sending transaction data to API Charge
-
+#### 1. Sending transaction data to Charge API 
 The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
@@ -56,20 +43,13 @@ The *Charge API* request is sent with the transaction details, from the merchant
 
 **AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
-?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header). 
+?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).
 
- 
-
-   #### Sample Request and Request Body
-
-The sample CURL request for *Charge API* for *Over the Counter* payment method is shown below. Please implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). You can implement according to your backend language.
-
- <!-- tabs:start -->
+#### Sample Request and Request Body
+The sample CURL request for *Charge API* for *Over the Counter* payment method is shown below. You may  implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).  <!-- tabs:start -->
 
 #### **Alfamart**
-
 **Sample Request**
-
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -91,7 +71,9 @@ curl -X POST \
   }
 }'
 ```
-**Request Body**
+<details>
+<summary><b>Request Body</b></summary>
+<article>
 
 | Element              | Description                                                  | Type   | Required |
 | -------------------- | ------------------------------------------------------------ | ------ | -------- |
@@ -105,6 +87,9 @@ curl -X POST \
 | alfamart_free_text_1 | Customizable first row of text on the printed receipt.       | String | Optional |
 | alfamart_free_text_2 | Customizable second row of text on the printed receipt.      | String | Optional |
 | alfamart_free_text_3 | Customizable third row of text on the printed receipt.       | String | Optional |
+
+</article>
+</details>
 
 #### **Indomaret**
 
@@ -128,9 +113,9 @@ curl -X POST \
   }
 }'
 ```
-**Request Body**
-
-
+<details>
+<summary><b>Request Body</b></summary>
+<article>
 
 | Element             | Description                                                  | Type        | Required |
 | ------------------- | ------------------------------------------------------------ | ----------- | -------- |
@@ -138,22 +123,23 @@ curl -X POST \
 | transaction_details | The details of the transaction like the order_id and gross_amount. | -           | Required |
 | order_id            | The order_id of the transaction.                             | String      | Required |
 | gross_amount        | The total amount of transaction.                             | Long        | Required |
-| cstore              | Convenience store details.                                   |             |          |
+| cstore              | Convenience store details.                                   | Object      |          |
 | store               | The name of the convenience store.                           | String (20) | Required |
 | message             | Label to be displayed in Indromaret POS.                     | String (20) | Optional |
 
+</article>
+</details>
+
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details` to include more information like customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
+?>***Tips***: You can customize the `transaction_details` to include more information like `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
 
 #### Sample Response and Response Body
 The sample API responses and a description of the response body for the *Over the Counter* payment method are shown below.
 <!-- tabs:start -->
 
 #### **Alfamart**
-
 **Sample Response**
-
 ```json
 {
     "status_code": "201",
@@ -171,8 +157,9 @@ The sample API responses and a description of the response body for the *Over th
     "store": "alfamart"
 }
 ```
-
-**Response Body**
+<details>
+<summary><b>Response Body</b></summary>
+<article>
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -188,6 +175,9 @@ The sample API responses and a description of the response body for the *Over th
 | merchant_id        | Your merchant ID.                                            | String |                                                              |
 | payment_code       | The code required for making payment at the convenience store. | String |                                                              |
 | store              | The name of the conenience store.                            | String |                                                              |
+
+</article>
+</details>
 
 #### **Indomaret**
 
@@ -209,7 +199,9 @@ The sample API responses and a description of the response body for the *Over th
   "store": "indomaret"
 }
 ```
-**Response Body**
+<details>
+<summary><b>Response Body</b></summary>
+<article>
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -226,8 +218,11 @@ The sample API responses and a description of the response body for the *Over th
 | payment_code       | The code required for making payment at the convenience store. | String |                                                              |
 | store              | The name of the conenience store.                            | String |                                                              |
 
+</article>
+</details>
+
 <!-- tabs:end -->
-?>***Note***: The `payment_code` attribute for the transaction is recieved.
+?>***Note***: The `payment_code` attribute for the transaction is received.
 
 #### Status Codes and Errors
 
@@ -240,40 +235,36 @@ The sample API responses and a description of the response body for the *Over th
 
 #### 2. Displaying payment code
 To display the payment code on your frontend, use `payment_code` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/convenience-store.md#sending-transaction-data-to-api).
-
 The customer can proceed with actual payment, at the nearest convenience store by confirming the payment code and the transaction amount. The payment code is shown on merchant website or apps.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#convenience-store).
 
 #### 3. Handling transaction notification
+When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
-When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely. 
+HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
 
-HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard. 
-
-#### **Configuring Payment Notification URL**
+<details>
+<summary><b>Configuring Payment Notification URL</b></summary>
+<article>
 
 To configure the Payment Notification URL, follow the steps given below.
-
 1. Login to your MAP account.
 
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
-
    *Configuration* page is displayed.
-
+   
 3. Enter **Payment Notification URL**.
 
 4. Click **Update**.
-
    A confirmation message is displayed.
 
    ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
 
-   
-
    The *Payment Notification URL* is configured.
-
-For more details, refer to [HTTP(S) Notification/ Webhooks](/en/after-payment/http-notification.md)
+   
+   </article>
+   </details>
 
 The sample HTTP notification request received at merchant backend for *Over the Counter* payment method is given below.
 
@@ -322,15 +313,15 @@ The sample HTTP notification request received at merchant backend for *Over the 
 ```
 <!-- tabs:end -->
 
+<div class="my-card">
 
-## Switching To Production
+#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+</div>
+
+## Switching to Production Environment
 Follow the steps given below to switch to Midtrans *Production* environment and to accept real payments from real customers.
-
 1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
-
-2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
-
-
+2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 ## Next Step:
 <br>
