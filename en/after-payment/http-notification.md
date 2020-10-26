@@ -817,7 +817,6 @@ Your server can respond with the following status and error codes, which will tr
 	- for all other failures: Retry 5 times
 - We do retry at most 5 times with following policy.
 - Different retry intervals are:
-
   - First time - two minutes
   - Second time - ten minutes
   - Third time - 30 minutes (0.5 hours)
@@ -987,9 +986,7 @@ In some cases you might want to know if HTTP notification is successfully sent t
 To audit if notification is sent, and if it sent successfuly or not you can login to your Midtrans Dashboard. Go to menu `Settings > Configuration > See History`. You will find HTTP Notification as well as email notification records for each Order ID, and you can see the status if it successfully sent or not. You can also search by Order ID.
 
 - If notification fails to be sent,  your notification URL might be rejecting the HTTP notification delivery. Please check your notification URL implementation on your backend server. For more information, refer to [Best Practices](#best-practice-to-handle-notification).
-
 - If you find that the notification has been sent (shown as `success`), but your server wasn't able to change the payment status on your backend, it might be because of an issue in the implementation on your backend server.
-
 - If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
 
 </article>
