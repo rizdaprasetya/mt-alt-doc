@@ -680,7 +680,9 @@ Some sample HTTP notifications for a successful transaction on different payment
 </article>
 </details>
 
-?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is *settlement* (or *capture* in case of card transaction) **and** `fraud_status` value is *accept*. Then you are safe to deliver good/service to customer.
+?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` in case of card transaction) **and if** `fraud_status` exists ensure the value is `accept`. Then you are safe to deliver good/service to customer.
+
+Please note that not every payment methods may return `fraud_status` field. Some payment methods (like Indomaret, Alfamart, etc.) which considered have lower risk of fraud, may not be evaluated by *Fraud Detection System*, and may not return `fraud_status`. In this case, the transaction can be considered as relatively safe from fraud.
 
 ## Status Definition
 
