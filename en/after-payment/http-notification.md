@@ -680,7 +680,9 @@ Some sample HTTP notifications for a successful transaction on different payment
 </article>
 </details>
 
-?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is *settlement* (or *capture* in case of card transaction) **and** `fraud_status` value is *accept*. Then you are safe to deliver good/service to customer.
+?> It's recommended to check the `transaction_status` as reference of the most accurate transaction status. Transaction can be considered **success** if `transaction_status` value is `settlement` (or `capture` in case of card transaction) **and if** `fraud_status` exists ensure the value is `accept`. Then you are safe to deliver good/service to customer.
+
+Please note that not every payment methods may return `fraud_status` field. Some payment methods (like Indomaret, Alfamart, etc.) which considered have lower risk of fraud, may not be evaluated by *Fraud Detection System*, and may not return `fraud_status`. In this case, the transaction can be considered as relatively safe from fraud.
 
 ## Status Definition
 
@@ -817,7 +819,6 @@ Your server can respond with the following status and error codes, which will tr
 	- for all other failures: Retry 5 times
 - We do retry at most 5 times with following policy.
 - Different retry intervals are:
-
   - First time - two minutes
   - Second time - ten minutes
   - Third time - 30 minutes (0.5 hours)
@@ -987,9 +988,7 @@ In some cases you might want to know if HTTP notification is successfully sent t
 To audit if notification is sent, and if it sent successfuly or not you can login to your Midtrans Dashboard. Go to menu `Settings > Configuration > See History`. You will find HTTP Notification as well as email notification records for each Order ID, and you can see the status if it successfully sent or not. You can also search by Order ID.
 
 - If notification fails to be sent,  your notification URL might be rejecting the HTTP notification delivery. Please check your notification URL implementation on your backend server. For more information, refer to [Best Practices](#best-practice-to-handle-notification).
-
 - If you find that the notification has been sent (shown as `success`), but your server wasn't able to change the payment status on your backend, it might be because of an issue in the implementation on your backend server.
-
 - If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
 
 </article>

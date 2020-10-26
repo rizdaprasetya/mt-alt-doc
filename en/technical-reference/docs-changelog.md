@@ -1,6 +1,16 @@
 # Docs Changelog
 <hr>
 
+#### 2020/10/26
+- clarify fraud_status field may not always exist
+- minor formatting fix
+
+#### 2020/10/19 
+- general copy writing & explanation improvements
+
+#### 2020/10/13
+- adjustment on Snap built-in demo button
+
 #### 2020/10/08 
 - general copy writing & explanation improvements
 - some minor formatting & internal ref link fix
