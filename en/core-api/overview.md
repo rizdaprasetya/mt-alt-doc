@@ -2,13 +2,15 @@
 <hr>
 <!-- TODO: standardize linking accross Core API section -->
 <!-- TODO: replace any <img> tag with markdown image format @done -->
-Midtrans’ Core API is a RESTful Web Service used as a communication bridge between merchant and our payment channels. By using our Core API services, our partners can fully customize their payment page, without any redirection to Midtrans’ page. Setup is easy. Core API is suitable for medium sized businesses to large enterprises.
+Midtrans Core API is a Web service, based on RESTFul architecture which enables seamless communication between you and Midtrans payment channels. You can easily setup their environment and can customize your payment page without redirecting to Midtrans page. Midtrans Core API is suitable for medium size as well as large size applications.
+
+
 
 ## Various Ways to Integrate with Core API {docsify-ignore}
 
-Choose any of one integration method below that is suitable to your liking:
+Midtrans provides various integration methods as given below. 
 
-### A) Step by Step Guide {docsify-ignore}
+### 1. Step by Step Guide {docsify-ignore}
 <br>
 <div class="my-card">
 
@@ -35,7 +37,7 @@ Choose any of one integration method below that is suitable to your liking:
 #### [Cardless Credit Integration Guide](/en/core-api/cardless-credit.md)
 </div>
 
-### B) Follow Sample Code {docsify-ignore}
+### 2. Follow Sample Code {docsify-ignore}
 - [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
 - [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
 - [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
