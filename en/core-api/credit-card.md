@@ -5,15 +5,12 @@
 <hr>
 <i>Card</i> payment is one of the payment methods offered by Midtrans. Using this payment method, customers can make payments using a Card (or online-transaction-capable debit card) within Visa, MasterCard, JCB, or Amex network. Midtrans sends real-time notification when the customer completes the payment.
 
-
-
-
 ![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
 ![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=80") <br>
 ![jcb](./../../asset/image/coreapi/jcb.svg ":size=80") <br>
 ![amex](./../../asset/image/coreapi/american_express.svg ":size=80") <br>
 
-?> Please create a Midtrans [Merchant Administrative Portal (MAP) account](/en/midtrans-account/overview.md) before proceeding to the integration process.
+?> Please create Midtrans [Merchant Administrative Portal (MAP) account](/en/midtrans-account/overview.md) before proceeding to the integration process.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -26,19 +23,18 @@ The end-to-end payment proccess for Card Transaction (3DS) is illustrated in the
 </details>
 
 ## Steps for Integration
-
 To integrate with *Card* payment method, follow the steps given below.
 
-### 1. Getting the Card Token
-Card `token_id` is a representation of customer's card information used for the transaction. `token_id` should be retrieved using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant frontend. Card information will be securely transmitted by the merchant frontend JavaScript, to Midtrans Core API in exchange of card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
+## 1. Getting the Card Token
+Card `token_id` is a representation of customer's card information used for the transaction. `token_id` should be retrieved using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
 
 #### Including Midtrans JS Library
 Midtrans JS library can be included to Midtrans payment page, by adding the following script tag.
 
 ```html
 <script id="midtrans-script" type="text/javascript"
-src="https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js" 
-data-environment="sandbox" 
+src="https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js"
+data-environment="sandbox"
 data-client-key="<INSERT YOUR CLIENT KEY HERE>"></script>
 ```
 
@@ -51,11 +47,6 @@ Enter the values of attributes as given below.
 
 For more details about the API, refer to [Get Token](https://api-docs.midtrans.com/#get-token).
 
-#### Get Card Token JS Implementation
-Midtrans uses  `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on Midtrans payment page.
-
-
-
 #### Endpoints
 
 | Method | URL                                       |
@@ -66,7 +57,7 @@ Midtrans uses  `MidtransNew3ds.getCardToken` function to retrieve card `token_id
 
 | Parameter      | Description                   | Type   | Notes                                                        |
 | -------------- | ----------------------------- | ------ | ------------------------------------------------------------ |
-| client_key     | The merchant client key.      | String | For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
+| client_key     | Your Client Key.              | String | For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
 | card_number    | The card number.              | String | The card number is 16 digit number in XXXX XXXX XXXX XXXX format. |
 | card_exp_month | The expiry month on the card. | String | The expiry month is in  MM format.                           |
 | card_exp_year  | The expiry year on the card.  | String | The expiry year is in YY format.                             |
@@ -81,9 +72,6 @@ Midtrans uses  `MidtransNew3ds.getCardToken` function to retrieve card `token_id
 | Authorization | The authentication method used to access the resource. | Required | Basic Og==       |
 
 #### Sample Request
-
-<!--I have some questions here for Midtrans. Please ignore this section-->
-
 ```bash
 curl --location --request GET 'https://api.sandbox.midtrans.com/v2/token?client_key={Your client Key}&card_number=4811%201111%201111%201114&card_exp_month=12&card_exp_year=24&card_cvv=123' \
 --header 'Accept: application/json' \
@@ -91,7 +79,9 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/token?client_
 --header 'Authorization: Basic Og=='
 ```
 
+#### Get Card Token JS Implementation
 
+Midtrans uses  `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on Midtrans payment page.
 
 ```javascript
 // card data from customer input, for example
@@ -130,17 +120,16 @@ Use the following credentials to test the *Card* payment method.
 
 Name | Value
 --- | ---
-Card Number | 4811 1111 1111 1114 
-CVV | 123 
-Exp Month | Any month in MM format. 
-Exp Year | Any future year,in YYYY format. 
-OTP/3DS | 112233 
+Card Number | 4811 1111 1111 1114
+CVV | 123
+Exp Month | Any month in MM format.
+Exp Year | Any future year,in YYYY format.
+OTP/3DS | 112233
 
 For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
 #### Get Card Token Response
-
-The  `token_id`  retrieved from `response` object inside `onSuccess` callback function, is used as one of JSON parameters for [Charge API request](en/core-api/credit-card.md?id=charge-api-request).
+The `token_id` retrieved from `response` object inside `onSuccess` callback function, is used as one of JSON parameters for [Charge API Request](/en/core-api/credit-card.md#sample-request).
 
 `token_id` is then passed from frontend to backend. It can be done using AJAX via JavaScript, HTML  POST or any other implementation of your choice.
 
@@ -169,7 +158,7 @@ A sample of onFailure `response` object is shown below. It contains the `validat
   "status_code": "400",
   "status_message": "One or more parameters in the payload is invalid.",
   "validation_messages": [
-    "This card is not supported for online transactions. Please contact your bank", 
+    "This card is not supported for online transactions. Please contact your bank",
     "card_number does not match with luhn algorithm"
   ],
   "id": "02197189-7cab-4006-8379-51edcd0a253b"
@@ -181,13 +170,9 @@ A sample of onFailure `response` object is shown below. It contains the `validat
 </article>
 </details>
 
-## 2. Sending Transaction Data to API Charge
-
-The `token_id` recieved from [Getting the Card Token](/en/core-api/credit-card#geting-the-card-token), is used by the merchant backend to send [Charge API request](en/core-api/credit-card.md?id=charge-api-request) to Midtrans. The 3DS `redirect_url`  recieved as response  is required to proceed to [Opening 3DS authentication page](/en/technical-reference/core-api/credit-card.md#sending-transaction-data-to-api). 
-
-
-
-The *Charge API* request is sent with the transaction details, from the merchant backend.
+## 2. Sending Transaction Data to Charge API
+The `token_id` recieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token), is used by the merchant backend to send [Charge API Request](/en/core-api/credit-card.md#sample-request) to Midtrans.  The 3DS `redirect_url`  is recieved in the response. This URL is required for [Opening 3DS authentication page](/en/core-api/credit-card.md#_3-opening-3DS-authentication-page).
+The *Charge API* request is sent from the merchant backend, with the `transaction_details` and the `token_id`.
 
 #### Endpoints
 
@@ -217,25 +202,20 @@ The *Charge API* request is sent with the transaction details, from the merchant
 | order_id            | The order_id of the transaction.                             | String  | Required |
 | gross_amount        | The total amount of transaction.                             | Long    | Required |
 | credit_card         | The credit card details of the customer                      | Object  | Required |
-| token_id            | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card#geting-the-card-token). | String  | Required |
+| token_id            | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). | String  | Required |
 | authentication      | Flag to enable the 3D secure authentication.                 | Boolean | Required |
 
-?> **Note**: For better security & fraud prevention, you set `authentication` to `true`. Set `authentication` to`false` only after confirming with Midtrans and the acquiring bank.
 
 
+?> **Note**: For better security and fraud prevention, you should set `authentication` to `true`. You should set the`authentication` to`false` only after confirming with Midtrans and the acquiring bank.
 
 #### Sample Request
-
-The sample requests for *Charge API* for *Card* payment method is shown below. You may  implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). 
-
-
+The sample requests for *Charge API* for *Card* payment method is shown below. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 
 <!-- tabs:start -->
 
 #### **CURL**
-
-**Sample Response**
-
+**Sample Request**
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -262,19 +242,15 @@ curl -X POST \
 ```
 
 #### **PHP**
-
 If you are using [Composer](https://getcomposer.org), follow the steps given below.
-
 1. Install [midtrans-php library](https://github.com/Midtrans/midtrans-php).
 2. `composer require midtrans/midtrans-php`
 
 > Alternatively, if not using Composer, follow the steps given below.
->
 > 1.  Download [midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip).
 > 2. `require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';`.
 
-**Sample Response**
-
+**Sample Request**
 ```php
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
@@ -301,12 +277,11 @@ $response = \Midtrans\CoreApi::charge($params);
 ```
 
 #### **Node JS**
-
 For Node JS, install [midtrans-client NPM package](https://github.com/Midtrans/midtrans-nodejs-client).
 
 `npm install --save midtrans-client`
 
-**Sample Response**
+**Sample Request**
 
 ```javascript
 const midtransClient = require('midtrans-client');
@@ -340,21 +315,18 @@ core.charge(parameter)
 #### **Java**
 
 For Java, follow the steps given below.
-
 1. Install [midtrans-java library](https://github.com/Midtrans/midtrans-java).
 2. Depending on the build automation tool used, choose from the following options.
 
-<!-- tabs:start -->
-
-#### **Maven**
+<details>
+<summary><b>Maven</b></summary>
+<article>
 
 If you're using [Maven](https://maven.apache.org/) as the build automation tool for your project, follow the steps given below.
-
-1. Add jcenter repository to your build definitio.
+1. Add jcenter repository to your build definition.
 
 2. Add the dependency to your project's build definition (pom.xml) as shown below.
-   
-   
+
 
 ```xml
 <repositories>
@@ -374,18 +346,26 @@ If you're using [Maven](https://maven.apache.org/) as the build automation tool 
 </dependencies>
 ```
 
-#### **Gradle**
+</article>
+
+</details>
+
+
+
+<details>
+<summary><b>Gradle</b></summary>
+<article>
 
 If you're using [Gradle](https://gradle.org/) as the build automation tool for your project, follow the steps given below.
-
 1. Add jcenter repository to your build script.
 
 2. Add the dependency to your project's build definition (build.gradle) as shown below.
 
+
 ```bash
 repositories {
     maven {
-        url  "http://jcenter.bintray.com" 
+        url  "http://jcenter.bintray.com"
     }
 }
 
@@ -394,9 +374,11 @@ dependencies {
 }
 ```
 
-<!-- tabs:end -->
+</article>
 
-**Sample Response**
+</details>
+
+**Sample Request**
 
 ```java
 import com.midtrans.Config;
@@ -419,18 +401,18 @@ public class MidtransExample {
 		public Map<String, Object> requestBody() {
 		    UUID idRand = UUID.randomUUID();
 		    Map<String, Object> params = new HashMap<>();
-		    
+
 		    Map<String, String> transactionDetails = new HashMap<>();
 		    transactionDetails.put("order_id", idRand);
 		    transactionDetails.put("gross_amount", "265000");
-		    
+
 		    Map<String, String> creditCard = new HashMap<>();
 		    creditCard.put("token_id", YOUR_TOKEN_ID);
 		    creditCard.put("authentication", "true");
-		    
+
 		    params.put("transaction_details", transactionDetails);
 		    params.put("credit_card", creditCard);
-		    
+
 		    return params;
 		}
 
@@ -442,14 +424,12 @@ public class MidtransExample {
 ```
 
 #### **Python**
-
 For Python, install [**midtrans-client**](https://github.com/Midtrans/midtrans-python-client) PIP package
-
 ```bash
 pip install midtransclient
 ```
 
-**Sample Response**
+**Sample Request**
 
 ```python
 import midtransclient
@@ -480,8 +460,6 @@ charge_response = core_api.charge(param)
 
 ?>***Tips***: You can customize the `transaction_details` to include more information like `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
 
-
-
 ### Sample Response
 The sample API response for *Card* payment method is shown below.
 
@@ -510,11 +488,11 @@ The sample API response for *Card* payment method is shown below.
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | This is the status of the API call.                          | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
 | status_message     | A message describing the status of the transaction.          | String |                                                              |
 | transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
 | order_id           | The specific *Order ID*.                                     | String |                                                              |
-| redirect_url       | The redirect URL                                             |        |                                                              |
+| redirect_url       | The redirect URL                                             | String |                                                              |
 | gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
 | currency           | The unit of currency used for the transaction.               | String |                                                              |
 | payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
@@ -532,12 +510,12 @@ The `redirect_url` attribute for the transaction is received.
 
 ?> ***Notes***:
 
-- If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means that the transaction does not requires 3DS . The transaction is successfuly complete.
+- If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means that the transaction does not requires 3DS . The transaction is successfully completed.
 - If the `transaction_status` is `pending` and `redirect_url` exists, it means the transaction requires 3DS. Open 3DS authentication page.
 
 ####  Status Codes and Errors
 
-Status Code | Description | Sample Response Message 
+Status Code | Description | Sample Response Message
 --- | --- | ---
 200 | Successful transaction (non 3DS transaction). | "transaction_status": "capture"
 201 | Need to open the redirect_url (3DS transaction). | "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-f424a955-ed0f-4a64-88ea-60cdc9655984 "
@@ -546,13 +524,11 @@ Status Code | Description | Sample Response Message
 5xx | Failed transaction. Midtrans internal error.This is temperory. Retry again later. | "Sorry, we encountered internal server error. We will fix this soon."
 
 ## 3. Opening 3DS Authentication Page
+Open 3DS authentication page by displaying the redirect URL on merchant frontend. Use the `redirect_url` retrieved from [Sending Transaction Data to Charge API](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api). The redirect URL is displayed on merchant frontend using [MidtransNew3DS JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-To display the redirect URL on merchant frontend, use  `redirect_url` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/credit-card.md#sending-transaction-data-to-api). The redirect URL is displayed on merchant website frontend using [MidtransNew3DS JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
-
-Use `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function to open 3DS page. Enter the `redirect_url` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/credit-card.md#sending-transaction-data-to-api).
+Use `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function to open 3DS page. Enter the `redirect_url` retrieved from [Sending Transaction Data to Charge API](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
 
 ### Open 3DS Authentication Page JS Implementation
-
 ```javascript
 var redirect_url = '<redirect_url Retrieved from Charge Response>';
 
@@ -582,8 +558,6 @@ var options = {
 // trigger `authenticate` function
 MidtransNew3ds.authenticate(redirect_url, options);
 
-
-
 /**
  * Example helper functions to open Iframe popup, you may replace this with your own method to open iframe
  * PicoModal library is used:
@@ -595,8 +569,8 @@ var popupModal = (function(){
     openPopup(url){
       modal = picoModal({
         content:'<iframe frameborder="0" style="height:90vh; width:100%;" src="'+url+'"></iframe>',
-        width: "75%", 
-        closeButton: false, 
+        width: "75%",
+        closeButton: false,
         overlayClose: false,
         escCloses: false
       }).show();
@@ -611,7 +585,7 @@ var popupModal = (function(){
 
 /**
  * Alternatively instead of opening 3ds authentication redirect_url using iframe,
- * you can also redirect customer using: 
+ * you can also redirect customer using:
  * MidtransNew3ds.redirect(redirect_url, { callbackUrl : 'https://mywebsite.com/finish_3ds' });
  **/
 ```
@@ -621,9 +595,7 @@ On the JS callback function, we will get the transaction details as JSON respons
 
 <!-- tabs:start -->
 #### **Success Response**
-
 Sample of successful transaction callback response is shown below.
-
 ```json
 {
   "status_code": "200",
@@ -669,14 +641,12 @@ Sample of failure transaction callback response is shown below.
 ```
 <!-- tabs:end -->
 
-If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means the transaction is success and the transaction is complete.
+If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means the transaction is successfully completed.
 
-?>***NOTE*** : To update the transaction status on merchant backend/database, DO NOT solely rely on frontend callbacks. For security reasons, make sure the status is authentically coming from Midtrans.Update transaction status based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status) only.
+?>***NOTE*** : To update the *Transaction Status* on merchant backend/database, DO NOT solely rely on frontend callbacks. For security reasons, make sure that the *Transaction Status* is authentically coming from Midtrans. Update *Transaction Status* based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status) only.
 
 ## 4. Handling After Payment
-
-When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
-
+When the *Transaction Status* changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
 
 <details>
@@ -684,14 +654,10 @@ HTTP POST request with JSON body will be sent to your *Payment Notification URL*
 <article>
 
 To configure the Payment Notification URL, follow the steps given below.
-
 1. Login to your MAP account.
-
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.
-
 3. Enter **Payment Notification URL**.
-
 4. Click **Update**.
    A confirmation message is displayed.
 
@@ -702,22 +668,19 @@ To configure the Payment Notification URL, follow the steps given below.
    </article>
    </details>
 
-   
-
 <div class="my-card">
 
-#### [Handle Webhook HTTP Notification](/en/after-payment/http-notification.md)
+#### [Handle HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 </div>
 
 ## Description of Transaction Status
-
 The table given below, describes the `transaction_status`.
 
 | Transaction Status | Description |
 | ------------------ | ----------- |
 | `capture` | The transaction is successful. Funds have been deducted from the customers' account. |
 | `pending` | The transaction is initiated and is waiting for further action by customer (3DS). |
-| `deny` | The transaction is denied. <br>Check  `channel_response_message` or `fraud_status` for details. |
+| `deny` | The transaction is denied. <br>Check `channel_response_message` or `fraud_status` for details. |
 | `expire` | The transaction is failure, because customer did not complete 3DS within expiry time. |
 
 For more details, refer to [Midrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
