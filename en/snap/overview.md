@@ -1,6 +1,6 @@
 # Snap Overview
 <hr>
-*Snap* is a payment service that allows Midtrans parners to use Midtrans payment systems. This allows Midtrans payment page to pop-up on your web page after checkout. Configuring *Snap* is easy and there is no monthly fees. The simple and quick integration process is suitable for small size business or corporate size businesses.
+<i>Snap</i> is a payment service that allows Midtrans partners to use Midtrans payment systems. This allows Midtrans payment page to pop-up on your web page after checkout. Configuring <i>Snap</i> is easy and there is no monthly fees. The simple and quick integration process is suitable for small size business or corporate size businesses.
 
  With single integration, Snap user interface allows you to accept payments with any of the [Midtrans payment methods](https://midtrans.com/payments).
 
@@ -25,7 +25,7 @@
 </p>
 
 ## Various Ways to Integrate with Snap {docsify-ignore}
-Choose the best suitable integration method from the following.
+Choose the best suitable method to integrate with Snap from the list given below.<!--Anuja, Please see if this is OK-->
 
 <div class="my-card">
 
@@ -54,9 +54,8 @@ Use third-party E-commerce platform solutions such as Shopify, Sirclo, Jejualan 
 <div class="my-card">
 
 #### [E. Sample Code Repo](/en/technical-reference/library-plugin.md#sample-integration-code)
-Use the collections of integration code examples for various programming languages, available as public Github repositories to integrate with Midtrans.
+Use the collections of integration code examples for various programming languages, available as public GitHub repositories to integrate with Midtrans.
 </div>
-
 
 ## Advanced Usage {docsify-ignore}
 

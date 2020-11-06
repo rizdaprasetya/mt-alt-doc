@@ -1,9 +1,8 @@
-# Snap Interactive Integration Demo
+# Interactive Demonstration of Snap Integration
 <hr>
-Snap integration is explained here using interactive demonstration. You can try the Snap integration demo given below. You can inspect the source code and see the real-time output.
+Step 1 and Step 2 of Snap integration is explained here using interactive demonstration. You can try the Snap integration demo given below. You can inspect the source code and see the real-time output.
 
-
-### Preparations
+## Preparations
 <br>
 <div class="my-card">
 
@@ -17,23 +16,22 @@ Sign up for a Midtrans Merchant Administration Portal (MAP) account, to get your
 Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 </div>
 
-### Technology Stack
+## Requirements
+The technical requirements for the sample integration are given below.
+- Backend: **NodeJS** (hosted on CodeSandbox)
+- Frontend: **HTML** and **JavaScript**.
 
-For the sample given here, the **backend** is **NodeJS** (hosted on CodeSandbox) and **frontend** is plain **HTML & Javascript**.
-
-### Usage Explanation
-
-You will see Snap Transaction Token as a vizualization of API response on backend integration. 
-
+## Usage Explanation
+You will see Snap Transaction Token as a visualization of API response on backend integration.
 1. Click **Proceed to Payment** to test the frontend.
 
-?> Please wait until the window/iframe below is fully loaded. It may take some time while it tries to build the backend.
+?> ***Note***: Please wait until the window/iframe below is fully loaded. It may take some time while it tries to build the backend.
 
-[Codesandbox demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px')
+[CodeSandbox demo Midtrans NodeJS](https://codesandbox.io/embed/serene-bell-yfjjd?fontsize=14&hidenavigation=0&theme=dark ':include :type=iframe width=100% height=600px')
 
-2. Click **Open Sandbox** to see and edit the full source code. You can modify with the sample code or copy it as reference to your own machine.
+2. Click **Open Sandbox** to view and edit the full source code. You can modify with the sample code or copy it as a reference to your local machine.
 
-?>***Note***: In real-case scenario, the `token_id` may not be displayed to the customer. In the example, the  `token_id` string is displayed to make it easier for you to understand the basic.
+?>***Note***: In real-case scenario, the `token_id` may not be displayed to the customer. In the example shown, the `token_id` string is displayed to make it easy to understand the basic integration.
 
 <!-- @WIP: Doesnt work yet -->
 <!-- <br>
@@ -42,7 +40,7 @@ You will see Snap Transaction Token as a vizualization of API response on backen
 <summary><b>Alternative Backend Integration Sample</b></summary>
 <article>
 
-Another sample backend integration (hosted on Runkit). Click **"Run"** to run the backend code.
+A Sample backend integration hosted on RunKit is shown below. Click **Run** to run the backend code.
 
 <script type="text/javascript">
 var script = document.createElement('script');
@@ -58,11 +56,12 @@ script.setAttribute('data-element-id','snap-backend-demo');
 <details>
 <summary><b>Alternative Frontend Integration Sample</b></summary>
 <article>
+
 A sample frontend integration, hosted on JSFiddle is shown below.
 
-1.  Enter the `snap_transaction_token` in **Snap Token** field.
-2. Click **Pay**.
-3. Click **HTML** to see the source code.
+1.  Enter the value of `snap_transaction_token` in **Snap Token** field.
+2.  Click **Pay**.
+3.  Click **HTML** to see the source code.
 
 <!-- [JSFiddle demo Snap.js](https://jsfiddle.net/d4mx1gkc/11/embedded/result,html/dark ':include :type=iframe width=100% height=400px') -->
 
@@ -70,22 +69,21 @@ A sample frontend integration, hosted on JSFiddle is shown below.
 </article>
 </details>
 
-### Create Test Payment
-
-You can use the following test credentials for *Card* Payment method.
+## Testing Payment
+You can perform successful transaction by entering the following card credentials given below.
 
 Name | Value
 --- | ---
-Card Number | 4811 1111 1111 1114 
-CVV | 123 
-Exp Month | Any month (e.g: `02`)
-Exp Year | Any future year (e.g: `2025`)
-OTP/3DS | 112233 
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month in MM format. For example, `02`.
+Exp Year | Any future year, in YYYY format. For example, `2025`.
+OTP/3DS | `112233`
 
-Refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md) for more test payment credentials.
+For more test payment credentials, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
 <div class="my-card">
 
 #### [Next Step](/en/snap/integration-guide.md?id=_4-handle-after-payment)
-This was a demonstaration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next steps given in the [Snap Integration Guide]((/en/snap/integration-guide.md?id=integration-steps)) to proceed with the complete integration.
+This was a demonstration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next steps given in the [Snap Integration Guide]((/en/snap/integration-guide.md?id=integration-steps)) to proceed with the complete integration.
 </div>
