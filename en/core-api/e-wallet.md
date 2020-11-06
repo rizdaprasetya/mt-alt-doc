@@ -1,20 +1,23 @@
+
+
 # Core API E-Wallet Integration
+
 <hr>
 
-Midtrans facilitates its customers by *E-Wallet*. This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx). Customers can make payments with GoPay, ShopeePay or any QRIS compatible e-wallet or banking app. 
+Midtrans facilitates its customers by E-wallet. This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx). Customers can make payments with GoPay, ShopeePay or any QRIS compatible E-wallet or banking app. 
 
-Gojek has introduced GoPay as an E-Wallet payment method. Customers can pay using the Gojek apps, or any QRIS compatible app.  The user flow is different for web browser (on a computer or a tablet) and smartphone. The user flows are given below.
+GoPay is an E-wallet payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
 
 1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using any QRIS compatible app, such as Gojek app.
-2. **Deeplink** - This is the user flow on a smartphone /mobile device. User gets redirected to the Gojek app to finish payment.
+2. **Deeplink** - This is the user flow on a SmartPhone/mobile device. User gets redirected to the Gojek apps to finish payment.
 
-?> Please make sure to create your[ Midtrans Account](/en/midtrans_account/overview.md), before proceeding with this section.
+?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
 The overall GoPay end-to-end payment proccess can be illustrated in following sequence diagram:
-<!--spelling of process. colon after the description in the description of sequence diagram.-->
+
 
 <!-- tabs:start -->
 
@@ -29,14 +32,27 @@ The overall GoPay end-to-end payment proccess can be illustrated in following se
 </article>
 </details>
 
-## Steps for Integration
+## Sandbox Environment 
 
-Basic integration process of GoPay will be explained in this section. To integrate with *E-Wallet* payment  method, follow the steps given below.
+The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+
+Basic integration process of GoPay is explained in this section.
+
+## Steps for integration
+
+To integrate with E-Wallet Payment method, follow the steps given below.
 
 ### 1. Sending Transaction Data to API Charge
-API request should be sent from your backend to acquire qr code and deeplink to Gojek app. There are several components that are required:
+API request should be done from merchant backend to acquire QR code and Deeplink to Gojek app. The table given below describes the various elements required for sending the transaction data to the charge API.  
 
-#### Endpoints
+| Requirement    | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
+| `order_id`     | The order_id of the transaction                              |
+| `gross_amount` | The total amount of transaction                              |
+| `payment_type` | The payment method ?>Here, set to `gopay`                    |
+
+#### Request Details
 
 | Environment | Method | URL                                        |
 | ----------- | ------ | ------------------------------------------ |
@@ -55,21 +71,17 @@ API request should be sent from your backend to acquire qr code and deeplink to 
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-#### POST Body
+#### Sample request
 
-Element | Description |Type|Required
------------ | ----------- | ----------- | ----------- 
-transaction_details | Details of the transaction such as order_id and gross_amount |-|Required
-order_id | Transaction order ID, defined from your side |String|Required
-gross_amount | Total amount of transaction, defined from your side |String|Required
-payment_type | Type of payment |String|Required
+The sample request for *charge API* is as given below. APIs are implemented in some of the commonly used languages. You can implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 
-#### Sample Request 
-
-The sample request for *charge API* Charge is as given below. APIs are implemented in some of the commonly used languages. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 <!-- tabs:start -->
 
-#### CURL
+#### **CURL**
+
+
+
+Sample Request 
 
 ```bash
 curl -X POST \
@@ -87,9 +99,25 @@ curl -X POST \
 
 ```
 
+
+
+<details>
+<summary><b>Post Body</b></summary>
+<article>
+
+| Requirement         | Description                                                  | Type   | Required |
+| ------------------- | ------------------------------------------------------------ | ------ | -------- |
+| transaction_details | Details of the transaction such as order_id and gross_amount | -      | Required |
+| order_id            | Transaction order ID, defined from your side                 | String | Required |
+| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
+| payment_type        | Set to `gopay`                                               | String | Required |
+
+</article>
+</details>
+
 #### **PHP**
 
-Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library.
+Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library
 
 ```bash
 composer require midtrans/midtrans-php
@@ -100,8 +128,7 @@ composer require midtrans/midtrans-php
 > require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
 > ```
 
-**GoPay Charge** 
-
+Sample Request
 ```php
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
@@ -123,14 +150,13 @@ $response = \Midtrans\CoreApi::charge($params);
 
 #### **Node JS**
 
-Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package.
+Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package
 
 ```bash
 npm install --save midtrans-client
 ```
 
-**GoPay Charge** 
-
+Sample Request
 ```javascript
 const midtransClient = require('midtrans-client');
 // Create Core API instance
@@ -162,10 +188,14 @@ core.charge(parameter)
 
 #### **Java**
 
-Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
+Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library
 
-If you're using Maven as the build tools for your project, please add jcenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
-Maven:
+<details>
+<summary><b>Maven</b></summary>
+<p>If you're using Maven as the build tools for your project, please add jcenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).</p>
+<article>
+
+
 ```xml
 <repositories>
     <repository>
@@ -184,9 +214,14 @@ Maven:
 </dependencies>
 ```
 
-If you're using Gradle as the build tools for your project, please add jcenter repository to your build script then add the following dependency to your project's build definition (build.gradle). 
+</article>
+</details>
 
-Gradle:
+<details>
+<summary><b>Gradle</b></summary>
+<p>If you're using Gradle as the build tools for your project, please add jcenter repository to your build script then add the following dependency to your project's build definition (build.gradle). </p>
+<article>
+
 
 ```bash
 repositories {
@@ -200,7 +235,10 @@ dependencies {
 }
 ```
 
-**GoPay Charge** 
+</article>
+</details>
+
+Sample Request
 
 ```java
 import com.midtrans.Config;
@@ -236,14 +274,13 @@ public class MidtransExample {
 ```
 #### **Python**
 
-Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package.
+Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package
 
 ```bash
 pip install midtransclient
 ```
 
-**GoPay Charge** 
-
+Sample Request
 ```python
 import midtransclient
 # Create Core API instance
@@ -274,8 +311,8 @@ charge_response = core_api.charge(param)
 
 It is recommended to add more details regarding transaction, so that these details can get added to the report. The report can be viewed on the dashboard.
 
-#### Sample Response
-A sample Charge API response is shown below.
+#### Sample response
+You will get the **API response** like the following.
 
 ```json
 {
@@ -313,9 +350,11 @@ A sample Charge API response is shown below.
   ]
 }
 ```
-You will get the `actions` attribute.
+You will get the `actions` attribute to complete the transaction.
 
-**Response Body**
+<details>
+<summary><b>Response Body</b></summary>
+<article>
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -334,47 +373,52 @@ You will get the `actions` attribute.
 | method             | The type of the method.                                      | String | --                                                           |
 | url                | The redirect url                                             | String | --                                                           |
 
-## 2. Altering Payment Flow Depending on the Device Used
+</article>
+</details>
 
- The user flow is different for web browser (on a computer or a tablet) and smartphone.
+### 2. Altering payment flow depending on the device used
 
-**Displaying *QR Code Image* (on computer or tablet)**
+The user flow varies when using a web browser (on a computer or a tablet) compared to a smartphone.
+
+#### Show QR Code Image (on computer or tablet)
 
 The steps to be followed to display the QR code image:
 
-1. URL`generate-qr-code`should be used. `generate-qr-code` can be derived from 'actions' (API Response).
-2. To hotlink the image URL is the simplest way to get the QR code image. In HTML frontend, you can put the URL in image tag (img src="[QR CODE URL]">) and directly get the image.
-3. If the frontend is other than HTML, the QR code image should be downloaded from the URL, and should be displayed on the frontend.
+1. To get the QR code image for transaction, the URL from `generate-qr-code`should be used. `generate-qr-code` can be derived from 'actions' (API Response).
+2. To hotlink the image URL, is the simplest way to get the QR code image. In HTML frontend, you can put the URL in image tag (img src="[QR CODE URL]">) and directly get the image.
+3. If the frontend is other than HTML, the QR code image should be downloaded from the URL, then it should be displayed in the frontend.
 
-**Instruction Example for *QR Code* :** 
+Instruction Example for **QR Code** : 
 
-1. Select **Payment Mode**, for example GoPay.
+1. Select *Payment Mode*, for example **Pay using GoPay**.
 2. Click **Pay Now**. QR code will be displayed.
 3. Open any **QRIS compatible app**, installed in your phone, for example Gojek.
 4. Scan the **QR code**.
 5. Click **Pay**, after checking and verifying your payment details.
-6. Verify your **security pin** and finish your transaction.
+6. Verify your **Security PIN** and finish your transaction.
+
+   
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-qr-pay.png)
 
-**Creating Redirect Link to Gojek Apps (on smartphone)**
+#### Creating Redirect Link to Gojek Apps (on SmartPhone)
 
-The customers can be redirected to Gojek app through URL. This URL can be obtained from `deeplink-redirect`, retrieved from `actions` (API Response). JavaScript such as `window.location=[DEEPLINK URL]`, or HTML link such as `<a href="[DEEPLINK URL]">Pay with GoPay</a>` can be used to redirect the customers via server-side redirect.
+To redirect the customer to Gojek app, use URL from `deeplink-redirect` actions retrieved from API response. Then customer can be redirected via server-side redirect, using JavaScript, such as `window.location=[DEEPLINK URL]`, or using HTML link, `<a href="[DEEPLINK URL]">Pay with GoPay</a>`.
 
-**The steps for *Deeplink* are as given below:**
+The steps for **Deeplink** are as given below:
 
-1. Select Payment mode, for example GoPay.
+1. Select *Payment mode*, for example **Pay using Gopay**.
 2. You will be redirected to **Gojek** app.
 3. Click **Pay**, after checking and verifying your payment details.
-4. Verify your **security pin** and finish your transaction.
+4. Verify your **Security PIN** and finish your transaction.
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
 
-?> For more details, refer to [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
 
-**Implementing GoPay Deeplink Callback**
+#### Implementing GoPay Deeplink Callback
 
-When the transaction is completed , you can opt to implement deeplink callback to redirect the customers  from Gojek to your apps/website.
+When the transaction is completed, the customers may get Deeplink callback to redirect from Gojek to another apps.
 Add `gopay` parameter in the [Charge API request](#charge-api-request) .
 
 ```json
@@ -384,24 +428,22 @@ Add `gopay` parameter in the [Charge API request](#charge-api-request) .
   }
 ```
 
-| JSON Parameter | Description |
+| JSON Attribute | Description |
 | -------------- | ----------- |
-| enable_callback | To determine appending callback URL in the deeplink. Default value: `false` |
-| callback_url | To determine where Gojek apps will redirect after successful payment. It can be HTTP or deeplink URL. Default value: `callback_url` in dashboard settings |
+| enable_callback | To determine appending callback URL in the Deeplink. Default value: `false` |
+| callback_url | To determine where Gojek apps will redirect after successful payment. Can be HTTP or Deeplink URL. Default value: `callback_url` in dashboard settings |
 
-Prepare a `callback_url` which will accept two query parameters.
+You need to prepare a `callback_url` which will accept two query parameters. The parameters are explained in the table given below.
 
 | Parameter | Description |
 | --------- | ----------- |
 | order_id | Order ID sent on the Charge Request|
 | result | Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`|
 
-?> **Important!** <br> To update the transaction status on your backend/database, DO NOT solely rely on frontend callbacks. For security reasons, make sure the status is authentically coming from Midtrans. Update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or 
-[API Get Status](https://api-docs.midtrans.com/#get-transaction-status) only.
+?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or 
+[API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
 
-
-
-## 3. Handling After Payment
+### 3. Handling Post-Transaction
 
 When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
@@ -437,13 +479,13 @@ To configure the Payment Notification URL, follow the steps given below.
 
 ## Additional Notes
 
-To use the Gojek app in smartphone (Android/IOS app), you should add additional configurations to ensure that your app will be able to redirect the customers to use GoPay deeplink. Please make sure that the WebView allow opening `gojek://` deeplink protocol.
+If GoPay Deeplink is being used on smartphone application (Android/iOS app), you need to add additional configurations to ensure that your app will be able to redirect customer to Gojek app. Please make sure that the WebView allow opening `gojek://` deeplink protocol.
 
 <!-- tabs:start -->
 
 #### **Android**
 
-If you are using WebView on an Android device, make sure that it allows opening `gojek://` deeplink protocol. Please modify your WebView `shouldOverrideUrlLoading` functions as follows:
+On **Android** if using WebView, please make sure that the WebView allows opening `gojek://` deeplink protocol. You need to modify your web view `shouldOverrideUrlLoading` functions as follows:
 
 ```java
  @Override
@@ -463,7 +505,7 @@ If you are using WebView on an Android device, make sure that it allows opening 
 
 #### **iOS**
 
-On **iOS**, add `LSApplicationQueriesSchemes` key to your app's `Info.plist`.
+On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`.
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -475,20 +517,20 @@ On **iOS**, add `LSApplicationQueriesSchemes` key to your app's `Info.plist`.
 
 ## Description
 
-The description of `transaction_status` value for GoPay E-Wallet payment method is given below:
+The table given below explains `transaction_status` values for GoPay transaction.
 
 | Transaction Status | Description |
 | ------------------ | ----------- |
-| settlement | Transaction is successful, customer has completed the transaction. |
-| pending | Transaction is created successfully but it is not completed by the customer. |
-| expire | Transaction is failed as the payment is not done by customer within the given time period. |
-| cancel | Transaction is cancelled by you. |
-| deny | Transaction is rejected by the payment provider. |
-| refund | Transaction is refunded by you. |
+| settlement | Transaction successful, customer has been completed the transaction |
+| pending | The transaction has successfully created to GoPay but has not been completed by the customer |
+| expire | Transaction failure because customer did not complete the payment within allowed time |
+| cancel | Transaction is canceled by trigger from Merchant |
+| deny | Payment provider rejected the payment code/id creation |
+| refund | Transaction is refunded by trigger from Merchant |
 
 <br>
 
-For more details, refer to  [*Status Cycle*](/en/after-payment/status-cycle.md)
+Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>
@@ -509,6 +551,5 @@ For more details, refer to  [*Status Cycle*](/en/after-payment/status-cycle.md)
 </div>
 
 <hr>
-For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)
 
-.
+For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)
