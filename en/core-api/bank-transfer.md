@@ -9,7 +9,7 @@ Your customers can make payments using the <i>Bank Transfer</i> payment method p
     <li>Permata Virtual Account</li></ol>
 For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
 
-?> Please make sure to create your [Midtrans account](/en/midtrans_account/overview), before proceeding with this section.
+?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
@@ -25,13 +25,24 @@ The steps given below use [Midtrans *Sandbox* environment](https://account.midtr
 ##  Steps for Integration
 To integrate with Bank Transfer payment method, follow the steps given below.
 #### 1. Sending Transaction Data to API Charge
-Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the va_number.  
-#### Endpoints
+Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the va_number. 
+
+The table given below describes the various elements required for sending the transation data to the charge API.  
+
+| Requirement    | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
+| `order_id`     | The order_id of the transaction                              |
+| `gross_amount` | The total amount of transaction                              |
+| `payment_type` | The payment method                                           |
+
+#### Request Details
 | Environment | Method | URL                                        |
 | ----------- | ------ | ------------------------------------------ |
 | Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
 | Production  | POST   | https://api.midtrans.com/v2/charge         |
-####   Headers
+
+#### Headers
 | Header Name   | Description                                            | Required | Values                |
 | ------------- | ------------------------------------------------------ | -------- | --------------------- |
 | Accept        | The format of the data to be returned.                 | Required | application/json      |
@@ -537,7 +548,7 @@ Virtual Account number which is displayed to customer, contains two parts. for e
 
 Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding  `bank_transfer` parameters in the Charge API Request Body as shown below.
 
-Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-transfer.md?id=charge-api-request)
+Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body)
 <!-- tabs:start -->
 
 #### **BCA**
