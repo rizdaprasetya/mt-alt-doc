@@ -1,6 +1,7 @@
 # Interactive Demonstration of Snap Integration
 <hr>
-Step 1 and Step 2 of Snap integration is explained here using interactive demonstration. You can try the Snap integration demo given below. You can inspect the source code and see the real-time output.
+
+Step 1 and Step 2 in [Snap Integration Overview](/en/snap/overview.md) is explained here using interactive demonstration. You can try the *Snap* integration demo given below. You can inspect the source code and see the real-time output.
 
 ## Preparations
 <br>
@@ -22,7 +23,7 @@ The technical requirements for the sample integration are given below.
 - Frontend: **HTML** and **JavaScript**.
 
 ## Usage Explanation
-You will see Snap Transaction Token as a visualization of API response on backend integration.
+You will see *Snap* Transaction Token as a visualization of API response on backend integration.
 1. Click **Proceed to Payment** to test the frontend.
 
 ?> ***Note***: Please wait until the window/iframe below is fully loaded. It may take some time while it tries to build the backend.
@@ -53,12 +54,12 @@ script.setAttribute('data-element-id','snap-backend-demo');
 </details> -->
 
 <br>
+
 <details>
 <summary><b>Alternative Frontend Integration Sample</b></summary>
 <article>
 
 A sample frontend integration, hosted on JSFiddle is shown below.
-
 1.  Enter the value of `snap_transaction_token` in **Snap Token** field.
 2.  Click **Pay**.
 3.  Click **HTML** to see the source code.
@@ -70,7 +71,7 @@ A sample frontend integration, hosted on JSFiddle is shown below.
 </details>
 
 ## Testing Payment
-You can perform successful transaction by entering the following card credentials given below.
+You can perform successful transaction by entering the card credentials given below.
 
 Name | Value
 --- | ---
