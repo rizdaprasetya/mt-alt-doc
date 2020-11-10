@@ -99,7 +99,7 @@ The `token_id` retrieved from `response` object inside `onSuccess` callback func
 
 `token_id` is then passed from frontend to backend. It can be done using AJAX via JavaScript, HTML POST or any other implementation of your choice.
 
-?>***Note***: The `token_id` is valid for one transaction only. The process of getting `token_id`is repeated for every transaction, to ensure secure transmission of card data. To save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click)/[Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
+?>***Note***: The `token_id` is valid for one transaction only. The process of getting `token_id` is repeated for every transaction, to ensure secure transmission of card data. To save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click)/[Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
 
 <details>
 <summary><b>Sample Get Token Response</b></summary>
@@ -650,7 +650,7 @@ The table given below, describes the `transaction_status`.
 | `deny` | The transaction is denied. <br>Check `channel_response_message` or `fraud_status` for details. |
 | `expire` | The transaction is failure, because customer did not complete 3DS within expiry time. |
 
-For more details, refer to [Midrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
+For more details, refer to [Midtrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
 
 ## Next Step:
 <br>
@@ -675,7 +675,7 @@ For more details, refer to [Midrans Transaction Status Cycle Description](/en/af
 #### Reference:
 
 > You can also refer to this sample implementation:
->	- [NodeJs - Express](https://github.com/Midtrans/midtrans-nodejs-client/blob/master/examples/expressApp/views/simple_core_api_checkout.ejs)
+>	- [NodeJS - Express](https://github.com/Midtrans/midtrans-nodejs-client/blob/master/examples/expressApp/views/simple_core_api_checkout.ejs)
 >	- [Python - Flask](https://github.com/Midtrans/midtrans-python-client/blob/master/examples/flask_app/templates/simple_core_api_checkout.html)
 
 For more detail: [Complete Core API documentation](https://api-docs.midtrans.com/)

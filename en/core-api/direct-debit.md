@@ -41,7 +41,7 @@ The *Charge API* request is sent with the transaction details, from the merchant
 | Content-Type  | The format of the data to be posted.                   | Required | application/json      |
 | Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
 
-**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).
 
@@ -58,7 +58,7 @@ The *Charge API* request is sent with the transaction details, from the merchant
 The sample CURL request for *Charge API* for *Direct Debit* payment methods are shown below. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 <!-- tabs:start -->
 
-#### **BCA Kilkpay**
+#### **BCA KilkPay**
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -299,20 +299,20 @@ The sample API responses and a description of the response body for the availabl
 <summary><b>Response Body</b></summary>
 <article>
 
-| Element            | Description                                                  | Type         | Notes                                                        |
-| ------------------ | ------------------------------------------------------------ | ------------ | ------------------------------------------------------------ |
-| status_code        | This is the status of the API call.                          | String       | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message from ePay BRI describing the status of the transaction. | StringString |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction.            | String       |                                                              |
-| order_id           | The specific *Order ID*.                                     | String       |                                                              |
-| redirect_url       | The URL to which the customer is redirected from the bank's website. | String       |                                                              |
-| merchant_id        | Your merchant ID                                             | String       |                                                              |
-| gross_amount       | The total amount of transaction for the specific order.      | String       |                                                              |
-| currency           | The unit of currency used for the transaction.               | String       |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction. | String       |                                                              |
-| transaction_time   | The date and time at which the transaction occurred.         | String       | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
-| transaction_status | The transaction status of the transaction.                   | String       | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| fraud_status       | The fraud status of the transaction.                         | String       | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| Element            | Description                                                  | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | A message from ePay BRI describing the status of the transaction. | String |                                                              |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
+| order_id           | The specific *Order ID*.                                     | String |                                                              |
+| redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
+| merchant_id        | Your merchant ID                                             | String |                                                              |
+| gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
+| currency           | The unit of currency used for the transaction.               | String |                                                              |
+| payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
 </article>
 </details>
