@@ -6,8 +6,8 @@ In the Sandbox environment, Midtrans uses web-based simulator to simulate a resp
 This is the list of payment credentials that you can use on Midtrans **Sandbox environment**. Please note that, it will not work on Production environment.
 
 Payment category:
-- [Card Payment](#credit-card)
-- [E-Wallets](#e-wallet)
+- [Card Payment](#card-payments)
+- [E-Wallets](#e-wallets)
 - [Bank Transfer](#bank-transfer)
 - [Convenience Store](#convenience-store)
 - [Direct Debit](#direct-debit)
@@ -50,7 +50,9 @@ The table given below lists the details to be entered for simulating credit card
 |Full Authentication <br> *Cardholder is 3DS ready* | **Accept Transaction:** 3701 9216 9722 458 <br> **Denied by Bank Transaction:** 3742 9635 4400 881|
 |Attempted Authentication <br> *Cardholder is not  <br>  enrolled for 3DS* | **Accept Transaction:** 3737 4772 6661 940 <br> **Challenge by FDS Transaction:** 3706 6568 4049 309 <br> **Denied by FDS Transaction:** 3780 9621 8340 018 <br> **Denied by Bank Transaction:** 3703 5609 7975 856|
 
-> **IMPORTANT**: Not every acquiring banks might be able to accept JCB and Amex card. You can use BNI & BCA acquiring for JCB. BCA acquiring can accept Amex.
+FDS means Fraud Detection System. "Denied by FDS" means to simulate a transaction that is being denied because it is suspected as fraudulent.
+
+> **Note**: Not every acquiring banks might be able to accept JCB and Amex card. You can use BNI & BCA acquiring for JCB. BCA acquiring can accept Amex.
 
 #### **Bank-Specific**
 
@@ -104,9 +106,8 @@ It is used for testing a specific scenario where the card is not eligible for on
 
 <!-- tabs:end -->
 
-?> **[General](#card-number)** card number is used for general feature testing of card payment.
-
-?> **[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
+?> **[General](#card-number)** card number is used for general feature testing of card payment. <br>
+**[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
 
 ### E-Wallets
 
