@@ -652,7 +652,7 @@ The table given below, describes the `transaction_status`.
 
 For more details, refer to [Midtrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
 
-## Next Step:
+## Next Steps
 <br>
 
 <div class="my-card">

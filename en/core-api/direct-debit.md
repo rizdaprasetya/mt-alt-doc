@@ -25,7 +25,7 @@ The steps given below uses [Midtrans *Sandbox* environment](https://account.midt
 ### Steps for Integration
 To integrate with *Direct Debit* payment method, follow the steps given below.
 
-#### 1. Sending transaction data to Charge API 
+### 1. Sending transaction data to Charge API 
 The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
@@ -328,14 +328,14 @@ The sample API responses and a description of the response body for the availabl
 | 413  | There is syntax error.                 | Check the syntax.                                         |
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
-#### 2. Redirecting the customer to bank's website
+### 2. Redirecting the customer to bank's website
 The `redirect_url` retrieved from [Sending transaction data to API](/en/technical-reference/core-api/direct-debit.md#sending-transaction-data-to-api) is used to redirect the customer to the bank's website.
 The customer is redirected through server-side redirect, using JavaScript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 The customer can complete the payment on this page.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#cardless-credit).
 
-#### 3. Configuring landing page
+### 3. Configuring landing page
 After the customer completes the payment, the bank's website redirects the customer to *Finish Redirect URL* which can be configured on MAP (Merchant Administration Portal).
 
 <details>
@@ -389,7 +389,7 @@ The sample code in *Native PHP* is given below. Please make appropriate changes 
 }
 ```
 
-#### 4. Handling post-transaction
+### 4. Handling post-transaction
 When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant backend. Midtrans sends HTTP notification to merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
@@ -512,7 +512,7 @@ Follow the steps given below to switch to Midtrans *Production* environment and 
 2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 
-## Next Step:
+## Next Steps
 <br>
 
 <div class="my-card">

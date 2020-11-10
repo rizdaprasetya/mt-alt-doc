@@ -23,7 +23,7 @@ The steps given below uses [Midtrans *Sandbox* environment](https://account.midt
 ### Steps for Integration
 To integrate with *Over the Counter* payment method, follow the steps given below.
 
-#### 1. Sending transaction data to Charge API 
+### 1. Sending transaction data to Charge API 
 The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Endpoints
@@ -233,13 +233,13 @@ The sample API responses and a description of the response body for the *Over th
 | 413  | There is syntax error.                 | Check the syntax.                                         |
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
-#### 2. Displaying payment code
+### 2. Displaying payment code
 To display the payment code on your frontend, use `payment_code` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/convenience-store.md#sending-transaction-data-to-api).
 The customer can proceed with actual payment, at the nearest convenience store by confirming the payment code and the transaction amount. The payment code is shown on merchant website or apps.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#convenience-store).
 
-#### 3. Handling transaction notification
+### 3. Handling transaction notification
 When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
@@ -323,7 +323,7 @@ Follow the steps given below to switch to Midtrans *Production* environment and 
 1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
 2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-## Next Step:
+## Next Steps
 <br>
 
 <div class="my-card">

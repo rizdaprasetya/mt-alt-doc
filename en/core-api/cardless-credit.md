@@ -21,7 +21,7 @@ The steps given below uses [Midtrans *Sandbox* environment](https://account.midt
 ### Steps for integration
 To integrate with *Cardless Credit* payment method, follow the steps given below.
 
-#### 1. Sending transaction data to Charge API
+### 1. Sending transaction data to Charge API
 
 The *Charge API* request is sent with the transaction details, from the merchant backend.
 
@@ -136,14 +136,14 @@ The sample response and description of response body for Akulaku *Cardless Credi
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
 
-#### 2. Redirecting customer to Cardless Credit Website
+### 2. Redirecting customer to Cardless Credit Website
 The `redirect_url` retrieved from [Sending transaction data to API](/en/technical-reference/core-api/cardless-credit.md#sending-transaction-data-to-api) is used to redirect the customer to the bank's website.
 The customer is then redirected through server-side redirect, using JavaScript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
 The customer can complete the payment on this page.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#cardless-credit).
 
-#### 3. Configuring landing page
+### 3. Configuring landing page
 
 After the customer completes the payment, the bank's website redirects the customer to *Finish Redirect URL* which can be configured on MAP (Merchant Administration Portal).
 
@@ -199,7 +199,7 @@ The sample code in *Native PHP* is given below. Please adjust the code to your o
     "fraud_status": "accept"
 }
 ```
-#### 4. Handling post-transaction
+### 4. Handling post-transaction
 When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
@@ -265,7 +265,7 @@ Follow the steps given below to switch to Midtrans *Production* environment and 
 
 
 
-## Next Step:
+## Next Steps
 <br>
 
 <div class="my-card">
