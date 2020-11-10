@@ -13,21 +13,19 @@ For each respective bank, Midtrans creates a virtual account which is allocated 
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
-
-The overall Bank Tranfer end-to-end payment proccess is illustrated in following sequence diagram:
+The overall Bank Transfer end-to-end payment process is illustrated in following sequence diagram:
 ![bank transfer sequence diagram](./../../asset/image/core_api-sequence_bank_transfer.png)
 </article>
 </details>
 
 ## Sandbox Environment
-
 The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 ##  Steps for Integration
 To integrate with Bank Transfer payment method, follow the steps given below.
 #### 1. Sending Transaction Data to API Charge
-Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the va_number. 
+Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the va_number.
 
-The table given below describes the various elements required for sending the transation data to the charge API.  
+The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
 | Requirement    | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
@@ -54,7 +52,7 @@ The table given below describes the various elements required for sending the tr
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
 #### Sample Request and Request Body
-The sample request for *charge API* is as given below. The request is in Curl but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).The example below shows a sample code to obtain transaction token.
+The sample request for *Charge API* is as given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).The example below shows a sample code to obtain transaction token.
 <!-- tabs:start -->
 
 #### **BCA**
@@ -532,8 +530,10 @@ To configure the Payment Notification URL, follow the steps given below.
    </article>
    </details>
 
+Follow this link for more details:
 
 #### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+
 </div>
 
 ## Specifying VA Number

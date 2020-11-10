@@ -4,19 +4,20 @@
 
 <hr>
 
-Midtrans facilitates its customers by E-wallet. This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx). Customers can make payments with GoPay, ShopeePay or any QRIS compatible E-wallet or banking app. 
+?> This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Wallet or banking app**.
 
-GoPay is an E-wallet payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow varies when using a web browser (on a computer or a tablet) compared to a SmartPhone:
+GoPay is an *E-Wallet* payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow is different for web browser (on a computer or a tablet) and smartphone:
 
 1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using any QRIS compatible app, such as Gojek app.
 2. **Deeplink** - This is the user flow on a SmartPhone/mobile device. User gets redirected to the Gojek apps to finish payment.
 
-?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
+?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview.md), before proceeding with this section.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
-The overall GoPay end-to-end payment proccess can be illustrated in following sequence diagram:
+The overall GoPay end-to-end payment process can be illustrated in following sequence diagram:
+
 
 
 <!-- tabs:start -->
@@ -40,17 +41,17 @@ Basic integration process of GoPay is explained in this section.
 
 ## Steps for integration
 
-To integrate with E-Wallet Payment method, follow the steps given below.
+To integrate with *E-Wallet* Payment method, follow the steps given below.
 
 ### 1. Sending Transaction Data to API Charge
-API request should be done from merchant backend to acquire QR code and Deeplink to Gojek app. The table given below describes the various elements required for sending the transaction data to the charge API.  
+API request should be done from merchant backend to acquire QR code and deeplink to Gojek app. The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
 | Requirement    | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
-| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
-| `order_id`     | The order_id of the transaction                              |
-| `gross_amount` | The total amount of transaction                              |
-| `payment_type` | The payment method ?>Here, set to `gopay`                    |
+| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
+| `order_id`     | The order_id of the transaction.                             |
+| `gross_amount` | The total amount of transaction.                             |
+| `payment_type` | The payment method. Note: Here, set to `gopay`               |
 
 #### Request Details
 
@@ -71,9 +72,9 @@ API request should be done from merchant backend to acquire QR code and Deeplink
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-#### Sample request
+#### Sample Request
 
-The sample request for *charge API* is as given below. APIs are implemented in some of the commonly used languages. You can implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+ APIs are implemented in some of the commonly used languages.  You can implement according to your backend language. The sample request for *Charge API* is given below. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 
 <!-- tabs:start -->
 
@@ -107,23 +108,23 @@ curl -X POST \
 
 | Requirement         | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| transaction_details | Details of the transaction such as order_id and gross_amount | -      | Required |
-| order_id            | Transaction order ID, defined from your side                 | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
-| payment_type        | Set to `gopay`                                               | String | Required |
+| transaction_details | Details of the transaction such as order_id and gross_amount. | -      | Required |
+| order_id            | Transaction order ID, defined from your side.                | String | Required |
+| gross_amount        | Total amount of transaction, defined from your side.         | String | Required |
+| payment_type        | Set to `gopay`.                                              | String | Required |
 
 </article>
 </details>
 
 #### **PHP**
 
-Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library
+Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library.
 
 ```bash
 composer require midtrans/midtrans-php
 ```
 
-> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually
+> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually.
 > ```php
 > require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
 > ```
@@ -150,7 +151,7 @@ $response = \Midtrans\CoreApi::charge($params);
 
 #### **Node JS**
 
-Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package
+Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package.
 
 ```bash
 npm install --save midtrans-client
@@ -188,11 +189,11 @@ core.charge(parameter)
 
 #### **Java**
 
-Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library
+Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Maven</b></summary>
-<p>If you're using Maven as the build tools for your project, please add jcenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).</p>
+<p>If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).</p>
 <article>
 
 
@@ -219,7 +220,7 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library
 
 <details>
 <summary><b>Gradle</b></summary>
-<p>If you're using Gradle as the build tools for your project, please add jcenter repository to your build script then add the following dependency to your project's build definition (build.gradle). </p>
+<p>If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle). </p>
 <article>
 
 
@@ -274,7 +275,7 @@ public class MidtransExample {
 ```
 #### **Python**
 
-Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package
+Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package.
 
 ```bash
 pip install midtransclient
@@ -312,7 +313,7 @@ charge_response = core_api.charge(param)
 It is recommended to add more details regarding transaction, so that these details can get added to the report. The report can be viewed on the dashboard.
 
 #### Sample response
-You will get the **API response** like the following.
+A sample *Charge API* response is shown below.
 
 ```json
 {
@@ -378,15 +379,12 @@ You will get the `actions` attribute to complete the transaction.
 
 ### 2. Altering payment flow depending on the device used
 
-The user flow varies when using a web browser (on a computer or a tablet) compared to a smartphone.
+The user flow is different for a web browser (on a computer or a tablet) and a smartphone.
 
 #### Show QR Code Image (on computer or tablet)
 
-The steps to be followed to display the QR code image:
-
-1. To get the QR code image for transaction, the URL from `generate-qr-code`should be used. `generate-qr-code` can be derived from 'actions' (API Response).
-2. To hotlink the image URL, is the simplest way to get the QR code image. In HTML frontend, you can put the URL in image tag (img src="[QR CODE URL]">) and directly get the image.
-3. If the frontend is other than HTML, the QR code image should be downloaded from the URL, then it should be displayed in the frontend.
+To display transaction QR Code image, use the URL from `generate-qr-code` actions retrieved from API response. Simplest way is to **"hotlink"** the image URL. If the frontend is HTML, put the URL in image tag `<img src="[QR CODE URL]">`, or display it on a similar component without downloading.
+If the frontend does not support such scenario, download the QR code image from that URL, then display it on frontend.
 
 Instruction Example for **QR Code** : 
 
@@ -401,13 +399,13 @@ Instruction Example for **QR Code** :
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-qr-pay.png)
 
-#### Creating Redirect Link to Gojek Apps (on SmartPhone)
+#### Creating Redirect Link to Gojek Apps (on smartphone)
 
 To redirect the customer to Gojek app, use URL from `deeplink-redirect` actions retrieved from API response. Then customer can be redirected via server-side redirect, using JavaScript, such as `window.location=[DEEPLINK URL]`, or using HTML link, `<a href="[DEEPLINK URL]">Pay with GoPay</a>`.
 
 The steps for **Deeplink** are as given below:
 
-1. Select *Payment mode*, for example **Pay using Gopay**.
+1. Select *Payment mode*, for example **Pay using GoPay**.
 2. You will be redirected to **Gojek** app.
 3. Click **Pay**, after checking and verifying your payment details.
 4. Verify your **Security PIN** and finish your transaction.
@@ -418,7 +416,7 @@ The steps for **Deeplink** are as given below:
 
 #### Implementing GoPay Deeplink Callback
 
-When the transaction is completed, the customers may get Deeplink callback to redirect from Gojek to another apps.
+In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
 Add `gopay` parameter in the [Charge API request](#charge-api-request) .
 
 ```json
@@ -430,10 +428,10 @@ Add `gopay` parameter in the [Charge API request](#charge-api-request) .
 
 | JSON Attribute | Description |
 | -------------- | ----------- |
-| enable_callback | To determine appending callback URL in the Deeplink. Default value: `false` |
-| callback_url | To determine where Gojek apps will redirect after successful payment. Can be HTTP or Deeplink URL. Default value: `callback_url` in dashboard settings |
+| enable_callback | To determine appending callback URL in the deeplink. Default value: `false` |
+| callback_url | To determine where Gojek apps will redirect after successful payment. Can be HTTP or deeplink URL. Default value: `callback_url` in dashboard settings |
 
-You need to prepare a `callback_url` which will accept two query parameters. The parameters are explained in the table given below.
+You need to prepare a `callback_url` which accepts two query parameters. The parameters are explained in the table given below.
 
 | Parameter | Description |
 | --------- | ----------- |
@@ -464,14 +462,15 @@ To configure the Payment Notification URL, follow the steps given below.
 4. Click **Update**.
    A confirmation message is displayed.
 
-   ![Core API](C:/Users/asset/image/coreapi/core-api-payment-notification-1.png)
+   ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
 
    The *Payment Notification URL* is configured.
 
    </article>
    </details>
 
-   
+
+Follow this link for more details:
 
 
 #### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
@@ -479,7 +478,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 ## Additional Notes
 
-If GoPay Deeplink is being used on smartphone application (Android/iOS app), you need to add additional configurations to ensure that your app will be able to redirect customer to Gojek app. Please make sure that the WebView allow opening `gojek://` deeplink protocol.
+If GoPay deeplink is being used on smartphone application (Android/iOS app), you need to include additional configurations to ensure that your app will be able to redirect customer to Gojek app. Please make sure that the WebView allows opening `gojek://` deeplink protocol.
 
 <!-- tabs:start -->
 
@@ -521,12 +520,12 @@ The table given below explains `transaction_status` values for GoPay transaction
 
 | Transaction Status | Description |
 | ------------------ | ----------- |
-| settlement | Transaction successful, customer has been completed the transaction |
-| pending | The transaction has successfully created to GoPay but has not been completed by the customer |
-| expire | Transaction failure because customer did not complete the payment within allowed time |
-| cancel | Transaction is canceled by trigger from Merchant |
-| deny | Payment provider rejected the payment code/id creation |
-| refund | Transaction is refunded by trigger from Merchant |
+| settlement | Transaction successful, customer has completed the transaction. |
+| pending | The transaction is successfully created to GoPay but it not completed by the customer. |
+| expire | Transaction is failed as the payment is not done by customer within the given time period. |
+| cancel | Transaction is canceled by you. |
+| deny | Transaction is rejected by the bank. |
+| refund | Transaction is refunded by you. |
 
 <br>
 
