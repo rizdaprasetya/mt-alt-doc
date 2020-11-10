@@ -17,8 +17,8 @@ Sign up for a Midtrans Merchant Administration Portal (MAP) account, to get your
 Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 </div>
 
-## Requirements
-The technical requirements for the sample integration are given below.
+## Specifications
+The technical specifications of the demonstration integration are given below.
 - Backend: **NodeJS** (hosted on CodeSandbox)
 - Frontend: **HTML** and **JavaScript**.
 
