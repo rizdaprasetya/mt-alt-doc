@@ -1,8 +1,8 @@
-# Over the Counter Payment Integration
+# Core API Over the Counter Payment Integration
 <hr>
-<i>Over the Counter</i> is one of the payment methods offered by Midtrans. Using this payment method, customers can shop online and make payments at a nearest convenience store. Midtrans sends you real-time notifications when the customer completes the payment.
 
-Currently, Midtrans has integrated with the convenience stores like Alfamart and Indomaret.
+
+*Over the Counter* is one of the payment methods offered by Midtrans. Using this payment method, customers can shop online and make payments at a nearest convenience store. Midtrans sends you real-time notifications when the customer completes the payment. Currently, Midtrans has integrated with the convenience stores such as Alfamart and Indomaret.
 
 ![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
 <br>
@@ -18,22 +18,22 @@ Currently, Midtrans has integrated with the convenience stores like Alfamart and
 </details>
 
 ## Sandbox Environment
-The steps given below uses [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+The steps given below uses Midtrans *Sandbox* environment to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-### Steps for Integration
+## Steps for Integration
 To integrate with *Over the Counter* payment method, follow the steps given below.
 
-### 1. Sending transaction data to Charge API 
+### 1. Sending transaction data to Charge API
 The *Charge API* request is sent with the transaction details, from the merchant backend.
 
-#### Endpoints
+#### Request Details
 
 | Environment | Method | URL                                        |
 | ----------- | ------ | ------------------------------------------ |
 | Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
 | Production  | POST   | https://api.midtrans.com/v2/charge         |
 
-#### Headers
+#### HTTP Headers
 
 | Header Name   | Description                                            | Required | Values                |
 | ------------- | ------------------------------------------------------ | -------- | --------------------- |
@@ -41,7 +41,7 @@ The *Charge API* request is sent with the transaction details, from the merchant
 | Content-Type  | The format of the data to be posted.                   | Required | application/json      |
 | Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
 
-**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).
 
@@ -64,7 +64,7 @@ curl -X POST \
   }
   "cstore" : {
     "store" : "alfamart",
-    "message" : "Messeage ",
+    "message" : "Message ",
     "alfamart_free_text_1": "1st row of receipt,",
     "alfamart_free_text_2": "This is the 2nd row,",
     "alfamart_free_text_3": "3rd row. The end."
@@ -72,27 +72,26 @@ curl -X POST \
 }'
 ```
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>POST Body JSON Attribute Description</b></summary>
 <article>
 
-| Element              | Description                                                  | Type   | Required |
-| -------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type         | Direct Debit payment type.                                   | String | Required |
-| transaction_details  | The details of the transaction like the order_id and gross_amount. | -      | Required |
-| order_id             | The order_id of the transaction.                             | String | Required |
-| gross_amount         | The total amount of transaction.                             | Long   | Required |
-| cstore               | Convenience store details                                    |        |          |
-| store                | The name of the convenience store.                           | String | Required |
-| message              | Label displayed in Alfamart POS.                             | String | Optional |
-| alfamart_free_text_1 | Customizable first row of text on the printed receipt.       | String | Optional |
-| alfamart_free_text_2 | Customizable second row of text on the printed receipt.      | String | Optional |
-| alfamart_free_text_3 | Customizable third row of text on the printed receipt.       | String | Optional |
+| Element              | Description                                                  | Type        | Required |
+| -------------------- | ------------------------------------------------------------ | ----------- | -------- |
+| payment_type         | Direct Debit payment type.                                   | String      | Required |
+| transaction_details  | The details of the transaction like the order_id and gross_amount. | Object      | Required |
+| order_id             | The order_id of the transaction.                             | String      | Required |
+| gross_amount         | The total amount of transaction.                             | Long        | Required |
+| cstore               | Convenience store details.                                   | Object      | Required |
+| store                | The name of the convenience store.                           | String (20) | Required |
+| message              | Label displayed in Alfamart POS.                             | String (20) | Optional |
+| alfamart_free_text_1 | Customizable first row of text on the printed receipt.       | String (40) | Optional |
+| alfamart_free_text_2 | Customizable second row of text on the printed receipt.      | String (40) | Optional |
+| alfamart_free_text_3 | Customizable third row of text on the printed receipt.       | String (40) | Optional |
 
 </article>
 </details>
 
 #### **Indomaret**
-
 **Sample Request**
 
 ```bash
@@ -114,25 +113,25 @@ curl -X POST \
 }'
 ```
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>POST Body JSON Attribute Description</b></summary>
 <article>
 
 | Element             | Description                                                  | Type        | Required |
 | ------------------- | ------------------------------------------------------------ | ----------- | -------- |
 | payment_type        | Direct Debit payment type.                                   | String      | Required |
-| transaction_details | The details of the transaction like the order_id and gross_amount. | -           | Required |
+| transaction_details | The details of the transaction like the order_id and gross_amount. | Object      | Required |
 | order_id            | The order_id of the transaction.                             | String      | Required |
 | gross_amount        | The total amount of transaction.                             | Long        | Required |
 | cstore              | Convenience store details.                                   | Object      |          |
 | store               | The name of the convenience store.                           | String (20) | Required |
-| message             | Label to be displayed in Indromaret POS.                     | String (20) | Optional |
+| message             | Label to be displayed in Indomaret POS.                      | String (20) | Optional |
 
 </article>
 </details>
 
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details` to include more information like `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
+?>***Tips***: You can customize the `transaction_details` to include more information like `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the *Dashboard*.
 
 #### Sample Response and Response Body
 The sample API responses and a description of the response body for the *Over the Counter* payment method are shown below.
@@ -158,12 +157,12 @@ The sample API responses and a description of the response body for the *Over th
 }
 ```
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | This is the status of the API call.                          | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
 | status_message     | A message describing the status of the transaction.          | String |                                                              |
 | transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
 | order_id           | The specific *Order ID*.                                     | String |                                                              |
@@ -180,7 +179,6 @@ The sample API responses and a description of the response body for the *Over th
 </details>
 
 #### **Indomaret**
-
 **Sample Response**
 
 ```json
@@ -200,12 +198,12 @@ The sample API responses and a description of the response body for the *Over th
 }
 ```
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | This is the status of the API call.                          | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
 | status_message     | A message describing the status of the transaction.          | String |                                                              |
 | transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
 | order_id           | The specific *Order ID*.                                     | String |                                                              |
@@ -234,7 +232,7 @@ The sample API responses and a description of the response body for the *Over th
 | 500  | Internal system error occurred.        | You can try again later.                                  |
 
 ### 2. Displaying payment code
-To display the payment code on your frontend, use `payment_code` retrieved from [Sending Transaction Data to API Charge](/en/technical-reference/core-api/convenience-store.md#sending-transaction-data-to-api).
+To display the payment code on merchant frontend, use `payment_code` retrieved from the previous step.
 The customer can proceed with actual payment, at the nearest convenience store by confirming the payment code and the transaction amount. The payment code is shown on merchant website or apps.
 
 For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#convenience-store).
@@ -242,7 +240,7 @@ For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/
 ### 3. Handling transaction notification
 When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
-HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
+HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on *Dashboard*.
 
 <details>
 <summary><b>Configuring Payment Notification URL</b></summary>
@@ -250,19 +248,16 @@ HTTP POST request with JSON body will be sent to your *Payment Notification URL*
 
 To configure the Payment Notification URL, follow the steps given below.
 1. Login to your MAP account.
-
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
-   *Configuration* page is displayed.
-   
+   *Configuration* page is displayed.   
 3. Enter **Payment Notification URL**.
-
 4. Click **Update**.
    A confirmation message is displayed.
 
    ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
 
    The *Payment Notification URL* is configured.
-   
+
    </article>
    </details>
 
@@ -315,7 +310,7 @@ The sample HTTP notification request received at merchant backend for *Over the 
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+#### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 </div>
 
 ## Switching to Production Environment
@@ -323,7 +318,7 @@ Follow the steps given below to switch to Midtrans *Production* environment and 
 1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
 2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-## Next Steps
+## Next Step:
 <br>
 
 <div class="my-card">
