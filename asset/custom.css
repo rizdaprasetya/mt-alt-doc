@@ -157,11 +157,6 @@ iframe{
 :root{
     --sidebar-nav-indent: 0.7em;
 }
-.sidebar-nav li>a,
-.sidebar-nav li
-{
-    transition: var(--main-transition) !important;
-}
 .sidebar-nav li>a:hover,
 .sidebar-nav li.active>a
 /*,.sidebar-nav li>a:focus*/
