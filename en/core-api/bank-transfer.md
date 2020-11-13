@@ -1,29 +1,36 @@
 # Core API Bank Transfer Integration
 <hr>
 Basic integration process for Bank Transfer (Virtual Account) is explained in this section.
-Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below.
+Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below. 
 <ol><li>BCA Virtual Account</li>
     <li>BNI Virtual Account</li>
     <li>BRI Virtual Account</li>
     <li>Mandiri Bill Payment</li>
     <li>Permata Virtual Account</li></ol>
+Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. 
 For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
+
+
 
 ?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
 The overall Bank Transfer end-to-end payment process is illustrated in following sequence diagram:
+
+
+
 ![bank transfer sequence diagram](./../../asset/image/core_api-sequence_bank_transfer.png)
 </article>
 </details>
 
 ## Sandbox Environment
+
 The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 ##  Steps for Integration
 To integrate with Bank Transfer payment method, follow the steps given below.
-#### 1. Sending Transaction Data to API Charge
-Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the va_number.
+### 1. Sending Transaction Data to API Charge
+Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the `va_number`.
 
 The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
@@ -52,7 +59,7 @@ The table given below describes the various elements required for sending the tr
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
 #### Sample Request and Request Body
-The sample request for *Charge API* is as given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).The example below shows a sample code to obtain transaction token.
+The sample request for *Charge API* is as given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).The example below shows a sample code to obtain the VA number. 
 <!-- tabs:start -->
 
 #### **BCA**
@@ -490,7 +497,7 @@ This is the sample response for Permata.
 
 <!-- tabs:end -->
 
-#### 2. Displaying Virtual Account Number and Expiry Time
+### 2. Displaying Virtual Account Number and Expiry Time
 
 To display the virtual account number, use the value of `va_number` retrieved from API response.
 
@@ -502,7 +509,7 @@ By default the expiry time for Bank Transfer / VA is **24 hours**. Follow the li
 #### [Set Custom Expiry](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
 
-#### 3. Handling Transaction Notification
+### 3. Handling Transaction Notification
 
 When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
@@ -530,6 +537,8 @@ To configure the Payment Notification URL, follow the steps given below.
    </article>
    </details>
 
+<div class="my-card">
+
 Follow this link for more details:
 
 #### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
@@ -548,7 +557,7 @@ Virtual Account number which is displayed to customer, contains two parts. for e
 
 Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding  `bank_transfer` parameters in the Charge API Request Body as shown below.
 
-Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body)
+Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body)
 <!-- tabs:start -->
 
 #### **BCA**
@@ -597,11 +606,11 @@ Please add **bank_transfer** parameter during [API Request](/en/core-api/bank-tr
 
 Parameter | Type | Required | Description
 --- | --- | --- | ---
-BCA va_number| String | (Optional) | Length should be within 1 to 11.
-BCA sub_company_code | String | (optional) | BCA sub company code directed for this transactions. <br>NOTE: Don't use it if you don't know.
-Permata va_number | String | (optional) | Length should be 10. Only supported for b2b VA type.
-BNI va_number | String | (optional)| Length should be within 1 to 8.
-BRI va_number | String | (optional)| Length should be within 1 to 13.
+BCA `va_number`| String | Optional | Length should be within 1 to 11.
+BCA `sub_company_code` | String | Optional | BCA sub company code directed for this transactions. <br>NOTE: Don't use it if you don't know.
+Permata `va_number` | String | Optional | Length should be 10. Only supported for b2b VA type.
+BNI `va_number` | String | Optional | Length should be within 1 to 8.
+BRI `va_number` | String | Optional | Length should be within 1 to 13.
 
 ?> in Production environment, all banks do not  support custom VA number. Please consult Midtrans Activation team for further information.
 
