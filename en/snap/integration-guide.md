@@ -1,10 +1,10 @@
 # Snap Integration Guide
 <hr>
 
-You can integrate the Snap in your website/app with the steps as explained below.
+The steps for technical integration of Snap are explained below.
 
 ?>***Note:***
-Here, in this section, Midtrans *Sandbox* environment is used to test the integration process. Please refer [preparation section](/en/snap/preparation.md), before proceeding to this section.
+In this section, Midtrans *Sandbox* environment is used to test the integration process. Please refer [preparation section](/en/snap/preparation.md), before proceeding to this section.
 
 ## Preparation
 
@@ -42,12 +42,12 @@ To integrate with Snap payment method, follow the steps given below.
 
 ### 1. Acquiring Transaction Token on Backend
 
-API request, with payment details and *Server Key*, is sent from merchant backend to get Snap transaction `token`. The table given below describes the various elements required for sending the transaction data to the *Charge API*.
+API request should be done from merchant backend to acquire Snap transaction `token` by providing payment information and *Server Key*. There are at least three components that are required to obtain the Snap token which are explained in the table given below.
 
 | Element        | Description                                                  | Requirement |
 | -------------- | ------------------------------------------------------------ | ----------- |
-| `Server Key`   | Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys) | Required    |
-| `order_id`     | Unique transaction order ID, defined from your side. One ID could be used only be paid once. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50. | Required    |
+| `Server Key`   | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) | Required    |
+| `order_id`     | Unique transaction order ID, defined from your side. One ID could be used only once for the order of the material. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50. | Required    |
 | `gross_amount` | Total amount of transaction, defined from your side. Integer. | Required    |
 
 #### Endpoints
@@ -67,11 +67,11 @@ API request, with payment details and *Server Key*, is sent from merchant backen
 
 **AUTH_STRING**: Base64(`ServerKey + :`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-### API Request
+#### Sample Request
 
 <!-- TODO add more lang like ruby, link Postman to postman page -->
 
@@ -194,7 +194,7 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 <summary><b>Maven</b></summary>
 <article>
 
-If you're using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
+If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
 
 
 ```xml
@@ -221,7 +221,7 @@ If you're using Maven as the build tool for your project, please add JCenter rep
 <summary><b>Gradle</b></summary>
 <article>
 
-If you're using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle):
+If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle):
 
 ```bash
 repositories {
@@ -336,9 +336,9 @@ Postman is an API development tool which is used to build, test and modify APIs.
 
 <!-- tabs:end -->
 
-?>  You can customize the [transaction_details](https://snap-docs.midtrans.com/#json-objects) such as customer_details, item_details, and so on. It's recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard. For more details, refer to [Advanced Features](/en/snap/advanced-feature.md).
+?>  You can customize the [transaction_details](https://snap-docs.midtrans.com/#json-objects) such as customer_details, item_details, and so on. It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard. For more details, refer to [Advanced Features](/en/snap/advanced-feature.md).
 
-### Sample Response
+#### Sample Response
 
 The API response for a successful API request is shown below.
 ```json
@@ -358,7 +358,7 @@ Status Code | Description | Example
 201 | Successful creation of token. | "token":"66e4fa55-fdac-4ef9-91b5-733b97d1b862"
 401 | Failed to create a token, as wrong authorization is sent. | "Access denied, please check client or server key"
 4xx | Failed to create a token, as wrong parameter is sent. Follow the error_message and check your parameter. | "transaction_details.gross_amount is not equal to the sum of item_details"
-5xx | Failed to create a token, because of  Midtrans internal error. Most of the time this is temporary, you can retry the request later. | "Sorry, we encountered internal server error. We will fix this soon."
+5xx | Failed to create a token, because of  Midtrans internal error. Most of the time this is temporary, you can retry later. | "Sorry, we encountered internal server error. We will fix this soon."
 
 </article>
 </details>
@@ -436,6 +436,8 @@ Or try the demo here:
     .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
+
+
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
 
 <details>
@@ -465,7 +467,7 @@ After the payment is completed, customer is redirected back to `Finish URL`. It 
 
 ### 3. Creating Test Payment
 
-You can check the integration of snap by creating a test payment. There are various payment methods available on Snap. You can choose any one of them to create a test payment. Following are the test credentials for Card payment. 
+Create a test payment to make sure you have integrated Snap successfully. There are various payment methods available on Snap. You can choose any one of them to create a test payment. Following are the test credentials for Card payment. 
 
 Name | Value
 --- | ---
@@ -501,9 +503,10 @@ To configure the Payment Notification URL, follow the steps given below.
 
    ![Core API](C:/Users/asset/image/coreapi/core-api-payment-notification-1.png)
 
+<div class="my-card">
+
  Follow this link for more details:
 
-<div class="my-card">
 
 #### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
 Webhook HTTP notification is triggered when transaction status is updated. In this section, you will learn how to handle Webhook HTTP notification. 
