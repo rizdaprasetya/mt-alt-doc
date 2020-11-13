@@ -39,7 +39,7 @@ The steps given below use [Midtrans *Sandbox* environment](https://account.midtr
 
 Basic integration process of GoPay is explained in this section.
 
-## Steps for integration
+## Steps for Integration
 
 To integrate with *E-Wallet* Payment method, follow the steps given below.
 
@@ -52,6 +52,14 @@ API request should be done from merchant backend to acquire QR code and deeplink
 | `order_id`     | The order_id of the transaction.                             |
 | `gross_amount` | The total amount of transaction.                             |
 | `payment_type` | The payment method. Note: Here, set to `gopay`               |
+
+#### Sample Request
+
+ APIs are implemented in some of the commonly used languages.  You can implement according to your backend language. The sample request for *Charge API* is given below. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+
+<!-- tabs:start -->
+
+#### **CURL**
 
 #### Request Details
 
@@ -72,16 +80,6 @@ API request should be done from merchant backend to acquire QR code and deeplink
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-#### Sample Request
-
- APIs are implemented in some of the commonly used languages.  You can implement according to your backend language. The sample request for *Charge API* is given below. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
-
-<!-- tabs:start -->
-
-#### **CURL**
-
-
-
 Sample Request 
 
 ```bash
@@ -99,19 +97,6 @@ curl -X POST \
 }'
 
 ```
-
-
-
-<details>
-<summary><b>Post Body</b></summary>
-<article>
-
-| Requirement         | Description                                                  | Type   | Required |
-| ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| transaction_details | Details of the transaction such as order_id and gross_amount. | -      | Required |
-| order_id            | Transaction order ID, defined from your side.                | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side.         | String | Required |
-| payment_type        | Set to `gopay`.                                              | String | Required |
 
 </article>
 </details>
@@ -308,6 +293,20 @@ charge_response = core_api.charge(param)
 ```
 <!-- tabs:end -->
 
+<details>
+<summary><b>Post Body</b></summary>
+<article>
+
+| Requirement         | Description                                                  | Type   | Required |
+| ------------------- | ------------------------------------------------------------ | ------ | -------- |
+| transaction_details | Details of the transaction such as order_id and gross_amount. | -      | Required |
+| order_id            | Transaction order ID, defined from your side.                | String | Required |
+| gross_amount        | Total amount of transaction, defined from your side.         | String | Required |
+| payment_type        | Set to `gopay`.                                              | String | Required |
+
+</article>
+</details>
+
 ?>***Tips***: You can customize the `transaction_details` to include more information such as customer_details, item_details, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>
 
 It is recommended to add more details regarding transaction, so that these details can get added to the report. The report can be viewed on the dashboard.
@@ -369,7 +368,7 @@ You will get the `actions` attribute to complete the transaction.
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | fraud_status       | The fraud_status of the transaction is displayed.            | String | --                                                           |
-| actions            | The stage of the transaction                                 | Array  | There are four stages of the transaction that can be retrieved through this attribute: QR code, Deeplink, Status of transaction, Canceling the transaction |
+| actions            | The set of actions                                           | Array  | It is the set of actions that can be retrieved through this attribute. Merchant chooses the action according to his/her need. |
 | name               | The name of the action.                                      | String | --                                                           |
 | method             | The type of the method.                                      | String | --                                                           |
 | url                | The redirect url                                             | String | --                                                           |
@@ -379,7 +378,7 @@ You will get the `actions` attribute to complete the transaction.
 
 ### 2. Altering payment flow depending on the device used
 
-The user flow is different for a web browser (on a computer or a tablet) and a smartphone.
+The user flow is different on a computer or a tablet and a smartphone.
 
 #### Show QR Code Image (on computer or tablet)
 
@@ -388,7 +387,7 @@ If the frontend does not support such scenario, download the QR code image from 
 
 Instruction Example for **QR Code** : 
 
-1. Select *Payment Mode*, for example **Pay using GoPay**.
+1. Tap **Pay using GoPay**.
 2. Click **Pay Now**. QR code will be displayed.
 3. Open any **QRIS compatible app**, installed in your phone, for example Gojek.
 4. Scan the **QR code**.
@@ -405,7 +404,7 @@ To redirect the customer to Gojek app, use URL from `deeplink-redirect` actions 
 
 The steps for **Deeplink** are as given below:
 
-1. Select *Payment mode*, for example **Pay using GoPay**.
+1. Tap **Pay using GoPay**.
 2. You will be redirected to **Gojek** app.
 3. Click **Pay**, after checking and verifying your payment details.
 4. Verify your **Security PIN** and finish your transaction.
@@ -417,7 +416,7 @@ The steps for **Deeplink** are as given below:
 #### Implementing GoPay Deeplink Callback
 
 In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
-Add `gopay` parameter in the [Charge API request](#charge-api-request) .
+Add `gopay` parameter in the [Charge API request](#sample-request) .
 
 ```json
   "gopay": {
@@ -431,7 +430,7 @@ Add `gopay` parameter in the [Charge API request](#charge-api-request) .
 | enable_callback | To determine appending callback URL in the deeplink. Default value: `false` |
 | callback_url | To determine where Gojek apps will redirect after successful payment. Can be HTTP or deeplink URL. Default value: `callback_url` in dashboard settings |
 
-You need to prepare a `callback_url` which accepts two query parameters. The parameters are explained in the table given below.
+You need to prepare an implementation of `callback_url` on your web/app. Customer will be redirected to this URL once payment is completed, with some parameters as the result. It should accept two query parameters which are explained in the table given below.
 
 | Parameter | Description |
 | --------- | ----------- |
@@ -469,6 +468,7 @@ To configure the Payment Notification URL, follow the steps given below.
    </article>
    </details>
 
+<div class="my-card">
 
 Follow this link for more details:
 
