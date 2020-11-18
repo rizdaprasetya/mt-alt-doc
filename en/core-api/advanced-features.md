@@ -660,7 +660,7 @@ curl -X POST \
 <!-- tabs:end -->
 
 #### Charge API Response and Notifications for Recurring Transactions
-The Charge API response for recurring transaction on the card is identical with [Card Payment Charge Response](/en/credit-card.md/#sample-response). Successful *One Click* transaction is flagged as `"transaction_status": "capture"` and is ready for settlement.
+The Charge API response for recurring transaction on the card is identical with [Card Payment Charge Response](/en/core-api/credit-card.md#sample-response). Successful *One Click* transaction is flagged as `"transaction_status": "capture"` and is ready for settlement.
 
 #### Sample Charge API Response for recurring transactions
 ```json
@@ -808,7 +808,7 @@ MidtransNew3ds.getCardToken(cardData, options);
 For successful transactions, `token_id` is received inside `onSuccess` callback function. It is used as one of the JSON parameters for [Charge API request](#sending-transaction-data-to-charge-api-for-the-first-transaction).
 
 #### Sending Transaction Data to Charge API for the First Transaction
-Charge API request is sent from merchant backend to acquire `redirect_url`,  required to open 3DS authentication page.
+Charge API request is sent from merchant backend to acquire `redirect_url`, required to open 3DS authentication page.
 
 <!-- tabs:start -->
 
@@ -861,7 +861,7 @@ The parameters that are required for the API Charge request are given below.
 #### Opening 3DS Authentication Page for the First Transaction
 To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-For more details, refer to [Opening 3DS Authentication Page JS Implementation](/en/core-api/credit-card#open-3ds-authentication-page-js-implementation).
+For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authentication-page-js-implementation).
 
 #### Charge API Request for Future Transactions
 For any future transaction using the same card credentials, retrieve `saved_token_id` saved on the database from [Registering the Card](#registering-the-card) step.
@@ -910,13 +910,14 @@ curl -X POST \
 
 <!-- <TODO: elaborate Subscriptions API> -->
 
-### Two Clicks Transaction
+### Two Click Transaction
 You can allow customer to save their card credentials, **except the CVV number**, for easier and faster future transactions. Midtrans saves the card credentials securely. You have to store and associate each customer with a unique `saved_token_id` from the initial Charge API Response.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
 The Two Clicks end-to-end payment process is illustrated in following sequence diagram:
+
 ![one click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
 </article>
 </details>
@@ -934,7 +935,7 @@ The `token_id` retrieved is added as an attribute in `credit_card` object in the
 <!-- tabs:start -->
 
 #### **JSON Parameters**
-The JSON parameter added in the *Request Body* of a Charge API Request to allow *Two-Click* transaction, is shown below. 
+The JSON parameter added in the *Request Body* of a Charge API Request to allow *Two-Click* transaction, is shown below.
 
 ```json
 {
@@ -1006,7 +1007,7 @@ To open 3DS authentication page on merchant frontend, display the `redirect_url`
 
  When the customer completes the transaction, the *Transaction Status* changes from *Pending* to *Capture*.
 
- For more details, refer to [Open 3DS Authenticate Page JS Implementation Step](/en/core-api/credit-card#open-3ds-authenticate-page-js-implementation).
+ For more details, refer to [Open 3DS Authenticate Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authenticate-page-js-implementation).
 
 
 Midtrans notifies the merchant backend with the new `transaction status` and `saved_token_id`.
@@ -1079,7 +1080,7 @@ var options = {
 // trigger `getCardToken` function
 MidtransNew3ds.getCardToken(cardData, options);
 ```
-?>***Note***: You need `saved_token_id` retrieved from database.<br>For successful transactions,the  `token_id` is received inside `onSuccess` callback function. It will be used as one of the JSON parameters for Charge API request.
+?>***Note***: You need `saved_token_id` retrieved from database.<br>For successful transactions,the `token_id` is received inside `onSuccess` callback function. It will be used as one of the JSON parameters for Charge API request.
 
 ### BIN (Bank Identification Number) Filter
 BIN (Bank Identification Number) filter is a feature that allows the merchant to accept credit cards within specific set of BIN numbers. It is useful for certain bank promotions or discount payments, by accepting only the credit cards issued by that bank. BIN is the six digits of the card number that identifies the bank, issuing the card. Generally, a bank has more than one BIN.
@@ -1209,7 +1210,7 @@ This is the type of Installment where the Card Issuer and Acquiring Bank don't h
 <!-- tabs:start -->
 
 #### **JSON Parameters**
-The JSON parameters added in the *Request Body* of a [Charge API Request](en/core-api/credit-card.md#_2-sending-transaction-data-to charge-api) to allow *Offline Installment*, are shown below.
+The JSON parameters added in the *Request Body* of a [Charge API Request](en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api) to allow *Offline Installment*, are shown below.
 
 ```json
 {
@@ -1563,12 +1564,14 @@ Rules for customizing Virtual Account number is given below.
 ## Consideration and Limitations
 There are a few limitations to consider while using Midtrans API. These limitations are given below.
 
-### 1. Maximum Request Size Limit
+- ### Maximum Request Size Limit
+
 Midtrans API allows a maximum size of 16kb or 16000 total characters per request. Please try to keep it under the limit to avoid request failures.
 
 ?>***Tips***: Limit the number of `item_details` from your request, or group it into fewer `item_details`.
 
-### 2. Card Token ID Expiry Time
+- ### Card Token ID Expiry Time
+
 For regular card transactions, the `token_id` (for non-recurring, non-one-click, non-two-click token) and the 3DS `redirect_url` expires in **10 minutes**.
 
 For security reasons, it is designed to generate a unique `token_id` for each transaction. Please make sure to complete the card transaction within the time limit to avoid expired `token_id`.
