@@ -50,37 +50,6 @@ Enter the values of attributes as given below.
 
 For more details about the API, refer to [Get Token](https://api-docs.midtrans.com/#get-token).
 
-#### Endpoints
-
-| Method | URL                                       |
-| ------ | ----------------------------------------- |
-| GET    | https://api.sandbox.midtrans.com/v2/token |
-
-#### **Query Parameters**
-
-| Parameter      | Description                   | Type   | Notes                                                        |
-| -------------- | ----------------------------- | ------ | ------------------------------------------------------------ |
-| client_key     | Your Client Key.              | String | For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
-| card_number    | The card number.              | String | The card number is 16-digit number in XXXX XXXX XXXX XXXX format. |
-| card_exp_month | The expiry month on the card. | String | The expiry month is in  MM format.                           |
-| card_exp_year  | The expiry year on the card.  | String | The expiry year is in YY format.                             |
-| card_cvv       | The CVV number on the card.   | String | The CVV number is in XXX format.                             |
-
-#### Headers
-
-| Header Name   | Description                                            | Required | Values           |
-| ------------- | ------------------------------------------------------ | -------- | ---------------- |
-| Accept        | The format of the data to be returned.                 | Required | application/json |
-| Content-Type  | The format of the data to be posted.                   | Required | application/json |
-| Authorization | The authentication method used to access the resource. | Required | Basic Og==       |
-
-#### Sample Request
-```bash
-curl --location --request GET 'https://api.sandbox.midtrans.com/v2/token?client_key={Your client Key}&card_number=4811%201111%201111%201114&card_exp_month=12&card_exp_year=24&card_cvv=123' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic Og=='
-```
 
 #### Get Card Token JS Implementation
 
@@ -123,11 +92,11 @@ Use the following credentials to test the *Card* payment method.
 
 Name | Value
 --- | ---
-Card Number | 4811 1111 1111 1114
-CVV | 123
-Exp Month | Any month in MM format.
-Exp Year | Any future year, in YYYY format.
-OTP/3DS | 112233
+Card Number | `4811 1111 1111 1114`
+CVV | `123`
+Exp Month | Any month in MM format. For example, `02`.
+Exp Year | Any future year, in YYYY format. For example, `2025`. 
+OTP/3DS | `112233`
 
 For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
@@ -136,7 +105,7 @@ The `token_id` retrieved from `response` object inside `onSuccess` callback func
 
 `token_id` is then passed from frontend to backend. It can be done using AJAX via JavaScript, HTML POST or any other implementation of your choice.
 
-?>***Note***: The `token_id` is valid for one transaction only. The process of getting `token_id` is  repeated for every transaction, to ensure secure transmission of card data. To save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click) / [Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
+?>***Note***: The `token_id` is valid for one transaction only. The process of getting `token_id` is repeated for every transaction, to ensure secure transmission of card data. To save card token, you may use [One-click](https://api-docs.midtrans.com/#card-features-one-click) / [Two-clicks](https://api-docs.midtrans.com/#card-features-two-clicks) feature.
 
 <details>
 <summary><b>Sample Get Token Response</b></summary>
