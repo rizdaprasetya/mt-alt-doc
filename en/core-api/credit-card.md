@@ -28,7 +28,7 @@ The end-to-end payment process for Card Transaction (3DS) is illustrated in the 
 ## Steps for Integration
 To integrate with *Card* payment method, follow the steps given below.
 
-## 1. Getting the card token
+## 1. Getting the Card Token
 Card `token_id` is a representation of customer's card information used for the transaction. `token_id` should be retrieved using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
 
 #### Including Midtrans JS Library
@@ -53,7 +53,7 @@ For more details about the API, refer to [Get Token](https://api-docs.midtrans.c
 
 #### Get Card Token JS Implementation
 
-Midtrans uses  `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on Midtrans payment page.
+Midtrans uses `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on Midtrans payment page.
 
 ```javascript
 // card data from customer input, for example
@@ -198,7 +198,7 @@ curl -X POST \
 ```
 
 #### **PHP**
-If you are using [Composer](https://getcomposer.org), follow the steps given below.
+If you are using Composer, follow the steps given below.
 1. Install [midtrans-php library](https://github.com/Midtrans/midtrans-php).
 2. `composer require midtrans/midtrans-php`
 
@@ -462,19 +462,19 @@ The sample API response for *Card* payment method is shown below.
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
 | status_code        | The status of the API call.                                  | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction.          | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
-| order_id           | The specific *Order ID*.                                     | String |                                                              |
-| redirect_url       | The redirect URL.                                            | String |                                                              |
-| gross_amount       | The total transaction amount for the specific order.         | String |                                                              |
-| currency           | The unit of currency used for the transaction.               | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
+| status_message     | A message describing the status of the transaction.          | String | --                                                           |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | --                                                           |
+| order_id           | The specific *Order ID*.                                     | String | --                                                           |
+| redirect_url       | The redirect URL.                                            | String | --                                                           |
+| gross_amount       | The total transaction amount for the specific order.         | String | --                                                           |
+| currency           | The unit of currency used for the transaction.               | String | --                                                           |
+| payment_type       | The type of payment method used by the customer for the transaction. | String | --                                                           |
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| fraud_status       | The fraud_status of the transaction is displayed.            | String |                                                              |
-| masked_card        | The partial card number of the customer is displayed.        | String |                                                              |
-| bank               | The name of the bank is displayed.                           | String |                                                              |
-| card_type          | The type of the card is displayed here.                      | String |                                                              |
+| fraud_status       | The fraud_status of the transaction is displayed.            | String | --                                                           |
+| masked_card        | The partial card number of the customer is displayed.        | String | --                                                           |
+| bank               | The name of the bank is displayed.                           | String | --                                                           |
+| card_type          | The type of the card is displayed here.                      | String | --                                                           |
 
 </article>
 </details>
@@ -493,7 +493,7 @@ Status Code | Description | Sample Response Message
 4xx | Failed transaction. Wrong parameter sent. Follow the `error_message` and check your parameter | "transaction_details.gross_amount is not equal to the sum of item_details"
 5xx | Failed transaction. Midtrans internal error. This is temporary. Retry again later. | "Sorry, we encountered internal server error. We will fix this soon."
 
-## 3. Opening 3DS authentication page
+## 3. Opening 3DS Authentication Page
 To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from previous step. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
 ### Open 3DS Authentication Page JS Implementation
@@ -613,7 +613,7 @@ If the `transaction_status` is `capture` and `fraud_status` is `accept`, it mean
 
 ?>***NOTE*** : To update the *Transaction Status* on merchant backend/database, DO NOT solely rely on frontend callbacks. For security reasons, make sure that the *Transaction Status* is authentically coming from Midtrans. Update *Transaction Status* based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status) only.
 
-## 4. Handling after-payment
+## 4. Handling After Payment
 When the *Transaction Status* changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on *Dashboard*.
 
