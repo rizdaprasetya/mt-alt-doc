@@ -45,7 +45,7 @@ Enter the values of attributes as given below.
 
 | Attribute | Value | Note |
 |-----------|-------|-------|
-| `data-environment`| sandbox; production | Enter the values depending on the environment. |
+| `data-environment`| `sandbox` or `production` | Enter the values depending on the environment. |
 | `data-client-key`| Client key | For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
 
 For more details about the API, refer to [Get Token](https://api-docs.midtrans.com/#get-token).
@@ -142,18 +142,37 @@ A sample of onFailure `response` object is shown below. It contains the `validat
 </article>
 </details>
 
-## 2. Sending transaction data to Charge API
+## 2. Sending Transaction Data to Charge API
 The `token_id` received from the previous step, is used by the merchant backend to send [Charge API Request](/en/core-api/credit-card.md#sample-request) to Midtrans. The 3DS `redirect_url` is received in the response. This URL is required for [Opening 3DS authentication page](/en/core-api/credit-card.md#_3-opening-3DS-authentication-page).
 The *Charge API* request is sent from the merchant backend, with the `transaction_details` and the `token_id`.
 
-#### Endpoints
+The table given below describes some required components.
+
+| Element        | Description                                                  | Type    |
+| -------------- | ------------------------------------------------------------ | ------- |
+| Server Key     | The unique ID retrieved from *Dashboard*. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). | String  |
+| order_id       | The order_id of the transaction.                             | String  |
+| gross_amount   | The total amount of transaction.                             | Long    |
+| token_id       | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). | String  |
+| authentication | Flag to enable the 3D secure authentication.                 | Boolean |
+
+?> **Note**: For better security and fraud prevention, set `authentication` to `true`. Set the `authentication` to `false` only after confirming with Midtrans and the acquiring bank.
+
+#### Sample Request
+The sample requests for *Charge API* for *Card* payment method are shown below. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+
+<!-- tabs:start -->
+
+#### **CURL**
+
+##### Endpoints
 
 | Environment | Method | URL                                        |
 | ----------- | ------ | ------------------------------------------ |
 | Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
 | Production  | POST   | https://api.midtrans.com/v2/charge         |
 
-#### Headers
+##### HTTP Headers
 
 | Header Name   | Description                                            | Required | Values                |
 | ------------- | ------------------------------------------------------ | -------- | --------------------- |
@@ -165,12 +184,6 @@ The *Charge API* request is sent from the merchant backend, with the `transactio
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).
 
-#### Sample Request
-The sample requests for *Charge API* for *Card* payment method are shown below. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
-
-<!-- tabs:start -->
-
-#### **CURL**
 **Sample Request**
 ```bash
 curl -X POST \
@@ -200,11 +213,17 @@ curl -X POST \
 #### **PHP**
 If you are using Composer, follow the steps given below.
 1. Install [midtrans-php library](https://github.com/Midtrans/midtrans-php).
-2. `composer require midtrans/midtrans-php`
+
+2. ```bash 
+   composer require midtrans/midtrans-php
+   ```
 
 > Alternatively, if not using Composer, follow the steps given below.
-> 1.  Download [midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip).
-> 2. `require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';`.
+> 1. Download [midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip).
+>
+> 2. ```php
+>    require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
+>    ```
 
 **Sample Request**
 ```php
@@ -235,7 +254,9 @@ $response = \Midtrans\CoreApi::charge($params);
 #### **Node JS**
 For Node JS, install [midtrans-client NPM package](https://github.com/Midtrans/midtrans-nodejs-client).
 
-`npm install --save midtrans-client`
+```bash 
+npm install --save midtrans-client
+```
 
 **Sample Request**
 
@@ -410,26 +431,6 @@ charge_response = core_api.charge(param)
 <!-- tabs:end -->
 
 ?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the *Dashboard*.
-
-<details>
-<summary><b>POST Body JSON Attribute Description</b></summary>
-<article>
-
-
-| Element             | Description                                                  | Type    | Required |
-| ------------------- | ------------------------------------------------------------ | ------- | -------- |
-| payment_type        | Type of payment method.                                      | String  | Required |
-| transaction_details | The details of the transaction such as the order_id and gross_amount. | Object  | Required |
-| order_id            | The order_id of the transaction.                             | String  | Required |
-| gross_amount        | The total amount of transaction.                             | Long    | Required |
-| credit_card         | The credit card details of the customer                      | Object  | Required |
-| token_id            | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). | String  | Required |
-| authentication      | Flag to enable the 3D secure authentication.                 | Boolean | Required |
-
-?> **Note**: For better security and fraud prevention, set `authentication` to `true`. Set the `authentication` to `false` only after confirming with Midtrans and the acquiring bank.
-
-</article>
-</details>
 
 ### Sample Response
 The sample API response for *Card* payment method is shown below.
@@ -649,7 +650,7 @@ The table given below, describes the `transaction_status`.
 | `capture` | The transaction is successful. Funds have been deducted from the customers' account. |
 | `pending` | The transaction is initiated and is waiting for further action by customer (3DS). |
 | `deny` | The transaction is denied. <br>Check `channel_response_message` or `fraud_status` for details. |
-| `expire` | The transaction failed, because customer did not complete 3DS within expiry time. |
+| `expire` | The transaction failed, because customer did not complete 3DS within the expiry time. |
 
 For more details, refer to [Midtrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
 
