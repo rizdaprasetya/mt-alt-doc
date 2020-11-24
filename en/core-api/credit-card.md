@@ -639,7 +639,7 @@ To configure the Payment Notification URL, follow the steps given below.
 
 <div class="my-card">
 
-#### [Handle HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
+#### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 </div>
 
 ## Description of Transaction Status
