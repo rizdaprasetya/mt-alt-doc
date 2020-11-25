@@ -40,7 +40,7 @@ The overall Snap end-to-end payment process is illustrated in following sequence
 
 To integrate with Snap payment method, follow the steps given below.
 
-### 1. Acquiring Transaction Token on Backend
+## 1. Acquiring Transaction Token on Backend
 
 API request should be done from merchant backend to acquire Snap transaction `token` by providing payment information and *Server Key*. There are at least three components that are required to obtain the Snap token which are explained in the table given below.
 
@@ -49,6 +49,15 @@ API request should be done from merchant backend to acquire Snap transaction `to
 | `Server Key`   | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) | Required    |
 | `order_id`     | Unique transaction order ID, defined from your side. One ID could be used only once for the order of the material. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50. | Required    |
 | `gross_amount` | Total amount of transaction, defined from your side. Integer. | Required    |
+
+#### Sample Request
+
+<!-- TODO add more lang like ruby, link Postman to postman page -->
+
+The sample request for *Charge API* is given below. APIs are implemented in some of the commonly used languages. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+<!-- tabs:start -->
+
+#### **CURL**
 
 #### Endpoints
 
@@ -71,15 +80,6 @@ API request should be done from merchant backend to acquire Snap transaction `to
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-#### Sample Request
-
-<!-- TODO add more lang like ruby, link Postman to postman page -->
-
-The sample request for *Charge API* is given below. APIs are implemented in some of the commonly used languages. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). 
-<!-- tabs:start -->
-
-#### **CURL**
-
 The example below shows a sample code to obtain transaction token.
 
 Sample request in CURL:
@@ -93,7 +93,7 @@ curl -X POST \
     "transaction_details": {
         "order_id": "YOUR-ORDERID-123456",
         "gross_amount": 10000
-    }, 
+    },
     "credit_card":{
         "secure" : true
     },
@@ -158,7 +158,7 @@ const midtransClient = require('midtrans-client');
 // Create Snap API instance
 let snap = new midtransClient.Snap({
         // Set to true if you want Production Environment (accept real transaction).
-        isProduction : false, 
+        isProduction : false,
         serverKey : 'YOUR_SERVER_KEY'
     });
 
@@ -166,7 +166,7 @@ let parameter = {
     "transaction_details": {
         "order_id": "YOUR-ORDERID-123456",
         "gross_amount": 10000
-    }, 
+    },
     "credit_card":{
         "secure" : true
     },
@@ -188,14 +188,13 @@ snap.createTransaction(parameter)
 
 #### **Java**
 
-Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library. 
+Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Maven</b></summary>
 <article>
 
 If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
-
 
 ```xml
 <repositories>
@@ -215,7 +214,7 @@ If you are using Maven as the build tool for your project, please add JCenter re
 </dependencies>
 ```
 </article>
-</details>
+</details><br>
 
 <details>
 <summary><b>Gradle</b></summary>
@@ -226,7 +225,7 @@ If you are using Gradle as the build tool for your project, please add JCenter r
 ```bash
 repositories {
     maven {
-        url  "http://jcenter.bintray.com" 
+        url  "http://jcenter.bintray.com"
     }
 }
 
@@ -262,17 +261,17 @@ public class MidtransExample {
       public Map<String, Object> requestBody() {
           UUID idRand = UUID.randomUUID();
           Map<String, Object> params = new HashMap<>();
-          
+
           Map<String, String> transactionDetails = new HashMap<>();
           transactionDetails.put("order_id", idRand);
           transactionDetails.put("gross_amount", "265000");
-          
+
           Map<String, String> creditCard = new HashMap<>();
           creditCard.put("secure", "true");
-          
+
           params.put("transaction_details", transactionDetails);
           params.put("credit_card", creditCard);
-          
+
           return params;
       }
 
@@ -336,7 +335,7 @@ Postman is an API development tool which is used to build, test and modify APIs.
 
 <!-- tabs:end -->
 
-?>  You can customize the [transaction_details](https://snap-docs.midtrans.com/#json-objects) such as customer_details, item_details, and so on. It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the dashboard. For more details, refer to [Advanced Features](/en/snap/advanced-feature.md).
+?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object). It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard. For more details, refer to [Advanced Features](/en/snap/advanced-feature.md).
 
 #### Sample Response
 
@@ -352,7 +351,6 @@ The API response for a successful API request is shown below.
 <summary><b>Status Codes and Errors</b></summary>
 <article>
 
-
 Status Code | Description | Example
 --- | --- | ---
 201 | Successful creation of token. | "token":"66e4fa55-fdac-4ef9-91b5-733b97d1b862"
@@ -365,28 +363,27 @@ Status Code | Description | Example
 
 <br>
 
-### 2. Displaying Snap Payment Page on Frontend
+## 2. Displaying Snap Payment Page on Frontend
 
 To display Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
-?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in [previous step](#sample-response) to redirect customer to Midtrans-hosted payment page. This is useful if you do not want or can not display payment page on your web page.
+?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page.
 
-The table given below describes the components which are required to display Snap payment page. 
+The table given below describes the components which are required to display Snap payment page.
 
-Element | Description| Requirement 
---- | --- | --- 
-Client Key | Explained on [previous section](/en/midtrans-account/overview.md#retrieving-api-access-keys)| Required 
-`snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`| Required 
-transaction `token` | retrieved from backend on [previous step](#api-response)| Required 
+Element | Description
+--- | ---
+Client Key | The *Client Key*. For more details refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
+`snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
+transaction `token` | Retrieved from backend in [previous step](#_1-acquiring-transaction-token-on-backend)
 
 Enter your *Client Key* as the value of `data-client-key` attribute in snap.js script tag. Start the payment process by calling `snap.pay` with transaction `token`.
-
 
 ```html
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script 
+    <script
       type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
       data-client-key="SET_YOUR_CLIENT_KEY_HERE"
@@ -406,18 +403,14 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
 </html>
 ```
 
-
 >**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
 >`<meta name="viewport" content="width=device-width, initial-scale=1">`
->
->
 
-After following the steps given above, the sample Snap page is displayed as shown below:
+After following the steps given above, the sample Snap page is displayed as shown below.
 
 ![Snap Popup Preview](./../../asset/image/snap-popup-preview.gif)
 
 Or try the demo here:
-
 
 <p style="text-align: center;">
   <button onclick="
@@ -437,83 +430,72 @@ Or try the demo here:
   " class="my-btn">Try Snap Demo &#9099;</button>
 </p>
 
-
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
 
 <details>
 <summary><b>Configuring Finish Redirect URL</b></summary>
-<article>To configure the *Finish Redirect URL*, follow the steps given below.
+<article>To configure the <b>Finish Redirect URL</b>, follow the steps given below.
 
 1. Login to your MAP account.
-
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.   
-
 3. Enter **Finish Redirect URL** with your landing page endpoint.
-
 4. Click **Update**.
    A confirmation message is displayed.
 
-   ![Core API](/Users/rashmi/Desktop/technical-documentation-site/asset/image/coreapi/core-api-finish-redirect-url-2.png)
+   ![Core API](./../../asset/image/coreapi/core-api-finish-redirect-url-2.png)
 
    The *Finish Redirect URL* is configured.
 
    </article>
    </details>
 
-> **Tips:** Optionally, you can also [use Javascript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
->
-> <!--Follow the style for Tips, Notes like ?>***Notes***: or ?>***Tips***:-->
+?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
-### 3. Creating Test Payment
-
-Create a test payment to make sure you have integrated Snap successfully. There are various payment methods available on Snap. You can choose any one of them to create a test payment. Following are the test credentials for Card payment. 
+## 3. Creating Test Payment
+Create a test payment to make sure you have integrated Snap successfully. There are various payment methods available on Snap. You can choose any one of them to create a test payment. Following are the test credentials for Card payment.
 
 Name | Value
 --- | ---
 Card Number | `4811 1111 1111 1114`
 CVV | `123`
-Exp Month | Any month in MM format. For example, `02`. 
-Exp Year | Any future year, in YYYY format. For example, `2025`. 
+Exp Month | Any month in MM format. For example, `02`
+Exp Year | Any future year, in YYYY format. For example, `2025`
 OTP/3DS | `112233`
 
-For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
+Above test credentials are for Card payment. In addition to that, there are test credentials provided for other payment methods. For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 
-### 4. Handling After Payment
+## 4. Handling After Payment
+When the transaction status changes, customer is redirected to *Redirect URL* and Midtrans sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
-When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
-
-HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
+HTTP POST request with JSON body will be sent to your server's *Notification URL* configured on dashboard.
 
 <details>
 <summary><b>Configuring Payment Notification URL</b></summary>
 <article>
+
 To configure the Payment Notification URL, follow the steps given below.
 1. Login to your MAP account.
-
 2. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.
-
 3. Enter **Payment Notification URL**.
-
 4. Click **Update**.
-   A confirmation message is displayed.
 
-   ![Core API](C:/Users/asset/image/coreapi/core-api-payment-notification-1.png)
+![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
 
-<div class="my-card">
-
- Follow this link for more details:
-
-
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
-Webhook HTTP notification is triggered when transaction status is updated. In this section, you will learn how to handle Webhook HTTP notification. 
-</div>
+The URL is updated and a confirmation message is displayed.
 
 </article>
 </details>
+
+<br>
+
+<div class="my-card">
+
+#### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
+</div>
 
 ## Next Step
 <br>
@@ -521,7 +503,7 @@ Webhook HTTP notification is triggered when transaction status is updated. In th
 <div class="my-card">
 
 #### [Taking Action of Payment](/en/after-payment/overview.md)
-In this section, you will learn how to handle events of payment completed by customer and other status changes. 
+In this section, you will learn how to handle events of payment completed by customer and other status changes.
 </div>
 
 <div class="my-card">
@@ -540,4 +522,4 @@ In this section, you will learn, how transaction status can change, and what are
 
 #### Reference:
 
-> Integration sample codes are also available on our [Github repos](/en/technical-reference/library-plugin.md#sample-integration-code)
+> Integration sample codes are also available on our [GitHub repos](/en/technical-reference/library-plugin.md#sample-integration-code).
