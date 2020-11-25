@@ -94,8 +94,8 @@ Name | Value
 --- | ---
 Card Number | `4811 1111 1111 1114`
 CVV | `123`
-Exp Month | Any month in MM format. For example, `02`.
-Exp Year | Any future year, in YYYY format. For example, `2025`. 
+Exp Month | Any month in MM format. For example, `02` 
+Exp Year | Any future year, in YYYY format. For example, `2025` 
 OTP/3DS | `112233`
 
 For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
@@ -165,14 +165,14 @@ The sample requests for *Charge API* for *Card* payment method are shown below. 
 
 #### **CURL**
 
-##### Endpoints
+#### Endpoints
 
 | Environment | Method | URL                                        |
 | ----------- | ------ | ------------------------------------------ |
 | Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
 | Production  | POST   | https://api.midtrans.com/v2/charge         |
 
-##### HTTP Headers
+#### HTTP Headers
 
 | Header Name   | Description                                            | Required | Values                |
 | ------------- | ------------------------------------------------------ | -------- | --------------------- |
@@ -212,12 +212,12 @@ curl -X POST \
 
 #### **PHP**
 
-Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library
+Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library.
 ```bash
 composer require midtrans/midtrans-php
 ```
 
-> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually
+> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually.
 > ```php
 > require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
 > ```
@@ -252,7 +252,7 @@ $response = \Midtrans\CoreApi::charge($params);
 
 #### **Node JS**
 
-Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package
+Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package.
 ```bash
 npm install --save midtrans-client
 ```
@@ -290,19 +290,13 @@ core.charge(parameter)
 
 #### **Java**
 
-For Java, follow the steps given below.
-1. Install [midtrans-java library](https://github.com/Midtrans/midtrans-java).
-2. Depending on the build automation tool used, choose from the following options.
+Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Maven</b></summary>
 <article>
 
-If you are using Maven as the build automation tool for your project, follow the steps given below.
-1. Add JCenter repository to your build definition.
-
-2. Add the dependency to your project's build definition (pom.xml) as shown below.
-
+If you are using Maven as the build automation tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
 
 ```xml
 <repositories>
@@ -330,9 +324,7 @@ If you are using Maven as the build automation tool for your project, follow the
 <summary><b>Gradle</b></summary>
 <article>
 
-If you are using Gradle as the build automation tool for your project, follow the steps given below.
-1. Add JCenter repository to your build script.
-2. Add the dependency to your project's build definition (build.gradle) as shown below.
+If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle).
 
 ```bash
 repositories {
@@ -432,7 +424,7 @@ charge_response = core_api.charge(param)
 ?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the *Dashboard*.
 
 ### Sample Response
-The sample API response for *Card* payment method is shown below.
+A sample API response for *Card* payment method is shown below.
 
 ```json
 {
