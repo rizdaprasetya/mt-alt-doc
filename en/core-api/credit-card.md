@@ -211,21 +211,20 @@ curl -X POST \
 ```
 
 #### **PHP**
-If you are using Composer, follow the steps given below.
-1. Install [midtrans-php library](https://github.com/Midtrans/midtrans-php).
 
-2. ```bash 
-   composer require midtrans/midtrans-php
-   ```
+Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library
+```bash
+composer require midtrans/midtrans-php
+```
 
-> Alternatively, if not using Composer, follow the steps given below.
-> 1. Download [midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip).
->
-> 2. ```php
->    require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
->    ```
+> Alternatively, if you are not using **Composer**, you can [download midtrans-php library](https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require the file manually
+> ```php
+> require_once dirname(__FILE__) . '/pathofproject/Midtrans.php';
+> ```
+
 
 **Sample Request**
+
 ```php
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
@@ -252,9 +251,9 @@ $response = \Midtrans\CoreApi::charge($params);
 ```
 
 #### **Node JS**
-For Node JS, install [midtrans-client NPM package](https://github.com/Midtrans/midtrans-nodejs-client).
 
-```bash 
+Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package
+```bash
 npm install --save midtrans-client
 ```
 
@@ -396,13 +395,13 @@ public class MidtransExample {
 ```
 
 #### **Python**
-For Python, install [**midtrans-client**](https://github.com/Midtrans/midtrans-python-client) PIP package
+
+Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client) PIP package
 ```bash
 pip install midtransclient
 ```
 
-**Sample Request**
-
+Card Transaction Charge
 ```python
 import midtransclient
 # Create Core API instance
