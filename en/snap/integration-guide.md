@@ -447,8 +447,8 @@ After the payment is completed, customer is redirected back to `Finish URL`. It 
 
    The *Finish Redirect URL* is configured.
 
-   </article>
-   </details>
+</article>
+</details>
 
 ?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
