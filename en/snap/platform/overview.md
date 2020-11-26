@@ -3,7 +3,7 @@
 
 Midtrans Snap can be integrated with third party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
-Midtrans is associated with various platforms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans. If you are using third party platforms that are not listed here, and would like for Midtrans  to integrate with it, please contact us at [support@midtrans.com](mailto:support@midtrans.com "email support")
+Midtrans is partnered with various platforms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans. If you are using third party platforms that are not listed here, and would like for Midtrans to integrate with it, please contact us at [support@midtrans.com](mailto:support@midtrans.com "email support")
 
 Step by step guide to integrate Snap to the platform of your choice, is explained below. 
 #### Choose from any platform of your choice:
@@ -21,6 +21,7 @@ Step by step guide to integrate Snap to the platform of your choice, is explaine
 
 #### [ Jejualan](#jejualan)
 </div>
+
 <hr><br><br>
 
 ## Shopify
@@ -28,12 +29,13 @@ Step by step guide to integrate Snap to the platform of your choice, is explaine
 Please complete the steps given below:
 
 1. Create an online store with [Shopify](https://shopify.com).
-2. Register to [Midtrans account](https://account.midtrans.com/register).
-3. Complete the account registration form. Contact [Midtrans activation team](mailto:activation@midtrans.com) for help. Use **SHOPIFY - URL Name** as a subject header and mention your registered _Midtrans Merchant ID_.
+2. Register for [Midtrans account](https://account.midtrans.com/register).
+3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use **SHOPIFY - URL Name** as a subject header and mention your registered _Midtrans Merchant ID_.
 
-?>***Note:***
-- You can try with Shopify Trial plan to test payment integration in Sandbox mode.
-- Shopify requires you to have an active paid-plan, to allow your customer to checkout on *Production* mode.
+Note: 
+
+- You can try with Shopify Trial plan to test payment integration in *Sandbox mode*. 
+- You may be required by Shopify to have an active paid-plan in order to allow your customer to do checkout on *Production mode*.
 
 ### Integrating Midtrans to Shopify Platform: 
 
@@ -41,11 +43,11 @@ To integrate Midtrans to Shopify platform, follow the steps given below.
 
 1. Login to Midtrans [Merchant Administration Portal](https://account.midtrans.com/login).
 
-	You will find your online shop name with Sandbox/Production environment. Please make sure that you are in __Production environment__.
+	You will find your online shop name with *Sandbox/Production environment*. Please make sure that you are in __Production environment__.
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
 
-2. Choose __Settings --> Configuration__.
+2. Select __Settings -> Configuration__.
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
@@ -67,7 +69,7 @@ On **Sandbox** mode:
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-3. Choose __Settings --> Access Keys__.
+3. Select __Settings -> Access Keys__.
 
 	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
 
@@ -75,7 +77,7 @@ On **Sandbox** mode:
 
 4. Login to your [Shopify Store](https://www.shopify.com/login).
 
-5. On your Shopify Store- admin page, go to __Settings --> Payment providers__.
+5. On your Shopify Store- admin page, go to __Settings -> Payment providers__.
 	
 	![Settings menu](./../../../asset/image/shopify-1.png ':size=400')
 	![Payment providers menu](./../../../asset/image/shopify-2.png ':size=400')
@@ -88,43 +90,43 @@ On **Sandbox** mode:
 
 8. Complete the configuration by filling in your __Merchant ID__ and __server key__. Then click __Activate__. 
 
- ?>***Note:***
+ **Note:**
 
-  - Uncheck __Enable test mode__ checkbox to allow real transaction.
-  - Check the __Enable test mode__ checkbox if you want to test transaction without actual payment (using test credentials provided by Midtrans).
+  - Select the __Enable test mode__ check box and clear it to allow real transaction.
+  - Select the __Enable test mode__ check box if you want to test transaction without actual payment (using test credentials provided by Midtrans).
 
-  ?>***Note:*** __Server key__ for *Sandbox*/testing is different from production. You may obtain your *Merchant ID* and *server key* from Midtrans MAP (after logging in) from the following links:
+ __Server key__ for *Sandbox*/testing is different from *production*. You may obtain your *Merchant ID* and *server key* from Midtrans MAP (after logging in) from the following links:
 
-  - For *Sandbox*/testing: [here](https://dashboard.sandbox.midtrans.com/settings/config_info)
-  - For *Production*/real transaction: [here](https://dashboard.midtrans.com/settings/config_info)
+  - For *Sandbox*/testing: [Click here](https://dashboard.sandbox.midtrans.com/settings/config_info)
+  - For *Production*/real transaction: [Click here](https://dashboard.midtrans.com/settings/config_info)
 
   ![shopify](./../../../asset/image/shopify-5.png ':size=400')
 
-9. Done! Now your Shopify online shop is ready to use Midtrans as payment gateway. Your customer will see Online Payment as payment method on the checkout page.
+Done! Now your Shopify online shop is ready to use Midtrans as payment gateway. Your customer will see Online Payment as payment method on the checkout page.
 
   ![shopify](./../../../asset/image/shopify-6.png ':size=400')
 
-10. Midtrans Snap payment page will be displayed to the customer. Payment methods that are available for this integration, are all payment methods that are available on Snap product, which is explained on [this page](https://midtrans.com/payments). The payment methods, which are displayed on the Snap payment page, are available for integration. The integration of these methods is explained in this section. 
+Midtrans Snap payment page will be displayed to the customer. Payment methods that are available on Snap product, are explained on [this page](https://midtrans.com/payments). These methods are available for integration. 
 
-    ![shopify](./../../../asset/image/shopify-7.png ':size=400')
+![shopify](./../../../asset/image/shopify-7.png ':size=400')
 
 With this integration, your customer will be redirected to Snap Redirect payment page. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
 
 <hr><br><br>
 
 ### Available Payment Methods
-All payment methods available on Snap, explained on [this page](https://midtrans.com/payments), are the payment methods available for integration. The integration of these methods is explained in this section. 
+All payment methods available on Snap, are explained on [this page](https://midtrans.com/payments), and are available for integration. The integration of these methods is explained in this section. 
 
 ### Specific Payment Methods
 
-To have the payment methods displayed on your shopify checkout page, follow the steps given below.
+You can optionally follow these steps, if **you prefer to have the payment methods displayed on your shopify checkout page** instead.
 
 Sample shopify checkout page is shown below.
 
 For example:
 ![shopify](./../../../asset/image/shopify-17.png ':size=400')
 
-1. Choose your preferred payment methods, and **click the links below to install the individual payment method**:
+1. Select your preferred payment methods, and **click the links below to install the individual payment method**:
 	- [Bank Transfer BNI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055281)
 	- [Bank Transfer BCA](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055283)
 	- [Bank Transfer BRI](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1056041)
@@ -142,31 +144,31 @@ For example:
 2. When prompted, login with your Shopify account. Click **Install** on the payment gateway.
 ![shopify](./../../../asset/image/shopify-13.png ':size=400')
 
-3. On Shopify adminstration page, go to **Settings > Payments**. Click **Choose Alternative Payments**.
+3. You will be navigated to payment settings page (`Settings > Payments` on your Shopify admin page). Click **Choose Alternative Payments**.
 ![shopify](./../../../asset/image/shopify-14.png ':size=400')
 
-4. In the search bar, input Midtrans. The methods which you installed previously, will appear.
+4. In the search bar, enter `Midtrans`. The methods which you installed previously, will appear.
 ![shopify](./../../../asset/image/shopify-15.png ':size=400')
-*for example that is if you install all of it, you can install just 1 or few of it*
+*for example that is if you install all of it, you can install just 1 or few of it*.
 
-5. Enter Midtrans **Merchant ID** and **Server Key**
+5. Enter Midtrans **Merchant ID** and **Server Key**.
 	![shopify](./../../../asset/image/shopify-16.png ':size=400')
 
-	Get it from [Merchant Administration Portal](https://account.midtrans.com)
-	You will find your online shop name with *Sandbox/Production* environment. Please make sure that you are in __Production environment__.
+	Get it from [Merchant Administration Portal](https://account.midtrans.com).
+	You will find your online shop name with *Sandbox/Production* *environment*. Please make sure that you are in __Production environment__.
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
 	
-	under **Settings > Access Keys**
+	under **Settings -> Access Keys**.
 	![access key](./../../../asset/image/sirclo-2.png)
 
-6. Setup Notification URL on [Merchant Administration Portal](https://account.midtrans.com/login)
+6. Setup Notification URL on [Merchant Administration Portal](https://account.midtrans.com/login).
 
-	You will find your online shop name with *Sandbox/Production* environment. Please make sure that you are in __Production environment__.
+	You will find your online shop name with *Sandbox/Production* *environment*. Please make sure that you are in __Production environment__.
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
 
-	Choose __Settings - Configuration__.
+	Select __Settings ->Configuration__.
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
@@ -188,8 +190,9 @@ On **Sandbox** mode:
 | Error Redirect URL | [your-site-url] |
 | Unfinish Redirect URL | [your-site-url] |
 
-7. Done! Now your Shopify online shop is ready to use Midtrans as payment gateway.
+Done! Now your Shopify online shop is ready to use Midtrans as payment gateway.
 ![shopify](./../../../asset/image/shopify-17.png ':size=400')
+
 <hr><br><br>
 
 ### Advanced
@@ -204,7 +207,7 @@ To find order on Shopify platform, based on Order ID from Midtrans, first find t
 ![shopify](./../../../asset/image/shopify-8.png ':size=400')
 
 ##### From Order menu
-1. On your Shopify admin area<!administration page, go to __Orders-->All Orders__ 
+1. On your Shopify admin area (administration page), go to __Orders->All Orders__. 
 2. In the search bar, input order id from Midtrans. 
 3. Click on the shown order.
 
@@ -223,7 +226,7 @@ Inside the order found by the search result, you can see the reference number.
 ![shopify](./../../../asset/image/shopify-11.png ':size=400')
 
 ##### From Exported Order
-You can also find the reference number on the exported CSV file using Shopify export feature: __All Orders-->Export-->Export Orders.__ Then search within the CSV file.
+You can also find the reference number on the exported CSV file using Shopify export feature: __All Orders->Export->Export Orders.__ Then search within the CSV file.
 
 ![shopify](./../../../asset/image/shopify-12.png ':size=400')
 </article>
@@ -236,20 +239,20 @@ You can also find the reference number on the exported CSV file using Shopify ex
 
 When customer is proceeding to check out from your Shopify store into Midtrans Snap payment page, order is "confirmed" on Shopify side, and they will send "order confirmation" email notification to customer.
 
-But you may find the wording of the email is confusing for customer, For example: <>
+But you may find the wording of the email is confusing for customer, for example: 
 > Hi John, we're getting your order ready to be shipped. We will notify you when it has been sent.
 
-You may notice that email is being sent **before customer completes the payment**, so it may not be true that the order is ready for shipping, **the order needs to be paid first**. Unfortunately that's how the default Shopify "order confirmation notification" behaviour works. We can try to customize the message to be less confusing. <!--I am confused about the approach-->
+You may notice that email is being sent **before customer completes the payment**, so it may not be true that the order is ready for shipping, **the order needs to be paid first**. Unfortunately that's how the default Shopify "order confirmation notification" behavior works. We can try to customize the message to be less confusing. 
 
 Shopify explained how to customize notification [on their documentation here](https://help.shopify.com/en/manual/sell-online/notifications/edit-template). We try to summarize it for you.
 
 1. Login to your Shopify admin page.
 2. Go to `Settings > Notifications`.
 3. Click `Order Confirmation`.
-4. Search for `{% capture email_body %}` text.<
+4. Search for `{% capture email_body %}` text.
 5. Input or copy this sentence just below/after that text:
 ```
-If you have completed your payment, then you are done. If you haven't complete your payment, please complete it soon to avoid auto-cancelation.<br><br>
+If you have completed your payment, then you are done. If you have not completed your payment, please complete it soon to avoid auto-cancelation.<br><br>
 ```
 You can customize the message to your own preference. Or even modify it as "payment reminder".
 ![shopify](./../../../asset/image/shopify-18.png ':size=400')
@@ -271,12 +274,12 @@ For example:
 - Canceling `pending` order on Shopify, will also make Midtrans order status to be marked as `cancel`.
 - Refunding `paid` order on Shopify, will also make Midtrans order status to be marked as `refund`/`cancel`.
 
-Not all payment types support online `refund`. On Midtrans side, capability is mostly limited to Card & GoPay transaction, if your Midtrans account allowed to trigger online refund.
+Not all payment types support online `refund`. On Midtrans side, capability is mostly limited to Card & GoPay transaction, if your Midtrans account is allowed to trigger online refund.
 
 However, `cancel` or `refund` action triggered on Midtrans dashboard/API, may or may not be synced to Shopify due to some limitation.
 
 ##### Note on Canceling Order
-Canceling a paid order will auto trigger attempt to refund/cancel payment on Payment Gateway (Midtrans) side . That is the flow of Shopify that Merchant and Payment Gateway follows. Please avoid canceling a paid order when you mean to edit/customize the item or size.
+Canceling a paid order will auto trigger attempt to refund/cancel payment on Payment Gateway (Midtrans) side. That is the flow of Shopify that Merchant and Payment Gateway follows. Please avoid canceling a paid order when you mean to edit/customize the item or size.
 
 As per Shopify docs, `cancel order` are not supposed to be used to change item/size:
 https://help.shopify.com/en/manual/orders/refund-cancel-order#cancel-an-order
@@ -292,10 +295,10 @@ https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-orde
 ##### Item Stock & Status
 The points given below are the conditions for which item stock is reduced and restocked from your Shopify store. <!--Is this sentence correct?-->
 - Item stock will be reduced whenever order status become `pending` on Shopify side.
-- Item stock will be reduced immediately after customer reach Snap payment page, regardless of he/she will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment.
-- Card transaction with `deny` status will be updated as failed on Shopify by Pixels after 2 hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
-- Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as failed on Shopify after 2 hours, and may not show up in Midtrans Dashboard.
-- When customer reach Snap payment page (status `pending` and stock reduced). Shopify may send email to customer with body- order ready to be shipped, although from Shopify side it is still waiting for payment.
+- Item stock will be reduced immediately after customer reaches Snap payment page, regardless of whether he/she will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment.
+- Card transaction with `deny` status will be updated as failed on Shopify by Pixels after two hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
+- Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as failed on Shopify after two hours, and may not show up in Midtrans Dashboard.
+- When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer with body- order ready to be shipped, although from Shopify side it is still waiting for payment.
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Order Status
@@ -324,17 +327,19 @@ Please complete the following steps:
 
 1. Create an online store with Sirclo.
 2. Register to [Midtrans account](https://account.midtrans.com/register).
-3. Complete the account registration form. Contact [Midtrans activation team](mailto:activation@midtrans.com) for help. Use __SIRCLO - URL Name__ as a subject header and mention your registered _Midtrans Merchant ID_. 
+3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use __SIRCLO - URL Name__ as a subject header and mention your registered _Midtrans Merchant ID_. 
 
-### Integrate Midtrans to Sirclo Platform by following the steps below:
+### Integrating Midtrans to Sirclo Platform:
 
-1. Login to Midtrans [Merchant Administration Portal](https://account.midtrans.com/login)
+To integrate Midtrans to Sirclo platform, follow the steps given below.
 
-	You will find your online shop name with *Sandbox/Production* environment. Please make sure that you are in __Production environment__.
+1. Login to Midtrans [Merchant Administration Portal](https://account.midtrans.com/login).
+
+	You will find your online shop name with *Sandbox/Production* *environment*. Please make sure that you are in __Production environment__.
 
 	![environment switch](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
 
-2. Choose __Settings-->Configuration__.
+2. Select __Settings->Configuration__.
 
 	![Setting](./../../../asset/image/sirclo-1.png ':size=400')
 
@@ -345,14 +350,14 @@ Please complete the following steps:
 | Error Redirect URL | [your-site-url]/payment_ipn/veritrans/error |
 | Unfinish Redirect URL | [your-site-url]/payment_ipn/veritrans/unfinish |
 
-> ?>***Note:***
+> **Note:**
 >
 > Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
-> 
+>
 > If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
 
-3. Choose __Settings-->Access Keys__
+3. Select __Settings->Access Keys__.
 
 	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
 
@@ -362,28 +367,28 @@ Please complete the following steps:
 
 	![sirclo](./../../../asset/image/sirclo-3.png ':size=400')
 
-5. Choose __Settings-->Payment Settings__.
+5. Select __Settings->Payment Settings__.
 
 	![sirclo](./../../../asset/image/sirclo-4.png ':size=400')
 
-	Find Midtrans field, then input Midtrans Production _Merchant ID_ and _Server Key_.
+	Find Midtrans field, then enter Midtrans Production _Merchant ID_ and _Server Key_.
 
 	![sirclo](./../../../asset/image/sirclo-5.png ':size=400')
 
-6. Enable payment methods via Midtrans by checking / unchecking the desired payment method
+6. Select the checkbox, corresponding to payment method, to enable it. 
 
-> ***Note:***
-> You can enable all registered payment methods at Midtrans by unchecking all payment methods.
-
-7. You can choose installment payment method by filling installment period in _Veritrans Installment period for [Bank Name]_. 
-
-> ***Note:***
-> For installment:
+> **Note:** 
 >
-> - You need to be approved and negotiate with the Bank regarding interest rate and installment period.
+> You can enable all registered payment methods at Midtrans by clearing all payment methods.
+
+7. You can select installment payment method by filling installment period in _Veritrans Installment period for [Bank Name]_. 
+
+> **Note for installment:**
+> 
+>- You need to agree and negotiate with the Bank regarding interest rate and installment period.
 > - Please contact Midtrans at [activation@midtrans.com](mailto:activation@midtrans.com) for further inquiry.
 
-8. Click **Save** or **Update**
+8. Click **Save** or **Update**.
 <hr><br><br>
 
 ## Jejualan
@@ -392,17 +397,19 @@ Please complete the following steps:
 
 1. Create an online store account with [Jejualan](https://jejualan.com/daftar), and choose Beta, Gamma, or Delta in order to use Midtrans service.
 2. Register to [Midtrans account](https://account.midtrans.com/register).
-3. Complete the account registration form. Contact [Midtrans activation team](mailto:activation@midtrans.com) for help. Use __Jejualan – URL Name__ as subject header and mention your registered _Midtrans Merchant ID_. 
+3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use __Jejualan – URL Name__ as subject header and mention your registered _Midtrans Merchant ID_. 
 
-### Integrate Midtrans to Jejualan platform by following the steps below:
+### Integrating Midtrans to Jejualan Platform:
 
-1. Login to Midtrans [Merchant Administration Portal](https://account.midtrans.com/login)
+To integrate Midtrans to Jejualan platform, follow the steps given below.
+
+1. Login to Midtrans [Merchant Administration Portal](https://account.midtrans.com/login).
 
 	You will find your online shop name with *Sandbox/Production* environment. Please make sure that you are in __Production environment__.
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
 
-2. Choose __Settings-->Configuration__.
+2. Select __Settings->Configuration__.
 
 	![Setting](./../../../asset/image/dashboard-configuration.png)
 
@@ -413,13 +420,13 @@ Please complete the following steps:
 | Error Redirect URL | [your-site-url]/store/payment/veritrans/failed |
 | Unfinish Redirect URL | [your-site-url]/store/payment/ |
 
-> **Note:**
+> **Note:** 
 >
 > Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration. 
-> 
+>
 > If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
 
-3. Choose __Settings-->Access Keys__.
+3. Select __Settings->Access Keys__.
 
 	Copy Midtrans __Merchant ID__ dan __Server Key__ (Will be used for the next step).
 
@@ -429,17 +436,18 @@ Please complete the following steps:
 
 	![jejualan](./../../../asset/image/jejualan-1.png ':size=400')
 
-5. Choose __Konfigurasi-->Pembayaran__.
+5. Select __Konfigurasi->Pembayaran__.
 
 	![jejualan](./../../../asset/image/jejualan-2.png ':size=400')
 
 	Click Midtrans field, then change mode from `Tidak Aktif` to `Aktif`. Ensure that the button is now colored in blue.
 
-6. Input Midtrans __Production Server Key__. Then enable payment methods via Midtrans by checking / unchecking the desired payment method.
+6. Enter Midtrans __Production Server Key__. Then select the desired payment method. 
 
 	![jejualan](./../../../asset/image/jejualan-3.png ':size=400')
 
 > You can enable only registered payment methods. For Credit Card, 3D Secure mode is recommended.
+>
 
 7. Click **Simpan**.
 
