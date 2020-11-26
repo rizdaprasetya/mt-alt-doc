@@ -94,8 +94,8 @@ Name | Value
 --- | ---
 Card Number | `4811 1111 1111 1114`
 CVV | `123`
-Exp Month | Any month in MM format. For example, `02` 
-Exp Year | Any future year, in YYYY format. For example, `2025` 
+Exp Month | Any month in MM format. For example, `02`.
+Exp Year | Any future year, in YYYY format. For example, `2025`. 
 OTP/3DS | `112233`
 
 For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
@@ -143,7 +143,7 @@ A sample of onFailure `response` object is shown below. It contains the `validat
 </details>
 
 ## 2. Sending Transaction Data to Charge API
-The `token_id` received from the previous step, is used by the merchant backend to send [Charge API Request](/en/core-api/credit-card.md#sample-request) to Midtrans. The 3DS `redirect_url` is received in the response. This URL is required for [Opening 3DS authentication page](/en/core-api/credit-card.md#_3-opening-3DS-authentication-page).
+The `token_id` received from the previous step, is used by the merchant backend to send [Charge API Request](#sample-request) to Midtrans. The 3DS `redirect_url` is received in the response. This URL is required for [Opening 3DS authentication page](/en/core-api/credit-card.md#_3-opening-3DS-authentication-page).
 The *Charge API* request is sent from the merchant backend, with the `transaction_details` and the `token_id`.
 
 The table given below describes some required components.
@@ -393,7 +393,8 @@ Install [**midtransclient**](https://github.com/Midtrans/midtrans-python-client)
 pip install midtransclient
 ```
 
-Card Transaction Charge
+**Sample Request**
+
 ```python
 import midtransclient
 # Create Core API instance
@@ -461,7 +462,7 @@ A sample API response for *Card* payment method is shown below.
 | gross_amount       | The total transaction amount for the specific order.         | String | --                                                           |
 | currency           | The unit of currency used for the transaction.               | String | --                                                           |
 | payment_type       | The type of payment method used by the customer for the transaction. | String | --                                                           |
-| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | fraud_status       | The fraud_status of the transaction is displayed.            | String | --                                                           |
 | masked_card        | The partial card number of the customer is displayed.        | String | --                                                           |
@@ -482,7 +483,7 @@ Status Code | Description | Sample Response Message
 200 | Successful transaction (non 3DS transaction). | "transaction_status": "capture"
 201 | Need to open the redirect_url (3DS transaction). | "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-f424a955-ed0f-4a64-88ea-60cdc9655984 "
 401 | Failed transaction. Wrong authorization details sent. | "Access denied, please check client or server key"
-4xx | Failed transaction. Wrong parameter sent. Follow the `error_message` and check your parameter | "transaction_details.gross_amount is not equal to the sum of item_details"
+4xx | Failed transaction. Wrong parameter sent. Follow the `error_message` and check your parameter. | "transaction_details.gross_amount is not equal to the sum of item_details"
 5xx | Failed transaction. Midtrans internal error. This is temporary. Retry again later. | "Sorry, we encountered internal server error. We will fix this soon."
 
 ## 3. Opening 3DS Authentication Page
@@ -555,7 +556,7 @@ On the JS callback function, we will get the transaction details as JSON respons
 
 <!-- tabs:start -->
 #### **Success Response**
-Sample of successful transaction callback response is shown below.
+A sample of successful transaction callback response, is shown below.
 ```json
 {
   "status_code": "200",
@@ -580,7 +581,7 @@ Sample of successful transaction callback response is shown below.
 ```
 
 #### **Failure Response**
-Sample of failure transaction callback response is shown below.
+Sample of failure transaction callback response, is shown below.
 ```json
 {
   "status_code": "202",
@@ -643,7 +644,7 @@ The table given below, describes the `transaction_status`.
 | `deny` | The transaction is denied. <br>Check `channel_response_message` or `fraud_status` for details. |
 | `expire` | The transaction failed, because customer did not complete 3DS within the expiry time. |
 
-For more details, refer to [Midtrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md)
+For more details, refer to [Midtrans Transaction Status Cycle Description](/en/after-payment/status-cycle.md).
 
 ## Next Step:
 <br>
