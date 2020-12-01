@@ -1,22 +1,27 @@
 # Core API Bank Transfer Integration
 <hr>
 Basic integration process for Bank Transfer (Virtual Account) is explained in this section.
-Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below. 
-<ol><li>BCA Virtual Account</li>
-    <li>BNI Virtual Account</li>
-    <li>BRI Virtual Account</li>
-    <li>Mandiri Bill Payment</li>
-    <li>Permata Virtual Account</li></ol>
-Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. 
-For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
+Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below. </hr>
 
+- BCA Virtual Account
 
+- BNI Virtual Account
 
-?> Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
+- BRI Virtual Account
+
+- Mandiri Bill Payment
+
+- Permata Virtual Account
+
+Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
+
+?>***Note:*** Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
+
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
-The overall Bank Transfer end-to-end payment process is illustrated in following sequence diagram:
+    The overall <i>Bank Transfer</i> end-to-end payment process is illustrated in following sequence diagram.
+
 
 
 
@@ -28,18 +33,18 @@ The overall Bank Transfer end-to-end payment process is illustrated in following
 
 The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 ##  Steps for Integration
-To integrate with Bank Transfer payment method, follow the steps given below.
-### 1. Sending Transaction Data to API Charge
+To integrate with *Bank Transfer* payment method, follow the steps given below.
+## 1. Sending Transaction Data to API Charge
 Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the `va_number`.
 
 The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
 | Requirement    | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
-| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
-| `order_id`     | The order_id of the transaction                              |
-| `gross_amount` | The total amount of transaction                              |
-| `payment_type` | The payment method                                           |
+| Server Key     | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
+| `order_id`     | The order_id of the transaction.                             |
+| `gross_amount` | The total amount of transaction.                             |
+| `payment_type` | The payment method.                                          |
 
 #### Request Details
 | Environment | Method | URL                                        |
@@ -54,12 +59,12 @@ The table given below describes the various elements required for sending the tr
 | Content-Type  | The format of the data to be posted.                   | Required | application/json      |
 | Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
 
-**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
 #### Sample Request and Request Body
-The sample request for *Charge API* is as given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).The example below shows a sample code to obtain the VA number. 
+The sample request for *Charge API* is given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). The example below shows a sample code to obtain the VA number.
 <!-- tabs:start -->
 
 #### **BCA**
@@ -84,17 +89,18 @@ curl -X POST \
 }'
 ```
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | The Bank Transfer payment method                             | String | Required |
+| payment_type        | The *Bank Transfer* payment method.                          | String | Required |
 | transaction_details | The details of the transaction like the order_id and gross_amount. | -      | Required |
-| order_id            | The order ID of the transaction                              | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
-| bank_transfer       | Bank Transfer details such as name of the bank               | -      | Required |
-| bank                | The name of the bank                                         | String | Required |
+| order_id            | The order ID of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
+| bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
+| bank                | The name of the bank.                                        | String | Required |
 
 </article>
 </details>
@@ -121,17 +127,18 @@ curl -X POST \
 }'
 ```
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | The Bank Transfer payment method                             | String | Required |
-| transaction_details | The details of the transaction such as the order_id and gross_amount | -      | Required |
-| order_id            | The order ID of the transaction                              | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
-| bank_transfer       | Bank Transfer details such as name of the bank               | -      | Required |
-| bank                | The name of the bank                                         | String | Required |
+| payment_type        | The *Bank Transfer* payment method.                          | String | Required |
+| transaction_details | The details of the transaction such as the order_id and gross_amount. | -      | Required |
+| order_id            | The order ID of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
+| bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
+| bank                | The name of the bank.                                        | String | Required |
 
 </article>
 </details>
@@ -158,17 +165,18 @@ curl -X POST \
 }'
 ```
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | The Bank Transfer payment method                             | String | Required |
-| transaction_details | The details of the transaction such as the order_id and gross_amount | -      | Required |
-| order_id            | The order ID of the transaction                              | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
-| bank_transfer       | Bank Transfer details such as name of the bank               | -      | Required |
-| bank                | The name of the bank                                         | String | Required |
+| payment_type        | The *Bank Transfer* payment method.                          | String | Required |
+| transaction_details | The details of the transaction such as the order_id and gross_amount. | -      | Required |
+| order_id            | The order ID of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
+| bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
+| bank                | The name of the bank.                                        | String | Required |
 
 </article>
 </details>
@@ -194,15 +202,16 @@ curl -X POST \
 ```
 
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | The Bank Transfer payment method                             | String | Required |
-| transaction_details | The details of the transaction like the order_id and gross_amount | -      | Required |
-| order_id            | The order ID of the transaction                              | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
+| payment_type        | The *Bank Transfer* payment method.                          | String | Required |
+| transaction_details | The details of the transaction like the order_id and gross_amount. | -      | Required |
+| order_id            | The order ID of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
 
 </article>
 </details>
@@ -228,24 +237,25 @@ curl -X POST \
 ```
 
 <details>
-<summary><b>Request Body</b></summary>
+<summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| payment_type        | The Bank Transfer payment method                             | String | Required |
-| transaction_details | The details of the transaction like the order_id and gross_amount | -      | Required |
-| order_id            | The order ID of the transaction                              | String | Required |
-| gross_amount        | Total amount of transaction, defined from your side          | String | Required |
+| payment_type        | The *Bank Transfer* payment method.                          | String | Required |
+| transaction_details | The details of the transaction like the order_id and gross_amount. | -      | Required |
+| order_id            | The order ID of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
 
 </article>
 </details>
 
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard.
+?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object). It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard.
 
-You can modify the virtual account number according to a transaction. For more details, please refer to [Specifying VA Number](#Specifying-VA-Number)
+You can modify the virtual account number according to a transaction. For more details, please refer to [Specifying VA Number](#Specifying-VA-Number).
 
 #### Sample Response and Response Body
 The sample response and description of response body for *Bank Transfer* payment method is shown below.
@@ -279,24 +289,25 @@ This is the sample response for BCA.
 ```
 
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | The status of the API call                                   | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction           | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction             | String |                                                              |
-| order_id           | The specific *Order ID*                                      | String |                                                              |
-| merchant_id        | Your merchant ID                                             | String |                                                              |
-| gross_amount       | The total amount of transaction for the specific order       | String |                                                              |
-| currency           | The unit of currency used for the transaction                | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
-| transaction_status | The status of the transaction                                | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| va_number          | The virtual account number consisting of bank name and account number | String |                                                              |
-| bank               | The name of the bank                                         | String |                                                              |
-| fraud_status       | The fraud status of the transaction                          | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | The message describing the status of the transaction.        | String | -                                                            |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | -                                                            |
+| order_id           | The specific *Order ID.*                                     | String | -                                                            |
+| merchant_id        | Your merchant ID.                                            | String | -                                                            |
+| gross_amount       | The total amount of transaction for the specific order.      | String | -                                                            |
+| currency           | The unit of currency used for the transaction.               | String | -                                                            |
+| payment_type       | The type of payment method used by the customer for the transaction. | String | -                                                            |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
+| bank               | The name of the bank.                                        | String | -                                                            |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
 </article>
 </details>
@@ -330,24 +341,25 @@ This is the sample response for BNI.
 ```
 
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | The status of the API call                                   | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction           | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction             | String |                                                              |
-| order_id           | The specific *Order ID*                                      | String |                                                              |
-| merchant_id        | Your merchant ID                                             | String |                                                              |
-| gross_amount       | The total amount of transaction for the specific order       | String |                                                              |
-| currency           | The unit of currency used for the transaction                | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
-| transaction_status | The status of the transaction                                | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| va_number          | The virtual account number consisting of bank name and account number | String |                                                              |
-| bank               | The name of the bank                                         | String |                                                              |
-| fraud_status       | The fraud status of the transaction                          | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | The message describing the status of the transaction.        | String | -                                                            |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | -                                                            |
+| order_id           | The specific *Order ID.*                                     | String | -                                                            |
+| merchant_id        | Your merchant ID.                                            | String | -                                                            |
+| gross_amount       | The total amount of transaction for the specific order.      | String | -                                                            |
+| currency           | The unit of currency used for the transaction.               | String | -                                                            |
+| payment_type       | The type of payment method used by the customer for the transaction. | String | -                                                            |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
+| bank               | The name of the bank.                                        | String | -                                                            |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
 </article>
 </details>
@@ -380,23 +392,24 @@ This is the sample response for BRI.
 ```
 
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>                                
+
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | The status of the API call                                   | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction           | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction             | String |                                                              |
-| order_id           | The specific *Order ID*                                      | String |                                                              |
-| gross_amount       | The total amount of transaction for the specific order       | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
-| transaction_status | The status of the transaction                                | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| va_number          | The virtual account number consisting of bank name and account number | String |                                                              |
-| bank               | The name of the bank                                         | String |                                                              |
-| fraud_status       | The fraud status of the transaction                          | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
-| currency           | The unit of currency used for the transaction                | String |                                                              |
+| status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | The message describing the status of the transaction.        | String | -                                                            |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | -                                                            |
+| order_id           | The specific *Order ID.*                                     | String | -                                                            |
+| gross_amount       | The total amount of transaction for the specific order.      | String | -                                                            |
+| payment_type       | The type of payment method used by the customer for the transaction. | String | -                                                            |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
+| bank               | The name of the bank.                                        | String | -                                                            |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| currency           | The unit of currency used for the transaction.               | String | -                                                            |
 
 </article>
 </details>
@@ -426,25 +439,26 @@ This is the sample response for Mandiri.
 ```
 
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | The status of the API call                                   | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction           | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction             | String |                                                              |
-| order_id           | The specific *Order ID*                                      | String |                                                              |
-| merchant_id        | Your merchant ID                                             | String |                                                              |
-| gross_amount       | The total amount of transaction for the specific order       | String |                                                              |
-| currency           | The unit of currency used for the transaction                | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
-| transaction_status | The status of the transaction                                | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| fraud_status       | The fraud status of the transaction                          | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
-| va_number          | The virtual account number consisting of bank name and account number | String |                                                              |
-| bill_key           | Midtrans company code                                        | String |                                                              |
-| biller_code        | The payment (bill) number                                    | String |                                                              |
+| status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | The message describing the status of the transaction.        | String | -                                                            |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | -                                                            |
+| order_id           | The specific *Order ID.*                                     | String | -                                                            |
+| merchant_id        | Your merchant ID.                                            | String | -                                                            |
+| gross_amount       | The total amount of transaction for the specific order.      | String | -                                                            |
+| currency           | The unit of currency used for the transaction.               | String | -                                                            |
+| payment_type       | The type of payment method used by the customer for the transaction. | String | -                                                            |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
+| bill_key           | Midtrans company code.                                       | String | -                                                            |
+| biller_code        | The payment (bill) number.                                   | String | -                                                            |
 
 </article>
 </details>
@@ -472,23 +486,24 @@ This is the sample response for Permata.
 }
 ```
 <details>
-<summary><b>Response Body</b></summary>
+<summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
+
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| status_code        | The status of the API call                                   | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
-| status_message     | A message describing the status of the transaction           | String |                                                              |
-| transaction_id     | The *Transaction ID* of the specific transaction             | String |                                                              |
-| order_id           | The specific *Order ID*                                      | String |                                                              |
-| gross_amount       | The total amount of transaction for the specific order       | String |                                                              |
-| currency           | The unit of currency used for the transaction                | String |                                                              |
-| payment_type       | The type of payment method used by the customer for the transaction | String |                                                              |
-| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7) |
+| status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | The message describing the status of the transaction.        | String | -                                                            |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String | -                                                            |
+| order_id           | The specific *Order ID*                                      | String | -                                                            |
+| gross_amount       | The total amount of transaction for the specific order       | String | -                                                            |
+| currency           | The unit of currency used for the transaction                | String | -                                                            |
+| payment_type       | The type of payment method used by the customer for the transaction | String | -                                                            |
+| transaction_time   | The date and time at which the transaction occurred          | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction                                | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | fraud_status       | The fraud status of the transaction                          | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
-| va_number          | The virtual account number consisting of bank name and account number | String |                                                              |
-| merchant_id        | Your merchant ID                                             | String |                                                              |
+| va_number          | The virtual account number consisting of bank name and account number | String | -                                                            |
+| merchant_id        | Your merchant ID                                             | String | -                                                            |
 
 </article>
 </details>
@@ -497,11 +512,11 @@ This is the sample response for Permata.
 
 <!-- tabs:end -->
 
-### 2. Displaying Virtual Account Number and Expiry Time
+## 2. Displaying Virtual Account Number and Expiry Time
 
 To display the virtual account number, use the value of `va_number` retrieved from API response.
 
-?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
+?>***Note:*** Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
 
 By default the expiry time for Bank Transfer / VA is **24 hours**. Follow the link given below to customize the expiry time:
 <div class="my-card">
@@ -509,11 +524,11 @@ By default the expiry time for Bank Transfer / VA is **24 hours**. Follow the li
 #### [Set Custom Expiry](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
 
-### 3. Handling Transaction Notification
+## 3. Handling Transaction Notification
 
-When the transaction status changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
+When the transaction status changes, Midtrans notifies you at the *Redirect URL* and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
-HTTP POST request with JSON body will be sent to your *Payment Notification URL* configured on dashboard.
+HTTP POST request with JSON body will be sent to your server's *Notification URL* configured on dashboard.
 
 <details>
 <summary><b>Configuring Payment Notification URL</b></summary>
@@ -537,13 +552,14 @@ To configure the Payment Notification URL, follow the steps given below.
    </article>
    </details>
 
+<br>
+
 <div class="my-card">
 
-Follow this link for more details:
 
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+   #### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 
-</div>
+   </div>
 
 ## Specifying VA Number
 
@@ -557,7 +573,7 @@ Virtual Account number which is displayed to customer, contains two parts. for e
 
 Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding  `bank_transfer` parameters in the Charge API Request Body as shown below.
 
-Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body)
+Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body).
 <!-- tabs:start -->
 
 #### **BCA**
@@ -612,11 +628,11 @@ Permata `va_number` | String | Optional | Length should be 10. Only supported fo
 BNI `va_number` | String | Optional | Length should be within 1 to 8.
 BRI `va_number` | String | Optional | Length should be within 1 to 13.
 
-?> in Production environment, all banks do not  support custom VA number. Please consult Midtrans Activation team for further information.
+?>***Note:*** In *Production environment*, each and every bank may not support custom VA number. It depends on the agreement. Please consult Midtrans Activation team for further information.
 
 #### Transaction Status Description
 
-The description of `transaction_status` value for Bank Transfer payment method is given below:
+The description of `transaction_status` value for *Bank Transfer* payment method is given below.
 
 | Transaction Status | Description |
 | ------------------ | ----------- |
@@ -628,7 +644,7 @@ The description of `transaction_status` value for Bank Transfer payment method i
 
 Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
 
-## Next Step:
+## Next Step
 <br>
 
 <div class="my-card">
