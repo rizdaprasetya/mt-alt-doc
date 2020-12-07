@@ -1,6 +1,6 @@
 <hr>
 
-[![Midtrans Logo](/asset/remap/img/Logo.png ":size=220")](https://midtrans.com)<hr>
+[![Midtrans Logo](/asset/image/main/midtrans-logo.svg ":size=220")](https://midtrans.com)<hr>
 
 # Get Started with Midtrans
 
@@ -19,7 +19,7 @@ To know more about products and their technical details refer to the document be
 Snap user interface helps to securely accept payments on your website and mobile app with a few simple steps. Your customer is presented with a sleek, mobile-friendly interface to make payments. With simple integration, Snap user interface allows you to accept payments with [Midtrans’s various payment methods ](https://midtrans.com/payments).
 <br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 
-<p>
+<p style="text-align: center;">
   <button onclick="
   event.target.innerText = `Processing...`;
   var reqHeaders = new Headers();
@@ -53,7 +53,7 @@ Snap user interface helps to securely accept payments on your website and mobile
     .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
   " class="my-btn">Try Snap Payment Interface ⎋</button>
 </p>
-<div class="sup-wrap">
+<div style="text-align: center;">
 
 <sup>[Try out the quick (less than 5 mins) integration sample!](/en/snap/interactive-demo.md)</sup>
 
