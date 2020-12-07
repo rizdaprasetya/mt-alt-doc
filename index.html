@@ -192,13 +192,18 @@
                 },
                 /**
                  * Custom plugin to replace wrong home-logo href link on hash router mode
+                 * and history mode if first opened from non-homepage url
                  * So it can be detected as `willUseDocsifyHashRouter` upon homepage load
                  */
                 function (hook, vm) {
-                    if($docsify.routerMode != 'hash'){ return false; }
                     hook.doneEach(function(){
-                        let homeLinkEl = document.querySelector('.app-name-link');
-                        homeLinkEl.href += "#/";
+                        if($docsify.routerMode == 'hash'){ 
+                            let homeLinkEl = document.querySelector('.app-name-link');
+                            homeLinkEl.href += "#/";
+                        } else {
+                            let homeLinkEl = document.querySelector('.app-name-link');
+                            homeLinkEl.href = window.predictedHomeUrl;
+                        }
                     });
                 },
                 /**
