@@ -100,7 +100,7 @@
 
         // Main Docsify setup
         window.$docsify = {
-            logo: 'asset/image/main/midtrans-logo.svg',
+            logo: 'asset/image/main/midtrans-logo.png',
             ga: window.GA_UA_ID,
             loadSidebar: true,
             loadNavbar: true,
@@ -173,9 +173,9 @@
                  */
                 function (hook, vm) {
                     hook.doneEach(function(){
-                        // @HACK: use $docsify.logo as assetPath source, use hard coded .svg extension
+                        // @HACK: use $docsify.logo as assetPath source, detect any extension
                         // might break when $docsify.logo is changed.
-                        let assetPath = window.$docsify.logo.replace(/(.*)\/.*?\.svg/g,"$1/");
+                        let assetPath = window.$docsify.logo.replace(/(.*)\/.+?\..+/g,"$1/");
                         // all sidebar img tag and navbar img tag, except `.emoji``
                         document
                             .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
@@ -192,13 +192,18 @@
                 },
                 /**
                  * Custom plugin to replace wrong home-logo href link on hash router mode
+                 * and history mode if first opened from non-homepage url
                  * So it can be detected as `willUseDocsifyHashRouter` upon homepage load
                  */
                 function (hook, vm) {
-                    if($docsify.routerMode != 'hash'){ return false; }
                     hook.doneEach(function(){
-                        let homeLinkEl = document.querySelector('.app-name-link');
-                        homeLinkEl.href += "#/";
+                        if($docsify.routerMode == 'hash'){ 
+                            let homeLinkEl = document.querySelector('.app-name-link');
+                            homeLinkEl.href += "#/";
+                        } else {
+                            let homeLinkEl = document.querySelector('.app-name-link');
+                            homeLinkEl.href = window.predictedHomeUrl;
+                        }
                     });
                 },
                 /**
