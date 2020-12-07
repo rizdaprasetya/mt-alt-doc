@@ -298,18 +298,20 @@ body {
 .content .my-card p a:hover {
   text-decoration: underline;
 }
-.content .my-card .sup-wrap p {
-  margin-bottom: 0;
-  color: #0094d3;
+.content .my-card p {
+  text-align: left !important;
 }
-.content .my-card .sup-wrap p sup {
+.content .my-card p sup {
   color: #0094d3;
   text-decoration: none;
   top: 0;
   font-size: 16px;
 }
-.content .my-card .sup-wrap p sup a {
+.content .my-card p sup a {
   color: #0094d3;
+  text-decoration: none;
+}
+.content .my-card p sup a:hover {
   text-decoration: none;
 }
 .content .my-btn {

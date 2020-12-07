@@ -102,24 +102,29 @@
             }
         }
 
-        .sup-wrap {
-            p {
-                margin-bottom: 0;
-                color: $blue-link-lighten;
+        // div {
+        p {
+            text-align: left !important;
+            // margin-bottom: 0;
+            // color: $blue-link-lighten;
 
-                sup {
+            sup {
+                color: $blue-link-lighten;
+                text-decoration: none;
+                top: 0;
+                font-size: 16px;
+
+                a {
                     color: $blue-link-lighten;
                     text-decoration: none;
-                    top: 0;
-                    font-size: 16px;
 
-                    a {
-                        color: $blue-link-lighten;
+                    &:hover {
                         text-decoration: none;
                     }
                 }
             }
         }
+        // }
     }
 
     .my-btn {
