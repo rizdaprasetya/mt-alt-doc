@@ -3,6 +3,10 @@
 
 /* Custom Content
 ============================================================================= */
+.markdown-section {
+    padding: 2rem 18.5px;
+}
+
 .my-card {
     padding: 28px;
     background-color: $white;
@@ -14,5 +18,73 @@
         border-color: $grey-border;
     }
 
+    a {
+        font-weight: 500;
+        color: $blue-link-darken ;
+        text-decoration: none;
 
+        &:hover {
+            color: $blue-link-darken ;
+        }
+    }
+
+    p {
+        font-size: 16px;
+        color: $blue-lighten ;
+        line-height: 24px;
+
+        a {
+            color: $blue-link-darken ;
+            text-decoration: underline;
+            font-weight: 400;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .sup-wrap {
+        p {
+            margin-bottom: 0;
+            color: $blue-link-lighten;
+
+            sup {
+                color: $blue-link-lighten;
+                text-decoration: none;
+                top: 0;
+                font-size: 16px;
+
+                a {
+                    color: $blue-link-lighten;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+
+}
+
+.my-btn {
+    outline:none;
+    color: $white;
+    background-color: $blue-link-darken;
+    border-color: $blue-link-darken;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $poppins, "sans-serif";
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    border-radius: 12px;
+    border-width: 0;
+    position: relative;
+    padding: 12px 20px;
+    border-radius: 24.5px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
