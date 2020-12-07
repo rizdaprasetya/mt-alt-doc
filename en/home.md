@@ -1,6 +1,6 @@
 <hr>
 
-[![Midtrans Logo](/asset/Logo.png ":size=220")](https://midtrans.com)<hr>
+[![Midtrans Logo](/asset/remap/img/Logo.png ":size=220")](https://midtrans.com)<hr>
 
 # Get Started with Midtrans
 
