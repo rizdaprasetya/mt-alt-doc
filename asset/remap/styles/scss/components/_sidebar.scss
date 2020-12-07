@@ -201,13 +201,14 @@
 
             &:after {
               content: "";
-              height: 60%;
+              height: 80%;
               width: 3px;
               background-color: $blue;
               position: absolute;
-              transform: translateY(35%);
               right: 0;
               top: 0;
+              bottom: 0;
+              margin: auto;
             }
             
           }
