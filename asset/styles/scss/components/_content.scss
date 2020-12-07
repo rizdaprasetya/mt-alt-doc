@@ -1,0 +1,18 @@
+/* Content
+============================================================================= */
+
+/* Custom Content
+============================================================================= */
+.my-card {
+    padding: 28px;
+    background-color: $white;
+    border-radius: 8px;
+    border: 1px solid $grey-border ;
+    margin-bottom: 20px;
+
+    &:hover {
+        border-color: $grey-border;
+    }
+
+
+}

@@ -1,7 +1,7 @@
 /* Sidebar
 ============================================================================= */
 :root {
-  --sidebar-background                          : var(--base-background-color);
+  --sidebar-background                          : white ;
   --sidebar-border-color                        : var(--base-boder-color);
   --sidebar-border-width                        : 0 1px 0 0;
   --sidebar-padding                             : 0 0 0 12px;
@@ -159,6 +159,7 @@
     ul {
       li {
         position: relative;
+        margin-top: 0.4em;
 
         img {
           height: 1rem;
