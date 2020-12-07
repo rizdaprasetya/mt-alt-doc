@@ -1,0 +1,50 @@
+.navbar {
+    width: 100%;
+    background-color: $white;
+    border: 1px solid $grey-border;
+    padding: 14px 40px 14px 20px;
+    display: flex;
+    border-left: none;
+    border-right: none;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    @media screen and (max-width: $tablet) {
+        padding: 18px 20px;
+    }
+    &__dropdown {
+        text-align: left;
+        min-width: 115px;
+    }
+    &__current-menu {
+        color: black;
+    }
+    &__hamburger {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__search {
+        cursor: pointer;
+        width: 100%;
+    }
+}
+
+.theme__dark {
+    .navbar {
+        background-color: $blue-dark-darken;
+        border: none;
+        &__current-menu {
+            color: $white;
+        }
+        &__hamburger {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+        }
+        &__search {
+            img {
+                filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+            }
+        }
+    }
+}

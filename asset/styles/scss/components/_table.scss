@@ -1,0 +1,96 @@
+.table {
+    width: 100%;
+    &-responsive {
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    border-collapse: collapse;
+    margin-bottom: 0;
+    thead {
+        th {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.5;
+            color: $blue-darken;
+            text-align: left;
+            background: #f7fcff;
+            border-bottom: none;
+            &:focus {
+                outline: 0px !important;
+                -webkit-appearance: none;
+                box-shadow: none !important;
+            }
+        }
+        th,
+        td {
+            border-top: none;
+            padding: 20px;
+        }
+    }
+    tbody {
+        tr {
+            &:nth-child(odd) {
+                background: #f3f8fb;
+            }
+            &:nth-child(even) {
+                background: $white;
+            }
+            td {
+                color: $blue-lighten;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: normal;
+                padding: 20px;
+                vertical-align: top;
+                text-align: left;
+            }
+        }
+    }
+    &-overview {
+        tbody {
+            tr {
+                td {
+                    // &:nth-child(1) {
+                    //     overflow: hidden;
+                    //     display: inline-block;
+                    // }
+                }
+            }
+        }
+    }
+    &-tabs {
+        margin-top: 23px;
+        thead {
+            th {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.theme__dark {
+    .table {
+        thead {
+            th {
+                background: $bg-blue-dark;
+                color: $white;
+            }
+        }
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background: #0e2b4c;
+                }
+                &:nth-child(even) {
+                    background: #081f3a;
+                }
+                td {
+                    color: $white;
+                    strong {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

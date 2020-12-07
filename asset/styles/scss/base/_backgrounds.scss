@@ -1,0 +1,8 @@
+.bg {
+    &__light {
+        background-color: $bg-blue;
+    }
+    &__dark {
+        background-color: $bg-blue-dark;
+    }
+}
