@@ -239,7 +239,7 @@ body {
   --heading-h3-font-weight: ;
   --heading-h3-margin: ;
   --heading-h3-padding: ;
-  --heading-h4-color: #054fbf;
+  --heading-h4-color: #123049;
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: bold;
   --heading-h5-border-color: ;
@@ -264,7 +264,13 @@ body {
 
 /* Custom Content
 ============================================================================= */
-.content .markdown-section {
+.content .markdown-section, .content p {
+  font-size: 1rem;
+  color: #495d8b;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.5px;
   padding: 2rem 18.5px;
 }
 .content .my-card {
@@ -276,6 +282,9 @@ body {
 }
 .content .my-card:hover {
   border-color: #deeaf5;
+}
+.content .my-card h4 {
+  color: #054fbf;
 }
 .content .my-card a {
   font-weight: 500;
@@ -368,8 +377,21 @@ body {
   font-size: 18px;
   font-weight: 500;
 }
-.content .my-card details open {
-  color: red;
+.content .my-card details[open] summary::after {
+  transition: 0.3s ease;
+  transform: translateY(-50%) rotate(90deg);
+}
+.content .my-card details[open] article {
+  background-color: #ffffff;
+  border: none;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.content .my-card details[open] article::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
 }
 .content .my-btn {
   outline: none;
@@ -407,6 +429,9 @@ body {
   font-style: normal;
   line-height: 24px;
   letter-spacing: 0.5px;
+}
+.content p {
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
