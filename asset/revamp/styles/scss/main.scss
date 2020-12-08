@@ -1,5 +1,5 @@
 // FONT
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 // GRID
 // @import "grid/grid.scss";
@@ -37,7 +37,7 @@
 // @import "pages/built-in";
 // @import "pages/integration";
 
-
 @import "base/base";
 @import "components/sidebar";
 @import "components/content";
+@import "components/footer";

@@ -219,8 +219,6 @@ body {
 
 /* Content
 ============================================================================= */
-/* Content
-============================================================================= */
 :root {
   /* Headings */
   --heading-h1-color: #123049;
@@ -242,24 +240,10 @@ body {
   --heading-h4-color: #123049;
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: bold;
-  --heading-h5-border-color: ;
-  --heading-h5-border-style: solid;
-  --heading-h5-border-width: ;
-  --heading-h5-color: ;
-  --heading-h5-font-family: ;
-  --heading-h5-font-size: var(--font-size-s);
-  --heading-h5-font-weight: ;
-  --heading-h5-margin: ;
-  --heading-h5-padding: ;
-  --heading-h6-border-color: ;
-  --heading-h6-border-style: solid;
-  --heading-h6-border-width: ;
-  --heading-h6-color: ;
-  --heading-h6-font-family: ;
-  --heading-h6-font-size: var(--font-size-xs);
-  --heading-h6-font-weight: ;
-  --heading-h6-margin: ;
-  --heading-h6-padding: ;
+  --pagination-label-color: #495d8b;
+  --pagination-label-font-size: 1rem;
+  --pagination-title-color: #123049;
+  --pagination-title-font-size: 1.5rem;
 }
 
 /* Custom Content
@@ -432,6 +416,102 @@ body {
 }
 .content p {
   padding: 0;
+}
+.content ul {
+  margin-top: 40px;
+}
+.content ul li {
+  margin: 20px 0;
+  color: #495d8b;
+  font-size: 16px;
+  padding: 0 12px;
+  line-height: normal;
+}
+.content ul li p {
+  font-size: 16px;
+  line-height: normal;
+}
+.content blockquote {
+  padding: 20px;
+  background: #edf8ff;
+  border-radius: 4px;
+  border: 1px dashed #0094d3;
+  position: relative;
+  width: 100%;
+}
+.content blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #007fe7;
+}
+.content blockquote p {
+  position: relative;
+  padding-left: 25px;
+}
+.content blockquote p::before {
+  content: "" !important;
+  display: block;
+  position: absolute;
+  left: 0;
+  transition: 0.3s ease;
+  background-image: url("/asset/revamp/icons/midtrans-icons-info.png");
+  background-repeat: no-repeat;
+  border: 0 !important;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  bottom: 0;
+  margin: 0 auto;
+  top: 2px;
+  margin: auto;
+}
+.content blockquote p strong {
+  color: #123049;
+}
+.content .docsify-pagination-container .pagination-item {
+  margin-top: 1.375em;
+}
+.content .docsify-pagination-container .pagination-item a .pagination-item-label {
+  text-transform: uppercase;
+  line-height: 24px;
+  position: relative;
+  margin-left: auto;
+}
+.content .docsify-pagination-container .pagination-item a .pagination-item-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.470588px;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+/* Footer
+============================================================================= */
+.footer-custom {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: var(--sidebar-width);
+  bottom: 5%;
+}
+.footer-custom p small {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0000;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px 0 rgba(37, 54, 62, 0.3);
+  padding: 24px 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
