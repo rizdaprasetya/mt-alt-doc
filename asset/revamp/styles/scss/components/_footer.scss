@@ -9,9 +9,11 @@
     right: 0;
     margin-left: var(--sidebar-width);
     bottom: 5%;
+    pointer-events: none;
 
     p {
         small {
+            pointer-events: auto;
             font-size: 14px;
             font-weight: 500;
             color: $black;
