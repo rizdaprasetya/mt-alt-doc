@@ -289,6 +289,7 @@ body {
   font-size: 16px;
   color: #495d8b;
   line-height: 24px;
+  text-align: left !important;
 }
 .content .my-card p a {
   color: #054fbf;
@@ -297,9 +298,6 @@ body {
 }
 .content .my-card p a:hover {
   text-decoration: underline;
-}
-.content .my-card p {
-  text-align: left !important;
 }
 .content .my-card p sup {
   color: #0094d3;
@@ -313,6 +311,65 @@ body {
 }
 .content .my-card p sup a:hover {
   text-decoration: none;
+}
+.content .my-card details summary {
+  padding: 20px 24px;
+  border: 1px solid #e4eaed;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+  color: #054fbf;
+  transition: 0.4s;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+}
+.content .my-card details summary::before {
+  display: none;
+}
+.content .my-card details summary::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%) rotate(270deg);
+  transition: 0.3s ease;
+  background-image: url("/asset/revamp/icons/icon_arrow.svg");
+  background-repeat: no-repeat;
+  border: 0 !important;
+  width: 8px;
+  height: 13px;
+}
+.content .my-card details summary:hover, .content .my-card details summary:focus {
+  border-color: #e4eaed;
+  filter: none;
+  transform: none;
+  box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+}
+.content .my-card details summary b {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome and Opera */
+  font-size: 18px;
+  font-weight: 500;
+}
+.content .my-card details open {
+  color: red;
 }
 .content .my-btn {
   outline: none;

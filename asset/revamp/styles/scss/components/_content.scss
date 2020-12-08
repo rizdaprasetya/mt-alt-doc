@@ -90,6 +90,7 @@
             font-size: 16px;
             color: $blue-lighten;
             line-height: 24px;
+            text-align: left !important;
 
             a {
                 color: $blue-link-darken;
@@ -100,13 +101,6 @@
                     text-decoration: underline;
                 }
             }
-        }
-
-        // div {
-        p {
-            text-align: left !important;
-            // margin-bottom: 0;
-            // color: $blue-link-lighten;
 
             sup {
                 color: $blue-link-lighten;
@@ -124,7 +118,74 @@
                 }
             }
         }
-        // }
+
+        details {
+            summary {
+                padding: 20px 24px;
+                border: 1px solid $blueBorderAccordion;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+                color: $blue-link-darken;
+                transition: 0.4s;
+                outline: none;
+                text-align: left;
+                cursor: pointer;
+                position: relative;
+                font-size: 18px;
+                font-weight: 500;
+                font-family: $poppins, sans-serif;
+                background-color: $white;
+
+                &::before {
+                    display: none;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translateY(-50%) rotate(270deg);
+                    transition: 0.3s ease;
+                    background-image: url("/asset/revamp/icons/icon_arrow.svg");
+                    background-repeat: no-repeat;
+                    border: 0 !important;
+                    width: 8px;
+                    height: 13px;
+                }
+
+                &:hover,
+                &:focus {
+                    border-color: $blueBorderAccordion;
+                    filter: none;
+                    transform: none;
+                    box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+                }
+
+                b {
+                    -webkit-touch-callout: none; /* iOS Safari */
+                    -webkit-user-select: none; /* Safari */
+                    -khtml-user-select: none; /* Konqueror HTML */
+                    -moz-user-select: none; /* Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        details open {
+            color: red;
+            //     summary {
+            //         &::after {
+            //             transition: 0.3s ease;
+            //             transform: translateY(-50%) rotate(90deg);
+            //         }
+            //     }
+        }
     }
 
     .my-btn {
