@@ -57,18 +57,17 @@
   --pagination-title-font-size: 1.5rem;
 
   // tables
-  // --table-body-border                 : none;
-  // --table-body-border-color           : ;
-  // --table-body-border-width           : ;
-  // --table-cell-border-color           : ;
-  // --table-cell-border-width           : ;
-  // --table-cell-padding                : none;
   --table-head-background: #f7fcff;
-  // --table-head-border-color           : transparent;
   --table-head-border-width: 0;
-  // --table-head-font-weight            : var(--strong-font-weight);
   --table-row-even-background: #{$white};
   --table-row-odd-background: #f3f8fb;
+
+  /* Tab blocks */
+  --docsifytabs-border-color    : var(--mono-tint2);
+  --docsifytabs-border-radius-px: var(--border-radius-s);
+  /* Tabs */
+  --docsifytabs-tab-background  : var(--mono-tint3);
+  --docsifytabs-tab-color       : var(--mono-tint1);
 }
 
 /* Custom Content
@@ -240,9 +239,52 @@
             &::-webkit-scrollbar {
               display: none; /* Safari and Chrome */
             }
+
           }
         }
-      }
+    }
+
+    // docsify tab
+    .docsify-tabs {
+        &::before{
+            border: none;
+        }
+
+        .docsify-tabs__tab {
+            cursor: pointer;
+            outline: none;
+            background-color: #eef2f6;
+            border: none;
+            box-shadow: none;
+            font-size: 14px;
+            font-weight: normal;
+            text-align: center;
+            color: #495d8b;
+            text-decoration: none;
+            padding: 8px 16px;
+
+            &.docsify-tabs__tab--active {
+                background-color: #ffffff;
+                border: none;
+                border-top: none;
+                box-shadow: none;
+                font-size: 14px;
+                font-weight: normal;
+                text-align: center;
+                color: #495d8b;
+                text-decoration: none;
+                outline: none;
+                padding: 8px 16px;
+            }
+        } 
+
+        .docsify-tabs__content {
+            background: white;
+            border: none;
+            box-shadow: none;
+            border-top: none !important;
+        }
+    }
 
     .my-btn {
       outline: none;
@@ -307,6 +349,13 @@
           color: #054fbf;
         }
       }
+    }
+
+    code {
+        background-color: rgba(75, 143, 198, 0.16) !important;
+        padding: 2px 4px !important;
+        color: inherit !important;
+        font-size: 1rem !important;
     }
 
     ul {
@@ -479,12 +528,26 @@
             strong {
               font-weight: bold;
             }
+
+            code {
+                font-weight: 400 !important;
+            }
+            
           }
         }
       }
     }
 
-    .warn {
+    ol {
+        padding-left: 25px;
+        margin: 2em 0;
+
+        li {
+            color: #495d8b;
+            font-size: 16px;
+            padding: 0 12px;
+         
+        }
     }
   }
 }
