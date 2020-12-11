@@ -62,6 +62,11 @@
     <link rel="stylesheet alternate" href="/asset/custom-dark.css" title="style::Simple Dark" />
     <link rel="stylesheet" type="text/css" href="/asset/mini-collapsible.css" />
     <link rel="stylesheet" type="text/css" href="/asset/revamp/styles/main.css" />
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css">
+
+
     <title>Midtrans Technical Documentation</title>
 </head>
 
@@ -547,6 +552,10 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-json.min.js"
         integrity="sha256-tLgG7JGsKcY/xjGqVS3C/Rx8u5qq4OKmB9+g38o935c=" crossorigin="anonymous">
         </script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js" crossorigin="anonymous"></script>
+    
+    <script
+    src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js" crossorigin="anonymous"></script>
 
     <!-- @OPTIMIZE: add snap js only on certain page when needed? -->
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
@@ -560,6 +569,39 @@
     <script type="text/javascript" src="asset/absolute-to-relative.js"></script>
 
     <script type="text/javascript" src="asset/revamp/js/custom.js"></script>
+
+    <script>
+
+setTimeout(function(){ 
+    
+    hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad({
+      singleLine: true
+  });
+
+  alert("Hello");
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+        console.log('adiosssss')
+        document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+        console.log("run")
+        });
+    });
+
+}, 3000);
+
+        // setTimeout(() => {
+           
+
+
+
+        // }, 100);
+        // HIGHLIGHTS.JS
+  
+
+   
+    </script>
 </body>
 
 </html>
