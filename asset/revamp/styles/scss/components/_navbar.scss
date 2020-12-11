@@ -200,6 +200,7 @@
     }
   }
 
+  // right sidebar 
   .sidebar__right {
     position: fixed;
     height: 100vh;
@@ -234,6 +235,10 @@
             letter-spacing: 0;
             text-decoration: none;
             color: #123049;
+
+            &:hover {
+              color: #0094d3;
+            }
           }
         }
       }
