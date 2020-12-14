@@ -30,18 +30,7 @@
 <div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
     <div class="sidebar__right-wrapper">
         <h4 class="sidebar__right-title">In this page</h4>
-        <ul class="list-unstyled mt-0">
-            <li class="sidebar__right-list">
-                <a href="#intro" class="sidebar__right-link sidebar__right-link--active">Intro</a>
-            </li>
-            <li class="sidebar__right-list">
-                <a href="#payment" class=" sidebar__right-link">Accept Online Payments on Your
-                    Website and
-                    App</a>
-            </li>
-            <li class="sidebar__right-list">
-                <a href="#fund" class="sidebar__right-link">Pay Out / Disburse Fund</a>
-            </li>
+        <ul class="list-unstyled mt-0" id="right-bar-content">
         </ul>
     </div>
 </div>
