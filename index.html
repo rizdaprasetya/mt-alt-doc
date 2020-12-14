@@ -68,6 +68,10 @@
 
 
     <title>Midtrans Technical Documentation</title>
+    <script>
+window.Prism = window.Prism || {};
+window.Prism.manual = true;
+</script>
 </head>
 
 <body>
@@ -473,6 +477,18 @@
                             width: 600,
                         })
                     };
+                },
+                function(hook,vm){
+
+                    hook.doneEach(function(){
+
+                        hljs.initHighlighting();
+                        hljs.initLineNumbersOnLoad({
+                            singleLine: true
+                        });
+
+                    })
+
                 }
             ],
             // config for tabs plugin
@@ -570,38 +586,6 @@
 
     <script type="text/javascript" src="asset/revamp/js/custom.js"></script>
 
-    <script>
-
-setTimeout(function(){ 
-    
-    hljs.initHighlightingOnLoad();
-  hljs.initLineNumbersOnLoad({
-      singleLine: true
-  });
-
-  alert("Hello");
-
-  document.addEventListener('DOMContentLoaded', (event) => {
-        console.log('adiosssss')
-        document.querySelectorAll('pre code').forEach((block) => {
-        hljs.highlightBlock(block);
-        console.log("run")
-        });
-    });
-
-}, 3000);
-
-        // setTimeout(() => {
-           
-
-
-
-        // }, 100);
-        // HIGHLIGHTS.JS
-  
-
-   
-    </script>
 </body>
 
 </html>
