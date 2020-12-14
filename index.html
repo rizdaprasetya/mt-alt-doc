@@ -479,14 +479,16 @@ window.Prism.manual = true;
                     };
                 },
                 function(hook,vm){
-
+                    
                     hook.doneEach(function(){
-
+                        //custom highlight
                         hljs.initHighlighting();
                         hljs.initLineNumbersOnLoad({
                             singleLine: true
                         });
 
+                        //get right sidebar content
+                        getRightSideBarContent()
                     })
 
                 }

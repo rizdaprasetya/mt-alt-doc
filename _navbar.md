@@ -11,8 +11,6 @@
 - Theme
     - [Default](# 'style::Simple')
     - [Dark](# 'style::Simple Dark')
-    - [Lite](# 'style::Vue')
-    - [Plain](# 'style::Plain')
 
 <div class="search-mv">
     <div class="input-wrap">
