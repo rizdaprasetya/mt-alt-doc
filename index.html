@@ -68,13 +68,24 @@
 
 
     <title>Midtrans Technical Documentation</title>
-    <script>
-window.Prism = window.Prism || {};
-window.Prism.manual = true;
-</script>
 </head>
 
 <body>
+<nav>
+    <div class="search-new">
+  
+        </div>
+
+
+<div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
+    <div class="sidebar__right-wrapper">
+        <h4 class="sidebar__right-title">In this page</h4>
+        <ul class="list-unstyled mt-0" id="right-bar-content">
+        </ul>
+    </div>
+</div>
+  </nav>
+
     <div id="app"></div>
     <script>
         window.isUnderMidtransDomain = window.location.hostname.includes('.midtrans.com');
@@ -108,7 +119,7 @@ window.Prism.manual = true;
             logo: 'asset/revamp/img/Logo.svg',
             ga: window.GA_UA_ID,
             loadSidebar: true,
-            loadNavbar: true,
+            loadNavbar: false,
             name: 'Midtrans Docs',
             // themeColor: '#3F51B5',
             homepage: 'en/home.md',
@@ -491,6 +502,23 @@ window.Prism.manual = true;
                         getRightSideBarContent()
                     })
 
+                    hook.mounted(function(){
+
+           
+                         setTimeout(()=>{
+
+                        let sidebarSearch = document.querySelector(".search");
+                        let sidebarSearchNew = document.querySelector(".search-new");
+                        
+                        sidebarSearchNew.appendChild(sidebarSearch)
+
+                        },500)
+
+
+
+
+                    })
+
                 }
             ],
             // config for tabs plugin
@@ -549,7 +577,7 @@ window.Prism.manual = true;
         integrity="sha256-6UO8rzmxCWkk2KHPL6PUBJIIFfC5t0iL6W5Iy4moWDE=" crossorigin="anonymous">
         </script>
     <!-- Code highlighter language plugins -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-bash.min.js"
+     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-bash.min.js"
         integrity="sha256-W7l8nP5GgjHSb7BvkoJKZQ+6+qFPM2VT6aF1lISibsA=" crossorigin="anonymous">
         </script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-python.min.js"
@@ -569,7 +597,7 @@ window.Prism.manual = true;
         </script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/components/prism-json.min.js"
         integrity="sha256-tLgG7JGsKcY/xjGqVS3C/Rx8u5qq4OKmB9+g38o935c=" crossorigin="anonymous">
-        </script> -->
+        </script> 
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js" crossorigin="anonymous"></script>
     
     <script
