@@ -1,0 +1,25 @@
+.ic {
+    width: 16px;
+    height: 16px;
+    &__home {
+        mask: url(../asset/icons/midtrans-icons-home.svg) no-repeat center;
+    }
+    &__account {
+        mask: url(../asset/icons/midtrans-icons-account.svg) no-repeat center;
+    }
+    &__payments {
+        mask: url(../asset/icons/midtrans-icons-payments.svg) no-repeat center;
+    }
+    &__payouts {
+        mask: url(../asset/icons/midtrans-icons-payouts.svg) no-repeat center;
+    }
+    &__security {
+        mask: url(../asset/icons/midtrans-icons-security.svg) no-repeat center;
+    }
+    &__signature {
+        mask: url(../asset/icons/midtrans-icons-signature.svg) no-repeat center;
+    }
+    &__technical {
+        mask: url(../asset/icons/midtrans-icons-technical.svg) no-repeat center;
+    }
+}

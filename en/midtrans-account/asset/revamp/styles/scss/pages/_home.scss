@@ -1,0 +1,25 @@
+.home {
+    &__header {
+        &-image {
+            width: 150px;
+        }
+        &-description {
+            font-size: 16px;
+            color: $blue-lighten;
+            line-height: 24px;
+        }
+        &--margin {
+            margin-top: 25px;
+        }
+    }
+}
+
+.theme__dark {
+    .home {
+        &__header {
+            &-description {
+                color: $white;
+            }
+        }
+    }
+}

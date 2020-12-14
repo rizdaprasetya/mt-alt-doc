@@ -1,0 +1,58 @@
+.accordion {
+    width: 100%;
+    padding: 20px 24px;
+    border: 1px solid #e4eaed;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+    color: $blue-link-darken;
+    transition: 0.4s;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: $poppins, sans-serif;
+    background-color: $white;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%) rotate(270deg);
+        transition: 0.3s ease;
+        background-image: url('../asset/icons/icon_arrow.svg');
+        background-repeat: no-repeat;
+        border: 0 !important;
+        width: 8px;
+        height: 13px;
+    }
+    &-active {
+        &::after {
+            transition: 0.3s ease;
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+    &__panel {
+        padding: 20px 24px;
+        display: none;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+.theme__dark {
+    .accordion {
+        background-color: $blue-dark-lighten;
+        border: none;
+        color: $white;
+        &::after {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+        }
+        &__panel {
+            color: $white;
+        }
+    }
+}
