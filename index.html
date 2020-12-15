@@ -73,17 +73,29 @@
 <body>
 <nav>
     <div class="search-new">
-  
-        </div>
-
-
-<div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
-    <div class="sidebar__right-wrapper">
-        <h4 class="sidebar__right-title">In this page</h4>
-        <ul class="list-unstyled mt-0" id="right-bar-content">
-        </ul>
     </div>
-</div>
+      <!-- BUTTON RESPONSIVE -->
+    <div class="d-flex ml-auto">
+        <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help
+            center</button>
+        <div class="dropdown">
+            <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
+            <div class="dropdown__panel" id="theme-desktop">
+                <a href="#" class="dropdown__link active" id="dark-desktop">Dark Mode</a>
+                <a href="#" class="dropdown__link" id="light-desktop">Light Mode</a>
+            </div>
+        </div>
+    </div>
+    <!-- END BUTTON RESPONSIVE -->
+    <img src="assets/capsules.png" class="image-fluid sidebar__capsule" alt />
+
+    <div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
+        <div class="sidebar__right-wrapper">
+            <h4 class="sidebar__right-title">In this page</h4>
+            <ul class="list-unstyled mt-0" id="right-bar-content">
+            </ul>
+        </div>
+    </div>
   </nav>
 
     <div id="app"></div>
@@ -505,12 +517,12 @@
                     hook.mounted(function(){
 
            
-                         setTimeout(()=>{
+                        setTimeout(()=>{
 
-                        let sidebarSearch = document.querySelector(".search");
-                        let sidebarSearchNew = document.querySelector(".search-new");
-                        
-                        sidebarSearchNew.appendChild(sidebarSearch)
+                            let sidebarSearch = document.querySelector(".search");
+                            let sidebarSearchNew = document.querySelector(".search-new");
+                            
+                            sidebarSearchNew.appendChild(sidebarSearch)
 
                         },500)
 

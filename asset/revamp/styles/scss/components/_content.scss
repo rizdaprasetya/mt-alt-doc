@@ -159,6 +159,10 @@
           }
         }
       }
+
+      ul {
+        margin: 1em 0;
+      }
     }
 
     details {
@@ -408,27 +412,39 @@
         position: relative;
         padding-left: 25px;
 
-        &::before {
-          content: "" !important;
-          display: block;
-          position: absolute;
-          left: 0;
-          transition: 0.3s ease;
-          background-image: url("/asset/revamp/icons/midtrans-icons-info.png");
-          background-repeat: no-repeat;
-          border: 0 !important;
-          width: 20px;
-          height: 20px;
-          object-fit: contain;
-          bottom: 0;
-          margin: 0 auto;
-          top: 4px;
-          //margin: auto;
+        &:first-child {
+          &::before {
+            content: "" !important;
+            display: block;
+            position: absolute;
+            left: 0;
+            transition: 0.3s ease;
+            background-image: url("/asset/revamp/icons/midtrans-icons-info.png");
+            background-repeat: no-repeat;
+            border: 0 !important;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            bottom: 0;
+            margin: 0 auto;
+            top: 4px;
+            //margin: auto;
+          }
         }
+
+        
         strong {
           font-weight: bold;
           color: $blue-darken;
         }
+      }
+
+      pre {
+        padding-left: 25px;
+      }
+
+      ul {
+        margin: 1em 0;
       }
     }
 
@@ -454,6 +470,16 @@
 
       strong {
         font-weight: bold;
+      }
+    }
+
+    .tip {
+      padding: 20px;
+      padding-left: 40px;
+
+      &:before {
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -548,6 +574,10 @@
             font-size: 16px;
             padding: 0 12px;
          
+        }
+
+        ul {
+          margin-top: 0.15rem;
         }
     }
   }

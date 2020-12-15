@@ -43,6 +43,10 @@
   }
 
   .sidebar-nav {
+    &.hide {
+      display: block !important;
+    }
+
     ul {
       li {
         position: relative;

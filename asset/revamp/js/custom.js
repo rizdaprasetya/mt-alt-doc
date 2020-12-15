@@ -1,9 +1,3 @@
-
-
-
-  
-
-
 function getRightSideBarContent() {
   console.log('runn get sidebarrr')
   setTimeout(() => {

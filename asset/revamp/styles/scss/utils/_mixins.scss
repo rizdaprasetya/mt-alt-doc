@@ -25,3 +25,54 @@
 		outline: none;
 	}
 }
+
+//flex
+@mixin flex-init() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-direction($data) {
+    -webkit-box-flex-direction: $data;
+    -moz-box-flex-direction: $data;
+    -webkit-flex-direction: $data;
+    -ms-flex-direction: $data;
+    flex-direction: $data;
+}
+
+@mixin flex($flex) {
+    -webkit-box-flex: $flex;
+    -moz-box-flex: $flex;
+    -webkit-flex: $flex;
+    -ms-flex: $flex;
+    flex: $flex;
+}
+
+@mixin flex-basis($size) {
+    flex-basis: $size;
+    -webkit-flex-basis: $size;
+}
+
+@mixin flex-wrap() {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+@mixin align-items($content) {
+    align-items: $content;
+    -webkit-align-items: $content;
+}
+
+@mixin align-self($content) {
+    align-self: $content;
+    -webkit-align-self: $content;
+}
+
+@mixin justify-content($content) {
+    justify-content: $content;
+    -webkit-justify-content: $content;
+}
