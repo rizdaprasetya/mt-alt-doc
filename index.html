@@ -504,15 +504,21 @@
                 function(hook,vm){
                     
                     hook.doneEach(function(){
-                        console.log('running')
-                        setTimeout(() => {
-                            console.log('custom higlight')
+                        
+                   
                             //custom highlight
-                            hljs.initHighlighting();
-                            hljs.initLineNumbersOnLoad({
+                            document.querySelectorAll('pre code').forEach((block) => {
+
+                            hljs.highlightBlock(block);
+                               
+                                });
+                                                   
+                   
+
+
+                        hljs.initLineNumbersOnLoad({
                                 singleLine: true
-                            });                            
-                        }, 500);
+                            }); 
 
                         //get right sidebar content
                         getRightSideBarContent()
