@@ -2,68 +2,10 @@
 ============================================================================= */
 :root {
   /* Root */
-  // --navbar-root-background                        : ;
-  // --navbar-root-background--active                : ;
-  // --navbar-root-background--hover                 : ;
-  // --navbar-root-border-color                      : ;
-  // --navbar-root-border-color--active              : ;
-  // --navbar-root-border-color--hover               : ;
-  // --navbar-root-border-radius                     : ;
-  // --navbar-root-border-style                      : solid;
-  // --navbar-root-border-style--active              : ;
-  // --navbar-root-border-style--hover               : ;
-  // --navbar-root-border-width                      : ;
-  // --navbar-root-color                             : ;
-  // --navbar-root-color--active                     : ;
-  // --navbar-root-color--hover                      : ;
-  // --navbar-root-margin                            : 0 0 0 1.5em;
-  // --navbar-root-padding                           : ;
   --navbar-root-transition                        : none !important;
-  // --navbar-root-text-decoration                   : ;
-  // --navbar-root-text-decoration--active           : ;
-  // --navbar-root-text-decoration--hover            : ;
-  // --navbar-root-text-decoration-color             : ;
-  // --navbar-root-text-decoration-color--active     : ;
-  // --navbar-root-text-decoration-color--hover      : ;
 
   // /* Menus */
-  // --navbar-menu-background                        : var(--base-background-color);
-  // --navbar-menu-border-color                      : ;
-  // --navbar-menu-border-radius                     : var(--border-radius-m);
-  // --navbar-menu-border-width                      : ;
-  // --navbar-menu-box-shadow                        : rgba(45,45,45,0.05) 0px 0px 1px, rgba(49,49,49,0.05) 0px 1px 2px, rgba(42,42,42,0.05) 0px 2px 4px, rgba(32,32,32,0.05) 0px 4px 8px, rgba(49,49,49,0.05) 0px 8px 16px, rgba(35,35,35,0.05) 0px 16px 32px;
-  // --navbar-menu-padding                           : 0.5em;
   --navbar-menu-transition                        : none !important;
-
-  // /* Menu Root */
-  // --navbar-menu-root-background                   : ;
-  // --navbar-menu-root-background--active           : ;
-  // --navbar-menu-root-background--hover            : ;
-  // --navbar-menu-root-padding                      : ;
-
-  // /* Menu Links */
-  // --navbar-menu-link-background                   : ;
-  // --navbar-menu-link-background--active           : ;
-  // --navbar-menu-link-background--hover            : ;
-  // --navbar-menu-link-border-color                 : ;
-  // --navbar-menu-link-border-color--active         : ;
-  // --navbar-menu-link-border-color--hover          : ;
-  // --navbar-menu-link-border-radius                : ;
-  // --navbar-menu-link-border-style                 : solid;
-  // --navbar-menu-link-border-style--active         : ;
-  // --navbar-menu-link-border-style--hover          : ;
-  // --navbar-menu-link-border-width                 : ;
-  // --navbar-menu-link-color                        : ;
-  // --navbar-menu-link-color--active                : ;
-  // --navbar-menu-link-color--hover                 : ;
-  // --navbar-menu-link-margin                       : 0.75em 0.5em;
-  // --navbar-menu-link-padding                      : 0.2em 0;
-  // --navbar-menu-link-text-decoration              : ;
-  // --navbar-menu-link-text-decoration--active      : ;
-  // --navbar-menu-link-text-decoration--hover       : ;
-  // --navbar-menu-link-text-decoration-color        : ;
-  // --navbar-menu-link-text-decoration-color--active: ;
-  // --navbar-menu-link-text-decoration-color--hover : ;
 }
 
 .app-nav {
@@ -140,8 +82,8 @@
           display: block;
           width: 100%;
           padding: 8px 8px 8px 8px;
-          background-color: #fbfdfe;
-          border: 1px solid #deeaf5;
+          background-color: $bg-input;
+          border: 1px solid $grey-border;
           border-radius: 4px;
           height: auto;
           font-size: 16px;
@@ -226,7 +168,6 @@
           right: 0;
           overflow-y: scroll;
           background: $white;
-          /* bottom: 0; */
           padding: 20px;
           text-align: left;
           z-index: 3;
@@ -251,12 +192,12 @@
     margin-left: auto !important;
 
     .button {
-      color: #005dac;
-      background-color: #ffffff;
-      border-color: #ffffff;
+      color: $blue;
+      background-color: $white;
+      border-color: $white;
       font-size: 16px;
       font-weight: 500;
-      font-family: "Poppins", "sans-serif";
+      font-family: $poppins, "sans-serif";
       font-style: normal;
       letter-spacing: normal;
       line-height: normal;
@@ -270,7 +211,7 @@
 
       .navbar__dropdown {
         @extend .button;
-        font-family: "Poppins", sans-serif;
+        font-family: $poppins, sans-serif;
         padding: 6px 12px;
         text-align: center;
         vertical-align: middle;
@@ -279,12 +220,11 @@
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         text-align: left;
         min-width: 115px;
-        color: #005dac;
-        background-color: #ffffff;
-        border-color: #ffffff;
+        color: $blue;
+        background-color: $white;
+        border-color: $white;
         font-size: 16px;
         font-weight: 500;
-        font-family: "Poppins", "sans-serif";
         font-style: normal;
         letter-spacing: normal;
         line-height: normal;
@@ -296,19 +236,18 @@
 
       .dropdown__panel {
         padding: 10px 0;
-        display: none;
         overflow: hidden;
         position: absolute;
-        background-color: #ffffff;
+        background-color: $white;
         border-radius: 4px;
         z-index: 1;
         top: 45px;
         left: -15px;
         min-width: 160px;
-        border: 1px solid #deeaf5;
+        border: 1px solid $grey-border;
 
-        display: flex;
-        flex-direction: column;
+        @include flex-init();
+        @include flex-direction(column);
         display: none;
 
         .dropdown__link {
@@ -317,53 +256,19 @@
           line-height: 20px;
           letter-spacing: 0;
           text-decoration: none;
-          color: #123049;
+          color: $blue-darken;
           padding: 10px 8px;
           text-align: left;
 
           &:hover {
-            background-color: #f8f9fa;
+            background-color: $dropdown-hover;
           }
         }
       }
     }
   }
 
-  // .sidebar {
-  //   &__button {
-  //     &-wrapper {
-  //       display: flex;
-  //       flex-wrap: wrap;
-  //       margin-left: 20px;
-  //       margin-right: 20px;
-  //       &-nonpayment {
-  //         padding-bottom: 4rem;
-  //       }
-       
-  //     }
-  //     border-radius: 4px;
-  //     text-align: center;
-  //     font-size: 16px;
-  //     font-weight: 500;
-  //     padding: 11px 25px;
-  //     background-color: $white;
-  //     border: 1px solid #e1e1e1;
-  //     color: $blue-darken;
-  //     text-decoration: none;
-  //     &:hover {
-  //       border: 1px solid $blue-link-darken;
-  //       background-color: #ecf4ff;
-  //       color: $blue-link-darken;
-  //     }
-  //     &.active {
-  //       border: 1px solid $blue-link-darken;
-  //       background-color: #ecf4ff;
-  //       color: $blue-link-darken;
-  //     }
-  //   }
-
-  // }
-
+  //for mobile
   .image-fluid sidebar__capsule {
 
   }
@@ -385,7 +290,7 @@
       .sidebar__right-title {
         font-size: 18px;
         font-weight: bold;
-        color: #123049;
+        color: $blue-darken;
         margin-top: 0;
         line-height: 24px;
         letter-spacing: 0.5px;
@@ -402,10 +307,10 @@
             line-height: 20px;
             letter-spacing: 0;
             text-decoration: none;
-            color: #123049;
+            color: $blue-darken;
 
             &:hover {
-              color: #0094d3;
+              color: $blue-link-lighten;
             }
           }
         }
@@ -425,7 +330,7 @@
 
       span {
         cursor: pointer;
-        color: #005dac;
+        color: $blue;
         font-size: 16px;
         font-weight: 500;
         font-style: normal;
@@ -467,11 +372,11 @@
         -webkit-transition: none !important;
         transition: none !important;
         ul {
-          background-color: #ffffff;
+          background-color: $white;
           border-radius: 4px;
           z-index: 100;
           overflow: hidden;
-          border: 1px solid #deeaf5;
+          border: 1px solid $grey-border;
           margin: 0;
           margin: 0;
           min-width: 160px;
@@ -490,12 +395,12 @@
               line-height: 20px;
               letter-spacing: 0;
               text-decoration: none;
-              color: #123049;
+              color: $blue-darken;
               padding: 10px 8px;
               margin: 0;
 
               &:hover {
-                background-color: #f8f9fa;
+                background-color: $dropdown-hover;
               }
             }
           }
