@@ -165,63 +165,68 @@
       }
     }
 
+    //create mixin for summary and .collaps-label
+    @mixin accordionStyle() {
+      padding: 20px 24px;
+      border: 1px solid $blueBorderAccordion;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+      color: $blue-link-darken;
+      transition: 0.4s;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: $poppins, sans-serif;
+      background-color: $white;
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%) rotate(270deg);
+        transition: 0.3s ease;
+        background-image: url("/asset/revamp/icons/icon_arrow.svg");
+        background-repeat: no-repeat;
+        border: 0 !important;
+        width: 8px;
+        height: 13px;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: $blueBorderAccordion;
+        filter: none;
+        transform: none;
+        box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+      }
+
+      b {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+
     details {
         margin-top: 20px;
         
         summary {
-          padding: 20px 24px;
-          border: 1px solid $blueBorderAccordion;
-          border-radius: 4px;
-          box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
-          color: $blue-link-darken;
-          transition: 0.4s;
-          outline: none;
-          text-align: left;
-          cursor: pointer;
-          position: relative;
-          font-size: 18px;
-          font-weight: 500;
-          font-family: $poppins, sans-serif;
-          background-color: $white;
-
-          &::before {
-            display: none;
-          }
-
-          &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%) rotate(270deg);
-            transition: 0.3s ease;
-            background-image: url("/asset/revamp/icons/icon_arrow.svg");
-            background-repeat: no-repeat;
-            border: 0 !important;
-            width: 8px;
-            height: 13px;
-          }
-
-          &:hover,
-          &:focus {
-            border-color: $blueBorderAccordion;
-            filter: none;
-            transform: none;
-            box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
-          }
-
-          b {
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-            -khtml-user-select: none; /* Konqueror HTML */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                      supported by Chrome and Opera */
-            font-size: 18px;
-            font-weight: 500;
-          }
+          @include accordionStyle();
         }
 
         &[open] {
@@ -246,6 +251,29 @@
 
           }
         }
+    }
+
+    .collaps-label {
+      @include accordionStyle();
+
+      &.open {
+        &::after {
+          transition: 0.3s ease;
+          transform: translateY(-50%) rotate(90deg);
+        }
+      }
+    }
+
+    .collaps-content {
+      background-color: transparent;
+      border: none;
+
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
     }
 
     // docsify tab
@@ -363,7 +391,7 @@
     }
 
     ul {
-      margin-top: 40px;
+      // margin-top: 40px;
 
       li {
         margin: 20px 0;
@@ -445,6 +473,10 @@
 
       ul {
         margin: 1em 0;
+
+        li {
+          margin: 10px 0;
+        }
       }
     }
 
@@ -570,7 +602,8 @@
         margin: 2em 0;
 
         li {
-            color: #495d8b;
+            margin: 20px 0;
+            color: $blue-lighten;
             font-size: 16px;
             padding: 0 12px;
          
@@ -609,6 +642,7 @@
                     background: rgba(75, 143, 198, 0.16);
                     color: #637587;
                     font-size: 13px !important;
+                    width: 32px;
                   }
 
                   &.hljs-ln-code {

@@ -21,4 +21,20 @@ function getRightSideBarContent() {
   }, 150);
 }
 
+function accordionLabelTag() {
+  let accordionLabelSelector = document.querySelectorAll('.collaps-label')
+  if( accordionLabelSelector ) {
+    console.log('checked and get collaps')
+    accordionLabelSelector.forEach(element => {
+      element.addEventListener('click', () => {
+        if( element.classList.contains('open') ) {
+          element.classList.remove('open')
+        }else {
+          element.classList.add('open')
+        }
+      });
+    });
+  }
+
+}
 
