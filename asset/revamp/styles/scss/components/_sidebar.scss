@@ -44,8 +44,22 @@
   }
 
   .sidebar-nav {
+    height: 100vh;
     &.hide {
       display: block !important;
+    }
+
+    >ul {
+      overflow: hidden;
+      max-height: 90%;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+      &::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+      }
     }
 
     // main menu
@@ -90,7 +104,6 @@
         }
 
         &.active {
-
           a {
             strong {
               color: $blue !important;
@@ -109,6 +122,12 @@
               max-height: 25px;
             }
             
+          }
+        }
+
+        &.open {
+          ul {
+            margin-bottom: 0;
           }
         }
 
