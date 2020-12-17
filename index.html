@@ -71,11 +71,11 @@
 </head>
 
 <body>
-<nav>
-    <div class="search-new">
+<nav style="display: none;">
+    <div class="search-new" >
     </div>
       <!-- BUTTON RESPONSIVE -->
-    <div class="d-flex ml-auto">
+    <div class="d-flex ml-auto" style="opacity: 0;">
         <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help
             center</button>
         <div class="dropdown">
@@ -506,19 +506,19 @@
                     hook.doneEach(function(){
                         
                    
-                            //custom highlight
-                            document.querySelectorAll('pre code').forEach((block) => {
-
-                            hljs.highlightBlock(block);
-                               
-                                });
+                        //custom highlight
+                        // console.log('testt', document.querySelectorAll('pre code'))
+                        document.querySelectorAll('pre code').forEach((block) => {
+                            //ignore lang-
+                            if( !block.classList.contains('lang-') ) {
+                                hljs.highlightBlock(block); 
+                            }
+                                
+                        });
                                                    
-                   
-
-
                         hljs.initLineNumbersOnLoad({
-                                singleLine: true
-                            }); 
+                            singleLine: true
+                        }); 
 
                         //get right sidebar content
                         getRightSideBarContent()

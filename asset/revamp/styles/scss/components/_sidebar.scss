@@ -26,6 +26,7 @@
 }
 
 .sidebar {
+  overflow: hidden;
   .app-name{
     text-align: left;
     .app-name-link {
@@ -47,6 +48,7 @@
       display: block !important;
     }
 
+    // main menu
     ul {
       li {
         position: relative;
@@ -81,17 +83,13 @@
           color: $blue-lighten !important;
         }
 
-        &:hover { 
+        &:hover, &.active { 
           img {
             filter: invert(19%) sepia(94%) saturate(2408%) hue-rotate(193deg) brightness(93%) contrast(102%);
           }
         }
 
         &.active {
-
-          img {
-            filter: invert(19%) sepia(94%) saturate(2408%) hue-rotate(193deg) brightness(93%) contrast(102%);
-          }
 
           a {
             strong {
@@ -114,7 +112,8 @@
           }
         }
 
-        .app-sub-sidebar {
+        //sub menu
+        .app-sub-sidebar,ul {
           li {
             a {
               font-size: 14px;
@@ -134,9 +133,10 @@
               }
 
               &:hover {
+                color: $blue;
                 max-width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
               }
             }
             // li active and hover
@@ -156,11 +156,52 @@
                   display: block;
                 }
               }
+
+              &.open, &.hold {
+                a {
+                  color: $blue;
+                  &::after {
+                    content: "";
+                    height: 80%;
+                    width: 3px;
+                    background-color: $blue;
+                    position: absolute;
+                    right: 0;
+                    top: 4px;
+                    margin: auto;
+                    max-height: 25px;
+                    display: block;
+                  }
+                }
+              }
             }
             // li hover
             &:hover {
               &:after {
                 display: none !important;
+              }
+            }
+
+            //3rd level menus
+            ul {
+              li {
+                a {
+                  color: $blue-lighten !important;
+
+                  &::after {
+                    display: none !important;
+                  }
+                }
+
+                &.active {
+                  a {
+                    color: $blue !important;
+
+                    &::after {
+                      display: block !important;
+                    }
+                  }
+                }
               }
             }
 

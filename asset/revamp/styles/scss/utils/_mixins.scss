@@ -35,6 +35,14 @@
     display: flex;
 }
 
+@mixin flex-init-important() {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
 @mixin flex-direction($data) {
     -webkit-box-flex-direction: $data;
     -moz-box-flex-direction: $data;

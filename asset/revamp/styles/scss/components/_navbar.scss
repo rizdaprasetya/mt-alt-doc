@@ -21,7 +21,6 @@
   border-left: none;
   border-right: none;
   
-  @include flex-init();
   @include flex-direction(row);
   @include justify-content(space-between);
   @include align-items(center);
@@ -407,6 +406,17 @@
         }
       }
     }
+  }
+}
+
+.ready {
+  .app-nav {
+    @include flex-init-important();
+
+    .d-flex {
+      opacity: 1 !important;
+    }
+
   }
 }
 
