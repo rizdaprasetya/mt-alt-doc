@@ -60,6 +60,44 @@
         width: 0;
         height: 0;
       }
+
+      >li {
+        >strong {
+          border: none;
+          font-weight: 500;
+          color: $grey;
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 16px;
+        }
+        >a {
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--strong-color, currentColor);
+
+          >small {
+            color: $grey !important;
+            font-weight: 300 !important;
+            font-size: 12px;
+            line-height: 16px;
+          }
+        }
+
+        &.active {
+          >a {
+            color: $blue;
+          }
+        };
+
+        &:nth-child(2) {
+          &.active {
+            &.open {
+              border-bottom: 1px solid #dfebf6;
+              padding-bottom: 20px;
+            }
+          }
+        }
+      }
     }
 
     // main menu

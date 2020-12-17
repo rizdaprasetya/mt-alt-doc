@@ -599,7 +599,8 @@
 
     ol {
         padding-left: 25px;
-        margin: 2em 0;
+        // margin: 2em 0;
+        margin: 1em 0;
 
         li {
             margin: 20px 0;
@@ -677,6 +678,10 @@
       &::after {
         pointer-events: none;
       }
+    }
+
+    img {
+      padding-top: 10px;
     }
 
   }
