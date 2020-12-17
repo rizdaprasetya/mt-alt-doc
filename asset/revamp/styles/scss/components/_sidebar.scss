@@ -221,11 +221,37 @@
                     }
                   }
                 }
+
+                ul {
+                  &.app-sub-sidebar {
+                    li {
+                      a {
+                        color: $blue-lighten !important;
+      
+                        &::after {
+                          display: none !important;
+                        }
+                      }
+      
+                      &.active {
+                        a {
+                          color: $blue !important;
+      
+                          &::after {
+                            display: block !important;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
               }
             }
 
           }
         }
+
       }
     }
   }
