@@ -4,7 +4,7 @@
 
 <hr>
 
-?> This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Wallet or banking app**.
+?>***Note:*** This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Wallet or banking app**.
 
 GoPay is an *E-Wallet* payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow is different for web browser (on a computer or a tablet) and smartphone:
 
@@ -17,9 +17,6 @@ GoPay is an *E-Wallet* payment method by Gojek. Users can pay using the Gojek ap
 <summary><b>Sequence Diagram</b></summary>
 <article>
 The overall GoPay end-to-end payment process can be illustrated in following sequence diagram.
-
-
-
 
 <!-- tabs:start -->
 
@@ -34,14 +31,12 @@ The overall GoPay end-to-end payment process can be illustrated in following seq
 </article>
 </details>
 
-## Sandbox Environment 
-
+## Sandbox Environment
 The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 Basic integration process of GoPay is explained in this section.
 
 ## Steps for Integration
-
 To integrate with *E-Wallet* Payment method, follow the steps given below.
 
 ## 1. Sending Transaction Data to API Charge
@@ -55,13 +50,11 @@ API request should be done from merchant backend to acquire QR code and deeplink
 | `payment_type` | The payment method. Note: Here, set to `gopay`               |
 
 #### Sample Request
-
  APIs are implemented in some of the commonly used languages.  You can implement according to your backend language. The sample request for *Charge API* is given below. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 
 <!-- tabs:start -->
 
 #### **CURL**
-
 #### Request Details
 
 | Environment | Method | URL                                        |
@@ -81,8 +74,7 @@ API request should be done from merchant backend to acquire QR code and deeplink
 
 ?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
 
-Sample Request 
-
+Sample Request
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -98,14 +90,11 @@ curl -X POST \
 }'
 
 ```
-
 </article>
 </details>
 
 #### **PHP**
-
 Install [**midtrans-php**](https://github.com/Midtrans/midtrans-php) library.
-
 ```bash
 composer require midtrans/midtrans-php
 ```
@@ -136,9 +125,7 @@ $response = \Midtrans\CoreApi::charge($params);
 ```
 
 #### **Node JS**
-
 Install [**midtrans-client**](https://github.com/Midtrans/midtrans-nodejs-client) NPM package.
-
 ```bash
 npm install --save midtrans-client
 ```
@@ -174,14 +161,12 @@ core.charge(parameter)
 ```
 
 #### **Java**
-
 Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Maven</b></summary>
 <p>If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).</p>
 <article>
-
 
 ```xml
 <repositories>
@@ -209,11 +194,10 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 <p>If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle). </p>
 <article>
 
-
 ```bash
 repositories {
     maven {
-        url  "http://jcenter.bintray.com" 
+        url  "http://jcenter.bintray.com"
     }
 }
 
@@ -253,7 +237,7 @@ public class MidtransExample {
 
         chargeParams.put("transaction_details", transactionDetails);
         chargeParams.put("payment_type", "gopay");
-        
+
             JSONObject result = coreApi.chargeTransaction(chargeParams);
             System.out.println(result);
     }
@@ -355,7 +339,6 @@ You will get the `actions` attribute to complete the transaction.
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
 
-
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
 | status_code        | The status of the API call.                                  | String | For more details, refer to [Status Codes and Error](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
@@ -377,15 +360,12 @@ You will get the `actions` attribute to complete the transaction.
 </details>
 
 ## 2. Altering Payment Flow Depending on the Device Used
-
 The user flow is different on a computer or a tablet and a smartphone.
-
 ### Show QR Code Image (on computer or tablet)
-
 To display transaction QR Code image, use the URL from `generate-qr-code` actions retrieved from API response. Simplest way is to **"hotlink"** the image URL. If the frontend is HTML, put the URL in image tag `<img src="[QR CODE URL]">`, or display it on a similar component without downloading.
 If the frontend does not support such scenario, download the QR code image from that URL, then display it on frontend.
 
-Instruction Example for **QR Code** : 
+Instruction Example for **QR Code** :
 
 1. Tap **Pay using GoPay**.
 2. Click **Pay Now**. QR code will be displayed.
@@ -394,12 +374,9 @@ Instruction Example for **QR Code** :
 5. Click **Pay**, after checking and verifying your payment details.
 6. Verify your **Security PIN** and finish your transaction.
 
-   
-
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-qr-pay.png)
 
 ### Creating Redirect Link to Gojek Apps (on smartphone)
-
 To redirect the customer to Gojek app, use URL from `deeplink-redirect` actions retrieved from API response. Then customer can be redirected via server-side redirect, using JavaScript, such as `window.location=[DEEPLINK URL]`, or using HTML link, `<a href="[DEEPLINK URL]">Pay with GoPay</a>`.
 
 The steps for **Deeplink** are as given below.
@@ -414,17 +391,14 @@ The steps for **Deeplink** are as given below.
 ?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
 
 ### Implementing GoPay Deeplink Callback
-
 In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
-Add `gopay` parameter in the [Charge API request](#sample-request) .
-
+Add `gopay` parameter in the [Charge API request](#sample-request).
 ```json
   "gopay": {
       "enable_callback": true,
       "callback_url": "someapps://callback" //you can also use web url like https://myshop.com/finish
   }
 ```
-
 | JSON Attribute | Description |
 | -------------- | ----------- |
 | enable_callback | To determine appending callback URL in the deeplink. Default value: `false`. |
@@ -437,10 +411,9 @@ You need to prepare an implementation of `callback_url` on your web/app. Custome
 | order_id | Order ID sent on the Charge Request|
 | result | Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`|
 
-?> **Important!** <br> To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
+?> ***Note:*** To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
 
 ## 3. Handling Post-Transaction
-
 When the transaction status changes, Midtrans notifies you at the *Redirect URL* and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your server's *Notification URL* configured on dashboard.
@@ -448,26 +421,19 @@ HTTP POST request with JSON body will be sent to your server's *Notification URL
 <details>
 <summary><b>Configuring Payment Notification URL</b></summary>
 <article>
+
 To configure the Payment Notification URL, follow the steps given below.
-
 1. Login to your MAP account.
-
-2. On the Home page, go to **SETTINGS > CONFIGURATION**.
-   *Configuration* page is displayed.
-
+2. On the Home page, go to **SETTINGS > CONFIGURATION**. *Configuration* page is displayed.
 3. Enter **Payment Notification URL**.
+4. Click **Update**. <br>A confirmation message is displayed.
+ ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
+ <br>The *Payment Notification URL* is configured.
 
-4. Click **Update**.
-   A confirmation message is displayed.
+</article>
+</details>
 
-   ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
-
-   The *Payment Notification URL* is configured.
-
-   </article>
-   </details>
-   
-   <br>
+ <br>
 
 <div class="my-card">
 
@@ -475,13 +441,11 @@ To configure the Payment Notification URL, follow the steps given below.
 </div>
 
 ## Additional Notes
-
 If GoPay deeplink is being used on smartphone application (Android/iOS app), you need to include additional configurations to ensure that your app will be able to redirect customer to Gojek app. Please make sure that the WebView allows opening `gojek://` deeplink protocol.
 
 <!-- tabs:start -->
 
 #### **Android**
-
 On **Android** if using WebView, please make sure that the WebView allows opening `gojek://` deeplink protocol. You need to modify your web view `shouldOverrideUrlLoading` functions as shown below.
 
 ```java
@@ -496,7 +460,7 @@ On **Android** if using WebView, please make sure that the WebView allows openin
             startActivity(intent);
 
             return true;
-        } 
+        }
  }
 ```
 
@@ -513,7 +477,6 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 <!-- tabs:end -->
 
 ## Description
-
 The table given below explains `transaction_status` values for GoPay transaction.
 
 | Transaction Status | Description |

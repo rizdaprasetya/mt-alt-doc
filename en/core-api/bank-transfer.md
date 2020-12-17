@@ -4,13 +4,9 @@ Basic integration process for Bank Transfer (Virtual Account) is explained in th
 Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below. </hr>
 
 - BCA Virtual Account
-
 - BNI Virtual Account
-
 - BRI Virtual Account
-
 - Mandiri Bill Payment
-
 - Permata Virtual Account
 
 Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
@@ -22,15 +18,11 @@ Although, Midtrans can accept transfer from any other banks, as long as it is re
 <article>
     The overall <i>Bank Transfer</i> end-to-end payment process is illustrated in following sequence diagram.
 
-
-
-
 ![bank transfer sequence diagram](./../../asset/image/core_api-sequence_bank_transfer.png)
 </article>
 </details>
 
 ## Sandbox Environment
-
 The steps given below use [Midtrans *Sandbox* environment](https://account.midtrans.com/) to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 ##  Steps for Integration
 To integrate with *Bank Transfer* payment method, follow the steps given below.
@@ -69,7 +61,6 @@ The sample request for *Charge API* is given below. The request is in CURL but y
 
 #### **BCA**
 This is the sample request for BCA.
-
 ```bash
 # sample charge in CURL
 curl -X POST \
@@ -92,7 +83,6 @@ curl -X POST \
 <summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
 
-
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
 | payment_type        | The *Bank Transfer* payment method.                          | String | Required |
@@ -107,7 +97,6 @@ curl -X POST \
 
 #### **BNI**
 This is the sample request for BNI.
-
 ```bash
 # sample charge in CURL
 curl -X POST \
@@ -130,7 +119,6 @@ curl -X POST \
 <summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
 
-
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
 | payment_type        | The *Bank Transfer* payment method.                          | String | Required |
@@ -145,7 +133,6 @@ curl -X POST \
 
 #### **BRI**
 This is the sample request for BRI.
-
 ```bash
 # sample charge in CURL
 curl -X POST \
@@ -168,7 +155,6 @@ curl -X POST \
 <summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
 
-
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
 | payment_type        | The *Bank Transfer* payment method.                          | String | Required |
@@ -182,9 +168,7 @@ curl -X POST \
 </details>
 
 #### **Mandiri Bill**
-
 This is the sample request for Mandiri.
-
 ```bash
 # sample charge in CURL
 curl -X POST \
@@ -205,7 +189,6 @@ curl -X POST \
 <summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
 
-
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
 | payment_type        | The *Bank Transfer* payment method.                          | String | Required |
@@ -217,9 +200,7 @@ curl -X POST \
 </details>
 
 #### **Permata**
-
 This is the sample request for Permata.
-
 ```bash
 # sample charge in CURL
 curl -X POST \
@@ -239,7 +220,6 @@ curl -X POST \
 <details>
 <summary><b>Post Body JSON Attribute Description</b></summary>
 <article>
-
 
 | Element             | Description                                                  | Type   | Required |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
@@ -263,9 +243,7 @@ The sample response and description of response body for *Bank Transfer* payment
 <!-- tabs:start -->
 
 #### **BCA**
-
 This is the sample response for BCA.
-
 ```json
 {
     "status_code": "201",
@@ -287,11 +265,9 @@ This is the sample response for BCA.
     "fraud_status": "accept"
 }
 ```
-
 <details>
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
-
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -315,9 +291,7 @@ This is the sample response for BCA.
 ?>***Note:*** You will get the `va_numbers` attribute.
 
 #### **BNI**
-
 This is the sample response for BNI.
-
 ```json
 {
     "status_code": "201",
@@ -339,11 +313,9 @@ This is the sample response for BNI.
     "fraud_status": "accept"
 }
 ```
-
 <details>
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
-
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -367,9 +339,7 @@ This is the sample response for BNI.
 ?>***Note:*** You will get the `va_numbers` attribute.
 
 #### **BRI**
-
 This is the sample response for BRI.
-
 ```json
 {
     "status_code": "201",
@@ -390,11 +360,9 @@ This is the sample response for BRI.
     "currency": "IDR"
 }
 ```
-
 <details>
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>                                
-
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -417,9 +385,7 @@ This is the sample response for BRI.
 ?>***Note:*** You will get the `va_numbers` attribute.
 
 #### **Mandiri Bill**
-
 This is the sample response for Mandiri.
-
 ```json
 {
     "status_code": "201",
@@ -437,11 +403,9 @@ This is the sample response for Mandiri.
     "biller_code": "70012"
 }
 ```
-
 <details>
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
-
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -466,9 +430,7 @@ This is the sample response for Mandiri.
 ?>***Note:*** You will get the `bill_key` and `bill_code` attribute.
 
 #### **Permata**
-
 This is the sample response for Permata.
-
 ```json
 {
     "status_code": "201",
@@ -488,7 +450,6 @@ This is the sample response for Permata.
 <details>
 <summary><b>Response Body JSON Attribute Description</b></summary>
 <article>
-
 
 | Element            | Description                                                  | Type   | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
@@ -513,7 +474,6 @@ This is the sample response for Permata.
 <!-- tabs:end -->
 
 ## 2. Displaying Virtual Account Number and Expiry Time
-
 To display the virtual account number, use the value of `va_number` retrieved from API response.
 
 ?>***Note:*** Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
@@ -525,7 +485,6 @@ By default the expiry time for Bank Transfer / VA is **24 hours**. Follow the li
 </div>
 
 ## 3. Handling Transaction Notification
-
 When the transaction status changes, Midtrans notifies you at the *Redirect URL* and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
 
 HTTP POST request with JSON body will be sent to your server's *Notification URL* configured on dashboard.
@@ -533,36 +492,27 @@ HTTP POST request with JSON body will be sent to your server's *Notification URL
 <details>
 <summary><b>Configuring Payment Notification URL</b></summary>
 <article>
+
 To configure the Payment Notification URL, follow the steps given below.
-
-1. Login to your MAP account.
-
-2. On the Home page, go to **SETTINGS > CONFIGURATION**.
-   *Configuration* page is displayed.
-
+1. Log in to your MAP account.
+2. On the Home page, go to **Settings > Configuration**. *Configuration* page is displayed.
 3. Enter **Payment Notification URL**.
+4. Click **Update**. <br>A confirmation message is displayed.
+![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
+<br>The *Payment Notification URL* is configured.
 
-4. Click **Update**.
-   A confirmation message is displayed.
-
-   ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
-
-   The *Payment Notification URL* is configured.
-
-   </article>
-   </details>
+</article>
+</details>
 
 <br>
 
 <div class="my-card">
 
+#### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 
-   #### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
-
-   </div>
+</div>
 
 ## Specifying VA Number
-
 Virtual Account number which is displayed to customer, contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part can be customized (For **Permata** B2B agreement model is supported). Following conditions need to be followed while customizing VA number:
 
 * Only digits are allowed.
@@ -571,7 +521,7 @@ Virtual Account number which is displayed to customer, contains two parts. for e
 * If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
 
-Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding  `bank_transfer` parameters in the Charge API Request Body as shown below.
+Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding`bank_transfer` parameters in the Charge API Request Body as shown below.
 
 Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body).
 <!-- tabs:start -->
@@ -631,7 +581,6 @@ BRI `va_number` | String | Optional | Length should be within 1 to 13.
 ?>***Note:*** In *Production environment*, each and every bank may not support custom VA number. It depends on the agreement. Please consult Midtrans Activation team for further information.
 
 #### Transaction Status Description
-
 The description of `transaction_status` value for *Bank Transfer* payment method is given below.
 
 | Transaction Status | Description |
