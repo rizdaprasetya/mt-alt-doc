@@ -42,7 +42,6 @@ function accordionLabelTag() {
 
 // add active to right side menus on scroll
 function rightMenusActiveScroll() {
-
   setTimeout(() => {
     const contents = document.querySelectorAll('h2[id]');
     const navLinks = document.querySelectorAll(".sidebar__right-list");
@@ -99,5 +98,85 @@ function rightMenusActiveScroll() {
       });
     });
   }, 170);
+  
+}
+// DROPDOWN
+function dropDownTopNav() {
+  setTimeout(() => {
+    let drpdwn = document.getElementsByClassName('dropdown')
+    for (let j = 0; j < drpdwn.length; j++) {
+        drpdwn[j].addEventListener('click', () => {
+            drpdwn[j].classList.toggle('dropdown-active')
+            let panel = drpdwn[j].lastElementChild
+            if (panel.style.display === 'flex') {
+                panel.style.display = 'none'
+            } else {
+                panel.style.display = 'flex'
+                panel.style.flexDirection = 'column'
+            }
+        })
+    }
+    window.onclick = (event) => {
+        if (!event.target.matches('.dropdown__button')) {
+            let dropdowns = document.getElementsByClassName("dropdown")
+            for (let k = 0; k < dropdowns.length; k++) {
+                let openDropdown = dropdowns[k].lastElementChild;
+                if (openDropdown.style.display === 'flex') {
+                    dropdowns[k].classList.remove('dropdown-active')
+                    openDropdown.style.display = 'none'
+                }
+            }
+        }
+    }
+  }, 50);
+}
+
+function themeChanger() {
+  console.log('theme changer runing')
+  // THEME CHANGER
+  setTimeout(() => {
+    let darkMobile = document.getElementById('dark-mobile')
+    let lightMobile = document.getElementById('light-mobile')
+    let body = document.getElementsByTagName('body')[0]
+    let darkDesktop = document.getElementById('dark-desktop')
+    let lightDesktop = document.getElementById('light-desktop')
+    if( darkMobile ) {
+      darkMobile.addEventListener('click', () => {
+          body.classList.remove('theme__light')
+          body.classList.add('theme__dark')
+          lightMobile.classList.remove('active')
+          darkMobile.classList.add('active')
+      })
+    }
+    if( lightMobile ) {
+      lightMobile.addEventListener('click', () => {
+        body.classList.remove('theme__dark')
+        body.classList.add('theme__light')
+        lightMobile.classList.add('active')
+        darkMobile.classList.remove('active')
+      })
+    }
+    if( darkDesktop ) {
+      darkDesktop.addEventListener('click', () => {
+        if(body.classList.contains('theme__light')) {
+          body.classList.remove('theme__light')
+        }
+        body.classList.add('theme__dark')
+        
+        // if(lightMobile.classList.contains('active')){
+        //   lightMobile.classList.remove('active')
+        // }
+        // darkMobile.classList.add('active')
+      })
+    }
+    if( lightDesktop ) {
+      lightDesktop.addEventListener('click', () => {
+        body.classList.remove('theme__dark')
+        body.classList.add('theme__light')
+        lightMobile.classList.add('active')
+        darkMobile.classList.remove('active')
+      })
+    }
+  }, 180);
   
 }

@@ -76,13 +76,14 @@
         </div>
         <!-- BUTTON RESPONSIVE -->
         <div class="d-flex ml-auto" style="opacity: 0;">
-            <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help
-                center</button>
+            <a href="https://support.midtrans.com/" target="_blank" class="a-link">
+                <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
+            </a>
             <div class="dropdown">
                 <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
                 <div class="dropdown__panel" id="theme-desktop">
-                    <a href="#" class="dropdown__link active" id="dark-desktop">Dark Mode</a>
-                    <a href="#" class="dropdown__link" id="light-desktop">Light Mode</a>
+                    <a class="dropdown__link active" id="dark-desktop">Dark Mode</a>
+                    <a class="dropdown__link" id="light-desktop">Light Mode</a>
                 </div>
             </div>
         </div>
@@ -529,6 +530,12 @@
                         //add active class when scroll to right sidebar menu
                         rightMenusActiveScroll()
 
+                        //dropdown top nav
+                        dropDownTopNav()
+
+                        //theme Changer
+                        themeChanger()
+
                     })
 
                     hook.mounted(function(){
@@ -580,7 +587,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/docsify@4.9.4/lib/docsify.min.js"
         integrity="sha256-ibnuwhVxau9TedtaK4AuoTzq0LhAmjbtHtyUoIJ2gH4=" crossorigin="anonymous">
         </script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/docsify/4.11.6/docsify.min.js" integrity="sha512-smYOhvJEIuxfhYAaDeFT2zmTKXVTMckzt/s6Sklilg1YWTc+NTVZQ1JHtEmv/BCQOprUNXSrVKLRuxR56B7gyw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4.11.6/lib/docsify.min.js" integrity="sha256-zTTKqWPEpPgRygl1gorAx8ux6HjMcv+zhnqoPp6XWOU=" crossorigin="anonymous"></script>
     <!-- Docsify plugins -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse@1.1.3/dist/docsify-sidebar-collapse.min.js"
         integrity="sha256-m7cJDA/xZUxP1uR7gcRhIiVRR5lfTTNWvs/j9U31Q6c=" crossorigin="anonymous">

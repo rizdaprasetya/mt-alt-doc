@@ -204,9 +204,42 @@
       border-width: 0;
       position: relative;
     }
+
+    .a-link {
+      .button {
+        outline: none;
+        padding: 6px 12px;
+        text-align: center;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+    }
     
     .dropdown {
       position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%) rotate(270deg);
+        transition: 0.3s ease;
+        background-image: url('/asset/revamp/icons/icon_arrow.svg');
+        background-repeat: no-repeat;
+        border: 0 !important;
+        width: 8px;
+        height: 13px;
+      }
+      &-active {
+        &::after {
+        transition: 0.3s ease;
+        transform: translateY(-50%) rotate(90deg);
+        }
+      }
 
       .navbar__dropdown {
         @extend .button;
@@ -230,6 +263,7 @@
         border-radius: 12px;
         border-width: 0;
         position: relative;
+        @include no-select;
 
       }
 
