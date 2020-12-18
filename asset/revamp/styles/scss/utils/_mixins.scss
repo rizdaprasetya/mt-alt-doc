@@ -64,10 +64,10 @@
     -webkit-flex-basis: $size;
 }
 
-@mixin flex-wrap() {
-    flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
+@mixin flex-wrap($content) {
+    flex-wrap: $content;
+    -ms-flex-wrap: $content;
+    -webkit-flex-wrap: $content;
 }
 
 @mixin align-items($content) {

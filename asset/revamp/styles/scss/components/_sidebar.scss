@@ -294,3 +294,31 @@
     }
   }
 }
+
+//dark mode
+.theme__dark {
+  .sidebar {
+    background-color: $blue-dark-darken;
+    border-right: none;
+
+    .sidebar-nav {
+      ul {
+        li {
+          border-color: #102f51 !important;
+          a {
+            color: $white !important;
+
+            img {
+              filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+            }
+
+            strong {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}

@@ -27,3 +27,13 @@
         }
     }
 }
+
+//dark mode
+.theme__dark {
+    .footer-custom {
+        small {
+            background-color: #132f4f;
+            color: $white;
+        }
+    }
+}

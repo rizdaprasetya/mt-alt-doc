@@ -1,10 +1,14 @@
 function getRightSideBarContent() {
-  console.log('runn get sidebarrr')
   setTimeout(() => {
     //right sidebar content
     let sideBarSelector = document.getElementById('right-bar-content')
     let sideBarContens = ''
     let getAllTitle = document.querySelectorAll("h2")
+
+    if(getAllTitle.length == 0) {
+      getAllTitle = document.querySelectorAll("h1");
+    }
+
     if(getAllTitle) {
       getAllTitle.forEach(element => {
         let titleText = element.innerText
@@ -17,7 +21,7 @@ function getRightSideBarContent() {
       if(sideBarSelector) {
         sideBarSelector.innerHTML = sideBarContens
       }
-    }
+    } 
   }, 150);
 }
 
@@ -26,7 +30,6 @@ function accordionLabelTag() {
   setTimeout(() => {
     let accordionLabelSelector = document.querySelectorAll('.collaps-label')
     if( accordionLabelSelector ) {
-      console.log('checked and get collaps')
       accordionLabelSelector.forEach(element => {
         element.addEventListener('click', () => {
           if( element.classList.contains('open') ) {
@@ -43,11 +46,12 @@ function accordionLabelTag() {
 // add active to right side menus on scroll
 function rightMenusActiveScroll() {
   setTimeout(() => {
-    const contents = document.querySelectorAll('h2[id]');
+    let contents = document.querySelectorAll('h2[id]');
     const navLinks = document.querySelectorAll(".sidebar__right-list");
 
-    console.log('content', contents)
-    console.log('navLinks', navLinks)
+    if(contents.length == 0) {
+      contents = document.querySelectorAll('h1[id]');
+    }
 
     const contentLength = contents.length;
     window.addEventListener("scroll", function (event) {
@@ -122,8 +126,8 @@ function dropDownTopNav() {
             for (let k = 0; k < dropdowns.length; k++) {
                 let openDropdown = dropdowns[k].lastElementChild;
                 if (openDropdown.style.display === 'flex') {
-                    dropdowns[k].classList.remove('dropdown-active')
-                    openDropdown.style.display = 'none'
+                  dropdowns[k].classList.remove('dropdown-active')
+                  openDropdown.style.display = 'none'
                 }
             }
         }
@@ -131,9 +135,9 @@ function dropDownTopNav() {
   }, 50);
 }
 
+// THEME CHANGER
 function themeChanger() {
   console.log('theme changer runing')
-  // THEME CHANGER
   setTimeout(() => {
     let darkMobile = document.getElementById('dark-mobile')
     let lightMobile = document.getElementById('light-mobile')

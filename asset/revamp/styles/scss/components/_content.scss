@@ -315,6 +315,10 @@
             border: none;
             box-shadow: none;
             border-top: none !important;
+
+            img[data-origin] {
+              margin-bottom: 30px;
+            }
         }
     }
 
@@ -516,11 +520,15 @@
     }
 
     .docsify-pagination-container {
+      @include flex-wrap(nowrap);
+
       .pagination-item {
         margin-top: 1.375em;
+        @include flex(0 0 48%);
 
         a {
           .pagination-item-label {
+            opacity: 1;
             text-transform: uppercase;
             line-height: 24px;
             position: relative;
@@ -684,5 +692,151 @@
       padding-top: 10px;
     }
 
+  }
+}
+
+//dark mode
+.theme__dark {
+  .content {
+    .markdown-section, p, h1, h2, h3 ,h4, a, strong, li {
+      color: $white !important;
+    }
+    .markdown-section {
+      .my-card {
+        background: $blue-dark;
+        border: 1px solid rgba(222, 234, 245, 0.13);
+
+        .my-btn {
+          &:hover {
+            box-shadow: none;
+          }
+        }
+      }
+
+      details {
+        summary {
+          background-color: $blue-dark-lighten;
+          border: none;
+          color: $white;
+
+          &::after {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+          }
+        }
+      }
+
+      .docsify-pagination-container, hr {
+        border-color: #102f51;
+      }
+
+      .docsify-pagination-container {
+        .pagination-item-title, span {
+          color: $white;
+        }
+      }
+
+      blockquote, .warn {
+        background: #00325b;
+        border: 1px dashed $blue-quote;
+      }
+
+      table {
+        thead {
+          th {
+            background: $bg-blue-dark;
+            color: $white;
+          }
+        }
+        tbody {
+          tr {
+              &:nth-child(odd) {
+                  background: #0e2b4c;
+              }
+              &:nth-child(even) {
+                  background: $bg-table-dark;
+              }
+              td {
+                  color: $white;
+                  strong {
+                      color: $white;
+                  }
+              }
+          }
+        }
+      }
+
+      .docsify-tabs {
+        &::before{
+            border: none;
+        }
+
+        .docsify-tabs__tab {
+          color: $white;
+          background-color: $bg-table-dark;
+
+            &.docsify-tabs__tab--active {
+              background-color: $blue-dark;
+            }
+        } 
+
+        .docsify-tabs__content {
+          background-color: $blue-dark;
+        }
+      }
+
+      pre[data-lang] {
+        background: transparent;
+        code {
+          background: $bg-table-dark !important;
+          color: $white !important;
+
+          table {
+            &.hljs-ln {
+              tbody {
+                tr {
+                  &:nth-child(odd) {
+                    background: $bg-table-dark !important;
+                  }
+            
+                  .hljs-ln-line {
+                    &.hljs-ln-numbers {
+                      color: $white;
+                      background: #0e2b4c;
+                    }
+
+                    &.hljs-ln-code {
+                      background: $bg-table-dark;
+                      color: $white;
+                    }
+                  } 
+
+                  &:first-child {
+                    .hljs-ln-code {
+                      max-width: 90%;
+                      display: block;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.lang- {
+            background: $bg-table-dark !important;
+            color: $white !important;
+          }
+        }
+        &::after {
+          color: silver;
+        }
+      }
+
+      .tip {
+        background: #5b000c;
+      }
+
+    } 
+
+   
   }
 }

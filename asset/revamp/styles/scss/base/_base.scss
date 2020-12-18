@@ -1,7 +1,7 @@
 /* Base
 ============================================================================= */
 :root {
-    --base-background-color: #f7fcff ;
+    --base-background-color: #{$bg-blue} ;
     --base-boder-color     : #deeaf5;
     // --base-color           : var(--mono-shade2);
     --base-font-family     : $poppins, sans-serif;
@@ -34,4 +34,11 @@ html, body{
 
 body {
     font-family: $poppins, sans-serif;
+
+    &.theme__dark {
+        main {
+            background-color: $bg-blue-dark;
+        }
+    }
 }
+
