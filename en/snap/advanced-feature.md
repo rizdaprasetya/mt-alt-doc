@@ -338,7 +338,6 @@ curl -X POST \
 An alias refers to a list of payment types. Adding an alias is the equivalent of adding all the payment types it refers to.
 
 Supported aliases:
-<!--Why this is bold-->
 * `bank_transfer` = `permata_va, bca_va, bni_va, bri_va, echannel`
 * `store` = `kioson, indomaret, alfamart`.
 
@@ -793,7 +792,7 @@ curl -X POST \
 The sample Snap payment page with online installment feature is displayed below.
 ![snap online installment](./../../asset/image/snap-adv-online-installment.png)
 
-?> ***Note:*** Installment term will show in the Snap payment page after the customer enters the installment-compatible credit card number. For testing this method, refer to [Sandbox test card](/en/technical-reference/sandbox-test.md#card-number).
+?> ***Note:*** Installment term will show in the Snap payment page after the customer enters the installment-compatible credit card number. For testing this method, refer to [Sandbox test card](/en/technical-reference/sandbox-test.md#card number).
 
 #### Offline Installment
 *Offline Installment* is the type of payment where *Card Issuing Bank* used for making an installment payment and the *Acquiring Bank* need not be the same. For example, a customer makes an installment payment using BNI Card and the *Acquiring Bank* is Mandiri.
