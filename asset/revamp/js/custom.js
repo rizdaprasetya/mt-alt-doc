@@ -21,6 +21,7 @@ function getRightSideBarContent() {
   }, 150);
 }
 
+// for accordion icon (rotate icon) on click
 function accordionLabelTag() {
   let accordionLabelSelector = document.querySelectorAll('.collaps-label')
   if( accordionLabelSelector ) {
@@ -35,6 +36,59 @@ function accordionLabelTag() {
       });
     });
   }
-
 }
 
+// add active to right side menus on scroll
+function rightMenusActiveScroll() {
+  const contents = document.querySelectorAll('div[id^="content-"]');
+  const navLinks = this.$el.querySelectorAll(".nav-link");
+
+  const contentLength = contents.length;
+  window.addEventListener("scroll", function (event) {
+    event.preventDefault();
+    const scrollPos =
+      (window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0) + 100;
+    let contentsTop = [];
+    contents.forEach((content, index) => {
+      contentsTop.push(content.offsetTop);
+    });
+
+    contentsTop.forEach((contentTop, index) => {
+      if (index + 1 < contentLength) {
+        if (
+          scrollPos > contentTop &&
+          scrollPos < contentsTop[index + 1] &&
+          !navLinks[index].classList.contains("active")
+        ) {
+          navLinks[index].classList.add("active");
+        } else if (
+          scrollPos > contentsTop[index + 1] &&
+          navLinks[index].classList.contains("active")
+        ) {
+          navLinks[index].classList.remove("active");
+        } else if (
+          scrollPos <= contentTop &&
+          navLinks[index].classList.contains("active") &&
+          index !== 0
+        ) {
+          navLinks[index].classList.remove("active");
+        }
+      } else {
+        if (
+          scrollPos > contentTop &&
+          !navLinks[index].classList.contains("active")
+        ) {
+          navLinks[index].classList.add("active");
+        } else if (
+          scrollPos <= contentTop &&
+          navLinks[index].classList.contains("active")
+        ) {
+          navLinks[index].classList.remove("active");
+        }
+      }
+    });
+  });
+}
