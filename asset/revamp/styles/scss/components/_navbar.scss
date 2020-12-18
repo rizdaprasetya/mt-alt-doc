@@ -509,6 +509,10 @@
 
           .dropdown__link {
             color: $white;
+
+            &:hover {
+              background-color: $bg-blue-dark;
+            }
           }
         }
       }
