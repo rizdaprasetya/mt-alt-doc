@@ -312,6 +312,15 @@
               color: $blue-link-lighten;
             }
           }
+
+          &.sidebar__right-list {
+            &.active {
+              a {
+                color: $blue;
+              }
+            }
+          }
+
         }
       }
     }
