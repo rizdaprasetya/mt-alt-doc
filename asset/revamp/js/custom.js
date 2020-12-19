@@ -137,7 +137,11 @@ function dropDownTopNav() {
 
 // THEME CHANGER
 function themeChanger() {
-  console.log('theme changer runing')
+  //check localstorage
+  if(localStorage.getItem('theme') == 'dark') {
+    document.getElementsByTagName('body')[0].classList.add('theme__dark')
+  }
+
   setTimeout(() => {
     let darkMobile = document.getElementById('dark-mobile')
     let lightMobile = document.getElementById('light-mobile')
@@ -166,6 +170,8 @@ function themeChanger() {
           body.classList.remove('theme__light')
         }
         body.classList.add('theme__dark')
+        //store to local storage
+        localStorage.setItem('theme', 'dark')
         
         // if(lightMobile.classList.contains('active')){
         //   lightMobile.classList.remove('active')
@@ -176,9 +182,12 @@ function themeChanger() {
     if( lightDesktop ) {
       lightDesktop.addEventListener('click', () => {
         body.classList.remove('theme__dark')
-        body.classList.add('theme__light')
-        lightMobile.classList.add('active')
-        darkMobile.classList.remove('active')
+        //remove local storage
+        localStorage.removeItem('theme')
+
+        // body.classList.add('theme__light')
+        // lightMobile.classList.add('active')
+        // darkMobile.classList.remove('active')
       })
     }
   }, 180);
