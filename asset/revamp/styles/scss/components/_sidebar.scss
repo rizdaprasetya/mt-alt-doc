@@ -316,6 +316,12 @@
               color: $white;
             }
           }
+
+          .app-sub-sidebar {
+            a {
+              color: $white !important;
+            }
+          }
         }
       }
     }

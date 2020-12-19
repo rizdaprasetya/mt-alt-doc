@@ -179,6 +179,9 @@
             }
           }
         }
+        &.clicked {
+          display: none;
+        }
       }
 
     }

@@ -503,10 +503,7 @@
                     };
                 },
                 function(hook,vm){
-                    
                     hook.doneEach(function(){
-                        
-                   
                         //custom highlight
                         // console.log('testt', document.querySelectorAll('pre code'))
                         document.querySelectorAll('pre code').forEach((block) => {
@@ -540,7 +537,6 @@
 
                     hook.mounted(function(){
 
-           
                         setTimeout(()=>{
 
                             let sidebarSearch = document.querySelector(".search");
@@ -548,10 +544,27 @@
                             
                             sidebarSearchNew.appendChild(sidebarSearch)
 
+                            //eventlistener
+                            let searchBoxEl = document.querySelector('.search-new .input-wrap')
+                            let searchResultEl = document.querySelector('.search-new .results-panel')
+                            console.log('searchboxel', searchResultEl)
+
+                            if(searchBoxEl) {
+                                searchBoxEl.addEventListener('click', () => {
+                                    if(searchResultEl.classList.contains('clicked')) {
+                                        searchResultEl.classList.remove('clicked')
+                                    }
+                                });
+                            }
+
+                            if(searchResultEl) {
+                                searchResultEl.addEventListener('click', () => {
+                                    console.log('clicked');
+                                    searchResultEl.classList.add('clicked')
+                                });
+                            }
+
                         },500)
-
-
-
 
                     })
 
