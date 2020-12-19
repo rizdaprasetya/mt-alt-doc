@@ -208,12 +208,9 @@ function searchMob() {
         searchInput.focus()
       }
       //close when click outside elemen
-      document.addEventListener('click', function(event) {
-        let isClickInside = getNavEl.contains(event.target);
-        if (!isClickInside) {
-          //the click was outside the specifiedElement, do something
+      let mainEl = document.querySelector('main')
+      mainEl.addEventListener('click', function(event) {
           getNavEl.classList.remove('active-search-mob')
-        }
       });
     }
   }
@@ -222,24 +219,29 @@ function searchMob() {
 //show menus mobile
 function showMenusMob() {
   let mainEl = document.querySelector('main')
+  let overlay = document.querySelector('.overlay')
   if(mainEl) {
     if(mainEl.classList.contains('show-menu-mob')) {
       mainEl.classList.remove('show-menu-mob')
+      if(overlay) {
+        overlay.classList.remove('active')
+      }
     }else {
       mainEl.classList.add('show-menu-mob')
+      if(overlay) {
+        overlay.classList.add('active')
+      }
 
-      //close when click outside elemen
-      let check = 1
-      const sideBarEl = document.querySelector('aside.sidebar')
-      document.addEventListener('click', function(event) {
-        let isClickInside = sideBarEl.contains(event.target);
-        if (!isClickInside && check != 1) {
+      
+      //close menus
+      overlay.addEventListener('click', function(event) {
           //the click was outside the specifiedElement, do something
+        if(mainEl.classList.contains('show-menu-mob')) {
           mainEl.classList.remove('show-menu-mob')
-          //reset check when close
-          check = 0
+          if(overlay) {
+            overlay.classList.remove('active')
+          }
         }
-        check += 1
       });
     }
   }

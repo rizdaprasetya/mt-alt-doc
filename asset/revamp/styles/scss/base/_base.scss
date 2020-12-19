@@ -42,3 +42,22 @@ body {
     }
 }
 
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+    background: transparent;
+    top: 0;
+    left: 0;
+    &.active {
+     @include custom(1000) {
+        display: block;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+}

@@ -28,6 +28,7 @@
 .sidebar {
   overflow: hidden;
   @include custom(1000) {
+    z-index: 1000;
     transform: translate3d(-100%,0,0);
   }
 
