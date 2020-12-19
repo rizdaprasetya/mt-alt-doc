@@ -107,6 +107,7 @@
     margin-top: 56px;
 
     @include custom(1000) {
+      padding-top: 2rem !important;
       margin-left: 25px;
     }
 

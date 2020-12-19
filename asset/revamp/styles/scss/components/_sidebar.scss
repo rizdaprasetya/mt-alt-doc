@@ -299,6 +299,16 @@
   }
 }
 
+//mobile show sidebar
+.show-menu-mob {
+  .sidebar {
+    @include custom(1000) {
+      -webkit-transform: translateX(var(--sidebar-width));
+      transform: translateX(var(--sidebar-width));
+    }
+  }
+}
+
 //dark mode
 .theme__dark {
   .sidebar {

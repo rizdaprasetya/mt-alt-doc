@@ -36,6 +36,7 @@
     width: 50%;
 
     @include custom(1000) {
+      display: none;
       width: 100%;
     }
 
@@ -320,9 +321,51 @@
     }
   }
 
-  //for mobile
-  .image-fluid sidebar__capsule {
+  //nav for mobile
+  .navbar-mobile {
+    display: none;
+    
+    @include custom(1000) {
+      width: 100%;
+      @include flex-init();
+      @include align-items(center);
 
+      .navbar__hamburger {
+        cursor: pointer;
+        @include flex-init();
+        @include flex-direction(column);
+        @include justify-content(center);
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .navbar__current-menu {
+        margin-left: 1rem !important;
+        color: $black;
+      }
+
+      .ml-auto {
+        margin-left: auto !important;
+
+        .navbar__search {
+          cursor: pointer;
+          width: 100%;
+          @include flex-init();
+          @include align-items(center);
+          @include justify-content(center);
+
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+    }
+    
   }
 
   // right sidebar 
@@ -471,6 +514,20 @@
       }
     }
   }
+
+  //enable/disable search for mobile
+  &.active-search-mob {
+    .search-new {
+      @include custom(1000) {
+        display: block;
+      }
+    }
+    .navbar-mobile {
+      @include custom(1000) {
+        display: none;
+      }
+    }
+  }
 }
 
 .ready {
@@ -509,6 +566,31 @@
           }
         } 
       }
+    }
+
+    //nav for mobile
+    .navbar-mobile {
+      
+      @include custom(1000) {
+
+        .navbar__hamburger {
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%); //dark mode
+        }
+
+        .navbar__current-menu {
+          color: $white; //dark mode
+        }
+
+        .ml-auto {
+          .navbar__search {
+            img {
+              filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%); //dark mode
+            }
+          }
+        }
+
+      }
+      
     }
     
     .d-flex {

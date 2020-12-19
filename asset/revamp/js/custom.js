@@ -193,3 +193,55 @@ function themeChanger() {
   }, 180);
   
 }
+
+//search mobile
+function searchMob() {
+  let getNavEl = document.querySelector('nav.app-nav')
+  if(getNavEl) {
+    if(getNavEl.classList.contains('active-search-mob')) {
+      getNavEl.classList.remove('active-search-mob')
+    }else {
+      getNavEl.classList.add('active-search-mob')
+      //focus to input
+      const searchInput = document.querySelector('input[type="search"]')
+      if(searchInput) {
+        searchInput.focus()
+      }
+      //close when click outside elemen
+      document.addEventListener('click', function(event) {
+        let isClickInside = getNavEl.contains(event.target);
+        if (!isClickInside) {
+          //the click was outside the specifiedElement, do something
+          getNavEl.classList.remove('active-search-mob')
+        }
+      });
+    }
+  }
+}
+
+//show menus mobile
+function showMenusMob() {
+  let mainEl = document.querySelector('main')
+  if(mainEl) {
+    if(mainEl.classList.contains('show-menu-mob')) {
+      mainEl.classList.remove('show-menu-mob')
+    }else {
+      mainEl.classList.add('show-menu-mob')
+
+      //close when click outside elemen
+      let check = 1
+      const sideBarEl = document.querySelector('aside.sidebar')
+      document.addEventListener('click', function(event) {
+        let isClickInside = sideBarEl.contains(event.target);
+        if (!isClickInside && check != 1) {
+          console.log('outside', check)
+          //the click was outside the specifiedElement, do something
+          mainEl.classList.remove('show-menu-mob')
+          //reset check when close
+          check = 0
+        }
+        check += 1
+      });
+    }
+  }
+}

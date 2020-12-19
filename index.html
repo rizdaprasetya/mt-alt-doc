@@ -74,6 +74,19 @@
     <nav style="display: none;">
         <div class="search-new" >
         </div>
+        <div id="navbar-mobile" class="navbar-mobile">
+            <div class="navbar__hamburger" id="hamburger" onclick="showMenusMob()">
+                <img src="/asset/revamp/img/hamburger-menu.png" class="image-fluid">
+            </div>
+            <div class="navbar__current-menu ml-3">
+                Home
+            </div>
+            <div class="ml-auto">
+                <div class="navbar__search" id="search-button" onclick="searchMob()">
+                    <img src="/asset/revamp/icons/midtrans-icons-search.svg" class="image-fluid">
+                </div>
+            </div>
+        </div>
         <!-- BUTTON RESPONSIVE -->
         <div class="d-flex ml-auto" style="opacity: 0;">
             <a href="https://support.midtrans.com/" target="_blank" class="a-link">
@@ -88,7 +101,6 @@
             </div>
         </div>
         <!-- END BUTTON RESPONSIVE -->
-        <img src="assets/capsules.png" class="image-fluid sidebar__capsule" alt />
 
         <div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
             <div class="sidebar__right-wrapper">
