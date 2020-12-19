@@ -1,0 +1,38 @@
+$phones: 576px !default;
+$tab-port: 768px !default;
+$tab-land: 1024px !default;
+$desktop: 1366px !default;
+// Small devices
+@mixin phones {
+    @media (max-width: #{$phones}) {
+        @content;
+    }
+} 
+
+// Medium devices
+@mixin tab-portrait {
+    @media (max-width: #{$tab-port}) {
+        @content;
+    }
+} 
+
+// Large devices
+@mixin tab-landscape {
+    @media (max-width: #{$tab-land}) {
+        @content;
+    }
+} 
+
+// Extra large devices
+@mixin desktopMax {
+    @media (max-width: #{$desktop}) {
+        @content;
+    }
+} 
+
+// Custom devices
+@mixin custom($screen) {
+    @media (max-width: $screen+'px') {
+        @content;
+    }
+}

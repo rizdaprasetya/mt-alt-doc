@@ -94,9 +94,21 @@
 .content {
   margin-right: 20%;
 
+  @include tab-landscape() {
+    margin-right: 4%;
+  }
+
+  @include custom(1000) {
+    margin-left: 4% !important;
+  }
+
   .markdown-section {
     @include paragraf;
     margin-top: 56px;
+
+    @include custom(1000) {
+      margin-left: 25px;
+    }
 
     .my-card {
       padding: 28px;

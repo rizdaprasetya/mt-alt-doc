@@ -25,8 +25,19 @@
   @include justify-content(space-between);
   @include align-items(center);
 
+  @include custom(1000) {
+    width: 100%;
+    margin-left: 0 !important;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
   .search-new {
     width: 50%;
+
+    @include custom(1000) {
+      width: 100%;
+    }
 
     .search {
       position: relative;
@@ -193,6 +204,10 @@
     display: flex !important;
     margin-left: auto !important;
 
+    @include custom(1000) {
+      display: none !important;
+    }
+
     .button {
       color: $blue;
       background-color: transparent;
@@ -316,12 +331,14 @@
     height: 100vh;
     top: 120px;
     right: 0;
-    /* left: 0; */
-    /* background: white; */
     width: 21.46%;
     padding-left: 3rem !important;
     padding-right: 3rem;
     text-align: left;
+
+    @include tab-landscape() {
+      display: none;
+    }
 
     .sidebar__right-wrapper {
       .sidebar__right-title {
