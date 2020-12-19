@@ -234,7 +234,6 @@ function showMenusMob() {
       document.addEventListener('click', function(event) {
         let isClickInside = sideBarEl.contains(event.target);
         if (!isClickInside && check != 1) {
-          console.log('outside', check)
           //the click was outside the specifiedElement, do something
           mainEl.classList.remove('show-menu-mob')
           //reset check when close
