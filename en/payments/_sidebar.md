@@ -2,13 +2,13 @@
 - [<small>← Back Home</small>](/ "Midtrans Payment Gateway Technical Documentation")
 - [Payments Overview](en/payments/overview.md "Midtrans - Payments Technical Documentation")
 - **Payments**
-- [**![Snap](asset/image/main/snap-icon.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
+- [**![Snap](asset/image/main/midtrans-icons-builtininterface.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
 	- [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
-- [**![](asset/image/main/mobile-sdk-icon.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
-- [**![](asset/image/main/core-api-icon.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
+- [**![](asset/image/main/midtrans-icons-nativemobile.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
+- [**![](asset/image/main/midtrans-icons-custominterface.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
 	- [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")
 		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
 		- [Bank Transfer](en/core-api/bank-transfer.md "Midtrans - Core API Bank Transfer Documentation")
@@ -18,13 +18,13 @@
 		- [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
 	- [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
 	- [API Methods ↗](https://api-docs.midtrans.com/#api-methods)
-- [**![](asset/image/main/payment-link-icon.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
+- [**![](asset/image/main/midtrans-icons-paymentlink.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - **Plugins**
-- [![](asset/image/main/tech-ref-icon.svg)Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
-- [![](asset/image/main/tech-ref-icon.svg)Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
+- [![](asset/image/main/midtrans-icons-installcmsplugin.svg)Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
+- [![](asset/image/main/midtrans-icons-ecommerce.svg)Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
 - **After Payment**
-- [![](asset/image/main/after-payment-icon.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
-- [![](asset/image/main/tech-ref-icon.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
-- [![](asset/image/main/tech-ref-icon.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
+- [![](asset/image/main/midtrans-icons-signature.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
+- [![](asset/image/main/midtrans-icons-technical.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
+- [![](asset/image/main/midtrans-icons-technical.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 
 <img src="/asset/revamp/img/capsules.png" class="image-fluid sidebar__capsule" alt />
