@@ -165,9 +165,9 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Maven</b></summary>
-<p>If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).</p>
 <article>
 
+If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
 ```xml
 <repositories>
     <repository>
@@ -191,9 +191,9 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 
 <details>
 <summary><b>Gradle</b></summary>
-<p>If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle). </p>
 <article>
 
+If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle).
 ```bash
 repositories {
     maven {

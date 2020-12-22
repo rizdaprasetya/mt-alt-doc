@@ -267,6 +267,7 @@ Example of the JSON parameters used during [API Request Step](/en/snap/integrati
 "enabled_payments": [
     "credit_card",
     "gopay",
+    "shopeepay",
     "permata_va",
     "bca_va",
     "bni_va",
@@ -303,6 +304,7 @@ curl -X POST \
   "enabled_payments": [
     "credit_card",
     "gopay",
+    "shopeepay",
     "permata_va",
     "bca_va",
     "bni_va",
@@ -335,13 +337,11 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-An alias refers to a list of payment types. Adding an alias is the equivalent of adding all the payment types it refers to.
-
-Supported aliases:
+`enabled_payments` also support alias, which refers to a list of payment types. Adding an alias is the equivalent of adding all the payment types it refers to. Supported aliases:
 * `bank_transfer` = `permata_va, bca_va, bni_va, bri_va, echannel`
 * `store` = `kioson, indomaret, alfamart`.
 
-Use of Alias is shown in the sample CURL request shown below.
+Use of `enabled_payments` is shown in the sample CURL request shown below.
 <!-- tabs:start -->
 
 #### **Sample Charge API Request**
