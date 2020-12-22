@@ -118,7 +118,7 @@ Here are some popular use-cases that may help you choose the best product for yo
 
 #### Accept payment on your e-commerce website or app or both
 
-Accept payment from your customer within your website or application with Card Transaction, Bank Transfer, Direct Debit, E-Wallet, [and more](https://midtrans.com/payments). Choose [Beautiful Snap user interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your website and app to accept payment securely in a few simple steps.
+Accept payment from your customer within your website or application with Card Transaction, Bank Transfer, Direct Debit, E-Money, [and more](https://midtrans.com/payments). Choose [Beautiful Snap user interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your website and app to accept payment securely in a few simple steps.
 
 #### Subscription / Recurring Service
 

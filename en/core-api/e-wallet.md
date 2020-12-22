@@ -1,12 +1,12 @@
 
 
-# Core API E-Wallet Integration
+# Core API E-Money Integration
 
 <hr>
 
-?>***Note:*** This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Wallet or banking app**.
+?>***Note:*** This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Money or banking app**.
 
-GoPay is an *E-Wallet* payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow is different for web browser (on a computer or a tablet) and smartphone:
+GoPay is an *E-Money* payment method by Gojek. Users can pay using the Gojek apps, or any QRIS compatible app. The user flow is different for web browser (on a computer or a tablet) and smartphone:
 
 1. **QR Code** - This is the user flow on a web browser (on a computer or a tablet). User is shown a QR code and asked to scan using any QRIS compatible app, such as Gojek app.
 2. **Deeplink** - This is the user flow on a SmartPhone/mobile device. User gets redirected to the Gojek apps to finish payment.
@@ -37,7 +37,7 @@ The steps given below use [Midtrans *Sandbox* environment](https://account.midtr
 Basic integration process of GoPay is explained in this section.
 
 ## Steps for Integration
-To integrate with *E-Wallet* Payment method, follow the steps given below.
+To integrate with *E-Money* Payment method, follow the steps given below.
 
 ## 1. Sending Transaction Data to API Charge
 API request should be done from merchant backend to acquire QR code and deeplink to Gojek app. The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
@@ -388,7 +388,7 @@ The steps for **Deeplink** are as given below.
 
 ![GoPay QR Instruction](./../../asset/image/core-api_gopay-deeplink-pay.png)
 
-?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-wallet).
+?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#e-money).
 
 ### Implementing GoPay Deeplink Callback
 In addition to the standard mobile apps flow, you may opt in to implement a deeplink callback to redirect customer back from Gojek to their apps.
