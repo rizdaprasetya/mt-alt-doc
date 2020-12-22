@@ -1,6 +1,16 @@
 # Docs Changelog
 <hr>
 
+#### 2020/12/22
+- copy writing improvement on Core API bank transfer, e-money, overview
+- copy writing improvement on Snap advanced feature, guide, overview
+- improve content on e-money
+
+#### 2020/11/12
+- fix section link and clarify FDS on test card creds
+- copy writing improvement on Snap Overview, preparation, interactive-demo
+- UI font and transition adjustment
+
 #### 2020/10/26
 - clarify fraud_status field may not always exist
 - minor formatting fix

@@ -1,7 +1,7 @@
 # Midtrans Payments Overview {docsify-ignore}
 <hr>
 
-Midtrans helps your business to accept payment methods such as [cards, bank transfer, wallets, over the counter, cardless credits, direct debit, and other methods](https://midtrans.com/payments). 
+Midtrans helps your business to accept payment methods such as [card payment, bank transfer, e-money, over the counter, cardless credits, direct debit, and other methods](https://midtrans.com/payments). 
 
 <!-- TODO: put image of all payment methodss icon here? -->
 <!-- ![payment methods](https://midtrans.com/assets/images/channels/payment-channels-sprite-v4.png) -->

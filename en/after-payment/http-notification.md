@@ -694,7 +694,7 @@ Transaction Status | Fund Received | Description
 --- | --- | ---
 `capture` | ✅ | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. 
 `settlement` | ✅ | The transaction is successfully settled. Funds have been credited to your account. 
-`pending` | 🕒 | The transaction is created and is waiting to be paid by the customer at the payment providers like Direct debit, Bank Transfer, E-wallets, and so on. 
+`pending` | 🕒 | The transaction is created and is waiting to be paid by the customer at the payment providers like Direct debit, Bank Transfer, E-money, and so on. 
 `deny` | ❌ | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. 
 `cancel` | ❌ | The transaction is canceled. It can be triggered by you.<br/> You can trigger *Cancel* status in the following cases:<br/> 1. If you cancel the transaction after *Capture* status.<br/> 2. If you deny a transaction after *Challenge* status.<br/>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. 
 `expire` | ❌ | Transaction is not available for processing, because the payment was delayed. 
