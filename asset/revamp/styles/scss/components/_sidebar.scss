@@ -297,6 +297,15 @@
 
       }
     }
+
+    .menu-mob-act {
+      display: none;
+      
+      @include custom(1000) {
+        @include flex-init()
+      }
+    }
+
   }
 }
 

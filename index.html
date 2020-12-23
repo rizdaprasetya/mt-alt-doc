@@ -87,20 +87,29 @@
                 </div>
             </div>
         </div>
-        <!-- BUTTON RESPONSIVE -->
+        <!-- BUTTON Menus-->
         <div class="d-flex ml-auto" style="opacity: 0;">
             <a href="https://support.midtrans.com/" target="_blank" class="a-link">
                 <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
             </a>
-            <div class="dropdown">
+
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox-theme">
+                    <input type="checkbox" id="checkbox-theme" onclick="changeTheme()">
+                    <div class="slider round"></div>
+              </label>
+              <div class="description">Dark Mode</div>
+            </div>
+
+            <!-- <div class="dropdown">
                 <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
                 <div class="dropdown__panel" id="theme-desktop">
-                    <a class="dropdown__link active" id="dark-desktop">Dark Mode</a>
-                    <a class="dropdown__link" id="light-desktop">Light Mode</a>
+                    <a class="dropdown__link active" id="dark-desktop" onclick="changeTheme('dark')">Dark Mode</a>
+                    <a class="dropdown__link" id="light-desktop" onclick="changeTheme('light')">Light Mode</a>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <!-- END BUTTON RESPONSIVE -->
+        <!-- END BUTTON  Menus-->
 
         <div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
             <div class="sidebar__right-wrapper">

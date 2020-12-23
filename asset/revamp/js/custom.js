@@ -136,61 +136,36 @@ function dropDownTopNav() {
 }
 
 // THEME CHANGER
-function themeChanger() {
+function themeChanger() { // check from localstorage
   //check localstorage
   if(localStorage.getItem('theme') == 'dark') {
     document.getElementsByTagName('body')[0].classList.add('theme__dark')
+    let checkboxThemeEl = document.getElementById('checkbox-theme')
+    if(checkboxThemeEl) {
+      checkboxThemeEl.checked = true;
+    }
   }
-
-  setTimeout(() => {
-    let darkMobile = document.getElementById('dark-mobile')
-    let lightMobile = document.getElementById('light-mobile')
-    let body = document.getElementsByTagName('body')[0]
-    let darkDesktop = document.getElementById('dark-desktop')
-    let lightDesktop = document.getElementById('light-desktop')
-    if( darkMobile ) {
-      darkMobile.addEventListener('click', () => {
-          body.classList.remove('theme__light')
-          body.classList.add('theme__dark')
-          lightMobile.classList.remove('active')
-          darkMobile.classList.add('active')
-      })
+}
+function changeTheme(param) {
+  let body = document.getElementsByTagName('body')[0]
+  let checkboxThemeEl = document.getElementById('checkbox-theme')
+  if(!localStorage.getItem('theme')) {
+    if(body.classList.contains('theme__light')) {
+      body.classList.remove('theme__light')
     }
-    if( lightMobile ) {
-      lightMobile.addEventListener('click', () => {
-        body.classList.remove('theme__dark')
-        body.classList.add('theme__light')
-        lightMobile.classList.add('active')
-        darkMobile.classList.remove('active')
-      })
+    body.classList.add('theme__dark')
+    //store to local storage
+    localStorage.setItem('theme', 'dark')
+  } else if(localStorage.getItem('theme') == 'dark') {
+    if(checkboxThemeEl) {
+      checkboxThemeEl.checked = false;
     }
-    if( darkDesktop ) {
-      darkDesktop.addEventListener('click', () => {
-        if(body.classList.contains('theme__light')) {
-          body.classList.remove('theme__light')
-        }
-        body.classList.add('theme__dark')
-        //store to local storage
-        localStorage.setItem('theme', 'dark')
-        
-        // if(lightMobile.classList.contains('active')){
-        //   lightMobile.classList.remove('active')
-        // }
-        // darkMobile.classList.add('active')
-      })
-    }
-    if( lightDesktop ) {
-      lightDesktop.addEventListener('click', () => {
-        body.classList.remove('theme__dark')
-        //remove local storage
-        localStorage.removeItem('theme')
-
-        // body.classList.add('theme__light')
-        // lightMobile.classList.add('active')
-        // darkMobile.classList.remove('active')
-      })
-    }
-  }, 180);
+    body.classList.remove('theme__dark')
+    //remove local storage
+    localStorage.removeItem('theme')
+  } else {
+    return false
+  }
   
 }
 
@@ -232,7 +207,6 @@ function showMenusMob() {
         overlay.classList.add('active')
       }
 
-      
       //close menus
       overlay.addEventListener('click', function(event) {
           //the click was outside the specifiedElement, do something

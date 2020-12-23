@@ -235,6 +235,72 @@
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       }
     }
+
+    /**
+      Toogle Switch
+    */
+    .theme-switch-wrapper {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-left: 1.5rem;
+      top: 0.5rem;
+      right: 0;
+
+      .theme-switch {
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 29px;
+
+        input {
+          display:none;
+        }
+
+        .slider {
+          background-color: #ccc;
+          bottom: 0;
+          cursor: pointer;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: .4s;
+
+          &::before {
+            background-color: $white;
+            bottom: 0.25rem;
+            content: "";
+            width: 21px;
+            height: 21px;
+            left: 0.25rem;
+            position: absolute;
+            transition: .4s;
+          }
+        }
+
+        input:checked + .slider {
+          background-color: #3B3636;
+
+          &::before {
+            transform: translateX(20px);
+          }
+        }
+    
+        .slider.round {
+          border-radius: 34px;
+
+          &::before {
+            border-radius: 50%;
+          }
+        }
+
+      }
+
+      .description {
+        margin-left: 1rem;
+      }
+    }
     
     .dropdown {
       position: relative;

@@ -28,4 +28,16 @@
   - [3 Domain Secure (3DS) ↗](https://support.midtrans.com/hc/en-us/articles/360000137394-Introduction-to-3DS)
   - [Fraud and Dispute ↗](https://support.midtrans.com/hc/en-us/sections/200525504-Fraud-and-Security)
 
+<div class="menu-mob-act">
+    <a href="https://support.midtrans.com/" target="_blank" class="a-link">
+        <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
+    </a>
+    <div class="dropdown">
+        <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
+        <div class="dropdown__panel" id="theme-desktop">
+          <a class="dropdown__link active" id="dark-desktop" onclick="changeTheme('dark')">Dark Mode</a>
+          <a class="dropdown__link" id="light-desktop" onclick="changeTheme('light')">Light Mode</a>
+        </div>
+    </div>
+</div>
 <img src="/asset/revamp/img/capsules.png" class="image-fluid sidebar__capsule" alt />
