@@ -37,6 +37,11 @@
     .app-name-link {
       img {
         max-width: 62%;
+
+        @include tab-portrait {
+          max-width: 160px;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -46,6 +51,11 @@
     left: 0;
     bottom: 0;
     margin-bottom: 0;
+
+    @include tab-portrait {
+      object-fit: contain;
+      max-width: 296px;
+    }
   }
 
   .sidebar-nav {
@@ -64,6 +74,14 @@
       &::-webkit-scrollbar { /* WebKit */
         width: 0;
         height: 0;
+      }
+
+      @include custom(1000) {
+        max-height: 80%;
+      }
+
+      @include phones {
+        max-height: 74%;
       }
 
       >li {
@@ -303,45 +321,45 @@
       
       @include custom(1000) {
         @include flex-init();
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
         position: absolute;
-        bottom: 60px;
         left: 0;
         right: 0;
-        /* background: silver; */
+        bottom: 60px;
         padding: 0;
         margin: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
       }
       >.a-link {
-        width: 100%;
         display: block;
         position: relative;
+        width: 100%;
         margin: 0;
         border: 0;
         margin-bottom: 1rem;
 
         >.button {
+          outline: none;
           border-radius: 4px;
           text-align: center;
           font-size: 16px;
           font-weight: 500;
           padding: 11px 25px;
-          background-color: #ffffff;
+          background-color: $white;
           border: 1px solid #e1e1e1;
-          color: #123049;
+          color: $blue-darken;
           text-decoration: none;
           width: 100%;
         }
       } 
 
       >.theme-switch-wrapper {
-        display: flex;
-        align-items: center;
+        @include flex-init();
+        @include align-items(center);
         text-align: center;
         margin-left: 1.5rem;
         top: 0.5rem;
@@ -414,6 +432,17 @@
       -webkit-transform: translateX(var(--sidebar-width));
       transform: translateX(var(--sidebar-width));
     }
+
+    @include tab-portrait {
+      left: 0;
+      width: 85%;
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+
+      .app-name, .sidebar-nav {
+        padding-left: 20px;
+      }
+    }
   }
 }
 
@@ -443,6 +472,20 @@
             a {
               color: $white !important;
             }
+          }
+        }
+      }
+      .menu-mob-act {
+        >.a-link {
+          >.button {
+            background-color: $blue-dark-darken;
+            border: 1px solid rgba(255, 255, 255, 0.17);
+            color: $white;
+          }
+        }
+        .theme-switch-wrapper {
+          .description {
+            color: #d3d3d3;
           }
         }
       }

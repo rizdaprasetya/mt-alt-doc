@@ -27,4 +27,16 @@
 - [![](asset/image/main/midtrans-icons-technical.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
 - [![](asset/image/main/midtrans-icons-technical.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 
+<div class="menu-mob-act">
+    <a href="https://support.midtrans.com/" target="_blank" class="a-link">
+        <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
+    </a>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-theme-mob">
+            <input type="checkbox" id="checkbox-theme-mob" class="checkbox-theme" onclick="changeTheme()">
+            <div class="slider round"></div>
+      </label>
+      <div class="description">Dark Mode</div>
+    </div>
+</div>
 <img src="/asset/revamp/img/capsules.png" class="image-fluid sidebar__capsule" alt />

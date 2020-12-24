@@ -22,6 +22,10 @@
         margin-left: 2%;
     }
 
+    @include phones {
+        display: none;
+    }
+
     p {
         small {
             pointer-events: auto;

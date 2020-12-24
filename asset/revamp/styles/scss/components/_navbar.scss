@@ -32,6 +32,11 @@
     padding-right: 60px;
   }
 
+  @include phones {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .search-new {
     width: 50%;
 
@@ -240,8 +245,8 @@
       Toogle Switch
     */
     .theme-switch-wrapper {
-      display: flex;
-      align-items: center;
+      @include flex-init();
+      @include align-items(center);
       text-align: center;
       margin-left: 1.5rem;
       top: 0.5rem;

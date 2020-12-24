@@ -102,6 +102,10 @@
     margin-left: 4% !important;
   }
 
+  @include phones {
+    margin: 0 1.5rem !important;
+  }
+
   .markdown-section {
     @include paragraf;
     margin-top: 56px;
@@ -109,6 +113,11 @@
     @include custom(1000) {
       padding-top: 2rem !important;
       margin-left: 25px;
+    }
+
+    @include phones {
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .my-card {
