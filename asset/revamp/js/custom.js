@@ -140,15 +140,17 @@ function themeChanger() { // check from localstorage
   //check localstorage
   if(localStorage.getItem('theme') == 'dark') {
     document.getElementsByTagName('body')[0].classList.add('theme__dark')
-    let checkboxThemeEl = document.getElementById('checkbox-theme')
+    let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
     if(checkboxThemeEl) {
-      checkboxThemeEl.checked = true;
+      checkboxThemeEl.forEach(element => {
+        element.checked = true;
+      });
     }
   }
 }
 function changeTheme(param) {
   let body = document.getElementsByTagName('body')[0]
-  let checkboxThemeEl = document.getElementById('checkbox-theme')
+  let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
   if(!localStorage.getItem('theme')) {
     if(body.classList.contains('theme__light')) {
       body.classList.remove('theme__light')
@@ -158,7 +160,9 @@ function changeTheme(param) {
     localStorage.setItem('theme', 'dark')
   } else if(localStorage.getItem('theme') == 'dark') {
     if(checkboxThemeEl) {
-      checkboxThemeEl.checked = false;
+      checkboxThemeEl.forEach(element => {
+        element.checked = false;
+      });
     }
     body.classList.remove('theme__dark')
     //remove local storage

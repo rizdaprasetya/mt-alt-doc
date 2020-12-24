@@ -32,12 +32,12 @@
     <a href="https://support.midtrans.com/" target="_blank" class="a-link">
         <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
     </a>
-    <div class="dropdown">
-        <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
-        <div class="dropdown__panel" id="theme-desktop">
-          <a class="dropdown__link active" id="dark-desktop" onclick="changeTheme('dark')">Dark Mode</a>
-          <a class="dropdown__link" id="light-desktop" onclick="changeTheme('light')">Light Mode</a>
-        </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox-theme-mob">
+            <input type="checkbox" id="checkbox-theme-mob" class="checkbox-theme" onclick="changeTheme()">
+            <div class="slider round"></div>
+      </label>
+      <div class="description">Dark Mode</div>
     </div>
 </div>
 <img src="/asset/revamp/img/capsules.png" class="image-fluid sidebar__capsule" alt />
