@@ -7,7 +7,7 @@ This is the list of payment credentials that you can use on Midtrans **Sandbox e
 
 Payment category:
 - [Card Payment](#card-payments)
-- [E-Wallets](#e-wallets)
+- [E-Money](#e-money)
 - [Bank Transfer](#bank-transfer)
 - [Convenience Store](#convenience-store)
 - [Direct Debit](#direct-debit)
@@ -109,7 +109,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 ?> **[General](#card-number)** card number is used for general feature testing of card payment. <br>
 **[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
 
-### E-Wallets
+### E-Money
 
 |Payment Methods | Description|
 |----------|------------|
