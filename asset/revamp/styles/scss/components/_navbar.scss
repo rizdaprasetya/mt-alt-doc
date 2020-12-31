@@ -631,9 +631,22 @@
         .results-panel {
           &.show {
             background-color: $blue-dark-darken;
-            color: $white;
+            color: $white-gray;
             border-color: rgb(102 104 107 / 13%);
             box-shadow: none;
+
+            h2  {
+              color: $white;
+            }
+
+            .matching-post {
+              &:hover {
+                h2 {
+                  color: $blue;
+                }
+              }
+            }
+
           }
         } 
       }
@@ -667,7 +680,7 @@
     .d-flex {
       .a-link, .dropdown {
         .button {
-          color: $white;
+          color: $white-gray;
         }
       }
 
@@ -692,7 +705,7 @@
 
       .theme-switch-wrapper {
         .description {
-          color: #ffffffb0;
+          color: #ffffff9e;
         }
       }
     }

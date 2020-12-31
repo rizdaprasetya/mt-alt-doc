@@ -224,3 +224,11 @@ function showMenusMob() {
     }
   }
 }
+
+function getCurrentPageTitle() {
+  let selectorMob = document.getElementById('current-menu-mob')
+  const docTitle = document.title
+  if(selectorMob) {
+    selectorMob.innerHTML = docTitle
+  }
+}

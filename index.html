@@ -86,9 +86,7 @@
             <div class="navbar__hamburger" id="hamburger" onclick="showMenusMob()">
                 <img src="/asset/revamp/img/hamburger-menu.png" class="image-fluid">
             </div>
-            <div class="navbar__current-menu ml-3">
-                Home
-            </div>
+            <div class="navbar__current-menu ml-3" id="current-menu-mob"></div>
             <div class="ml-auto">
                 <div class="navbar__search" id="search-button" onclick="searchMob()">
                     <img src="/asset/revamp/icons/midtrans-icons-search.svg" class="image-fluid">
@@ -568,6 +566,9 @@
 
                         //theme Changer
                         themeChanger()
+
+                        //get page title for mobile
+                        getCurrentPageTitle()
 
                     })
 
