@@ -4,11 +4,6 @@
   // --content-max-width                 : 55em;
 
   /* Headings */
-  // --heading-color                     : red;
-  // --heading-font-family               : ;
-  // --heading-font-weight               : ;
-  // --heading-margin                    : 2.5rem 0 0;
-  // --heading-padding                   : ;
   // content h1
   --heading-h1-color: #{$blue-darken};
   --heading-h1-font-family: ;
@@ -30,26 +25,6 @@
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: 500;
 
-  // --heading-h5-border-color: ;
-  // --heading-h5-border-style: solid;
-  // --heading-h5-border-width: ;
-  // --heading-h5-color: ;
-  // --heading-h5-font-family: ;
-  // --heading-h5-font-size: var(--font-size-s);
-  // --heading-h5-font-weight: ;
-  // --heading-h5-margin: ;
-  // --heading-h5-padding: ;
-
-  // --heading-h6-border-color: ;
-  // --heading-h6-border-style: solid;
-  // --heading-h6-border-width: ;
-  // --heading-h6-color: ;
-  // --heading-h6-font-family: ;
-  // --heading-h6-font-size: var(--font-size-xs);
-  // --heading-h6-font-weight: ;
-  // --heading-h6-margin: ;
-  // --heading-h6-padding: ;
-
   // pagination
   --pagination-label-color: #{$blue-lighten};
   --pagination-label-font-size: 1rem;
@@ -68,6 +43,10 @@
   /* Tabs */
   --docsifytabs-tab-background  : var(--mono-tint3);
   --docsifytabs-tab-color       : var(--mono-tint1);
+  
+  /* Code Color */
+  // --code-theme-selector         : rgb(255 203 107 / 89%);
+
 }
 
 /* Custom Content
@@ -691,6 +670,7 @@
                     display: block;
                   }
                 }
+
               }
             }
           }
