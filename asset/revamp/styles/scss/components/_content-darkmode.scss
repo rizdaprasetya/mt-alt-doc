@@ -1,8 +1,17 @@
 //dark mode
 .theme__dark {
   .content {
-    .markdown-section, p, h1, h2, h3 ,h4, a, strong, li {
+    .markdown-section, p, a, li {
+      color: $white-gray !important;
+    }
+    strong {
       color: $white !important;
+    }
+    h1, h2, h3 ,h4 {
+      a, span {
+        color: $white !important;
+      }
+
     }
     .markdown-section {
       .my-card {
@@ -69,7 +78,7 @@
                   background: $bg-table-dark;
               }
               td {
-                  color: $white;
+                  color: $white-gray;
                   strong {
                       color: $white;
                   }
@@ -128,6 +137,10 @@
 
                     .hljs-name {
                       color: rgb(240 113 120 / 89%);
+                    }
+
+                    .hljs-attr, .hljs-number {
+                      color: rgb(240, 113, 120);
                     }
                   } 
 

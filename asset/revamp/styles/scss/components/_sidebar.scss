@@ -457,20 +457,20 @@
         li {
           border-color: #102f51 !important;
           a {
-            color: $white !important;
+            color: $white-gray !important;
 
             img {
               filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
             }
 
             strong {
-              color: $white;
+              color: $white-gray;
             }
           }
 
           .app-sub-sidebar {
             a {
-              color: $white !important;
+              color: $white-gray !important;
             }
           }
         }
