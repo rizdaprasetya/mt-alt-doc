@@ -44,8 +44,7 @@
   --docsifytabs-tab-background  : var(--mono-tint3);
   --docsifytabs-tab-color       : var(--mono-tint1);
   
-  /* Code Color */
-  // --code-theme-selector         : rgb(255 203 107 / 89%);
+
 
 }
 
@@ -661,6 +660,10 @@
                     font-size: 12px !important;
                     line-height: 16px !important;
                     padding: 1px 8px !important;
+                  }
+
+                  .hljs-name {
+                    font-weight: normal;
                   }
                 } 
 
