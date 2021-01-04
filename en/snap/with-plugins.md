@@ -77,7 +77,7 @@ Some of the requirements to continue with the integration process, are listed be
 * PHP version v5.4 or later
 * MySQL version v5.0 or later
 * PHP CURL enabled server/host
-* Download Midtrans plugin for WooCommerce: [Zip](https://github.com/veritrans/SNAP-Woocommerce/archive/master.zip) (Open source on [GitHub](https://github.com/veritrans/SNAP-Woocommerce))
+* Download Midtrans plugin for WooCommerce: [Zip file](https://github.com/veritrans/SNAP-Woocommerce/archive/master.zip) (Open source on [GitHub](https://github.com/veritrans/SNAP-Woocommerce))
 
 #### WooCommerce Plugin Installation
 Select **any one** of the installation options given below.
