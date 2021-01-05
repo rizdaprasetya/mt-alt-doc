@@ -18,6 +18,14 @@
         background: $blue-dark;
         border: 1px solid rgba(222, 234, 245, 0.13);
 
+        a {
+          color: var(--main-bg-color) !important;
+  
+          &:hover {
+            color: var(--main-bg-color) !important;
+          }
+        }
+
         .my-btn {
           &:hover {
             box-shadow: none;
