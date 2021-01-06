@@ -207,7 +207,7 @@
   }
 
   .d-flex {
-    display: flex !important;
+    @include flex-init-important();
     margin-left: auto !important;
 
     @include custom(1000) {
