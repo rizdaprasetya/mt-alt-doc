@@ -25,7 +25,12 @@ Additional options are available if (a) you want to send the *Payment Link* to a
 
 ![Options Payment Link](../../asset/image/paymentlink_options.png)
 
-If the transaction is intended for a specific customer, the *Payment Link* is sent straight to the specified customer’s email address. *Expiration Date* is the last day, the *Payment Link* can be used and accessed. On the other hand, there is a field, called *Maximum Usage*. It indicates the number of times, the link can be accessed by customers. If the number exceeds before expiry date, then the link is no longer accessible to the customers.
+If the transaction is intended for a specific customer, the *Payment Link* is sent straight to the specified customer’s email address. 
+- *Expiration Date* field contains the date and time until when the Payment Link is valid. 
+- *Maximum Usage* field indicates the number of times the link can be accessed. 
+
+The Payment Link is valid until either the *Maximum Usage* number is reached, or the *expiration date/time* is reached, whichever occurs first.
+
 ## Managing Payment Link
 After creating the *Payment Link*, you are redirected to the Payment Link List page where you can view a list of *Payment Links* created. You can copy and share any of your links to your customers. You can see details of the links as well as you can delete your links from this page.
 
@@ -36,6 +41,6 @@ When you click Details, a page with all of the details of the *Payment Link* is 
 ![Details Payment Link](../../asset/image/paymentlink_details.png)
 
 ## Payment Link Page
-When you send the *Payment Link* to customers, they can open the link and it will direct them to Midtrans Payment Page. If there is no specified customer, the customer first needs to enter their details such as Name, Phone, and Email to continue. Next, the user needs to select a payment method and follow the payment instructions. Once the customer has completed the payment, you will receive a notification of the transaction.
+When you send the *Payment Link* to customers, they can open the link and it will direct them to Midtrans Payment Page. If there is no specified customer, the customer first needs to enter their details such as Name, Phone, and Email to continue. Next, the customer needs to select a payment method and follow the payment instructions. Once the customer has completed the payment, you will receive a notification of the transaction.
 
 ![Create Payment Link](../../asset/image/paymentlink-test-payment.png ':size=400')
