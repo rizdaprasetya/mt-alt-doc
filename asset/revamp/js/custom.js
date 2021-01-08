@@ -244,6 +244,7 @@ function replaceLogoImageDarkMode(theme) {
   setTimeout(() => {
     //replace all midtrans logo to white
     let getAllImg = document.querySelectorAll('img')
+    console.log(getAllImg)
     if(getAllImg) {
       getAllImg.forEach(element => {
         let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
