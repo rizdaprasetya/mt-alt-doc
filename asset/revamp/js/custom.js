@@ -146,6 +146,9 @@ function themeChanger() { // check from localstorage
         element.checked = true;
       });
     }
+
+    replaceLogoImageDarkMode('dark')
+    
   }
 }
 function changeTheme(param) {
@@ -158,6 +161,7 @@ function changeTheme(param) {
     body.classList.add('theme__dark')
     //store to local storage
     localStorage.setItem('theme', 'dark')
+    replaceLogoImageDarkMode('dark')
   } else if(localStorage.getItem('theme') == 'dark') {
     if(checkboxThemeEl) {
       checkboxThemeEl.forEach(element => {
@@ -167,6 +171,7 @@ function changeTheme(param) {
     body.classList.remove('theme__dark')
     //remove local storage
     localStorage.removeItem('theme')
+    replaceLogoImageDarkMode('light')
   } else {
     return false
   }
@@ -230,5 +235,18 @@ function getCurrentPageTitle() {
   const docTitle = document.title
   if(selectorMob) {
     selectorMob.innerHTML = docTitle
+  }
+}
+
+function replaceLogoImageDarkMode(theme) {
+  //replace all midtrans logo to white
+  let getAllImg = document.querySelectorAll('img')
+  if(getAllImg) {
+    getAllImg.forEach(element => {
+      let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
+      if(element.currentSrc.indexOf(checkSrc) !== -1) {
+        element.src = theme == 'dark' ? "/asset/revamp/img/midtrans-logo-white.png" : "/asset/image/main/midtrans-logo.png"
+      }
+    });
   }
 }
