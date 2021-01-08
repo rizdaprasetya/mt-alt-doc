@@ -6,22 +6,25 @@
   /* Headings */
   // content h1
   --heading-h1-color: #{$blue-darken};
-  --heading-h1-font-family: ;
+  --heading-h1-font-family: #{$poppins}, sans-serif;
   --heading-h1-font-size: 2.625rem;
   --heading-h1-font-weight: bold;
 
   // content h2
   --heading-h2-color: #{$blue-darken};
+  --heading-h2-font-family: #{$poppins}, sans-serif;
   --heading-h2-font-size: 1.5rem;
   --heading-h2-font-weight: bold;
 
   // content h3
   --heading-h3-color: #{$blue-darken};
+  --heading-h3-font-family: #{$poppins}, sans-serif;
   --heading-h3-font-size: 1.25rem;
   --heading-h3-font-weight: bold;
 
   //content h4
   --heading-h4-color: #{$blue-darken};
+  --heading-h4-font-family: #{$poppins}, sans-serif;
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: 500;
 
@@ -43,17 +46,16 @@
   /* Tabs */
   --docsifytabs-tab-background  : var(--mono-tint3);
   --docsifytabs-tab-color       : var(--mono-tint1);
-  
-
 
 }
 
 /* Custom Content
 ============================================================================= */
 @mixin paragraf {
-  font-size: 1rem;
+  font-family: $proximaNova, sans-serif;
+  font-size: 1.125rem;
   color: $blue-lighten;
-  line-height: 24px;
+  line-height: 26px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: 0.5px;
@@ -125,9 +127,9 @@
       }
 
       p {
-        font-size: 16px;
+        font-size: 1.125rem;
         color: $blue-lighten;
-        line-height: 24px;
+        line-height: 26px;
         text-align: left !important;
         margin-left: 0;
         margin-right: 0;
@@ -388,6 +390,7 @@
     }
 
     code {
+        font-family: monospace;
         background-color: rgba(75, 143, 198, 0.16) !important;
         padding: 2px 4px !important;
         color: inherit !important;
@@ -405,8 +408,8 @@
         line-height: normal;
 
         p {
-          font-size: 16px;
-          line-height: normal;
+          font-size: 1.125rem;
+          // line-height: normal;
         }
 
         a {
@@ -527,6 +530,7 @@
         @include flex(0 0 48%);
 
         a {
+          font-family: $poppins, sans-serif;
           .pagination-item-label {
             opacity: 1;
             text-transform: uppercase;
@@ -539,6 +543,7 @@
           }
 
           .pagination-item-title {
+            font-family: $poppins, sans-serif;
             font-style: normal;
             font-weight: bold;
             font-size: 24px;
@@ -558,8 +563,9 @@
 
       thead {
         th {
-          font-weight: 500;
-          font-size: 16px;
+          font-family: $ProximaNova-Bold, sans-serif;
+          // font-weight: bold;
+          font-size: 1.125rem;
           line-height: 1.5;
           color: $blue-darken;
           text-align: left;
@@ -585,14 +591,16 @@
           td {
             border: none;
             color: $blue-lighten;
-            font-size: 16px;
             line-height: normal;
             font-weight: normal;
             padding: 20px;
             vertical-align: top;
             text-align: left;
+            font-family: $proximaNova, sans-serif;
+            font-size: 1.125rem;
 
             strong {
+              font-family: $ProximaNova-Bold, sans-serif;
               font-weight: bold;
             }
 
@@ -626,6 +634,7 @@
     //pre code custom highlight
     pre[data-lang] {
       code {
+        font-family: monospace;
         padding: 0 !important;
         border-radius: 8px !important;
         background: $bg-code !important;
@@ -644,6 +653,10 @@
 
               tr {
                 width: 100%;
+
+                td {
+                  font-family: monospace;
+                }
 
                 .hljs-ln-line {
                   &.hljs-ln-numbers {
@@ -689,6 +702,7 @@
         }
       }
       &::after {
+        top: 0.25em;
         pointer-events: none;
       }
     }

@@ -2,7 +2,7 @@
 ============================================================================= */
 :root {
     --base-background-color: #{$bg-blue} ;
-    --base-boder-color     : #deeaf5;
+    --base-boder-color     : #{$grey-border};
     // --base-color           : var(--mono-shade2);
     --base-font-family     : $poppins, sans-serif;
     --base-font-size       : 16px;
@@ -11,9 +11,10 @@
     --base-line-height     : 1.7;
 
     /* Horizontal Rule */
-    --hr-border            : 1px solid #deeaf5;
+    --hr-border            : 1px solid #{$grey-border};
 }
 
+/* Menlo Font */
 @font-face {
     font-family: 'Menlo';
     font-style: normal;
@@ -21,6 +22,44 @@
     font-display: swap;
     src: url('./fonts/Menlo-Regular.ttf') format('truetype');
 }
+
+/* Proxima Nova Fonts */
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('./fonts/ProximaNova/ProximaNova-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Black';
+    src: url('./fonts/ProximaNova/ProximaNovaBlack.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Bold';
+    src: url('./fonts/ProximaNova/ProximaNovaBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-ExtraBold';
+    src: url('./fonts/ProximaNova/ProximaNovaExtrabold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Thin';
+    src: url('./fonts/ProximaNova/ProximaNovaExtrabold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 html, body{
     padding: 0;
