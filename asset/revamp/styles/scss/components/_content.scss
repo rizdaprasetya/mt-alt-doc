@@ -728,25 +728,42 @@
     }
   }
   .cards-r-3 {
+    &:after {
+      content: "";
+      @include flex(0 1 31%);
+    }
+
     .my-card {
       @include flex(0 0 31%);
     }
   }
   .cards-r-4 {
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+
+    @include custom(1280) {
+      grid-template-columns: 24.5% 24.5% 24.5% 24.5%;
+      
+    }
+
+    @include tab-landscape {
+      grid-template-columns: 25% 25% 25% 25%;
+      
+    }
+
+    @include custom(782) {
+      grid-template-columns: 31% 31% 31%;
+    }
+
+    @include phones {
+      grid-template-columns: 100%;
+    }
+
     .my-card {
-      @include flex(0 0 23%);
-
-      @include custom(1280) {
-        @include flex(0 0 24.5%);
-      }
-
-      @include tab-landscape {
-        @include flex(0 0 25%);
-      }
     }
   }
 
-  .cards-r-2, .cards-r-3, .cards-r-4 {
+  .cards-r-2, .cards-r-3 {
     .my-card {
       @include phones {
         @include flex(0 0 100%);

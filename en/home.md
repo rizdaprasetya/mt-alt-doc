@@ -229,6 +229,21 @@ Not familiar with programming, technical integration, and all the complexity? He
   Identify causes and build automatic retries.
 
   </div>
+  <div class="my-card">
+
+  #### [Payouts](/en/payment-link/overview.md)
+
+  Get paid how you want, on your schedule.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+  
 </div>
 
 <hr/> 
@@ -262,4 +277,19 @@ Not familiar with programming, technical integration, and all the complexity? He
   Identify causes and build automatic retries.
 
   </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+  
 </div>
