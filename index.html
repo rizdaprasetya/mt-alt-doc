@@ -605,6 +605,13 @@
 
                         },500)
 
+
+                        setTimeout(() => {
+                            if(localStorage.getItem('theme') == 'dark') {
+                                replaceLogoImageDarkMode('dark')
+                            }
+                        }, 600);
+
                     })
 
                 }
