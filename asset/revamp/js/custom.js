@@ -147,7 +147,13 @@ function themeChanger() { // check from localstorage
       });
     }
     
-    replaceLogoImageDarkMode('dark')
+    
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        replaceLogoImageDarkMode('dark')
+      }, 200)
+    })
     
   }
 }
@@ -254,5 +260,6 @@ function replaceLogoImageDarkMode(theme) {
       });
     }
   }, 100);
+  
   
 }
