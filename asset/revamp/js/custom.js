@@ -3,7 +3,7 @@ function getRightSideBarContent() {
     //right sidebar content
     let sideBarSelector = document.getElementById('right-bar-content')
     let sideBarContens = ''
-    let getAllTitle = document.querySelectorAll("h2")
+    let getAllTitle = document.querySelectorAll("h2,h3")
 
     if(getAllTitle.length == 0) {
       getAllTitle = document.querySelectorAll("h1");
@@ -13,8 +13,9 @@ function getRightSideBarContent() {
       getAllTitle.forEach(element => {
         let titleText = element.innerText
         let titleId = element.id
+        
         if(titleId) {
-          sideBarContens += '<li class="sidebar__right-list"><a href="?id='+ titleId +'" class="sidebar__right-link sidebar__right-link--active">'+ titleText +'</a></li>'
+          sideBarContens += '<li class="sidebar__right-list '+ element.localName  +'"><a href="?id='+ titleId +'" class="sidebar__right-link sidebar__right-link--active">'+ titleText +'</a></li>'
         }
       });
 
@@ -46,7 +47,7 @@ function accordionLabelTag() {
 // add active to right side menus on scroll
 function rightMenusActiveScroll() {
   setTimeout(() => {
-    let contents = document.querySelectorAll('h2[id]');
+    let contents = document.querySelectorAll('h2[id], h3[id]');
     const navLinks = document.querySelectorAll(".sidebar__right-list");
 
     if(contents.length == 0) {
