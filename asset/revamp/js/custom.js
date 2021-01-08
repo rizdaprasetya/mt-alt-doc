@@ -154,15 +154,17 @@ function themeChanger() { // check from localstorage
 function changeTheme(param) {
   let body = document.getElementsByTagName('body')[0]
   let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
-  if(!localStorage.getItem('theme')) {
+  if(!localStorage.getItem('theme')) { // set to dark mode
+    replaceLogoImageDarkMode('dark')
     if(body.classList.contains('theme__light')) {
       body.classList.remove('theme__light')
     }
     body.classList.add('theme__dark')
     //store to local storage
     localStorage.setItem('theme', 'dark')
-    replaceLogoImageDarkMode('dark')
-  } else if(localStorage.getItem('theme') == 'dark') {
+    
+  } else if(localStorage.getItem('theme') == 'dark') { // set to light mode
+    replaceLogoImageDarkMode('light')
     if(checkboxThemeEl) {
       checkboxThemeEl.forEach(element => {
         element.checked = false;
@@ -171,7 +173,6 @@ function changeTheme(param) {
     body.classList.remove('theme__dark')
     //remove local storage
     localStorage.removeItem('theme')
-    replaceLogoImageDarkMode('light')
   } else {
     return false
   }
