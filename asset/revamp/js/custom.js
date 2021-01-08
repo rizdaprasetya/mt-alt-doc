@@ -252,6 +252,6 @@ function replaceLogoImageDarkMode(theme) {
         }
       });
     }
-  }, 100);
+  }, 150);
   
 }
