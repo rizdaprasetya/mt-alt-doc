@@ -249,6 +249,7 @@ function replaceLogoImageDarkMode(theme) {
       getAllImg.forEach(element => {
         let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
         console.log(checkSrc,"checkSrc")
+        console.log('element', element)
         console.log('element.currentSrc', element.currentSrc)
         if(element.currentSrc.indexOf(checkSrc) !== -1) {
           console.log('element', element)
