@@ -147,13 +147,7 @@ function themeChanger() { // check from localstorage
       });
     }
     
-    
-
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        replaceLogoImageDarkMode('dark')
-      }, 200)
-    })
+    replaceLogoImageDarkMode('dark')
     
   }
 }
@@ -253,13 +247,11 @@ function replaceLogoImageDarkMode(theme) {
       getAllImg.forEach(element => {
         let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
         if(element.currentSrc.indexOf(checkSrc) !== -1 || element.currentSrc.includes(checkSrc)) {
-          // console.log('running', element)
           element.src = theme == 'dark' ? "/asset/revamp/img/midtrans-logo-white.png" : "/asset/image/main/midtrans-logo.png"
-          // console.log(element.src,"element.src")
         }
       });
     }
-  }, 100);
+  }, 500);
   
   
 }
