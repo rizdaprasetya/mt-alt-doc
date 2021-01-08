@@ -2,7 +2,7 @@
 <hr>
 
 #### 2021/01/04
-- copy writing improvement on Snap plugins, interactive demo
+- copy writing improvement on Snap plugins, interactive demo, & payment link
 - fix echannel Core API sample json
 
 #### 2020/12/22

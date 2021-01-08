@@ -415,7 +415,24 @@ Or try the demo here:
 <p style="text-align: center;">
   <button onclick="
   event.target.innerText = `Processing...`;
-  fetch(`https://cors-anywhere.herokuapp.com/https://midtrans.com/api/request_snap_token`)
+  var reqHeaders = new Headers();
+  reqHeaders.append('Accept', 'application/json');
+  reqHeaders.append('Content-Type', 'application/json');
+  reqHeaders.append('Authorization', 'Basic '+btoa('SB-Mid-server-GwUP_WGbJPXsDzsNEBRs8IYA:'));
+  var reqOpts = {
+    method: 'POST',
+    headers: reqHeaders,
+    body: JSON.stringify({
+      'transaction_details':{
+        'order_id':'demo-docs-main-'+Math.round((new Date()).getTime()/1),
+        'gross_amount':10000
+      },
+      'credit_card':{
+        'secure':true
+      }
+    })
+  };
+  fetch('https://cors-anywhere.herokuapp.com/https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
     .then(res=>res.json())
     .then(res=>{
       let snapToken = res.token;
@@ -426,8 +443,8 @@ Or try the demo here:
       });
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Pay with Snap &#9099;` })
-  " class="my-btn">Try Snap Demo &#9099;</button>
+    .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
+  " class="my-btn">Try Snap Payment Interface ⎋</button>
 </p>
 
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
