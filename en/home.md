@@ -175,3 +175,91 @@ Not familiar with programming, technical integration, and all the complexity? He
 - You can use ready to use Content Management System (CMS) to create online store. If you are familiar with setting up CMS (**WordPress - WooCommerce, Magento, PrestaShop, OpenCart, WHMCS**, and so on), you can install Midtrans plugin/extension to start accepting payment right away! The payment status feature on the CMS will automatically be updated in real time using the payment status provided by Midtrans. Check out [Midtrans list of supported CMS plugin/extension](/en/snap/with-plugins.md).
 
 - You can also integrate Midtrans to third party e-commerce solution (**Shopify, Sirclo, Jejualan**, and so on) to start accepting payments. These third-party e-commerce solutions are user-friendly and require very minimal setup. Check out [Midtrans list of supported 3rd party Ecommerce platform](/en/snap/platform/overview.md).
+
+
+<!-- //example -->
+<hr/> 
+<!-- 1 row 2 columns -->
+<div class="cards-r-2">
+  <div class="my-card">
+
+  #### [How cards work](/en/payment-link/overview.md)
+
+  See how a credit or debit card payment works online, step by step.
+
+  </div>
+  <div class="my-card">
+
+  #### [Payouts](/en/payment-link/overview.md)
+
+  Get paid how you want, on your schedule.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+</div>
+
+
+<hr/> 
+<!-- 1 row 3 columns -->
+<div class="cards-r-3">
+  <div class="my-card">
+
+  #### [How cards](/en/payment-link/overview.md)
+
+  See how a credit or debit card payment works online, step by step.
+
+  </div>
+  <div class="my-card">
+
+  #### [Payouts](/en/payment-link/overview.md)
+
+  Get paid how you want, on your schedule.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+</div>
+
+<hr/> 
+<!-- 1 row 4 columns -->
+<div class="cards-r-4">
+  <div class="my-card">
+
+  #### [How cards](/en/payment-link/overview.md)
+
+  See how a credit or debit card payment works online, step by step.
+
+  </div>
+  <div class="my-card">
+
+  #### [Payouts](/en/payment-link/overview.md)
+
+  Get paid how you want, on your schedule.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+  <div class="my-card">
+
+  #### [Declines](/en/payment-link/overview.md)
+
+  Identify causes and build automatic retries.
+
+  </div>
+</div>

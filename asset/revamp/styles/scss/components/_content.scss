@@ -714,6 +714,47 @@
     }
 
   }
+
+  //cards 1 row 2 column
+  .cards-r-2, .cards-r-3, .cards-r-4 {
+    @include flex-init();
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+  }
+
+  .cards-r-2 {
+    .my-card {
+      @include flex(0 0 48%);
+    }
+  }
+  .cards-r-3 {
+    .my-card {
+      @include flex(0 0 31%);
+    }
+  }
+  .cards-r-4 {
+    .my-card {
+      @include flex(0 0 23%);
+
+      @include custom(1280) {
+        @include flex(0 0 24.5%);
+      }
+
+      @include tab-landscape {
+        @include flex(0 0 25%);
+      }
+    }
+  }
+
+  .cards-r-2, .cards-r-3, .cards-r-4 {
+    .my-card {
+      @include phones {
+        @include flex(0 0 100%);
+      }
+    }
+  }
+
+
 }
 
 //dark mode
