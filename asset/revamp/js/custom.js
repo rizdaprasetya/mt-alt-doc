@@ -247,12 +247,13 @@ function replaceLogoImageDarkMode(theme) {
     console.log(getAllImg)
     if(getAllImg) {
       getAllImg.forEach(element => {
-        let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
-        console.log(checkSrc,"checkSrc")
-        console.log('element', element)
-        console.log('element.currentSrc', element.currentSrc)
+        // let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
+        let checkSrc = "midtrans-logo.png"
+        // console.log(checkSrc,"checkSrc")
+        // console.log('element', element)
+        // console.log('element.currentSrc', element.currentSrc)
         if(element.currentSrc.indexOf(checkSrc) !== -1) {
-          console.log('element', element)
+          console.log('running', element)
           element.src = theme == 'dark' ? "/asset/revamp/img/midtrans-logo-white.png" : "/asset/image/main/midtrans-logo.png"
           console.log(element.src,"element.src")
         }
