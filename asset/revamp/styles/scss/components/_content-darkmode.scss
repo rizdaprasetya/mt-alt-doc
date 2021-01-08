@@ -18,6 +18,11 @@
         background: $blue-dark;
         border: 1px solid rgba(222, 234, 245, 0.13);
 
+        &:hover {
+          border-color: rgba(5, 79, 191, 0.33);
+          box-shadow: rgb(166 177 187 / 8%) 0px 10.8px 10.8px 1.35px;
+        }
+
         a {
           color: var(--main-bg-color) !important;
   

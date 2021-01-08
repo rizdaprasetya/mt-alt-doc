@@ -109,7 +109,9 @@
       box-shadow: none;
 
       &:hover {
-        border-color: $grey-border;
+        // border-color: $grey-border;
+        border-color: #054fbf54;
+        box-shadow: var(--hover-box-shadow);
       }
 
       h4 {
