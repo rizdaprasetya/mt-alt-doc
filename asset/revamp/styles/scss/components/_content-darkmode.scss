@@ -1,11 +1,19 @@
 //dark mode
 .theme__dark {
   .content {
-    .markdown-section, p, a, li {
+    .markdown-section, p, li {
       color: $white-gray !important;
     }
     strong {
       color: $white !important;
+    }
+    a {
+      color: var(--main-bg-color) !important;
+
+      strong {
+        font-weight: bold;
+        color: var(--main-bg-color) !important;
+      }
     }
     h1, h2, h3 ,h4 {
       a, span {

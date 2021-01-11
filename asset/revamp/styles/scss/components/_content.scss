@@ -379,14 +379,14 @@
       margin-right: 0;
 
       a {
-        color: #054fbf;
+        color: $blue-link-darken;
 
         strong {
-          color: #054fbf;
+          color: $blue-link-darken;
         }
 
         &:hover {
-          color: #054fbf;
+          color: $blue-link-darken;
         }
       }
     }
@@ -416,11 +416,11 @@
 
         a {
           strong {
-            color: #054fbf;
+            color: $blue-link-darken;
           }
 
           &:hover {
-            color: #054fbf;
+            color: $blue-link-darken;
           }
         }
       }
