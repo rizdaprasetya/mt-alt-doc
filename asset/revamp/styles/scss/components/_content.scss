@@ -207,10 +207,10 @@
 
       &:hover,
       &:focus {
-        border-color: $blueBorderAccordion;
-        filter: none;
-        transform: none;
-        box-shadow: 0 2px 4px 0 rgba(32, 32, 34, 0.02);
+        border-color: silver;
+        filter: brightness(110%);
+        box-shadow: var(--high-box-shadow);
+        transform: scale(1.01) translate(0em, -0em);
       }
 
       b {
