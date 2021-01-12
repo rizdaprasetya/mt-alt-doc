@@ -103,11 +103,6 @@
                     <a class="dropdown__link" target="_blank" href="https://midtrans-advanced-faq.netlify.com/#/faq-general">Technical FAQ</a>
                 </div>
             </div>
-
-            <!-- <a href="https://support.midtrans.com/" target="_blank" class="a-link">
-                <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
-            </a> -->
-
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox-theme">
                     <input type="checkbox" id="checkbox-theme" class="checkbox-theme" onclick="changeTheme()">
@@ -116,13 +111,6 @@
               <div class="description">Dark Mode</div>
             </div>
 
-            <!-- <div class="dropdown">
-                <a class="button button__transparent-blue navbar__dropdown dropdown__button">Theme</a>
-                <div class="dropdown__panel" id="theme-desktop">
-                    <a class="dropdown__link active" id="dark-desktop" onclick="changeTheme('dark')">Dark Mode</a>
-                    <a class="dropdown__link" id="light-desktop" onclick="changeTheme('light')">Light Mode</a>
-                </div>
-            </div> -->
         </div>
         <!-- END BUTTON  Menus-->
 
@@ -612,11 +600,25 @@
                                 searchResultEl.addEventListener('click', () => {
                                     console.log('clicked');
                                     searchResultEl.classList.add('clicked')
-
                                     // need re-run function here
 
                                 });
                             }
+
+                            //handle click outside search
+                            window.addEventListener('click', function(e){   
+                            if (sidebarSearchNew.contains(e.target)){
+                                // Clicked in box
+                            } else{
+                                // Clicked outside the box
+                                searchResultEl.classList.add('clicked')
+                                const btnCloseSearch = document.querySelector('.clear-button.show')
+                                if(btnCloseSearch) {
+                                    btnCloseSearch.click()
+                                }
+                            }
+                            });
+
 
                         },500)
 
