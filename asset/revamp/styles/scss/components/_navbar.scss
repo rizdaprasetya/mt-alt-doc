@@ -198,6 +198,10 @@
         }
         &.clicked {
           display: none;
+
+          @include custom(1000) {
+            display: block;
+          }
         }
       }
 
