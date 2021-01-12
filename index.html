@@ -230,7 +230,6 @@
                  * @HACK: Not extensively tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
                 function (hook, vm) {
-                    console.log('ter jungkir')
                     hook.doneEach(function(){
                         // @HACK: use $docsify.logo as assetPath source, detect any extension
                         // might break when $docsify.logo is changed.
@@ -540,7 +539,6 @@
                 function(hook,vm){
                     hook.doneEach(function(){
                         //custom highlight
-                        // console.log('testt', document.querySelectorAll('pre code'))
                         document.querySelectorAll('pre code').forEach((block) => {
                             //ignore lang-
                             if( !block.classList.contains('lang-') ) {
@@ -567,8 +565,6 @@
 
                         //get page title for mobile
                         getCurrentPageTitle()
-
-                        console.log('runnign when page change')
 
                     })
 
