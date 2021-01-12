@@ -53,9 +53,9 @@
 ============================================================================= */
 @mixin paragraf {
   font-family: $proximaNova, sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   color: $blue-lighten;
-  line-height: 26px;
+  line-height: 24px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: 0.5px;
@@ -129,9 +129,9 @@
       }
 
       p {
-        font-size: 1.125rem;
+        font-size: 1.1rem;
         color: $blue-lighten;
-        line-height: 26px;
+        line-height: 24px;
         text-align: left !important;
         margin-left: 0;
         margin-right: 0;
@@ -406,7 +406,7 @@
           &.token {
             font-size: 12px !important;
             line-height: 16px !important;
-            padding: 1px 8px !important;
+            // padding: 1px 8px !important;
           }
         }
     }
@@ -415,14 +415,14 @@
       // margin-top: 40px;
 
       li {
-        margin: 20px 0;
+        margin: 3px 0;
         color: $blue-lighten;
-        font-size: 16px;
-        padding: 0 12px;
-        line-height: normal;
+        font-size: 1.1rem;
+        line-height: 24px;
+        padding: 0 5px;
 
         p {
-          font-size: 1.125rem;
+          font-size: 1.1rem;
           // line-height: normal;
         }
 
@@ -579,8 +579,9 @@
         th {
           font-family: $ProximaNova-Bold, sans-serif;
           // font-weight: bold;
-          font-size: 1.125rem;
-          line-height: 1.5;
+          font-size: 1.1rem;
+          // line-height: 1.5;
+          line-height: 24px;
           color: $blue-darken;
           text-align: left;
           background: #f7fcff;
@@ -605,13 +606,14 @@
           td {
             border: none;
             color: $blue-lighten;
-            line-height: normal;
+            // line-height: normal;
             font-weight: normal;
             padding: 20px;
             vertical-align: top;
             text-align: left;
             font-family: $proximaNova, sans-serif;
-            font-size: 1.125rem;
+            font-size: 1.1rem;
+            line-height: 24px;
 
             strong {
               font-family: $ProximaNova-Bold, sans-serif;
@@ -633,15 +635,20 @@
         margin: 1em 0;
 
         li {
-            margin: 20px 0;
+            margin: 3px 0;
             color: $blue-lighten;
-            font-size: 16px;
-            padding: 0 12px;
+            font-size: 1.1rem;
+            line-height: 24px;
+            padding: 0 5px;
          
         }
 
         ul {
           margin-top: 0.15rem;
+        }
+
+        p {
+          margin: 3px 0;
         }
     }
 
