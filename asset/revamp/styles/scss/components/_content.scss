@@ -245,9 +245,12 @@
           article {
             background-color: transparent;
             border: none;
-
             -ms-overflow-style: none; /* Internet Explorer 10+ */
             scrollbar-width: none; /* Firefox */
+            border: 1px solid $blueBorderAccordion;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: #ffffff47;
 
             &::-webkit-scrollbar {
               display: none; /* Safari and Chrome */
