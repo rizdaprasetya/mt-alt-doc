@@ -416,6 +416,11 @@
         p {
           font-size: 1.1rem;
           // line-height: normal;
+          br {
+            content: "" !important;
+            display: block !important;
+            margin-bottom: 5px !important;
+          }
         }
 
         a {
