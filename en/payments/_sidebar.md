@@ -28,9 +28,14 @@
 - [![](asset/image/main/midtrans-icons-technical.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 
 <div class="menu-mob-act">
-    <a href="https://support.midtrans.com/" target="_blank" class="a-link">
-        <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
-    </a>
+    <div class="menu-mob-act flex-row j-content-between">
+      <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
+          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">General FAQ</button>
+      </a>
+      <a href="https://midtrans-advanced-faq.netlify.com/#/faq-general" target="_blank" class="a-link flex-49">
+          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">Technical FAQ</button>
+      </a>
+    </div>
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox-theme-mob">
             <input type="checkbox" id="checkbox-theme-mob" class="checkbox-theme" onclick="changeTheme()">

@@ -95,9 +95,18 @@
         </div>
         <!-- BUTTON Menus-->
         <div class="d-flex ml-auto" style="opacity: 0;">
-            <a href="https://support.midtrans.com/" target="_blank" class="a-link">
+
+            <div class="dropdown">
+                <a class="button button__transparent-blue navbar__dropdown dropdown__button">Help center</a>
+                <div class="dropdown__panel">
+                    <a class="dropdown__link " target="_blank" href="https://support.midtrans.com/">General FAQ</a>
+                    <a class="dropdown__link" target="_blank" href="https://midtrans-advanced-faq.netlify.com/#/faq-general">Technical FAQ</a>
+                </div>
+            </div>
+
+            <!-- <a href="https://support.midtrans.com/" target="_blank" class="a-link">
                 <button class="button button__transparent-blue" data-micromodal-trigger="modal-1">Help center</button>
-            </a>
+            </a> -->
 
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox-theme">
@@ -233,6 +242,7 @@
                  * @HACK: Not extensively tested on and might broke on sub path, e.g: example.com/sub/path/
                  */
                 function (hook, vm) {
+                    console.log('ter jungkir')
                     hook.doneEach(function(){
                         // @HACK: use $docsify.logo as assetPath source, detect any extension
                         // might break when $docsify.logo is changed.
@@ -570,6 +580,8 @@
                         //get page title for mobile
                         getCurrentPageTitle()
 
+                        console.log('runnign when page change')
+
                     })
 
                     hook.mounted(function(){
@@ -584,7 +596,7 @@
                             
                             sidebarSearchNew.appendChild(sidebarSearch)
 
-                            //eventlistener
+                            //eventlistener for search
                             let searchBoxEl = document.querySelector('.search-new .input-wrap')
                             let searchResultEl = document.querySelector('.search-new .results-panel')
 
@@ -600,6 +612,9 @@
                                 searchResultEl.addEventListener('click', () => {
                                     console.log('clicked');
                                     searchResultEl.classList.add('clicked')
+
+                                    // need re-run function here
+
                                 });
                             }
 

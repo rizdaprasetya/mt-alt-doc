@@ -397,6 +397,15 @@
         padding: 2px 4px !important;
         color: inherit !important;
         font-size: 1rem !important;
+        line-height: 16px !important;
+
+        span {
+          &.token {
+            font-size: 12px !important;
+            line-height: 16px !important;
+            padding: 1px 8px !important;
+          }
+        }
     }
 
     ul {

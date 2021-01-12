@@ -315,7 +315,7 @@
         display: block;
         position: absolute;
         top: 50%;
-        right: 20px;
+        right: 0;
         transform: translateY(-50%) rotate(270deg);
         transition: 0.3s ease;
         background-image: url('/asset/revamp/icons/icon_arrow.svg');
@@ -334,7 +334,7 @@
       .navbar__dropdown {
         @extend .button;
         font-family: $poppins, sans-serif;
-        padding: 6px 12px;
+        padding: 6px 18px 6px 12px;
         text-align: center;
         vertical-align: middle;
         display: inline-block;
