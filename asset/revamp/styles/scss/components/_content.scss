@@ -64,6 +64,10 @@
   margin-right: 25px;
   max-width: 100%;
   margin-left: 8%;
+
+  @include tab-portrait {
+    letter-spacing: normal;
+  }
 }
 
 @mixin remove-border-bottom {
@@ -136,6 +140,10 @@
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 0;
+
+        @include tab-portrait {
+          letter-spacing: normal;
+        }
 
         a {
           color: $blue-link-darken;
@@ -413,8 +421,16 @@
         line-height: 24px;
         padding: 0 5px;
 
+        @include tab-portrait {
+          letter-spacing: normal;
+        }
+
         p {
           font-size: 1.1rem;
+
+          @include tab-portrait {
+            letter-spacing: normal;
+          }
           // line-height: normal;
           br {
             content: "" !important;
@@ -584,6 +600,10 @@
           background: #f7fcff;
           border-bottom: none;
 
+          @include tab-portrait {
+            letter-spacing: normal;
+          }
+
           &:focus {
             outline: 0px !important;
             -webkit-appearance: none;
@@ -612,6 +632,10 @@
             font-size: 1.1rem;
             line-height: 24px;
 
+            @include tab-portrait {
+              letter-spacing: normal;
+            }
+
             strong {
               font-family: $ProximaNova-Bold, sans-serif;
               font-weight: bold;
@@ -637,6 +661,10 @@
             font-size: 1.1rem;
             line-height: 24px;
             padding: 0 5px;
+
+            @include tab-portrait {
+              letter-spacing: normal;
+            }
          
         }
 

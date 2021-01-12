@@ -327,7 +327,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 60px;
+        bottom: 52px;
         padding: 0;
         margin: 0;
         width: 100%;
@@ -340,7 +340,7 @@
         width: 100%;
         margin: 0;
         border: 0;
-        margin-bottom: 1rem;
+        // margin-bottom: 1rem;
 
         >.button {
           outline: none;
@@ -361,7 +361,7 @@
         @include flex-init();
         @include align-items(center);
         text-align: center;
-        margin-left: 1.5rem;
+        // margin-left: 1.5rem;
         top: 0.5rem;
         right: 0;
   
