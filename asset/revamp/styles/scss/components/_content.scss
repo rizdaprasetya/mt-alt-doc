@@ -706,11 +706,15 @@
 
                 .hljs-ln-line {
                   &.hljs-ln-numbers {
-                    padding: 1px 8px !important;
+                    padding: 0px 8px !important;
                     background: rgba(75, 143, 198, 0.16);
                     color: #637587;
                     font-size: 13px !important;
                     width: 32px;
+
+                    > .hljs-ln-n {
+                      line-height: normal;
+                    }
                   }
 
                   &.hljs-ln-code {
@@ -718,7 +722,7 @@
                     padding: 0 10px !important;
                     font-size: 12px !important;
                     line-height: 16px !important;
-                    padding: 1px 8px !important;
+                    padding: 0px 8px !important;
                   }
 
                   .hljs-name {
