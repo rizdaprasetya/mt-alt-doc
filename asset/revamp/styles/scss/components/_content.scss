@@ -681,6 +681,12 @@
     pre[data-lang] {
       .code-badge {
         font-size: 0.675rem;
+        padding: 0;
+        padding-left: 5px;
+        
+        .code-badge-language {
+          margin-right: 0;
+        }
       }
       code {
         font-family: monospace;
