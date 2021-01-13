@@ -73,6 +73,8 @@
 
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">     
 
 
     <title>Midtrans Technical Documentation</title>
@@ -543,13 +545,48 @@
                             //ignore lang-
                             if( !block.classList.contains('lang-') ) {
                                 hljs.highlightBlock(block); 
-                            }
-                                
+                            }  
                         });
                                                    
                         hljs.initLineNumbersOnLoad({
                             singleLine: true
                         }); 
+
+                        // add badge copy to clipboard
+                        // add HighlightJS-badge (options are optional)
+                        var options = {
+                            // the selector for the badge template
+                            templateSelector: "#CodeBadgeTemplate",
+
+                            // base content CSS selector that is searched for snippets
+                            contentSelector: "body",
+
+                            // Delay in ms used for `setTimeout` before badging is applied
+                            // Use if you need to time highlighting and badge application
+                            // since the badges need to be applied afterwards.
+                            // 0 - direct execution (ie. you handle timing
+                            loadDelay: 0,
+
+                            // CSS class(es) used to render the copy icon.
+                            copyIconClass: "fa fa-copy",     
+                            // optional content for icons class (<i class="fa fa-copy"></i> or <i class="material-icons">file_copy</i>)
+                            copyIconContent: "",
+
+                            // CSS class(es) used to render the done icon.
+                            checkIconClass: "fa fa-check text-success",
+                            checkIconContent: "",
+
+                            // function called before code is placed on clipboard that allows you inspect and modify
+                            // the text that goes onto the clipboard. Passes text and code root element (hljs).
+                            // Example:  function(text, codeElement) { return text + " $$$"; }
+                            // hook to allow modifying the text before it's pasted
+                            onBeforeTextCopied: function(text, codeElement) {
+                                console.log('text', text)
+                                console.log('codeElement', codeElement)
+                                return text;   //  you can fix up the text here
+                            }
+                        };
+                        window.highlightJsBadge(options);
 
                         //get right sidebar content
                         getRightSideBarContent()
@@ -715,6 +752,7 @@
     
     <script
     src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js" crossorigin="anonymous"></script>
+    <script src="/asset/highlightjs-badge.min.js"></script>
 
     <!-- @OPTIMIZE: add snap js only on certain page when needed? -->
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"

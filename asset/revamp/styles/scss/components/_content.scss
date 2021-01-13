@@ -679,6 +679,9 @@
 
     //pre code custom highlight
     pre[data-lang] {
+      .code-badge {
+        font-size: 0.675rem;
+      }
       code {
         font-family: monospace;
         padding: 0 !important;
@@ -752,6 +755,7 @@
         }
       }
       &::after {
+        opacity: 0;
         top: 0.25em;
         pointer-events: none;
       }
