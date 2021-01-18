@@ -191,6 +191,12 @@
           border-top: none;
 
           .matching-post {
+            >a {
+              >p {
+                opacity: 0;
+                display: none;
+              }
+            }
             &:hover {
               color: $blue;
             }
@@ -453,6 +459,10 @@
     padding-left: 3rem !important;
     padding-right: 3rem;
     text-align: left;
+
+    @include custom(1366) {
+      top: 13vh;
+    }
 
     @include tab-landscape() {
       display: none;
