@@ -183,23 +183,23 @@ Not familiar with programming, technical integration, and all the complexity? He
 <div class="cards-r-2">
   <div class="my-card">
 
-  #### [How cards work](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  See how a credit or debit card payment works online, step by step.
-
-  </div>
-  <div class="my-card">
-
-  #### [Payouts](/en/payment-link/overview.md)
-
-  Get paid how you want, on your schedule.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy2](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
+  lorem ipsum dolor sit amet amet amet a
+
+  </div>
+  <div class="my-card">
+
+  #### [dummy3](/en/payment-link/overview.md)
+
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
 </div>
@@ -210,37 +210,37 @@ Not familiar with programming, technical integration, and all the complexity? He
 <div class="cards-r-3">
   <div class="my-card">
 
-  #### [How cards](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  See how a credit or debit card payment works online, step by step.
-
-  </div>
-  <div class="my-card">
-
-  #### [Payouts](/en/payment-link/overview.md)
-
-  Get paid how you want, on your schedule.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
-
-  </div>
-  <div class="my-card">
-
-  #### [Payouts](/en/payment-link/overview.md)
-
-  Get paid how you want, on your schedule.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
+  lorem ipsum dolor sit amet amet amet a
+
+  </div>
+  <div class="my-card">
+
+  #### [dummy1](/en/payment-link/overview.md)
+
+  lorem ipsum dolor sit amet amet amet a
+
+  </div>
+  <div class="my-card">
+
+  #### [dummy1](/en/payment-link/overview.md)
+
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   
@@ -251,44 +251,44 @@ Not familiar with programming, technical integration, and all the complexity? He
 <div class="cards-r-4">
   <div class="my-card">
 
-  #### [How cards](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  See how a credit or debit card payment works online, step by step.
-
-  </div>
-  <div class="my-card">
-
-  #### [Payouts](/en/payment-link/overview.md)
-
-  Get paid how you want, on your schedule.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
-
-  </div>
-  <div class="my-card">
-
-  #### [Declines](/en/payment-link/overview.md)
-
-  Identify causes and build automatic retries.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   <div class="my-card">
 
-  #### [Declines](/en/payment-link/overview.md)
+  #### [dummy1](/en/payment-link/overview.md)
 
-  Identify causes and build automatic retries.
+  lorem ipsum dolor sit amet amet amet a
+
+  </div>
+  <div class="my-card">
+
+  #### [dummy1](/en/payment-link/overview.md)
+
+  lorem ipsum dolor sit amet amet amet a
+
+  </div>
+  <div class="my-card">
+
+  #### [dummy1](/en/payment-link/overview.md)
+
+  lorem ipsum dolor sit amet amet amet a
 
   </div>
   
