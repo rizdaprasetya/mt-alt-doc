@@ -148,6 +148,7 @@
           color: $blue-link-darken;
           text-decoration: underline;
           font-weight: 400;
+          display: inline;
 
           &:hover {
             text-decoration: underline;
@@ -173,6 +174,24 @@
 
       ul {
         margin: 1em 0;
+
+        a {
+          display: inline;
+        }
+      }
+      img {
+        padding-top: 0px;
+        min-height: 150px;
+      }
+    }
+
+    .card-smaller {
+      p,
+      ul li{
+        font-size: 0.9rem;
+      }
+      ul {
+        margin: 0.8rem 0;
       }
     }
 
