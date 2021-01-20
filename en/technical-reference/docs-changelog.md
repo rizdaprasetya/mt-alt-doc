@@ -1,10 +1,18 @@
 # Docs Changelog
 <hr>
 
+#### 2021/01/04
+- copy writing improvement on Snap plugins, interactive demo, & payment link
+- fix echannel Core API sample json
+
 #### 2020/12/22
 - copy writing improvement on Core API bank transfer, e-money, overview
 - copy writing improvement on Snap advanced feature, guide, overview
 - improve content on e-money
+
+#### 2020/11/14
+- update midtrans logo with latest branding
+- enhance midtrans logo's link to docs' homepage
 
 #### 2020/11/12
 - fix section link and clarify FDS on test card creds

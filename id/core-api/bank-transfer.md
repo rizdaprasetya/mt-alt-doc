@@ -127,6 +127,10 @@ curl -X POST \
   "transaction_details": {
       "order_id": "order-101",
       "gross_amount": 44000
+  },
+  "echannel" : {
+      "bill_info1" : "Payment For:",
+      "bill_info2" : "Order-101 at TokoEcommerce"
   }
 }'
 ```

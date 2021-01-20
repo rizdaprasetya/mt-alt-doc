@@ -86,5 +86,5 @@ For more test payment credentials, refer to [Testing Payments on Sandbox](/en/te
 <div class="my-card">
 
 #### [Next Step](/en/snap/integration-guide.md?id=_4-handle-after-payment)
-This was a demonstration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next steps given in the [Snap Integration Guide]((/en/snap/integration-guide.md?id=integration-steps)) to proceed with the complete integration.
+This was a demonstration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next steps given in the [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps) to proceed with the complete integration.
 </div>
