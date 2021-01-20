@@ -1,131 +1,153 @@
-<hr>
-
 [![Midtrans Logo](/asset/image/main/midtrans-logo.png ':size=220')](https://midtrans.com)<hr>
 
-# Get Started with Midtrans
+Midtrans helps your business easily accept payments, disburse funds, and more in automated manners.
 
-<hr>
-Keeping track of payments and funds is one of the crucial activities for any business. It is a parameter to measure the business growth. With a wide range of products from Midtrans, you can grow your business easily. Midtrans provides products and services to accept and disburse payments and keep a track of them. Depending on your business requirements, you can select a suitable Midtrans product. 
-To know more about products and their technical details refer to the document below.
+## Explore Midtrans Product
 
-<!-- TODO: add more image for each product so it doesn't look to plain? -->
+<div class="cards-r-2">
+  <div class="my-card">
 
-## Accept Online Payments on Your Website and App {docsify-ignore}
+![snap illustration](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
-<div class="my-card">
+#### Payment for Web/App
+Enable your website and app to securely accept payment from your customer in a few simple steps.
 
-#### [Add Payment Page on Your Website or Web Application (Snap)](/en/snap/overview.md)
+- [Built-in Interface (Snap)](/en/snap/overview.md)
+- [Custom Interface (Core API)](/en/core-api/overview.md)
+- [Mobile SDK (for Android and iOS )](https://mobile-docs.midtrans.com)
+- [Payment Overview](/en/payments/overview.md)
 
-Snap user interface helps to securely accept payments on your website and mobile app with a few simple steps. Your customer is presented with a sleek, mobile-friendly interface to make payments. With simple integration, Snap user interface allows you to accept payments with [Midtrans’s various payment methods ](https://midtrans.com/payments).
-<br> <!-- TODO: use better CORS proxy, cors-anywhere is limited per referrer domain  -->
 
-<p style="text-align: center;">
-  <button onclick="
-  event.target.innerText = `Processing...`;
-  var reqHeaders = new Headers();
-  reqHeaders.append('Accept', 'application/json');
-  reqHeaders.append('Content-Type', 'application/json');
-  reqHeaders.append('Authorization', 'Basic '+btoa('SB-Mid-server-GwUP_WGbJPXsDzsNEBRs8IYA:'));
-  var reqOpts = {
-    method: 'POST',
-    headers: reqHeaders,
-    body: JSON.stringify({
-      'transaction_details':{
-        'order_id':'demo-docs-main-'+Math.round((new Date()).getTime()/1),
-        'gross_amount':10000
-      },
-      'credit_card':{
-        'secure':true
-      }
-    })
-  };
-  fetch('https://cors-anywhere.herokuapp.com/https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
-    .then(res=>res.json())
-    .then(res=>{
-      let snapToken = res.token;
-      snap.pay(snapToken,{
-        onSuccess: function(res){ console.log('Snap result:',res) },
-        onPending: function(res){ console.log('Snap result:',res) },
-        onError: function(res){ console.log('Snap result:',res) },
-      });
-    })
-    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
-  " class="my-btn">Try Snap Payment Interface ⎋</button>
-</p>
-<div style="text-align: center;">
+  </div>
+  <div class="my-card">
 
-<sup>[Try out the quick (less than 5 mins) integration sample!](/en/snap/interactive-demo.md)</sup>
+![CMS plugin](/asset/image/home/home-icons-plugin.png)<br>
 
+#### CMS Plugins
+
+Integrate with Midtrans payment page by installing ecommerce CMS plugins in a few simple clicks.
+
+- [Wordpress WooCommerce](/en/snap/with-plugins.md#wordpress-woocommerce)
+- [Magento](/en/snap/with-plugins.md#magento)
+- [Prestashop](/en/snap/with-plugins.md#prestashop)
+- [All Supported CMS](/en/snap/with-plugins.md)
+
+
+  </div>
+  <div class="my-card">
+
+![CMS plugin](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
+
+#### Payment Link
+
+No website yet? Not a problem. Send invoices and receive payments by sharing a link to your customer that redirects your customer to Midtrans payment page. 
+
+- [Payment Link Overview ](/en/payment-link/overview.md)
+
+  </div>
+  <div class="my-card">
+
+![CMS plugin](/asset/image/home/home-illustration-payout.png)<br>
+
+#### Payouts
+
+Manage payout or disburse funds to huge number of sellers and buyers easily with Midtrans Fund Disbursement System.  
+
+- [Payouts/Disbursement (Iris)](https://iris-docs.midtrans.com)
+
+  </div>
+  <div class="my-card">
+
+<!-- ![CMS plugin](/asset/image/home/home-illustration-payout.png)<br> -->
+
+#### POS/IoT/Internet Connected Devices
+
+Dummy lorem ipsum still work in progress
+
+- [Dummy lorem ipsum](#)
+
+  </div>
+  <div class="my-card">
+
+<!-- ![CMS plugin](/asset/image/home/home-illustration-payout.png)<br> -->
+
+#### Subscription/Recurring Service
+
+Dummy lorem ipsum still work in progress
+
+- [Dummy lorem ipsum](#)
+
+  </div>
 </div>
+this section is WIP
+
+<hr/>
+
+## Technical Reference {docsify-ignore}
+
+
+<div class="cards-r-3">
+  <div class="my-card card-smaller">
+
+#### API Reference Docs
+
+Learn more about API object, methods, attributes and responses.
+
+- [Core API Docs](https://api-docs.midtrans.com)
+- [Snap API Docs](https://snap-docs.midtrans.com)
+- [Iris API Docs](https://iris-docs.midtrans.com)
+- [Mobile SDK Docs](https://mobile-docs.midtrans.com)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### Library
+
+Checkout programming language library to help you integrate.
+
+- [Language Library](/en/technical-reference/library-plugin.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### Postman Collection
+
+Dummy lorem ipsum still work in progress
+
+- [dummy](/en/technical-reference/library-plugin.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### IP Address and API Domain
+
+Dummy lorem ipsum still work in progress
+
+- [dummy](/en/technical-reference/library-plugin.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### Testing on Sandbox
+
+Dummy lorem ipsum still work in progress
+
+- [dummy](/en/technical-reference/library-plugin.md)
+
+
+  </div>
 </div>
 
-<div class="my-card">
-
-#### [Payment Page For Your Native Mobile App (Payment Mobile SDK)](https://mobile-docs.midtrans.com)
-
-You can accept payments within your app by easily embedding our Android and iOS Mobile SDK within your app. Similar to Snap, the Mobile SDK also provides drop-in user interface to accept payments using [Midtrans’s various payment methods](https://midtrans.com/payments).
-
-<details>
-<summary><b>Try Mobile SDK via Android Simulator</b></summary>
-<article>
-<div style="text-align: center;">
-<iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=nexus5&scale=75&orientation=portrait&osVersion=8.1"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
-</div>
-</article>
-</details>
-</div>
-
-<div class="my-card">
-
-#### [Customize Your Own Payment Page (Core API)](/en/core-api/overview.md)
-
-If you need to customize the payment-flow or the user interface to fit your unique needs, use our Core API. Core API can be used for your website, web application, point of sales, IoT (Internet of Things) or any other internet-capable device, to connect with Midtrans and start accepting payments. Core API uses the familiar REST API standard with JSON-based payload.
-
-</div>
-
-<div class="my-card">
-
-#### [Use CMS Payment Plugin](/en/snap/with-plugins.md)
-
-If you are already using e-commerce Content Management System like Magento 2, WooCommerce, etc., you can easily integrate with Midtrans payment page by installing plugin in a few simple clicks.
-
-</div>
-
-<div class="my-card">
-
-#### [Create Invoice via Payment Link](/en/payment-link/overview.md)
-
-If you do not have a website yet, you can still receive payments by sharing a link that redirects your customer to Midtrans payment page. This does not require any technical integration. A link can be created on the dashboard with customizable payment details like an invoice.
-
-</div>
-
-## Pay Outs / Disburse Fund {docsify-ignore}
-
-<div class="my-card">
-
-#### [Pay Outs via Iris Disbursement System](https://iris-docs.midtrans.com/)
-
-Send money to your partners, sellers, customers, vendors or any third parties with our Iris Disbursement System. Whether you have a marketplace or a retail business, you can send money to your sellers, do payrolls transfers to your employees, and so on. Iris can cater to all of your payout needs. Iris supports disbursing money to GoPay accounts or any popular bank accounts in Indonesia.
-
-</div>
-
-## Misc {docsify-ignore}
-
-<!-- TODO: write this page -->
-<div class="my-card">
-
-<!-- #### [Integrate Payment to POS](/en/pos/overview.md) -->
-
-#### [Integrate Payment to POS (Point of Sales)](#accept-payment-on-point-of-sales-vending-machines-iot-devices)
-
-For conventional business with no website or apps, as long as the Point of Sales (POS) peripherals are connected through the Internet, it can be integrated with Midtrans Core API. The device can easily integrate to the Core API via API calls. There is a specific GoPay guide for this type of integration.
-
-</div>
-
-<br> <br>
+this section is WIP
 
 ## Choose based on Top Business Use Cases {docsify-ignore}
+<details>
+<summary>Explore Use Cases</summary>
+<article>
 
 Here are some popular use-cases that may help you choose the best product for your business.
 
@@ -163,10 +185,14 @@ Owning big business (whether online, offline, or traditional business) means hav
 
 <!-- < TODO:Add More Use Case> -->
 <!-- Case Topup -->
+</article>
+</details>
 
 ## Non Technical Person? {docsify-ignore}
 
-<!-- <TODO: elaborate plugin, payment link, or snap plugin for non-dev reader> -->
+<details>
+<summary>Explore Options for Non Technical</summary>
+<article>
 
 Not familiar with programming, technical integration, and all the complexity? Here are a few ways for you to integrate with Midtrans without any technical knowledge:
 
@@ -175,121 +201,7 @@ Not familiar with programming, technical integration, and all the complexity? He
 - You can use ready to use Content Management System (CMS) to create online store. If you are familiar with setting up CMS (**WordPress - WooCommerce, Magento, PrestaShop, OpenCart, WHMCS**, and so on), you can install Midtrans plugin/extension to start accepting payment right away! The payment status feature on the CMS will automatically be updated in real time using the payment status provided by Midtrans. Check out [Midtrans list of supported CMS plugin/extension](/en/snap/with-plugins.md).
 
 - You can also integrate Midtrans to third party e-commerce solution (**Shopify, Sirclo, Jejualan**, and so on) to start accepting payments. These third-party e-commerce solutions are user-friendly and require very minimal setup. Check out [Midtrans list of supported 3rd party Ecommerce platform](/en/snap/platform/overview.md).
+</article>
+</details>
 
-
-<!-- //example -->
-<hr/> 
-<!-- 1 row 2 columns -->
-<div class="cards-r-2">
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy2](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy3](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-</div>
-
-
-<hr/> 
-<!-- 1 row 3 columns -->
-<div class="cards-r-3">
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  
-</div>
-
-<hr/> 
-<!-- 1 row 4 columns -->
-<div class="cards-r-4">
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  <div class="my-card">
-
-  #### [dummy1](/en/payment-link/overview.md)
-
-  lorem ipsum dolor sit amet amet amet a
-
-  </div>
-  
-</div>
+<hr/>
