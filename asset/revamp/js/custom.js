@@ -253,6 +253,4 @@ function replaceLogoImageDarkMode(theme) {
       });
     }
   }, 500);
-  
-  
 }

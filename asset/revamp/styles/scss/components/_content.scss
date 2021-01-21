@@ -851,6 +851,62 @@
     }
   }
 
+  //tags
+  .tags {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+    /* overflow-x: scroll; */
+    @include flex-init();
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+   
+    .tag {
+      cursor: pointer;
+      display: inline-block;
+      background: #f3f3f3;
+      color: #697386;
+      margin-right: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      padding: 1px 8px;
+      font-size: .8125rem;
+      text-decoration: none;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        color: #4f566b;
+      }
+    }
+  }
+  //badges element
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 20px;
+    color: #0e6245 !important;
+
+    &.badge-green {
+      background-color: #cbf4c9;
+    }
+    &.badge-yellow {
+      background-color: #eff4c9;
+      color: #62600e !important;
+    }
+    &.badge-red {
+      background-color: #f4c9c9 !important;
+      color: #622a0e !important;
+    }
+
+  }
+
+
 
 }
 

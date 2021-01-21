@@ -208,6 +208,17 @@
 
     } 
 
+    .tags {
+      .tag {
+        background: $blue-dark;
+        color: $white !important;
+
+        &:hover {
+          color: #d3d3d3 !important;
+        }
+      }
+    }
+
    
   }
 }

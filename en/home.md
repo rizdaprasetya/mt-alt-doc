@@ -85,11 +85,23 @@ this section is WIP
 
 ## Technical Reference {docsify-ignore}
 
+<div class="tags">
+  <a href="test" class="tag">Dummy</a>
+  <a href="test" class="tag">Dummy2</a>
+  <a href="test" class="tag">Dummy3</a>
+  <a href="test" class="tag">Dummy4</a>
+  <div class="tag">Dummy5</div>
+  <div class="tag">Dummy6</div>
+  <div class="tag">Dummy7</div>
+  <div class="tag">Dummy8</div>
+  <div class="tag">Dummy9</div>
+  <div class="tag">DummyA</div>
+</div>
 
 <div class="cards-r-3">
   <div class="my-card card-smaller">
 
-#### API Reference Docs
+#### API Reference Docs <span class="badge badge-yellow">BETA</span>
 
 Learn more about API object, methods, attributes and responses.
 
@@ -102,7 +114,7 @@ Learn more about API object, methods, attributes and responses.
   </div>
   <div class="my-card card-smaller">
 
-#### Library
+#### Library <span class="badge badge-green">BETA</span>
 
 Checkout programming language library to help you integrate.
 
@@ -112,7 +124,7 @@ Checkout programming language library to help you integrate.
   </div>
   <div class="my-card card-smaller">
 
-#### Postman Collection
+#### Postman Collection <span class="badge badge-red">BETA</span>
 
 Dummy lorem ipsum still work in progress
 
