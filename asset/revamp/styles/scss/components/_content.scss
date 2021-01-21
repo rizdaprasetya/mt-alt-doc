@@ -257,6 +257,12 @@
         
         summary {
           @include accordionStyle();
+
+          &::after {
+            @include tab-portrait {
+              width: unset;
+            }
+          }
         }
 
         &[open] {
