@@ -890,10 +890,11 @@
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 20px;
-    color: #0e6245 !important;
+    
 
     &.badge-green {
       background-color: #cbf4c9;
+      color: #0e6245 !important;
     }
     &.badge-yellow {
       background-color: #eff4c9;
