@@ -37,8 +37,18 @@
                 addScriptToPageHead(script);
             })
         }
+        let replaceNavImgsAbsToRel = function(){
+            let links = Array.from(document.querySelectorAll('nav img[src^="/asset/"]'));
+
+            links.forEach(function(link){
+                // dd&&console.log(">- replacing",link.src);
+                link.src = "asset/"+link.src.split("/asset/")[1];
+                // dd&&console.log(">-- with",link.src);
+            })
+        }
 
         replaceAllCssAbsToRel();
         addAllJsAbsToRel();
+        replaceNavImgsAbsToRel();
     }
 })();
