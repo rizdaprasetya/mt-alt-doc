@@ -367,8 +367,17 @@
                             setTimeout(function () {
                                 dd && console.log('will scroll to element now')
                                 try {
-                                    document.querySelector('#' + urlId)
-                                        .scrollIntoView()
+                                    let element = document.querySelector('#' + urlId)
+                                    let offset = window.$docsify.topMargin;
+                                    let bodyRect = document.body.getBoundingClientRect().top;
+                                    let elementRect = element.getBoundingClientRect().top;
+                                    let elementPosition = elementRect - bodyRect;
+                                    let offsetPosition = elementPosition - offset;
+
+                                    window.scrollTo({
+                                      top: offsetPosition
+                                    });
+
                                 } catch (e) { dd && console.log('custom scroll failed', e) }
                             }, SCROLL_DELAY);
                         }
