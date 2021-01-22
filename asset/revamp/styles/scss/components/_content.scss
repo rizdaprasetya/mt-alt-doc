@@ -180,8 +180,7 @@
         }
       }
       img {
-        padding-top: 0px;
-        min-height: 150px;
+        padding-top: initial;
       }
     }
 
@@ -903,6 +902,11 @@
     &.badge-red {
       background-color: #f4c9c9 !important;
       color: #622a0e !important;
+    }
+    &.badge-gray {
+      font-weight: initial;
+      background: #f3f3f3;
+      color: #697386 !important;
     }
 
   }
