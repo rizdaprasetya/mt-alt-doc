@@ -13,9 +13,15 @@ function getRightSideBarContent() {
       getAllTitle.forEach(element => {
         let titleText = element.innerText
         let titleId = element.id
-        
+        let linkPrefix = ""
+        if(window.willUseDocsifyHashRouter){
+          try {
+            linkPrefix = ((window.location.href).split('?id='))[0]
+          } catch(e) { }
+        }
+
         if(titleId) {
-          sideBarContens += '<li class="sidebar__right-list '+ element.localName  +'"><a href="?id='+ titleId +'" class="sidebar__right-link sidebar__right-link--active">'+ titleText +'</a></li>'
+          sideBarContens += '<li class="sidebar__right-list '+ element.localName  +'"><a href="'+ linkPrefix +'?id='+ titleId +'" class="sidebar__right-link sidebar__right-link--active">'+ titleText +'</a></li>'
         }
       });
 
