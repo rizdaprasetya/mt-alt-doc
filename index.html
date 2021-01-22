@@ -131,6 +131,8 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="app"></div>
+
+    <script type="text/javascript" src="/asset/revamp/js/custom.js"></script>
     <script>
         window.isUnderMidtransDomain = window.location.hostname.includes('.midtrans.com');
         window.isUnderNonBetaDomain = !(window.location.hostname.includes('beta'));
@@ -157,6 +159,8 @@
         } else if (window.isUnderMidtransDomain) {
             window.GA_UA_ID = 'UA-157800130-1'; // beta-docs subdomain GA UA-id
         }
+
+        window.thisHookExecutedOnce = false;
 
         // Main Docsify setup
         window.$docsify = {
@@ -198,7 +202,7 @@
                 // set to 1 hour on development, change to 1 day on prod
                 maxAge: 1000 * 1 * 60 * 60,
                 depth: 6,
-                noData: 'No results!',
+                noData: '<a href="https://www.google.com/search?as_sitesearch=docs.midtrans.com&q=Snap Payment">Not found, click here to try web search.</a>',
                 placeholder: 'Search...'
             },
             routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
@@ -614,7 +618,8 @@
 
                     })
 
-                    hook.mounted(function(){
+                    hook.doneEach(function(){
+                        if(window.thisHookExecutedOnce){ return 0; }
 
                         //dropdown top nav
                         dropDownTopNav()
@@ -701,6 +706,7 @@
                             }
                         }, 600);
 
+                        window.thisHookExecutedOnce = true;
                     })
 
                 }
@@ -799,9 +805,7 @@
     <script type="text/javascript" src="/asset/absolute-to-relative-check.js"></script>
     <!-- @TODO: prevent load failure on subdir url using body.onerror ?-->
     <!-- Replace with `onerror` to detect invalid asset path -->
-    <script type="text/javascript" src="/asset/absolute-to-relative.js"></script>
-
-    <script type="text/javascript" src="/asset/revamp/js/custom.js"></script>
+    <script type="text/javascript" src="./asset/absolute-to-relative.js"></script>
 
 </body>
 
