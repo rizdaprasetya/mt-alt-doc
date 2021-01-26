@@ -2,7 +2,7 @@
 
 Midtrans helps your business easily accept payments, disburse funds, and more in automated manners.
 
-## Explore Midtrans Product
+## Explore Midtrans Product {docsify-ignore}
 
 <div class="cards-r-2">
   <div class="my-card">
@@ -10,7 +10,7 @@ Midtrans helps your business easily accept payments, disburse funds, and more in
 ![snap illustration](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
 #### Payment for Web/App
-Enable your website and app to securely accept payment from your customer in a few simple steps.
+Enable your website and app to securely accept payments (subscriptions, instalments, and more)from your customers in a few simple steps.
 
 - [Built-in Interface (Snap)](/en/snap/overview.md)
 - [Custom Interface (Core API)](/en/core-api/overview.md)
@@ -21,16 +21,16 @@ Enable your website and app to securely accept payment from your customer in a f
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-icons-plugin.png)<br>
+![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
 #### CMS Plugins
 
 Integrate with Midtrans payment page by installing ecommerce CMS plugins in a few simple clicks.
 
+- [See All Supported CMS](/en/snap/with-plugins.md)
 - [Wordpress WooCommerce](/en/snap/with-plugins.md#wordpress-woocommerce)
 - [Magento](/en/snap/with-plugins.md#magento)
 - [Prestashop](/en/snap/with-plugins.md#prestashop)
-- [All Supported CMS](/en/snap/with-plugins.md)
 
 
   </div>
@@ -38,12 +38,11 @@ Integrate with Midtrans payment page by installing ecommerce CMS plugins in a fe
 
 ![CMS plugin](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
 
-#### Payment Link
+#### Payment Link <span class="badge badge-gray">No Programming</span>
 
 No website yet? Not a problem. Send invoices and receive payments by sharing a link to your customer that redirects your customer to Midtrans payment page. 
 
-- [Payment Link Overview ](/en/payment-link/overview.md)
-
+- [Payment Link Overview](/en/payment-link/overview.md)
   </div>
   <div class="my-card">
 
@@ -51,57 +50,88 @@ No website yet? Not a problem. Send invoices and receive payments by sharing a l
 
 #### Payouts
 
-Manage payout or disburse funds to huge number of sellers and buyers easily with Midtrans Fund Disbursement System.  
+Manage payouts or disburse funds to a large number of sellers and buyers easily with Midtrans Payouts.
 
-- [Payouts/Disbursement (Iris)](https://iris-docs.midtrans.com)
-
+- [Payouts/Disbursement (Iris) API docs](https://iris-docs.midtrans.com)
   </div>
   <div class="my-card">
 
-<!-- ![CMS plugin](/asset/image/home/home-illustration-payout.png)<br> -->
+![CMS plugin](/asset/image/home/home-illustration-pos.png)<br>
 
 #### POS/IoT/Internet Connected Devices
 
-Dummy lorem ipsum still work in progress
+Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, and so on) to Midtrans Core API to start accepting payments.
 
-- [Dummy lorem ipsum](#)
+- [API Based Integration via Core API](/en/core-api/overview.md)
+- [GoPay-POS Integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos)
+
 
   </div>
   <div class="my-card">
 
-<!-- ![CMS plugin](/asset/image/home/home-illustration-payout.png)<br> -->
+![CMS plugin](/asset/image/home/home-illustration-payout.png)<br>
 
 #### Subscription/Recurring Service
 
-Dummy lorem ipsum still work in progress
+Accept recurring payments (subscription, membership, billing, and so on) with flexible interval period from your customers through Midtrans.
 
-- [Dummy lorem ipsum](#)
+- [via Built-in Interface (Snap)](/en/snap/overview.md)
+- [via Custom Interface (Core API)](/en/core-api/overview.md)
+
+
+  </div>
+  <div class="my-card">
+
+![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
+
+#### Ecommerce Platforms
+
+Accept payments by integrating Midtrans to third-party ecommerce solutions (Shopify, Sirclo, Jejualan, and so on).
+
+- [Supported Ecommerce Platform](/en/snap/platform/overview.md)
+
 
   </div>
 </div>
-this section is WIP
 
 <hr/>
 
 ## Technical Reference {docsify-ignore}
 
-<div class="tags">
-  <a href="test" class="tag">Dummy</a>
-  <a href="test" class="tag">Dummy2</a>
-  <a href="test" class="tag">Dummy3</a>
-  <a href="test" class="tag">Dummy4</a>
-  <div class="tag">Dummy5</div>
-  <div class="tag">Dummy6</div>
-  <div class="tag">Dummy7</div>
-  <div class="tag">Dummy8</div>
-  <div class="tag">Dummy9</div>
-  <div class="tag">DummyA</div>
-</div>
-
 <div class="cards-r-3">
   <div class="my-card card-smaller">
 
-#### API Reference Docs <span class="badge badge-yellow">BETA</span>
+#### Library
+
+Checkout programming language library to help you integrate.
+
+- [Language Library](/en/technical-reference/library-plugin.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### Postman Collection
+
+A Postman Collection to test Midtrans APIs with ease.
+
+- [Postman Collection](/en/technical-reference/postman-collection.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### Testing on Sandbox
+
+Learn how to simulate payment for testing on Sandbox environment.
+
+- [Sandbox Test Credentials](/en/technical-reference/sandbox-test.md)
+
+
+  </div>
+  <div class="my-card card-smaller">
+
+#### API Reference Docs
 
 Learn more about API object, methods, attributes and responses.
 
@@ -114,47 +144,15 @@ Learn more about API object, methods, attributes and responses.
   </div>
   <div class="my-card card-smaller">
 
-#### Library <span class="badge badge-green">BETA</span>
+#### References
 
-Checkout programming language library to help you integrate.
+Various other technical references
 
-- [Language Library](/en/technical-reference/library-plugin.md)
-
-
-  </div>
-  <div class="my-card card-smaller">
-
-#### Postman Collection <span class="badge badge-red">BETA</span>
-
-Dummy lorem ipsum still work in progress
-
-- [dummy](/en/technical-reference/library-plugin.md)
-
-
-  </div>
-  <div class="my-card card-smaller">
-
-#### IP Address and API Domain
-
-Dummy lorem ipsum still work in progress
-
-- [dummy](/en/technical-reference/library-plugin.md)
-
-
-  </div>
-  <div class="my-card card-smaller">
-
-#### Testing on Sandbox
-
-Dummy lorem ipsum still work in progress
-
-- [dummy](/en/technical-reference/library-plugin.md)
+- [Technical References](/en/technical-reference/overview.md)
 
 
   </div>
 </div>
-
-this section is WIP
 
 ## Choose based on Top Business Use Cases {docsify-ignore}
 <details>
@@ -203,7 +201,7 @@ Owning big business (whether online, offline, or traditional business) means hav
 ## Non Technical Person? {docsify-ignore}
 
 <details>
-<summary>Explore Options for Non Technical</summary>
+<summary>Explore Use Cases <span class="badge badge-gray">No Programming</span></summary>
 <article>
 
 Not familiar with programming, technical integration, and all the complexity? Here are a few ways for you to integrate with Midtrans without any technical knowledge:
