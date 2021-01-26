@@ -20,12 +20,12 @@
 	- [API Methods ↗](https://api-docs.midtrans.com/#api-methods)
 - [**![](asset/image/main/midtrans-icons-paymentlink.svg)Payment Link**<small>&nbsp;(no code needed)</small>](en/payment-link/overview.md "Midtrans - Payment Link Documentation")
 - **Plugins**
-- [![](asset/image/main/midtrans-icons-installcmsplugin.svg)Install as CMS Plugin](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
-- [![](asset/image/main/midtrans-icons-ecommerce.svg)Ecommerce Platform](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
+- [![](asset/image/main/midtrans-icons-installcmsplugin.svg)**Install as CMS Plugin**](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
+- [![](asset/image/main/midtrans-icons-ecommerce.svg)**Ecommerce Platform**](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
 - **After Payment**
-- [![](asset/image/main/midtrans-icons-signature.svg)Handle After Payment](en/after-payment/overview.md "Midtrans - After Payment Documentation")
-- [![](asset/image/main/midtrans-icons-technical.svg)Technical Reference](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
-- [![](asset/image/main/midtrans-icons-technical.svg)Switching To Production](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
+- [![](asset/image/main/midtrans-icons-signature.svg)**Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
+- [![](asset/image/main/midtrans-icons-technical.svg)**Technical Reference**](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
+- [![](asset/image/main/midtrans-icons-technical.svg)**Switching To Production**](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">

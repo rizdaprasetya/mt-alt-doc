@@ -4,9 +4,8 @@
 
 *Cardless Credit* is one of the payment methods offered by Midtrans. Using this payment method, the customers can shop online and make payments in installments. Midtrans sends real-time notifications to you when the customer completes the payment. Currently, Midtrans can integrate with Akulaku.
 
-
-![akulaku](./../../asset/image/coreapi/akulaku_logo.svg ':size=242x127')
-
+![akulaku](./../../asset/image/coreapi/akulaku_logo.svg ':size=150')
+  
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
 <article>

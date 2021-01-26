@@ -140,7 +140,7 @@ request(options, function (error, response) {
 
 ?> Each of the official [Midtrans Language Library](/en/technical-reference/library-plugin.md) has *status* function to call Get Status API.
 
-#### Sample Response
+### Sample Response
 
 The sample response from `[ORDER_ID]/status` endpoint is shown below.
 
@@ -213,7 +213,7 @@ The table given below describes elements in the response.
 }
 ```
 
-#### **Transaction Status**
+### Transaction Status
 
 The following table describes the transaction status.
 
@@ -227,7 +227,7 @@ The following table describes the transaction status.
 | refund             | Transaction is marked to be refunded. Refund status is triggered by you. |
 | settlement         | The transaction is successfully settled. Funds have been received. |
 
-#### **Fraud Status**
+### Fraud Status
 
 The following table describes the fraud status.
 

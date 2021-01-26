@@ -124,6 +124,6 @@ Sign up for a Midtrans account to get your *Sandbox* API keys ready to test inte
 
 <div class="my-card">
 
-#### [Explore Integration Options](#choose-integration-options)
+#### [Explore Integration Options](#integration-options)
 Check out all the available choices and learn the integration.
 </div>

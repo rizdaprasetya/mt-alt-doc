@@ -4,10 +4,24 @@
 
 *Direct Debit* is one of the payment methods offered by Midtrans. Using this payment method, the customer can pay using their E-Banking debit account. Midtrans sends real-time notifications when the customer completes the payment. Currently, Midtrans can integrate with the following *Direct Debit* payment methods such as BCA KlikPay, CIMB Clicks, Danamon Online Banking, and e-Pay BRI.
 
-![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
-![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
-![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=150") <br>
-![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=150") <br>
+<div class="cards-r-4">
+  <div>
+
+![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=120")
+  </div>
+  <div>
+
+![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=120")
+  </div>
+  <div>
+
+![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=120")
+  </div>
+  <div>
+
+![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=120")
+  </div>
+</div>
 
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>

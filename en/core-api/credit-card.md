@@ -7,10 +7,25 @@
 
 *Card* payment is one of the payment methods offered by Midtrans. Using this payment method, customers can make payments using a credit card or any online-transaction-capable debit card within Visa, MasterCard, JCB, or Amex network. Midtrans sends real-time notification when the customer completes the payment.
 
-![visa](./../../asset/image/coreapi/visa.svg ":size=80") <br>
-![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=80") <br>
-![jcb](./../../asset/image/coreapi/jcb.svg ":size=80") <br>
-![amex](./../../asset/image/coreapi/american_express.svg ":size=80") <br>
+<div class="cards-r-4">
+  <div>
+
+![visa](./../../asset/image/coreapi/visa.svg ":size=60")
+  </div>
+  <div>
+    
+![mastercard](./../../asset/image/coreapi/mastercard.svg ":size=60")
+  </div>
+  <div>
+    
+![jcb](./../../asset/image/coreapi/jcb.svg ":size=60")
+  </div>
+  <div>
+    
+![amex](./../../asset/image/coreapi/american_express.svg ":size=60")
+  </div>
+</div> 
+
 
 ?> Please create a Midtrans [Merchant Administrative Portal (MAP) account](/en/midtrans-account/overview.md) before proceeding to the integration process.
 

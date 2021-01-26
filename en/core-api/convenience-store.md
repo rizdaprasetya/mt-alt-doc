@@ -4,9 +4,18 @@
 
 *Over the Counter* is one of the payment methods offered by Midtrans. Using this payment method, customers can shop online and make payments at a nearest convenience store. Midtrans sends you real-time notifications when the customer completes the payment. Currently, Midtrans has integrated with the convenience stores such as Alfamart and Indomaret.
 
+<div class="cards-r-4">
+  <div></div>
+  <div>
+
 ![alfamart logo](./../../asset/image/coreapi/alfamart_logo.svg ":size=150")
-<br>
+  </div>
+  <div>
+
 ![indomaret logo](./../../asset/image/coreapi/indomaret_logo.png ":size=150")
+  </div>
+  <div></div>
+</div>
 
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
