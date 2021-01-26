@@ -69,14 +69,14 @@ Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, 
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-payout.png)<br>
+![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
 #### Subscription/Recurring Service
 
 Accept recurring payments (subscription, membership, billing, and so on) with flexible interval period from your customers through Midtrans.
 
-- [via Built-in Interface (Snap)](/en/snap/overview.md)
-- [via Custom Interface (Core API)](/en/core-api/overview.md)
+- [via Built-in Interface (Snap)](/en/snap/advanced-feature.md#save-card-for-seamless-subsequent-payments)
+- [via Custom Interface (Core API)](/en/core-api/advanced-features.md#recurringone-click-transaction)
 
 
   </div>
