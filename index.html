@@ -208,7 +208,7 @@
             routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
             auto2top: true,
             maxLevel: 3,
-            subMaxLevel: 3,
+            subMaxLevel: 2,
             plugins: [
                 /**
                  * Custom plugin to show 404 if non-content file is fetched by Docsify.
@@ -331,6 +331,44 @@
                             modifiedMarkdown = '> Note: [Click to visit the project Repository](' + currentFileRepoUrl + ')\n' + modifiedMarkdown
                         }
                         return modifiedMarkdown
+                    })
+                },
+                /**
+                 * Custom plugin to fix left sidebar open state not properly synced
+                 * with current URL, especially when first window page load with
+                 * specific heading `?id=` in the url.
+                 */
+                function (hook, vm) {
+                    // return 0; // comment to activate
+                    hook.ready(function () {
+                        var dd = 0;
+                        function openParentListRecursive(el,matchCount=0,count=0){
+                            count++
+                            dd&&console.log('--- recursing',el,count)
+                            var tagName = el.tagName.toLowerCase()
+                            if (tagName == "aside" || tagName == "body" || count>20){
+                                return 0
+                            }
+                            if (tagName == 'li'){
+                                matchCount++
+                                dd&&console.log('--- opening',el)
+                                el.classList.add('open')
+                            }
+                            return openParentListRecursive(el.parentNode,matchCount,count)
+                        }
+                        function closeSubSidebar(el){
+                            var subSidebarOpenEl = el.parentNode.querySelector('.active.open');
+                            subSidebarOpenEl.classList.remove('open');
+                        }
+                        try {
+                            var currentNavUrl = vm.route.path || '';
+                            var currentActiveNavEl = document.querySelector('.sidebar-nav a[href$="'+currentNavUrl+'"]')
+                            dd&&console.log('--- found currentActiveNavEl',currentActiveNavEl)
+                            if (currentActiveNavEl){
+                                openParentListRecursive(currentActiveNavEl,0,0)
+                                closeSubSidebar(currentActiveNavEl)
+                            }
+                        } catch(e){ }
                     })
                 },
                 /**
