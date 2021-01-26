@@ -126,11 +126,6 @@ iframe{
     display: none !important;
 }
 
-/* slightly pull left to make clear hierarchical distinction */
-/*li.open>ul.app-sub-sidebar.open>li {
-    margin-left: -0.2rem;
-}*/
-
 /* Center all image of body content */
 .markdown-section img {
     margin-left: auto;
@@ -138,72 +133,7 @@ iframe{
     display: block;
 }
 
-.sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child),
-.sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child),
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]):not(:only-child),
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]):only-child
-{
-    background-image: unset;
-    background-position: unset;
-}
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]), 
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]) ~ ul a
-{
-    /*padding: unset;*/
-    padding: 0.25em 0 0.25em 0;
-}
-
-/* @HACK: Override sidebar nav menu effect*/
-:root{
-    --sidebar-nav-indent: 0.7em;
-}
-.sidebar-nav li>a:hover,
-.sidebar-nav li.active>a
-/*,.sidebar-nav li>a:focus*/
-{
-    /*text-decoration: unset;*/
-    background-color: var(--main-bg-color-transparent);
-    padding-left: 2em !important;
-    margin-left: -2em !important;
-    border-right-color: var(--sidebar-nav-link-border-color--active, var(--sidebar-nav-link-border-color));
-}
-
 /* @FIX: sub-sidebar click scroll issue, which highlight the wrong preceeding sub-sidebar */
 h2>a>span {
     padding-top: 2em;
-}
-
-/* @HACK: Override main logo on sidebar for nicer smaller img */
-.sidebar>h1 img {
-    max-width: 75%;
-}
-/* @HACK: Override image on sidebar for product logo, for nicer smaller img */
-.sidebar-nav ul>li img {
-    height: 1.5rem;
-    padding-right: 0.4rem;
-}
-.sidebar-nav a img:first-child {
-    margin-right: 0rem;
-}
-
-/* @HACK: Vertical align center between img & text on navbar section menu*/
-.sidebar-nav ul>li>strong,
-.sidebar-nav ul>li>a
- {
-    display: flex;
-    align-items: center;
-}
-/* @HACK: Vertical align center and apply .emoji style to custom icon on navbar */
-.app-nav li>img:not(.emoji){
-    height: var(--emoji-size);
-    vertical-align: middle;
-}
-/* sidebar menu top list*/
-.sidebar-nav>ul>li{
-    margin-top: 0.5em;
-}
-/* expanded sidebar menu */
-.sidebar-nav>ul>li.open>ul {
-    margin-bottom: 1em;
-    padding-left: 1.5em;
 }
