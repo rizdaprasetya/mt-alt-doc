@@ -85,6 +85,9 @@
       }
 
       >li {
+        >ul {
+          padding-left: 1rem;
+        }
         >strong {
           border: none;
           font-weight: 500;
@@ -131,7 +134,7 @@
 
         img {
           height: 1rem;
-          padding-right: 1rem;
+          padding-right: 0.5rem;
         }
 
         a {
@@ -189,6 +192,22 @@
         &.open {
           ul {
             margin-bottom: 0;
+          }
+          >a {
+            color: $blue !important;
+            // background-color: $blue-lighten-20 !important;
+            &::after {
+              content: "";
+              height: 80%;
+              width: 3px;
+              background-color: $blue;
+              position: absolute;
+              right: 0;
+              top: 4px;
+              margin: auto;
+              max-height: 25px;
+              display: block;
+            }
           }
         }
 
@@ -471,6 +490,12 @@
           .app-sub-sidebar {
             a {
               color: $white-gray !important;
+            }
+          }
+
+          &.open {
+            >a {
+              color: $blue !important;
             }
           }
         }
