@@ -81,6 +81,7 @@ function rightMenusActiveScroll() {
             !navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.add("active");
+            navLinks[index].scrollIntoView({ block: 'center' });
           } else if (
             scrollPos > contentsTop[index + 1] &&
             navLinks[index].classList.contains("active")
@@ -99,6 +100,7 @@ function rightMenusActiveScroll() {
             !navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.add("active");
+            navLinks[index].scrollIntoView({ block: 'center' });
           } else if (
             scrollPos <= contentTop &&
             navLinks[index].classList.contains("active")
