@@ -372,6 +372,32 @@
                     })
                 },
                 /**
+                 * Custom plugin to hide Docsify sub-sidebar
+                 */
+                function (hook, vm) {
+                    return 0; // comment to activate
+                    hook.doneEach(function () {
+                        var dd = 0;
+                        function hideParentLastSublist(el){
+                            dd && console.log('--- hiding',el)
+                            if(el.parentNode){
+                                var subSidebarEl = el.parentNode.querySelector('ul .app-sub-sidebar')
+                                if (subSidebarEl){
+                                    subSidebarEl.style.display = 'none'
+                                }
+                            }
+                        }
+
+                        try {
+                            var currentNavUrl = vm.route.path || '';
+                            var currentActiveNavEl = document.querySelector('.sidebar-nav a[href$="'+currentNavUrl+'"]')
+                            if (currentActiveNavEl) {
+                                hideParentLastSublist(currentActiveNavEl)
+                            }
+                        } catch(e) { }
+                    })
+                },
+                /**
                  * Custom plugin to fix scrolling issue.
                  * Docsify have scrolling issue on page load of a page with image.
                  * https://github.com/docsifyjs/docsify/issues/351
