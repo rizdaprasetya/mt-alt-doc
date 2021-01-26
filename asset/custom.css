@@ -133,6 +133,12 @@ iframe{
     display: block;
 }
 
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]), 
+.sidebar-nav li>a[href^="#/"]:not([href*="?id="]) ~ ul a
+{
+    padding: 0.25em 0 0.25em 0;
+}
+
 /* @FIX: sub-sidebar click scroll issue, which highlight the wrong preceeding sub-sidebar */
 h2>a>span {
     padding-top: 2em;
