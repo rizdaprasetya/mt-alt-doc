@@ -41,7 +41,8 @@ Integrate with Midtrans payment page by installing ecommerce CMS plugins in a fe
 
 ![CMS plugin](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
 
-#### Payment Link <span class="badge badge-gray">No Programming</span>
+<span class="badge badge-gray" style="float: right;">No Programming</span>
+#### Payment Link
 
 No website yet? Not a problem. Send invoices and receive payments by sharing a link to your customer that redirects your customer to Midtrans payment page. 
 
@@ -104,7 +105,7 @@ Accept payments by integrating Midtrans to third-party ecommerce solutions (Shop
 <div class="cards-r-3">
   <div class="my-card card-smaller">
 
-#### [Library](/en/technical-reference/library-plugin.md)
+#### Library
 
 Checkout programming language library to help you integrate.
 
@@ -114,7 +115,7 @@ Checkout programming language library to help you integrate.
   </div>
   <div class="my-card card-smaller">
 
-#### [Postman Collection](/en/technical-reference/postman-collection.md)
+#### Postman Collection
 
 A Postman Collection to test Midtrans APIs with ease.
 
@@ -124,7 +125,7 @@ A Postman Collection to test Midtrans APIs with ease.
   </div>
   <div class="my-card card-smaller">
 
-#### [Testing on Sandbox](/en/technical-reference/sandbox-test.md)
+#### Testing on Sandbox
 
 Learn how to simulate payment for testing on Sandbox environment.
 
@@ -147,7 +148,7 @@ Learn more about API object, methods, attributes and responses.
   </div>
   <div class="my-card card-smaller">
 
-#### [References](/en/technical-reference/overview.md)
+#### References
 
 Various other technical references
 
