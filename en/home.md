@@ -1,6 +1,9 @@
 [![Midtrans Logo](/asset/image/main/midtrans-logo.png ':size=220')](https://midtrans.com)<hr>
 
+<div style="text-align: center;">
+  
 Midtrans helps your business easily accept payments, disburse funds, and more in automated manners.
+</div>
 
 ## Explore Midtrans Product {docsify-ignore}
 
@@ -10,7 +13,7 @@ Midtrans helps your business easily accept payments, disburse funds, and more in
 ![snap illustration](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
 #### Payment for Web/App
-Enable your website and app to securely accept payments (subscriptions, instalments, and more)from your customers in a few simple steps.
+Enable your website and app to securely accept payments (subscriptions, installments, and more) from your customers in a few simple steps.
 
 - [Built-in Interface (Snap)](/en/snap/overview.md)
 - [Custom Interface (Core API)](/en/core-api/overview.md)
@@ -50,7 +53,7 @@ No website yet? Not a problem. Send invoices and receive payments by sharing a l
 
 #### Payouts
 
-Manage payouts or disburse funds to a large number of sellers and buyers easily with Midtrans Payouts.
+Manage payouts or disburse funds to multiple bank and e-money accounts easily with Midtrans Payouts.
 
 - [Payouts/Disbursement (Iris) API docs](https://iris-docs.midtrans.com)
   </div>
@@ -101,7 +104,7 @@ Accept payments by integrating Midtrans to third-party ecommerce solutions (Shop
 <div class="cards-r-3">
   <div class="my-card card-smaller">
 
-#### Library
+#### [Library](/en/technical-reference/library-plugin.md)
 
 Checkout programming language library to help you integrate.
 
@@ -111,7 +114,7 @@ Checkout programming language library to help you integrate.
   </div>
   <div class="my-card card-smaller">
 
-#### Postman Collection
+#### [Postman Collection](/en/technical-reference/postman-collection.md)
 
 A Postman Collection to test Midtrans APIs with ease.
 
@@ -121,7 +124,7 @@ A Postman Collection to test Midtrans APIs with ease.
   </div>
   <div class="my-card card-smaller">
 
-#### Testing on Sandbox
+#### [Testing on Sandbox](/en/technical-reference/sandbox-test.md)
 
 Learn how to simulate payment for testing on Sandbox environment.
 
@@ -144,7 +147,7 @@ Learn more about API object, methods, attributes and responses.
   </div>
   <div class="my-card card-smaller">
 
-#### References
+#### [References](/en/technical-reference/overview.md)
 
 Various other technical references
 
@@ -161,7 +164,7 @@ Various other technical references
 
 Here are some popular use-cases that may help you choose the best product for your business.
 
-#### Accept payment on your e-commerce website or app or both
+#### Accept Payment on Your E-commerce Website or App or Both
 
 Accept payment from your customer within your website or application with Card Transaction, Bank Transfer, Direct Debit, E-Money, [and more](https://midtrans.com/payments). Choose [Beautiful Snap user interface](/en/snap/overview.md) or [Customizable Core API](/en/core-api/overview.md) to enable your website and app to accept payment securely in a few simple steps.
 
@@ -177,21 +180,21 @@ According to your business needs, you can charge your customer for recurring pay
 
 Whether you are a freelancer, service provider, teacher or have a business selling stuff on social media, you need to quickly create invoice and accept payment. You can send invoices and accept payments from your customers via [Payment Link](/en/payment-link/overview.md). All you need to do is to login to Midtrans Dashboard via browser, generate payment link, and then send the link to your customers through any messaging app of your choice.
 
-#### Accept payment on Point of Sales, Vending Machines, IoT devices
+#### Accept Payment on Point of Sales, Vending Machines, IoT devices
 
 For business without a website or application platforms (vending machine, TV box, IoT, point of sales, and so on), as long as the device is connected to the Internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API, devices can easily integrate via API calls. There is [specific GoPay guide for this type of integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos).
 
-#### Pay out users/merchants on your platform
-
-<!-- <TODO: elaborate iris> -->
+#### Pay Out Users/Merchants on Your Platform
 
 Ecommerce marketplace/platform (whether it is B2C, B2B, or any other model) that connects services/goods seller to buyer, requires solution to easily manage payout or disburse fund to huge number of sellers and buyers. We got this covered with easy to use, automation ready [Fund Disbursement System: Iris](https://midtrans.com/iris).
 
-#### Pay out vendors/contractors of your business
-
-<!-- <TODO: elaborate iris> -->
+#### Pay Out Vendors/Contractors of Your Business
 
 Owning big business (whether online, offline, or traditional business) means having to deal with a lot of vendors, contractors, and suppliers. It requires solution to easily manage and transfer of fund. We got this covered with easy to use, automation ready [Fund Disbursement System: Iris](https://midtrans.com/iris).
+
+#### Pay Out Employee Payroll/Benefit Program
+
+Paying out payroll traditionally to your employees can be complex and time consuming. Or do you want to have an employee bonus/benefit program that rewards them with e-money? You can leverage our easy to use, automation ready [Fund Disbursement System: Iris](https://midtrans.com/iris) which supports pay out to bank and e-money accounts (such as GoPay, Ovo, and so on).
 
 <!-- < TODO:Add More Use Case> -->
 <!-- Case Topup -->
@@ -206,12 +209,13 @@ Owning big business (whether online, offline, or traditional business) means hav
 
 Not familiar with programming, technical integration, and all the complexity? Here are a few ways for you to integrate with Midtrans without any technical knowledge:
 
-- Simplest way to use Midtrans to accept payment without website or technical knowledge is via [**Payment Link**](/en/payment-link/overview.md). You only need to login via a web browser to Midtrans Dashboard, generate payment link, and then send the link to your customers.
+#### Payment Link with a Few Simple Clicks
+Simplest way to use Midtrans to accept payment without website or technical knowledge is via [**Payment Link**](/en/payment-link/overview.md). You only need to login via a web browser to Midtrans Dashboard, generate payment link, and then send the link to your customers.
 
-- You can use ready to use Content Management System (CMS) to create online store. If you are familiar with setting up CMS (**WordPress - WooCommerce, Magento, PrestaShop, OpenCart, WHMCS**, and so on), you can install Midtrans plugin/extension to start accepting payment right away! The payment status feature on the CMS will automatically be updated in real time using the payment status provided by Midtrans. Check out [Midtrans list of supported CMS plugin/extension](/en/snap/with-plugins.md).
+#### Your Favorite Ready to Use Website CMS
+You can use ready to use web Content Management System (CMS) to create online store. If you are familiar with setting up CMS (**WordPress - WooCommerce, Magento, PrestaShop, OpenCart, WHMCS**, and so on), you can install Midtrans plugin/extension to start accepting payment right away! The payment status feature on the CMS will automatically be updated in real time using the payment status provided by Midtrans. Check out [Midtrans list of supported CMS plugin/extension](/en/snap/with-plugins.md).
 
-- You can also integrate Midtrans to third party e-commerce solution (**Shopify, Sirclo, Jejualan**, and so on) to start accepting payments. These third-party e-commerce solutions are user-friendly and require very minimal setup. Check out [Midtrans list of supported 3rd party Ecommerce platform](/en/snap/platform/overview.md).
+#### Your Favorite E-Commerce Solution Platform
+You can also integrate Midtrans to third party e-commerce solution (**Shopify, Sirclo, Jejualan**, and so on) to start accepting payments. These third-party e-commerce solutions are user-friendly and require very minimal setup. Check out [Midtrans list of supported 3rd party Ecommerce platform](/en/snap/platform/overview.md).
 </article>
 </details>
-
-<hr/>
