@@ -1,7 +1,9 @@
 # Integrating Midtrans Snap to E-commerce Content Management System (CMS)
 <hr>
 
-Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. You only require to manage the content (Content Management). Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on.
+Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. 
+
+You only require to manage the content (Content Management). Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on. Payment methods available on [Snap](/en/snap/overview.md), explained on [this page](https://midtrans.com/payments), and are available for integration.
 
 ## Preparation
 <br>
@@ -20,11 +22,10 @@ Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 
 ?>**Note**: Follow the [preparation section](#preparation) to retrieve *Client Key* and *Server Key*, before proceeding to the section given below.
 
-#### CMS Plugins and Extensions Supported by Midtrans
+## CMS Plugins and Extensions Supported by Midtrans
 
-A list of Content Management System (CMS) supported by Midtrans plugins and extensions, are given below.
+This is a list of Content Management System (CMS) supported by Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
 
-A step-by-step guide to install Snap integration plugin to your CMS of choice, is also explained in the next section.
 <br>
 
 <div class="my-card">

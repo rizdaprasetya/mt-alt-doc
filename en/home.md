@@ -28,9 +28,9 @@ Enable your website and app to securely accept payments (subscriptions, installm
 
 #### CMS Plugins
 
-Integrate with Midtrans payment page by installing ecommerce CMS plugins in a few simple clicks.
+Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/snap/with-plugins.md) in a few simple clicks.
 
-- [See All Supported CMS](/en/snap/with-plugins.md)
+- [See All Supported CMS](/en/snap/with-plugins.md#cms-plugins-and-extensions-supported-by-midtrans)
 - [Wordpress WooCommerce](/en/snap/with-plugins.md#wordpress-woocommerce)
 - [Magento](/en/snap/with-plugins.md#magento)
 - [Prestashop](/en/snap/with-plugins.md#prestashop)
@@ -54,7 +54,7 @@ No website yet? Not a problem. Send invoices and receive payments by sharing a l
 
 #### Payouts
 
-Manage payouts or disburse funds to multiple bank and e-money accounts easily with Midtrans Payouts.
+Manage payouts or disburse funds to multiple bank and e-money accounts easily with [Midtrans Payouts](https://midtrans.com/product/payout).
 
 - [Payouts/Disbursement (Iris) API docs](https://iris-docs.midtrans.com)
   </div>
