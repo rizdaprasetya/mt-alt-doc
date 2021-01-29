@@ -719,33 +719,6 @@
                                 });
                             }
 
-                            //replace html tag result
-                            if(searchInput) {
-                                searchInput.addEventListener('keyup', () =>{
-                                
-                                    setTimeout(() => {
-                                        let searchResultDesc = document.querySelectorAll('.matching-post > a > p')
-                                        if(searchResultDesc) {
-                                            // searchResultDesc.forEach(element => {
-                                            //     // for (var i = 0; i < 5; ++i) {
-                                            //     let inHtml = element.innerText
-                                            //     element.innerHTML = inHtml.replace('/&lt;/div&gt;/g','')
-                                            //     element.style.opacity = '1';
-                                            // });
-                                            let limit = searchResultDesc.length > 19 ? 19 : searchResultDesc.length
-                                            for (var i = 0; i < limit; ++i) {
-                                                let inHtml = searchResultDesc[i].innerText
-                                                searchResultDesc[i].innerHTML = inHtml.replace('/&lt;/div&gt;/g','')
-                                                searchResultDesc[i].style.cssText = "display: -webkit-box; opacity: 1";
-                                            }
-
-                                        }      
-                                        
-                                        
-                                    }, 650);
-                                })
-                            }
-
                             //handle click outside search
                             window.addEventListener('click', function(e){   
                             if (sidebarSearchNew.contains(e.target)){

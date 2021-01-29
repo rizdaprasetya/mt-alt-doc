@@ -191,12 +191,6 @@
           border-top: none;
 
           .matching-post {
-            >a {
-              >p {
-                opacity: 0;
-                display: none;
-              }
-            }
             &:hover {
               color: $blue;
             }
