@@ -80,7 +80,7 @@ td{
 .my-card>h4>a:nth-child(2):after,
 .my-card>h5>a:nth-child(2):after
 {
-    content: " »";
+    content: "»";
 }
 
 .my-btn{
@@ -131,12 +131,6 @@ iframe{
     margin-left: auto;
     margin-right: auto;
     display: block;
-}
-
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]), 
-.sidebar-nav li>a[href^="#/"]:not([href*="?id="]) ~ ul a
-{
-    padding: 0.25em 0 0.25em 0;
 }
 
 /* @FIX: sub-sidebar click scroll issue, which highlight the wrong preceeding sub-sidebar */
