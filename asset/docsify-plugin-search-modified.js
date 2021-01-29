@@ -115,7 +115,7 @@
             // remove `[linkTitle](/linkTosSomewhere.md)`
             .replace(/]\(.*?\)$/,']')
             // remove `*,[,]` chars
-            .replaceAll(/\*|\[|\]/g,'')
+            .replace(/\*|\[|\]/g,'')
         }
 
         var config = ref.config;
