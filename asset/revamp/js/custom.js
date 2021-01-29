@@ -116,11 +116,11 @@ function rightMenusActiveScroll() {
 // DROPDOWN
 function dropDownTopNav() {
   setTimeout(() => {
-    let drpdwn = document.getElementsByClassName('dropdown')
-    for (let j = 0; j < drpdwn.length; j++) {
-        drpdwn[j].addEventListener('click', () => {
-            drpdwn[j].classList.toggle('dropdown-active')
-            let panel = drpdwn[j].lastElementChild
+    let dropdowns = document.querySelectorAll('.dropdown')
+    dropdowns.forEach( dropdown => {
+        dropdown.addEventListener('click', () => {
+            dropdown.classList.toggle('dropdown-active')
+            let panel = dropdown.lastElementChild
             if (panel.style.display === 'flex') {
                 panel.style.display = 'none'
             } else {
@@ -128,19 +128,19 @@ function dropDownTopNav() {
                 panel.style.flexDirection = 'column'
             }
         })
-    }
-    window.onclick = (event) => {
+    })
+    window.addEventListener('click', function(event){
         if (!event.target.matches('.dropdown__button')) {
-            let dropdowns = document.getElementsByClassName("dropdown")
-            for (let k = 0; k < dropdowns.length; k++) {
-                let openDropdown = dropdowns[k].lastElementChild;
+            let activeDropdowns = document.querySelectorAll('.dropdown.dropdown-active')
+            activeDropdowns.forEach(activeDropdown => {
+                let openDropdown = activeDropdown.lastElementChild;
                 if (openDropdown.style.display === 'flex') {
-                  dropdowns[k].classList.remove('dropdown-active')
+                  activeDropdown.classList.remove('dropdown-active')
                   openDropdown.style.display = 'none'
                 }
-            }
+            })
         }
-    }
+    })
   }, 50);
 }
 
