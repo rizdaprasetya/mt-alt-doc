@@ -81,6 +81,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K458FD6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <nav style="display: none;">
         <div class="search-new" >
         </div>
@@ -125,10 +129,6 @@
         </div>
     </nav>
     <div class="overlay" id="overlay"></div>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K458FD6"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <div id="app"></div>
 
@@ -470,7 +470,7 @@
                     })
                 },
                 /**
-                 * Custom plugin for Mixpanel analytics event call
+                 * Custom plugin for Mixpanel & GA analytics event call
                  * @NOTE: there are some global `document.xxx` var used
                  */
                 function (hook, vm) {
@@ -577,7 +577,7 @@
                             });
                         });
                         // Expose trackEvent function for global usage outside plugin
-                        document.$trackEvent = trackEvent;
+                        window.$trackEvent = trackEvent;
                     });
                 },
                 /**
