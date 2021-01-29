@@ -108,13 +108,15 @@
         var ref = getAndRemoveConfig(token.text);
         var str = ref.str;
         // @modified
-        str = str
-          // remove docsify-ignore
-          .replace(/{docsify-ignore}/, '')
-          // remove `[linkTitle](/linkTosSomewhere.md)`
-          .replace(/]\(.*?\)$/,']')
-          // remove `*,[,]` chars
-          .replaceAll(/\*|\[|\]/g,'')
+        if(str && str.replace){
+          str = str
+            // remove docsify-ignore
+            .replace(/{docsify-ignore}/, '')
+            // remove `[linkTitle](/linkTosSomewhere.md)`
+            .replace(/]\(.*?\)$/,']')
+            // remove `*,[,]` chars
+            .replaceAll(/\*|\[|\]/g,'')
+        }
 
         var config = ref.config;
 
