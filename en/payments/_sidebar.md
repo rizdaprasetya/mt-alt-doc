@@ -2,7 +2,7 @@
 - [<small>← Back Home</small>](/ "Midtrans Payment Gateway Technical Documentation")
 - [Payments Overview](en/payments/overview.md "Midtrans - Payments Technical Documentation")
 - **Payments**
-- [**![Snap](asset/image/main/midtrans-icons-builtininterface.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
+- [**![](asset/image/main/midtrans-icons-builtininterface.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
 	- [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
 	- [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
 	- [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
@@ -27,6 +27,7 @@
 - [![](asset/image/main/midtrans-icons-technical.svg)**Technical Reference**](en/technical-reference/overview.md "Midtrans - API Authorization & Headers Documentation")
 - [![](asset/image/main/midtrans-icons-technical.svg)**Switching To Production**](en/technical-reference/going-live.md "Midtrans - Switching To Production Mode Documentation")
 
+<!-- Navbar for Mobile -->
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">
       <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
