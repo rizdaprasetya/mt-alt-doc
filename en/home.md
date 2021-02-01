@@ -24,7 +24,7 @@ Enable your website and app to securely accept payments (subscriptions, installm
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
+![CMS plugin](/asset/image/home/home-illustration-cms-plugin.png)<br>
 
 #### CMS Plugins
 
@@ -39,7 +39,7 @@ Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/s
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
+![payment link illustration](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
 
 <span class="badge badge-gray" style="float: right;">No Programming</span>
 #### Payment Link
@@ -50,7 +50,7 @@ No website yet? Not a problem. Send invoices and receive payments by sharing a l
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-payout.png)<br>
+![payout illustration](/asset/image/home/home-illustration-payout.png)<br>
 
 #### Payouts
 
@@ -60,7 +60,7 @@ Manage payouts or disburse funds to multiple bank and e-money accounts easily wi
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-pos.png)<br>
+![POS illustration](/asset/image/home/home-illustration-pos.png)<br>
 
 #### POS/IoT/Internet Connected Devices
 
@@ -73,7 +73,7 @@ Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, 
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
+![subscription illustration](/asset/image/home/home-illustration-subscription.png)<br>
 
 #### Subscription/Recurring Service
 
@@ -86,7 +86,7 @@ Accept recurring payments (subscription, membership, billing, and so on) with fl
   </div>
   <div class="my-card">
 
-![CMS plugin](/asset/image/home/home-illustration-webapp-snap.png)<br>
+![ecommerce platform illustration](/asset/image/home/home-illustration-ecommerce-pl.png)<br>
 
 #### Ecommerce Platforms
 
