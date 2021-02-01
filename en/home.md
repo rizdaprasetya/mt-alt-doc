@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
   
-Midtrans helps your business easily accept payments, disburse funds, and more in automated manners.
+Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
 </div>
 
 ## Explore Midtrans Product {docsify-ignore}
@@ -15,10 +15,10 @@ Midtrans helps your business easily accept payments, disburse funds, and more in
 #### Payment for Web/App
 Enable your website and app to securely accept payments (subscriptions, installments, and more) from your customers in a few simple steps.
 
+- [Payment Overview](/en/payments/overview.md)
 - [Built-in Interface (Snap)](/en/snap/overview.md)
 - [Custom Interface (Core API)](/en/core-api/overview.md)
 - [Mobile SDK (for Android and iOS )](https://mobile-docs.midtrans.com)
-- [Payment Overview](/en/payments/overview.md)
 
 
   </div>
@@ -44,7 +44,7 @@ Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/s
 <span class="badge badge-gray" style="float: right;">No Programming</span>
 #### Payment Link
 
-No website yet? Not a problem. Send invoices and receive payments by sharing a link to your customer that redirects your customer to Midtrans payment page. 
+No website yet? Not a problem. Send invoices and receive payments from your customers by sharing a link that redirects them to Midtrans payment page.
 
 - [Payment Link Overview](/en/payment-link/overview.md)
   </div>
@@ -92,7 +92,7 @@ Accept recurring payments (subscription, membership, billing, and so on) with fl
 
 Accept payments by integrating Midtrans to third-party ecommerce solutions (Shopify, Sirclo, Jejualan, and so on).
 
-- [Supported Ecommerce Platform](/en/snap/platform/overview.md)
+- [Supported Ecommerce Platforms](/en/snap/platform/overview.md)
 
 
   </div>
@@ -107,7 +107,7 @@ Accept payments by integrating Midtrans to third-party ecommerce solutions (Shop
 
 #### Library
 
-Checkout programming language library to help you integrate.
+Check out programming language library to help you integrate.
 
 - [Language Library](/en/technical-reference/library-plugin.md)
 
@@ -117,7 +117,7 @@ Checkout programming language library to help you integrate.
 
 #### Postman Collection
 
-A Postman Collection to test Midtrans APIs with ease.
+Easily test Midtrans APIs using Postman Collection.
 
 - [Postman Collection](/en/technical-reference/postman-collection.md)
 
@@ -127,7 +127,7 @@ A Postman Collection to test Midtrans APIs with ease.
 
 #### Testing on Sandbox
 
-Learn how to simulate payment for testing on Sandbox environment.
+Learn how to simulate payments on Sandbox environment for testing.
 
 - [Sandbox Test Credentials](/en/technical-reference/sandbox-test.md)
 
@@ -137,7 +137,7 @@ Learn how to simulate payment for testing on Sandbox environment.
 
 #### API Reference Docs
 
-Learn more about API object, methods, attributes and responses.
+Learn more about API objects, methods, attributes, and responses.
 
 - [Core API Docs](https://api-docs.midtrans.com)
 - [Snap API Docs](https://snap-docs.midtrans.com)
