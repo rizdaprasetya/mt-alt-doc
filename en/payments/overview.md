@@ -98,14 +98,118 @@ You can integrate with Midtrans to start accepting payment with third-party plat
 
 ## Comparison of Integration Options {docsify-ignore}
 
-| Integration Type | Features | Sample Use Case |
-| --- | --- | --- |
-| **Built-in Interface** (Snap) | • All-in-one payment UI that can display all available payment methods. <br/>• Quick, you can integrate just one time, and new payment methods will be auto added within it. <br/>• Can customize the displayed payment methods, and expiry time via Dashboard or API calls. <br/>• Customizable display name, brand logo, and theme color. | • You want an easy way to integrate payment quickly, which allow some customization. <br>• Your platform is web based or able to display web based payment page (webview). <br>• You want to Embed payment page directly within your web & app (via webview) using our Javascript library, or <br>• Redirect customer to Midtrans-hosted payment web page. |
-| **Native Mobile App SDK** | • All the features of *Built-in Interface (Snap)*, optimized for native Android & iOS app, instead of website. <br/>• It is integrated by importing Midtrans SDK within your application codebase. | • Yours is a native mobile app based business, for Android & iOS. <br/>• You want to integrate payment quickly for mobile app, with a native performance & feels. |
-| **Custom Interface** (Core API) | • Render and customize your own payment interface (UI).<br/> • Build your own payment interface (UI) for different payment methods. <br/>• Can be used for non-web applications such as hardware devices or custom software. See [GoPay Integration for POS](#other-options-to-integrate) for more details.<br/>• It has advanced features like on-demand recurring charges. | • You want to fully customize the payment interface/UI, for each payment methods. <br/>• Your business is unable to use website or application based integration like Vending Machine, POS, hardware devices, and so on. <br/>• Your business is PCI compliant. |
-| **Payment Link** | • Does not require coding or programming.<br/>• Can be used to create payment link from the  *Dashboard*. <br/> • The link created using this method can be used in your Blog post, Social Media page, Messenger, WhatsApp, Email, and so on. | • You want to send invoice to your customer quickly, without any complex system or integration. <br/>• You sell on social media sites. <br/>• You are selling a product <!--or service--> (webinar tickets, virtual products, and so on) at a certain price for many potential customers. |
-| **CMS Payment Plugins** | • Does not require coding or programming.<br/>• It has all the features of *Built-in Interface (Snap)*<br/>• It is simple to install and easy to use. | • You want all the features of  *Built-in Interface (Snap)*, without the complexity of manual programming or integration.<br/>• You are currently using (or want to use) CMS such as WordPress, Magento, PrestaShop, WHMCS, and so on. |
-| **E-commerce Platform** | • Does not require coding or programming.<br/>• It has all the features of *Built-in Interface (Snap)*<br/>• It is simple to install and use, for third-party E-commerce platforms. | • You want all the features of  *Built-in Interface (Snap)*, without the complexity of manual programming or integration.<br/>• You are currently using (or want to use) ready-to-use Platform such as Shopify, Sirclo, Jejualan, and so on. |
+<table>
+  <thead>
+    <tr>
+      <th>Integration Type</th>
+      <th>Features</th>
+      <th>Sample Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Built-in Interface</strong> (Snap) </th>
+      <td>
+        <ul>
+          <li>All-in-one payment UI that can display all available payment methods.</li>
+          <li>Quick, integrate just one time, then any new payment methods can be auto added.</li>
+          <li>Customizable payment methods, expiry time, & more via Dashboard/API.</li>
+          <li>Customizable display name, brand logo, & theme color.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Easy way to integrate payment quickly, & customizable. </li>
+          <li>For web based business or webview capable app. </li>
+          <li>Embed payment page directly within your web & app (via webview)</li>
+          <li>Or redirect customer to Midtrans-hosted payment page.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Native Mobile App SDK</strong></th>
+      <td>
+        <ul>
+          <li>All the features of <strong>Snap</strong>, optimized for native Android & iOS app.</li>
+          <li>Via importing Midtrans SDK within app codebase.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>For native mobile app based business (Android & iOS)</li>
+          <li>Integrate quickly on mobile app, with a native performance & feels.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Custom Interface</strong>(Core API)</th>
+      <td>
+        <ul>
+          <li>Render and customize your own payment interface (UI).</li>
+          <li>Customize interface for each payment methods.</li>
+          <li>Advanced features like on-demand recurring charges.</li>
+          <li>
+
+Compatible with web and non-web applications (hardware devices or custom software). Like [GoPay Integration for POS](#other-options-to-integrate)</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Fully customize the payment interface/UI, for each payment methods. </li>
+          <li>Your business is PCI compliant.</li>
+          <li>Custom integration like Vending Machine, POS, hardware devices, and so on. </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Payment Link</strong></th>
+      <td>
+        <ul>
+          <li>No coding or programming needed.</li>
+          <li>Create payment link from <strong>Dashboard</strong>.</li>
+           <li>Payment link can be shared in your Blog, Social Media, Messenger, WhatsApp, Email, etc.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Send invoice to customer quickly, without complex integration. </li>
+          <li>Sell on social media. </li>
+          <li>Create once & use it for many customers, for products like tickets, virtual products, etc.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CMS Payment Plugins</strong></th>
+      <td>
+        <ul>
+          <li>No coding or programming needed.</li>
+          <li>Simple to install & use.</li>
+          <li>The features of  <strong>Snap</strong>, without complex integration.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>You are using CMS like WordPress, Magento, PrestaShop, WHMCS, etc.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>E-commerce Platform </strong></th>
+      <td>
+        <ul>
+          <li>No coding or programming needed.</li>
+          <li>Simple install & use, for third-party E-commerce platforms.</li>
+          <li>The features of  <strong>Snap</strong>, without complex integration.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>You are using ready-to-use Platform like Shopify, Sirclo, Jejualan, etc.</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ?> **Note:** Those sample use case **does not limit** how you could fit the integration-type with your own unique requirement. You can get creative and go beyond those sample use case, and invent your own use case for that type of integration.
 
