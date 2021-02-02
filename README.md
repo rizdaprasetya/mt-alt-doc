@@ -229,6 +229,7 @@ These are for helper tools during development.
 
 ### Other
 - `firebase.json`: Firebase specific config, will be read when deployed on their infra.
+- `.github/workflows/` folder is not used, it was just for development purpose
 </article>
 </details>
 

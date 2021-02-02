@@ -25,7 +25,7 @@ Enable your website and app to securely accept payments (subscriptions, installm
   <div class="my-card">
 
 ![CMS plugin](/asset/image/home/home-illustration-cms-plugin.png)<br>
-
+<span class="badge badge-gray" style="float: right;">No Programming</span>
 #### CMS Plugins
 
 Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/snap/with-plugins.md) in a few simple clicks.
@@ -89,6 +89,7 @@ Accept recurring payments (subscription, membership, billing, and so on) with fl
 ![ecommerce platform illustration](/asset/image/home/home-illustration-ecommerce-pl.png)<br>
 
 #### Ecommerce Platforms
+<span class="badge badge-gray">No Programming</span>
 
 Accept payments by integrating Midtrans to third-party ecommerce solutions (Shopify, Sirclo, Jejualan, and so on).
 
