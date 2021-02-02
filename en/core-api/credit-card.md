@@ -439,7 +439,7 @@ charge_response = core_api.charge(param)
 
 ?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object).<br>It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed on the *Dashboard*.
 
-### Sample Response
+#### Sample Response
 A sample API response for *Card* payment method is shown below.
 
 ```json
@@ -504,7 +504,7 @@ Status Code | Description | Sample Response Message
 ## 3. Opening 3DS Authentication Page
 To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from previous step. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js).
 
-### Open 3DS Authentication Page JS Implementation
+#### Open 3DS Authentication Page JS Implementation
 ```javascript
 var redirect_url = '<redirect_url Retrieved from Charge Response>';
 
@@ -566,7 +566,7 @@ var popupModal = (function(){
  **/
 ```
 
-### 3DS Authentication Page JSON Response
+#### 3DS Authentication Page JSON Response
 On the JS callback function, we will get the transaction details as JSON response as given below.
 
 <!-- tabs:start -->
@@ -640,9 +640,9 @@ To configure the Payment Notification URL, follow the steps given below.
    ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
 
    The *Payment Notification URL* is configured.
-
-   </article>
-   </details>
+</article>
+</details>
+<br>
 
 <div class="my-card">
 

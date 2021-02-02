@@ -214,7 +214,7 @@ If you are using Maven as the build tool for your project, please add JCenter re
 </dependencies>
 ```
 </article>
-</details><br>
+</details>
 
 <details>
 <summary><b>Gradle</b></summary>
