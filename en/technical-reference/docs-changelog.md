@@ -1,6 +1,15 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/04
+- overall UI rebrand
+- homepage restructure
+- add product illustrations
+- search enhancement
+- adjust font-size
+- enhance sidebar
+- enhance Snap interactive demo section
+
 #### 2021/01/04
 - copy writing improvement on Snap plugins, interactive demo, & payment link
 - fix echannel Core API sample json
