@@ -443,8 +443,8 @@ Or try the demo here:
       });
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
-  " class="my-btn">Try Snap Payment Interface ⎋</button>
+    .finally( e=>{ event.target.innerText = `Preview Snap UI ⎋` })
+  " class="my-btn">Preview Snap UI ⎋</button>
 </p>
 
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
