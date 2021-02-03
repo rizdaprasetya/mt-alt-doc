@@ -50,11 +50,11 @@ Snap user interface helps to securely accept payments on your website and mobile
     })
     .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
     .finally( e=>{ event.target.innerText = `Pay with Snap ⎋` })
-  " class="my-btn">Try Snap Payment Interface ⎋</button>
+  " class="my-btn">Preview Snap Payment Interface ⎋</button>
 </p>
 <div style="text-align: center;">
 
-<sup>[Try out the quick (less than 5 mins) integration sample!](/en/snap/interactive-demo.md)</sup>
+[Try it yourself with this (less than 5 mins) integration sample! ↗](/en/snap/interactive-demo.md)
 </div>
 </div>
 
