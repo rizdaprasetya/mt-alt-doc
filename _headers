@@ -1,3 +1,7 @@
 # allow cache image asset for a week on CF side, to reduce bandwidth on Netlify
 /asset/image/*
   Cache-Control: public, s-max-age=604800
+/asset/revamp/icons/*
+  Cache-Control: public, s-max-age=604800
+/asset/revamp/img/*
+  Cache-Control: public, s-max-age=604800
