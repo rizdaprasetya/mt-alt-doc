@@ -9,7 +9,7 @@
     --main-transition: 250ms ease 0s;
 
     /* override smaller font size for less crowded feel */
-    --base-font-size: 14px;
+    /*--base-font-size: 14px;*/
     /* override to widen sidebar */
     --sidebar-width: 19rem;
 }
@@ -35,7 +35,6 @@ td{
 }/**/
 
 .my-card{
-    font-size: 13.5px;
     margin-bottom: 1em;
     padding: 1.7em;
     border-style: solid;
@@ -103,15 +102,6 @@ td{
     filter: brightness(110%);
     box-shadow: var(--high-box-shadow);
     transform: scale(1.05) translate(0em, -0em);
-}
-
-/* Downsize font for code & table, to make it seem compact and short */
-.markdown-section code:not([class*="lang-"]):not([class*="language-"]),
-.markdown-section code[class*="lang-"], 
-.markdown-section pre[data-lang],
-.markdown-section table code:not([class*="lang-"]):not([class*="language-"]),
-table{
-    font-size: 13.5px;
 }
 
 iframe{
