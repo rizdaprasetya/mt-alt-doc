@@ -1,0 +1,15 @@
+.flex-row {
+    @include flex-direction-important(row);
+}
+
+.j-content-between {
+    @include justify-content-important(space-between);
+}
+
+.flex-49 {
+    @include flex-important(0 0 49%);
+}
+
+.padding-11 {
+    @include flex-important(0 0 49%);
+}

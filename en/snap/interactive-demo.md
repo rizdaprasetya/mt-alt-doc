@@ -1,29 +1,18 @@
 # Interactive Demonstration of Snap Integration
 <hr>
 
-Step 1 and Step 2 in [Snap Integration Overview](/en/snap/overview.md) is explained here using interactive demonstration. You can try the *Snap* integration demo given below. You can inspect the source code and see the real-time output.
+Step 1 and Step 2 in [Snap Integration Overview](/en/snap/overview.md) is explained here using interactive demonstration. You can try the *Snap* integration demo given below. You can also observe the source code and see the real-time output.
 
-## Preparations
-<br>
-<div class="my-card">
-
-#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
-Sign up for a Midtrans Merchant Administration Portal (MAP) account, to get your API Keys for *Sandbox* environment and to test integration.
-</div>
-
-<div class="my-card">
-
-#### [Retrieving API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
-Retrieve API Keys for *Sandbox* environment that will be used for this guide.
-</div>
+## Requirements
+Midtrans Account and API keys will be used in this integration, but we will be using a predefined demo keys.
 
 ## Specifications
-The technical specifications of the demonstration integration are given below.
-- Backend: **NodeJS** (hosted on CodeSandbox)
-- Frontend: **HTML** and **JavaScript**.
+- **Backend**: This demo is using **NodeJS** (hosted on CodeSandbox) for simplicity, but you can use any backend language.
+- **Frontend**: HTML and JavaScript.
 
 ## Usage Explanation
-You will see *Snap* Transaction Token as a visualization of API response on backend integration.
+You will observe the basic implementation flow of creating payment page via *Snap API*.
+
 1. Click **Proceed to Payment** to test the frontend.
 
 ?> ***Note***: Please wait until the window/iframe below is fully loaded. It may take some time while it tries to build the backend.
@@ -53,8 +42,6 @@ script.setAttribute('data-element-id','snap-backend-demo');
 </article>
 </details> -->
 
-<br>
-
 <details>
 <summary><b>Alternative Frontend Integration Sample</b></summary>
 <article>
@@ -83,8 +70,16 @@ OTP/3DS | `112233`
 
 For more test payment credentials, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
+## Next Step
+
 <div class="my-card">
 
-#### [Next Step](/en/snap/integration-guide.md?id=_4-handle-after-payment)
-This was a demonstration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps). Please follow the next steps given in the [Snap Integration Guide](/en/snap/integration-guide.md?id=integration-steps) to proceed with the complete integration.
+#### [Get Your Own API Keys](/en/snap/preparation.md)
+Sign up for Midtrans account and retrieve your API keys.
+</div>
+
+<div class="my-card">
+
+#### [Handling After Payment](/en/snap/integration-guide.md#_4-handling-after-payment)
+This was a simplified demonstration of Step 1 and Step 2 on [Snap Integration Guide](/en/snap/integration-guide.md#steps-for-integration). Please follow the next steps given in the [Snap Integration Guide](/en/snap/integration-guide.md#id=steps-for-integration) to proceed with the complete integration.
 </div>

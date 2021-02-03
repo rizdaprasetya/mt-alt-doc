@@ -1,0 +1,224 @@
+//dark mode
+.theme__dark {
+  .content {
+    .markdown-section, p, li {
+      color: $white-gray !important;
+    }
+    strong {
+      color: $white !important;
+    }
+    a {
+      color: var(--main-bg-color) !important;
+
+      strong {
+        font-weight: bold;
+        color: var(--main-bg-color) !important;
+      }
+    }
+    h1, h2, h3 ,h4 {
+      a, span {
+        color: $white !important;
+      }
+
+    }
+    .markdown-section {
+      .my-card {
+        background: $blue-dark;
+        border: 1px solid rgba(222, 234, 245, 0.13);
+
+        &:hover {
+          border-color: rgba(5, 79, 191, 0.33);
+          box-shadow: rgb(166 177 187 / 8%) 0px 10.8px 10.8px 1.35px;
+        }
+
+        a {
+          color: var(--main-bg-color) !important;
+  
+          &:hover {
+            color: var(--main-bg-color) !important;
+          }
+        }
+
+        .my-btn {
+          &:hover {
+            box-shadow: none;
+          }
+        }
+      }
+
+      details {
+        summary {
+          background-color: $blue-dark-lighten;
+          border: none;
+          color: $white;
+
+          &::after {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+          }
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 3px 4px 0 rgb(182 182 195 / 13%);
+          }
+        }
+        article { 
+          background-color: #14335524;
+          border: none;
+        }
+      }
+
+      .collaps-label {
+        background-color: $blue-dark-lighten;
+        border: none;
+        color: $white;
+
+        &::after {
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+        }
+      }
+
+      .docsify-pagination-container, hr {
+        border-color: #102f51;
+      }
+
+      .docsify-pagination-container {
+        .pagination-item-title, span {
+          color: $white;
+        }
+      }
+
+      blockquote, .warn {
+        background: #00325b;
+        border: 1px dashed $blue-quote;
+      }
+
+      table {
+        thead {
+          th {
+            background: $bg-blue-dark;
+            color: $white;
+          }
+        }
+        tbody {
+          tr {
+              &:nth-child(odd) {
+                  background: #0e2b4c;
+              }
+              &:nth-child(even) {
+                  background: $bg-table-dark;
+              }
+              td {
+                  color: $white-gray;
+                  strong {
+                      color: $white;
+                  }
+              }
+          }
+        }
+      }
+
+      .docsify-tabs {
+        &::before{
+            border: none;
+        }
+
+        .docsify-tabs__tab {
+          color: $white;
+          background-color: $bg-table-dark;
+
+            &.docsify-tabs__tab--active {
+              background-color: $blue-dark;
+            }
+        } 
+
+        .docsify-tabs__content {
+          background-color: $blue-dark;
+        }
+      }
+
+      pre[data-lang] {
+        background: transparent;
+        code {
+          background: $bg-table-dark !important;
+          color: $white !important;
+
+          table {
+            &.hljs-ln {
+              tbody {
+                tr {
+                  &:nth-child(odd) {
+                    background: $bg-table-dark !important;
+                  }
+            
+                  .hljs-ln-line {
+                    &.hljs-ln-numbers {
+                      color: $white;
+                      background: #0e2b4c;
+                    }
+
+                    &.hljs-ln-code {
+                      background: $bg-table-dark;
+                      color: $white;
+                    }
+
+                    .hljs-string {
+                      color: rgb(255 203 107 / 89%);
+                    }
+
+                    .hljs-name {
+                      color: rgb(240 113 120 / 89%);
+                    }
+
+                    .hljs-attr, .hljs-number {
+                      color: rgb(240, 113, 120);
+                    }
+                  } 
+
+                  &:first-child {
+                    .hljs-ln-code {
+                      max-width: 90%;
+                      display: block;
+                    }
+                  }
+
+                  .string {
+                    .hljs-string {
+                      color: rgb(255 203 107 / 89%);
+                    }
+                  }
+
+                }
+              }
+            }
+          }
+
+          &.lang- {
+            background: $bg-table-dark !important;
+            color: $white !important;
+          }
+        }
+        &::after {
+          color: silver;
+        }
+      }
+
+      .tip {
+        background: #5b000c;
+      }
+
+    } 
+
+    .tags {
+      .tag {
+        background: $blue-dark;
+        color: $white !important;
+
+        &:hover {
+          color: #d3d3d3 !important;
+        }
+      }
+    }
+
+   
+  }
+}

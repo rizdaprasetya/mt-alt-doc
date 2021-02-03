@@ -7,38 +7,27 @@
 (function replaceAbsoluteResourceWithRelative(){
     // check if this script is loaded `/asset/absolute-to-relative-check.js``
     if (!window.absoluteResourceLoaded){
-        // return 0;
-        let dd = document.location.href.indexOf("://localhost") >= 0;
-        dd&&console.log("> initiating absolute-to-relative for CSS & JS");
-        let addScriptToPageHead = function(script){
-            let scriptWrapper = document.createElement('script');
-            (Array.from(script.attributes)).forEach(function(attr){
-                scriptWrapper.setAttribute(attr.name,script.getAttribute(attr.name));
-            });
-            document.getElementsByTagName('head')[0].appendChild(scriptWrapper);
-            dd&&console.log("script attached:",scriptWrapper);
-        }
-
-        let replaceAllCssAbsToRel = function(){
-            // @NOTE: actually also including all non CSS <link>, including favicon
-            let links = Array.from(document.querySelectorAll('link[href^="/asset/"]'));
-
-            links.forEach(function(link){
-                // dd&&console.log(">- replacing",link.href);
-                link.href = "asset/"+link.href.split("/asset/")[1];
-                // dd&&console.log(">-- with",link.href);
+        var originalHtml = '';
+        var currentUrlPath = document.location.origin + document.location.pathname;
+        // ajax fetch original html
+        fetch('./index.html')
+            .then(function (response){ 
+                return response.text() 
             })
-        }
-        let addAllJsAbsToRel = function(){
-            let scripts = Array.from(document.querySelectorAll('script[src^="/asset/"]'));
-            scripts.forEach(function(script){
-                // reattachScript(script); return 0;
-                script.src = "asset/"+script.src.split("/asset/")[1];
-                addScriptToPageHead(script);
+            .then(function(response){
+                originalHtml = response
+                // replace absolute assets path to relative
+                var modifiedHtml = originalHtml
+                    .replace(/("|')\/asset\//gm,'$1./asset/')
+                    // add docsify config to change basepath
+                    // .replace('// basePath: "/",','basePath: "'+currentUrlPath+'",');
+                console.log('---- Relative path detected, replacing HTML')
+                // soft reload page to flush window JS/dom state
+                window.location.reload(false);
+                // replace page with new modifiedHtml
+                document.open();
+                document.write(modifiedHtml);
+                document.close();
             })
-        }
-
-        replaceAllCssAbsToRel();
-        addAllJsAbsToRel();
     }
 })();
