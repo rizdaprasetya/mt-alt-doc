@@ -1,0 +1,102 @@
+/* Base
+============================================================================= */
+:root {
+    --base-background-color: #{$bg-blue} ;
+    --base-boder-color     : #{$grey-border};
+    // --base-color           : var(--mono-shade2);
+    --base-font-family     : $poppins, sans-serif;
+    --base-font-size       : 16px;
+    --base-font-weight     : normal;
+    --base-letter-spacing  : ;
+    --base-line-height     : 1.6;
+
+    /* Horizontal Rule */
+    --hr-border            : 1px solid #{$grey-border};
+}
+
+/* Menlo Font */
+@font-face {
+    font-family: 'Menlo';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('./fonts/Menlo-Regular.ttf') format('truetype');
+}
+
+/* Proxima Nova Fonts */
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('./fonts/ProximaNova/ProximaNova-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Black';
+    src: url('./fonts/ProximaNova/ProximaNovaBlack.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Bold';
+    src: url('./fonts/ProximaNova/ProximaNovaBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-ExtraBold';
+    src: url('./fonts/ProximaNova/ProximaNovaExtrabold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Thin';
+    src: url('./fonts/ProximaNova/ProximaNovaExtrabold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+html, body{
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    height: 100%;
+    font-family: $poppins, 'sans-serif';
+    -webkit-font-smoothing: auto;
+    
+}
+
+body {
+    font-family: $poppins, sans-serif;
+
+    &.theme__dark {
+        main {
+            background-color: $bg-blue-dark;
+        }
+    }
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+    background: transparent;
+    top: 0;
+    left: 0;
+    &.active {
+     @include custom(1000) {
+        display: block;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+}

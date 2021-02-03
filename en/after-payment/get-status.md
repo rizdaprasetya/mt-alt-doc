@@ -44,103 +44,11 @@ curl --location --request GET 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/st
 
 In the above request, replace `[ORDER_ID]` with your Order ID or Transaction ID.
 
-#### **PHP**
-
-```php
-<?php
-require_once 'HTTP/Request2.php';
-$request = new HTTP_Request2();
-$request->setUrl('https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status');
-$request->setMethod(HTTP_Request2::METHOD_GET);
-$request->setConfig(array(
-  'follow_redirects' => TRUE
-));
-$request->setHeader(array(
-  'Accept' => 'application/json',
-  'Content-Type' => 'application/json',
-  'Authorization' => 'Basic Og=='
-));
-try {
-  $response = $request->send();
-  if ($response->getStatus() == 200) {
-    echo $response->getBody();
-  }
-  else {
-    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
-    $response->getReasonPhrase();
-  }
-}
-catch(HTTP_Request2_Exception $e) {
-  echo 'Error: ' . $e->getMessage();
-}
-```
-
-#### **Python**
-
-```python
-import requests
-
-url = "https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status"
-
-payload = {}
-headers = {
-  'Accept': 'application/json',
-  'Content-Type': 'application/json',
-  'Authorization': 'Basic Og=='
-}
-
-response = requests.request("GET", url, headers=headers, data = payload)
-
-print(response.text.encode('utf8'))
-
-```
-
-#### **Ruby**
-
-```ruby
-require "uri"
-require "net/http"
-
-url = URI("https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status")
-
-https = Net::HTTP.new(url.host, url.port);
-https.use_ssl = true
-
-request = Net::HTTP::Get.new(url)
-request["Accept"] = "application/json"
-request["Content-Type"] = "application/json"
-request["Authorization"] = "Basic Og=="
-
-response = https.request(request)
-puts response.read_body
-
-```
-
-#### **NodeJS**
-
-```javascript
-var request = require('request');
-var options = {
-  'method': 'GET',
-  'url': 'https://api.sandbox.midtrans.com/v2/[ORDER_ID]/status',
-  'headers': {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic Og=='
-  }
-};
-request(options, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
-});
-
-```
-
 <!-- tabs:end -->
 
 ?> Each of the official [Midtrans Language Library](/en/technical-reference/library-plugin.md) has *status* function to call Get Status API.
 
-#### Sample Response
+### Sample Response
 
 The sample response from `[ORDER_ID]/status` endpoint is shown below.
 
@@ -213,7 +121,7 @@ The table given below describes elements in the response.
 }
 ```
 
-#### **Transaction Status**
+### Transaction Status
 
 The following table describes the transaction status.
 
@@ -227,7 +135,7 @@ The following table describes the transaction status.
 | refund             | Transaction is marked to be refunded. Refund status is triggered by you. |
 | settlement         | The transaction is successfully settled. Funds have been received. |
 
-#### **Fraud Status**
+### Fraud Status
 
 The following table describes the fraud status.
 

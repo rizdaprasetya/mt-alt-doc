@@ -5,7 +5,7 @@
 The table given below describes the life cycle of *Transaction Status* and its possible changes.
 
 
-### Transaction Status
+## Transaction Status
 
 Transaction Status | Description | Possible changes(s)
 --- | --- | ---
@@ -32,7 +32,7 @@ This is because the customer did not yet choose any payment method within the Sn
 </article>
 </details>
 
-### Fraud Status
+## Fraud Status
 
 The table given below describes the Fraud status.
 

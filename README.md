@@ -25,6 +25,7 @@
 		- Open web browser and point the destination url to the folder and add `/#/` at the end of it, e.g: `localhost/technical-documentation-site/#/`
 		- or try including the index.html file e.g: `localhost/technical-documentation-site/index.html`
 		- or try serving this folder in root folder of your `localhost`
+		- Note: Currently this site likely to have broken asset path if placed within sub-folder, please place it on parent/main folder of your localhost. e.g: place it on `localhost` instead of `localhost/mydocs/`
 - Live preview from Github repo can also be possible:
 	- Preview using Githack: https://raw.githack.com/Midtrans/technical-documentation-site/master/#/
 		- You can also change `master` with any branch you want to preview
@@ -139,6 +140,32 @@ Custom implementation in html, sample usage:
 Optional card body content, or actually you can use any html/markdown content within card.
 </div>
 ```
+
+#### Tags
+
+```html
+<div class="tags">
+  <div class="tag">Topic1</div>
+  <div class="tag">Topic2</div>
+  <div class="tag">Topic3</div>
+</div>
+```
+
+#### Badges
+
+```html
+#### API Reference Docs <span class="badge badge-yellow">New</span>
+```
+Variants:
+
+```html
+<span class="badge badge-red">New</span>
+<span class="badge badge-yellow">New</span>
+<span class="badge badge-green">New</span>
+<span class="badge badge-gray">New</span>
+
+```
+
 </article>
 </details>
 
@@ -202,6 +229,7 @@ These are for helper tools during development.
 
 ### Other
 - `firebase.json`: Firebase specific config, will be read when deployed on their infra.
+- `.github/workflows/` folder is not used, it was just for development purpose
 </article>
 </details>
 

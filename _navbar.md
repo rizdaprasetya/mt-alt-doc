@@ -1,3 +1,4 @@
+
 <!-- @@@NOCONTENT -->
 <!-- @FIXME: commented out until ID lang translation is ready.
 - :uk:En
@@ -10,5 +11,3 @@
 - Theme
     - [Default](# 'style::Simple')
     - [Dark](# 'style::Simple Dark')
-    - [Lite](# 'style::Vue')
-    - [Plain](# 'style::Plain')

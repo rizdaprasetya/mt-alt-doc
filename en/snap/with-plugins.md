@@ -1,7 +1,9 @@
 # Integrating Midtrans Snap to E-commerce Content Management System (CMS)
 <hr>
 
-Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. You only require to manage the content (Content Management). Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on.
+Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. 
+
+You only require to manage the content (Content Management). Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on. Payment methods available on [Snap](/en/snap/overview.md), explained on [this page](https://midtrans.com/payments), and are available for integration.
 
 ## Preparation
 <br>
@@ -20,11 +22,10 @@ Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 
 ?>**Note**: Follow the [preparation section](#preparation) to retrieve *Client Key* and *Server Key*, before proceeding to the section given below.
 
-#### CMS Plugins and Extensions Supported by Midtrans
+## CMS Plugins and Extensions Supported by Midtrans
 
-A list of Content Management System (CMS) supported by Midtrans plugins and extensions, are given below.
+This is a list of Content Management System (CMS) supported by Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
 
-A step-by-step guide to install Snap integration plugin to your CMS of choice, is also explained in the next section.
 <br>
 
 <div class="my-card">
@@ -331,15 +332,16 @@ The table given below shows the fields and the URL.
 > Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration.
 >
 > If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+
 <details>
 <summary>
 
 #### Refunding Transactions Online
 </summary>
+<article>
 You can request refunds either from the Midtrans Dashboard or from the Magento administration. After a refund is issued, it cannot be cancelled or undone. So, before you trigger a refund request, make sure to check the refund amount and any other details. The online refund feature is available for GoPay and credit card payment methods.
 
 If you make refund from the Midtrans *Dashboard*, refund notification is sent to Magento, transaction state is set to *CLOSED* and credit memo is not created.
-<article>
 
 #### Requesting Refund from Magento Administration
 To request a refund for a transaction from Magento administration, follow the steps given below.

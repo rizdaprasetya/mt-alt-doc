@@ -115,7 +115,7 @@ With this integration, your customer will be redirected to Snap Redirect payment
 <hr><br><br>
 
 ### Available Payment Methods
-All payment methods available on Snap, are explained on [this page](https://midtrans.com/payments), and are available for integration. The integration of these methods is explained in this section. 
+All payment methods available on Snap, are explained on [this page](https://midtrans.com/payments), and are available for integration.
 
 ### Specific Payment Methods
 
