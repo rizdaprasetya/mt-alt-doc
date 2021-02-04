@@ -1,5 +1,3 @@
-## FAQ General Topic
-
 ### Which of the Credit Card acquiring banks need BCA MIGS Pilot testing?
 BCA, Maybank, and BRI banks need BCA MIGS Pilot testing for full payment and installment payments.
 
@@ -10,13 +8,13 @@ This might be because MID-TID is not properly onboarded yet (not yet sync). Plea
 - If your mobile app is using WebView to display Snap pop-up, then make sure that the app follows the points given below.
     *  Enable JavaScript capability for the WebView.
     *  Allow WebView to open bank web domain.
-	  A lot of payment methods within Snap, redirect the customer to the bank's website. Your mobile device needs to ensure that the app allows WebView to open the bank's website domains. All domains needs to be whitelisted, as the customers can use any issuing bank credit card with any website domain.
+	  A lot of payment methods within Snap, redirect the customer to the bank's website. Your mobile developer needs to ensure that the app allows WebView to open the bank's website domains. All domains needs to be whitelisted, as the customers can use any issuing bank credit card with any website domain.
 - For testing or on Sandbox environment, allow WebView to open Midtrans simulator domain: https://simulator.midtrans.com.
 Those configs may be found on app config/manifest. Or specific code when calling WebView.
 
 **Reason:**
 
-Since a lot of payment methods within Snap will redirect customer to bank website, merchant mobile device needs to make sure that the app allows WebView to open bank website domains. This means whitelisting any domain to be opened. In case of credit card, customers can use any issuing bank credit card, for which the web domain can be anything.
+Since a lot of payment methods within Snap will redirect customer to bank website, merchant mobile developer needs to make sure that the app allows WebView to open bank website domains. This means whitelisting any domain to be opened. In case of credit card, customers can use any issuing bank credit card, for which the web domain can be anything.
 
 ### Why the Snap payment button is obscured/covered by Android's on-screen navigation bar, when rendered via merchant's app WebView?
 When you decide to render *Snap* within WebView of your app, please ensure to configure/implement WebView properly. WebView can sometimes behave unexpectedly on some devices/OS. It may not fully render the web page properly. Some elements like pay button can be obscured.
@@ -25,16 +23,14 @@ You can follow the configurations given below to avoid this situation.
 
 On your `AndroidManifest.xml`, configure:
 
-```
+```text
 android:fitsSystemWindows="true"
 ```
 If the problem persists, make sure to do the same with your views, WebViews, and so on.
 
-If the issue is not resolved, refer to the following links.
+If the issue is not resolved, refer to the following links:
 - https://stackoverflow.com/questions/7026854/textbox-hidden-below-keyboard-in-android-webview
-
 - https://stackoverflow.com/questions/35679445/content-going-behind-navigation-bar
-
 - https://medium.com/androiddevelopers/why-would-i-want-to-fitssystemwindows-4e26d9ce1eec
 
 ### Can I revoke or cancel an active *Snap* Token to prevent the customer from proceeding with the transaction?
@@ -44,15 +40,15 @@ If the issue is not resolved, refer to the following links.
 
 If you just need to close payment pop-up on customer browser, using frontend JavaScript you can call `snap.hide()` function to close the payment pop-up.
 
-### I want to use Bin API ( /v1/bins/bin_number), but I am getting "Invalid authentication credentials"?
+<!-- ### I want to use Bin API ( /v1/bins/bin_number), but I am getting "Invalid authentication credentials"?
 In order to use Bin API, request the Turbo team to whitelist the specific merchant. Provide Merchant ID and the environment.
 
-> Note: On #pilar Slack channel, search for "Please consult with gaia team regarding the inquiry".
+> Note: On #pilar Slack channel, search for "Please consult with gaia team regarding the inquiry". -->
 
 ### How should I implement offline installment payment?
 You have to use `whitelist_bins` to implement offline installment payment. The customer can pay with the whitelisted card only. The customer cannot use other cards or banks that are not in `whitelist-bins`.
 
-It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for offline installment. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with < Offline Installment bank > Installment" check box. It should give the information to the merchant backend that the customers want to pay with offline installment. The merchant backend sends the `whitelist_bins` accordingly.
+It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for offline installment. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {Offline-Installment-bank-name} Installment" check box. It should give the information to the merchant backend that the customers want to pay with offline installment. The merchant backend sends the `whitelist_bins` accordingly.
 
 ### Is it possible to identify card issuer or brand based on the card number?
 Yes, it is possible. The first 6-digit of the card is called: Bank Identification Number (BIN). This can help to identify the card issuer or the bank. For example, `410505` belongs to BNI Visa card, `477377` belongs to BCA Visa card, and so on.
@@ -60,13 +56,12 @@ Yes, it is possible. The first 6-digit of the card is called: Bank Identificatio
 If you need to identify card issuer/brand for promo purposes, it is advisable to request the list of BIN from the bank that wants to do promos with you. The banks will provide the list of BINs when they offer to do joint promotion. They will have the most accurate list of BIN for the cards they issued.
 
 The card's network can be identified using the first digit of the card.
-```
 - Visa begins with 4
 - Mastercard begins with 5
 - Amex begins with 34 or 37
 - JCB begins with 2131, 1800 or 35
-```
-For more details, refer to the links given below.
+
+Further references:
 - https://stackoverflow.com/a/72801
 - https://www.creditcardinsider.com/learn/anatomy-of-a-credit-card/
 
@@ -79,7 +74,7 @@ For more reference on card transaction, refer to [Introduction to Card Payment p
 ### I want to use credit card BIN specific promo campaign. How should I implement this?
 You have to use `whitelist_bins` for BIN-specific promo. The customer can pay with the whitelisted card only. The customer cannot use other cards or banks that are not in `whitelist-bins`.
 
-It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for BIN specific promo. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with < BIN specific promo > " check box.
+It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for BIN specific promo. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {the promo name}" check box.
 It should give the information to the merchant backend that the customers want to pay with BIN specific promo. The merchant backend sends the `whitelist_bins` accordingly.
 
 ### I want to use payment method specific promo campaign. How should I implement this?
@@ -90,7 +85,7 @@ It should give the information to the merchant backend that the customers want t
 
 ### Why did I get alert message that HTTP notification is failure because of 3xx status code or redirect?
 
-See the answer given [below](#why-does-midtrans-http-notification-received-on-merchant-backendnotification-handler-look-empty).
+See the answer given [below](#why-does-midtrans-http-notification-received-on-merchant-backendnotification-handler-look-quotemptyquot).
 
 ### Why does Midtrans HTTP notification received on merchant backend/notification handler look "empty"?
 It can be caused by `notification_url` (set by merchant on Dashboard) is ending up in HTTP redirect, when HTTP notification sent by Midtrans notification engine. If HTTP redirect happens, it can cause HTTP POST call to be redirected as HTTP GET, which means it will no longer contains HTTP body which contains the transaction data. This results in merchant notification handler getting empty request body, and might throw error. Redirect can be caused by network/reverse proxy/web framework used by the merchant.
@@ -313,7 +308,7 @@ For more reference, please visit:
 #### Flutter
 
 On Flutter if you are using WebView, referring to this community resource: https://stackoverflow.com/a/60515494 , you will need to implement this listener of the WebView in order to override Deeplink URL to be opened by the device's OS:
-```
+```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
       if (url.startsWith("gojek"))
@@ -535,7 +530,8 @@ snap.pay('<SNAP_TRANSACTION_TOKEN>', {
 
 * If using Snap's `redirect_url`, append `?gopayMode=deeplink` after the URL:
 
-```
+```text
+
 https://app.midtrans.com/snap/v2/vtweb/c9e25cd7-1b89-4fc9-8cb8-ab0342eac21f?GoPayMode=qr
 ```
 
@@ -576,7 +572,7 @@ So, E-Money may contain the failure within their own app and does not reflect fa
 
 Please check the API response, it usually contains more reason of why transaction fails, for example:
 
-```
+```text
 ...
 "status_message":"GO-PAY transaction is rejected"
 "transaction_status":"deny"
@@ -596,20 +592,22 @@ Please refer to [this demo](https://gist.githack.com/rizdaprasetya/cecce986cb3c7
 
 ### I used Mobile SDK but I am unable to get *Snap* Token. How can I resolve it?
 Typically the Mobile SDK transaction flow is as given below.
-1. Merchant mobile device is configured and setup Midtrans Android/iOS SDK especially the environment, Client Key and the merchantServerURL.
+1. Midtrans Android/iOS SDK is configured and setup within Merchant's app, especially the environment, Client Key and the merchantServerURL.
 2. Given correct implementation, SDK will send API request to merchantServerURL to retrieve *Snap* transaction token.
 3. Backend implementation of the merchant server will forward the API request to Midtrans *Snap* API endpoint, adding HTTP auth header from the *Server Key*.
 4. *Snap* API will respond with token. The merchant server needs to print/output the API response as-is.
 5. SDK will auto parse the API response. Once the token is retrieved, payment page will be displayed
 
-Things to do:
-- Configure the correct *Sandbox* environment, merchant ServerURL and *Client Key* in step 1 given earlier.
-- On the app, the [SDK implementation follows the docs](https://mobile-docs.midtrans.com/).
+Things to check:
+- Make sure that you configure the correct environment, merchant ServerURL and *Client Key* in step 1 given earlier.
+- In the app codebase, the [SDK implementation should follows the docs](https://mobile-docs.midtrans.com/).
 - Implement merchant server/backend.
-- Configure the correct *Server Key* and API endpoint to the correct *Sandbox* configuration.
-  If the issue persists, please share any error messages recorded on log, either from the Mobile or backend.
+- In the backend codebase: Configure the correct *Server Key* and API endpoint, according to to the correct environment.
+- If the issue persists, please share any error messages recorded on log, either from the Mobile or backend.
 - Check the backend log to see if it is able to get API response from *Snap* API. Sometimes API can reject invalid request.
-  To check the issue with our API log, provide us with the log or the *Order ID* of the transaction.
+
+To check the issue with our API log, provide us with the log or the *Order ID* of the transaction.
+
 
 ### How can I disable debug log on Android Mobile SDK?
 You can disable it by setting the value of `enableLog` to `false`. A sample code is given below.
@@ -655,7 +653,7 @@ midtransSDK.startPaymentUiFlow(CONTEXT);
 ### How to display specific payment channel via mobile SDK client code?
 It is recommended to specify payment channel from merchant backend/server. Before forwarding request to *Snap* API, you can modify the JSON payload to add `enabled_payments` parameter. For example, add the following to the JSON.
 
-```
+```text
 ...
 "enabled_payments": ["credit_card", "mandiri_clickpay", "cimb_clicks",
     "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
@@ -682,12 +680,12 @@ midtransSDK.startPaymentUiFlow(CONTEXT);
 ```
 
 iOS Objective C
-```
+```c
 MidtransConfig.shared.customPaymentChannels = @[@"credit_card",@"gopay",@"bank_transfer"];
 ```
 
 iOS Swift
-```
+```swift
 MidtransConfig.shared().customPaymentChannels = ["alfamart"]
 ```
 
@@ -773,24 +771,6 @@ For sample implementation, please refer to the links given below.
 
 For more source code, please refer to the link given below.
 - https://gist.github.com/rizdaprasetya/9d16893578d600a03075939ef74c5c1f
-
-### Can you explain the flow of Recurring transaction using *Snap*?
-Please refer to the [sequence diagram described on this documentation]().
-
-### Can you explain the flow of Recurring/One Click transaction?
-Please refer to the [sequence diagram described on this documentation](https://docs.midtrans.com/en/core-api/advanced-features?id=recurringone-click-transaction).
-
-### Can you explain the flow of Recurring/One Click transaction with Register Card API?
-Please refer to the [sequence diagram described on this documentation](https://docs.midtrans.com/en/core-api/advanced-features?id=recurring-transaction-with-register-card-api).
-
-### Can you explain the flow of Two Click transaction?
-Please refer to the [sequence diagram described on this documentation](https://docs.midtrans.com/en/core-api/advanced-features?id=two-click-transaction).
-
-### Can you explain the flow of GoPay transaction?
-Please refer to the [sequence diagram described on this documentation](https://docs.midtrans.com/en/core-api/e-wallet).
-
-### Can you explain the flow of Bank Transfer/VA transaction?
-Please refer to the [sequence diagram described on this documentation](https://docs.midtrans.com/en/core-api/bank-transfer).
 
 ### I updated iOS SDK from v1.14.7 and earlier versions. But the implementation did not work after the update. How can I to resolve it?
 - Earlier SDK required configuration of `CC_CONFIG.secure3DEnabled = ...`. Newer SDK no longer requires it. Please remove that configuration. Then add `CC_CONFIG.authenticationType = MTAuthenticationType3DS` configuration.
