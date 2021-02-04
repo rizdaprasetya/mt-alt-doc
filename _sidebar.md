@@ -32,10 +32,10 @@
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">
       <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">General FAQ</button>
+          <button class="button">General FAQ</button>
       </a>
       <a href="/en/other/faq/technical" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">Technical FAQ</button>
+          <button class="button">Technical FAQ</button>
       </a>
     </div>
     <div class="theme-switch-wrapper">
