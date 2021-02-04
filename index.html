@@ -106,7 +106,7 @@
                 <span class="button button__transparent-blue navbar__dropdown dropdown__button">Help center</span>
                 <div class="dropdown__panel">
                     <a class="dropdown__link " target="_blank" href="https://support.midtrans.com/">General FAQ</a>
-                    <a class="dropdown__link" target="_blank" href="https://midtrans-advanced-faq.netlify.com/#/faq-general">Technical FAQ</a>
+                    <a class="dropdown__link" target="_blank" href="/en/other/faq/technical">Technical FAQ</a>
                 </div>
             </div>
             <div class="theme-switch-wrapper">
@@ -192,8 +192,8 @@
                  * unresponsive for few second on prod
                  */
                 // match any-word-except, allow load sub folder sidebar
-                '/en/(?!payments|pays).*/_sidebar.md': '/_sidebar.md',
-                '/id/(?!payments|pays).*/_sidebar.md': '/id/_sidebar.md',
+                '/en/(?!payments|other).*/_sidebar.md': '/_sidebar.md',
+                '/id/(?!payments|other).*/_sidebar.md': '/id/_sidebar.md',
                 // redirect to root navbar
                 '/en/.*/_navbar.md': '/_navbar.md',
                 '/id/.*/_navbar.md': '/id/_navbar.md'

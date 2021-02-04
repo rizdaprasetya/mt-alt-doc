@@ -34,7 +34,7 @@
       <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
           <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">General FAQ</button>
       </a>
-      <a href="https://midtrans-advanced-faq.netlify.com/#/faq-general" target="_blank" class="a-link flex-49">
+      <a href="/en/other/faq/technical" target="_blank" class="a-link flex-49">
           <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">Technical FAQ</button>
       </a>
     </div>
