@@ -715,6 +715,7 @@
                                         btnCloseSearch.click()
                                     }
                                     searchResultEl.classList.add('clicked')
+                                    searchInput.blur()
 
                                 });
                             }
@@ -729,6 +730,7 @@
                                 const btnCloseSearch = document.querySelector('.clear-button.show')
                                 if(btnCloseSearch) {
                                     btnCloseSearch.click()
+                                    searchInput.blur()
                                 }
                             }
                             });
