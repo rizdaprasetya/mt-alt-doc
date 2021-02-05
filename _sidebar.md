@@ -1,6 +1,22 @@
 <!-- @@@NOCONTENT -->
 - [**![](asset/image/main/midtrans-icons-home.svg)Home**](/ "Midtrans Payment Gateway Technical Documentation")
 - [**![](asset/image/main/midtrans-icons-payments.svg)Payments**](en/payments/overview.md "Midtrans - Payments Technical Documentation")
+  - [**![](asset/image/main/midtrans-icons-builtininterface.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
+    - [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
+    - [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
+    - [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
+    - [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
+  - [**![](asset/image/main/midtrans-icons-nativemobile.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
+  - [**![](asset/image/main/midtrans-icons-custominterface.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
+    - [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")
+      - [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
+      - [Bank Transfer](en/core-api/bank-transfer.md "Midtrans - Core API Bank Transfer Documentation")
+      - [E-Money](en/core-api/e-wallet.md "Midtrans - Core API E-Money Documentation")
+      - [Direct Debit](en/core-api/direct-debit.md "Midtrans - Core API Direct Debit Documentation")
+      - [Convenience Store](en/core-api/convenience-store.md "Midtrans - Core API Convenience Store Documentation")
+      - [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
+    - [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
+    - [API Methods ↗](https://api-docs.midtrans.com/#api-methods)
 - [**![](asset/image/main/midtrans-icons-payouts.svg)Disbursement ↗**](https://iris-docs.midtrans.com/)
 - [**![](asset/image/main/midtrans-icons-account.svg)Account**](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - [**![](asset/image/main/midtrans-icons-signature.svg)Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
@@ -31,11 +47,11 @@
 <!-- Navbar for Mobile -->
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">
-      <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">General FAQ</button>
+      <a href="https://support.midtrans.com/" class="a-link flex-49">
+          <button class="button">General FAQ</button>
       </a>
-      <a href="https://midtrans-advanced-faq.netlify.com/#/faq-general" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">Technical FAQ</button>
+      <a href="/en/other/faq/technical" class="a-link flex-49">
+          <button class="button">Technical FAQ</button>
       </a>
     </div>
     <div class="theme-switch-wrapper">

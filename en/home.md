@@ -67,7 +67,7 @@ Manage payouts or disburse funds to multiple bank and e-money accounts easily wi
 Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, and so on) to Midtrans Core API to start accepting payments.
 
 - [API Based Integration via Core API](/en/core-api/overview.md)
-- [GoPay-POS Integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos)
+- [GoPay-POS Integration](/en/other/faq/gopay-pos)
 
 
   </div>
@@ -184,7 +184,7 @@ Whether you are a freelancer, service provider, teacher or have a business selli
 
 #### Accept Payment on Point of Sales, Vending Machines, IoT devices
 
-For business without a website or application platforms (vending machine, TV box, IoT, point of sales, and so on), as long as the device is connected to the Internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API, devices can easily integrate via API calls. There is [specific GoPay guide for this type of integration](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos).
+For business without a website or application platforms (vending machine, TV box, IoT, point of sales, and so on), as long as the device is connected to the Internet, it can be integrated with [Midtrans Core API](/en/core-api/overview.md) to start accepting payment on the device. With Core API, devices can easily integrate via API calls. There is [specific GoPay guide for this type of integration](/en/other/faq/gopay-pos).
 
 #### Pay Out Users/Merchants on Your Platform
 
