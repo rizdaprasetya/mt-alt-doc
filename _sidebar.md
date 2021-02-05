@@ -31,11 +31,11 @@
 <!-- Navbar for Mobile -->
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">
-      <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">General FAQ</button>
+      <a href="https://support.midtrans.com/" class="a-link flex-49">
+          <button class="button">General FAQ</button>
       </a>
-      <a href="https://midtrans-advanced-faq.netlify.com/#/faq-general" target="_blank" class="a-link flex-49">
-          <button class="button button__transparent-blue padding-11" data-micromodal-trigger="modal-1">Technical FAQ</button>
+      <a href="/en/other/faq/technical" class="a-link flex-49">
+          <button class="button">Technical FAQ</button>
       </a>
     </div>
     <div class="theme-switch-wrapper">
