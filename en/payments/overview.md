@@ -214,7 +214,7 @@ Compatible with web and non-web applications (hardware devices or custom softwar
 ?> **Note:** Those sample use case **does not limit** how you could fit the integration-type with your own unique requirement. You can get creative and go beyond those sample use case, and invent your own use case for that type of integration.
 
 ## Other Options to Integrate {docsify-ignore}
-- [**Gopay Integration for POS**](https://midtrans-advanced-faq.netlify.com/#/partner-gopay-pos): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
+- [**Gopay Integration for POS**](/en/other/faq/gopay-pos): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
   These devices can easily start accepting payments using the API calls.
 
 ## Next Step {docsify-ignore}

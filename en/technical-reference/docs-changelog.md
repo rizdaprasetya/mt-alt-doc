@@ -1,6 +1,13 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/05
+- merge tech faq into tech docs
+- adjust sidebar font-size & style
+- restructure tech faq
+- minor enhance search index & input ui
+- fix sitemap duplicate entries
+
 #### 2021/03/04
 - overall UI rebrand
 - homepage restructure
