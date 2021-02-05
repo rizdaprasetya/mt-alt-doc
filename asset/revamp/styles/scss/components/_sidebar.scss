@@ -89,7 +89,6 @@
           padding-left: 1rem;
         }
         >strong {
-          border: none;
           font-weight: 500;
           color: $grey;
           text-transform: uppercase;
@@ -114,15 +113,6 @@
             color: $blue;
           }
         };
-
-        &:nth-child(2) {
-          &.active {
-            &.open {
-              border-bottom: 1px solid #dfebf6;
-              padding-bottom: 20px;
-            }
-          }
-        }
       }
     }
 
@@ -134,7 +124,6 @@
 
         img {
           height: 1rem;
-          padding-right: 0.5rem;
         }
 
         a {
