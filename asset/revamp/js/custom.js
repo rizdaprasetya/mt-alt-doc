@@ -1,3 +1,29 @@
+// Helper to prevent duplicate addEventListener handler 
+// src: https://stackoverflow.com/q/64155405
+function elementWithOneEventListener(el){
+    el.oneEventListener = (event, func) => {
+        if(el.lastEventListener == null){
+          el.lastEventListener = {};
+        }
+        if(el.lastEventListener[event] != null){
+          el.removeEventListener(event, el.lastEventListener[event]);
+        }
+        el.addEventListener(event, func);
+        el.lastEventListener[event] = func;
+    }
+    return el;
+}
+function preventDuplicateListenerProxy(el) {
+  if(!(el instanceof NodeList)){
+    return elementWithOneEventListener(el);
+  }else{
+    el.forEach(ele=>{
+      ele = elementWithOneEventListener(ele);
+    });
+    return el;
+  }
+}
+
 function getRightSideBarContent() {
   setTimeout(() => {
     //right sidebar content
@@ -59,9 +85,12 @@ function rightMenusActiveScroll() {
     if(contents.length == 0) {
       contents = document.querySelectorAll('h1[id]');
     }
+    if(!contents.length || !navLinks.length) { return 0; } //exit if no element found
 
     const contentLength = contents.length;
-    window.addEventListener("scroll", function (event) {
+    // @fixed: scroll event listener is added on EACH navigation, BAD!
+    windowProxyEl = preventDuplicateListenerProxy(window);
+    windowProxyEl.oneEventListener("scroll", function (event) {
       event.preventDefault();
       const scrollPos =
         (window.pageYOffset ||
