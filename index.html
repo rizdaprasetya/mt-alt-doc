@@ -85,41 +85,24 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K458FD6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <nav style="display: none;">
-        <div class="search-new" >
-        </div>
-        <div id="navbar-mobile" class="navbar-mobile">
-            <div class="navbar__hamburger" id="hamburger" onclick="showMenusMob()">
-                <img src="/asset/revamp/img/hamburger-menu.png" class="image-fluid">
-            </div>
-            <div class="navbar__current-menu ml-3" id="current-menu-mob"></div>
-            <div class="ml-auto">
-                <div class="navbar__search" id="search-button" onclick="searchMob()">
-                    <img src="/asset/revamp/icons/midtrans-icons-search.svg" class="image-fluid">
+
+    <nav class="app-nav no-badge">
+        <ul>
+            <li>Help Center<ul>
+                    <li><a href="https://support.midtrans.com" target="_blank" rel="noopener" title="">General FAQ</a></li>
+                    <li><a href="/en/other/faq/technical.md" target="_blank" rel="noopener" title="">Technical FAQ</a></li>
+                    <li><a href="https://midtrans.com/contact-us" target="_blank" rel="noopener" title="">Contact Us</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox-theme">
+                        <input type="checkbox" id="checkbox-theme" class="checkbox-theme" onclick="changeTheme()">
+                        <div class="slider round">☀️ 🌙</div>
+                    </label>
                 </div>
-            </div>
-        </div>
-        <!-- BUTTON Menus-->
-        <div class="d-flex ml-auto" style="opacity: 0;">
-
-            <div class="dropdown">
-                <span class="button button__transparent-blue navbar__dropdown dropdown__button">Help center</span>
-                <div class="dropdown__panel">
-                    <a class="dropdown__link " href="https://support.midtrans.com/">General FAQ</a>
-                    <a class="dropdown__link" href="/en/other/faq/technical">Technical FAQ</a>
-                </div>
-            </div>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox-theme">
-                    <input type="checkbox" id="checkbox-theme" class="checkbox-theme" onclick="changeTheme()">
-                    <div class="slider round"></div>
-              </label>
-              <div class="description">Dark Mode</div>
-            </div>
-
-        </div>
-        <!-- END BUTTON  Menus-->
-
+            </li>
+        </ul>
         <div class="col-lg-3 sidebar__right d-none d-lg-block px-5">
             <div class="sidebar__right-wrapper">
                 <h4 class="sidebar__right-title">In this page</h4>
@@ -128,7 +111,6 @@
             </div>
         </div>
     </nav>
-    <div class="overlay" id="overlay"></div>
 
     <div id="app"></div>
 
@@ -676,76 +658,6 @@
 
                         //theme Changer
                         themeChanger()
-
-                        //get page title for mobile
-                        getCurrentPageTitle()
-
-                    })
-
-                    hook.doneEach(function(){
-                        if(window.thisHookExecutedOnce){ return 0; }
-
-                        //dropdown top nav
-                        dropDownTopNav()
-
-                        setTimeout(()=>{
-
-                            let sidebarSearch = document.querySelector(".search");
-                            let sidebarSearchNew = document.querySelector(".search-new");
-                            
-                            sidebarSearchNew.appendChild(sidebarSearch)
-
-                            //eventlistener for search
-                            let searchBoxEl = document.querySelector('.search-new .input-wrap')
-                            let searchResultEl = document.querySelector('.search-new .results-panel')
-                            let searchInput = document.querySelector('.search-new input')
-                        
-                            if(searchBoxEl) {
-                                searchBoxEl.addEventListener('click', () => {
-                                    if(searchResultEl.classList.contains('clicked')) {
-                                        searchResultEl.classList.remove('clicked')
-                                    }
-                                });
-                            }
-                            // triger close button for fix wrong img path before navigate to other page
-                            if(searchResultEl) {
-                                searchResultEl.addEventListener('click', () => {
-                                    const btnCloseSearch = document.querySelector('.clear-button.show')
-                                    if(btnCloseSearch) {
-                                        btnCloseSearch.click()
-                                    }
-                                    searchResultEl.classList.add('clicked')
-                                    searchInput.blur()
-
-                                });
-                            }
-
-                            //handle click outside search
-                            window.addEventListener('click', function(e){   
-                            if (sidebarSearchNew.contains(e.target)){
-                                // Clicked in box
-                            } else{
-                                // Clicked outside the box
-                                searchResultEl.classList.add('clicked')
-                                const btnCloseSearch = document.querySelector('.clear-button.show')
-                                if(btnCloseSearch) {
-                                    btnCloseSearch.click()
-                                    searchInput.blur()
-                                }
-                            }
-                            });
-
-
-                        },500)
-
-
-                        setTimeout(() => {
-                            if(localStorage.getItem('theme') == 'dark') {
-                                replaceLogoImageDarkMode('dark')
-                            }
-                        }, 600);
-
-                        window.thisHookExecutedOnce = true;
                     })
 
                 }
