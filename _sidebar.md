@@ -47,7 +47,7 @@
 <!-- Navbar for Mobile -->
 <div class="menu-mob-act">
     <div class="menu-mob-act flex-row j-content-between">
-      <a href="https://support.midtrans.com/" class="a-link flex-49">
+      <a href="https://support.midtrans.com/" target="_blank" class="a-link flex-49">
           <button class="button">General FAQ</button>
       </a>
       <a href="/en/other/faq/technical" class="a-link flex-49">
