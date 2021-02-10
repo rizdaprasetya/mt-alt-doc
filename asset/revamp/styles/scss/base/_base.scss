@@ -78,6 +78,12 @@ body {
         main {
             background-color: $bg-blue-dark;
         }
+        ::-moz-selection { 
+            background: $blue-dark-lighten; 
+        }
+        ::selection { 
+            background: $blue-dark-lighten; 
+        }
     }
 }
 
