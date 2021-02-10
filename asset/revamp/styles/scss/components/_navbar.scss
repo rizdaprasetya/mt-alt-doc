@@ -205,12 +205,6 @@
   // top nav menus
   ul {
     li {
-      transform: none !important;
-
-      a {
-        -webkit-transition: none !important;
-        transition: none !important;
-      }
 
       span {
         cursor: pointer;
@@ -221,31 +215,9 @@
         letter-spacing: normal;
         line-height: normal;
         position: relative;
-        background: none !important;
-        outline: none !important;
-
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%) rotate(270deg);
-            transition: 0.3s ease;
-            background-image: url('/asset/revamp/icons/icon_arrow.svg');
-            background-repeat: no-repeat;
-            border: 0 !important;
-            width: 8px;
-            height: 13px;
-        }
 
         &:hover {
             color: #005dac;
-
-            &:after {
-                transition: 0.3s ease;
-                transform: translateY(-50%) rotate(90deg);
-            }
           }
         
       }
@@ -253,8 +225,6 @@
       // sub menu top nav
       &.focus-within,
       &:hover {
-        -webkit-transition: none !important;
-        transition: none !important;
         ul {
           background-color: $white;
           border-radius: 4px;
@@ -262,28 +232,18 @@
           overflow: hidden;
           border: 1px solid $grey-border;
           margin: 0;
-          margin: 0;
-          min-width: 160px;
           padding: 0;
-          padding: 10px 0;
-          -webkit-transition: none !important;
-          transition: none !important;
+          padding: 0.5em 0;
 
           li {
-            transform: none !important;
             a {
-              -webkit-transition: none !important;
-              transition: none !important;
-              font-size: 14px;
-              font-weight: 500;
-              line-height: 20px;
-              letter-spacing: 0;
-              text-decoration: none;
+              font-size: smaller;
               color: $blue-darken;
-              padding: 10px 8px;
+              padding: 0.8em;
               margin: 0;
 
               &:hover {
+                color: $blue;
                 background-color: $dropdown-hover;
               }
             }
@@ -297,6 +257,33 @@
 //dark mode
 .theme__dark {
   .app-nav {
+    ul {
+      li {
+        span {
+          color: $white-gray;
+        }
+        // sub menu top nav
+        &.focus-within,
+        &:hover {
+          ul {
+            background-color: $blue-dark-lighten;
+            border: 1px solid $blue-dark-lighten;
+
+            li {
+              a {
+                color: $white-gray;
+
+                &:hover {
+                  color: $blue;
+                  background-color: $blue-darken;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
     .d-flex {
       .a-link, .dropdown {
         .button {
