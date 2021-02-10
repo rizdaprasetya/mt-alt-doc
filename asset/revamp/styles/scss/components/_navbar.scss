@@ -24,15 +24,15 @@
       margin-right: unset;
     }
     text-align: center;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     top: 0.5rem;
     right: 0;
 
     .theme-switch {
       display: inline-block;
       position: relative;
-      width: 3em;
-      height: 1.75em;
+      width: 52px;
+      height: 30px;
 
       input {
         display:none;
@@ -51,11 +51,11 @@
 
         &::before {
           background-color: $white;
-          bottom: 0.25em;
+          bottom: 4px;
           content: "";
-          width: 1.25em;
-          height: 1.25em;
-          left: 0.25em;
+          width: 22px;
+          height: 22px;
+          left: 4px;
           position: absolute;
           transition: .4s;
         }
@@ -65,12 +65,13 @@
         background-color: #3B3636;
 
         &::before {
-          transform: translateX(1.25em);
+          transform: translateX(22px);
         }
       }
   
       .slider.round {
-        border-radius: 1em;
+        border-radius: 30px;
+        line-height: 30px;
 
         &::before {
           border-radius: 50%;
