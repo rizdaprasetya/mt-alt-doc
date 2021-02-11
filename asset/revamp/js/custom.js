@@ -27,9 +27,9 @@ function preventDuplicateListenerProxy(el) {
 function generateRightSideBarContent() {
   setTimeout(function() {
     //right sidebar content
-    let sideBarSelector = document.getElementById('right-bar-content')
-    let sideBarContens = ''
-    let getAllTitle = document.querySelectorAll("h2,h3")
+    var sideBarSelector = document.getElementById('right-bar-content')
+    var sideBarContens = ''
+    var getAllTitle = document.querySelectorAll("h2,h3")
 
     if(getAllTitle.length == 0) {
       getAllTitle = document.querySelectorAll("h1");
@@ -37,9 +37,9 @@ function generateRightSideBarContent() {
 
     if(getAllTitle) {
       getAllTitle.forEach(function(element) {
-        let titleText = element.innerText
-        let titleId = element.id
-        let linkPrefix = ""
+        var titleText = element.innerText
+        var titleId = element.id
+        var linkPrefix = ""
         if(window.willUseDocsifyHashRouter){
           try {
             linkPrefix = ((window.location.href).split('?id='))[0]
@@ -62,7 +62,7 @@ function generateRightSideBarContent() {
 // @TODO: optimize this to prevent duplicated listener
 function applyAccordionLabelTagListener() {
   setTimeout(function() {
-    let accordionLabelSelector = document.querySelectorAll('.collaps-label')
+    var accordionLabelSelector = document.querySelectorAll('.collaps-label')
     if( accordionLabelSelector ) {
       accordionLabelSelector.forEach(function(element) {
         element.addEventListener('click', function() {
@@ -80,25 +80,25 @@ function applyAccordionLabelTagListener() {
 // add active to right side menus on scroll
 function activateRightMenuOnScroll() {
   setTimeout(function() {
-    let contents = document.querySelectorAll('h2[id], h3[id]');
-    const navLinks = document.querySelectorAll(".sidebar__right-list");
+    var contents = document.querySelectorAll('h2[id], h3[id]');
+    var navLinks = document.querySelectorAll(".sidebar__right-list");
 
     if(contents.length == 0) {
       contents = document.querySelectorAll('h1[id]');
     }
     if(!contents.length || !navLinks.length) { return 0; } //exit if no element found
 
-    const contentLength = contents.length;
+    var contentLength = contents.length;
     // @fixed: scroll event listener is added on EACH navigation, BAD!
     windowProxyEl = preventDuplicateListenerProxy(window);
     windowProxyEl.oneEventListener("scroll", function (event) {
       event.preventDefault();
-      const scrollPos =
+      var scrollPos =
         (window.pageYOffset ||
           document.documentElement.scrollTop ||
           document.body.scrollTop ||
           0) + 100;
-      let contentsTop = [];
+      var contentsTop = [];
       contents.forEach(function(content, index) {
         contentsTop.push(content.offsetTop);
       });
@@ -149,7 +149,7 @@ function applySavedTheme() { // check from localstorage
   //check localstorage
   if(localStorage.getItem('theme') == 'dark') {
     document.getElementsByTagName('body')[0].classList.add('theme__dark')
-    let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
+    var checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
     if(checkboxThemeEl) {
       checkboxThemeEl.forEach(function(element) {
         element.checked = true;
@@ -161,8 +161,8 @@ function applySavedTheme() { // check from localstorage
   }
 }
 function changeTheme(param) {
-  let body = document.getElementsByTagName('body')[0]
-  let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
+  var body = document.getElementsByTagName('body')[0]
+  var checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
   if(!localStorage.getItem('theme')) { // set to dark mode
     replaceLogoImageDarkMode('dark')
     if(body.classList.contains('theme__light')) {
@@ -191,10 +191,10 @@ function changeTheme(param) {
 function replaceLogoImageDarkMode(theme) {
   setTimeout(function() {
     //replace all midtrans logo to white
-    let getAllImg = document.querySelectorAll('img')
+    var getAllImg = document.querySelectorAll('img')
     if(getAllImg) {
       getAllImg.forEach(function(element) {
-        let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
+        var checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
         if(element.currentSrc.indexOf(checkSrc) !== -1 || element.currentSrc.includes(checkSrc)) {
           element.src = theme == 'dark' ? 
             element.src.replace("midtrans-logo.png", "midtrans-logo-white.png") : 
