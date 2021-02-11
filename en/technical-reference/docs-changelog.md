@@ -2,6 +2,7 @@
 <hr>
 
 #### 2021/02/11
+- add community contributed TypeScript library
 - fix external navbar links fails to open
 - enhance performance
 	- fix duplicated scroll listener on each route load

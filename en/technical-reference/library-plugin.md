@@ -9,15 +9,19 @@ Our library and plugins are **Open Source!** We are happy to accept any open sou
 
 ## Language Library
 
-|Platforms | Resources |
-|---|---|
-|PHP|[Composer](https://packagist.org/packages/midtrans/midtrans-php)<br>[Github](https://github.com/Midtrans/midtrans-php)|
-|Ruby|[Gem](https://rubygems.org/gems/veritrans)<br>[Github](https://github.com/veritrans/veritrans-ruby)|
-|Node JS|[NPM](https://www.npmjs.org/package/midtrans-client)<br>[Github](https://github.com/Midtrans/midtrans-nodejs-client)|
-|Python|[PyPI](https://pypi.org/project/midtransclient/1.0.6/)<br>[Github](https://github.com/Midtrans/midtrans-python-client)|
-|Java|[Bintray](https://bintray.com/midtrans/midtrans-java/com.midtrans)<br>[Java Doc](https://midtrans.github.io/midtrans-java/index.html)<br>[Github](https://github.com/Midtrans/midtrans-java)|
-|Go|[Github](https://github.com/veritrans/go-midtrans)|
-|Postman Collection| [Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)<br>[Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)|
+|Platforms | Resources | Notes |
+|---|---|---|
+|PHP|[Composer](https://packagist.org/packages/midtrans/midtrans-php)<br>[Github](https://github.com/Midtrans/midtrans-php)| |
+|Ruby|[Gem](https://rubygems.org/gems/veritrans)<br>[Github](https://github.com/veritrans/veritrans-ruby)| |
+|Node JS|[NPM](https://www.npmjs.org/package/midtrans-client)<br>[Github](https://github.com/Midtrans/midtrans-nodejs-client)| |
+|Python|[PyPI](https://pypi.org/project/midtransclient/1.0.6/)<br>[Github](https://github.com/Midtrans/midtrans-python-client)| |
+|Java|[Bintray](https://bintray.com/midtrans/midtrans-java/com.midtrans)<br>[Java Doc](https://midtrans.github.io/midtrans-java/index.html)<br>[Github](https://github.com/Midtrans/midtrans-java)| |
+|Go|[Github](https://github.com/veritrans/go-midtrans)| |
+|Postman Collection| [Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)<br>[Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)| |
+|TypeScript\*|[Github](https://github.com/restuwahyu13/midtrans-node)| \*Community contribution. <br>Credits to [restuwahyu13](https://github.com/restuwahyu13)
+
+#### For Library Developer
+Did you develop your own library/package/module for Midtrans API, and want us to list and recognize it on this page? Please do let us know via email at support@midtrans.com. We do appreciate community contributions 🎉.
 
 ## Snap Plugin for E-Commerce CMS
 ?> The [step by step installation guide is available here](/en/snap/with-plugins).
