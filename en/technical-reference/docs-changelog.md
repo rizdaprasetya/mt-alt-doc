@@ -1,14 +1,27 @@
 # Docs Changelog
 <hr>
 
-#### 2021/03/05
+#### 2021/02/11
+- fix external navbar links fails to open
+- enhance performance
+	- fix duplicated scroll listener on each route load
+	- remove heavy transition of main content on sidebar open-close, on mobile
+	- remove unused css
+	- remove unused js
+- partial update dependencies
+- replace revamped navbar with more performant and less complicated mobile-desktop implementation 
+- enhance dark mode toggle to be more compact and intuitive
+- enhance dark mode text selection & search highlight color
+- move search bar back to sidebar, limit height for better visibility
+
+#### 2021/02/05
 - merge tech faq into tech docs
 - adjust sidebar font-size & style
 - restructure tech faq
 - minor enhance search index & input ui
 - fix sitemap duplicate entries
 
-#### 2021/03/04
+#### 2021/02/04
 - overall UI rebrand
 - homepage restructure
 - add product illustrations

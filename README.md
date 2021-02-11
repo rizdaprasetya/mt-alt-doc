@@ -57,6 +57,7 @@ For example (choose one of it, not all):
 	- If the link refer to some html id, use this `/en/snap/overview.md#integration`, instead of `?id=integration`
 - Sidebar menu is rendered from `_sidebar.md` file
 	- Link title will be used as the page title, to define title, e.g: `- [menu name](/en/menu/path.md "Page Title Here")`
+- Nav content is no longer using `_navbar.md` file, but is hardcoded inside `index.html`, edit the html if you need to edit Nav element.
 - This project is using [Docsify](https://docsify.js.org/).
 - `index.html` contains all the Docsify script, plugins, and config.
 	- External `css`,`js` file dependencies (`<script>` tag) should have ["intigrity" SRI attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity). e.g: use [jsdelivr.com](https://www.jsdelivr.com/package/npm/prismjs?version=1.17.1&path=components), click `copy HTML + SRI`.
@@ -84,6 +85,11 @@ For example (choose one of it, not all):
 To customize CSS in order to stylize the overall looks and feel of the docs, we can override the default Docsify's theme CSS. For example we have our own custom CSS file located in: `/asset/custom.css`.
 
 Edit the above file to add your own custom CSS style and rule.
+
+Since revamped, additional custom CSS also can be found in `/asset/revamp/styles/scss`. It uses SASS, [install sass](https://sass-lang.com/install) if you want to edit and compile the custom `.scss` files. There is also helper `build-scss.sh` file that you can use:
+	- navigate to the folder: `cd asset/revamp/styles/scss/`
+	- run the file: `./build-scss/sh`
+	- it will auto recompile final `main.css` file whenever you edit any of the included `.scss` files.
 
 ### Using Custom CSS elements
 There are some custom elements to make UX better:
