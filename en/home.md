@@ -1,3 +1,5 @@
+<hr>
+
 [![Midtrans Logo](/asset/image/main/midtrans-logo.png ':size=220')](https://midtrans.com)<hr>
 
 <div style="text-align: center;">

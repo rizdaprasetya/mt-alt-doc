@@ -142,36 +142,6 @@ function rightMenusActiveScroll() {
   }, 170);
   
 }
-// DROPDOWN
-function dropDownTopNav() {
-  setTimeout(() => {
-    let dropdowns = document.querySelectorAll('.dropdown')
-    dropdowns.forEach( dropdown => {
-        dropdown.addEventListener('click', () => {
-            dropdown.classList.toggle('dropdown-active')
-            let panel = dropdown.lastElementChild
-            if (panel.style.display === 'flex') {
-                panel.style.display = 'none'
-            } else {
-                panel.style.display = 'flex'
-                panel.style.flexDirection = 'column'
-            }
-        })
-    })
-    window.addEventListener('click', function(event){
-        if (!event.target.matches('.dropdown__button')) {
-            let activeDropdowns = document.querySelectorAll('.dropdown.dropdown-active')
-            activeDropdowns.forEach(activeDropdown => {
-                let openDropdown = activeDropdown.lastElementChild;
-                if (openDropdown.style.display === 'flex') {
-                  activeDropdown.classList.remove('dropdown-active')
-                  openDropdown.style.display = 'none'
-                }
-            })
-        }
-    })
-  }, 50);
-}
 
 // THEME CHANGER
 function themeChanger() { // check from localstorage
@@ -266,14 +236,6 @@ function showMenusMob() {
         }
       });
     }
-  }
-}
-
-function getCurrentPageTitle() {
-  let selectorMob = document.getElementById('current-menu-mob')
-  const docTitle = document.title
-  if(selectorMob) {
-    selectorMob.innerHTML = docTitle
   }
 }
 
