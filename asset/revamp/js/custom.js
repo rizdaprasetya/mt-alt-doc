@@ -187,58 +187,6 @@ function changeTheme(param) {
   
 }
 
-//search mobile
-function searchMob() {
-  let getNavEl = document.querySelector('nav.app-nav')
-  if(getNavEl) {
-    if(getNavEl.classList.contains('active-search-mob')) {
-      getNavEl.classList.remove('active-search-mob')
-    }else {
-      getNavEl.classList.add('active-search-mob')
-      //focus to input
-      const searchInput = document.querySelector('input[type="search"]')
-      if(searchInput) {
-        searchInput.focus()
-      }
-      //close when click outside elemen
-      let mainEl = document.querySelector('main')
-      mainEl.addEventListener('click', function(event) {
-          getNavEl.classList.remove('active-search-mob')
-      });
-    }
-  }
-}
-
-//show menus mobile
-function showMenusMob() {
-  let mainEl = document.querySelector('main')
-  let overlay = document.querySelector('.overlay')
-  if(mainEl) {
-    if(mainEl.classList.contains('show-menu-mob')) {
-      mainEl.classList.remove('show-menu-mob')
-      if(overlay) {
-        overlay.classList.remove('active')
-      }
-    }else {
-      mainEl.classList.add('show-menu-mob')
-      if(overlay) {
-        overlay.classList.add('active')
-      }
-
-      //close menus
-      overlay.addEventListener('click', function(event) {
-          //the click was outside the specifiedElement, do something
-        if(mainEl.classList.contains('show-menu-mob')) {
-          mainEl.classList.remove('show-menu-mob')
-          if(overlay) {
-            overlay.classList.remove('active')
-          }
-        }
-      });
-    }
-  }
-}
-
 function replaceLogoImageDarkMode(theme) {
   setTimeout(() => {
     //replace all midtrans logo to white
