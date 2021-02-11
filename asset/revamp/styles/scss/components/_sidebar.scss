@@ -15,7 +15,7 @@
   --sidebar-name-margin                         : 1.5rem 0 0;
   // --sidebar-name-padding                        : ;
   --sidebar-name-text-align                     : center;
-  --search-input-margin                         : 0 -0.6rem;
+  --search-input-margin                         : 0 0 0 -12px;
 
 }
 
@@ -31,9 +31,15 @@
   .search {
     .results-panel {
       font-size: var(--font-size-s);
-    }
-    .clear-button {
-      margin-right: 1.5em;
+      padding-left: 12px;
+      max-height: 40vh;
+      overflow-y: scroll;
+      margin: var(--search-input-margin);
+      border-width: var(--search-input-border-width, 0); 
+      border-style: solid; 
+      border-color: var(--search-input-border-color); 
+      border-radius: var(--search-input-border-radius); 
+      box-shadow: var(--hover-box-shadow);
     }
   }
 
@@ -336,7 +342,6 @@
           // background-color: $blue-dark-darken;
           color: $white-gray;
           border-color: rgb(102 104 107 / 13%);
-          box-shadow: none;
 
           h2  {
             color: $white;

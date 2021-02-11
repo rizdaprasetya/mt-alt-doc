@@ -1,5 +1,6 @@
 //dark mode
 .theme__dark {
+  --hover-box-shadow: rgb(166 177 187 / 8%) 0px 10.8px 10.8px 1.35px;
   .content {
     .markdown-section, p, li {
       color: $white-gray !important;
@@ -28,7 +29,6 @@
 
         &:hover {
           border-color: rgba(5, 79, 191, 0.33);
-          box-shadow: rgb(166 177 187 / 8%) 0px 10.8px 10.8px 1.35px;
         }
 
         a {
