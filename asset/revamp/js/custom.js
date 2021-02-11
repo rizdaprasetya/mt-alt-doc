@@ -24,7 +24,7 @@ function preventDuplicateListenerProxy(el) {
   }
 }
 
-function getRightSideBarContent() {
+function generateRightSideBarContent() {
   setTimeout(() => {
     //right sidebar content
     let sideBarSelector = document.getElementById('right-bar-content')
@@ -59,7 +59,8 @@ function getRightSideBarContent() {
 }
 
 // for accordion icon (rotate icon) on click
-function accordionLabelTag() {
+// @TODO: optimize this to prevent duplicated listener
+function applyAccordionLabelTagListener() {
   setTimeout(() => {
     let accordionLabelSelector = document.querySelectorAll('.collaps-label')
     if( accordionLabelSelector ) {
@@ -77,7 +78,7 @@ function accordionLabelTag() {
 }
 
 // add active to right side menus on scroll
-function rightMenusActiveScroll() {
+function activateRightMenuOnScroll() {
   setTimeout(() => {
     let contents = document.querySelectorAll('h2[id], h3[id]');
     const navLinks = document.querySelectorAll(".sidebar__right-list");
@@ -144,7 +145,7 @@ function rightMenusActiveScroll() {
 }
 
 // THEME CHANGER
-function themeChanger() { // check from localstorage
+function applySavedTheme() { // check from localstorage
   //check localstorage
   if(localStorage.getItem('theme') == 'dark') {
     document.getElementsByTagName('body')[0].classList.add('theme__dark')

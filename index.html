@@ -641,17 +641,15 @@
                         };
                         window.highlightJsBadge(options);
 
-                        //get right sidebar content
-                        getRightSideBarContent()
+                        generateRightSideBarContent()
                         
                         //custom style for accordion with label tag
-                        accordionLabelTag()
+                        applyAccordionLabelTagListener()
                         
                         //add active class when scroll to right sidebar menu
-                        rightMenusActiveScroll()
+                        activateRightMenuOnScroll()
 
-                        //theme Changer
-                        themeChanger()
+                        applySavedTheme()
                     })
 
                 }
