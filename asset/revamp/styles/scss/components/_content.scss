@@ -86,6 +86,11 @@
 
   @include phones {
     margin: 0 1.5rem !important;
+    // disable transition for lighter render on phone when sidebar is open/closed
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
   }
 
   .markdown-section {
