@@ -318,7 +318,9 @@
                     // return 0; // comment to activate
                     hook.ready(function () {
                         var dd = 0;
-                        function openParentListRecursive(el,matchCount=0,count=0){
+                        function openParentListRecursive(el,matchCount,count){
+                            var matchCount = matchCount || 0;
+                            var count = count || 0;
                             count++
                             dd&&console.log('--- recursing',el,count)
                             var tagName = el.tagName.toLowerCase()
@@ -490,7 +492,8 @@
                             });
                         }
                     };
-                    var trackEvent = function (eventName, trackObj = {}) {
+                    var trackEvent = function (eventName, trackObj) {
+                        var trackObj = trackObj || {};
                         dd && console.log("trackEvent", arguments);
                         // merge trackObj with $usr
                         for (attr in document.$usr) {
