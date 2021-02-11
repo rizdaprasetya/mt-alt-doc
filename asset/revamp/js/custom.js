@@ -1,7 +1,7 @@
 // Helper to prevent duplicate addEventListener handler 
 // src: https://stackoverflow.com/q/64155405
 function elementWithOneEventListener(el){
-    el.oneEventListener = (event, func) => {
+    el.oneEventListener = function(event, func) {
         if(el.lastEventListener == null){
           el.lastEventListener = {};
         }
@@ -17,7 +17,7 @@ function preventDuplicateListenerProxy(el) {
   if(!(el instanceof NodeList)){
     return elementWithOneEventListener(el);
   }else{
-    el.forEach(ele=>{
+    el.forEach(function(ele) {
       ele = elementWithOneEventListener(ele);
     });
     return el;
@@ -25,7 +25,7 @@ function preventDuplicateListenerProxy(el) {
 }
 
 function generateRightSideBarContent() {
-  setTimeout(() => {
+  setTimeout(function() {
     //right sidebar content
     let sideBarSelector = document.getElementById('right-bar-content')
     let sideBarContens = ''
@@ -36,7 +36,7 @@ function generateRightSideBarContent() {
     }
 
     if(getAllTitle) {
-      getAllTitle.forEach(element => {
+      getAllTitle.forEach(function(element) {
         let titleText = element.innerText
         let titleId = element.id
         let linkPrefix = ""
@@ -61,11 +61,11 @@ function generateRightSideBarContent() {
 // for accordion icon (rotate icon) on click
 // @TODO: optimize this to prevent duplicated listener
 function applyAccordionLabelTagListener() {
-  setTimeout(() => {
+  setTimeout(function() {
     let accordionLabelSelector = document.querySelectorAll('.collaps-label')
     if( accordionLabelSelector ) {
-      accordionLabelSelector.forEach(element => {
-        element.addEventListener('click', () => {
+      accordionLabelSelector.forEach(function(element) {
+        element.addEventListener('click', function() {
           if( element.classList.contains('open') ) {
             element.classList.remove('open')
           }else {
@@ -79,7 +79,7 @@ function applyAccordionLabelTagListener() {
 
 // add active to right side menus on scroll
 function activateRightMenuOnScroll() {
-  setTimeout(() => {
+  setTimeout(function() {
     let contents = document.querySelectorAll('h2[id], h3[id]');
     const navLinks = document.querySelectorAll(".sidebar__right-list");
 
@@ -99,11 +99,11 @@ function activateRightMenuOnScroll() {
           document.body.scrollTop ||
           0) + 100;
       let contentsTop = [];
-      contents.forEach((content, index) => {
+      contents.forEach(function(content, index) {
         contentsTop.push(content.offsetTop);
       });
 
-      contentsTop.forEach((contentTop, index) => {
+      contentsTop.forEach(function(contentTop, index) {
         if (index + 1 < contentLength) {
           if (
             scrollPos > contentTop &&
@@ -151,7 +151,7 @@ function applySavedTheme() { // check from localstorage
     document.getElementsByTagName('body')[0].classList.add('theme__dark')
     let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
     if(checkboxThemeEl) {
-      checkboxThemeEl.forEach(element => {
+      checkboxThemeEl.forEach(function(element) {
         element.checked = true;
       });
     }
@@ -175,7 +175,7 @@ function changeTheme(param) {
   } else if(localStorage.getItem('theme') == 'dark') { // set to light mode
     replaceLogoImageDarkMode('light')
     if(checkboxThemeEl) {
-      checkboxThemeEl.forEach(element => {
+      checkboxThemeEl.forEach(function(element) {
         element.checked = false;
       });
     }
@@ -189,11 +189,11 @@ function changeTheme(param) {
 }
 
 function replaceLogoImageDarkMode(theme) {
-  setTimeout(() => {
+  setTimeout(function() {
     //replace all midtrans logo to white
     let getAllImg = document.querySelectorAll('img')
     if(getAllImg) {
-      getAllImg.forEach(element => {
+      getAllImg.forEach(function(element) {
         let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
         if(element.currentSrc.indexOf(checkSrc) !== -1 || element.currentSrc.includes(checkSrc)) {
           element.src = theme == 'dark' ? 

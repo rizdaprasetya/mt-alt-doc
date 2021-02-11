@@ -152,7 +152,7 @@
                 /**
                  * Based on https://docsify.js.org/#/more-pages?id=nested-sidebars
                  * Custom override to force rewrite any request to `[subfolder]/_sidebar.md` 
-                 * to `[root folder]/_sidebar.md``
+                 * to `[root folder]/_sidebar.md`
                  * Problem: 
                  * Prevent unnecessary fallback.
                  * If docs is located on subfolder, on page load Docsify tried to fetch 
@@ -192,16 +192,16 @@
                  */
                 function (hook, vm) {
                     hook.beforeEach(function (content) {
-                        if (content.includes(`@@@NOCONTENT`)) {
+                        if (content.includes('@@@NOCONTENT')) {
                             let isIndoVersion = document.location.href.includes('/id/');
                             let englishVersionUrl = isIndoVersion ?
                                 document.location.href.replace('/id/', '/en/') :
                                 false;
-                            content = `\r\n#### Page Not Found.\r\n<br>The `;
+                            content = '\r\n#### Page Not Found.\r\n<br>The ';
                             content += isIndoVersion ?
-                                `content you are looking for is currently not available in the language you have chosen, try the [English version](${englishVersionUrl}), or the ` :
+                                'content you are looking for is currently not available in the language you have chosen, try the [English version]('+englishVersionUrl+'), or the ' :
                                 '';
-                            content += `url you are trying to visit is not available. Please navigate to the [homepage](${window.predictedHomeUrl}).<br><br><br>`;
+                            content += 'url you are trying to visit is not available. Please navigate to the [homepage]('+window.predictedHomeUrl+').<br><br><br>';
                             return content;
                         }
                     })
@@ -216,9 +216,9 @@
                         // @HACK: use $docsify.logo as assetPath source, detect any extension
                         // might break when $docsify.logo is changed.
                         let assetPath = window.$docsify.logo.replace(/(.*)\/.+?\..+/g,"$1/");
-                        // all sidebar img tag and navbar img tag, except `.emoji``
+                        // all sidebar img tag and navbar img tag, except `.emoji`
                         document
-                            .querySelectorAll(`.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)`)
+                            .querySelectorAll('.sidebar-nav ul>li img:not(.emoji), .app-nav li>img:not(.emoji)')
                             .forEach(function (el) {
                                 // @NOTE: hardcoded path
                                 let validSrc = el.src
@@ -567,9 +567,9 @@
                     hook.doneEach(function () {
                         (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
                             'beforeend',
-                            `<div class="footer-custom" style="text-align:center; margin-bottom:1rem;">
-                            <p><small>Is this page helpful? <a href='javascript:false&&"promptFeedback";' onclick='promptFeedback();'>Let us hear your feedback!</a></small></p>
-                        \<\/div\>`
+                            '<div class="footer-custom" style="text-align:center; margin-bottom:1rem;">'+
+                            '<p><small>Is this page helpful? <a href=\'javascript:false&&"promptFeedback";\' onclick=\'promptFeedback();\'>Let us hear your feedback!</a></small></p>'+
+                        '\<\/div\>'
                         );
                     });
 
@@ -578,11 +578,11 @@
                         Swal.fire({
                             // title: '<strong>HTML <u>example</u></strong>',
                             icon: 'success',
-                            html: `
-<b>Thanks for your valuable feedback!</b>
-<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>
-<hr>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>`,
+                            html: 
+'<b>Thanks for your valuable feedback!</b>'+
+'<p>We always strive to improve. We appreciate your contribution to help us improve our service to you, we sincerely want to hear your thoughts!</p>'+
+'<hr>'+
+'<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2-plJrRjbyOrmMMZLGHkpgrfkDRrSOOmpWKOzhR7N7UrIXg/viewform?embedded=true" style="width:95%; height:65vh" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>',
                             showCloseButton: true,
                             showCancelButton: false,
                             showConfirmButton: false,
@@ -594,7 +594,7 @@
                 function(hook,vm){
                     hook.doneEach(function(){
                         //custom highlight
-                        document.querySelectorAll('pre code').forEach((block) => {
+                        document.querySelectorAll('pre code').forEach( function(block) {
                             //ignore lang-
                             if( !block.classList.contains('lang-') ) {
                                 hljs.highlightBlock(block); 
@@ -702,7 +702,6 @@
         integrity="sha256-yInlTXGchef1hIEK6Q09H8zxJsBwk1loijHlkYHyvcs=" crossorigin="anonymous">
         </script> -->
     <script src="/asset/docsify-plugin-search-modified.js"></script>
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.6.1/dist/docsify-pagination.min.js" integrity="sha256-rV7n3BaeEbTmT7UEVELv+sJ0XtOjtT1jrL23pJ3wf+0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0.7.2/dist/js/docsify-themeable.min.js"
         integrity="sha256-DjxvhlioSi/lO1GN+agurPW4RNl7naaPyEYwB99ez/o=" crossorigin="anonymous">
