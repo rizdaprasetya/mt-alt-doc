@@ -44,8 +44,11 @@
   --docsifytabs-border-color    : var(--mono-tint2);
   --docsifytabs-border-radius-px: var(--border-radius-s);
   /* Tabs */
-  --docsifytabs-tab-background  : var(--mono-tint3);
-  --docsifytabs-tab-color       : var(--mono-tint1);
+  --docsifytabs-tab-background  : #f3f8fb;
+  --docsifytabs-tab-background--active: #ffffff;
+  --docsifytabs-tab-color     : #{$blue-darken};
+  --docsifytabs-tab-color--active     : #{$blue-darken};
+  --docsifytabs-content-background    : #ffffff;
 
 }
 
@@ -299,35 +302,18 @@
 
     // docsify tab
     .docsify-tabs {
-        &::before{
-            border: none;
-        }
 
         .docsify-tabs__tab {
             cursor: pointer;
             outline: none;
-            background-color: #eef2f6;
-            border: none;
-            box-shadow: none;
             font-size: smaller;
-            font-weight: normal;
-            text-align: center;
-            color: #495d8b;
-            text-decoration: none;
-            padding: 8px 16px;
 
             &.docsify-tabs__tab--active {
-                background-color: #ffffff;
-                border-top: none;
                 font-weight: bold;
             }
         } 
 
         .docsify-tabs__content {
-            background: white;
-            border: none;
-            box-shadow: none;
-            border-top: none !important;
 
             img[data-origin] {
               margin-bottom: 30px;

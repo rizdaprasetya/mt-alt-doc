@@ -1,6 +1,14 @@
 //dark mode
 .theme__dark {
   --hover-box-shadow: rgb(166 177 187 / 8%) 0px 10.8px 10.8px 1.35px;
+
+  /* Tabs */
+  --docsifytabs-tab-background  : #{$bg-table-dark};
+  --docsifytabs-tab-background--active: #{$blue-dark};
+  --docsifytabs-tab-color     : #{$grey};
+  --docsifytabs-tab-color--active     : #{$white};
+  --docsifytabs-content-background    : #{$blue-dark};
+
   .content {
     .markdown-section, p, li {
       color: $white-gray !important;
@@ -114,25 +122,6 @@
                   }
               }
           }
-        }
-      }
-
-      .docsify-tabs {
-        &::before{
-            border: none;
-        }
-
-        .docsify-tabs__tab {
-          color: $white;
-          background-color: $bg-table-dark;
-
-            &.docsify-tabs__tab--active {
-              background-color: $blue-dark;
-            }
-        } 
-
-        .docsify-tabs__content {
-          background-color: $blue-dark;
         }
       }
 
