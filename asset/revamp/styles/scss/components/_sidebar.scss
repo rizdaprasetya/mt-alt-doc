@@ -29,6 +29,13 @@
   background-position: left bottom;
 
   .search {
+    // unhide: docsify themeable hide sidebar nav when searching, this unhide it.
+    // fix docsify themeable bug: clicking around outside search clear icon won't unhide sidebar nav
+    &.show {
+        ~ *:not(h1) {
+            display: block;
+        }
+    }
     .results-panel {
       font-size: var(--font-size-s);
       padding-left: 12px;
@@ -60,9 +67,6 @@
   .sidebar-nav {
     font-size: smaller;
     height: 100vh;
-    &.hide {
-      display: block !important;
-    }
 
     >ul {
       overflow-x: hidden;
