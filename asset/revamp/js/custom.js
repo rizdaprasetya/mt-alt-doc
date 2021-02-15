@@ -1,7 +1,7 @@
 // Helper to prevent duplicate addEventListener handler 
 // src: https://stackoverflow.com/q/64155405
 function elementWithOneEventListener(el){
-    el.oneEventListener = (event, func) => {
+    el.oneEventListener = function(event, func) {
         if(el.lastEventListener == null){
           el.lastEventListener = {};
         }
@@ -17,7 +17,7 @@ function preventDuplicateListenerProxy(el) {
   if(!(el instanceof NodeList)){
     return elementWithOneEventListener(el);
   }else{
-    el.forEach(ele=>{
+    el.forEach(function(ele) {
       ele = elementWithOneEventListener(ele);
     });
     return el;
@@ -25,21 +25,21 @@ function preventDuplicateListenerProxy(el) {
 }
 
 function generateRightSideBarContent() {
-  setTimeout(() => {
+  setTimeout(function() {
     //right sidebar content
-    let sideBarSelector = document.getElementById('right-bar-content')
-    let sideBarContens = ''
-    let getAllTitle = document.querySelectorAll("h2,h3")
+    var sideBarSelector = document.getElementById('right-bar-content')
+    var sideBarContens = ''
+    var getAllTitle = document.querySelectorAll("h2,h3")
 
     if(getAllTitle.length == 0) {
       getAllTitle = document.querySelectorAll("h1");
     }
 
     if(getAllTitle) {
-      getAllTitle.forEach(element => {
-        let titleText = element.innerText
-        let titleId = element.id
-        let linkPrefix = ""
+      getAllTitle.forEach(function(element) {
+        var titleText = element.innerText
+        var titleId = element.id
+        var linkPrefix = ""
         if(window.willUseDocsifyHashRouter){
           try {
             linkPrefix = ((window.location.href).split('?id='))[0]
@@ -61,11 +61,11 @@ function generateRightSideBarContent() {
 // for accordion icon (rotate icon) on click
 // @TODO: optimize this to prevent duplicated listener
 function applyAccordionLabelTagListener() {
-  setTimeout(() => {
-    let accordionLabelSelector = document.querySelectorAll('.collaps-label')
+  setTimeout(function() {
+    var accordionLabelSelector = document.querySelectorAll('.collaps-label')
     if( accordionLabelSelector ) {
-      accordionLabelSelector.forEach(element => {
-        element.addEventListener('click', () => {
+      accordionLabelSelector.forEach(function(element) {
+        element.addEventListener('click', function() {
           if( element.classList.contains('open') ) {
             element.classList.remove('open')
           }else {
@@ -79,31 +79,31 @@ function applyAccordionLabelTagListener() {
 
 // add active to right side menus on scroll
 function activateRightMenuOnScroll() {
-  setTimeout(() => {
-    let contents = document.querySelectorAll('h2[id], h3[id]');
-    const navLinks = document.querySelectorAll(".sidebar__right-list");
+  setTimeout(function() {
+    var contents = document.querySelectorAll('h2[id], h3[id]');
+    var navLinks = document.querySelectorAll(".sidebar__right-list");
 
     if(contents.length == 0) {
       contents = document.querySelectorAll('h1[id]');
     }
     if(!contents.length || !navLinks.length) { return 0; } //exit if no element found
 
-    const contentLength = contents.length;
+    var contentLength = contents.length;
     // @fixed: scroll event listener is added on EACH navigation, BAD!
     windowProxyEl = preventDuplicateListenerProxy(window);
     windowProxyEl.oneEventListener("scroll", function (event) {
       event.preventDefault();
-      const scrollPos =
+      var scrollPos =
         (window.pageYOffset ||
           document.documentElement.scrollTop ||
           document.body.scrollTop ||
           0) + 100;
-      let contentsTop = [];
-      contents.forEach((content, index) => {
+      var contentsTop = [];
+      contents.forEach(function(content, index) {
         contentsTop.push(content.offsetTop);
       });
 
-      contentsTop.forEach((contentTop, index) => {
+      contentsTop.forEach(function(contentTop, index) {
         if (index + 1 < contentLength) {
           if (
             scrollPos > contentTop &&
@@ -149,9 +149,9 @@ function applySavedTheme() { // check from localstorage
   //check localstorage
   if(localStorage.getItem('theme') == 'dark') {
     document.getElementsByTagName('body')[0].classList.add('theme__dark')
-    let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
+    var checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
     if(checkboxThemeEl) {
-      checkboxThemeEl.forEach(element => {
+      checkboxThemeEl.forEach(function(element) {
         element.checked = true;
       });
     }
@@ -161,8 +161,8 @@ function applySavedTheme() { // check from localstorage
   }
 }
 function changeTheme(param) {
-  let body = document.getElementsByTagName('body')[0]
-  let checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
+  var body = document.getElementsByTagName('body')[0]
+  var checkboxThemeEl = document.querySelectorAll('.checkbox-theme')
   if(!localStorage.getItem('theme')) { // set to dark mode
     replaceLogoImageDarkMode('dark')
     if(body.classList.contains('theme__light')) {
@@ -175,7 +175,7 @@ function changeTheme(param) {
   } else if(localStorage.getItem('theme') == 'dark') { // set to light mode
     replaceLogoImageDarkMode('light')
     if(checkboxThemeEl) {
-      checkboxThemeEl.forEach(element => {
+      checkboxThemeEl.forEach(function(element) {
         element.checked = false;
       });
     }
@@ -189,12 +189,12 @@ function changeTheme(param) {
 }
 
 function replaceLogoImageDarkMode(theme) {
-  setTimeout(() => {
+  setTimeout(function() {
     //replace all midtrans logo to white
-    let getAllImg = document.querySelectorAll('img')
+    var getAllImg = document.querySelectorAll('img')
     if(getAllImg) {
-      getAllImg.forEach(element => {
-        let checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
+      getAllImg.forEach(function(element) {
+        var checkSrc = theme == 'dark' ? "midtrans-logo.png" : "midtrans-logo-white.png";
         if(element.currentSrc.indexOf(checkSrc) !== -1 || element.currentSrc.includes(checkSrc)) {
           element.src = theme == 'dark' ? 
             element.src.replace("midtrans-logo.png", "midtrans-logo-white.png") : 
