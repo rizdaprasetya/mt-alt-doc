@@ -6,6 +6,7 @@
 - enhance tabs UI element
 - update feedback gform url
 - fix minor bug on search clear button doesn't unhide sidebar nav links
+- update sidebar-collapse dependency: fix minor search result click break sidebar issue
 
 #### 2021/02/11
 - add community contributed TypeScript library
