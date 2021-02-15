@@ -1,6 +1,12 @@
 # Docs Changelog
 <hr>
 
+#### 2021/02/15
+- enhance content search indexing for CMS plugins
+- enhance tabs UI element
+- update feedback gform url
+- fix minor bug on search clear button doesn't unhide sidebar nav links
+
 #### 2021/02/11
 - add community contributed TypeScript library
 - fix external navbar links fails to open
