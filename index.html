@@ -103,8 +103,8 @@
 
     <script type="text/javascript" src="/asset/revamp/js/custom.js"></script>
     <script>
-        window.isUnderMidtransDomain = window.location.hostname.includes('.midtrans.com');
-        window.isUnderNonBetaDomain = !(window.location.hostname.includes('beta'));
+        window.isUnderMidtransDomain = window.location.hostname.indexOf('.midtrans.com')>=0;
+        window.isUnderNonBetaDomain = !(window.location.hostname.indexOf('beta')>=0);
         // @HACK: redirect to HTTPS
         if (window.isUnderMidtransDomain && window.location.protocol == "http:") {
             console.log("attempt to change protocol to https");
@@ -112,10 +112,10 @@
         }
         // Check which Docsify router mode should be used
         window.willUseDocsifyHashRouter =
-            document.location.href.includes("/#/") ||
+            document.location.href.indexOf("/#/")>=0 ||
             // @OPTIMIZE: param checking.
-            document.location.href.includes("hash=1") ||
-            document.location.href.includes("hash=true")
+            document.location.href.indexOf("hash=1")>=0 ||
+            document.location.href.indexOf("hash=true")>=0
             ;
         window.predictedHomeUrl = window.willUseDocsifyHashRouter ?
             (document.location.href.split('/#/'))[0] + '/' :
@@ -192,8 +192,8 @@
                  */
                 function (hook, vm) {
                     hook.beforeEach(function (content) {
-                        if (content.includes('@@@NOCONTENT')) {
-                            var isIndoVersion = document.location.href.includes('/id/');
+                        if (content.indexOf('@@@NOCONTENT')>=0) {
+                            var isIndoVersion = document.location.href.indexOf('/id/')>=0;
                             var englishVersionUrl = isIndoVersion ?
                                 document.location.href.replace('/id/', '/en/') :
                                 false;
@@ -546,7 +546,7 @@
                             if (event.target.tagName.toLowerCase() != 'a') { return 0; };
                             if (!event.target.href) { return 0; };
                             // track style/theme switch event
-                            if (event.target.title && event.target.title.includes("style::")) {
+                            if (event.target.title && event.target.title.indexOf("style::")>=0) {
                                 return trackEvent("theme-switch", {
                                     "theme_id": event.target.title
                                 });
