@@ -54,7 +54,7 @@ To integrate by directly making API calls or requests, follow the steps given be
 2. Replace the `ServerKey` variable value used for API auth on the Backend with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 3. Replace the `data-client-key` variable value on Frontend with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 
-#### **WordPress WooCommerce CMS**
+#### **WordPress WooCommerce**
 
 To integrate Midtrans with your WordPress WooCommerce CMS, follow the steps given below.
 
@@ -68,7 +68,7 @@ To integrate Midtrans with your WordPress WooCommerce CMS, follow the steps give
 
 Your website is now integrated with Midtrans. For more information, refer to [Configuring WooCommerce Plugin Notification](/en/snap/with-plugins).
 
-#### **Magento CMS**
+#### **Magento**
 
 To integrate Midtrans with your Magento CMS, follow the steps given below.
 
@@ -83,7 +83,7 @@ To integrate Midtrans with your Magento CMS, follow the steps given below.
    
 Your website is now integrated with Midtrans. For more information, refer to [Configuring Magento CMS Notification](/en/snap/with-plugins).
 
-#### **PrestaShop CMS**
+#### **PrestaShop**
 
 To integrate Midtrans with your PrestaShop CMS, follow the steps given below.
 
@@ -96,7 +96,7 @@ To integrate Midtrans with your PrestaShop CMS, follow the steps given below.
 
 Your website is now integrated with Midtrans. For more information, refer to [Configuring PrestaShop CMS Notification](/en/snap/with-plugins).
 
-#### **OpenCart CMS**
+#### **OpenCart**
 
 To integrate Midtrans with your OpenCart CMS, follow the steps given below.
 
@@ -109,7 +109,7 @@ To integrate Midtrans with your OpenCart CMS, follow the steps given below.
 
 Your website is now integrated with Midtrans. For more information, refer to [Configuring OpenCart CMS Notification](/en/snap/with-plugins).
 
-#### **WordPress Easy Digital Download CMS**
+#### **WordPress Easy Digital Download**
 
 To integrate Midtrans with your WordPress EDD CMS, follow the steps given below.
 
@@ -124,7 +124,7 @@ To integrate Midtrans with your WordPress EDD CMS, follow the steps given below.
 
 Your website is now integrated with Midtrans. For more information, refer to [Configuring WordPress Easy Digital Download CMS Notification](/en/snap/with-plugins).
 
-#### **WHMCS CMS**
+#### **WHMCS**
 
 To integrate Midtrans with your WHMCS CMS, follow the steps given below.
 
@@ -139,7 +139,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 
 
-#### **Drupal CMS**
+#### **Drupal**
 
 To integrate Midtrans with your Drupal CMS, follow the steps given below.
 

@@ -1,11 +1,14 @@
 <!-- @@@NOCONTENT -->
 - [**![](asset/image/main/midtrans-icons-home.svg)Home**](/ "Midtrans Payment Gateway Technical Documentation")
 - [**![](asset/image/main/midtrans-icons-payments.svg)Payments**](en/payments/overview.md "Midtrans - Payments Technical Documentation")
+  <!-- These Payments submenus are hidden from view, but put here to allow search indexing to index these pages -->
   - [**![](asset/image/main/midtrans-icons-builtininterface.svg)Built-in Interface**<small>&nbsp;(Snap)</small>](en/snap/overview.md "Midtrans - Snap Technical Documentation")
     - [Preparation](en/snap/preparation.md "Midtrans - Snap Integration Preparation")
     - [Integration Guide](en/snap/integration-guide.md "Midtrans - Snap Integration Guide Documentation")
     - [Interactive Demo](en/snap/interactive-demo.md "Midtrans - Snap Interactive Demo")
     - [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
+    - [![](asset/image/main/midtrans-icons-installcmsplugin.svg)**Install as CMS Plugin**](en/snap/with-plugins.md "Midtrans - Snap CMS Plugin / Module Documentation")
+    - [![](asset/image/main/midtrans-icons-ecommerce.svg)**Ecommerce Platform**](en/snap/platform/overview.md "Midtrans - Snap Ecommerce Platform Integration Documentation")
   - [**![](asset/image/main/midtrans-icons-nativemobile.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
   - [**![](asset/image/main/midtrans-icons-custominterface.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
     - [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")

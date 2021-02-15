@@ -577,6 +577,8 @@ The table given below shows the fields and the URL.
 <hr><br><br>
 
 ## WHMCS
+Midtrans ❤️ WHMCS! This plugin allows secure online payment on your WHMCS! With sleek built-in responsive payment interface (Snap). Midtrans strives to make payments simple for you and your customers. It supports various online payment channels.
+
 #### Requirements
 Some of the requirements to continue with the integration process, are listed below.
    * WHMCS v5.3.12 - v7.x or later **|** Tested up to WHMCS v7.6
