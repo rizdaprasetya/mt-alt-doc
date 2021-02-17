@@ -448,7 +448,7 @@
                     })
                 },
                 /**
-                 * Custom plugin for Mixpanel & GA analytics event call
+                 * Custom plugin for  GA analytics event call
                  * @NOTE: there are some global `document.xxx` var used
                  */
                 function (hook, vm) {
@@ -503,10 +503,6 @@
                         trackObj.path = trackObj.path || vm.route.path;
 
                         trackEventGa(eventName, trackObj);
-                        if (typeof (mixpanel) == "undefined") {
-                            return dd && console.log("mixpanel undefined");
-                        }
-                        mixpanel.track(eventName, trackObj);
                     };
                     var trackPageload = function (vm) {
                         var sectionId = undefined;
@@ -521,21 +517,7 @@
 
                     hook.doneEach(function () {
                         /* Track Page load part */
-                        // Try to get IP first, before trackPageLoad
-                        if (!document.$usr.ip_address) {
-                            fetch('https://api.ipify.org?format=json')
-                                .then(function (resp) { return resp.json() })
-                                .then(function (resp) {
-                                    document.$usr.ip_address = resp.ip;
-                                    trackPageload(vm);
-                                })
-                                .catch(function (err) {
-                                    dd && console.log('ip fetch fail:', err);
-                                })
-                        } else {
-                            // trackPageload anyway if fail to get IP
-                            trackPageload(vm);
-                        }
+                        trackPageload(vm);
                     });
 
                     hook.ready(function () {
@@ -677,8 +659,6 @@
             topMargin: 80, // default: 0
         }
     </script>
-    <!-- Mixpanel -->
-    <script src="/asset/mixpanel-init.js"></script>
     <!-- SweetAlert library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.7.1/dist/sweetalert2.all.min.js"
         integrity="sha256-1pZ3aajcQuFEOG/veUw/WxQjAMJiCSTZo8wH+opDplY=" crossorigin="anonymous">
