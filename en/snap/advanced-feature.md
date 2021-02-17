@@ -564,12 +564,13 @@ Snap can be utilized to **initialize** subscription or recurring payment flow. N
 
 Please refer to the sequence diagram given below to understand the recommended flow.
 
-<input id="seq-diag" class="collaps-toggle" type="checkbox">
-<label for="seq-diag" class="collaps-label"><strong>Snap Recurring Sequence Diagram</strong></label>
-<div class="collaps-content">
+<details>
+<summary><b>Snap Recurring Sequence Diagram</b></summary>
+<article>
 
 ![snap recurring sequence](./../../asset/image/snap-adv-snap-recurring-sequence.png)
-</div>
+</article>
+</details>
 
 
 Example of the JSON param for the first or initial transaction is given below. This param is used during [API Request Step](/en/snap/integration-guide.md#api-request).
