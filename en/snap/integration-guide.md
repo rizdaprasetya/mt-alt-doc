@@ -413,38 +413,7 @@ After following the steps given above, the sample Snap page is displayed as show
 Or try the demo here:
 
 <p style="text-align: center;">
-  <button onclick="
-  event.target.innerText = `Processing...`;
-  var reqHeaders = new Headers();
-  reqHeaders.append('Accept', 'application/json');
-  reqHeaders.append('Content-Type', 'application/json');
-  reqHeaders.append('Authorization', 'Basic '+btoa('SB-Mid-server-GwUP_WGbJPXsDzsNEBRs8IYA:'));
-  var reqOpts = {
-    method: 'POST',
-    headers: reqHeaders,
-    body: JSON.stringify({
-      'transaction_details':{
-        'order_id':'demo-docs-main-'+Math.round((new Date()).getTime()/1),
-        'gross_amount':10000
-      },
-      'credit_card':{
-        'secure':true
-      }
-    })
-  };
-  fetch('https://cors-anywhere.herokuapp.com/https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
-    .then(res=>res.json())
-    .then(res=>{
-      let snapToken = res.token;
-      snap.pay(snapToken,{
-        onSuccess: function(res){ console.log('Snap result:',res) },
-        onPending: function(res){ console.log('Snap result:',res) },
-        onError: function(res){ console.log('Snap result:',res) },
-      });
-    })
-    .catch( e=>{ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
-    .finally( e=>{ event.target.innerText = `Preview Snap UI ⎋` })
-  " class="my-btn">Preview Snap UI ⎋</button>
+  <button onclick="previewSnap(this)" class="my-btn">Preview Snap UI ⎋</button>
 </p>
 
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.

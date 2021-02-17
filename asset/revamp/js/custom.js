@@ -204,3 +204,46 @@ function replaceLogoImageDarkMode(theme) {
     }
   }, 500);
 }
+
+function previewSnap(el){
+  el.innerText = 'Processing...';
+
+  // load snap.js script tag dynamically
+  if(!window.snapScriptLoaded){
+    var snapScriptEl = document.createElement('script');
+    snapScriptEl.setAttribute('src','https://app.sandbox.midtrans.com/snap/snap.js');
+    snapScriptEl.setAttribute('data-client-key','VT-client-yrHf-c8Sxr-ck8tx');
+    document.head.appendChild(snapScriptEl); 
+    window.snapScriptLoaded = 1;
+  }
+  
+  var reqHeaders = new Headers();
+  reqHeaders.append('Accept', 'application/json');
+  reqHeaders.append('Content-Type', 'application/json');
+  reqHeaders.append('Authorization', 'Basic '+btoa('SB-Mid-server-GwUP_WGbJPXsDzsNEBRs8IYA:'));
+  var reqOpts = {
+    method: 'POST',
+    headers: reqHeaders,
+    body: JSON.stringify({
+      'transaction_details':{
+        'order_id':'demo-docs-main-'+Math.round((new Date()).getTime()/1),
+        'gross_amount':10000
+      },
+      'credit_card':{
+        'secure':true
+      }
+    })
+  };
+  fetch('https://cors-proxy-qu.vercel.app/api/proxy/?url=https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
+    .then(function(res){ return res.json() })
+    .then(function(res){
+      let snapToken = res.token;
+      snap.pay(snapToken,{
+        onSuccess: function(res){ console.log('Snap result:',res) },
+        onPending: function(res){ console.log('Snap result:',res) },
+        onError: function(res){ console.log('Snap result:',res) },
+      });
+    })
+    .catch( function(e){ console.error(e); window.open('https://demo.midtrans.com', '_blank'); } )
+    .finally( function(e){ el.innerText = 'Preview Snap UI ⎋' })
+}
