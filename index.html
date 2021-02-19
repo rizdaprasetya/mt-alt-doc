@@ -414,6 +414,11 @@
                                 dd && console.log('will scroll to element now')
                                 try {
                                     var element = document.querySelector('#' + urlId)
+                                    // on element not found, try searching for docsify-tabs element
+                                    if(!element){
+                                        var spacedId = urlId.replace(/-/g,' ');
+                                        element = document.querySelector('.docsify-tabs__tab[data-tab="'+spacedId+'"]');
+                                    }
                                     var offset = window.$docsify.topMargin;
                                     var bodyRect = document.body.getBoundingClientRect().top;
                                     var elementRect = element.getBoundingClientRect().top;
