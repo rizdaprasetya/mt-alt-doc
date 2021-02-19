@@ -717,7 +717,7 @@ The sample Snap payment page with BIN Filter feature is displayed below.
 #### Online Installment
 This is the type of installment where the Card Issuer and Acquiring Bank is the same entity. For example, if a customer makes an installment payment using BNI Card, then *Acquiring Bank* is also BNI.
 
-To activate the installment feature, you are required to have agreement with the bank. For online installments, the bank will issue special Merchant ID (MID) for installment. This installment MID is used to automatically convert the transaction into installments. Please consult Midtrans Activation Team for installment MID. If MID is ready, merchant simply needs to add the `installment` parameter.
+For online installments, the bank will issue special MID for installment. This installment MID is used to automatically convert the transaction into installments. To activate the installment feature, you are required to have agreement with the bank. Please consult Midtrans Activation Team for installment MID. If MID is ready, merchant simply needs to add the `installment` parameter.
 
 ```json
 ...
@@ -798,7 +798,7 @@ The sample Snap payment page with online installment feature is displayed below.
 #### Offline Installment
 *Offline Installment* is the type of payment where *Card Issuing Bank* used for making an installment payment and the *Acquiring Bank* need not be the same. For example, a customer makes an installment payment using BNI Card and the *Acquiring Bank* is Mandiri.
 
-To allow installment feature with banks which do not issue MID Installment, merchant can use offline installment feature. With offline installment feature, the transaction will be charged in full amount and will be converted into installment later. Please consult Midtrans Activation Team for installment agreement.
+To allow installment feature with banks which do not issue Installment MID, merchant can use offline installment feature. With offline installment feature, the transaction will initially be charged in full amount and will be converted into installment later. To activate the installment feature, you are required to have agreement with the bank. Please consult Midtrans Activation Team for installment MID.
 
 You have to add the `installment` parameter with combination of BIN filter feature. The purpose of BIN filter is to limit certain cards from making offline installment, based on the agreement between you and issuing banks.
 
