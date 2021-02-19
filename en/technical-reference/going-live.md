@@ -9,54 +9,115 @@ This document is designed to assist you in switching from *Sandbox* environment 
 To login to your Midtrans *Production* environment, follow the steps given below.
 
 1. Login to your account at https://account.midtrans.com. 
-   - For more information, refer to [Access Midtrans Administration Portal](/en/midtrans-account/overview.md#accessing-midtrans-administration-portal) for more details.
-2. Select **Production** Environment.
-   - For more information, refer to [Switching Environment](/en/midtrans-account/overview.md#switching-environment) for more details.
+    - refer to [Access Midtrans Administration Portal](/en/midtrans-account/overview.md#accessing-midtrans-administration-portal) for more details.
+2. Select **Production** Environment from top-left environment switcher dropdown.
+    - refer to [Switching Environment](/en/midtrans-account/overview.md#switching-environment) for more details.
 
 ### 2. Checking Your Production Account
 
 To make sure your production account is active, follow the steps given below.
 
 1. On the home page, go to **SETTINGS > SNAP PREFERENCES**.
-   - *SNAP Preferences* page is displayed.
+    - *SNAP Preferences* page is displayed.
 2. Select **Payment Channels** tab.
-   - A list of active payment methods is displayed.
+    - A list of active payment methods is displayed.
 
 ### 3. Retrieving Server Key and Client Key
 
-Server Key and Client Key for *Production* environment and *Sandbox* environment are different. For more information, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+Go to **SETTINGS > ACCESS KEYS**. Server Key and Client Key for *Production* environment and *Sandbox* environment are different. For more information, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-### 4. Configuring HTTP Notification Webhooks URL
+### 4. Configuring the Integration
 
-- For more information on how to configure HTTP notification URL, refer to [Configuring HTTP Notifications On MAP](/en/after-payment/http-notification.md).
-
-- For **Snap Integration** you can opt to configure redirect URL. For more information, refer to [Configuring Redirect URL](/en/snap/advanced-feature.md#configure-redirection-url).
-
-### 5. Configuring the Integration
-
-Based on your requirement, please select the best suitable integration method from the following options.
+Please select which one of integration method you are using:
 
 <!-- tabs:start -->
 #### **Language Libraries**
 
 If you are using Language Libraries provided by Midtrans (Midtrans PHP, Midtrans Ruby, Midtrans NodeJS, and so on), follow the steps given below.
+#### On Backend
 
 1. Replace `isProduction` variable on Backend with value `true`.
 2. Replace `ServerKey` variable value on the Backend with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
-3. Replace `data-client-key` variable value on Frontend with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
+
+#### On Frontend
+<details open>
+<summary>If you are using <b>Snap</b></summary>
+<article>
+
+Find where you include snap.js script tag:
+
+- From script url, remove the `.sandbox`  to `https://app.midtrans.com/snap/snap.js`.
+- Replace `data-client-key` attribute value with your production *Client Key*.
+```html
+<script type="text/javascript"
+    src="https://app.midtrans.com/snap/snap.js"
+    data-client-key="<INSERT-CLIENT-KEY>"></script>
+```
+</article>
+</details>
+
+<details>
+<summary>If you are using <b>Core API</b></summary>
+<article>
+Find where you include midtrans-new-3ds.min.js script tag:
+
+- Replace `data-environment` attribute value with `production`.
+- Replace `data-client-key` attribute value with your production *Client Key*.
+```html
+<script id="midtrans-script" 
+    src="https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js"
+    data-environment="production" 
+    data-client-key="<INSERT-CLIENT-KEY>" 
+    type="text/javascript"></script>
+```
+</article>
+</details>
+<br>
 
 #### **Manual API Request**
 
-To integrate by directly making API calls or requests, follow the steps given below.
-
+If you are directly integrating by direct API call/request:
+#### On Backend
 1. Replace API domain destination to Production API on Backend by removing `.sandbox` from the domain.
-   - For example, change the API domain from `app.sandbox.midtrans.com/` to `app.midtrans.com/`.
+    - For example, change the API domain from `app.sandbox.midtrans.com/` to `app.midtrans.com/`.
 2. Replace the `ServerKey` variable value used for API auth on the Backend with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
-3. Replace the `data-client-key` variable value on Frontend with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
+
+#### On Frontend
+<details open>
+<summary>If you are using <b>Snap</b></summary>
+<article>
+
+Find where you include snap.js script tag:
+
+- From script url, remove the `.sandbox`  to `https://app.midtrans.com/snap/snap.js`.
+- Replace `data-client-key` attribute value with your production *Client Key*.
+```html
+<script type="text/javascript"
+    src="https://app.midtrans.com/snap/snap.js"
+    data-client-key="<INSERT-CLIENT-KEY>"></script>
+```
+</article>
+</details>
+
+<details>
+<summary>If you are using <b>Core API</b></summary>
+<article>
+Find where you include midtrans-new-3ds.min.js script tag:
+
+- Replace `data-environment` attribute value with `production`.
+- Replace `data-client-key` attribute value with your production *Client Key*.
+```html
+<script id="midtrans-script" 
+    src="https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js"
+    data-environment="production" 
+    data-client-key="<INSERT-CLIENT-KEY>" 
+    type="text/javascript"></script>
+```
+</article>
+</details>
+<br>
 
 #### **WordPress WooCommerce**
-
-To integrate Midtrans with your WordPress WooCommerce CMS, follow the steps given below.
 
 1. Login to your website as an administrator.
 2. Go to Midtrans plugin configuration page.
@@ -70,8 +131,6 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 #### **Magento**
 
-To integrate Midtrans with your Magento CMS, follow the steps given below.
-
 1. Login to your website as an administrator.
 2. Go to Midtrans plugin configuration page.
 3. Go to **Sales > Payment Method**.
@@ -80,12 +139,10 @@ To integrate Midtrans with your Magento CMS, follow the steps given below.
 6. Enter **Sandbox Server Key.**
 7. Enter **Production Server Key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 8. Enter **Production Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
-   
+
 Your website is now integrated with Midtrans. For more information, refer to [Configuring Magento CMS Notification](/en/snap/with-plugins).
 
 #### **PrestaShop**
-
-To integrate Midtrans with your PrestaShop CMS, follow the steps given below.
 
 1. Login to your website as an administrator.
 2. Go to the Midtrans plugin configuration page.
@@ -98,8 +155,6 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 #### **OpenCart**
 
-To integrate Midtrans with your OpenCart CMS, follow the steps given below.
-
 1. Login to your website as an administrator.
 2. Go to the Midtrans plugin configuration page.
 3. Enter the **Merchant Id**.
@@ -110,8 +165,6 @@ To integrate Midtrans with your OpenCart CMS, follow the steps given below.
 Your website is now integrated with Midtrans. For more information, refer to [Configuring OpenCart CMS Notification](/en/snap/with-plugins).
 
 #### **WordPress Easy Digital Download**
-
-To integrate Midtrans with your WordPress EDD CMS, follow the steps given below.
 
 1. Login to your website as an administrator.
 2. Go to the Midtrans plugin configuration page.
@@ -126,8 +179,6 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 #### **WHMCS**
 
-To integrate Midtrans with your WHMCS CMS, follow the steps given below.
-
 1. Login to your website as an administrator.
 2. Go to the Midtrans plugin configuration page.
 3. Enter **Midtrans Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
@@ -137,11 +188,7 @@ To integrate Midtrans with your WHMCS CMS, follow the steps given below.
 
 Your website is now integrated with Midtrans. For more information, refer to [Configuring WHMCS CMS Notification](/en/snap/with-plugins).
 
-
-
 #### **Drupal**
-
-To integrate Midtrans with your Drupal CMS, follow the steps given below.
 
 1. Login to your website as an administrator.
 2. Go to the **Commerce > Configuration > Payment > Payment Gateways**.
@@ -155,6 +202,12 @@ To integrate Midtrans with your Drupal CMS, follow the steps given below.
 Your website is now integrated with Midtrans. For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins).
 
 <!-- tabs:end -->
+
+### 5. Configuring HTTP Notification Webhooks URL
+
+- For more information on how to configure HTTP notification URL, refer to [Configuring HTTP Notifications On MAP](/en/after-payment/http-notification.md).
+
+- For **Snap Integration** you can opt to configure redirect URL. For more information, refer to [Configuring Redirect URL](/en/snap/advanced-feature.md#configuring-redirect-url).
 
 ### 6. Done! Ready for Production Mode
 
