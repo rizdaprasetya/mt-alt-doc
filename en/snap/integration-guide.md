@@ -367,7 +367,7 @@ Status Code | Description | Example
 
 To display Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
-?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page.
+?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect).
 
 The table given below describes the components which are required to display Snap payment page.
 
@@ -383,11 +383,10 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script
-      type="text/javascript"
+    <script type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="SET_YOUR_CLIENT_KEY_HERE"
-    ></script>
+      data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
   </head>
 
   <body>
@@ -417,24 +416,6 @@ Or try the demo here:
 </p>
 
 After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
-
-<details>
-<summary><b>Configuring Finish Redirect URL</b></summary>
-<article>To configure the <b>Finish Redirect URL</b>, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the Home page, go to **SETTINGS > CONFIGURATION**.
-   *Configuration* page is displayed.   
-3. Enter **Finish Redirect URL** with your landing page endpoint.
-4. Click **Update**.
-   A confirmation message is displayed.
-
-   ![Core API](./../../asset/image/coreapi/core-api-finish-redirect-url-2.png)
-
-   The *Finish Redirect URL* is configured.
-
-</article>
-</details>
 
 ?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
@@ -509,3 +490,29 @@ In this section, you will learn, how transaction status can change, and what are
 #### Reference:
 
 > Integration sample codes are also available on our [GitHub repos](/en/technical-reference/library-plugin.md#sample-integration-code).
+
+#### Alternative way to Display Snap Payment Page via Redirect
+
+Alternatively, you can also use `redirect_url` retrieved from backend in the 1st step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js.
+
+Additionally, you can configure where customer will be redirected after the payment page, by: Login to your MAP/Midtrans Dashboard account, then go to **SETTINGS > CONFIGURATION**. Then please configure the Finish, Unfinish, Error Redirection URLs. 
+
+[Learn more here on configuring Snap Redirect url configuration](/en/snap/advanced-feature#configuring-redirect-url), after clicking that link please choose the `Snap Redirect (Alternative)` tab.
+
+<details>
+<summary><b>Configuring Finish Redirect URL</b></summary>
+<article>To configure the <b>Finish Redirect URL</b>, follow the steps given below.
+
+1. Login to your MAP account.
+2. On the Home page, go to **SETTINGS > CONFIGURATION**.
+   *Configuration* page is displayed.   
+3. Enter **Finish, Unfinish, and Error Redirect URL** with your landing page url.
+4. Click **Update**.
+   A confirmation message is displayed.
+
+   ![Core API](./../../asset/image/coreapi/core-api-finish-redirect-url-2.png)
+
+   The *Finish Redirect URL* is configured.
+
+</article>
+</details>

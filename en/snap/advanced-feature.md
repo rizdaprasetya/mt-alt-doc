@@ -203,7 +203,7 @@ snap.pay('SNAP_TRANSACTION_TOKEN', {
 <!-- tabs:end -->
 
 ### Custom Finish URL
-By default, Snap will redirect the customer to [Finish Redirect URL configured on Dashboard](/en/snap/preparation.md?id=configure-redirection-url). But you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
+By default, Snap will redirect the customer to [Finish Redirect URL configured on Dashboard](#configuring-redirect-url). But you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
 
 Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
 <!-- tabs:start -->
