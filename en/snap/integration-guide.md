@@ -68,17 +68,15 @@ The sample request for *Charge API* is given below. APIs are implemented in some
 
 #### HTTP Headers
 
-| Header Name   | Description                                            | Required | Values                |
-| ------------- | ------------------------------------------------------ | -------- | --------------------- |
-| Accept        | The format of the data to be returned.                 | Required | application/json      |
-| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
-| Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
 
-**AUTH_STRING**: Base64(`ServerKey + :`)
+**AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
-
-?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
 The example below shows a sample code to obtain transaction token.
 

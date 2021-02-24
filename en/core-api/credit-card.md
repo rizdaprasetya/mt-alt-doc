@@ -189,17 +189,17 @@ The sample requests for *Charge API* for *Card* payment method are shown below. 
 
 #### HTTP Headers
 
-| Header Name   | Description                                            | Required | Values                |
-| ------------- | ------------------------------------------------------ | -------- | --------------------- |
-| Accept        | The format of the data to be returned.                 | Required | application/json      |
-| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
-| Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
 
-**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+**AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
-**Sample Request**
+#### Sample Request
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \

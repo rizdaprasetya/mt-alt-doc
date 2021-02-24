@@ -44,16 +44,17 @@ The table given below describes the various elements required for sending the tr
 | Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
 | Production  | POST   | https://api.midtrans.com/v2/charge         |
 
-#### Headers
-| Header Name   | Description                                            | Required | Values                |
-| ------------- | ------------------------------------------------------ | -------- | --------------------- |
-| Accept        | The format of the data to be returned.                 | Required | application/json      |
-| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
-| Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
+#### HTTP Headers
 
-**AUTH_STRING**: Base64(`ServerKey + :`)<br>Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by a colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
 
-?> ***Note***: *Server Key* is required to authenticate the request. For more details, refer to [HTTPS Header](https://api-docs.midtrans.com/#http-s-header).<br>
+**AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
+
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
 
 #### Sample Request and Request Body
 The sample request for *Charge API* is given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). The example below shows a sample code to obtain the VA number.
