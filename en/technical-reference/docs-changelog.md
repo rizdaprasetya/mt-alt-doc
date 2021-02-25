@@ -1,6 +1,11 @@
 # Docs Changelog
 <hr>
 
+#### 2021/02/25
+- enhance Snap Redirect explanation
+- simplify http header tables to code snippet and standardize
+- fix non-standard and invalid links
+
 #### 2021/02/15
 - enhance content search indexing for CMS plugins
 - enhance tabs UI element
