@@ -9,7 +9,7 @@
 	- [Advanced Feature](en/snap/advanced-feature.md "Midtrans - Snap Advanced Feature Documentation")
 - [**![](asset/image/main/midtrans-icons-nativemobile.svg)Native Mobile App SDK ↗**](https://mobile-docs.midtrans.com)
 - [**![](asset/image/main/midtrans-icons-custominterface.svg)Custom Interface**<small>&nbsp;(Core API)</small>](en/core-api/overview.md "Midtrans - Core API Documentation")
-	- [Integration Guide](en/core-api/overview?id=available-ways-to-integrate "Midtrans - Core API Integration Guide Documentation")
+	- [Integration Guide](en/core-api/overview.md#various-ways-to-integrate-with-core-api "Midtrans - Core API Integration Guide Documentation")
 		- [Card](en/core-api/credit-card.md "Midtrans - Core API Credit & Debit Card Documentation")
 		- [Bank Transfer](en/core-api/bank-transfer.md "Midtrans - Core API Bank Transfer Documentation")
 		- [E-Money](en/core-api/e-wallet.md "Midtrans - Core API E-Money Documentation")

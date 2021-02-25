@@ -127,7 +127,7 @@ Find where you include midtrans-new-3ds.min.js script tag:
 6. Enter **Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 7. Enter **Server Key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring WooCommerce Plugin Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring WooCommerce Plugin Notification](/en/snap/with-plugins.md).
 
 #### **Magento**
 
@@ -140,7 +140,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 7. Enter **Production Server Key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 8. Enter **Production Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring Magento CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring Magento CMS Notification](/en/snap/with-plugins.md).
 
 #### **PrestaShop**
 
@@ -151,7 +151,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 5. Enter **Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 6. Enter **Server Key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring PrestaShop CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring PrestaShop CMS Notification](/en/snap/with-plugins.md).
 
 #### **OpenCart**
 
@@ -162,7 +162,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 5. Enter **Client Key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 6. Enter **Server Key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring OpenCart CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring OpenCart CMS Notification](/en/snap/with-plugins.md).
 
 #### **WordPress Easy Digital Download**
 
@@ -175,7 +175,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 7. Enter **Sandbox Server Key.**
 8. Enter **Sandbox Client Key**.
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring WordPress Easy Digital Download CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring WordPress Easy Digital Download CMS Notification](/en/snap/with-plugins.md).
 
 #### **WHMCS**
 
@@ -186,7 +186,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 5. Select **Production Mode** checkbox.
 6. Click **Save Changes**.
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring WHMCS CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring WHMCS CMS Notification](/en/snap/with-plugins.md).
 
 #### **Drupal**
 
@@ -199,7 +199,7 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 7. Enter **Client key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 8. Click **Save**.
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins.md).
 
 <!-- tabs:end -->
 

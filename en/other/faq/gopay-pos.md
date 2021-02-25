@@ -19,7 +19,7 @@ Charge API request should be done from Partner's backend. **Server Key** (given 
 
 ### Charge API Request
 
-Below is example of minimum `/charge` API request in Curl, please implement according to your backend language (you can also check our available [language libraries](http://docs.midtrans.com/en/welcome/pluginlibrary.html)).
+Below is example of minimum `/charge` API request in Curl, please implement according to your backend language (you can also check our available [language libraries](/en/technical-reference/library-plugin.md).
 
 Additionally `X-Override-Notification` HTTP header is required, in order to [specify which URL Midtrans should send HTTP notification](https://api-docs.midtrans.com/#override-notification-url), in case of transaction updated (success, fail, etc).
 

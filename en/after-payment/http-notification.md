@@ -989,7 +989,7 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 
 - If notification fails to be sent,  your notification URL might be rejecting the HTTP notification delivery. Please check your notification URL implementation on your backend server. For more information, refer to [Best Practices](#best-practice-to-handle-notification).
 - If you find that the notification has been sent (shown as `success`), but your server wasn't able to change the payment status on your backend, it might be because of an issue in the implementation on your backend server.
-- If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status) approach to sync payment status on Midtrans side to your system.
+- If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status.md) approach to sync payment status on Midtrans side to your system.
 
 </article>
 </details>
@@ -998,9 +998,9 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 
 Although Midtrans strives for its best to keep notification service reliable, there may be some exceptional cases that can cause failure in sending notification from Midtrans or failure in receiving from merchant side.
 
-This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status).
+This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status.md).
 
-You can make [GET Status API call](https://docs.midtrans.com/en/after-payment/get-status), in any of the following scenarios:
+You can make [GET Status API call](/en/after-payment/get-status.md), in any of the following scenarios:
 
 - Notifications are not received within the defined time (24 hours, 12 hours, and so on).
 - Before a transaction is considered as failure/canceled on your side.

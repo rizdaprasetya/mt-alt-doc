@@ -497,7 +497,7 @@ The Recurring/One Click end-to-end payment process can be illustrated in followi
 #### Retrieving the `token_id`
 `token_id` is retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). `token_id` is a representation of customer's card information used for the transaction. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. `token_id` should be retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). on merchant frontend. This avoids the risk of card information being transmitted to merchant backend.
 
-For more details, refer to [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token).
+For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
 
 #### Charge API Request for first transaction
 Additional attributes `token_id` and `save_token_id` are added in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md).
@@ -573,7 +573,7 @@ The sample Charge API response for the first transaction is shown below.
 #### Opening 3DS Authentication Page for the First Transaction
 To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
 
- For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card?id=open-3ds-authentication-page-js-implementation).
+For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#_3-opening-3ds-authentication-page).
 
 ?>***Note***: When the customer completes the transaction on the page, the *Transaction Status* changes from *Pending* to *Capture*.
 #### Sample 3DS Authenticate JSON Response for the First Transaction
@@ -925,7 +925,7 @@ To configure *Two Clicks* transaction for a customer, follow the steps given bel
 #### Retrieving the `token_id`
 The `token_id` is a representation of customer's card information used for the transaction. The `token_id` is retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of the card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
 
-For more details, refer to [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token).
+For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
 
 #### Charge API Request for the First Transaction
 The `token_id` retrieved is added as an attribute in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md?id=charge-api-request).

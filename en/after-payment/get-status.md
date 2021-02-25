@@ -17,18 +17,19 @@ To get the status of a transaction, you can send a request to Midtrans API. It w
 --- | ---
  ORDER_ID   | The order id of the transaction you want to look up. 
 
-### Headers
+### HTTP Headers
 
-| Header Name   | Description                                            | Required | Values                |
-| ------------- | ------------------------------------------------------ | -------- | --------------------- |
-| Accept        | The format of the data to be returned.                 | Required | application/json      |
-| Content-Type  | The format of the data to be posted.                   | Required | application/json      |
-| Authorization | The authentication method used to access the resource. | Required | Basic **AUTH_STRING** |
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
 
-**AUTH_STRING**: Base64(`ServerKey + :`)
+**AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your *Server Key* while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by a colon symbol (**:**) (colon symbol). For more information, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
+<!-- TODO: add more language examples to the sample request -->
 ### Sample Request
 
 <!-- tabs:start -->
@@ -147,7 +148,7 @@ The following table describes the fraud status.
 
 
 
-The same [status definition with notification](/en/after-payment/http-notification?id=status-definition) applies.
+The same [status definition with notification](/en/after-payment/http-notification?id=status-definition.md) applies.
 
 
 ### Other API Action / Method

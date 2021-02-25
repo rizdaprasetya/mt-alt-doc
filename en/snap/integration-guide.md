@@ -76,7 +76,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
 The example below shows a sample code to obtain transaction token.
 
@@ -495,7 +495,7 @@ Alternatively, you can also use `redirect_url` retrieved from backend in the 1st
 
 Additionally, you can configure where customer will be redirected after the payment page, by: Login to your MAP/Midtrans Dashboard account, then go to **SETTINGS > CONFIGURATION**. Then please configure the Finish, Unfinish, Error Redirection URLs. 
 
-[Learn more here on configuring Snap Redirect url configuration](/en/snap/advanced-feature#configuring-redirect-url), after clicking that link please choose the `Snap Redirect (Alternative)` tab.
+[Learn more here on configuring Snap Redirect url configuration](/en/snap/advanced-feature.md#configuring-redirect-url), after clicking that link please choose the `Snap Redirect (Alternative)` tab.
 
 <details>
 <summary><b>Configuring Finish Redirect URL</b></summary>

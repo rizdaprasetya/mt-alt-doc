@@ -11,7 +11,7 @@ Your customers can make payments using the <i>Bank Transfer</i> payment method p
 
 Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
 
-?>***Note:*** Please make sure to create your [Midtrans account](/en/midtrans-account/overview), before proceeding with this section.
+?>***Note:*** Please make sure to create your [Midtrans account](/en/midtrans-account/overview.md), before proceeding with this section.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -54,7 +54,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
 #### Sample Request and Request Body
 The sample request for *Charge API* is given below. The request is in CURL but you can implement it according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library). The example below shows a sample code to obtain the VA number.

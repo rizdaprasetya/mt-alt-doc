@@ -168,7 +168,7 @@ The table given below describes some required components.
 | Server Key     | The unique ID retrieved from *Dashboard*. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). | String  |
 | order_id       | The order_id of the transaction.                             | String  |
 | gross_amount   | The total amount of transaction.                             | Long    |
-| token_id       | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). | String  |
+| token_id       | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token). | String  |
 | authentication | Flag to enable the 3D secure authentication.                 | Boolean |
 
 ?> **Note**: For better security and fraud prevention, set `authentication` to `true`. Set the `authentication` to `false` only after confirming with Midtrans and the acquiring bank.
@@ -197,7 +197,7 @@ Authorization: Basic AUTH_STRING
 
 **AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](https://docs.midtrans.com/en/technical-reference/api-header).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
 #### Sample Request
 ```bash

@@ -109,7 +109,7 @@ app.midtrans.com
 
 Or if you really need to, you can whitelist the IP listed [here](https://www.cloudflare.com/ips/). However, you are responsible to always update the list yourself in case it got updated, else it might break your integration with Midtrans.
 
-For inbound request from Midtrans, we provide IP address to whitelist. For more details, refer to [IP Addresses & API Domain](https://docs.midtrans.com/en/reference/address.html).
+For inbound request from Midtrans, we provide IP address to whitelist. For more details, refer to [IP Addresses & API Domain](/en/technical-reference/ip-address.md).
 
 #### Why am I getting `403` from Cloudflare, while using reverse-proxy to contact Midtrans API?
 We always recommend requests to be sent directly to Midtrans API. Using reverse-proxy in front of Midtrans API can risk exposing the transaction data (and its log) to the proxy. Exposing payment data like credit card pose big security risk and should be avoided.
