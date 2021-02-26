@@ -212,7 +212,7 @@ For more details, refer to [JSON Object](https://api-docs.midtrans.com/#json-obj
 </article>
 </details>
 
-
+You can also [add fee, tax, discount, etc. to item_details](/en/other/faq/technical.md#how-should-i-include-internal-fee-tax-discount-in-item_details-api-params) if you need.
 
 ### Custom Transaction Expiry
 Custom transaction expiry can be configured for all payment methods except for *Credit Card* payment methods. You can configure expiry time for the payment of a transaction with the *Transaction Status* : *Pending*. After the expiry time is elapsed, the customer will not be able to make a payment for the transaction.

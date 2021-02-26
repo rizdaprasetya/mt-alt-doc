@@ -104,6 +104,112 @@ Make sure that there is no redirect on your `notification url`. You can open you
 #### Why my Permata VA number cannot be customized?
 Permata custom VA is available only for B2B VA type. So if you are have agreement with permata as B2C VA type, the VA number cannot be customized.
 
+#### How should I include internal fee, tax, discount in item_details API params?
+For example, in a transaction the purchased items are `Apple (IDR 7000)`, & `Orange (IDR 3000)`. Then your system also add `Fee (IDR 300)`, `Tax (IDR 200)`, `Discount (IDR -100)`. Which totalled into `gross_amount: 10400` then you are sending those information as this request API parameters:
+
+```json
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10400
+  },
+  "item_details": [
+    {
+      "name": "Apple",
+      "price": 7000,
+      "quantity": 1,
+      "id": "SKU-01",
+    },
+    {
+      "name": "Orange",
+      "price": 3000,
+      "quantity": 1,
+      "id": "SKU-02",
+    }
+  ]
+}
+```
+
+That will not work, and you will get this as API response:
+```text
+ "validation_messages": 
+ 	["transaction_details.gross_amount must be equal to token request gross_amount"]
+```
+
+That is because the sum of all item_details's price (7000+3000) is not equal to gross_amount (10400). If you have any kind of fee, tax, or discount, you must include it as item_details.
+
+You should change the API request parameters to this to make it work:
+```json
+{
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10400
+  },
+  "item_details": [
+    {
+      "name": "Apple",
+      "price": 7000,
+      "quantity": 1,
+      "id": "SKU-01"
+    },
+    {
+      "name": "Orange",
+      "price": 3000,
+      "quantity": 1,
+      "id": "SKU-02"
+    },
+    {
+      "name": "Fee",
+      "price": 300,
+      "quantity": 1,
+      "id": "F01"
+    },
+    {
+      "name": "Tax",
+      "price": 200,
+      "quantity": 1,
+      "id": "T01"
+    },
+    {
+      "name": "Discount",
+      "price": -100,
+      "quantity": 1,
+      "id": "D01"
+    }
+  ]
+}
+```
+
+We added the `Fee`, `Tax`, and `Discount` as few new item_details, which now totals to 7000+3000+300+200-100 = `10400` which will be equal to `"gross_amount": 10400`. Then this API request will work just fine.
+
+Note that the item's price can also be a negative value to accomodate discount.
+
+Alternatively, you can also bundle together all the fee, tax, discount, etc. into 1 item_details, e.g:
+```json
+...
+    {
+      "name": "Misc Fee",
+      "price": 400, // total fee,tax,discount of 300+200-100
+      "quantity": 1,
+      "id": "D01"
+    }
+...
+```
+
+Alternatively, you can also implement your system to generate `Misc Fee` item dynamically. E.g: your system already know `"gross_amount": 10400`, and total of item purchased is `10000`. Then you can generate a new item_details object to balance this value. So the `Misc Fee` price = gross_amount - sum(price of all item).
+
+```json
+  "item_details": [
+  	...,
+    {
+      "name": "Misc Fee",
+      "price": (gross_amount - total_of_all_previous_item_price)
+      "quantity": 1,
+      "id": "D01"
+    }
+  ]
+```
+
 #### I want to use payment method specific promo campaign. How should I implement this?
 You have to use `enabled_payments` for payment method specific promo. The customer can pay with the specific payment method only. The customer cannot pay using other payment methods.
 

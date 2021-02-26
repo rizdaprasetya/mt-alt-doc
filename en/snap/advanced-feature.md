@@ -124,6 +124,8 @@ curl -X POST \
 
 For more details, refer to [Snap Docs](https://snap-docs.midtrans.com/#json-objects).
 
+You can also [add fee, tax, discount, etc. to item_details](/en/other/faq/technical.md#how-should-i-include-internal-fee-tax-discount-in-item_details-api-params) if you need.
+
 ### Configuring Redirect URL
 Redirect URL is used to redirect your customer after the payment process is complete through *Snap*.
 
