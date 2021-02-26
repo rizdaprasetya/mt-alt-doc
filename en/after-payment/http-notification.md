@@ -990,6 +990,7 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 - If notification fails to be sent,  your notification URL might be rejecting the HTTP notification delivery. Please check your notification URL implementation on your backend server. For more information, refer to [Best Practices](#best-practice-to-handle-notification).
 - If you find that the notification has been sent (shown as `success`), but your server wasn't able to change the payment status on your backend, it might be because of an issue in the implementation on your backend server.
 - If you face any delay or issue that Midtrans is unable to send the HTTP Notification, you can use [Get Status API](/en/after-payment/get-status.md) approach to sync payment status on Midtrans side to your system.
+- You can further see the HTTP notification details, choose one of the table row entries that have `HTTP` value as **TYPE**, scroll right and click `Details`. You will be able to see a popup, and under `Request Body` section, you will see the details including the URL & HTTP request body JSON.
 
 </article>
 </details>
@@ -998,13 +999,17 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 
 Although Midtrans strives for its best to keep notification service reliable, there may be some exceptional cases that can cause failure in sending notification from Midtrans or failure in receiving from merchant side.
 
-This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status.md).
+This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status.md) to reconcile payment status between your backend and Midtrans.
 
-You can make [GET Status API call](/en/after-payment/get-status.md), in any of the following scenarios:
+Your backend can perform [GET Status API call](/en/after-payment/get-status.md), for example in any of the following point in time:
 
-- Notifications are not received within the defined time (24 hours, 12 hours, and so on).
+- When notification is not received within the defined time (24 hours, 12 hours, and so on).
 - Before a transaction is considered as failure/canceled on your side.
-- Your operations team wants to reconcile status.
-- Funds are deducted from the customer but the transaction status is not updated to *success*.
+- When your operations team wants to trigger status reconciliation.
+- When customer claims funds are deducted from them but the transaction status is not updated to *success*.
 
 Please make sure to check if the notification issue is not from your end. For more information, please refer to the [Best Practices to Handle Notification](#best-practice-to-handle-notification) and [View Notification History](#viewing-notification-history) sections explained earlier.
+
+### Suggestion on Troubleshooting HTTP Notification Failures
+
+Please refer to this FAQ about [troubleshooting HTTP Notification failures](/en/other/faq/technical?id=how-to-troubleshoot-http-notification-failures).

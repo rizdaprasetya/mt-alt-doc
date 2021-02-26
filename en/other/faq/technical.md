@@ -1,16 +1,105 @@
 This page contains list of Midtrans Product technical FAQs
 ## Technical FAQ Categories
 ### General & Misc
+#### How to troubleshoot HTTP Notification failures?
+
+If you are receiving Email alert with the following message:
+> We are having difficulty sending notification to the endpoint that you specified. Please make sure that the endpoint is available and returns HTTP status 200 after receiving the notification.
+
+Within the email, please check the part `Error detail`, for example it may say:
+> Redirection status code 301, 302 and 303 are not supported.
+
+It means your backend is returning/responding with invalid response, and need to be fixed. Then please follow suggestions below according to that `status code` value displayed on the email.
+
+Make sure that your **endpoint should not return/response**: 
+- `3xx` HTTP status code: it likely means your endpoint is performing a redirect, please fix your backend implementation to **remove any redirect**.
+	- You can open your `notification url` on web browser, see whether the end URL is the same as the original URL or not. If you see the URL on browser address bar is different (changed) after open it, it means there is a redirect. Use the last URL displayed on browser URL bar, after you open the original URL as `notification url`.
+	- For example you set `https://toko.com/webhook-handler` as notification url, after you open it via browser, the url in browser address bar becomes `https://toko.com/webhook-handler/` (there is `/` characther added). You should [set notification url](/en/http-notification.md#configuring-http-notifications-on-map) with that final url instead.
+- `4xx`, `5xx` HTTP status code: it likely means your backend is throwing error/exception caused by your internal mis-implementation, please check your backend log and fix the issue on your backend side. This can means various internal error from syntax, logical, database, to validation, etc. So you need to check thoroughly.
+- Make sure that your backend is available (not having down-time) during that time. Issue can be caused by temporary down time on your backend at that time period only, and may works fine at other time.
+
+Also it is **important to double check that your infrastructure layer** such as reverse-proxy (Nginx/Apache/etc.), network layer, firewall, etc. does not perform any of the above problematic issue.
+
+<details open>
+<summary><b>Inspect & Reproduce HTTP Notification Sending Process</b></summary>
+<article>
+
+You can also reproduce on your own on how HTTP notification is sent from Midtrans to your HTTP notification URL, which should be hosted on your web server backend. Use and execute the following CURL comamnd template on your side.
+
+<!-- tabs:start -->
+##### **CURL template**
+```bash
+curl -vvv -X POST \
+  https://your-notification-url/should-goes-here/ \
+  -H 'Accept: application/json'\
+  -H 'Content-Type: application/json' \
+  -d 'PASTE_YOUR_NOTIFICATION_JSON_HERE'
+```
+
+- Replace `https://your-notification-url/should-goes-here/` with your notification url. 
+- Replace the `PASTE_YOUR_NOTIFICATION_JSON_HERE` value with the Notification JSON value you can [retrieve via Midtrans Dashboard](/en/after-payment/http-notification.md#viewing-notification-history): 
+	- Under menu `Settings > Configuration > See History` 
+	- Then choose one of the table row entries that have `HTTP` value as **TYPE**, scroll right and click `Details`.
+	- You will be able to see a popup, and under `Request Body` section, you will see the JSON.
+
+##### **CURL sample**
+Here is a sample of full CURL request with the notification JSON included.
+
+```bash
+curl -vvv -X POST \
+  https://tokoecommerc.com/payment-notification-handler/ \
+  -H 'Accept: application/json'\
+  -H 'Content-Type: application/json' \
+  -d '{
+  "transaction_time": "2020-01-09 18:27:19",
+  "transaction_status": "capture",
+  "transaction_id": "57d5293c-e65f-4a29-95e4-5959c3fa335b",
+  "status_message": "midtrans payment notification",
+  "status_code": "200",
+  "signature_key": "16d6f84b2fb0468e2a9cf99a8ac4e5d803d42180347aaa70cb2a7abb13b5c6130458ca9c71956a962c0827637cd3bc7d40b21a8ae9fab12c7c3efe351b18d00a",
+  "payment_type": "credit_card",
+  "order_id": "Postman-1578568851",
+  "merchant_id": "M004123",
+  "masked_card": "481111-1114",
+  "gross_amount": "10000.00",
+  "fraud_status": "accept",
+  "eci": "05",
+  "currency": "IDR",
+  "channel_response_message": "Approved",
+  "channel_response_code": "00",
+  "card_type": "credit",
+  "bank": "bni",
+  "approval_code": "1578569243927"
+}'
+```
+<!-- tabs:end -->
+
+On your machine terminal/shell, you can execute the CURL command above and inspect the response of the destination URL endpoint.
+</article>
+</details>
+
+Note: Unfortunately Midtrans will not be able to help you on any implementation details (beyond these suggestions), because the issue as mentioned above happen on your backend side. Since the implementation is under your scope, and is outside of Midtrans visibility & control. We don't have access to read or help you edit any of your backend implementations.
+
+It basically can be summarized to: 
+- Midtrans (as sender) has already send you a HTTP request properly, the issue is on your backend (as receiver) that reject the request. You should try to fix it in order to accept the request properly.
+
+If you need more suggestion, please share the following details with us:
+- Your Merchant ID & Order ID of the failing notification.
+- Your backend log, when it (fails to) handle the HTTP notification.
+- Snippet of your backend code implementation.
+
+Please refer [here to further understand about HTTP Notification](/en/after-payment/http-notification.md#best-practice-to-handle-notification).
+
 #### Why did I get alert message that HTTP notification is failure because of 3xx status code or redirect?
 
 See the answer given [below](#why-does-midtrans-http-notification-received-on-merchant-backendnotification-handler-look-quotemptyquot).
 
 #### Why does Midtrans HTTP notification received on merchant backend/notification handler look "empty"?
-It can be caused by `notification_url` (set by merchant on Dashboard) is ending up in HTTP redirect, when HTTP notification sent by Midtrans notification engine. If HTTP redirect happens, it can cause HTTP POST call to be redirected as HTTP GET, which means it will no longer contains HTTP body which contains the transaction data. This results in merchant notification handler getting empty request body, and might throw error. Redirect can be caused by network/reverse proxy/web framework used by the merchant.
+It can be caused by `notification url` (set by merchant on Dashboard) is ending up in HTTP redirect, when HTTP notification sent by Midtrans notification engine. If HTTP redirect happens, it can cause HTTP POST call to be redirected as HTTP GET, which means it will no longer contains HTTP body which contains the transaction data. This results in merchant notification handler getting empty request body, and might throw error. Redirect can be caused by network/reverse proxy/web framework used by the merchant.
 
 **To resolve**:
 
-Make sure that there is no redirect on the `notification_url` configured on Dashboard. You can open the URL on web browser, see whether the end URL is the same as the original URL or not. Ideally it should be different. It means there is a redirect. Use the last URL displayed on browser URL bar, after you open the original URL as `notification_url`.
+Make sure that there is no redirect on your `notification url`. You can open your `notification url` on web browser, see whether the end URL is the same as the original URL or not. If you see the URL on browser address bar is different (changed) after open it, it means there is a redirect. Use the last URL displayed on browser URL bar, after you open the original URL as `notification url`.
 
 #### Why my Permata VA number cannot be customized?
 Permata custom VA is available only for B2B VA type. So if you are have agreement with permata as B2C VA type, the VA number cannot be customized.
