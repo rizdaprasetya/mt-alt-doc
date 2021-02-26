@@ -257,6 +257,18 @@ For *Create Transaction* API action, `status_code:200` means the API is able to 
 
 If you want the reference of the most recent transaction status or payment status, it is recommended to check the `transaction_status` instead of `status_code`, which will have consistent value regardless of any API action.
 
+#### What should be considered when merchant want to do SSL certificate pinning?
+Most of the time you don’t need to do Certificate Pinning against Midtrans API domain’s public key SSL certificate, as most HTTP client / OS default behaviour already verifies SSL certificate at root CA level automatically (via built in CA certificate bundles).
+
+But if you decide to do Certificate Pinning, please consider the following trade-offs and considerations:
+- In the rare event of Midtrans SSL Certificate provider does some significant changes on their certificate chains (due to key rotation/update/upgrade/renewal/revoke/reissue activity) you are at risk of your HTTP client refusing to connect. Which means you should replace the pinned certificate each time this happens on each of your HTTP client implementations. It may mean you need to release a new version for your mobile app, to replace the previous app which is unable to connect.
+- Due to the nature of numerous authorities/parties involved in SSL certificate chains, changes may happen without all parties informed, hence Midtrans may not be able to timely inform you about such events in advance, although we try our best.
+- Note that: Digicert as one of the well-known Certificate Authority and Vendor, [does not recommend certificate pinning](https://www.digicert.com/dc/blog/certificate-pinning-what-is-certificate-pinning/). As they see there are "more risks than reward".
+- Consider pinning at a higher level chain of public key, like root CA level public key instead of specific domain certificate. Because the higher level of the chain is rarely rotated.
+- Consider understanding deeply about this topic and implementing failover. Here is [some resources about the topic](https://appmattus.medium.com/android-security-ssl-pinning-1db8acb6621e).
+
+Midtrans shouldn't be held responsible for any issue caused by your decision to implement SSL certificate pinning, as you should be aware of the considerations above.
+
 #### Why am I getting notified to update my system version?
 This is to ensure the following:
 - Your HTTPS or SSL client, used to communicate with Midtrans API domains are not outdated, and are in compliance to the latest security standards.
