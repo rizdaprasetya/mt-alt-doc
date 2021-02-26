@@ -2,9 +2,12 @@
 <hr>
 
 #### 2021/02/25
-- enhance Snap Redirect explanation
+- improve Snap Redirect explanation
+- improve Snap advanced feature wording
+- improve going live section
 - simplify http header tables to code snippet and standardize
 - fix non-standard and invalid links
+- improve how to troubleshoot notification failures
 
 #### 2021/02/15
 - enhance content search indexing for CMS plugins
