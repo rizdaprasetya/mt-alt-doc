@@ -6,7 +6,7 @@ Core API has various optional parameters that can be utilized to integrate with 
 
 ## General
 ### Recommended Parameters
-You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. While sending API requests, it is recommended to send more details regarding the transaction, so that these details can get added to the report. This report can be viewed on the *Dashboard*.
+You can  include more information such as `customer_details`, `item_details`, and so on along side `transaction_details`. While sending API requests, it is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
 <!-- tabs:start -->
 

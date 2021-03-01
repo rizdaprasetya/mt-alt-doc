@@ -333,7 +333,7 @@ Postman is an API development tool which is used to build, test and modify APIs.
 
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object). It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard. For more details, refer to [Advanced Features](/en/snap/advanced-feature.md).
+?>***Tips***: You can [include more information](/en/snap/advanced-feature.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
 #### Sample Response
 

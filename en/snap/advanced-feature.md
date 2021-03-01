@@ -6,7 +6,7 @@ Snap has various optional parameters. These optional parameters can be utilized 
 ## General
 
 ### Recommended Parameters
-You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. While sending API requests, it is recommended to send more details regarding the transaction, so that these details can get added to the report. This report can be viewed on the dashboard.
+You can  include more information such as `customer_details`, `item_details`, and so on along side `transaction_details`. While sending API requests, it is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
 The recommended JSON parameters for general use are given below. These parameters are used during [API Request Step](/en/snap/integration-guide.md#api-request).
 <!-- tabs:start -->
