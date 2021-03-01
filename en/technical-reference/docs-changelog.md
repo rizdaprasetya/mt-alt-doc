@@ -1,6 +1,10 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/01
+- overall improve, simplify, clarify on integration guides
+- improve frequently encountered error codes
+
 #### 2021/02/25
 - improve Snap Redirect explanation
 - improve Snap advanced feature wording
