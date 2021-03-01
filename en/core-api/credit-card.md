@@ -47,7 +47,7 @@ To integrate with *Card* payment method, follow the steps given below.
 Card `token_id` is a representation of customer's card information used for the transaction. `token_id` should be retrieved using [MidtransNew3ds JS library](https://api.midtrans.com/v2/assets/js/midtrans-new-3ds.min.js) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
 
 #### Including Midtrans JS Library
-Midtrans JS library can be included to Midtrans payment page, by adding the following script tag.
+Midtrans JS library can be included on your implementation of payment page's HTML, by adding the following script tag.
 
 ```html
 <script id="midtrans-script" type="text/javascript"
@@ -68,7 +68,7 @@ For more details about the API, refer to [Get Token](https://api-docs.midtrans.c
 
 #### Get Card Token JS Implementation
 
-Midtrans uses `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on Midtrans payment page.
+Midtrans uses `MidtransNew3ds.getCardToken` function to retrieve card `token_id`. Implement the following JavaScript on your payment page's HTML.
 
 ```javascript
 // card data from customer input, for example
@@ -95,7 +95,7 @@ var options = {
 
     // you may want to implement displaying failure message to customer.
     // Also record the error message to your log, so you can review
-    // what causing failure for this transaction.
+    // what causing failure on this transaction.
   }
 };
 
@@ -167,7 +167,7 @@ The table given below describes some required components.
 | -------------- | ------------------------------------------------------------ | ------- |
 | Server Key     | The unique ID retrieved from *Dashboard*. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). | String  |
 | order_id       | The order_id of the transaction.                             | String  |
-| gross_amount   | The total amount of transaction.                             | Long    |
+| gross_amount   | The total amount of transaction.                             | Long Int|
 | token_id       | The token_id retrieved from [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token). | String  |
 | authentication | Flag to enable the 3D secure authentication.                 | Boolean |
 
@@ -435,6 +435,10 @@ param = {
 charge_response = core_api.charge(param)
 ```
 
+#### **Other**
+
+- Please check Midtrans [available **language libraries**](/en/technical-reference/library-plugin.md)
+
 <!-- tabs:end -->
 
 ?>***Tips***: You can [include more information](/en/core-api/advanced-features.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
@@ -525,7 +529,8 @@ var options = {
     popupModal.closePopup();
   },
   onPending: function(response){
-    // transaction is pending, transaction result will be notified later via POST notification, implement as you wish here
+    // transaction is pending, transaction result will be notified later via 
+    // HTTP POST notification, implement as you wish here
     console.log('response:',response);
     popupModal.closePopup();
   }
@@ -535,9 +540,10 @@ var options = {
 MidtransNew3ds.authenticate(redirect_url, options);
 
 /**
- * Example helper functions to open Iframe popup, you may replace this with your own method to open iframe
- * PicoModal library is used:
- * <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/picomodal/3.0.0/picoModal.js"></script>
+ * Example helper functions to open Iframe popup, you may replace this with your own 
+ * method of open iframe. In this example, PicoModal library is used by including 
+ * this script tag on the HTML:
+ * <script src="https://cdnjs.cloudflare.com/ajax/libs/picomodal/3.0.0/picoModal.js"></script>
  */
 var popupModal = (function(){
   var modal = null;

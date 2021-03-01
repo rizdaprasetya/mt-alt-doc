@@ -40,7 +40,7 @@ Basic integration process of GoPay is explained in this section.
 To integrate with *E-Money* Payment method, follow the steps given below.
 
 ## 1. Sending Transaction Data to API Charge
-API request should be done from merchant backend to acquire QR code and deeplink to Gojek app. The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
+API request should be done from merchant backend to acquire QR code and deeplink URL to Gojek app. The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
 | Requirement    | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
@@ -50,7 +50,7 @@ API request should be done from merchant backend to acquire QR code and deeplink
 | `payment_type` | The payment method. Note: Here, set to `gopay`               |
 
 #### Sample Request
- APIs are implemented in some of the commonly used languages.  You can implement according to your backend language. The sample request for *Charge API* is given below. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+The sample *Charge API request* implementation is given below.  You can choose/implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 
 <!-- tabs:start -->
 
@@ -276,6 +276,11 @@ param = {
 # charge transaction
 charge_response = core_api.charge(param)
 ```
+
+#### **Other**
+
+- Please check Midtrans [available **language libraries**](/en/technical-reference/library-plugin.md)
+
 <!-- tabs:end -->
 
 <details>
@@ -292,7 +297,7 @@ charge_response = core_api.charge(param)
 </article>
 </details>
 
-?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object). It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard.
+?>***Tips***: You can [include more information](/en/core-api/advanced-features.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
 #### Sample response
 A sample *Charge API* response is shown below.
@@ -474,6 +479,11 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 <string>gojek</string>
 </array>
 ```
+
+#### **Other Framework**
+
+If you are using other framework such as React Native, Flutter, etc. Please follow [this FAQ on how to allow Gojek deeplink redirect.](/en/other/faq/technical.md#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do)
+
 <!-- tabs:end -->
 
 ## Description

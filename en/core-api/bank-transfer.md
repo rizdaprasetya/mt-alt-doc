@@ -1,7 +1,8 @@
 # Core API Bank Transfer Integration
 <hr>
+
 Basic integration process for Bank Transfer (Virtual Account) is explained in this section.
-Your customers can make payments using the <i>Bank Transfer</i> payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of banks supported by Midtrans is given below. </hr>
+Your customers can make payments using the *Bank Transfer* payment method provided by Midtrans. You will be notified when customer completes the transaction using this option. A list of VA acquiring banks supported by Midtrans is given below.
 
 - BCA Virtual Account
 - BNI Virtual Account
@@ -9,14 +10,15 @@ Your customers can make payments using the <i>Bank Transfer</i> payment method p
 - Mandiri Bill Payment
 - Permata Virtual Account
 
-Although, Midtrans can accept transfer from any other banks, as long as it is real time transfer. For each respective bank, Midtrans creates a virtual account which is allocated to merchant.
+VA can be paid from any banks (support inter-bank transfer) for BNI, BRI, and Permata, as long as the transferred fund is received in time.
 
 ?>***Note:*** Please make sure to create your [Midtrans account](/en/midtrans-account/overview.md), before proceeding with this section.
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
 <article>
-    The overall <i>Bank Transfer</i> end-to-end payment process is illustrated in following sequence diagram.
+
+The overall *Bank Transfer* end-to-end payment process is illustrated in following sequence diagram.
 
 ![bank transfer sequence diagram](./../../asset/image/core_api-sequence_bank_transfer.png)
 </article>
@@ -27,7 +29,7 @@ The steps given below use [Midtrans *Sandbox* environment](https://account.midtr
 ##  Steps for Integration
 To integrate with *Bank Transfer* payment method, follow the steps given below.
 ## 1. Sending Transaction Data to API Charge
-Charge API request should be generated from your backend. The request is authenticated with a server key, which can be accessed through the account. After the request is sent, you will get the `va_number`.
+Charge API request should be performed from your backend. The request is authenticated with API server key, which can be accessed through the account. After the request is sent, you will get the `va_number`.
 
 The table given below describes the various elements required for sending the transaction data to the *Charge API*.  
 
@@ -234,9 +236,9 @@ curl -X POST \
 
 <!-- tabs:end -->
 
-?>***Tips***: You can customize the `transaction_details` to include more information such as `customer_details`, `item_details`, and so on. For more details, refer to [Transaction Details Object](https://api-docs.midtrans.com/#json-object). It is recommended to add more details regarding transaction, so that these details can get added to the report. This report can be viewed from the dashboard.
+?>***Tips***: You can [include more information](/en/core-api/advanced-features.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
-You can modify the virtual account number according to a transaction. For more details, please refer to [Specifying VA Number](#Specifying-VA-Number).
+You can also customize the output virtual account number for the transaction. For more details, please refer to [Specifying VA Number](#Specifying-VA-Number).
 
 #### Sample Response and Response Body
 The sample response and description of response body for *Bank Transfer* payment method is shown below.
@@ -477,13 +479,16 @@ This is the sample response for Permata.
 ## 2. Displaying Virtual Account Number and Expiry Time
 To display the virtual account number, use the value of `va_number` retrieved from API response.
 
-?>***Note:*** Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#bank-transfer).
-
 By default the expiry time for Bank Transfer / VA is **24 hours**. Follow the link given below to customize the expiry time:
 <div class="my-card">
 
 #### [Set Custom Expiry](/en/core-api/advanced-features.md#custom-transaction-expiry)
 </div>
+
+
+### Creating Test Payment
+
+?>***Note:*** Read [here to simulate/test success payment on sandbox environment](/en/technical-reference/sandbox-test.md#bank-transfer).
 
 ## 3. Handling Transaction Notification
 When the transaction status changes, Midtrans notifies you at the *Redirect URL* and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.

@@ -3,10 +3,9 @@
 
 The steps for technical integration of Snap are explained below.
 
-?>***Note:***
-In this section, Midtrans *Sandbox* environment is used to test the integration process. Please refer [preparation section](/en/snap/preparation.md), before proceeding to this section.
-
 ## Preparation
+?>***Note:***
+In this section, Midtrans *Sandbox* environment is used to test the integration process. 
 
 <div class="my-card">
 
@@ -19,6 +18,12 @@ Sign up for a Midtrans Merchant Administration Portal (MAP) account, to get your
 #### [Retrieving API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys)
 Retrieve Sandbox mode API keys that will be used for this guide.
 </div>
+
+## Integration Steps Overview
+1. Acquire Snap transaction token on your backend
+2. Display Snap payment page on frontend
+3. Customer perform payment on payment page
+4. Handling payment status update on your backend
 
 <details>
 <summary><b>Sequence Diagram</b></summary>
@@ -36,25 +41,21 @@ The overall Snap end-to-end payment process is illustrated in following sequence
 </article>
 </details>
 
-## Steps for integration
-
-To integrate with Snap payment method, follow the steps given below.
-
 ## 1. Acquiring Transaction Token on Backend
 
 API request should be done from merchant backend to acquire Snap transaction `token` by providing payment information and *Server Key*. There are at least three components that are required to obtain the Snap token which are explained in the table given below.
 
-| Element        | Description                                                  | Requirement |
-| -------------- | ------------------------------------------------------------ | ----------- |
-| `Server Key`   | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) | Required    |
-| `order_id`     | Unique transaction order ID, defined from your side. One ID could be used only once for the order of the material. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50. | Required    |
-| `gross_amount` | Total amount of transaction, defined from your side. Integer. | Required    |
+| Element        | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| `Server Key`   | API server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys) |
+| `order_id`     | Unique transaction order ID, defined from your side. One ID could be used only once for the order of the material. Allowed character are Alphanumeric, dash(-), underscore(_), tilde (~), and dot (.) String, max 50. |
+| `gross_amount` | Total amount of transaction, defined from your side. Integer. |
 
 #### Sample Request
 
 <!-- TODO add more lang like ruby, link Postman to postman page -->
 
-The sample request for *Charge API* is given below. APIs are implemented in some of the commonly used languages. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
+The sample request for *Charge API* is given below. Choose your preferred programming language on the "tab" below.
 <!-- tabs:start -->
 
 #### **CURL**
@@ -351,7 +352,7 @@ The API response for a successful API request is shown below.
 
 Status Code | Description | Example
 --- | --- | ---
-201 | Successful creation of token. | "token":"66e4fa55-fdac-4ef9-91b5-733b97d1b862"
+201 | Successful creation of Snap token. | "token":"66e4fa55-fdac-4ef9-91b5-733b97d1b862"
 401 | Failed to create a token, as wrong authorization is sent. | "Access denied, please check client or server key"
 4xx | Failed to create a token, as wrong parameter is sent. Follow the error_message and check your parameter. | "transaction_details.gross_amount is not equal to the sum of item_details"
 5xx | Failed to create a token, because of  Midtrans internal error. Most of the time this is temporary, you can retry later. | "Sorry, we encountered internal server error. We will fix this soon."
@@ -418,7 +419,7 @@ After the payment is completed, customer is redirected back to `Finish URL`. It 
 ?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
 
 ## 3. Creating Test Payment
-Create a test payment to make sure you have integrated Snap successfully. There are various payment methods available on Snap. You can choose any one of them to create a test payment. Following are the test credentials for Card payment.
+Create a test payment to make sure you have integrated Snap successfully. Following are the test credentials for Card payment.
 
 Name | Value
 --- | ---
@@ -428,7 +429,7 @@ Exp Month | Any month in MM format. For example, `02`
 Exp Year | Any future year, in YYYY format. For example, `2025`
 OTP/3DS | `112233`
 
-Above test credentials are for Card payment. In addition to that, there are test credentials provided for other payment methods. For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
+In addition to that, there are various payment methods available on Snap. You can choose any one of them to create a test payment. For more details, refer to [Testing Payments on Sandbox](/en/technical-reference/sandbox-test.md).
 
 ![Snap Test Transaction](./../../asset/image/snap-test-transaction.gif)
 

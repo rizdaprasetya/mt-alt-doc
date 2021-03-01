@@ -45,7 +45,7 @@ The table given below describes the Fraud status.
 <!-- TODO explain how to do refund, approve, deny, cancel, etc -->
 
 ## API Action / Method
-
+<!-- FIX THIS APTDOCS -->
 You can perform a number of actions on *Transaction Status* through API calls. 
 
 The header for all backend requests is described below.
@@ -88,9 +88,12 @@ Endpoint URL | HTTP Method | Description
 /v2/[ORDER_ID]/status/b2b | GET | Get information status of multiple B2B transactions related to `order_id`. <br>For more information, refer to [GET transaction status for B2B](https://api-docs.midtrans.com/#get-transaction-status-b2b). 
 /v2/capture	| POST | Capture a pre-authorized transaction for card payment. <br>For more information, refer to [Capture Transaction](https://api-docs.midtrans.com/#capture-transaction). 
 
-For a full list of APIs, refer to [API docs](https://api-docs.midtrans.com/#payment-api).
+For a full list and details of APIs, refer to [API docs](https://api-docs.midtrans.com/#payment-api).
 
-?>***Note:*** Each of the official [Midtrans Language Library](/en/technical-reference/library-plugin.md) has functions that can be easily called. Please refer to the library's GitHub Repository for usage example.
+Note: You can also replace `order_id` used on above API urls with `transaction_id`, which uniquely generated from Midtrans side and you received when creating transaction, and from HTTP Notification.
+
+
+?>***Tips:*** Each of the official [Midtrans Language Libraries](/en/technical-reference/library-plugin.md) has easy-to-use functions implementing most of the endpoints above. Please refer to the library's GitHub Repository for usage example.
 
 
 
