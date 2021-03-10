@@ -22,11 +22,14 @@
   --heading-h3-font-size: 1.25rem;
   --heading-h3-font-weight: bold;
 
-  //content h4
+  // content h4
   --heading-h4-color: #{$blue-darken};
   --heading-h4-font-family: #{$poppins}, sans-serif;
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: 500;
+
+  // inline code
+  --code-font-size: calc(var(--font-size-m) * 0.85);
 
   // pagination
   --pagination-label-color: #{$blue-lighten};
@@ -381,7 +384,7 @@
     }
 
     code {
-        font-family: monospace;
+        font-family: 'Menlo', monospace;
         background-color: rgba(75, 143, 198, 0.16) !important;
         padding: 2px 4px !important;
         color: inherit !important;
@@ -647,7 +650,7 @@
         }
       }
       code {
-        font-family: monospace;
+        font-family: 'Menlo', monospace;
         padding: 0 !important;
         border-radius: 8px !important;
         background: $bg-code !important;
@@ -660,7 +663,7 @@
             width: 100%;
 
             tbody {
-              font-family: monospace;
+              font-family: 'Menlo', monospace;
               width: 100%;
               display: table;
 
@@ -668,7 +671,7 @@
                 width: 100%;
 
                 td {
-                  font-family: monospace;
+                  font-family: 'Menlo', monospace;
                 }
 
                 .hljs-ln-line {
@@ -711,7 +714,6 @@
         &.lang- {
           padding: 17px 20px !important;
           background: $bg-code !important;
-          font-family: "Menlo", sans-serif;
           color: $blue-lighten !important;
         }
       }
