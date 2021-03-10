@@ -92,6 +92,8 @@ function activateRightMenuOnScroll() {
     // @fixed: scroll event listener is added on EACH navigation, BAD!
     windowProxyEl = preventDuplicateListenerProxy(window);
     windowProxyEl.oneEventListener("scroll", function (event) {
+      // @fixme: should use debounce technique to avoid function run immediately 
+      // on every scroll src: https://stackoverflow.com/a/12009497
       event.preventDefault();
       var scrollPos =
         (window.pageYOffset ||
@@ -130,6 +132,8 @@ function activateRightMenuOnScroll() {
             !navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.add("active");
+            // @fixme: should only scroll if element is out of view
+            // src: https://gomakethings.com/how-to-check-if-any-part-of-an-element-is-out-of-the-viewport-with-vanilla-js/
             navLinks[index].scrollIntoView({ block: 'center' });
           } else if (
             scrollPos <= contentTop &&

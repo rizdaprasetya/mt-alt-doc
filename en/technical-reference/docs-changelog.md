@@ -1,6 +1,11 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/10
+- improve recurring advanced feature
+- enhance table, inline code, tabs dark UI element
+- fix minor formatting and links
+
 #### 2021/03/01
 - overall improve, simplify, clarify on integration guides
 - improve frequently encountered error codes

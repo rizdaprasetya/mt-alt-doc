@@ -614,11 +614,11 @@ For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/
 </article>
 </details>
 
-Store the `saved_token_id` in your database for recurring transactions using the same card.
+You will receive `saved_token_id` & `saved_token_id_expired_at` from the response (it also available in the JSON of HTTP notification). `saved_token_id` is unique for each customer's card. Store this `saved_token_id` in your database and associate that card token to your customer.
 
 #### Charge API Request for Recurring Transactions
 
-For recurring transactions by the customer, add `saved_token_id` as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
+For recurring transactions by the customer, use `saved_token_id` retrieved previously (or from your database) as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
 
 <!-- tabs:start -->
 
@@ -904,7 +904,11 @@ curl -X POST \
 <!-- tabs:end -->
 
 ### Recurring Transaction with Subscriptions API
-[Recurring Transaction with Subscriptions API](https://api-docs.midtrans.com/#recurring-api)
+
+Note that the [One Click feature mentioned above](#recurringone-click-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**.
+
+Follow the same implementation as [mentioned above](#recurringone-click-transaction), to the point your system [retrieved the `saved_token_id`](#sample-3ds-authenticate-json-response-for-the-first-transaction). Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
+
 
 <!-- <TODO: elaborate Subscriptions API> -->
 
@@ -1192,7 +1196,7 @@ curl -X POST \
 | ---------------- | ------------------------------------------------------------ | ------- |
 | token_id         | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response). | String  |
 | authentication   | Flag to enable the 3DS authentication.                 | Boolean |
-| bank             | The name of the *Card Issuing Bank* or *Acquiring Bank*. <br>Else, it will be treated as [Offline Installment](/en/core-api/advanced-features.md#offline-installment). | String  |
+| bank             | The name of the *Card Issuing Bank* or *Acquiring Bank*. <br>Else, it will be treated as [Offline Installment](#offline-installment). | String  |
 | installment_term | The tenor of installment.                                    | Integer |
 
 </article>
@@ -1344,7 +1348,7 @@ The JSON parameters added in the *Request Body* of a Charge API Request, to redi
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }
 ```
@@ -1364,7 +1368,7 @@ curl -X POST \
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }'
 ```
@@ -1382,16 +1386,17 @@ curl -X POST \
 </article>
 </details>
 
-The final redirect URL is appended with query parameters such as `order_id`, `result=xxx` as shown in the example below.
+The final redirect URL will be appended with query parameter like `?order_id=xxx&result=xxx`. For example the final redirect URL might look like this:
+```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
 
-| Redirect URL                           | Final Redirect URL                                           |
-| :------------------------------------- | ------------------------------------------------------------ |
-| https://tokoecommerce.com/gopay_finish | https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&result=success |
 
-| Query Parameter | Type   | Description                                                  | Value                   |
-| --------------- | ------ | ------------------------------------------------------------ | ----------------------- |
-| order_id        | String | Order ID sent on the Charge Request.                         | --                      |
-| result          | String | Result of the transaction to decide what kind of page to show to customer. | `success` or `failure`. |
+Query Parameter | Description| Type
+--- | --- | ---
+order_id |  Order ID sent on the Charge Request.  |  String  
+result  |  Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`.| String
 
 ?> ***Note***: You may use the information to display custom message to your customer on your finish URL.
 

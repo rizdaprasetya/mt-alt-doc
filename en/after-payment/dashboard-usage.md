@@ -252,12 +252,9 @@ The transaction amount can be refunded to the customer.
 To refund a transaction, follow the steps given below.
 
 1. Login to your MAP account.
-2. On the home page, click **TRANSACTIONS**.
-  *Transactions* pane is displayed.
-3. Click **ORDER ID**.
-  *Transaction* pane is displayed.
-4. Click **Refund**.
-  *Refund Details* screen is displayed.
+2. On the home page, click **TRANSACTIONS**. *Transactions* pane is displayed.
+3. Click **ORDER ID**. *Transaction* pane is displayed.
+4. Click **Refund**. *Refund Details* screen is displayed.
 5. Enter the **Amount** in Indonesian Rupiah to specify the refund amount.
 6. Enter the **Reason**. This is optional.
 7. Click **Proceed**.

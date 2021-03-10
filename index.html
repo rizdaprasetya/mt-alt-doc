@@ -313,6 +313,9 @@
                  * Custom plugin to fix left sidebar open state not properly synced
                  * with current URL, especially when first window page load with
                  * specific heading `?id=` in the url.
+                 * @FIXME : hook.ready doesn't wait for sidebar to load, sometimes this script
+                 * is executed too soon, need to check if sidebar is loaded or not, 
+                 * with delay? or looped delay?
                  */
                 function (hook, vm) {
                     // return 0; // comment to activate
