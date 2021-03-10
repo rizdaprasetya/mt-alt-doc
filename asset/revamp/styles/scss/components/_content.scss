@@ -558,16 +558,13 @@
 
     table {
       width: 100%;
-      border-collapse: collapse;
       margin-bottom: 0;
 
       thead {
         th {
           font-family: $ProximaNova-Bold, sans-serif;
           color: $blue-darken;
-          text-align: left;
           background: #f7fcff;
-          border-bottom: none;
 
           @include tab-portrait {
             letter-spacing: normal;
@@ -579,24 +576,12 @@
             box-shadow: none !important;
           }
         }
-
-        th,
-        td {
-          border-top: none;
-          padding: 15px;
-        }
       }
 
       tbody {
         tr {
           td {
-            border: none;
             color: $blue-lighten;
-            font-weight: normal;
-            padding: 15px;
-            vertical-align: top;
-            text-align: left;
-            font-family: $proximaNova, sans-serif;
 
             @include tab-portrait {
               letter-spacing: normal;
@@ -604,7 +589,6 @@
 
             strong {
               font-family: $ProximaNova-Bold, sans-serif;
-              font-weight: bold;
             }
 
             code {
@@ -675,6 +659,8 @@
                 }
 
                 .hljs-ln-line {
+                  border: none;
+
                   &.hljs-ln-numbers {
                     padding: 0px 8px !important;
                     background: rgba(75, 143, 198, 0.16);

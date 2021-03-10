@@ -9,6 +9,8 @@
   --docsifytabs-tab-color--active     : #{$white};
   --docsifytabs-content-background    : #{$blue-dark};
 
+  --table-cell-border-color     : #{$grey};
+
   .content {
     .markdown-section, p, li {
       color: $white-gray !important;
