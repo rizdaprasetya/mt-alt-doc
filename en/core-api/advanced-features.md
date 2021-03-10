@@ -614,11 +614,11 @@ For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/
 </article>
 </details>
 
-Store the `saved_token_id` in your database for recurring transactions using the same card.
+You will receive `saved_token_id` & `saved_token_id_expired_at` from the response (it also available in the JSON of HTTP notification). `saved_token_id` is unique for each customer's card. Store this `saved_token_id` in your database and associate that card token to your customer.
 
 #### Charge API Request for Recurring Transactions
 
-For recurring transactions by the customer, add `saved_token_id` as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
+For recurring transactions by the customer, use `saved_token_id` retrieved previously (or from your database) as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
 
 <!-- tabs:start -->
 
@@ -904,7 +904,11 @@ curl -X POST \
 <!-- tabs:end -->
 
 ### Recurring Transaction with Subscriptions API
-[Recurring Transaction with Subscriptions API](https://api-docs.midtrans.com/#recurring-api)
+
+Note that the [One Click feature mentioned above](#recurringone-click-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**.
+
+Follow the same implementation as [mentioned above](#recurringone-click-transaction), to the point your system [retrieved the `saved_token_id`](#sample-3ds-authenticate-json-response-for-the-first-transaction). Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
+
 
 <!-- <TODO: elaborate Subscriptions API> -->
 
