@@ -1344,7 +1344,7 @@ The JSON parameters added in the *Request Body* of a Charge API Request, to redi
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }
 ```
@@ -1364,7 +1364,7 @@ curl -X POST \
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }'
 ```
@@ -1382,16 +1382,17 @@ curl -X POST \
 </article>
 </details>
 
-The final redirect URL is appended with query parameters such as `order_id`, `result=xxx` as shown in the example below.
+The final redirect URL will be appended with query parameter like `?order_id=xxx&result=xxx`. For example the final redirect URL might look like this:
+```
+https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
+result=success
+```
 
-| Redirect URL                           | Final Redirect URL                                           |
-| :------------------------------------- | ------------------------------------------------------------ |
-| https://tokoecommerce.com/gopay_finish | https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&result=success |
 
-| Query Parameter | Type   | Description                                                  | Value                   |
-| --------------- | ------ | ------------------------------------------------------------ | ----------------------- |
-| order_id        | String | Order ID sent on the Charge Request.                         | --                      |
-| result          | String | Result of the transaction to decide what kind of page to show to customer. | `success` or `failure`. |
+Query Parameter | Description| Type
+--- | --- | ---
+order_id |  Order ID sent on the Charge Request.  |  String  
+result  |  Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`.| String
 
 ?> ***Note***: You may use the information to display custom message to your customer on your finish URL.
 

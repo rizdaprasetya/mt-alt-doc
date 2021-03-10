@@ -164,9 +164,14 @@ Snap.js supports various useful options, such as specifying language, specifying
 
 For more details, refer to [frontend integration](https://snap-docs.midtrans.com/#frontend-integration).
 
-?>***Note***: If you are using Snap Redirect mode, you can append options as Query parameter at the end of the Snap redirect_url, as shown below.
+?>***Note***: If you are using Snap Redirect mode, you can append options as Query parameter at the end of the Snap `redirect_url`:
 
+```text
+[redirect_url]?[options1]=[value]&[options2]=[value]
 ```
+Which for example (using both `language=en` & `gopayMode=deeplink` options) the final result url as shown below.
+
+```text
 https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?language=en&gopayMode=deeplink
 ```
 
@@ -944,7 +949,7 @@ Example of the JSON parameters used during [backend API request step](/en/snap/i
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }
 ```
@@ -962,7 +967,7 @@ curl -X POST \
   },
   "gopay": {
     "enable_callback": true,
-    "callback_url": "https://tokoecommerce.com/finish"
+    "callback_url": "https://tokoecommerce.com/gopay_finish"
   }
 }'
 ```
@@ -971,13 +976,14 @@ curl -X POST \
 You can input `callback_url` value with http/https URL protocol for website, or deeplink protocol for mobile App. For example, you can specify deeplink to your app: `"callback_url": "tokoecommerce://gopay_finish/"`
 
 ?>***Note***:
-The final redirect URL will be appended with query parameter like `?order_id=xxx&result=xxx`.
+The final redirect URL will be appended with query parameter like `?order_id=xxx&result=xxx`. 
 
 For example the final redirect URL might look like this:
- ```
+```
 https://tokoecommerce.com/gopay_finish/?order_id=CustOrder-102123123&
 result=success
- ```
+```
+
 Query Parameter | Description| Type
 --- | --- | ---
 order_id |  Order ID sent on the Charge Request.  |  String  
