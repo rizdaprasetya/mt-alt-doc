@@ -8,7 +8,7 @@ Snap has various optional parameters. These optional parameters can be utilized 
 ### Recommended Parameters
 You can  include more information such as `customer_details`, `item_details`, and so on along side `transaction_details`. While sending API requests, it is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
-The recommended JSON parameters for general use are given below. These parameters are used during [API Request Step](/en/snap/integration-guide.md#api-request).
+The recommended JSON parameters for general use are given below. These parameters are used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend).
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -207,7 +207,7 @@ snap.pay('SNAP_TRANSACTION_TOKEN', {
 ### Custom Finish URL
 By default, Snap will redirect the customer to [Finish Redirect URL configured on Dashboard](#configuring-redirect-url). But you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -259,7 +259,7 @@ You can configure Enable Payment with Snap Preference on Midtrans *Dashboard*. T
 #### B) Specify Payment Channel via API Request
 You can add and customize `enabled_payments` parameter. That will apply specifically for the transaction.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 
 <!-- tabs:start -->
 
@@ -389,7 +389,7 @@ You can set custom expiry with Snap Preference on Midtrans Dashboard. This will 
 #### B) Custom Expiry via API Request
 This method is used to configure expiry time for a specific transaction.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 
 <!-- tabs:start -->
 #### **JSON Parameters**
@@ -432,7 +432,7 @@ Parameter|Description| Type | Required
 ### Custom Fields
 Custom fields allow you to send your own (custom) data to Snap API, and then it will be sent back from Midtrans to your backend on HTTP notification. It will be displayed on Dashboard under the *order detail*.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 
 <!-- tabs:start -->
 
@@ -476,7 +476,7 @@ Three Domain Secure (3DS) feature can be enabled/disabled for specific transacti
 * To enable 3DS, set the `secure` value to `true`.
 * To disable 3DS, set the `secure` value to `false`.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -514,7 +514,7 @@ Merchant will only need to store and associate each unique customer with unique 
 
 * Add `"save_card" : true` and `user_id`
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -575,7 +575,7 @@ Please refer to the sequence diagram given below to understand the recommended f
 </details>
 
 
-Example of the JSON param for the first or initial transaction is given below. This param is used during [API Request Step](/en/snap/integration-guide.md#api-request).
+Example of the JSON param for the first or initial transaction is given below. This param is used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend).
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -624,7 +624,7 @@ You can specify the preferred *Acquiring Bank* for specific Snap transaction. Tr
 
 * Specify the bank name inside the `bank` parameter.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -666,7 +666,7 @@ BIN filter is a feature that allows the merchant to accept only Credit Cards wit
 
 To use this feature, you need to accumulate the list of BIN that accepts the promotion or uses the issuing bank's name. This list of BIN or issuing bank name will then become a transaction parameter `whitelist_bins`. This transaction can only be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -738,7 +738,7 @@ For online installments, the bank will issue special MID for installment. This i
 ...
 ```
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -821,7 +821,7 @@ You have to add the `installment` parameter with combination of BIN filter featu
 ...
 ```
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -890,7 +890,7 @@ Pre-authorization feature means customer's fund will not be directly deducted af
 
 To use this feature, you need to add `"type": "authorize"` parameter.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -932,7 +932,7 @@ curl -X POST \
 ### Redirect Customer From Gojek App
 After completing payment using GoPay payment method, by default, the customer will remain on Gojek app. They need to manually close Gojek app to switch back to merchant website or application. The `gopay.callback_url` parameter will allow customers to be automatically redirected from the Gojek app to the merchant website/application.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -1008,7 +1008,7 @@ snap.pay('SNAP_TRANSACTION_TOKEN', {
 ```
 
 #### **Snap Redirect Mode**
-If you are using Snap Redirect Mode, you can append options as Query parameter at the end of the Snap redirect_url, as shown below.
+If you are using Snap Redirect Mode, you can append options as Query parameter `?gopayMode=deeplink` at the end of the Snap `redirect_url`, which for example the final result url as shown below.
 ```
 https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?gopayMode=deeplink
 ```
@@ -1021,7 +1021,7 @@ For more details, refer to [GoPay](https://snap-docs.midtrans.com/#gopay).
 ### Specify VA Number
 By default Midtrans will randomize VA number used for bank transfer transaction. In some cases, you might want to specify/customize VA Number for Bank Transfer payment channels. You can do that with the following parameters.
 
-Example of the JSON parameter used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameter used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameter**
@@ -1098,7 +1098,7 @@ BNI `va_number` |Length should be within 1 to 8. | String | Optional
 ### Specify VA Description
 Some VA description and recipient name can be customized.
 
-Example of the JSON param for the first or initial transaction is given below. This param is used during [API Request Step](/en/snap/integration-guide.md#api-request).
+Example of the JSON param for the first or initial transaction is given below. This param is used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend).
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -1193,7 +1193,7 @@ recipient_name |Recipient name shown on the on the bank’s payment prompt. <br/
 ### Specify Alfamart Free Text
 The text printed on Alfamart receipt can be customized.
 
-Example of the JSON parameters used during [API Request Step](/en/snap/integration-guide.md#api-request) is given below.
+Example of the JSON parameters used during [backend API request step](/en/snap/integration-guide.md#_1-acquiring-transaction-token-on-backend) is given below.
 <!-- tabs:start -->
 
 #### **JSON Parameters**

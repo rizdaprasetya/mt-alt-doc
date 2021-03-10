@@ -1192,7 +1192,7 @@ curl -X POST \
 | ---------------- | ------------------------------------------------------------ | ------- |
 | token_id         | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response). | String  |
 | authentication   | Flag to enable the 3DS authentication.                 | Boolean |
-| bank             | The name of the *Card Issuing Bank* or *Acquiring Bank*. <br>Else, it will be treated as [Offline Installment](/en/core-api/advanced-features.md#offline-installment). | String  |
+| bank             | The name of the *Card Issuing Bank* or *Acquiring Bank*. <br>Else, it will be treated as [Offline Installment](#offline-installment). | String  |
 | installment_term | The tenor of installment.                                    | Integer |
 
 </article>
