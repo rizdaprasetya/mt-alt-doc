@@ -80,15 +80,15 @@ function applyAccordionLabelTagListener() {
 // add active to right side menus on scroll
 function activateRightMenuOnScroll() {
   setTimeout(function() {
-    var contents = document.querySelectorAll('h2[id], h3[id]');
+    var contentHeaders = document.querySelectorAll('h2[id], h3[id]');
     var navLinks = document.querySelectorAll(".sidebar__right-list");
 
-    if(contents.length == 0) {
-      contents = document.querySelectorAll('h1[id]');
+    if(contentHeaders.length == 0) {
+      contentHeaders = document.querySelectorAll('h1[id]');
     }
-    if(!contents.length || !navLinks.length) { return 0; } //exit if no element found
+    if(!contentHeaders.length || !navLinks.length) { return 0; } //exit if no element found
 
-    var contentLength = contents.length;
+    var contentLength = contentHeaders.length;
     // @fixed: scroll event listener is added on EACH navigation, BAD!
     windowProxyEl = preventDuplicateListenerProxy(window);
     windowProxyEl.oneEventListener("scroll", function (event) {
@@ -100,35 +100,36 @@ function activateRightMenuOnScroll() {
           document.documentElement.scrollTop ||
           document.body.scrollTop ||
           0) + 100;
-      var contentsTop = [];
-      contents.forEach(function(content, index) {
-        contentsTop.push(content.offsetTop);
+      var contentHeadersTop = [];
+      contentHeaders.forEach(function(contentHeader, index) {
+        contentHeadersTop.push(contentHeader.offsetTop);
       });
 
-      contentsTop.forEach(function(contentTop, index) {
-        if (index + 1 < contentLength) {
+      // scan all content headers, with current scrollPos, activate the content header that has scrollPos within its range. While de-activating neighbor headers.
+      contentHeadersTop.forEach(function(contentHeaderTop, index) {
+        if (index + 1 < contentLength) { // first till last-1 element
           if (
-            scrollPos > contentTop &&
-            scrollPos < contentsTop[index + 1] &&
+            scrollPos > contentHeaderTop &&
+            scrollPos < contentHeadersTop[index + 1] &&
             !navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.add("active");
             navLinks[index].scrollIntoView({ block: 'center' });
           } else if (
-            scrollPos > contentsTop[index + 1] &&
+            scrollPos > contentHeadersTop[index + 1] &&
             navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.remove("active");
           } else if (
-            scrollPos <= contentTop &&
+            scrollPos <= contentHeaderTop &&
             navLinks[index].classList.contains("active") &&
             index !== 0
           ) {
             navLinks[index].classList.remove("active");
           }
-        } else {
+        } else { // last element
           if (
-            scrollPos > contentTop &&
+            scrollPos > contentHeaderTop &&
             !navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.add("active");
@@ -136,7 +137,7 @@ function activateRightMenuOnScroll() {
             // src: https://gomakethings.com/how-to-check-if-any-part-of-an-element-is-out-of-the-viewport-with-vanilla-js/
             navLinks[index].scrollIntoView({ block: 'center' });
           } else if (
-            scrollPos <= contentTop &&
+            scrollPos <= contentHeaderTop &&
             navLinks[index].classList.contains("active")
           ) {
             navLinks[index].classList.remove("active");
