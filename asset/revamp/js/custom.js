@@ -80,69 +80,76 @@ function applyAccordionLabelTagListener() {
 // add active to right side menus on scroll
 function activateRightMenuOnScroll() {
   setTimeout(function() {
-    var contents = document.querySelectorAll('h2[id], h3[id]');
+    var contentHeaders = document.querySelectorAll('h2[id], h3[id]');
     var navLinks = document.querySelectorAll(".sidebar__right-list");
+    var navLinkWrapper = document.querySelector(".sidebar__right-wrapper") ;
 
-    if(contents.length == 0) {
-      contents = document.querySelectorAll('h1[id]');
+    if(contentHeaders.length == 0) {
+      contentHeaders = document.querySelectorAll('h1[id]');
     }
-    if(!contents.length || !navLinks.length) { return 0; } //exit if no element found
+    if(!contentHeaders.length || !navLinks.length) { return 0; } //exit if no element found
+    var prevActiveHeaderIdx = -1;
 
-    var contentLength = contents.length;
-    // @fixed: scroll event listener is added on EACH navigation, BAD!
-    windowProxyEl = preventDuplicateListenerProxy(window);
+    // prevent scroll event listener to be added onEach docsify hook
+    var windowProxyEl = preventDuplicateListenerProxy(window);
     windowProxyEl.oneEventListener("scroll", function (event) {
-      // @fixme: should use debounce technique to avoid function run immediately 
-      // on every scroll src: https://stackoverflow.com/a/12009497
+      // note: debounce not needed, it cause unresponsive feel
       event.preventDefault();
       var scrollPos =
-        (window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          document.body.scrollTop ||
-          0) + 100;
-      var contentsTop = [];
-      contents.forEach(function(content, index) {
-        contentsTop.push(content.offsetTop);
-      });
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+      var docsifyTopOffset = window.$docsify.topMargin 
+        || 100;
 
-      contentsTop.forEach(function(contentTop, index) {
-        if (index + 1 < contentLength) {
-          if (
-            scrollPos > contentTop &&
-            scrollPos < contentsTop[index + 1] &&
-            !navLinks[index].classList.contains("active")
-          ) {
-            navLinks[index].classList.add("active");
-            navLinks[index].scrollIntoView({ block: 'center' });
-          } else if (
-            scrollPos > contentsTop[index + 1] &&
-            navLinks[index].classList.contains("active")
-          ) {
-            navLinks[index].classList.remove("active");
-          } else if (
-            scrollPos <= contentTop &&
-            navLinks[index].classList.contains("active") &&
-            index !== 0
-          ) {
-            navLinks[index].classList.remove("active");
-          }
-        } else {
-          if (
-            scrollPos > contentTop &&
-            !navLinks[index].classList.contains("active")
-          ) {
-            navLinks[index].classList.add("active");
-            // @fixme: should only scroll if element is out of view
-            // src: https://gomakethings.com/how-to-check-if-any-part-of-an-element-is-out-of-the-viewport-with-vanilla-js/
-            navLinks[index].scrollIntoView({ block: 'center' });
-          } else if (
-            scrollPos <= contentTop &&
-            navLinks[index].classList.contains("active")
-          ) {
-            navLinks[index].classList.remove("active");
-          }
+      var lowestDistance = Number.MAX_VALUE;
+      var activeHeaderIdx = 0;
+
+      // scan all content header from top
+      for (var i = 0; i < contentHeaders.length; i++) {
+        // find the active header by shortest distance from each header to scroll-y
+        var distance = (scrollPos + docsifyTopOffset) - contentHeaders[i].offsetTop;
+        if(distance >= 0 && distance <= lowestDistance){
+          activeHeaderIdx = i;
+          lowestDistance = distance;
         }
-      });
+        // stop if distance is getting bigger, shortest already found
+        if(distance > lowestDistance){ break; }
+      }
+
+      if(activeHeaderIdx == prevActiveHeaderIdx){
+        // no active nav link changes needed, stop early
+        prevActiveHeaderIdx = activeHeaderIdx;
+        return 0;
+      }
+
+      // deactivate all previous active nav links
+      var prevActiveNavLinks = document.querySelectorAll(".sidebar__right-list.active");
+      for (var i = prevActiveNavLinks.length - 1; i >= 0; i--) {
+        prevActiveNavLinks[i].classList.remove("active");
+      }
+      // only activate the current one
+      var currentActiveNavLinks = navLinks[activeHeaderIdx];
+      currentActiveNavLinks.classList.add("active");
+
+      // Keep active navLinks in visible viewport
+      if(navLinkWrapper == null){ return 0; }
+      var viewBuffer = docsifyTopOffset;
+      var navLinkWrapperRect = navLinkWrapper.getBoundingClientRect();
+      var upperViewThreshold = navLinkWrapperRect.top + viewBuffer;
+      var lowerViewThreshold = navLinkWrapperRect.bottom - viewBuffer;
+      var navLinkWrapperHeight = navLinkWrapperRect.height;
+      var currentActiveNavLinksRect = currentActiveNavLinks.getBoundingClientRect();
+
+      // active navLink way above view
+      if(currentActiveNavLinksRect.top <= upperViewThreshold){
+        navLinkWrapper.scrollTo(0, currentActiveNavLinks.offsetTop - viewBuffer);
+      } 
+      // active navLink way below view
+      else if (currentActiveNavLinksRect.top >= lowerViewThreshold) {
+        navLinkWrapper.scrollTo(0, currentActiveNavLinks.offsetTop - navLinkWrapperHeight + viewBuffer);
+      }
     });
   }, 170);
   
