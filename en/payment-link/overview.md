@@ -3,7 +3,7 @@
 Payment link provides an easy way to accept payments from your customers. Midtrans generates a link which redirects the customer to Midtrans payment page. No technical integration is required. It is suitable for small business owners or sellers on social media platforms such as Instagram, Facebook and so on.
 
 ## Creating a Payment Link
-To create a _Payment Link_, login to your MAP account and follow the steps given below.
+To create a _Payment Link_, [login to your MAP account](/en/overview.md#accessing-midtrans-administration-portal), (optionally [switch to your desired environment mode](/en/midtrans-account/overview.md#switching-environment)) and follow the steps given below.
 1. Click **Payment Link** on the left sidebar.
 2. Click **Create** button as shown below.
 
@@ -44,3 +44,18 @@ When you click Details, a page with all of the details of the *Payment Link* is 
 When you send the *Payment Link* to customers, they can open the link and it will direct them to Midtrans Payment Page. If there is no specified customer, the customer first needs to enter their details such as Name, Phone, and Email to continue. Next, the customer needs to select a payment method and follow the payment instructions. Once the customer has completed the payment, you will receive a notification of the transaction.
 
 ![Create Payment Link](../../asset/image/paymentlink-test-payment.png ':size=400')
+
+## Next Step
+
+<div class="my-card">
+
+#### [Sign Up for Midtrans Account](/en/midtrans-account/overview.md)
+Sign up for a Midtrans Merchant Administration Portal (MAP) account, to get access to your own account dashboard, and *Sandbox* environment and to test around for free on Sandbox.
+</div>
+
+If you are planning only to use Payment Link without any other technical integration (non-programmer or don't have any website), most of the time you only need to: 
+1. [Sign Up](/en/midtrans-account/overview.md), 
+2. Learn how to [create payment link explained above](#payment-link-overview), 
+3. Briefly [understand the Midtrans Dashboard](/en/after-payment/dashboard-usage.md).
+
+If you are also planning to use other technical integration method, you may want to [explore more integration options.](/en/payments/overview.md)
