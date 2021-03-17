@@ -134,7 +134,22 @@ function activateRightMenuOnScroll() {
       currentActiveNavLinks.classList.add("active");
 
       // Keep active navLinks in visible viewport
-      currentActiveNavLinks.scrollIntoView({ block: 'center' });
+      if(navLinkWrapper == null){ return 0; }
+      var viewBuffer = docsifyTopOffset;
+      var navLinkWrapperRect = navLinkWrapper.getBoundingClientRect();
+      var upperViewThreshold = navLinkWrapperRect.top + viewBuffer;
+      var lowerViewThreshold = navLinkWrapperRect.bottom - viewBuffer;
+      var navLinkWrapperHeight = navLinkWrapperRect.height;
+      var currentActiveNavLinksRect = currentActiveNavLinks.getBoundingClientRect();
+
+      // active navLink way above view
+      if(currentActiveNavLinksRect.top <= upperViewThreshold){
+        navLinkWrapper.scrollTo(0, currentActiveNavLinks.offsetTop - viewBuffer);
+      } 
+      // active navLink way below view
+      else if (currentActiveNavLinksRect.top >= lowerViewThreshold) {
+        navLinkWrapper.scrollTo(0, currentActiveNavLinks.offsetTop - navLinkWrapperHeight + viewBuffer);
+      }
     });
   }, 170);
   
