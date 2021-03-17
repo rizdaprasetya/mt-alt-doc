@@ -107,7 +107,7 @@
       if (token.type === 'heading' && token.depth <= depth) {
         var ref = getAndRemoveConfig(token.text);
         var str = ref.str;
-        // @modified
+        // @modified, the index title
         if(str && str.replace){
           str = str
             // remove docsify-ignore
@@ -116,6 +116,8 @@
             .replace(/]\(.*?\)$/,']')
             // remove `*,[,]` chars
             .replace(/\*|\[|\]/g,'')
+            // remove html comment
+            .replace(/<!--.*?-->/g,'')
         }
 
         var config = ref.config;
@@ -123,13 +125,15 @@
         if (config.id) {
           slug = router.toURL(path, { id: slugify(config.id) });
         } else {
-          // @modified
+          // @modified, the index link
           if(token.text && token.text.replace){
             token.text = token.text
               // remove docsify-ignore
               .replace(/{docsify-ignore}/, '')
               // remove `](/linkTosSomewhere.md)`
               .replace(/\[(.*)]\(.*?\)$/g,'$1')
+              // remove html comment
+              .replace(/<!--.*?-->/g,'')
               .trim()
           }
           slug = router.toURL(path, { id: slugify(escapeHtml(token.text)) });
