@@ -121,6 +121,10 @@
       margin-bottom: 20px;
       box-shadow: none;
 
+      .my-card-title{
+        color: $black;
+      }
+
       &:hover {
         // border-color: $grey-border;
         border-color: #054fbf54;
@@ -168,6 +172,9 @@
 
         a {
           display: inline;
+          &::after {
+            content: " ›"
+          }
         }
       }
       img {

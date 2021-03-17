@@ -225,6 +225,9 @@ Inside the order found by the search result, you can see the reference number.
 
 ![shopify](./../../../asset/image/shopify-11.png ':size=400')
 
+From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details.
+![shopify](./../../../asset/image/shopify-20.png ':size=400')
+
 ##### From Exported Order
 You can also find the reference number on the exported CSV file using Shopify export feature: __All Orders->Export->Export Orders.__ Then search within the CSV file.
 
@@ -296,9 +299,9 @@ https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-orde
 The points given below are the conditions for which item stock is reduced and restocked from your Shopify store. <!--Is this sentence correct?-->
 - Item stock will be reduced whenever order status become `pending` on Shopify side.
 - Item stock will be reduced immediately after customer reaches Snap payment page, regardless of whether he/she will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment.
-- Card transaction with `deny` status will be updated as failed on Shopify by Pixels after two hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
+- Card transaction with `deny` status will be updated as failed on Shopify by Midtrans after two hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
 - Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as failed on Shopify after two hours, and may not show up in Midtrans Dashboard.
-- When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer with body- order ready to be shipped, although from Shopify side it is still waiting for payment.
+- When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer which says "order ready to be shipped", although from Shopify side it is still waiting for payment. Refer to section above about this behavior.
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Order Status

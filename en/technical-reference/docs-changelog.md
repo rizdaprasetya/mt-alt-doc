@@ -1,6 +1,13 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/17
+- clarify shopify advanced section, add info about order timeline
+- payment link add next step for tech and non tech user
+- clarify MAP sandbox & production env basic difference
+- clarify API param order id can be replaced with transaction id, to avoid breaking api url valid pattern
+- optimize right sidebar nav link scrolling performance & feel
+
 #### 2021/03/10
 - improve recurring advanced feature
 - enhance table, inline code, tabs dark UI element

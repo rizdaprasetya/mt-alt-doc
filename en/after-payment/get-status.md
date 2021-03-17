@@ -15,7 +15,9 @@ To get the status of a transaction, you can send a request to Midtrans API. It w
 
  Parameters | Description                                          
 --- | ---
- ORDER_ID   | The order id of the transaction you want to look up. 
+ ORDER_ID   | The order id or transaction id of the transaction you want to look up. 
+
+?> Note: You can also replace `order_id` used in API urls with `transaction_id`, which uniquely generated from Midtrans side and you received as response when creating transaction, and from HTTP Notification. This is useful if your `order_id` contains unusual character (such as `#`) that may result in an invalid URL pattern.
 
 ### HTTP Headers
 

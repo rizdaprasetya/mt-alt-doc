@@ -65,15 +65,19 @@ To get access to the Client Key and Server Key, follow the steps given below.
 !> Access Keys are unique for every merchant. **Always keep Server Key confidential**.
 
 ## Switching Environment
-
-Keys between **Production & Sandbox** environment are different. Please make sure to access correct dashboard environment. 
-
 Environment can be switched from the top left **Environment** drop-down on the dashboard.
 
 ![environment switch](./../../asset/image/snap-prep-env-switch.png ':size=300')
 
 You can use the Sandbox environment during your development phase of integrating Midtrans’ payment system. You can also test dummy transactions on the Sandbox environment.
 ![environment switch](./../../asset/image/snap-prep-env-diff.jpg ':size=400')
+
+- **Sandbox Environment**: Can be used to create "testing" transactions (usually performed from your development/testing environment). All transaction made within this environment mode is not "real", and does not require "real payment/fund". You can simulate a test-payment [via Sandbox Simulator](/en/technical-reference/sandbox-test.md) to change the payment status, as if it has been paid. This environment is created automatically when you are signing up, and free to use.
+- **Production Environment**: Can be used when you are ready to accept "real payment/fund" from your customer. Customer will need to make a real payment to trigger the payment status update. Transaction fee may apply to any payment created in this environment mode.
+
+API Keys between **Production & Sandbox** environment are different. Please make sure to access correct dashboard environment. 
+
+Transaction data are separated between each environments, so it will not interfere/get mixed with each other. Settings & configurations are mostly separated between each environments, so you can have two different settings for testing and production mode.
 
 ## Unlocking Locked Account
 

@@ -90,7 +90,7 @@ Endpoint URL | HTTP Method | Description
 
 For a full list and details of APIs, refer to [API docs](https://api-docs.midtrans.com/#payment-api).
 
-Note: You can also replace `order_id` used on above API urls with `transaction_id`, which uniquely generated from Midtrans side and you received when creating transaction, and from HTTP Notification.
+?> Note: You can also replace `order_id` used in API urls with `transaction_id`, which uniquely generated from Midtrans side and you received as response when creating transaction, and from HTTP Notification. This is useful if your `order_id` contains unusual character (such as `#`) that may result in an invalid URL pattern.
 
 
 ?>***Tips:*** Each of the official [Midtrans Language Libraries](/en/technical-reference/library-plugin.md) has easy-to-use functions implementing most of the endpoints above. Please refer to the library's GitHub Repository for usage example.
