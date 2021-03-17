@@ -7,14 +7,15 @@
 Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
 </div>
 
-## Explore Midtrans Product {docsify-ignore}
+## Explore Midtrans Product <!-- {docsify-ignore} -->
 
 <div class="cards-r-2">
   <div class="my-card">
 
 ![snap illustration](/asset/image/home/home-illustration-webapp-snap.png)<br>
 
-#### Payment for Web/App
+<h4 class="my-card-title">Payment for Web/App</h4>
+
 Enable your website and app to securely accept payments (subscriptions, installments, and more) from your customers in a few simple steps.
 
 - [Payment Overview](/en/payments/overview.md)
@@ -28,7 +29,7 @@ Enable your website and app to securely accept payments (subscriptions, installm
 
 ![CMS plugin](/asset/image/home/home-illustration-cms-plugin.png)<br>
 <span class="badge badge-gray" style="float: right;">No Programming</span>
-#### CMS Plugins
+<h4 class="my-card-title">CMS Plugins</h4>
 
 Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/snap/with-plugins.md) in a few simple clicks.
 
@@ -44,7 +45,7 @@ Integrate with Midtrans payment page by installing ecommerce [CMS plugins](/en/s
 ![payment link illustration](/asset/image/home/home-illustration-mobilepaymentlink.png)<br>
 
 <span class="badge badge-gray" style="float: right;">No Programming</span>
-#### Payment Link
+<h4 class="my-card-title">Payment Link</h4>
 
 No website yet? Not a problem. Send invoices and receive payments from your customers by sharing a link that redirects them to Midtrans payment page.
 
@@ -54,7 +55,7 @@ No website yet? Not a problem. Send invoices and receive payments from your cust
 
 ![payout illustration](/asset/image/home/home-illustration-payout.png)<br>
 
-#### Payouts
+<h4 class="my-card-title">Payouts</h4>
 
 Manage payouts or disburse funds to multiple bank and e-money accounts easily with [Midtrans Payouts](https://midtrans.com/product/payout).
 
@@ -64,7 +65,7 @@ Manage payouts or disburse funds to multiple bank and e-money accounts easily wi
 
 ![POS illustration](/asset/image/home/home-illustration-pos.png)<br>
 
-#### POS/IoT/Internet Connected Devices
+<h4 class="my-card-title">POS/IoT/Internet Connected Devices</h4>
 
 Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, and so on) to Midtrans Core API to start accepting payments.
 
@@ -77,7 +78,7 @@ Integrate your connected devices (vending machine, TV box, IoT, Point of Sales, 
 
 ![subscription illustration](/asset/image/home/home-illustration-subscription.png)<br>
 
-#### Subscription/Recurring Service
+<h4 class="my-card-title">Subscription/Recurring Service</h4>
 
 Accept recurring payments (subscription, membership, billing, and so on) with flexible interval period from your customers through Midtrans.
 
@@ -90,7 +91,7 @@ Accept recurring payments (subscription, membership, billing, and so on) with fl
 
 ![ecommerce platform illustration](/asset/image/home/home-illustration-ecommerce-pl.png)<br>
 
-#### Ecommerce Platforms
+<h4 class="my-card-title">Ecommerce Platforms</h4>
 <span class="badge badge-gray">No Programming</span>
 
 Accept payments by integrating Midtrans to third-party ecommerce solutions (Shopify, Sirclo, Jejualan, and so on).
@@ -108,7 +109,7 @@ Accept payments by integrating Midtrans to third-party ecommerce solutions (Shop
 <div class="cards-r-3">
   <div class="my-card card-smaller">
 
-#### Library
+<h4 class="my-card-title">Library</h4>
 
 Check out programming language library to help you integrate.
 
@@ -118,7 +119,7 @@ Check out programming language library to help you integrate.
   </div>
   <div class="my-card card-smaller">
 
-#### Postman Collection
+<h4 class="my-card-title">Postman Collection</h4>
 
 Easily test Midtrans APIs using Postman Collection.
 
@@ -128,7 +129,7 @@ Easily test Midtrans APIs using Postman Collection.
   </div>
   <div class="my-card card-smaller">
 
-#### Testing on Sandbox
+<h4 class="my-card-title">Testing on Sandbox</h4>
 
 Learn how to simulate payments on Sandbox environment for testing.
 
@@ -138,7 +139,7 @@ Learn how to simulate payments on Sandbox environment for testing.
   </div>
   <div class="my-card card-smaller">
 
-#### API Reference Docs
+<h4 class="my-card-title">API Reference Docs</h4>
 
 Learn more about API objects, methods, attributes, and responses.
 
@@ -151,7 +152,7 @@ Learn more about API objects, methods, attributes, and responses.
   </div>
   <div class="my-card card-smaller">
 
-#### References
+<h4 class="my-card-title">References</h4>
 
 Various other technical references
 
