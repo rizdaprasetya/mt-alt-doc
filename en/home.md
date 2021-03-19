@@ -104,7 +104,7 @@ Accept payments by integrating Midtrans to third-party ecommerce solutions (Shop
 
 <hr/>
 
-## Technical Reference {docsify-ignore}
+## Technical Reference <!-- {docsify-ignore} -->
 
 <div class="cards-r-3">
   <div class="my-card card-smaller">
@@ -162,7 +162,7 @@ Various other technical references
   </div>
 </div>
 
-## Choose based on Top Business Use Cases {docsify-ignore}
+## Choose based on Top Business Use Cases <!-- {docsify-ignore} -->
 <details>
 <summary>Explore Use Cases</summary>
 <article>

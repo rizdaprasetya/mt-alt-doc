@@ -377,7 +377,7 @@ To configure the *Finish Redirect URL*, follow the steps given below.
 
 ?>***Note***: Please make sure the *Finish Redirect URL* endpoint can receive the POST request .
 
-The sample code in *Native PHP* is given below. Please make appropriate changes according to your environment.
+The sample code in *PHP* is given below as reference. Please make appropriate changes according to your environment & language.
 
 #### Sample Code
 
@@ -404,6 +404,9 @@ The sample code in *Native PHP* is given below. Please make appropriate changes 
     "signature_key" : "30b048ffff95e08c34cf265268224f0b6460d7716b3d70424a7203609a78b335280fe6137a9938cd3af24533fdafcfe8771203f6f30f21fd141a378bba1685fb"
 }
 ```
+
+Specific to **BCA KlikPay** you will need to follow [BCA KlikPay landing page development guideline](https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline)
+  - You will also need to fullfil this [list of BCA KlikPay requirements](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
 
 ### 4. Handling post-transaction
 When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant backend. Midtrans sends HTTP notification to merchant backend. This ensures that you are updated of the transaction status securely.
