@@ -459,7 +459,7 @@ Some sample HTTP notifications for a successful transaction on different payment
 
 | Element            | Description                                      | Type   | Notes                                                        |
 | :----------------- | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| bank               | The name of the bank.                            | String | –                                                            |
+| bank               | The name of the acquiring bank which process the transaction.| String | –                                                            |
 | va_number          | The virtual account number.                      | String | –                                                            |
 | transaction_time   | Time at which the transaction happened.          | String | –                                                            |
 | gross_amount       | Total amount for which the transaction was done. | String | –                                                            |
