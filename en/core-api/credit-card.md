@@ -483,10 +483,10 @@ A sample API response for *Card* payment method is shown below.
 | payment_type       | The type of payment method used by the customer for the transaction. | String | --                                                           |
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
-| fraud_status       | The fraud_status of the transaction is displayed.            | String | --                                                           |
-| masked_card        | The partial card number of the customer is displayed.        | String | --                                                           |
-| bank               | The name of the bank is displayed.                           | String | --                                                           |
-| card_type          | The type of the card is displayed here.                      | String | --                                                           |
+| fraud_status       | The fraud_status of the transaction.                         | String | --                                                           |
+| masked_card        | The partial card number of the custo.                        | String | --                                                           |
+| bank               | The name of the acquiring bank which process the transaction.| String | --                                                           |
+| card_type          | The type of the card.                                        | String | --                                                           |
 
 </article>
 </details>

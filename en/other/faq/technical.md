@@ -1,5 +1,5 @@
 This page contains list of Midtrans Product technical FAQs
-## Technical FAQ Categories
+## Technical FAQ
 ### General & Misc
 #### How to troubleshoot HTTP Notification failures?
 
@@ -1135,3 +1135,4 @@ This might be because MID-TID is not properly onboarded yet (not yet sync). Plea
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 .
+<!-- @TODO: convert this KlikPay landing page FAQ https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline into tech faq? -->

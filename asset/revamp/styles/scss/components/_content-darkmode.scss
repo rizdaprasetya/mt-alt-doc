@@ -12,6 +12,16 @@
 
   --table-cell-border-color     : #{$grey};
 
+  --heading-h1-color: #{$white};
+  --heading-h2-color: #{$white};
+  --heading-h3-color: #{$white};
+  --heading-h4-color: #{$white};
+  --heading-h5-color: #{$white};
+  --link-color: var(--main-bg-color);
+
+  --blockquote-background :#{$bg-table-dark};
+  --notice-tip-background :#{$bg-quote-blue-lighten};
+
   .content {
     .markdown-section, p, li {
       color: $white-gray !important;
@@ -20,18 +30,9 @@
       color: $white !important;
     }
     a {
-      color: var(--main-bg-color) !important;
-
       strong {
         font-weight: bold;
-        color: var(--main-bg-color) !important;
       }
-    }
-    h1, h2, h3 ,h4 {
-      a, span {
-        color: $white !important;
-      }
-
     }
     .markdown-section {
       .my-card {
@@ -40,14 +41,6 @@
 
         &:hover {
           border-color: rgba(5, 79, 191, 0.33);
-        }
-
-        a {
-          color: var(--main-bg-color) !important;
-  
-          &:hover {
-            color: var(--main-bg-color) !important;
-          }
         }
 
         .my-card-title{
@@ -99,11 +92,6 @@
         .pagination-item-title, span {
           color: $white;
         }
-      }
-
-      blockquote, .warn {
-        background: #00325b;
-        border: 1px dashed $blue-quote;
       }
 
       table {

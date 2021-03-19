@@ -28,6 +28,11 @@
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: 500;
 
+  --heading-h5-color: #{$blue-darken};
+
+  // a
+  --link-color: #{$blue-link-darken};
+
   // inline code
   --code-font-size: calc(var(--font-size-m) * 0.85);
 
@@ -53,6 +58,8 @@
   --docsifytabs-tab-color--active     : #{$blue-darken};
   --docsifytabs-content-background    : #ffffff;
 
+  --blockquote-background :#{$bg-code};
+  --notice-tip-background :#{$bg-quote-blue};
 }
 
 /* Custom Content
@@ -131,18 +138,9 @@
         box-shadow: var(--hover-box-shadow);
       }
 
-      h4 {
-        color: $blue-link-darken;
-      }
-
       a {
         font-weight: 500;
-        color: $blue-link-darken;
         text-decoration: none;
-
-        &:hover {
-          color: $blue-link-darken;
-        }
       }
 
       p {
@@ -156,7 +154,6 @@
         }
 
         a {
-          color: $blue-link-darken;
           text-decoration: underline;
           font-weight: 400;
           display: inline;
@@ -241,8 +238,7 @@
         -khtml-user-select: none; /* Konqueror HTML */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+        user-select: none; /* currently supported by Chrome and Opera */
         font-weight: 500;
       }
     }
@@ -261,7 +257,6 @@
         }
 
         &[open] {
-          // color: red;
           summary {
             &::after {
               transition: 0.3s ease;
@@ -376,18 +371,6 @@
       padding: 0;
       margin-left: 0;
       margin-right: 0;
-
-      a {
-        color: $blue-link-darken;
-
-        strong {
-          color: $blue-link-darken;
-        }
-
-        &:hover {
-          color: $blue-link-darken;
-        }
-      }
     }
 
     code {
@@ -422,108 +405,27 @@
             margin-bottom: 5px !important;
           }
         }
-
-        a {
-          strong {
-            color: $blue-link-darken;
-          }
-
-          &:hover {
-            color: $blue-link-darken;
-          }
-        }
       }
     }
 
     blockquote,
-    .warn {
-      padding: 20px;
-      background: $bg-quote;
+    .warn, .tip {
       border-radius: 4px;
-      border: 1px dashed $blue-quote-border;
-      position: relative;
-      width: 100%;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 2px;
-        height: 100%;
-        background: $blue-quote;
-      }
-
-      p {
-        position: relative;
-        padding-left: 25px;
-
-        &:first-child {
-          &::before {
-            content: "" !important;
-            display: block;
-            position: absolute;
-            left: 0;
-            transition: 0.3s ease;
-            background-image: url("/asset/revamp/icons/midtrans-icons-info.png");
-            background-repeat: no-repeat;
-            border: 0 !important;
-            width: 20px;
-            height: 20px;
-            object-fit: contain;
-            bottom: 0;
-            margin: 0 auto;
-            top: 4px;
-            //margin: auto;
-          }
-        }
-
-        
-        strong {
-          font-weight: bold;
-          color: $blue-darken;
-        }
-      }
-
-      pre {
-        padding-left: 25px;
-      }
-
-      ul {
-        margin: 1em 0;
-
-        li {
-          margin: 10px 0;
-        }
-      }
+      border: 1px dashed;
     }
 
-    .warn {
-      padding-left: 40px;
-
-      &::after {
-        content: "" !important;
-        display: block;
-        position: absolute;
-        left: 15px;
-        transition: 0.3s ease;
-        background-image: url("/asset/revamp/icons/midtrans-icons-info.png");
-        background-repeat: no-repeat;
-        border: 0 !important;
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-        bottom: 0;
-        margin: 0 auto;
-        top: 23px;
-      }
-
-      strong {
-        font-weight: bold;
-      }
+    blockquote{
+      border-color: var(--blockquote-border-color);
     }
 
-    .tip {
+    .warn{
+      border-color: var(--notice-tip-border-color);
+    }
+    .tip{
+      border-color: var(--notice-important-border-color);
+    }
+
+    .tip, .warn {
       padding: 20px;
       padding-left: 40px;
 
@@ -614,7 +516,6 @@
 
     ol {
         padding-left: 25px;
-        // margin: 2em 0;
         margin: 1em 0;
 
         li {

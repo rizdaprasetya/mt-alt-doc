@@ -488,7 +488,7 @@ In this section, you will learn, how transaction status can change, and what are
 
 #### Reference:
 
-> Integration sample codes are also available on our [GitHub repos](/en/technical-reference/library-plugin.md#sample-integration-code).
+Integration sample codes are also available on our [GitHub repos](/en/technical-reference/library-plugin.md#sample-integration-code).
 
 #### Alternative way to Display Snap Payment Page via Redirect
 

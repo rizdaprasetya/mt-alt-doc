@@ -93,7 +93,7 @@ curl -X POST \
 | order_id            | The order ID of the transaction.                             | String | Required |
 | gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
 | bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
-| bank                | The name of the bank.                                        | String | Required |
+| bank                | The name of the acquiring bank which process the transaction.| String | Required |
 
 </article>
 </details>
@@ -129,7 +129,7 @@ curl -X POST \
 | order_id            | The order ID of the transaction.                             | String | Required |
 | gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
 | bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
-| bank                | The name of the bank.                                        | String | Required |
+| bank                | The name of the acquiring bank which process the transaction.| String | Required |
 
 </article>
 </details>
@@ -165,7 +165,7 @@ curl -X POST \
 | order_id            | The order ID of the transaction.                             | String | Required |
 | gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
 | bank_transfer       | The bank transfer details such as name of the bank.          | -      | Required |
-| bank                | The name of the bank.                                        | String | Required |
+| bank                | The name of the acquiring bank which process the transaction.| String | Required |
 
 </article>
 </details>
@@ -285,7 +285,7 @@ This is the sample response for BCA.
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
-| bank               | The name of the bank.                                        | String | -                                                            |
+| bank               | The name of the acquiring bank which process the transaction.| String | -                                                            |
 | fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
 </article>
@@ -333,7 +333,7 @@ This is the sample response for BNI.
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
-| bank               | The name of the bank.                                        | String | -                                                            |
+| bank               | The name of the acquiring bank which process the transaction.| String | -                                                            |
 | fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 
 </article>
@@ -378,7 +378,7 @@ This is the sample response for BRI.
 | transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
 | transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
 | va_number          | The virtual account number consisting of bank name and account number. | String | -                                                            |
-| bank               | The name of the bank.                                        | String | -                                                            |
+| bank               | The name of the acquiring bank which process the transaction.| String | -                                                            |
 | fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
 | currency           | The unit of currency used for the transaction.               | String | -                                                            |
 

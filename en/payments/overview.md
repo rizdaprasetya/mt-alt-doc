@@ -35,6 +35,7 @@ Native Mobile App SDK helps you to accept payments within your mobile app. You c
 <summary><b>Try Mobile SDK via Android Simulator</b></summary>
 <article>
 <div style="text-align: center;">
+<!-- @TODO: make this lazily load only if this details tag is open -->
 <iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=nexus5&scale=75&orientation=portrait&osVersion=8.1"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
 </div>
 </article>
@@ -183,7 +184,7 @@ Compatible with web and non-web applications (hardware devices or custom softwar
 ?> **Note:** Those sample use case **does not limit** how you could fit the integration-type with your own unique requirement. You can get creative and go beyond those sample use case, and invent your own use case for that type of integration.
 
 ## Other Options to Integrate {docsify-ignore}
-- [**Gopay Integration for POS**](/en/other/faq/gopay-pos.md): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
+- [Gopay Integration for POS](/en/other/faq/gopay-pos.md): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
   These devices can easily start accepting payments using the API calls.
 
 ## Next Step {docsify-ignore}
