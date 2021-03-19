@@ -50,12 +50,6 @@ td{
     box-shadow: var(--hover-box-shadow);
 }
 
-.my-card a, 
-.my-card a:hover{
-    text-decoration-line: none;
-    color: var(--main-bg-color);
-}
-
 /* Increase clickable area of <a> within card */
 .my-card a{
     display:block;

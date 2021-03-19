@@ -28,6 +28,11 @@
   --heading-h4-font-size: 1rem;
   --heading-h4-font-weight: 500;
 
+  --heading-h5-color: #{$blue-darken};
+
+  // a
+  --link-color: #{$blue-link-darken};
+
   // inline code
   --code-font-size: calc(var(--font-size-m) * 0.85);
 
@@ -131,18 +136,9 @@
         box-shadow: var(--hover-box-shadow);
       }
 
-      h4 {
-        color: $blue-link-darken;
-      }
-
       a {
         font-weight: 500;
-        color: $blue-link-darken;
         text-decoration: none;
-
-        &:hover {
-          color: $blue-link-darken;
-        }
       }
 
       p {
@@ -156,7 +152,6 @@
         }
 
         a {
-          color: $blue-link-darken;
           text-decoration: underline;
           font-weight: 400;
           display: inline;
@@ -241,8 +236,7 @@
         -khtml-user-select: none; /* Konqueror HTML */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+        user-select: none; /* currently supported by Chrome and Opera */
         font-weight: 500;
       }
     }
@@ -261,7 +255,6 @@
         }
 
         &[open] {
-          // color: red;
           summary {
             &::after {
               transition: 0.3s ease;
@@ -376,18 +369,6 @@
       padding: 0;
       margin-left: 0;
       margin-right: 0;
-
-      a {
-        color: $blue-link-darken;
-
-        strong {
-          color: $blue-link-darken;
-        }
-
-        &:hover {
-          color: $blue-link-darken;
-        }
-      }
     }
 
     code {
@@ -420,16 +401,6 @@
             content: "" !important;
             display: block !important;
             margin-bottom: 5px !important;
-          }
-        }
-
-        a {
-          strong {
-            color: $blue-link-darken;
-          }
-
-          &:hover {
-            color: $blue-link-darken;
           }
         }
       }
@@ -614,7 +585,6 @@
 
     ol {
         padding-left: 25px;
-        // margin: 2em 0;
         margin: 1em 0;
 
         li {
