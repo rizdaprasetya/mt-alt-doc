@@ -19,6 +19,9 @@
   --heading-h5-color: #{$white};
   --link-color: var(--main-bg-color);
 
+  --blockquote-background :#{$bg-table-dark};
+  --notice-tip-background :#{$bg-quote-blue-lighten};
+
   .content {
     .markdown-section, p, li {
       color: $white-gray !important;
@@ -89,11 +92,6 @@
         .pagination-item-title, span {
           color: $white;
         }
-      }
-
-      blockquote, .warn {
-        background: #00325b;
-        border: 1px dashed $blue-quote;
       }
 
       table {
