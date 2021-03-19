@@ -11,7 +11,7 @@ Transaction Status | Description | Possible changes(s)
 --- | --- | ---
 `pending` | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/Internet banking/E-money app/store). | settlement, <br>expire,<br>cancel, <br>deny 
 `capture` | Transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*.<br />It is safe to assume a successful payment. | settlement, <br />cancel 
-`settlement` | Transaction is successfully settled. Funds have been received. | refund, chargeback, partial_refund, partial_chargeback
+`settlement` | Transaction is successfully settled. Funds have been received. | refund, chargeback, partial_refund, partial_chargeback, deny\*
 `deny` | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for denied transaction, see the `status_message` field in the response. |
 `cancel` | Transaction is cancelled. Can be triggered by Midtrans or merchant themselves.<br>Cancelled transaction can be caused by various reasons:<br> 1. `Capture` transaction is cancelled before Settlement.<br> 2. `Challenge` Transaction is denied by merchant. |
 `expire` | Transaction no longer available to be paid or processed, because the payment is not completed within the expiry time period. |
@@ -21,6 +21,7 @@ Transaction Status | Description | Possible changes(s)
 `partial_refund` | Transaction is marked to be partially refunded. | 
 `partial_chargeback` | Transaction is marked to be partially charged back. | 
 
+\*Note: Known specific to payment methods of Permata Bank Transfer, Mandiri Bill Payment, and Indomaret; In some very rare cases, there is possibility where `settlement` can later changes into `deny`. It may happen usually within the span of 1-2 minutes. It is caused by reversal triggered by corresponding payment provider (issuing/acquiring bank), due to the nature of their payment networks. This status change will trigger HTTP notification/webhook for your system to handle.
 
 <details>
 <summary><b>Notes When Using Snap API</b></summary>
