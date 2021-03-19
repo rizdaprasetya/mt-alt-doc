@@ -1,6 +1,11 @@
 # Docs Changelog
 <hr>
 
+#### 2021/03/19
+- enhance quote, tip, warn UI element
+- clarify bank json response attribute is acquiring bank
+- add settlement reversal explanation
+
 #### 2021/03/17
 - clarify shopify advanced section, add info about order timeline
 - payment link add next step for tech and non tech user

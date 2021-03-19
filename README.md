@@ -80,6 +80,7 @@ For example (choose one of it, not all):
 		- If you add new sidebar files, add the path to `sidebarFiles`
 	- Run `node tooling/sitemapper.js` from project folder
 		- or, go to "tooling" folder: `cd tooling`, run `node sitemapper.js`
+- Edit and input your public content related changelog to `/en/technical-references/docs-changelog.md` file. Changes that are too technical or non relevant to public visitor don't need to be listed.
 
 ### Customizing CSS
 To customize CSS in order to stylize the overall looks and feel of the docs, we can override the default Docsify's theme CSS. For example we have our own custom CSS file located in: `/asset/custom.css`.
@@ -293,6 +294,12 @@ Historically this docs was deployed as `beta-docs.midtrans.com` before previous 
 Due to some of the hosted assets (e.g: images) are big in terms of file size. It eat up lots of hosting bandwidth quickly.
 
 To reduce hosting bandwidth usage, this requires CDN caching strategy. Since the domain is managed via CF by Network Team, CF theoritically should also be available for CDN caching. What need to be done is make sure the hosting (Netlify) respond with correct cache http headers, upon http request of asset files. So CF will cache the assets, reducing direct hits to hosting, hence reducing bandwidth usage. This is implemented on `_headers` file.
+
+#### Note on homepage.md content
+Due to homepage UI/UX needs to stand out, as a trade-off a lot of custom html tags is used instead of markdown:
+- `h4` html tags is used instead of markdown to avoid link converted into clickable link-header, which is confusing (does not lead anywhere) when clicked.
+	- Also to avoid header within collapsed collapsible element to be search-indexed, which is also confusing (cannot scroll to correct header because it is not visible) when clicked.
+- Main headers are marked with [docsify-ignore](https://docsify.js.org/#/more-pages?id=ignoring-subheaders) to avoid shown up on sub-sidebar.
 
 #### Misc
 - If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.
