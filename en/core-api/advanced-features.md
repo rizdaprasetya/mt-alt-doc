@@ -482,608 +482,6 @@ curl -X POST \
 </article>
 </details>
 
-### Recurring/One Click Transaction
-You can allow the customer to save their card credentials, **including the CVV number**, for future transactions. This adds to a better customer experience. Midtrans saves the card credentials securely. You have to store and associate each customer with a unique `saved_token_id` from the Charge API Response received during the first transaction.
-
-<details>
-<summary><b>Sequence Diagram</b></summary>
-<article>
-The Recurring/One Click end-to-end payment process can be illustrated in following sequence diagram.
-
-![one click sequence diagram](../../asset/image/core_api-sequence_one_click.png)
-</article>
-</details>
-
-#### Retrieving the `token_id`
-`token_id` is retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). `token_id` is a representation of customer's card information used for the transaction. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. `token_id` should be retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). on merchant frontend. This avoids the risk of card information being transmitted to merchant backend.
-
-For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
-
-#### Charge API Request for first transaction
-Additional attributes `token_id` and `save_token_id` are added in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md).
-
-<!-- tabs:start -->
-
-#### **JSON Parameters**
-The JSON parameters added in the *Request Body* of a Charge API Request, to enable *One Click* transaction, is shown below.
-
-```json
-{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<token_id from Get Card Token Step>",
-	"authentication": true,
-	"save_token_id": true     // <-- To indicate that token should be saved during first charge
-  }
-}
-```
-#### **Sample Charge API Request**
-The JSON attribute `save_token_id`, included in the sample Charge API Request is shown below.
-
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 9000
-  },
-  "credit_card": {
-	"token_id": "<token_id from Get Card Token Step>",
-	"authentication": true,
-	"save_token_id": true
-  }
-}'
-```
-
-<!-- tabs:end -->
-#### Sample Charge API Response for the First Transaction
-The sample Charge API response for the first transaction is shown below.
-
-```json
-{
-    "status_code": "201",
-    "status_message": "Success, Credit Card transaction is successful",
-    "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
-    "order_id": "Order-123-1578978260",
-    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
-    "merchant_id": "G816197673",
-    "gross_amount": "10000.00",
-    "currency": "IDR",
-    "payment_type": "credit_card",
-    "transaction_time": "2020-01-14 12:04:20",
-    "transaction_status": "pending",
-    "fraud_status": "accept",
-    "masked_card": "481111-1114",
-    "bank": "mandiri",
-    "card_type": "credit"
-}
-```
-
-?> ***Note***: The `transaction_status` is *Pending*. <br>The `redirect_url` received in the response is used in [Opening 3DS Authentication Page for the First Transaction](#opening-3ds-authentication-page-for-the-first-transaction).
-
-#### Opening 3DS Authentication Page for the First Transaction
-To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
-
-For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#_3-opening-3ds-authentication-page).
-
-?>***Note***: When the customer completes the transaction on the page, the *Transaction Status* changes from *Pending* to *Capture*.
-#### Sample 3DS Authenticate JSON Response for the First Transaction
-
-```json
-{
-  "status_code": "200",
-  "status_message": "Success, Credit Card transaction is successful",
-  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398",
-  "order_id": "1578977094",
-  "merchant_id": "G816197673",
-  "gross_amount": "200000.00",
-  "currency": "IDR",
-  "payment_type": "credit_card",
-  "transaction_time": "2020-01-14 11:44:55",
-  "transaction_status": "capture",
-  "fraud_status": "accept",
-  "approval_code": "1578977095472",
-  "eci": "05",
-  "masked_card": "481111-1114",
-  "bank": "mandiri",
-  "card_type": "credit",
-  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
-  "saved_token_id_expired_at": "2020-12-31 07:00:00",
-  "channel_response_code": "00",
-  "channel_response_message": "Approved"
-}
-```
-<details>
-<summary><b>Response Body JSON Attribute Description</b></summary>
-<article>
-
-| Parameter                 | Description                                                  | Type   | Note |
-| ------------------------- | ------------------------------------------------------------ | ------ | ---- |
-| saved_token_id            | Token ID of a credit card to be charged for recurring transactions. | String | --   |
-| saved_token_id_expired_at | Expiry date and time of the Token ID. It is in the format YYYY-MM-DD HH:MM:SS | String | --   |
-
-</article>
-</details>
-
-You will receive `saved_token_id` & `saved_token_id_expired_at` from the response (it also available in the JSON of HTTP notification). `saved_token_id` is unique for each customer's card. Store this `saved_token_id` in your database and associate that card token to your customer.
-
-#### Charge API Request for Recurring Transactions
-
-For recurring transactions by the customer, use `saved_token_id` retrieved previously (or from your database) as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
-
-<!-- tabs:start -->
-
-#### **JSON Parameter**
-The JSON parameters added in the *Request Body* of a Charge API Request to allow *One Click* transaction, is shown below.
-
-```json
-{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-103",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "481111xDUgxnnredRMAXuklkvAON1114" // <-- saved_token_id from One Click first Transaction Response
-  }
-}
-```
-#### **Sample Charge API Request**
-The JSON attribute `token_id` included in the sample Charge API Request is shown below.
-
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-103",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<saved_token_id from One Click First Transaction Response>",
-  }
-}'
-```
-<!-- tabs:end -->
-
-#### Charge API Response and Notifications for Recurring Transactions
-The Charge API response for recurring transaction on the card is identical with [Card Payment Charge Response](/en/core-api/credit-card.md#sample-response). Successful *One Click* transaction is flagged as `"transaction_status": "capture"` and is ready for settlement.
-
-#### Sample Charge API Response for recurring transactions**
-```json
-{
-  "status_code": "200",
-  "status_message": "Success, Credit Card transaction is successful",
-  "transaction_id": "139c7a0f-204e-4c88-9c8c-63348b545b99",
-  "order_id": "Order-123-1578977940",
-  "merchant_id": "G816197673",
-  "gross_amount": "10000.00",
-  "currency": "IDR",
-  "payment_type": "credit_card",
-  "transaction_time": "2020-01-14 11:58:59",
-  "transaction_status": "capture",
-  "fraud_status": "accept",
-  "approval_code": "1578977940108",
-  "masked_card": "481111-1114",
-  "bank": "bni",
-  "card_type": "credit",
-  "channel_response_code": "00",
-  "channel_response_message": "Approved"
-}
-```
-
-For more use-cases, refer to [One Click, Two click and Recurring Transactions](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
-
-### Recurring Transaction with Register Card API
-You can allow the customer to save their card credentials, then it requires no CVV input and 3DS/OTP for future transactions. Midtrans saves the card credentials securely. You have to store and associate each customer with a unique `saved_token_id` from the Charge API Response received during the first transaction.
-
-<details>
-<summary><b>Sequence Diagram</b></summary>
-<article>
-The overall Register Card API end-to-end payment process can be illustrated in following sequence diagram:
-
-![one click sequence diagram](../../asset/image/core_api-sequence_register_card.png)
-</article>
-</details>
-
-#### Register Card via MidtransNew3ds JS
-To save card credentials on Midtrans and retrieve card's `saved_token_id`, use `MidtransNew3ds.registerCard` through [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). Implement the following JavaScript on the payment page.
-
-```javascript
-// Create the card object with the required fields
-var cardData = {
-    card_number: "4811111111111114",
-    card_cvv: "123",
-    card_exp_month: "12",
-    card_exp_year: "2025"
-};
-
-var options = {
-    onSuccess: function(response) {
-        // Implement success handling here, save the `saved_token_id` to your database
-        console.log('Saved Token ID:',response.saved_token_id);
-    },
-    onFailure: function(response) {
-        // Implement error handling here
-        console.log('Fail to get saved card token',response.status_message);
-    }
-}
-
-MidtransNew3ds.registerCard(cardData, options);
-
-```
-Frontend implementation via JS is used to ensure card credentials is securely passed from customer browser directly to Midtrans API.
-
-<details>
-<summary><b>Alternative: via API Request</b></summary>
-<article>
-
-Alternatively via API request. You **should not pass card credentials from your backend** unless you are authorized to do so, or PCI/DSS certified. To avoid security risks.
-
-#### Register API Request Details
-
-Method | API Endpoint
---- | ---
-GET | `https://api.sandbox.midtrans.com/v2/card/register`
-
-#### Query Parameters
-
-| Parameter      | Description                      | Type   | Note                                       |
-| -------------- | -------------------------------- | ------ | ------------------------------------------ |
-| card_number    | The card number of the customer. | String | --                                         |
-| card_exp_month | The month of expiry on the card. | String | It is in MM format                         |
-| card_exp_year  | The year of expiry on the card.  | String | It is in YYYY format.                      |
-| client_key     | Your *Client Key*.               | String | It can be retrieved from your MAP account. |
-
-#### Register API Sample Request
-
-Sample Register API request is given below.
-
-```bash
-curl -X GET \
-  'https://api.sandbox.midtrans.com/v2/card/register?card_number=5211111111111117&card_exp_month=12&card_exp_year=2021&client_key=<YOUR CLIENT KEY HERE>' \
-  -H 'Accept: application/json' \
-  -H 'Content-Type: application/json'
-```
-</article>
-</details>
-
-#### Register API Sample Response
-Sample Register API response is given below.
-
-```json
-{
-    "status_code": "200",
-    "saved_token_id": "521111nHlLvTuKywNOOLhTlHZcab1117",
-    "transaction_id": "cbd3ff55-2ead-43e9-84c5-5c3b7a8a1814",
-    "masked_card": "521111-1117"
-}
-```
-<!-- tabs:end -->
-
-Store `saved_token_id` received in the response body, to your database.
-
-#### Getting Card Token for the First Transaction
-Using `saved_token_id` from step above, the `token_id` is retrieved using `MidtransNew3ds.getCardToken` through [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). Implement the following JavaScript on the payment page.
-
-```javascript
-// card data from customer input, for example
-var cardData = {
-  "token_id": <saved_token_id from Register Card API Response Step>,
-  "card_cvv": 123,
-};
-
-// callback functions
-var options = {
-  onSuccess: function(response){
-    // Success to get card token_id, implement as you wish here
-    console.log('Success to get card token_id, response:', response);
-    var token_id = response.token_id;
-    console.log('This is the card token_id:', token_id);
-  },
-  onFailure: function(response){
-    // Fail to get card token_id, implement as you wish here
-    console.log('Fail to get card token_id, response:', response);
-  }
-};
-
-// trigger `getCardToken` function
-MidtransNew3ds.getCardToken(cardData, options);
-```
-For successful transactions, `token_id` is received inside `onSuccess` callback function. It is used as one of the JSON parameters for [Charge API request](#sending-transaction-data-to-charge-api-for-the-first-transaction).
-
-#### Sending Transaction Data to Charge API for the First Transaction
-Charge API request is sent from merchant backend to acquire `redirect_url`, required to open 3DS authentication page.
-
-<!-- tabs:start -->
-
-#### **JSON Parameters**
-The JSON parameters added in the *Request Body* of a Charge API Request are shown below.
-```json
-{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "order102",
-    "gross_amount": 789000
-  },
-  "credit_card": {
-    "token_id": "<token_id from Get Card Token Step>",
-    "authentication": true,
-  }
-}
-```
-#### **Sample Charge API Request**
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  	"payment_type": "credit_card",
-  	"transaction_details": {
-    	"order_id": "order102",
-    	"gross_amount": 789000
-  	},
-  	"credit_card": {
-    	"token_id": "<token_id from Get Card Token Step>",
-    	"authentication": true,
-  	}
-}'
-```
-<!-- tabs:end -->
-
-The parameters that are required for the API Charge request are given below.
-
-| Requirement      | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
-| Server Key       | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
-| `order_id`       | The order_id of the transaction.                             |
-| `gross_amount`   | The total amount of transaction.                             |
-| `token_id`       | Represents customer's card information acquired from [Getting Card Token for the first transaction](#getting-card-token-for-the-first-transaction). |
-| `authentication` | Flag to enable the 3D secure authentication.                 |
-
-#### Opening 3DS Authentication Page for the First Transaction
-To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
-
-For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authentication-page-js-implementation).
-
-#### Charge API Request for Future Transactions
-For any future transaction using the same card credentials, retrieve `saved_token_id` saved on the database from [Registering the Card](#registering-the-card) step.
-<!-- tabs:start -->
-
-#### **JSON Parameters**
-The JSON parameters added in the *Request Body* of a [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api) is shown below.
-
-```json
-{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<saved_token_id from Get Card Token Step>"
-  }
-}
-```
-
-#### **Sample Charge API Request**
-The JSON attribute `token_id`, included in the Charge API Request is shown below.
-
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<token_id from Get Card Token Step>"
-  }
-}'
-```
-<!-- tabs:end -->
-
-### Recurring Transaction with Subscriptions API
-
-Note that the [One Click feature mentioned above](#recurringone-click-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**.
-
-Follow the same implementation as [mentioned above](#recurringone-click-transaction), to the point your system [retrieved the `saved_token_id`](#sample-3ds-authenticate-json-response-for-the-first-transaction). Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
-
-
-<!-- <TODO: elaborate Subscriptions API> -->
-
-### Two Click Transaction
-You can allow customer to save their card credentials, **except the CVV number**, for easier and faster future transactions. Midtrans saves the card credentials securely. You have to store and associate each customer with a unique `saved_token_id` from the first Charge API Response.
-
-<details>
-<summary><b>Sequence Diagram</b></summary>
-<article>
-The Two Clicks end-to-end payment process is illustrated in following sequence diagram:
-
-![one click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
-</article>
-</details>
-
-To configure *Two Clicks* transaction for a customer, follow the steps given below.
-
-#### Retrieving the `token_id`
-The `token_id` is a representation of customer's card information used for the transaction. The `token_id` is retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of the card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
-
-For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
-
-#### Charge API Request for the First Transaction
-The `token_id` retrieved is added as an attribute in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md?id=charge-api-request).
-
-<!-- tabs:start -->
-
-#### **JSON Parameters**
-The JSON parameter added in the *Request Body* of a Charge API Request to allow *Two-Click* transaction, is shown below.
-
-```json
-{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<token_id from Get Card Token Step>",
-	"authentication": true,
-	"save_token_id": true     // <-- To flag that token is saved during First charge response
-  }
-}
-```
-
-#### **Sample Charge API Request**
-The JSON attribute ` save_token_id`, included in the sample Charge API Request is shown below.
-
-```bash
-curl -X POST \
-  https://api.sandbox.midtrans.com/v2/charge \
-  -H 'Accept: application/json'\
-  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "payment_type": "credit_card",
-  "transaction_details": {
-    "order_id": "CustOrder-102",
-    "gross_amount": 10000
-  },
-  "credit_card": {
-	"token_id": "<token_id from Get Card Token Step>",
-	"authentication": true,
-	"save_token_id": true
-  }
-}'
-```
-
-#### Sample Charge API Response for the First Transaction
-The Charge API response includes the `redirect_url`.
-
-```json
-{
-    "status_code": "201",
-    "status_message": "Success, Credit Card transaction is successful",
-    "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
-    "order_id": "Order-123-1578978260",
-    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
-    "merchant_id": "G816197673",
-    "gross_amount": "10000.00",
-    "currency": "IDR",
-    "payment_type": "credit_card",
-    "transaction_time": "2020-01-14 12:04:20",
-    "transaction_status": "pending",
-    "fraud_status": "accept",
-    "masked_card": "481111-1114",
-    "bank": "mandiri",
-    "card_type": "credit"
-}
-```
-
-?>***Note***: The `transaction_status` is *Pending*.
-
-<!-- tabs:end -->
-
-#### Opening 3DS Authentication Page for the First Transaction
-To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API Response for the First Transaction. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
-
- When the customer completes the transaction, the *Transaction Status* changes from *Pending* to *Capture*.
-
- For more details, refer to [Open 3DS Authenticate Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authenticate-page-js-implementation).
-
-
-Midtrans notifies the merchant backend with the new `transaction status` and `saved_token_id`.
-
-#### Sample Response for 3DS authentication for the First Transaction
-
-```json
-{
-  "status_code": "200",
-  "status_message": "Success, Credit Card transaction is successful",
-  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398",
-  "order_id": "1578977094",
-  "merchant_id": "G816197673",
-  "gross_amount": "200000.00",
-  "currency": "IDR",
-  "payment_type": "credit_card",
-  "transaction_time": "2020-01-14 11:44:55",
-  "transaction_status": "capture",
-  "fraud_status": "accept",
-  "approval_code": "1578977095472",
-  "eci": "05",
-  "masked_card": "481111-1114",
-  "bank": "mandiri",
-  "card_type": "credit",
-  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
-  "saved_token_id_expired_at": "2020-12-31 07:00:00",
-  "channel_response_code": "00",
-  "channel_response_message": "Approved",
-}
-```
-?>***Note***: The *Transaction Status* is updated to *Capture*. <br>Store the `saved_token_id` to your database.
-
-<details>
-<summary><b>POST Body JSON Attribute Description</b></summary>
-<article>
-
-| Parameter                 | Description                                                  | Type   |
-| ------------------------- | ------------------------------------------------------------ | ------ |
-| saved_token_id            | Token ID of a credit card to be charged for recurring transactions from the customer. | String |
-| saved_token_id_expired_at | Expiry date of the Token ID                                  | String |
-
-</article>
-</details>
-
-#### Getting Card Token For Future Transactions
-The `saved_token_id` from the previous step, is used in this step.
-
-To retrieve card `token_id`, use `MidtransNew3ds.getCardToken` function. Implement the following JavaScript on payment page.
-```javascript
-// card data from customer input, for example
-var cardData = {
-  "token_id": <saved_token_id from Two Clicks first transaction response>,
-  "card_cvv": 123,
-};
-
-// callback functions
-var options = {
-  onSuccess: function(response){
-    // Success to get card token_id, implement as you wish here
-    console.log('Success to get card token_id, response:', response);
-    var token_id = response.token_id;
-    console.log('This is the card token_id:', token_id);
-  },
-  onFailure: function(response){
-    // Fail to get card token_id, implement as you wish here
-    console.log('Fail to get card token_id, response:', response);
-  }
-};
-
-// trigger `getCardToken` function
-MidtransNew3ds.getCardToken(cardData, options);
-```
-?>***Note***: You need `saved_token_id` retrieved from database.<br>For successful transactions,the `token_id` is received inside `onSuccess` callback function. It will be used as one of the JSON parameters for Charge API request.
-
 ### BIN (Bank Identification Number) Filter
 BIN (Bank Identification Number) filter is a feature that allows the merchant to accept credit cards within specific set of BIN numbers. It is useful for certain bank promotions or discount payments, by accepting only the credit cards issued by that bank. BIN is the six digits of the card number that identifies the bank, issuing the card. Generally, a bank has more than one BIN.
 
@@ -1324,6 +722,621 @@ type | String | Attribute to enable the pre-authorization feature. |Valid value 
 
 </article>
 </details>
+
+## Credit Card - Save Card
+
+### Two Click Transaction
+You can allow customer to save their card credentials, for easier and faster future transactions. Two Clicks means there will be additional step which require customer to input CVV (and also conditionally 3DS/OTP process). Which basically means abput two-step away to trigger the payment: input CVV, and then initiate payment.
+
+Midtrans saves the card credentials securely on Midtrans side, and give you the token associated to that card. You need to store and associate each customer with a unique `saved_token_id` that will be retrieved from the first Charge API Response.
+
+?> Note: This feature requires no additional MID from acquiring bank, this utilize your regular card MID. If you already integrate with regular card payment on Midtrans, then you are eligible to use this feature.
+
+<details>
+<summary><b>Sequence Diagram</b></summary>
+<article>
+The Two Clicks end-to-end payment process is illustrated in following sequence diagram:
+
+![one click sequence diagram](../../asset/image/core_api-sequence_two_clicks.png)
+</article>
+</details>
+
+To configure *Two Clicks* transaction for a customer, follow the steps given below.
+
+#### Retrieving the `token_id`
+The `token_id` is a representation of customer's card information used for the transaction. The `token_id` is retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library) on merchant frontend. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of the card `token_id`. This avoids the risk of card information being transmitted to merchant backend.
+
+For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
+
+#### Charge API Request for the First Transaction
+The `token_id` retrieved is added as an attribute in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md?id=charge-api-request).
+
+<!-- tabs:start -->
+
+#### **JSON Parameters**
+The JSON parameter added in the *Request Body* of a Charge API Request to allow *Two-Click* transaction, is shown below.
+
+```json
+{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<token_id from Get Card Token Step>",
+  "authentication": true,
+  "save_token_id": true     // <-- To flag that token is saved during First charge response
+  }
+}
+```
+
+#### **Sample Charge API Request**
+The JSON attribute ` save_token_id`, included in the sample Charge API Request is shown below.
+
+```bash
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<token_id from Get Card Token Step>",
+  "authentication": true,
+  "save_token_id": true
+  }
+}'
+```
+
+#### Sample Charge API Response for the First Transaction
+The Charge API response includes the `redirect_url`.
+
+```json
+{
+    "status_code": "201",
+    "status_message": "Success, Credit Card transaction is successful",
+    "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "order_id": "Order-123-1578978260",
+    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "merchant_id": "G816197673",
+    "gross_amount": "10000.00",
+    "currency": "IDR",
+    "payment_type": "credit_card",
+    "transaction_time": "2020-01-14 12:04:20",
+    "transaction_status": "pending",
+    "fraud_status": "accept",
+    "masked_card": "481111-1114",
+    "bank": "mandiri",
+    "card_type": "credit"
+}
+```
+
+?>***Note***: The `transaction_status` is *Pending*.
+
+<!-- tabs:end -->
+
+#### Opening 3DS Authentication Page for the First Transaction
+To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API Response for the First Transaction. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
+
+ When the customer completes the transaction, the *Transaction Status* changes from *Pending* to *Capture*.
+
+ For more details, refer to [Open 3DS Authenticate Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authenticate-page-js-implementation).
+
+
+Midtrans notifies the merchant backend with the new `transaction status` and `saved_token_id`.
+
+#### Sample Response for 3DS authentication for the First Transaction
+
+```json
+{
+  "status_code": "200",
+  "status_message": "Success, Credit Card transaction is successful",
+  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398",
+  "order_id": "1578977094",
+  "merchant_id": "G816197673",
+  "gross_amount": "200000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-01-14 11:44:55",
+  "transaction_status": "capture",
+  "fraud_status": "accept",
+  "approval_code": "1578977095472",
+  "eci": "05",
+  "masked_card": "481111-1114",
+  "bank": "mandiri",
+  "card_type": "credit",
+  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
+  "saved_token_id_expired_at": "2020-12-31 07:00:00",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved",
+}
+```
+?>***Note***: The *Transaction Status* is updated to *Capture*. <br>Store the `saved_token_id` to your database.
+
+<details>
+<summary><b>POST Body JSON Attribute Description</b></summary>
+<article>
+
+| Parameter                 | Description                                                  | Type   |
+| ------------------------- | ------------------------------------------------------------ | ------ |
+| saved_token_id            | Token ID of a credit card to be charged for recurring transactions from the customer. | String |
+| saved_token_id_expired_at | Expiry date of the Token ID                                  | String |
+
+</article>
+</details>
+
+#### Getting Card Token For Future Transactions
+The `saved_token_id` from the previous step, is used in this step.
+
+To retrieve card `token_id`, use `MidtransNew3ds.getCardToken` function. Implement the following JavaScript on payment page.
+```javascript
+// card data from customer input, for example
+var cardData = {
+  "token_id": <saved_token_id from Two Clicks first transaction response>,
+  "card_cvv": 123,
+};
+
+// callback functions
+var options = {
+  onSuccess: function(response){
+    // Success to get card token_id, implement as you wish here
+    console.log('Success to get card token_id, response:', response);
+    var token_id = response.token_id;
+    console.log('This is the card token_id:', token_id);
+  },
+  onFailure: function(response){
+    // Fail to get card token_id, implement as you wish here
+    console.log('Fail to get card token_id, response:', response);
+  }
+};
+
+// trigger `getCardToken` function
+MidtransNew3ds.getCardToken(cardData, options);
+```
+?>***Note***: You need `saved_token_id` retrieved from database.<br>For successful transactions,the `token_id` is received inside `onSuccess` callback function. It will be used as one of the JSON parameters for Charge API request.
+
+### Recurring/One Click Transaction
+You can allow the customer to save their card credentials, for future transactions. One Click means there will be no additional step like inputting CVV or 3DS/OTP process presented to the customer. Which basically means only need one-step away to trigger the payment. Whether it is initiated by you (as merchant) or the customer.
+
+This adds to a better customer experience. Midtrans saves the card credentials securely on Midtrans side, and give you the token associated to that card. You need to store and associate each customer with a unique `saved_token_id` that will be retrieved from the first Charge API Response.
+
+?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
+
+<details>
+<summary><b>Sequence Diagram</b></summary>
+<article>
+The Recurring/One Click end-to-end payment process can be illustrated in following sequence diagram.
+
+![one click sequence diagram](../../asset/image/core_api-sequence_one_click.png)
+</article>
+</details>
+
+#### Retrieving the `token_id`
+`token_id` is retrieved from [Getting the Card Token](/en/core-api/credit-card#_1-getting-the-card-token). `token_id` is a representation of customer's card information used for the transaction. Merchant frontend JavaScript securely transmits card information to Midtrans Core API in exchange of card `token_id`. `token_id` should be retrieved using [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). on merchant frontend. This avoids the risk of card information being transmitted to merchant backend.
+
+For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
+
+#### Charge API Request for first transaction
+Additional attributes `token_id` and `save_token_id` are added in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md).
+
+<!-- tabs:start -->
+
+#### **JSON Parameters**
+The JSON parameters added in the *Request Body* of a Charge API Request, to enable *One Click* transaction, is shown below.
+
+```json
+{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<token_id from Get Card Token Step>",
+  "authentication": true,
+  "save_token_id": true     // <-- To indicate that token should be saved during first charge
+  }
+}
+```
+#### **Sample Charge API Request**
+The JSON attribute `save_token_id`, included in the sample Charge API Request is shown below.
+
+```bash
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 9000
+  },
+  "credit_card": {
+  "token_id": "<token_id from Get Card Token Step>",
+  "authentication": true,
+  "save_token_id": true
+  }
+}'
+```
+
+<!-- tabs:end -->
+#### Sample Charge API Response for the First Transaction
+The sample Charge API response for the first transaction is shown below.
+
+```json
+{
+    "status_code": "201",
+    "status_message": "Success, Credit Card transaction is successful",
+    "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "order_id": "Order-123-1578978260",
+    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "merchant_id": "G816197673",
+    "gross_amount": "10000.00",
+    "currency": "IDR",
+    "payment_type": "credit_card",
+    "transaction_time": "2020-01-14 12:04:20",
+    "transaction_status": "pending",
+    "fraud_status": "accept",
+    "masked_card": "481111-1114",
+    "bank": "mandiri",
+    "card_type": "credit"
+}
+```
+
+?> ***Note***: The `transaction_status` is *Pending*. <br>The `redirect_url` received in the response is used in [Opening 3DS Authentication Page for the First Transaction](#opening-3ds-authentication-page-for-the-first-transaction).
+
+#### Opening 3DS Authentication Page for the First Transaction
+To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
+
+For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#_3-opening-3ds-authentication-page).
+
+?>***Note***: When the customer completes the transaction on the page, the *Transaction Status* changes from *Pending* to *Capture*.
+#### Sample 3DS Authenticate JSON Response for the First Transaction
+
+```json
+{
+  "status_code": "200",
+  "status_message": "Success, Credit Card transaction is successful",
+  "transaction_id": "0cc39431-4f74-4605-8b6c-4363822fb398",
+  "order_id": "1578977094",
+  "merchant_id": "G816197673",
+  "gross_amount": "200000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-01-14 11:44:55",
+  "transaction_status": "capture",
+  "fraud_status": "accept",
+  "approval_code": "1578977095472",
+  "eci": "05",
+  "masked_card": "481111-1114",
+  "bank": "mandiri",
+  "card_type": "credit",
+  "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
+  "saved_token_id_expired_at": "2020-12-31 07:00:00",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved"
+}
+```
+<details>
+<summary><b>Response Body JSON Attribute Description</b></summary>
+<article>
+
+| Parameter                 | Description                                                  | Type   | Note |
+| ------------------------- | ------------------------------------------------------------ | ------ | ---- |
+| saved_token_id            | Token ID of a credit card to be charged for recurring transactions. | String | --   |
+| saved_token_id_expired_at | Expiry date and time of the Token ID. It is in the format YYYY-MM-DD HH:MM:SS | String | --   |
+
+</article>
+</details>
+
+You will receive `saved_token_id` & `saved_token_id_expired_at` from the response (it also available in the JSON of HTTP notification). `saved_token_id` is unique for each customer's card. Store this `saved_token_id` in your database and associate that card token to your customer.
+
+#### Charge API Request for Recurring Transactions
+
+For recurring transactions by the customer, use `saved_token_id` retrieved previously (or from your database) as the value of `token_id` attribute, while sending [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api).
+
+<!-- tabs:start -->
+
+#### **JSON Parameter**
+The JSON parameters added in the *Request Body* of a Charge API Request to allow *One Click* transaction, is shown below.
+
+```json
+{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-103",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "481111xDUgxnnredRMAXuklkvAON1114" // <-- saved_token_id from One Click first Transaction Response
+  }
+}
+```
+#### **Sample Charge API Request**
+The JSON attribute `token_id` included in the sample Charge API Request is shown below.
+
+```bash
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-103",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<saved_token_id from One Click First Transaction Response>",
+  }
+}'
+```
+<!-- tabs:end -->
+
+#### Charge API Response and Notifications for Recurring Transactions
+The Charge API response for recurring transaction on the card is identical with [Card Payment Charge Response](/en/core-api/credit-card.md#sample-response). Successful *One Click* transaction is flagged as `"transaction_status": "capture"` and is ready for settlement.
+
+#### Sample Charge API Response for recurring transactions**
+```json
+{
+  "status_code": "200",
+  "status_message": "Success, Credit Card transaction is successful",
+  "transaction_id": "139c7a0f-204e-4c88-9c8c-63348b545b99",
+  "order_id": "Order-123-1578977940",
+  "merchant_id": "G816197673",
+  "gross_amount": "10000.00",
+  "currency": "IDR",
+  "payment_type": "credit_card",
+  "transaction_time": "2020-01-14 11:58:59",
+  "transaction_status": "capture",
+  "fraud_status": "accept",
+  "approval_code": "1578977940108",
+  "masked_card": "481111-1114",
+  "bank": "bni",
+  "card_type": "credit",
+  "channel_response_code": "00",
+  "channel_response_message": "Approved"
+}
+```
+
+For more use-cases, refer to [One Click, Two click and Recurring Transactions](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
+
+### Recurring Transaction with Register Card API
+You can allow the customer to save their card credentials, then it requires no CVV input and 3DS/OTP for future transactions. Midtrans saves the card credentials securely on Midtrans side, and give you the token associated to that card. You need to store and associate each customer with a unique `saved_token_id` that will be retrieved from Register Card API Response.
+
+?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
+
+<details>
+<summary><b>Sequence Diagram</b></summary>
+<article>
+The overall Register Card API end-to-end payment process can be illustrated in following sequence diagram:
+
+![one click sequence diagram](../../asset/image/core_api-sequence_register_card.png)
+</article>
+</details>
+
+#### Register Card via MidtransNew3ds JS
+To save card credentials on Midtrans and retrieve card's `saved_token_id`, use `MidtransNew3ds.registerCard` through [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). Implement the following JavaScript on the payment page.
+
+```javascript
+// Create the card object with the required fields
+var cardData = {
+    card_number: "4811111111111114",
+    card_cvv: "123",
+    card_exp_month: "12",
+    card_exp_year: "2025"
+};
+
+var options = {
+    onSuccess: function(response) {
+        // Implement success handling here, save the `saved_token_id` to your database
+        console.log('Saved Token ID:',response.saved_token_id);
+    },
+    onFailure: function(response) {
+        // Implement error handling here
+        console.log('Fail to get saved card token',response.status_message);
+    }
+}
+
+MidtransNew3ds.registerCard(cardData, options);
+
+```
+Frontend implementation via JS is used to ensure card credentials is securely passed from customer browser directly to Midtrans API.
+
+<details>
+<summary><b>Alternative: via API Request</b></summary>
+<article>
+
+Alternatively via API request. You **should not pass card credentials from your backend** unless you are authorized to do so, or PCI/DSS certified. To avoid security risks.
+
+#### Register API Request Details
+
+Method | API Endpoint
+--- | ---
+GET | `https://api.sandbox.midtrans.com/v2/card/register`
+
+#### Query Parameters
+
+| Parameter      | Description                      | Type   | Note                                       |
+| -------------- | -------------------------------- | ------ | ------------------------------------------ |
+| card_number    | The card number of the customer. | String | --                                         |
+| card_exp_month | The month of expiry on the card. | String | It is in MM format                         |
+| card_exp_year  | The year of expiry on the card.  | String | It is in YYYY format.                      |
+| client_key     | Your *Client Key*.               | String | It can be retrieved from your MAP account. |
+
+#### Register API Sample Request
+
+Sample Register API request is given below.
+
+```bash
+curl -X GET \
+  'https://api.sandbox.midtrans.com/v2/card/register?card_number=5211111111111117&card_exp_month=12&card_exp_year=2021&client_key=<YOUR CLIENT KEY HERE>' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json'
+```
+</article>
+</details>
+
+#### Register API Sample Response
+Sample Register API response is given below.
+
+```json
+{
+    "status_code": "200",
+    "saved_token_id": "521111nHlLvTuKywNOOLhTlHZcab1117",
+    "transaction_id": "cbd3ff55-2ead-43e9-84c5-5c3b7a8a1814",
+    "masked_card": "521111-1117"
+}
+```
+<!-- tabs:end -->
+
+Store `saved_token_id` received in the response body, to your database.
+
+#### Getting Card Token for the First Transaction
+Using `saved_token_id` from step above, the `token_id` is retrieved using `MidtransNew3ds.getCardToken` through [MidtransNew3ds JS library](/en/core-api/credit-card.md#including-midtrans-js-library). Implement the following JavaScript on the payment page.
+
+```javascript
+// card data from customer input, for example
+var cardData = {
+  "token_id": <saved_token_id from Register Card API Response Step>,
+  "card_cvv": 123,
+};
+
+// callback functions
+var options = {
+  onSuccess: function(response){
+    // Success to get card token_id, implement as you wish here
+    console.log('Success to get card token_id, response:', response);
+    var token_id = response.token_id;
+    console.log('This is the card token_id:', token_id);
+  },
+  onFailure: function(response){
+    // Fail to get card token_id, implement as you wish here
+    console.log('Fail to get card token_id, response:', response);
+  }
+};
+
+// trigger `getCardToken` function
+MidtransNew3ds.getCardToken(cardData, options);
+```
+For successful transactions, `token_id` is received inside `onSuccess` callback function. It is used as one of the JSON parameters for [Charge API request](#sending-transaction-data-to-charge-api-for-the-first-transaction).
+
+#### Sending Transaction Data to Charge API for the First Transaction
+Charge API request is sent from merchant backend to acquire `redirect_url`, required to open 3DS authentication page.
+
+<!-- tabs:start -->
+
+#### **JSON Parameters**
+The JSON parameters added in the *Request Body* of a Charge API Request are shown below.
+```json
+{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "order102",
+    "gross_amount": 789000
+  },
+  "credit_card": {
+    "token_id": "<token_id from Get Card Token Step>",
+    "authentication": true,
+  }
+}
+```
+#### **Sample Charge API Request**
+```bash
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "payment_type": "credit_card",
+    "transaction_details": {
+      "order_id": "order102",
+      "gross_amount": 789000
+    },
+    "credit_card": {
+      "token_id": "<token_id from Get Card Token Step>",
+      "authentication": true,
+    }
+}'
+```
+<!-- tabs:end -->
+
+The parameters that are required for the API Charge request are given below.
+
+| Requirement      | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| Server Key       | The server key. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys). |
+| `order_id`       | The order_id of the transaction.                             |
+| `gross_amount`   | The total amount of transaction.                             |
+| `token_id`       | Represents customer's card information acquired from [Getting Card Token for the first transaction](#getting-card-token-for-the-first-transaction). |
+| `authentication` | Flag to enable the 3D secure authentication.                 |
+
+#### Opening 3DS Authentication Page for the First Transaction
+To open 3DS authentication page on merchant frontend, display the `redirect_url` retrieved from Charge API response. The redirect URL is displayed using `MidtransNew3ds.authenticate` or `MidtransNew3ds.redirect` function in [MidtransNew3DS JS library](/en/core-api/credit-card.md#including-midtrans-js-library).
+
+For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/core-api/credit-card.md#open-3ds-authentication-page-js-implementation).
+
+#### Charge API Request for Future Transactions
+For any future transaction using the same card credentials, retrieve `saved_token_id` saved on the database from [Registering the Card](#registering-the-card) step.
+<!-- tabs:start -->
+
+#### **JSON Parameters**
+The JSON parameters added in the *Request Body* of a [Charge API Request](/en/core-api/credit-card.md#_2-sending-transaction-data-to-charge-api) is shown below.
+
+```json
+{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<saved_token_id from Get Card Token Step>"
+  }
+}
+```
+
+#### **Sample Charge API Request**
+The JSON attribute `token_id`, included in the Charge API Request is shown below.
+
+```bash
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "payment_type": "credit_card",
+  "transaction_details": {
+    "order_id": "CustOrder-102",
+    "gross_amount": 10000
+  },
+  "credit_card": {
+  "token_id": "<token_id from Get Card Token Step>"
+  }
+}'
+```
+<!-- tabs:end -->
+
+### Recurring Transaction with Subscriptions API
+
+Note that the [One Click feature mentioned above](#recurringone-click-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**. Which is described on this section.
+
+Follow the same implementation as [mentioned above](#recurringone-click-transaction), to the point your system [retrieved the `saved_token_id`](#sample-3ds-authenticate-json-response-for-the-first-transaction). Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
+
+?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
+
+<!-- <TODO: elaborate Subscriptions API> -->
 
 ## Credit Card - Full PAN
 
