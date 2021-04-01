@@ -634,6 +634,8 @@ Then you will proceed with [displaying Snap payment page](/en/snap/integration-g
 
 When you want to charge that particular customer, you will need to proceed with [Charge API request via Core API](/en/core-api/advanced-features.md#charge-api-request-for-recurring-transactions). The recurring transaction is non 3DS and will directly deduct customer's fund associated with the card.
 
+?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
+
 For more use cases, refer to [One Click, Two Click, and Recurring Transaction](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
 #### Recurring / Subscription Transaction with Predefined Schedule
@@ -641,6 +643,8 @@ For more use cases, refer to [One Click, Two Click, and Recurring Transaction](h
 Note that the [Recurring / Subscription mentioned above](#recurring-subscription-card-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**.
 
 Follow the same implementation as [mentioned above](#recurring-subscription-card-transaction), to the point your system retrieved the `saved_token_id`. Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
+
+?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
 
 This method also support [GoPay payment method](https://api-docs.midtrans.com/#gopay-tokenization). Please contact Midtrans Activation Team or your Sales Representative before using this feature.
 
