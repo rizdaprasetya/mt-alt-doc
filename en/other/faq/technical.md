@@ -476,6 +476,10 @@ Most likely the issue is caused by mis-implementation of **Notification URL** ha
 
 <!-- END OF Category --><hr>
 ### Snap
+
+#### How to check if Snap token is still valid or not?
+Please refer to this [explanation of Snap token default expiry time](https://docs.midtrans.com/en/snap/advanced-feature?id=snap-token-expiry-time).
+
 #### Why Snap pop-up doesn't work on merchant's mobile app?
 - If your mobile app is using WebView to display Snap pop-up, then make sure that the app follows the points given below.
     *  Enable JavaScript capability for the WebView.

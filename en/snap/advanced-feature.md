@@ -1280,12 +1280,14 @@ The default lifetime for regular Snap transaction, Snap `token` and also the `re
 
 Within the set time limit, the payment page is available for customer to proceed payment. After the limit exceeds, it will show that the payment page is no longer available.
 
+At the state of customer have not chosen/proceed with any payment method within the Snap payment page, you can still re-initiate create Snap transaction using the *same Order ID*, since the Order ID is not yet utilized. New Snap token & url will be generated, and the older token & url will no longer be valid.
+
 ### Note on Core API Get Status
 When a transaction is created on *Snap API*, it does not immediately assign any payment status on *Core API's* Get Status response.
 
 Considering this, you may get `404` or *Payment Not Found* response upon calling *Core API* get-status even if the payment page is activated on *Snap API*.
 
-It is because of customer may not have chosen any payment method within the Snap payment page (For example, idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, the transaction status will be assigned. It will be available on *Core API* Get Status response. The possible status is as defined in the table above.
+It is because of customer may not have chosen/proceed with any payment method within the Snap payment page (For example, idling or abandoning the Snap payment page). After customer chooses and proceeds with a payment method, the transaction status will be assigned. It will be available on *Core API* Get Status response. The possible status is as defined in the table above.
 
 ### Content Security Policy (CSP) Whitelist
 If you are using Content Security Policy (CSP) on your payment web page, please whitelist the domains/URLs given below. This is required by the Snap.js to work properly from within your payment web page.
