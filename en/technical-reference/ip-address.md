@@ -19,7 +19,7 @@ Sandbox Environment:
 
 ### API Domain Endpoint
 
-Midtrans API endpoint is distributed and protected with multiple layers of security, so it does not have any specific IP address. So, please whitelist our API domain names mentioned below.  
+Midtrans API endpoint is distributed and protected with multiple layers of security, it does not have any specific IP address. So, please whitelist our API domain names mentioned below.  
 
 ```
 api.midtrans.com
@@ -28,8 +28,8 @@ app.midtrans.com
 
 ?>If you are unable to **send request to Midtrans**, please ensure that you have whitelisted the above-mentioned domain name.
 
-If it is necessary to whitelist IP address instead of the Domain name, please refer to the [IP address list](https://www.cloudflare.com/ips-v4). Although it is not recommended.
+If it is necessary for you to whitelist IP addresses instead of the Domain name, you can refer to the [IP range list](https://www.cloudflare.com/ips-v4). Although this is not recommended. Do so at your own risk, as the IP range may change without notice, which poses the risk of breaking your integration. 
 
 
-
-[API IP address range](https://www.cloudflare.com/ips-v4 ':include :type=iframe width=100% height=300px')
+<!-- @Deprecated: iframing is blocked by the destination page -->
+<!-- [API IP address range](https://www.cloudflare.com/ips-v4 ':include :type=iframe width=100% height=300px') -->
