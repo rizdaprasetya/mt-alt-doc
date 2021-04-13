@@ -309,12 +309,16 @@ The points given below are the conditions for which item stock is reduced and re
 Condition | Midtrans Status | Shopify Order Status
 --- | --- | ---
 Customer redirected to Snap payment page. | \- | Payment Pending
-Customer proceed with asynchronous payment <br>For example: Bank Transfer, Gopay. | Pending | Payment Pending
-Customer proceeds with asynchronous payment <br>but does not pay. | Expire | Canceled
+Customer proceeds with asynchronous payment <br>For example: Bank Transfer, Gopay. | Pending | Payment Pending
+Customer proceeds with asynchronous payment <br>but does not pay until expiry time reached.<sup>[1]</sup> | Expire | Canceled
 Customer successfully makes payment. | Settlement/Capture | Paid
 Customer abandoned Snap payment page <br>without proceeding with payment. | \- | Canceled
 Customer abandoned or denied card transaction. | Deny | Canceled
 Merchant cancels/refunds order via Shopify. | Cancel/Refund | Canceled/Refunded
+
+<br>
+
+<sup>[1]</sup> The expiry time calculation starts at the moment when the customer proceeds with the payment method (not necessarily from when redirected to Snap payment page). The payment expiry will then follow what is defined on Snap Preference for each payment method, you can [customize the Snap Preference](/en/after-payment/dashboard-usage?id=configuring-custom-payment-expiry-settings-on-snap) to your needs. When the payment expiry time is reached and the customer does not complete the payment, the transaction will be updated to `Canceled` on Shopify side & `Expire` on Midtrans side. 
 
 </article>
 </details>
