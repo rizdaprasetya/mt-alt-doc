@@ -427,34 +427,20 @@ You can set custom preferences for payment expiry on **Snap** payment page.
 To set the payment expiry to a custom duration, follow the steps given below.
 
 1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > SNAP PREFERENCES**.
-  *SNAP Preferences* page is displayed.
+2. On the home page, go to **SETTINGS > SNAP PREFERENCES**. *SNAP Preferences* page is displayed.
 3. Click **System Settings** tab.
 4. Select **custom** check box.
 5. Click to enter the duration.
 6. Click the arrow to select the **Units of duration** drop-down list.
 7. Click **Save**.
-  ![Dashboard Usage](./../../asset/image/after-payment-snap-system-settings.png)
-  Snap is configured for custom payment expiry date settings.
+
+![Dashboard Usage](./../../asset/image/after-payment-snap-system-settings.png)
+Snap is configured for custom payment expiry date settings.
 
 > ***Notes***: 
 >
 > - The default settings for GoPay is 15 Minutes.
 > - The default settings for other payment methods is one day.
-
-#### Configuring Default Payment Expiry Settings on Snap
-You can set preferences for payment expiry on **Snap** payment Page.
-
-To set the payment expiry to a default, follow the steps given below.
-
-1. Login to your MAP account.
-2. On the home page, go to **SETTINGS > SNAP PREFERENCES**.
-  *SNAP Preferences* page is displayed.
-3. Select **System Settings** tab.
-4. Select **Default** check box.
-5. Click **Save**.
-  ![Dashboard Usage](./../../asset/image/after-payment-snap-default-settings.png)
-  Snap is configured for default payment expiry date settings.
 
 ### Enabling Payment Link
 Customers can make payments to you through links sent to the them through blogs, Facebook, Instagram, or Email.
