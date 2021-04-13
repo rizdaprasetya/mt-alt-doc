@@ -774,13 +774,17 @@ For any issues, please contact us at support@midtrans.com with the network log r
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
 #### Customer fails to be redirected to gojek:// deeplink on mobile app. What should I do?
-If you are using Android app WebView to open the deeplink URL, WebView needs to be configured to allow open deeplink to other app.
+Sometimes, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME`.
 
-Please make sure that WebView allows opening `gojek://` deeplink protocol.
+This may happen if the customer don't have the Gojek app installed, please make sure the **latest Gojek app version is installed on the customer's device**. If this doesn't solve the issue, please continue below.
+
+The issue usually happen if the customer is transacting (with Gopay payment method) within your mobile app, which the app implementation is using WebView, and the WebView implementation by default may not allow opening deeplink URL to Gojek app (or other external app).
+
+You will need to make sure that your app's WebView configuration allows opening `gojek://` deeplink protocol. Please follow suggestion below according to your app platform:
 
 ##### Android
 
-On Android, please refer to: https://stackoverflow.com/a/32714613. You need to modify your WebView `shouldOverrideUrlLoading` functions as follows:
+If your app is native Android app, based on [this community resource](https://stackoverflow.com/a/32714613), You need to modify your WebView `shouldOverrideUrlLoading` functions as follows:
 ```java
  @Override
  public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -799,7 +803,7 @@ On Android, please refer to: https://stackoverflow.com/a/32714613. You need to m
 
 ##### iOS
 
-On iOS, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`
+If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -813,17 +817,19 @@ If the customer is transacting through Mobile Web Browser or PWA, and the Gojek 
 
 **Avoid doing** this, via JavaScript:
 ```javascript
+
 window.open("gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW", '_blank');
 ```
 
 Instead, please **do this**, allow customer to click the deeplink URL themselves, for example via HTML link element (`a` tag):
 ```html
+
 <a href="gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW" rel="noopener" target="_blank">Click to Pay with Gopay</a>
 ```
 Browser will allow opening the deeplink URL, because it recognizes it as valid user click.
 
 ##### React Native
-On React Native, try whitelisting the deeplink via the `originWhitelist`. For example:
+If your app is React Native app, try whitelisting the deeplink via the `originWhitelist`. For example:
 
 ```html
 <WebView
@@ -875,7 +881,7 @@ For more reference, please visit:
 
 ##### Flutter
 
-On Flutter if you are using WebView, referring to this community resource: https://stackoverflow.com/a/60515494 , you will need to implement this listener of the WebView in order to override Deeplink URL to be opened by the device's OS:
+If your app is Flutter based app, if you are using WebView, referring to [this community resource](https://stackoverflow.com/a/60515494), you will need to implement this listener of the WebView in order to override Deeplink URL to be opened by the device's OS:
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
