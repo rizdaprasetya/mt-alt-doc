@@ -1140,6 +1140,20 @@ BCA, Maybank, and BRI banks need BCA MIGS Pilot testing for full payment and ins
 
 #### I got `Terminal or MID not found` message from log and all card transactions fail. What should I do?
 This might be because MID-TID is not properly onboarded yet (not yet sync). Please ask onboarding team to sync or to properly onboard.
+
+#### If I have Recurring MID, can it be used for non-3DS transactions?
+Recurring MID is intended to be used for transactions with “saved card token id”. 
+- It can be used to do non-3DS transactions **if the card has been saved on Midtrans, and you already have the `saved_token_id`**. This is to charge the card in a “recurring” manner, after the first transaction (that is used to save the card) happens.
+- It is **not intended to be used for regular one time or first time transactions** where the card is yet to be saved.
+
+If you are goal is to do recurring card transaction flow, It is recommended for first time transactions to be using 3DS MID. Like explained on these section for:
+- [Snap Recurring Flow](/en/snap/advanced-feature?id=recurring-subscription-card-transaction)
+- [Core API Recurring Flow](/en/core-api/advanced-features?id=recurringone-click-transaction)
+
+Alternatively, only if needed, you can also: 
+- Opt to use [Register Card API](/en/core-api/advanced-features?id=recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
+- If you really want to perform non-3DS transactions, you can also opt to have an agreement with the acquiring bank to grant you a non-3DS MID. Please contact Midtrans Activation Team to learn more.
+
 <!-- END OF Category --><hr>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
