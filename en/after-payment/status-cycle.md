@@ -22,11 +22,11 @@ Transaction Status | Description | Possible changes(s)
 `partial_chargeback` | Transaction is marked to be partially charged back. | 
 
 #### Reversal Case
-\*Note: Known specific to payment methods of Permata Bank Transfer, Mandiri Bill Payment, and Indomaret; In some very rare cases, there is possibility where `settlement` can later changes into `deny`, also known as "Reversal". It may happen usually within the span of 1-2 minutes. It is caused by reversal triggered by corresponding payment provider (issuing/acquiring bank), due to the nature of their payment networks. This status change will trigger [HTTP(s) notification/webhook](/en/after-payment/http-notification.md) from Midtrans to your server.
+\*Note: Known specific to payment methods of Permata Bank Transfer, Mandiri Bill Payment, and Indomaret; In some very rare cases, there is a possibility where `settlement` can later change into `deny`, also known as "Reversal". It may happen usually within the span of 1-5 minutes. It is caused by reversal triggered by the corresponding payment provider (issuing/acquiring bank), due to the nature of their payment networks. This status change will trigger [HTTP(s) notification/webhook](/en/after-payment/http-notification.md) from Midtrans to your server.
+ 
+The change of status to `deny` means the transaction fund is reversed back to the customer, no fund is received on the merchant side. So merchants should treat the transaction as "not paid" (or rejected) and should not proceed the customer's order (do not deliver the goods/service to the customer).
 
-The change of status to `deny` means the transaction fund is reversed back to customer, no fund is received on merchant side. So merchant should treat the transaction as "not paid" (or rejected) and should not proceed the customer's order (do not deliver the good/service to customer).
-
-The fund will bounce-back to customer's account automatically, but it may takes time depending the process/policy of the payment provider and their chain of networks.
+The fund will bounce-back to the customer's account automatically, but it may take time depending on the process/policy of the payment provider and their chain of networks. Customers can be advised to contact the payment provider for the status.
 
 #### Status When Using Snap API
 <details>
