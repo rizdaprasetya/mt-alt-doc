@@ -389,9 +389,10 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
   </body>
 </html>
 ```
+Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical?id=my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
 
->**Viewport Meta Tag:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
->`<meta name="viewport" content="width=device-width, initial-scale=1">`
+>**Tips:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
+>`<meta name="viewport" content="width=device-width, initial-scale=1">` (included on sample above).
 
 After following the steps given above, the sample Snap page is displayed as shown below.
 
