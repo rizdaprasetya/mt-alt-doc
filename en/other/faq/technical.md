@@ -750,9 +750,9 @@ Rest assured, our payment products are compatible to be used on Flutter, React N
 
 The simplest and easiest method is to utilize **WebView** (or similar method to display HTML page). Developer can display (via WebView) the HTML page of *Snap* payment (HTML which utilize snap.js).
 
-So, the developer needs to setup web page integrated with snap.js to display payment, and use WebView within the app to display it as payment page.
+Please proceed with [Snap integration](/en/snap/overview?id=various-ways-to-integrate-with-snap) on your web based backend, then you can use WebView to display the payment page from your mobile app.
 
-Alternatively developer can also utilize Core API, which is JSON-based REST API, that should be able to integrate with any framework/platform.
+Alternatively developer can also utilize [Core API](/en/core-api/overview), which is JSON-based REST API, that should be able to integrate with any framework/platform with custom UI that you can build on your mobile app.
 
 #### I updated iOS SDK from v1.14.7 and earlier versions. But the implementation did not work after the update. How can I to resolve it?
 - Earlier SDK required configuration of `CC_CONFIG.secure3DEnabled = ...`. Newer SDK no longer requires it. Please remove that configuration. Then add `CC_CONFIG.authenticationType = MTAuthenticationType3DS` configuration.
