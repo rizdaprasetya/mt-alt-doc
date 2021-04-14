@@ -524,7 +524,34 @@ Midtrans Core API product requires backend integration only. You are free to use
 Midtrans Snap product requires backend and frontend integration. On the backend, those frameworks do not matter. You still can use [our library](https://beta-docs.midtrans.com/en/technical-reference/library-plugin), based on your backend technology stack. While on the frontend refer to the question [below](#my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
 
 #### My developer uses React JS frontend framework, and is unable to use midtrans.min.js/snap.js. What should I do?
-Please be aware that React (or other frontend framework) does play nicely with regular `<script>` tag based JS library. Both are same frontend-based JS anyway, so they can still access each other. So, include the midtrans.min.js/snap.js as `<script>`. `Veritrans` object, still available as global `window.Veritrans` object inside React. `Snap` object is still available as global `window.Snap` object inside React. Please refer to https://github.com/facebook/create-react-app/issues/3007#issuecomment-357863643.
+Please note that React (or other frontend framework) does play nicely with regular `<script>` tag based JS library. Both are same frontend-based JS anyway, so they can still access each other. So, include the midtrans.min.js/snap.js as `<script>`. `Veritrans` object, still available as global `window.Veritrans` object inside React. `snap` object is still available as global `window.snap` object inside React. 
+
+Since there are various way to achieve that (and it also changes quickly), please refer to the official documentation or the community resource of ReactJS. Such as discussed here: https://github.com/facebook/create-react-app/issues/3007#issuecomment-357863643.
+
+Here is one example implementation using one of the solution [recommended here](https://stackoverflow.com/a/34425083), which is [useEffect](https://reactjs.org/docs/hooks-effect.html) ReactJS hook:
+```javascript
+useEffect(() => {
+  //change this to the script source you want to load, for example this is snap.js sandbox env
+  const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js'; 
+  //change this according to your client-key
+  const myMidtransClientKey = 'your-client-key-goes-here'; 
+
+  let scriptTag = document.createElement('script');
+  scriptTag.src = midtransScriptUrl;
+  // optional if you want to set script attribute
+  // for example snap.js have data-client-key attribute
+  scriptTag.setAttribute('data-client-key', myMidtransClientKey);
+
+  document.body.appendChild(scriptTag);
+  return () => {
+    document.body.removeChild(scriptTag);
+  }
+}, []);
+
+// Then somewhere else on your React component, `window.snap` object is imported & available to use
+```
+
+This hook will be triggered when the React component load, then it will add the specfied JS script library tag to the HTML page's body. Then you can use the object/function provided by the JS script library from within your React component code.
 
 #### We have noticed that the transaction amount on the Snap pop-up can be tampered/modified/changed from the customer side, is it safe?
 Amount that may be tampered/modified on Snap is strictly on the front-end side. Back-end wise you can check on the Midtrans Dashboard that the amount remains as the original value, and amount being charged to the customer by bank is also the original value.
