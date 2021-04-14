@@ -1,6 +1,20 @@
 # Docs Changelog
 <hr>
 
+#### 2021/04/14
+- improve save card related feature structure & description
+- clarify snap token lifetime
+- clarify risk of whitelist by CF IP range
+- clarify shopify oversell issue prevention mechanism
+- clarify shopify transaction expiry time for async payment methods
+- clarify gopay unknown url scheme issue faq
+- update java lib repo, version, & sample usage
+- improve reversal-status section details & wording
+- add faq: can recurring MID used for non3DS txn
+- add iOS demo app sample on Payment Overview
+- describe about shopify manual order status change
+- update how to import js lib on reactJS w/ latest method & add sample
+
 #### 2021/03/19
 - enhance quote, tip, warn UI element
 - clarify bank json response attribute is acquiring bank
