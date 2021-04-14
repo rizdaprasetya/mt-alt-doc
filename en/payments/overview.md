@@ -32,11 +32,12 @@ Snap user interface helps to securely accept payments on your website and mobile
 #### [Native Mobile App SDK](https://mobile-docs.midtrans.com)
 Native Mobile App SDK helps you to accept payments within your mobile app. You can embed our Android and iOS Mobile SDK within your app. Similar to Snap, the Mobile SDK also provides drop-in user interface to accept payments using [Midtrans’s various payment methods](https://midtrans.com/payments).
 <details>
-<summary><b>Try Mobile SDK via Android Simulator</b></summary>
+<summary><b>Try Mobile SDK via Simulator</b></summary>
 <article>
 <div style="text-align: center;">
 <!-- @TODO: make this lazily load only if this details tag is open -->
-<iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=nexus5&scale=75&orientation=portrait&osVersion=8.1"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://appetize.io/embed/9r0b89zu862f8eu1ukd0ecpgxc?device=pixel4&scale=71&orientation=portrait"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://appetize.io/embed/x4ace4dndczdbg1j633nq4cgbw?device=iphone11pro&scale=70&orientation=portrait"width="300px" height="600px" frameborder="0" scrolling="no"></iframe>
 </div>
 </article>
 </details>

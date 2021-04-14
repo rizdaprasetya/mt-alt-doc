@@ -193,22 +193,14 @@ Install [**midtrans-java**](https://github.com/Midtrans/midtrans-java) library.
 <summary><b>Maven</b></summary>
 <article>
 
-If you are using Maven as the build tool for your project, please add JCenter repository to your build definition, then add the following dependency to your project's build definition (pom.xml).
+If you are using Maven as the build tool for your project, please add the following dependency to your project's build definition (pom.xml).
 
 ```xml
-<repositories>
-    <repository>
-        <id>jcenter</id>
-        <name>bintray</name>
-        <url>http://jcenter.bintray.com</url>
-    </repository>
-</repositories>
-
 <dependencies>
     <dependency>
       <groupId>com.midtrans</groupId>
       <artifactId>java-library</artifactId>
-      <version>2.1.1</version>
+      <version>3.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -219,29 +211,24 @@ If you are using Maven as the build tool for your project, please add JCenter re
 <summary><b>Gradle</b></summary>
 <article>
 
-If you are using Gradle as the build tool for your project, please add JCenter repository to your build script then add the following dependency to your project's build definition (build.gradle):
+If you are using Gradle as the build tool for your project, please add the following dependency to your project's build definition (build.gradle):
 
 ```bash
-repositories {
-    maven {
-        url  "http://jcenter.bintray.com"
-    }
-}
-
 dependencies {
-    compile 'com.midtrans:java-library:2.1.1'
+	implementation 'com.midtrans:java-library:3.0.0'
 }
 ```
 
 </article>
 </details>
 
-Sample Request
+**Sample Request**
+
+You can also check the [functional tests](https://github.com/Midtrans/midtrans-java/blob/master/library/src/test/java/com/midtrans/java/SnapApiTest.java) for more examples.
 
 ```java
-import com.midtrans.Config;
-import com.midtrans.ConfigFactory;
-import com.midtrans.service.MidtransSnapApi;
+import com.midtrans.Midtrans;
+import com.midtrans.httpclient.SnapApi;
 import com.midtrans.httpclient.error.MidtransError;
 
 import java.util.HashMap;
@@ -252,9 +239,11 @@ import org.json.JSONObject;
 public class MidtransExample {
 
     public static void main(String[] args) throws MidtransError {
-      // Create new Object SnapAPI
-      MidtransSnapApi snapApi = new ConfigFactory(new Config("YOU_SERVER_KEY","YOUR_CLIENT_KEY", false)).getSnapApi();
-      // Set 3rd param to true if you want Production Environment (accept real transaction).
+      // Set serverKey to Midtrans global config
+      Midtrans.serverKey = "YOUR_SERVER_KEY";
+
+      // Set value to true if you want Production Environment (accept real transaction).
+      Midtrans.isProduction = false;
 
       // Create params JSON Raw Object request
       public Map<String, Object> requestBody() {
@@ -276,7 +265,7 @@ public class MidtransExample {
 
       // Create Token and then you can send token variable to FrontEnd,
       // to initialize Snap JS when customer click pay button
-      String transactionToken = snapApi.createTransactionToken(requestBody())
+      String transactionToken = SnapApi.createTransactionToken(requestBody())
     }
 }
 ```
