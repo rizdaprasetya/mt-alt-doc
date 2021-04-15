@@ -807,7 +807,9 @@ This may happen if the customer don't have the Gojek app installed, please make 
 
 The issue usually happen if the customer is transacting (with Gopay payment method) within your mobile app, which the app implementation is using WebView, and the WebView implementation by default may not allow opening deeplink URL to Gojek app (or other external app).
 
-You will need to make sure that your app's WebView configuration allows opening `gojek://` deeplink protocol. Please follow suggestion below according to your app platform:
+You will need to make sure that your app's WebView configuration allows opening `gojek://` deeplink protocol (or any other app required by payment provider). This section below will give you basic idea on how to configure your app implementation to allow opening other app deeplink (`gojek://` and `shopeeid://` will be used as example). 
+
+Please follow according to the app platform your app is being implemented in:
 
 ##### Android
 
@@ -817,8 +819,8 @@ If your app is native Android app, based on [this community resource](https://st
  public boolean shouldOverrideUrlLoading(WebView view, String url) {
         LogUtils.info(TAG, "shouldOverrideUrlLoading: " + url);
         Intent intent;
-
-        if (url.contains("gojek://")) {
+        // allow these deeplink to be handled by OS
+        if (url.contains("gojek://") || url.contains("shopeeid://")) {
             intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             startActivity(intent);
@@ -836,6 +838,7 @@ If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes
 <key>LSApplicationQueriesSchemes</key>
 <array>
 <string>gojek</string>
+<string>shopeeid</string>
 </array>
 ```
 
@@ -862,7 +865,7 @@ If your app is React Native app, try whitelisting the deeplink via the `originWh
 <WebView
     {...this.props}
     bounces={false}
-    originWhitelist={["https://*", "http://*", "gojek://*"]}
+    originWhitelist={["https://*", "http://*", "gojek://*", "shopeeid://*"]}
     allowFileAccess={true}
     domStorageEnabled={true}
     javaScriptEnabled={true}
@@ -893,7 +896,7 @@ openExternalLink= (req) => {
   if (isHTTPS) {
     return true;
   } else {
-    if (req.url.startsWith("gojek://")) {
+    if (req.url.startsWith("gojek://") || req.url.startsWith("shopeeid://")) {
       return Linking.openURL(req.url);
     }
     return false;
@@ -912,7 +915,7 @@ If your app is Flutter based app, if you are using WebView, referring to [this c
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
-      if (url.startsWith("gojek"))
+      if (url.startsWith("gojek") || url.startsWith("shopeeid"))
       {
         await webViewPlugin.stopLoading();
         await webViewPlugin.goBack();
@@ -932,7 +935,7 @@ For more reference, please visit:
 #### Failure to redirect the customer to Gojek GoPay, Shopee Pay, and other e-Money payment provider app. What should I do?
 Refer to the question given [above](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 
-It applies to other E-Money payment providers too. For example, if the issue happens to `shopee://` app deeplink, then proceed with the suggestion to allow deeplink whitelist, but replace `gojek://` with `shopee://`.
+It applies to other E-Money payment providers too. For example, if the issue happens to `shopeeid://` app deeplink, then proceed with the suggestion above to allow deeplink whitelist, and add `shopeeid://` to the configuration.
 
 #### I am using GoPay `callback_url` but the customer is not redirected to expected URL/deeplink. What is wrong?
 For GoPay transaction, you can specify the `callback_url`. After attempting GoPay payment within Gojek app, the customer will be redirected to `callback_url` whether the result is failure or success. If the customer did not get redirected properly, please check the points given below.
