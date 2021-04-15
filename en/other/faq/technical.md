@@ -815,19 +815,19 @@ Please follow according to the app platform your app is being implemented in:
 
 If your app is native Android app, based on [this community resource](https://stackoverflow.com/a/32714613), You need to modify your WebView `shouldOverrideUrlLoading` functions as follows:
 ```java
- @Override
- public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        LogUtils.info(TAG, "shouldOverrideUrlLoading: " + url);
-        Intent intent;
-        // allow these deeplink to be handled by OS
-        if (url.contains("gojek://") || url.contains("shopeeid://")) {
-            intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            startActivity(intent);
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    LogUtils.info(TAG, "shouldOverrideUrlLoading: " + url);
+    Intent intent;
+    // allow these deeplink to be handled by OS
+    if (url.contains("gojek://") || url.contains("shopeeid://")) {
+        intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
 
-            return true;
-        }
- }
+        return true;
+    }
+}
 ```
 
 ##### iOS
