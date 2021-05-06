@@ -193,7 +193,17 @@ On **Sandbox** mode:
 Done! Now your Shopify online shop is ready to use Midtrans as payment gateway.
 ![shopify](./../../../asset/image/shopify-17.png ':size=400')
 
-<hr><br><br>
+<hr>
+
+#### Unable to Install Specific Payment Methods
+In the rare case that you are not able to install specific payment methods, such as you are not presented with the install button on Step 2. Please try the following alternatives:
+1. It is possible that the payment method already installed, please manually continue to [step number 3](#specific-payment-methods) by navigating to Settings > Payments menu, the payment method will be shown there.
+2. Another alternative:
+	- Logout from Shopify
+	- Install the desired payment method by clicking the link provided [here](#specific-payment-methods)
+	- Proceed login to Shopify when prompted
+
+<hr>
 
 ### Advanced
 <br>
