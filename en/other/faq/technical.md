@@ -813,7 +813,47 @@ Please follow according to the app platform your app is being implemented in:
 
 ##### Android
 
-If your app is native Android app, based on [this community resource](https://stackoverflow.com/a/32714613), You need to modify your WebView `shouldOverrideUrlLoading` functions as follows:
+If your app is native Android app, based on [this community resource](https://stackoverflow.com/a/32714613), You need to override `shouldOverrideUrlLoading` functions of your WebView object as follows.
+
+```java
+@SuppressWarnings("deprecation")
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    final Uri uri = Uri.parse(url);
+    return handleWebviewCustomUri(uri);
+}
+// Include above override only if you need backward-compatibility with Android API level <24
+// If you only build for Android API level >=24, start from line below
+
+@TargetApi(Build.VERSION_CODES.N)
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+    final Uri uri = request.getUrl();
+    return handleWebviewCustomUri(uri);
+}
+
+private boolean handleWebviewCustomUri(final Uri uri) {
+    final String url = uri.toString();
+    
+    // allow these specified deeplinks to be handled by OS
+    if (url.contains("gojek://") || url.contains("shopeeid://")) {
+        final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+        // `true` means for the specified url, will be handled by OS by starting Intent
+        return true;
+    } else {
+        // `false` means any other url will be loaded normally by the WebView
+        return false;
+    }
+}
+```
+
+<details>
+<summary>Alternative Code</summary>
+<article>
+Alternative (old) sample codes, use this if you are targeting Android API level <24
+that may trigger deprecation warning if used target API level >=24
+
 ```java
 @Override
 public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -826,9 +866,14 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
         startActivity(intent);
 
         return true;
+    } else {
+        // `false` means any other url will be loaded normally by the WebView
+        return false;
     }
 }
 ```
+</article>
+</details>
 
 ##### iOS
 
