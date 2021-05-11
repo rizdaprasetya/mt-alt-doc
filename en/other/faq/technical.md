@@ -812,8 +812,7 @@ You will need to make sure that your app's WebView configuration allows opening 
 Please follow according to the app platform your app is being implemented in:
 
 ##### Android
-
-If your app is native Android app, based on [this community resource](https://stackoverflow.com/a/32714613), You need to override `shouldOverrideUrlLoading` functions of your WebView object as follows.
+If your app is native Android app, You need to override `shouldOverrideUrlLoading` functions of your WebView object as follows.
 
 ```java
 @SuppressWarnings("deprecation")
@@ -835,8 +834,11 @@ public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request
 private boolean handleWebviewCustomUri(final Uri uri) {
     final String url = uri.toString();
     
-    // allow these specified deeplinks to be handled by OS
-    if (url.contains("gojek://") || url.contains("shopeeid://")) {
+    // detect these specified deeplinks to be handled by OS
+    if (url.contains("gojek://") 
+    	|| url.contains("shopeeid://") 
+    	|| url.contains("//wsa.wallet.airpay.co.id/")) 
+    {
         final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
         // `true` means for the specified url, will be handled by OS by starting Intent
@@ -847,6 +849,7 @@ private boolean handleWebviewCustomUri(final Uri uri) {
     }
 }
 ```
+Based on [this community resource](https://stackoverflow.com/a/32714613).
 
 <details>
 <summary>Alternative Code</summary>
@@ -859,8 +862,11 @@ that may trigger deprecation warning if used target API level >=24
 public boolean shouldOverrideUrlLoading(WebView view, String url) {
     LogUtils.info(TAG, "shouldOverrideUrlLoading: " + url);
     Intent intent;
-    // allow these deeplink to be handled by OS
-    if (url.contains("gojek://") || url.contains("shopeeid://")) {
+    // detect these deeplink to be handled by OS
+    if (url.contains("gojek://") 
+    	|| url.contains("shopeeid://") 
+    	|| url.contains("https://wsa.wallet.airpay.co.id/")) 
+    {
         intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
@@ -876,7 +882,6 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
 </details>
 
 ##### iOS
-
 If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`
 
 ```xml
@@ -886,6 +891,37 @@ If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes
 <string>shopeeid</string>
 </array>
 ```
+
+##### iOS Webview Specific
+If you are implementing ShopeePay method and presenting it within Webview on iOS and encounter issue. Configure/override your WebView like below:
+
+```obj-c
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+ NSURL *url = navigationAction.request.URL;
+ NSString *urlString = (url) ? url.absoluteString : @"";
+ 
+ // detect these ShopeePay links to be handled by OS
+ if ([urlString containsString:@"//wsa.wallet.airpay.co.id/"]
+ 	|| [urlString containsString:@"shopeeid://"]) 
+ {
+  // will be opened by the OS level
+  [[UIApplication sharedApplication] openURL:url];
+  // prevent webview from opening it
+  decisionHandler(WKNavigationActionPolicyCancel);
+  return;
+ }
+ 
+ // detect protocol/URL-Scheme that is not http(s)
+ else if (url.scheme && ![url.scheme hasPrefix:@"http"]) {
+  [[UIApplication sharedApplication] openURL:url];
+  decisionHandler(WKNavigationActionPolicyCancel);
+  return;
+ }
+ decisionHandler(WKNavigationActionPolicyAllow);
+}
+```
+Based [on this resource](https://laptrinhx.com/ios-wkwebview-cannot-handle-url-scheme-and-app-store-links-1368412119/).
 
 ##### Web Browser or Progressive Web App (PWA)
 If the customer is transacting through Mobile Web Browser or PWA, and the Gojek App fails to open, please make sure that you are not trying to open `gojek://` deeplink via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up.
@@ -955,7 +991,6 @@ For more reference, please visit:
 - https://stackoverflow.com/questions/35531679/react-native-open-links-in-browser
 
 ##### Flutter
-
 If your app is Flutter based app, if you are using WebView, referring to [this community resource](https://stackoverflow.com/a/60515494), you will need to implement this listener of the WebView in order to override Deeplink URL to be opened by the device's OS:
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
@@ -977,10 +1012,28 @@ _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
 For more reference, please visit:
 - https://github.com/fluttercommunity/flutter_webview_plugin/issues/43
 
+##### If None Works
+The main goal is that to configure your WebView to allow opening the deeplink/universal link of the destination payment app. This usually require you to override/config your WebView to listen for specific URL prefixes, then invoke the URL to be opened on the OS level (e.g: via Android's `intent` or iOS `openURL`). 
+
+If none of the sample code above works for you, please follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
+
+If it still fails, you should consider integrating with native Midtrans Mobile SDK. 
+
+If you are using Snap, you can try presenting the Snap payment page **via the Web Browser not via embedded Webview**. The browser should take care of the redirection properly on OS level.
+
+##### Limitation and Risk
+Please not that as consequences of implementing custom URLs listener/whitelist/handler like above sample codes may means:
+- You may need to update your implementation to add more URLs to handle, e.g: when adding new payment methods.
+- The URLs from the payment provider may changes without prior notice, so you may need to update your implementation when that happens.
+
+These limitation and risk unfortunately are due to the nature of how WebView, deeplink, and universal link works on each mobile platforms. Midtrans, payment provider, or merchant have no direct control over how they behave. We only follow the rule of the platforms.
+
 #### Failure to redirect the customer to Gojek GoPay, Shopee Pay, and other e-Money payment provider app. What should I do?
-Refer to the question given [above](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
+Refer to the section [above](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 
 It applies to other E-Money payment providers too. For example, if the issue happens to `shopeeid://` app deeplink, then proceed with the suggestion above to allow deeplink whitelist, and add `shopeeid://` to the configuration.
+
+Also please refer to [this section if none of them works](#if-none-works).
 
 #### I am using GoPay `callback_url` but the customer is not redirected to expected URL/deeplink. What is wrong?
 For GoPay transaction, you can specify the `callback_url`. After attempting GoPay payment within Gojek app, the customer will be redirected to `callback_url` whether the result is failure or success. If the customer did not get redirected properly, please check the points given below.
