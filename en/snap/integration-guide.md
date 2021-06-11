@@ -365,7 +365,7 @@ Client Key | The *Client Key*. For more details refer to [Retrieving API Access 
 `snap.js` url | `https://app.sandbox.midtrans.com/snap/snap.js`
 transaction `token` | Retrieved from backend in [previous step](#_1-acquiring-transaction-token-on-backend)
 
-Enter your *Client Key* as the value of `data-client-key` attribute in snap.js script tag. Start the payment process by calling `snap.pay` with transaction `token`.
+Enter your *Client Key* as the value of `data-client-key` attribute in snap.js script tag. Start the payment process by calling `window.snap.pay` with transaction `token`.
 
 ```html
 <html>
@@ -383,7 +383,7 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
       var payButton = document.getElementById('pay-button');
       // For example trigger on button clicked, or any time you need
       payButton.addEventListener('click', function () {
-        snap.pay('SNAP_TRANSACTION_TOKEN'); // Replace it with your transaction token
+        window.snap.pay('SNAP_TRANSACTION_TOKEN'); // Replace it with your transaction token
       });
     </script>
   </body>

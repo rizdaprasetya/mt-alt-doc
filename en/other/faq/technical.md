@@ -1070,10 +1070,10 @@ Yes, *Snap* can be configured to specifically display QR, deeplink, or automatic
 
 To configure *Snap* to always display QR, you can use the option `options.gopayMode` on `snap.js`. For example,
 
-* If using `snap.js` pop-up mode, add `gopayMode` on second parameter when calling `snap.pay`:
+* If using `snap.js` pop-up mode, add `gopayMode` on second parameter when calling `window.snap.pay`:
 
 ```javascript
-snap.pay('<SNAP_TRANSACTION_TOKEN>', {
+window.snap.pay('<SNAP_TRANSACTION_TOKEN>', {
   gopayMode: "qr"
   // possible value gopayMode: `qr`, `deeplink`, `auto`
 })

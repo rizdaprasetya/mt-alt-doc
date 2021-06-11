@@ -183,12 +183,12 @@ Snap.js supports callbacks. It can be used to trigger your custom JavaScript imp
 * `onError`: Function that will be triggered when there is a payment failure after several attempts.
 * `onClose`: Function that will be triggered when customer has closed the Snap popup.
 
-Example of the Snap.js callback option usage while calling `snap.pay(...)` is given below. This parameter is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend).
+Example of the Snap.js callback option usage while calling `window.snap.pay(...)` is given below. This parameter is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend).
 
 <!-- tabs:start -->
 #### **Frontend JS**
 ```javascript
-snap.pay('SNAP_TRANSACTION_TOKEN', {
+window.snap.pay('SNAP_TRANSACTION_TOKEN', {
   onSuccess: function(result){
     /* You may add your own implementation here */
     alert("payment success!"); console.log(result);
@@ -1026,13 +1026,13 @@ Option | Description | Type | Required
 --- | --- | --- | ---
 gopayMode | Choose the UI mode for GoPay. <br/>Supported values are `deeplink`, `qr`, and `auto`. Set to auto by default. | String | Optional
 
-Example of the Snap.js callback option usage (this parameter is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend)), while calling `snap.pay(...)` is given below.
+Example of the Snap.js callback option usage (this parameter is used during [Snap frontend implementation](/en/snap/integration-guide.md#_2-show-snap-payment-page-on-frontend)), while calling `window.snap.pay(...)` is given below.
 
 <!-- tabs:start -->
 
 #### **Frontend JS**
 ```javascript
-snap.pay('SNAP_TRANSACTION_TOKEN', {
+window.snap.pay('SNAP_TRANSACTION_TOKEN', {
   gopayMode: "deeplink"
 })
 ```
