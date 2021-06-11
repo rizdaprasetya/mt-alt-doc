@@ -1,6 +1,16 @@
 # Docs Changelog
 <hr>
 
+#### 2021/06/11
+- faq: add woocommerce frontend popup payment page issue
+- faq: add woocommerce duplicate order id issue
+- add `window` js object prefix when calling snap js
+- further explain what is sandbox env on simulator page
+- add warning to not pay sandbox transaction with real payment
+- add authorize status description
+- improve wording in transaction status definition
+- explain recommendation including start_time on snap expiry and the consequence
+
 #### 2021/04/14
 - improve save card related feature structure & description
 - clarify snap token lifetime
