@@ -699,6 +699,7 @@ Transaction Status | Fund Received | Description
 `cancel` | ❌ | The transaction is canceled. It can be triggered by you.<br/> You can trigger *Cancel* status in the following cases:<br/> 1. If you cancel the transaction after *Capture* status.<br/> 2. If you deny a transaction after *Challenge* status.<br/>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. 
 `expire` | ❌ | Transaction is not available for processing, because the payment was delayed. 
 `refund` | ↩️ | Transaction is marked to be refunded. Refund status is triggered by you. 
+`authorize` | 🕒 | Only available specifically only if you are using pre-authorize feature for card transactions (an advanced feature that you will not have by default, so in most cases are safe to ignore). Transaction is successful and card balance is reserved (authorized) successfully. You can later perform API “capture” to change it into `capture`, or if no action is taken will be auto released. Depending on your business use case, you may assume `authorize` status as a successful transaction.
 
 #### **Fraud Status**
 
