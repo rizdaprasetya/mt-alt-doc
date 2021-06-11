@@ -1,9 +1,11 @@
-# HTTP(S) Notification / Webhooks
+# HTTP(S) Notification / Webhooks of Payment Status
 <hr>
 
 HTTP(S) POST notifications or Webhooks are sent to your server when the customer completes the payment process or when transaction status changes. These notifications help you to update payment status or take suitable actions in real-time.
 
 Midtrans HTTP(S) POST Notification can be configured by configuring the *Payment Notification URL* from SETTINGS on *Dashboard*.
+
+?> Currently this explanation is valid for Midtrans Payment related products. If you are looking for Iris Disbursement [please check on Iris docs](https://iris-docs.midtrans.com/#getting-notifications), although the basic concepts are the same.
 
 ## Configuring HTTP Notifications On MAP
 
