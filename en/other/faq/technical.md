@@ -1299,14 +1299,14 @@ This can be done by modifying the Wordpress SQL database. You can do so by using
 1. On PhpMyAdmin login to the SQL database, with your SQL username & password.
 2. Find and select/click your wordpress database.
 3. Find and select/click table named `wp_posts`.
-![faq-wc](./../../asset/image/faq/faq-wc-1.png)
+![faq-wc](./../../../asset/image/faq/faq-wc-1.png)
 4. Click `Operations` on the top menu of PhpMyAdmin.
-![faq-wc](./../../asset/image/faq/faq-wc-2.png)
+![faq-wc](./../../../asset/image/faq/faq-wc-2.png)
 5. You will see `Table Options` form, select the `AUTO_INCREMENT` field, and change the value to some big number, e.g: `50001` (that will be the sequential Order ID begin number. Make sure the number is have not been used as Order ID).
-![faq-wc](./../../asset/image/faq/faq-wc-3.png)
+![faq-wc](./../../../asset/image/faq/faq-wc-3.png)
 6. Press `enter` on your keyboard to execute.
 7. You will see success message when you do it correctly.
-![faq-wc](./../../asset/image/faq/faq-wc-4.png)
+![faq-wc](./../../../asset/image/faq/faq-wc-4.png)
 
 Alternative steps without GUI (PhpMyAdmin): 
 - If you are familiar with SQL query, instead of step above you can navigate to the `wp_posts` table with SQL query, and execute the following sample query:
