@@ -138,7 +138,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 | Alfamart        | Midtrans will generate a dummy Alfamart Payment Code. To perform a test transaction, use the [Alfamart Simulator](https://simulator.sandbox.midtrans.com/alfamart/index). |
 | Kioson          | Midtrans will generate a dummy Kioson Payment Code. To perform a test transaction, use the [Kioson Simulator](https://simulator.sandbox.midtrans.com/kioson/index). |
 
-**Note on Alfamart:** *If you are unable to find out what to input in `Product Code` field, please contact us via support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
+?> ***Note on Alfamart:*** *If you are unable to find out what to input in `Product Code` field, please contact us at support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
 ### Direct Debit
 
@@ -149,9 +149,6 @@ It is used for testing a specific scenario where the card is not eligible for on
 |ePay BRI | Midtrans will redirect ePay BRI test transaction to a payment simulator. <br> **Success Transaction:** testuser00 <br> **Failure Transaction:** testuser03|
 |BCA Klikpay | Midtrans will redirect BCA Klikpay test transaction to a payment simulator.|
 |KlikBCA | Midtrans will register user id filled in KlikBCA input. To perform a test transaction, use the [KlikBca Simulator](https://simulator.sandbox.midtrans.com/bca/klikbca/index).|
-
-
-?> ***Note on Alfamart:*** *If you are unable to find out what to input in `Product Code` field, please contact us at support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
 
 ### Cardless Credit 
