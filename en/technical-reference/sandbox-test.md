@@ -1,5 +1,6 @@
 # Testing Payment on Sandbox
 <hr>
+Sandbox Environment can be used to create "testing" transactions (usually performed from your development/testing environment). All transaction made within this environment mode is not "real", and does not require "real payment/fund". This environment is created automatically when you are signing up, and free to use.
 
 In the Sandbox environment, Midtrans uses web-based simulator to simulate a response from payment provider or bank's system. This helps to test different scenarios that can happen on production, without actually doing real payments.
 
