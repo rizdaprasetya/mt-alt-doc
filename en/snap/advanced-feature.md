@@ -430,9 +430,11 @@ curl -X POST \
 
 Parameter|Description| Type | Required
 ---|---|---|---
-`start_time` |Timestamp in `YYYY-MM-DD HH:MM:SS +0700`.<br/>If not specified, transaction time will be used as start time (when customer confirm payment channel). Time Zone is Western Indonesian Time (WIT). | String(255) | Optional
+`start_time` |Timestamp in `YYYY-MM-DD HH:MM:SS +0700`.<br/>If not specified, transaction time will be used as start time (when customer confirm payment channel). Time Zone is Western Indonesian Time (WIT). | String(255) | Optional\*
 `duration` |Expiry duration | Integer | Required
 `unit` |Expiry unit. Options: `day, hour, minute` (plural term also accepted). | String | Required
+
+\*The `start_time` parameter is optional, but if you don’t include it, asynchronous payment methods like Bank Transfer, Gopay, etc. (payment methods that have `pending` status) will start the expiry duration only when the customer has proceeded to select & confirm payment on Snap payment screen. Thus the total expiry duration may not be as you were expecting due to Snap payment screen not immediately completed by customer. To avoid this, it is recommended to include the `start_time` on the API request.
 
 ### Custom Fields
 Custom fields allow you to send your own (custom) data to Snap API, and then it will be sent back from Midtrans to your backend on HTTP notification. It will be displayed on Dashboard under the *order detail*.
