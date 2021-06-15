@@ -1065,7 +1065,7 @@ Example of the JSON parameter used during [backend API request step](/en/snap/in
   },
   "bca_va": {
     "va_number": "12345678901",
-    "sub_company_code": "00000"
+    "sub_company_code": "00000" //NOTE: Don't send this field unless BCA give you sub company code
   },
   "bni_va": {
     "va_number": "12345678"
@@ -1110,9 +1110,9 @@ curl -X POST \
 
 <!-- tabs:end -->
 
-Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the first part is the company code and the second part is a unique code. The second part is the part that can be customized.
+Virtual Account number displayed to customer contains two parts. for example, in `{91012}{12435678}` , the company-prefix-number and the second part is a unique-va-number. The second part is the part that can be customized.
 * Only digits are allowed.
-* Different banks have different specifications on their custom VA numbers. Please see the documentation of the respective banks.
+* Different banks have different specifications on their custom VA numbers. Please see the documentation of the respective banks. Note: for **Permata, only B2B VA type** support custom VA numbers.
 * If the number provided is already utilized for another order, then a different unique number will be used instead.
 * If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
