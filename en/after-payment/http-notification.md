@@ -126,15 +126,19 @@ Some sample HTTP notifications for a successful transaction on different payment
 
 ```json
 {
-  "status_code": "200",
-  "status_message": "midtrans payment notification",
-  "transaction_id": "1c28dbbb-8596-48e4-85d7-9f1382db8a1f",
-  "order_id": "order03",
-  "gross_amount": "275000.00",
-  "payment_type": "gopay",
-  "transaction_time": "2016-06-19 15:54:42",
+  "transaction_time": "2021-06-15 18:45:13",
   "transaction_status": "settlement",
-  "signature_key": "973d175e6368ad844b5817882489e6b22934d796a41a0573c066b1e64532dc0001087b87d877a3eac37cba20a733e1305f5e62739e65ff501d5d33c5ac62530f"
+  "transaction_id": "513f1f01-c9da-474c-9fc9-d5c64364b709",
+  "status_message": "midtrans payment notification",
+  "status_code": "200",
+  "signature_key": "2496c78cac93a70ca08014bdaaff08eb7119ef79ef69c4833d4399cada077147febc1a231992eb8665a7e26d89b1dc323c13f721d21c7485f70bff06cca6eed3",
+  "settlement_time": "2021-06-15 18:45:28",
+  "payment_type": "gopay",
+  "order_id": "Order-5100",
+  "merchant_id": "G141532850",
+  "gross_amount": "154600.00",
+  "fraud_status": "accept",
+  "currency": "IDR"
 }
 ```
 
@@ -436,6 +440,9 @@ Some sample HTTP notifications for a successful transaction on different payment
 | transaction_time   | Time at which the transaction happened.          | String | –                                                            |
 | transaction_status | The transaction status of the transaction.       | String | For more details, refer to [Transaction Status](#status-definition). |
 | signature_key      | The Signature Key.                               | String | This is a very important data that tells you that the notification is sent from Midtrans. For more details, refer to [Verifying Authenticity of Notification](#verifying-notification-authenticity). |
+| fraud_status             | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](#status-definition).    |
+| merchant_id              | Your merchant ID.                                            | String | –                                                            |
+| currency                 | The unit of currency used for the transaction.               | String | –                                                            |
 
 #### **Permata VA**
 
