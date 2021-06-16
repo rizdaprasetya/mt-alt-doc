@@ -6,6 +6,7 @@
 - add note on mTLS on security
 - improve visibility on certificate pinning consideration
 - update gopay notif sample
+- update golang library link to new version
 
 #### 2021/06/11
 - faq: add woocommerce frontend popup payment page issue
