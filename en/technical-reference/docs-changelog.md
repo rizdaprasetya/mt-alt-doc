@@ -1,18 +1,17 @@
 # Docs Changelog
 <hr>
 
-#### 2021/06/24
-- update all payment type notification sample
-- Update the definition table
+#### 2021/06/25
+- update all payment type notification sample and definition table
+- update POS integration guide, to use newer QRIS payment type
 
 #### 2021/06/16
 - clarify custom va limitation, especially Permata
 - add note on mTLS on security
 - improve visibility on certificate pinning consideration
-- update gopay notif sample
+- update gopay payment type notification sample
 - update golang library link to new version
 - further explains what kind of data flow need to be verified, notification page
-- update POS integration guide, to use newer QRIS payment type
 
 #### 2021/06/11
 - faq: add woocommerce frontend popup payment page issue
