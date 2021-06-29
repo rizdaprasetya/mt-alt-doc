@@ -245,7 +245,12 @@ function previewSnap(el){
       }
     })
   };
-  fetch('https://cors-proxy-qu.vercel.app/api/proxy/?url=https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
+  var corsProxyUrl = '/.netlify/functions/demo-api-cors-proxy/';
+  if(window.location.hostname == 'localhost'){
+    // point to Prod env, so request work on localhost env
+    corsProxyUrl = 'https://docs.midtrans.com'+corsProxyUrl;
+  }
+  fetch(corsProxyUrl+'?url=https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
     .then(function(res){ return res.json() })
     .then(function(res){
       let snapToken = res.token;
