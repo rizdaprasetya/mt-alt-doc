@@ -226,6 +226,7 @@ These are specific to Netlify, might not be usable outside Netlify scope. These 
 - `_redirects`: Specify HTTP/server [redirect](https://docs.netlify.com/routing/redirects/) for the specified url patterns
 - `_headers`: Specify HTTP/server [response headers](https://docs.netlify.com/routing/headers/) for the specified url patterns
 - `netlify/functions/`: Directory for [Netlify serverless functions](https://docs.netlify.com/functions/overview/) files. May only works/run while being hosted on Netlify.
+	- Currently node_modules dependencies (used by the functions) are git commited within that folder, to make build simpler because of current small dependencise. But later if that dependencies grow, it is better to gitignore that folder, and setup proper build step for the Netlify function.
 
 ### Tooling
 These are for helper tools during development.
