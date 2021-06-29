@@ -245,7 +245,7 @@ function previewSnap(el){
       }
     })
   };
-  fetch('https://cors-proxy-qu.vercel.app/api/proxy/?url=https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
+  fetch('/.netlify/functions/demo-api-cors-proxy/?url=https://app.sandbox.midtrans.com/snap/v1/transactions', reqOpts)
     .then(function(res){ return res.json() })
     .then(function(res){
       let snapToken = res.token;
