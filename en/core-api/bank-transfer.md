@@ -63,9 +63,8 @@ The sample request for *Charge API* is given below. The request is in CURL but y
 <!-- tabs:start -->
 
 #### **BCA**
-This is the sample request for BCA.
+This is the sample charge request for BCA.
 ```bash
-# sample charge in CURL
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json' \
@@ -76,7 +75,7 @@ curl -X POST \
   "transaction_details": {
       "order_id": "order-101",
       "gross_amount": 44000
-  }
+  },
   "bank_transfer":{
       "bank": "bca"
   }
@@ -99,9 +98,8 @@ curl -X POST \
 </details>
 
 #### **BNI**
-This is the sample request for BNI.
+This is the sample charge request for BNI.
 ```bash
-# sample charge in CURL
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json' \
@@ -112,7 +110,7 @@ curl -X POST \
   "transaction_details": {
       "order_id": "order-101",
       "gross_amount": 44000
-  }
+  },
   "bank_transfer":{
       "bank": "bni"
   }
@@ -135,9 +133,8 @@ curl -X POST \
 </details>
 
 #### **BRI**
-This is the sample request for BRI.
+This is the sample charge request for BRI.
 ```bash
-# sample charge in CURL
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json' \
@@ -148,7 +145,7 @@ curl -X POST \
   "transaction_details": {
       "order_id": "order-101",
       "gross_amount": 44000
-  }
+  },
   "bank_transfer":{
       "bank": "bri"
   }
@@ -171,9 +168,8 @@ curl -X POST \
 </details>
 
 #### **Mandiri Bill**
-This is the sample request for Mandiri.
+This is the sample charge request for Mandiri.
 ```bash
-# sample charge in CURL
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json' \
@@ -203,9 +199,8 @@ curl -X POST \
 </details>
 
 #### **Permata**
-This is the sample request for Permata.
+This is the sample charge request for Permata.
 ```bash
-# sample charge in CURL
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
   -H 'Accept: application/json' \
