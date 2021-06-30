@@ -169,22 +169,6 @@ The sample API responses and a description of the response body for the availabl
     "transaction_time": "2019-12-12 11:03:55",
     "transaction_status": "pending",
     "fraud_status": "accept",
-    "redirect_data": {
-        "url": "https://simulator.sandbox.midtrans.com/bca/klikpay/index",
-        "method": "post",
-        "params": {
-            "klikPayCode": "03KHAN816197673",
-            "transactionNo": "92396",
-            "totalAmount": "44000",
-            "currency": "IDR",
-            "payType": "01",
-            "callback": "https://example.com?id=d19a4bcd-ae30-49dc-bde7-57749aede090",
-            "transactionDate": "11/11/2019 11:03:55",
-            "descp": "Pembelian Barang",
-            "miscFee": "0.00",
-            "signature": "239297204"
-        }
-    }
 }
 ```
 
