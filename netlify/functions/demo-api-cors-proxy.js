@@ -19,8 +19,8 @@ exports.handler = async function (event, context) {
       resolve(errorResponse);
       return;
     }
+    
     let targetHostname = (new URL(params.url)).hostname;
-    console.log('targetHostname',targetHostname);
     if(!targetHostname.includes("midtrans.co") && !targetHostname.includes("veritrans.co")){
       const errorResponse = {
         statusCode: 400,

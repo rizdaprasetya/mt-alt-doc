@@ -1,6 +1,11 @@
 # Docs Changelog
 <hr>
 
+#### 2021/30/30
+- clarify BCA KlikPay specific requirements
+- fix typo on Core API bank transfer code sample
+- update snap demo API request
+
 #### 2021/06/25
 - update all payment type notification sample and definition table
 - update POS integration guide, to use newer QRIS payment type
