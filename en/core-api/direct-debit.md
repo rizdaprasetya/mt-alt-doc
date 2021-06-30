@@ -405,8 +405,19 @@ The sample code in *PHP* is given below as reference. Please make appropriate ch
 }
 ```
 
-Specific to **BCA KlikPay** you will need to follow [BCA KlikPay landing page development guideline](https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline)
-  - You will also need to fullfil this [list of BCA KlikPay requirements](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
+#### BCA KlikPay Specific
+Specific to **BCA KlikPay** you will need to implement a bit differently, click below to see in details.
+<details>
+<summary><b>Implementing BCA KlikPay Landing Page</b></summary>
+<article>
+
+You will need to:
+- First, BCA KlikPay only eligible if you fullfil this [list of BCA KlikPay requirements](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
+- Follow [BCA KlikPay landing page development guideline](https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline).
+- Click here to [see detailed sequence diagram on the end-to-end BCA KlikPay flow](./../../asset/image/core-api_sequence_bca_klikpay.jpeg).
+</article>
+</details>
+
 
 ### 4. Handling post-transaction
 When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant backend. Midtrans sends HTTP notification to merchant backend. This ensures that you are updated of the transaction status securely.

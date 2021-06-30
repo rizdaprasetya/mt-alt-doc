@@ -549,3 +549,6 @@ Additionally, you can configure where customer will be redirected after the paym
 
 </article>
 </details>
+
+#### BCA Klikpay Specific
+If you are planning to have **BCA KlikPay** on Production mode, you will [need to additionally meet these requirements.](/en/core-api/direct-debit.md#bca-klikpay-specific)
