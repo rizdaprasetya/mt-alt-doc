@@ -5,6 +5,7 @@
 - clarify BCA KlikPay specific requirements
 - fix typo on Core API bank transfer code sample
 - update snap demo API request
+- fix some broken numbering format
 
 #### 2021/06/25
 - update all payment type notification sample and definition table

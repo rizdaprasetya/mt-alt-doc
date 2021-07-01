@@ -559,7 +559,6 @@ To configure email notifications, follow the steps given below.
 
 1. Login to your MAP account.
 2. On the home page, go to **SETTINGS > EMAIL NOTIFICATIONS**.
-  *Email Notifications* page is displayed.
 3. Select the **Send email to customer** check box, to enable email notification to the customer. When transaction status changes, customers will receive email notification about the transaction.
 4. Select the **Send email to me** check box, to receive email notifications whenever a transaction occurs.
 5. Enter email address on which to receive notifications of transactions, in the **Email Notification** field. Use comma as a separator, to include multiple email addresses. Example: `email-id-1@myemail.com, email-id-2@myemail.com`
@@ -571,9 +570,7 @@ To configure email notifications, follow the steps given below.
 11. Enter phone number in **Customer Service Number**, to receive phone calls from customers.
 12. Click **Save Preferences**.
   ![Dashboard Usage](./../../asset/image/after-payment-email-notif-config.png)
-  A message to confirm your actions is displayed,
 13. Click **OK**.
-  The email notifications are configured.
 
 ### Configuring Daily Report
 You can customize and choose the information to be available in the daily report. The daily reports can be configured to be sent to several email addresses at the same time. You can also disable the daily report feature.
