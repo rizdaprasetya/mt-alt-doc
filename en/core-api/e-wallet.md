@@ -115,10 +115,10 @@ $params = array(
         'gross_amount' => 10000,
     ),
     'payment_type' => 'gopay',
-    'gopay': {
-        'enable_callback': true,                // optional
-        'callback_url': 'someapps://callback'   // optional
-    }
+    'gopay' => array(
+        'enable_callback' => true,                // optional
+        'callback_url' => 'someapps://callback'   // optional
+    )
 );
 
 $response = \Midtrans\CoreApi::charge($params);
