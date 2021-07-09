@@ -4,6 +4,11 @@
 <!-- TODO: replace any <img> tag with markdown image format @done -->
 Midtrans Core API is a Web service, based on RESTful architecture which enables seamless communication between you and Midtrans payment channels. You can easily set up your environment and can customize your payment page without redirecting to Midtrans page. Midtrans Core API is suitable for medium size as well as large size businesses.
 
+![Core API Overview](./../../asset/image/core-api-overview.svg)
+
+<p style="text-align: center;">
+  <a href="https://bit.ly/MidSampleApp" target="_blank" class="my-btn">CoreAPI Sample Demo</a>
+</p>
 
 ## Various Ways to Integrate with Core API {docsify-ignore}
 
@@ -43,3 +48,6 @@ Based on the requirement, you can select any of the integration methods given be
 - [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
 
 <sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
+
+### C) Sample Demo Implementation {docsify-ignore}
+- [Core API Sample Demo](https://bit.ly/MidSampleApp)
