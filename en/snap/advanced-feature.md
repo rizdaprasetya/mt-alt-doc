@@ -175,6 +175,13 @@ Which for example (using both `language=en` & `gopayMode=deeplink` options) the 
 https://app.sandbox.midtrans.com/snap/v2/vtweb/cf9534e3-ddf7-43f9-a1b7-5f618d2d1c96?language=en&gopayMode=deeplink
 ```
 
+### Snap.js main functions
+Including Snap.js on your frontend will expose `snap` object as global JS object accessible with `window.snap`. These are some main functions that you can access from your frontend codes:
+- `window.snap.pay('SNAP_TRANSACTION_TOKEN', options)`: Will open payment page for that specific Snap Token, which is tied to specific Order ID. Also useful if you want to re-open that same payment page again e.g. when you allow another attempt of payment for that same Order ID, in case of closed earlier. Second parameter is optional `options` object [explained further here](https://snap-docs.midtrans.com/#snap-js).
+- `window.snap.hide()`: Will close the Snap payment page popup. Useful if you want to close the payment page from customers, e.g. when you/customers want to cancel the payment.
+
+For more details, refer to [Snap Docs](https://snap-docs.midtrans.com/#frontend-integration).
+
 ### JavaScript Callback
 Snap.js supports callbacks. It can be used to trigger your custom JavaScript implementation on each event. The available callbacks are given below.
 
