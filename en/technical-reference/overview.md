@@ -47,6 +47,12 @@ This page has a complete Technical Snap API reference documentation.
 
 <div class="my-card">
 
+#### [Snap Sample Demo](https://bit.ly/SnapSampleStore)
+Sample demo implementation of Snap on checkout page
+</div>
+
+<div class="my-card">
+
 #### [Mobile SDK Docs](https://mobile-docs.midtrans.com)
 This page has a complete Mobile SDK reference documentation.
 </div>
@@ -55,6 +61,12 @@ This page has a complete Mobile SDK reference documentation.
 
 #### [Core API Docs](https://api-docs.midtrans.com)
 This page has a complete Core API reference documentation.
+</div>
+
+<div class="my-card">
+
+#### [Core API Sample Demo](https://bit.ly/MidSampleApp)
+Sample demo implementation of CoreApi on checkout page
 </div>
 
 <div class="my-card">
