@@ -1282,7 +1282,17 @@ The default lifetime for regular Snap transaction, Snap `token` and also the `re
 
 Within the set time limit, the payment page is available for customer to proceed payment. After the limit exceeds, it will show that the payment page is no longer available.
 
+### Allowing Customer to Re-pay The Same Order
+If your customer journey allow customer to close the payment page, and you want to allow customer to retry payment for that same order, you can follow this tips. When you sent request to Snap API and received Snap Token, you can keep/store that Snap Token associated with your Order ID. You can re-call `window.snap.pay(SNAP_TRANSACTION_TOKEN')` again on frontend with that same Snap Token to open the payment page popup, as [long as it is not expired](#snap-token-expiry-time).
+
+Alternatively if you prefer to create another Snap Token, you can [follow the next section.](#re-creating-snap-token-for-particular-order)
+
+### Re-creating Snap Token for Particular Order
 At the state of customer have not chosen/proceed with any payment method within the Snap payment page, you can still re-initiate create Snap transaction using the *same Order ID*, since the Order ID is not yet utilized. New Snap token & url will be generated, and the older token & url will no longer be valid.
+
+But that will no longer work if the customer has proceeded to choose/confirm to pay with certain payment methods, the status may have changed to `pending`. This also applies to when the customer has successfully paid the transaction. You will get API error message `transaction_details.order_id sudah digunakan`. This is to prevent duplication of payment order id on Midtrans side.
+
+To avoid Order ID duplication, you can also change your implementation logic to allow one Order ID on your system to have-many payment Order ID on Midtrans (one-to-many relationship). e.g. for Order ID: `web-order-321` your system can send request to Snap API with timestamp suffix on Order ID param like `web-order-321-{$timestamp}`. So that you can have many Snap Token recreated for that one particular order.
 
 ### Note on Core API Get Status
 When a transaction is created on *Snap API*, it does not immediately assign any payment status on *Core API's* Get Status response.
