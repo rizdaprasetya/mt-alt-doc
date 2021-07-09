@@ -6,10 +6,6 @@ Midtrans Core API is a Web service, based on RESTful architecture which enables 
 
 ![Core API Overview](./../../asset/image/core-api-overview.svg)
 
-<p style="text-align: center;">
-  <a href="https://bit.ly/MidSampleApp" target="_blank" class="my-btn">CoreAPI Sample Demo</a>
-</p>
-
 ## Various Ways to Integrate with Core API {docsify-ignore}
 
 Based on the requirement, you can select any of the integration methods given below.
