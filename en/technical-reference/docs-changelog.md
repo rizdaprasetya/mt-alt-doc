@@ -1,7 +1,15 @@
 # Docs Changelog
 <hr>
 
-#### 2021/30/30
+#### 2021/07/09
+- explain snap advanced scenario: re-pay and re-create token
+- improve snap.js main function explanation
+- add sample demo core api link
+- shopify add qris wording to gopay & shopeepay separated button
+- update some links
+- add link to 3rd party platform in plugin & library page
+
+#### 2021/06/30
 - clarify BCA KlikPay specific requirements
 - fix typo on Core API bank transfer code sample
 - update snap demo API request
