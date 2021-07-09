@@ -162,7 +162,7 @@ You may use this information to display custom message to your customer on your 
 ### Snap.js Function and Options
 Snap.js supports various useful options, such as specifying language, specifying GoPay payment mode to deeplink, and so on. You can use these options according to your requirement.
 
-For more details, refer to [frontend integration](https://snap-docs.midtrans.com/#frontend-integration).
+For more details, refer to [Snap Docs](https://snap-docs.midtrans.com/#frontend-integration).
 
 ?>***Note***: If you are using Snap Redirect mode, you can append options as Query parameter at the end of the Snap `redirect_url`:
 

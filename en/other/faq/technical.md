@@ -472,13 +472,13 @@ In some cases, you may find that transaction status change is not reflected on m
 
 If the status is updated on Midtrans but not on merchant's system, please check the HTTP Notification sent from Midtrans to the merchant's System.
 
-Most likely the issue is caused by mis-implementation of **Notification URL** handler on merchant backend. For more details, refer to [View notification history](https://docs.midtrans.com/en/after-payment/http-notification?id=viewing-notification-history).
+Most likely the issue is caused by mis-implementation of **Notification URL** handler on merchant backend. For more details, refer to [View notification history](/en/after-payment/http-notification.md#viewing-notification-history).
 
 <!-- END OF Category --><hr>
 ### Snap
 
 #### How to check if Snap token is still valid or not?
-Please refer to this [explanation of Snap token default expiry time](https://docs.midtrans.com/en/snap/advanced-feature?id=snap-token-expiry-time).
+Please refer to this [explanation of Snap token default expiry time](/en/snap/advanced-feature.md#snap-token-expiry-time).
 
 #### Why Snap pop-up doesn't work on merchant's mobile app?
 - If your mobile app is using WebView to display Snap pop-up, then make sure that the app follows the points given below.
@@ -1246,7 +1246,7 @@ ECI for **non-3DS** transaction is `07` or `00` (bad value). For more details, r
   ECI for **non-3DS** transaction is `07` or `00 `(bad value).
 
 #### Can you explain the implementation details of Credit Card 3DS transaction?
-Please refer to this [Core API Card Transaction Documentation](https://docs.midtrans.com/en/core-api/credit-card).
+Please refer to this [Core API Card Transaction Documentation](/en/core-api/credit-card).
 
 For sample implementation, please refer to the links given below.
 - https://github.com/Midtrans/midtrans-nodejs-client/blob/master/examples/expressApp/views/core_api_credit_card_frontend_sample.ejs
