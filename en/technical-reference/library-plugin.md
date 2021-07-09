@@ -45,3 +45,6 @@ Did you develop your own library/package/module for Midtrans API, and want us to
 |NodeJS | [Github](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)|
 |Python | [Github](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)|
 |Other | please check <br>[respective language's repo](#language-library)|
+
+## Ecommerce Platform
+If you are looking to integrate with 3rd party Ecommerce platform such as Shopify, [please visit this page](/en/snap/platform/overview).
