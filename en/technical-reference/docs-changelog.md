@@ -5,9 +5,9 @@
 - explain snap advanced scenario: re-pay and re-create token
 - improve snap.js main function explanation
 - add sample demo core api link
-- shopify add qris wording to gopay & shopeepay separated button
-- update some links
+- add qris wording to shopify gopay & shopeepay separated button
 - add link to 3rd party platform in plugin & library page
+- update some links
 
 #### 2021/06/30
 - clarify BCA KlikPay specific requirements

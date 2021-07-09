@@ -398,7 +398,8 @@ Specific to **BCA KlikPay** you will need to implement a bit differently, click 
 You will need to:
 - First, BCA KlikPay only eligible if you fullfil this [list of BCA KlikPay requirements](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
 - Follow [BCA KlikPay landing page development guideline](https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline).
-- Click here to [see detailed sequence diagram on the end-to-end BCA KlikPay flow](./../../asset/image/core-api_sequence_bca_klikpay.jpeg).
+<!-- @HACK: link below is using absolute domain url to avoid docsify unexpectedly try to parse it as a web page, which throw 404 -->
+- Click here to [see detailed sequence diagram on the end-to-end BCA KlikPay flow](https://docs.midtrans.com/asset/image/core-api_sequence_bca_klikpay.jpeg ':target=_blank').
 </article>
 </details>
 
