@@ -1,6 +1,10 @@
 # Docs Changelog
 <hr>
 
+#### 2021/07/14
+- explain snap advanced scenario: credit card expire notification
+- update sample snap advanced scenario: credit card offline installment
+
 #### 2021/07/09
 - explain snap advanced scenario: re-pay and re-create token
 - improve snap.js main function explanation

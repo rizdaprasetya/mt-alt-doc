@@ -854,7 +854,8 @@ You have to add the `installment` parameter with combination of BIN filter featu
         // input the desired installment terms
         "offline": [ <installment terms as array of integers> ]
       }
-    }
+    },
+    "whitelist_bins": [ <card BINs as array of strings> ]
   }
 ...
 ```
@@ -878,8 +879,8 @@ Example of the JSON parameters used during [backend API request step](/en/snap/i
       }
     },
     "whitelist_bins": [
-      481111,
-      410505
+      "481111",
+      "410505"
     ]
   }
 }
@@ -905,8 +906,8 @@ curl -X POST \
       }
     },
     "whitelist_bins": [
-      481111,
-      410505
+      "481111",
+      "410505"
     ]
   }
 }'
@@ -1300,6 +1301,9 @@ At the state of customer have not chosen/proceed with any payment method within 
 But that will no longer work if the customer has proceeded to choose/confirm to pay with certain payment methods, the status may have changed to `pending`. This also applies to when the customer has successfully paid the transaction. You will get API error message `transaction_details.order_id sudah digunakan`. This is to prevent duplication of payment order id on Midtrans side.
 
 To avoid Order ID duplication, you can also change your implementation logic to allow one Order ID on your system to have-many payment Order ID on Midtrans (one-to-many relationship). e.g. for Order ID: `web-order-321` your system can send request to Snap API with timestamp suffix on Order ID param like `web-order-321-{$timestamp}`. So that you can have many Snap Token recreated for that one particular order.
+
+### Note on Card Transaction Expire Notification
+Card transaction payment status will become `pending` once it is proceeded into 3DS/OTP phase. If the transaction is abandoned or not completed within 10-15 minutes, its status will become `expire`. For more details [please refer here](https://snap-docs.midtrans.com/#code-2xx).
 
 ### Note on Core API Get Status
 When a transaction is created on *Snap API*, it does not immediately assign any payment status on *Core API's* Get Status response.
