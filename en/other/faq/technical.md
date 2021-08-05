@@ -801,9 +801,11 @@ For any issues, please contact us at support@midtrans.com with the network log r
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
 #### Customer fails to be redirected to gojek:// deeplink on mobile app. What should I do?
-Sometimes, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME`.
-
 This may happen if the customer don't have the Gojek app installed, please make sure the **latest Gojek app version is installed on the customer's device**. If this doesn't solve the issue, please continue below.
+
+This may also happen if you mistakenly encode, shorten, add, or remove any character from the deeplink URL. Please ensure that the URL you presented to customer is the **same URL retrieved from Midtrans API, without any modification**. Modifying the URL may result in the URL unable to be opened by customer's device.
+
+Sometimes, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME`.
 
 The issue usually happen if the customer is transacting (with Gopay payment method) within your mobile app, which the app implementation is using WebView, and the WebView implementation by default may not allow opening deeplink URL to Gojek app (or other external app).
 
