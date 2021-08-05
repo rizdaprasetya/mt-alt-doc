@@ -120,7 +120,7 @@ For more details, refer to [Preparation](/en/snap/preparation.md).
 
 #### WooCommerce Plugin Notification Configuration
 To configure the Midtrans-WooCommerce plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed. Follow the steps given below.
@@ -306,7 +306,7 @@ The table given below describes the fields to customize configurations.
 
 #### Magento 2 Plugin Notification Configuration
 To configure the Magento 2 plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed. Follow the steps given below.
@@ -425,7 +425,7 @@ To install and configure the Midtrans-PrestaShop plugin, follow the steps given 
 
 #### PrestaShop Plugin Notification Configuration
 To configure Midtrans-PrestaShop plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed. Follow the steps given below.
@@ -525,7 +525,7 @@ OpenCart plugin is installed successfully.
 
 #### OpenCart Plugin Notification Configuration
 To configure the Midtrans-OpenCart plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed. Follow the steps given below.
@@ -611,7 +611,7 @@ To install and configure Midtrans-WHMCS plugin, follow the steps given below.
 
 #### WHMCS Plugin Notification Configuration
 To configure the Midtrans-WHMCS plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.
@@ -705,7 +705,7 @@ To install and configure Drupal 8 plugin, follow the steps given below.
 #### Drupal Plugin Notification Configuration
 
 To configure the Midtrans-Drupal plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.
@@ -818,7 +818,7 @@ To configure Midtrans-EDD plugin, follow the steps given below.
 
 #### EDD Plugin Notification Configuration
 To configure the Midtrans-EDD plugin notification URL, follow the steps given below.
-1. Login to your MAP account.
+1. Login to [Midtrans Dashboard portal](https://account.midtrans.com/).
 2. In the **Environment** list, click the appropriate environment.
 3. On the Home page, go to **SETTINGS > CONFIGURATION**.
    *Configuration* page is displayed.
