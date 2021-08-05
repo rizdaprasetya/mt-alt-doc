@@ -1,6 +1,10 @@
 # Docs Changelog
 <hr>
 
+#### 2021/08/06
+- faq: ewallet deeplink encoding potential issue
+- update woocommerce guide to v2.30
+
 #### 2021/07/14
 - explain snap advanced scenario: credit card expire notification
 - update sample snap advanced scenario: credit card offline installment
