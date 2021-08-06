@@ -925,6 +925,8 @@ If you are implementing ShopeePay method and presenting it within Webview on iOS
 ```
 Based [on this resource](https://laptrinhx.com/ios-wkwebview-cannot-handle-url-scheme-and-app-store-links-1368412119/).
 
+If you are using iOS WebView implementation to show Snap payment page, here is another [sample code in Swift](https://gist.github.com/Xaxxis/4a9d90ecf7adc0c3013e2f323a1e9b74) that has been tested to work for GoPay and ShopeePay deeplink url.
+
 ##### Web Browser or Progressive Web App (PWA)
 If the customer is transacting through Mobile Web Browser or PWA, and the Gojek App fails to open, please make sure that you are not trying to open `gojek://` deeplink via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up.
 
