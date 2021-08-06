@@ -106,14 +106,15 @@ To install Midtrans-WooCommerce plugin manually, follow the steps given below.
 
 #### WooCommerce Plugin Configuration
 To configure Midtrans-WooCommerce plugin, go to **WooCommerce > Settings > Payments > Midtrans** menu and follow the steps given below.
-  * Enter **Title**. This text appears on the button displayed to the customer.
-  * In the **Environment** list, click the appropriate environment. `Sandbox` for testing transaction and `Production` for real transaction.
   * Enter **Merchant ID**.
+  * In the **Environment** list, click the appropriate environment. `Sandbox` for testing transaction and `Production` for real transaction.
   * Enter **Client Key**.
   * Enter **Server key**.
-For more details, refer to [Preparation](/en/snap/preparation.md).
+  * For more details, refer to [Preparation](/en/snap/preparation.md).
 
-> **Note**: Other fields are optional. You may leave it as is.
+Optionally configure **Button Title**. This text appears on the WooCommerce payment button displayed to the customer. Also you can configure **Button Description** too, if you wish.
+
+> **Note**: Other fields are optional. You may leave it as default.
 
 ![WooCommerce Install](./../../asset/image/WooCommerce-install.gif)
 <br>The plugin is configured successfully.
@@ -176,6 +177,29 @@ The table given below shows the fields and the URL.
 </details>
 
 For more details and configurations, refer to [Midtrans WooCommerce wiki documentation](https://github.com/veritrans/SNAP-Woocommerce/wiki).
+
+#### Advanced: Specific Payment Buttons
+[Optional] Follow these steps **if you prefer to have each payment method displayed individually in your WooCommerce checkout page**. See example below :
+
+![WooCommerce Specific Example](./../../asset/image/woocommerce-specific-0.png ':size=400')
+
+1. Go to **WooCommerce > Settings > Payments**, you will see **Midtrans Specific: \[Payment Method Name\]**.
+2. You can choose which payment methods you want to show to your customers by toggling the on-off switch. The toggle will only work for payment methods that you have activated in Midtrans. See below:
+![WooCommerce Specific Config Toggle](./../../asset/image/woocommerce-specific-1.png ':size=400')
+3. [Optional] Click each payment method's **Manage** button to configure the payment method's appearance, such as the displayed Payment Method Name & Description text.
+4. Once you've finished configuring the settings, you're all set. Each of the specific buttons will use the same configurations as "Midtrans – All Supported Payment"'s [configuration](#woocommerce-plugin-configuration).
+5. If you choose to display each payment method individually, it is advised to toggle off the main "Midtrans – All Supported Payment" button.
+
+Note: This feature is only available in plugin version v2.30.0 or above - please ensure you have updated your plugin to the latest version.
+
+#### WooCommerce Midtrans Plugin Advanced features
+If you have Woocommerce Subscription feature, and want to integrate it with Midtrans, please [follow this guide](https://github.com/veritrans/SNAP-Woocommerce/wiki/02---Credit-card-online-and-offline-installment).
+
+For installment feature (when you have completed the business agreeement), you can [follow this guide to configure installment](https://github.com/veritrans/SNAP-Woocommerce/wiki#payment-methods-featured).
+
+Further resources:
+- https://github.com/veritrans/SNAP-Woocommerce/wiki
+- https://github.com/veritrans/SNAP-Woocommerce#readme
 
 #### WooCommerce Midtrans Plugin FAQ
 Available [on this page](/en/other/faq/technical.md#cms-plugins).
