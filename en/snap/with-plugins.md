@@ -192,6 +192,11 @@ For more details and configurations, refer to [Midtrans WooCommerce wiki documen
 
 Note: This feature is only available in plugin version v2.30.0 or above - please ensure you have updated your plugin to the latest version.
 
+#### Advanced: Customize WooCommerce Order Status upon Payment Paid
+[Optional] You can configure the status that WooCommerce Order should become when an order is successfully paid. This can be useful if you want, for example, order status to become "completed" once paid.
+
+Configure it from **WooCommerce > Settings > Payment > Midtrans > Manage** under configuration field **WC Order Status on Payment Paid**. Select your preferred value from the drop down.
+
 #### WooCommerce Midtrans Plugin Advanced features
 If you have Woocommerce Subscription feature, and want to integrate it with Midtrans, please [follow this guide](https://github.com/veritrans/SNAP-Woocommerce/wiki/02---Credit-card-online-and-offline-installment).
 
