@@ -5,6 +5,7 @@
 - faq: ewallet deeplink encoding potential issue
 - update woocommerce guide to v2.30
 - advanced note on http notification engine TLS version support
+- add WooCommerce Advanced: Customize WooCommerce Order Status upon Payment Paid
 
 #### 2021/07/14
 - explain snap advanced scenario: credit card expire notification
