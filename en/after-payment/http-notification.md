@@ -1218,3 +1218,12 @@ Please make sure to check if the notification issue is not from your end. For mo
 ### Suggestion on Troubleshooting HTTP Notification Failures
 
 Please refer to this FAQ about [troubleshooting HTTP Notification failures](/en/other/faq/technical?id=how-to-troubleshoot-http-notification-failures).
+
+### Note on TLS v1.3
+Currently our notification engine supports sending notification to your notification url using TLS protocol up to v1.2. Please make sure your backend/notification url still allows connection of TLS v1.2 in order to be able to receive HTTP notification/webhook from Midtrans. 
+
+If your backend/notification url only supports TLS v1.3, you may not be able to receive HTTP notification/webhook from Midtrans. 
+
+You can check the TLS protocol version being supported by your backend by using tools such as: https://www.digicert.com/help/ . Input your notification url there, and check the supported TLS protocol version.
+
+Our notification engine team is working to bring future support of TLS v1.3. Until it happens, please follow the recommendation above.

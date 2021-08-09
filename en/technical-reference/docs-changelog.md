@@ -4,6 +4,7 @@
 #### 2021/08/06
 - faq: ewallet deeplink encoding potential issue
 - update woocommerce guide to v2.30
+- advanced note on http notification engine TLS version support
 
 #### 2021/07/14
 - explain snap advanced scenario: credit card expire notification
