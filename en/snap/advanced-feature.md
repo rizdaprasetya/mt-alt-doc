@@ -1305,6 +1305,11 @@ To avoid Order ID duplication, you can also change your implementation logic to 
 ### Note on Card Transaction Expire Notification
 Card transaction payment status will become `pending` once it is proceeded into 3DS/OTP phase. If the transaction is abandoned or not completed within 10-15 minutes, its status will become `expire`. For more details [please refer here](https://snap-docs.midtrans.com/#code-2xx).
 
+### Note on Wallet & QRIS Deeplink/QR url
+Due to the focus of Snap to be simple, easy to integrate, and focus on the customer friendly UI; for GoPay, ShopeePay, and QRIS transactions made within Snap payment UI, currently there is no feature to programmatically retrieve the `actions[].url` (of the payment deeplink/QR url) value from Snap. In case you need to do that scenario, it is recommended to use [Core API](/en/core-api/overview) instead. Though, we are working to improve this in the future Snap version.
+
+You can alternatively store the Snap payment `token` (or `redirect_url`), and use it to re-display the Snap payment UI to the customer, so the GoPay, ShopeePay and QRIS payment page will be re-displayed according to the customer's session.
+
 ### Note on Core API Get Status
 When a transaction is created on *Snap API*, it does not immediately assign any payment status on *Core API's* Get Status response.
 

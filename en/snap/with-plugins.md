@@ -24,7 +24,9 @@ Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 
 ## CMS Plugins and Extensions Supported by Midtrans
 
-This is a list of Content Management System (CMS) supported by Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
+This is a list of Content Management System (CMS) supported by Official Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
+
+Note: (un-official) 3rd party plugins from outside developer may exists out there and may support more CMSes than those being listed here. Feel free to use/try them, as most of them is useful and genuine, but Midtrans will not be able to offer support, or held responsible for the implementation of them.
 
 <br>
 
@@ -63,8 +65,10 @@ This is a list of Content Management System (CMS) supported by Midtrans plugins 
 
 #### [ WordPress - Easy Digital Download](#wordpress-easy-digital-download)
 </div>
-<!-- TODO: explain what is notification URL for non dev user. Why it is important, and what's the benefit of using notification url -->
+<!-- @TODO: explain what is notification URL for non dev user. Why it is important, and what's the benefit of using notification url -->
 <hr><br><br>
+
+<!-- @TODO: add section where to send feedback and feature request here -->
 
 ## WordPress - WooCommerce
 Midtrans ❤️ WooCommerce! This plugin allows secure online payment on your WooCommerce store, without ever needing your customer to leave your WooCommerce store! It has a beautiful built-in responsive payment interface. Midtrans strives to make payments simple for you and your customers. It supports various online payment channels. Midtrans supports WooCommerce v2 and v3.
@@ -149,6 +153,9 @@ The table given below shows the fields and the URL.
 > Please make sure to input **http://** or **https://** when filling Notification URL and Redirect URL, according to your web-server configuration.
 >
 > If you are not sure, try opening your web URL in a browser, and check the URL is **http** or **https** on the address bar.
+>
+> You can also test the validity of the URL by opening it (`[your-site-url]/?wc-api=WC_Gateway_Midtrans`) on your web browser, if you see the following message, then the URL is correct and valid. You can copy this current URL on your browser address bar.
+> ![WooCommerce Notif URL opened in browser](./../../asset/image/woocommerce-notif-url-0.png)
 
 <details>
 <summary>

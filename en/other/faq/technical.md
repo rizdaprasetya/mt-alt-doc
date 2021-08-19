@@ -403,9 +403,9 @@ Yes, it is expected to have few missing JSON fields or properties. It means the 
 At Midtrans, we follow [Google JSON Style Guide](https://google.github.io/styleguide/jsoncstyleguide.xml). According to this style guide, it is recommended that a property without any value (`null`), should be removed. Reference: https://google.github.io/styleguide/jsoncstyleguide.xml#Empty/Null_Property_Values.
 
 #### There are new fields or properties added on the JSON response or notification. It breaks merchant implementation. Is this expected?
-Yes, it is expected.
+Yes, it is expected that new fields/properties may be added on API response and/or HTTP Notification. But it is not expected that it breaks merchant implementation.
 
-As JSON based API common practice, please allow new fields or properties to be added on JSON based API communication, to ensure "forward compatibility". Thus include API response and HTTP notification. Ensure that the merchant backend is able to ignore and does not break when encountering new fields or properties. It depends on JSON parser library you are using. The parser having `JsonIgnoreProperties` flag or similar can be utilized.
+As JSON based API common practice, please allow new fields/properties to be added on JSON based API communication, to ensure "forward compatibility". Thus include API response and/or HTTP notification. Please ensure that the merchant backend implementation logic is able to handle and does not break when encountering new fields or properties. The simplest implementation logic is to 'ignore' unused field. Depending on JSON parser library you are using, some parser may have `JsonIgnoreProperties` or similar flag which can be utilized.
 
 Please adjust your implementation accordingly to accommodate this behavior.
 
@@ -797,6 +797,13 @@ For any issues, please contact us at support@midtrans.com with the network log r
 
 <!-- END OF Category --><hr>
 ### E-money
+#### We observe an increasing number of GoPay payments failed/abandoned on some specific hour or date. What can be the cause?
+You presumably refer to the number of “payment left unpaid”  compared to “payment initiated” , which if it increases it means more customers are not proceeding to pay, after initiating GoPay payment.
+
+Most of the time this can be caused by a promotion period (especially “cashback” type of promotion). During promo, the number of payments initiated can significantly increase, but then not all initiated payments are eligible for promo. During payment flow, those customers may later find out that their payment attempt is not eligible for promo (which they can see on the payment page on the GoPay confirmation screen) can drop-off abandoning their payment. Thus increasing the number of “payment left unpaid”. But since this is related to promo, you should also check if there is a sudden increase in the number of “payment initiated”  and “payment successfully paid”. Both numbers will likely also increase, which means the promo successfully attracts more payment from customers.
+
+Those numbers are what you should try to verify on your side. Also the question of are you having promo lately (whether it is your internal, with payment provider, or the payment provider itself)? That might trigger this kind of case. But if there is no promo confirmed and no “payment successfully paid”  count increase, then it might be something else.
+
 #### My developer tested failure scenario within GoPay simulator. Nothing happened and the transaction status is still pending. What happened?
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
@@ -1177,6 +1184,13 @@ In case of OTP could not be received by customer, the issue is between card issu
 
 You should inform the customer to contact their card issuer support center. They should explain in detail that they are unable to do online transaction and did not receive 3DS/OTP. They should also provide the error message displayed on the page, if any. Make sure that they explain the issue is for online transaction. That is to avoid some case where the card issuer support center might mistakenly check the card issue for offline transaction only, and may tell customer that the card is fine and able to transact. The card issuer support center should check for issues on online transaction.
 
+### Card payment is marked as 3DS on Midtrans side, but customers said they didn’t get any OTP for the transaction, what is the issue?
+Unfortunately Midtrans and Merchant side will only get the final approval result from the Card Issuer 3DS verifier. The final result is whether it is approved or not. You can refer to Midtrans Dashboard to see the 3DS result, and this result is valid.
+
+The approval process itself happens on the Card Issuer 3DS verifier. It has direct control to decide whether the verification process is through OTP, SMS, PIN, Password, etc. Sometimes even the verification process can happen seamlessly without user verification if the 3DS verifier for example uses a system that can auto determine based on behavior and historical data. Or even in some rare bad cases there can be glitch/issue on the 3DS verifier. 
+
+Merchants can ask Customers to consult with their card issuer what kind of 3DS verification will be applied (or was applied) to their online transaction, if they want to know.
+
 #### During card transaction, the customer entered invalid expiry date and CVV, but the transaction still get proceeded to 3DS, is this expected?
 The card's expiry date and CVV validation is a part of card issuer's validation process. The card issuer holds the card data and is responsible to validate it. Midtrans, as a payment gateway, only proceeds based on the card issuer validation process returned.
 
@@ -1332,6 +1346,21 @@ Configure payment page to be redirection-mode:
 - Now customer will be redirected to Midtrans hosted payment webpage, instead of payment popup within your website.
 
 This is also applicable if you don't prefer the payment page to be a popup within your website, and prefer for customer to be redirected to Midtrans hosted payment web page, you can use the configuration above.
+
+#### WooCommerce: unable to pay with Akulaku payment method on Snap payment page
+If for some reason your customer is unable to pay with Akulaku payment method on Snap payment page, likely it is due to the limitation on Akulaku side, which does not allow duplicated item id (of the items being purchased). The Midtrans deny message: "Denied by Akulaku with code [SYSTEM.0002] and message [The virtual skuId has been repeated. skuId=127777]".
+
+To solve the issue, you can remove `item_details` from the plugin's Snap API request. First please make sure you have updated Midtrans Woocommerce plugin, at minimum v2.30.0. Then if you are familiar with Wordpress hook, you can implement this hook on your Wordpress to remove `item_details` params:
+```php
+// Custom filter hook to modify Snap params
+add_filter( 'midtrans_snap_params_main_before_charge', 'my_midtrans_snap_param_hook' );
+function my_midtrans_snap_param_hook( $params ) {
+	unset($params['item_details']);
+    return $params;
+}
+// ref: https://github.com/veritrans/SNAP-Woocommerce#available-custom-hooks
+```
+For reference on where/which file to apply that code example, [refer here](https://blog.nexcess.net/the-right-way-to-add-custom-functions-to-your-wordpress-site/).
 <!-- END OF Category --><hr>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
