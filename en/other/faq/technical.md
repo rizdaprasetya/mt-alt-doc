@@ -403,9 +403,9 @@ Yes, it is expected to have few missing JSON fields or properties. It means the 
 At Midtrans, we follow [Google JSON Style Guide](https://google.github.io/styleguide/jsoncstyleguide.xml). According to this style guide, it is recommended that a property without any value (`null`), should be removed. Reference: https://google.github.io/styleguide/jsoncstyleguide.xml#Empty/Null_Property_Values.
 
 #### There are new fields or properties added on the JSON response or notification. It breaks merchant implementation. Is this expected?
-Yes, it is expected.
+Yes, it is expected that new fields/properties may be added on API response and/or HTTP Notification. But it is not expected that it breaks merchant implementation.
 
-As JSON based API common practice, please allow new fields or properties to be added on JSON based API communication, to ensure "forward compatibility". Thus include API response and HTTP notification. Ensure that the merchant backend is able to ignore and does not break when encountering new fields or properties. It depends on JSON parser library you are using. The parser having `JsonIgnoreProperties` flag or similar can be utilized.
+As JSON based API common practice, please allow new fields/properties to be added on JSON based API communication, to ensure "forward compatibility". Thus include API response and/or HTTP notification. Please ensure that the merchant backend implementation logic is able to handle and does not break when encountering new fields or properties. The simplest implementation logic is to 'ignore' unused field. Depending on JSON parser library you are using, some parser may have `JsonIgnoreProperties` or similar flag which can be utilized.
 
 Please adjust your implementation accordingly to accommodate this behavior.
 
