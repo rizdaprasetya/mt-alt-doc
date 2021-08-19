@@ -797,6 +797,13 @@ For any issues, please contact us at support@midtrans.com with the network log r
 
 <!-- END OF Category --><hr>
 ### E-money
+#### We observe an increasing number of GoPay payments failed/abandoned on some specific hour or date. What can be the cause?
+You presumably refer to the number of “payment left unpaid”  compared to “payment initiated” , which if it increases it means more customers are not proceeding to pay, after initiating GoPay payment.
+
+Most of the time this can be caused by a promotion period (especially “cashback” type of promotion). During promo, the number of payments initiated can significantly increase, but then not all initiated payments are eligible for promo. During payment flow, those customers may later find out that their payment attempt is not eligible for promo (which they can see on the payment page on the GoPay confirmation screen) can drop-off abandoning their payment. Thus increasing the number of “payment left unpaid”. But since this is related to promo, you should also check if there is a sudden increase in the number of “payment initiated”  and “payment successfully paid”. Both numbers will likely also increase, which means the promo successfully attracts more payment from customers.
+
+Those numbers are what you should try to verify on your side. Also the question of are you having promo lately (whether it is your internal, with payment provider, or the payment provider itself)? That might trigger this kind of case. But if there is no promo confirmed and no “payment successfully paid”  count increase, then it might be something else.
+
 #### My developer tested failure scenario within GoPay simulator. Nothing happened and the transaction status is still pending. What happened?
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
