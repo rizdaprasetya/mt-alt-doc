@@ -24,7 +24,9 @@ Retrieve API Keys for *Sandbox* environment that will be used for this guide.
 
 ## CMS Plugins and Extensions Supported by Midtrans
 
-This is a list of Content Management System (CMS) supported by Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
+This is a list of Content Management System (CMS) supported by Official Midtrans plugins and extensions. Step-by-step guide to install Snap integration plugin to your CMS of choice will also be explained.
+
+Note: (un-official) 3rd party plugins from outside developer may exists out there and may support more CMSes than those being listed here. Feel free to use/try them, as most of them is useful and genuine, but Midtrans will not be able to offer support, or held responsible for the implementation of them.
 
 <br>
 
