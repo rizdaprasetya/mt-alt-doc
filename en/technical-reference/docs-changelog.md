@@ -1,6 +1,16 @@
 # Docs Changelog
 <hr>
 
+#### 2021/08/19
+- faq: WooCommerce Akulaku payment fail due to duplicated item_id
+- faq: customer want to know card payment 3DS verification method
+- faq: GoPay acceptance rate drop during promo period
+- improve wording on notification url should be public url
+- WooCommerce guide: improve notif url config examples
+- add note that 3rd party unofficial plugins may exists and is acknowledged
+- improve GoPay testing simulator link to prevent mistake of which simulator to use
+- limitation note on Snap unable to get direct Gopay deeplink and QRIS url
+
 #### 2021/08/06
 - faq: ewallet deeplink encoding potential issue
 - update woocommerce guide to v2.30
