@@ -36,7 +36,7 @@ The table given below describes the fields that can be configured from the Merch
 </article>
 </details>
 
-!> Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. You can then utilize *signature_key* or method that is explained below as security measures.
+!> Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. Instead of using private network, you can implement method that is explained on [Verifying Notification Authenticity section](#verifying-notification-authenticity) below.
 
 ?> **Tips**: If you are still running/developing your notification handler on localhost, you can utilize the services (such as [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), and so on) to expose your localhost server to public Internet. Once you have obtained the Internet accessible URL, you can add it to the *Notification URL* field on *Dashboard*.
 
