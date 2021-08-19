@@ -1346,6 +1346,21 @@ Configure payment page to be redirection-mode:
 - Now customer will be redirected to Midtrans hosted payment webpage, instead of payment popup within your website.
 
 This is also applicable if you don't prefer the payment page to be a popup within your website, and prefer for customer to be redirected to Midtrans hosted payment web page, you can use the configuration above.
+
+#### WooCommerce: unable to pay with Akulaku payment method on Snap payment page
+If for some reason your customer is unable to pay with Akulaku payment method on Snap payment page, likely it is due to the limitation on Akulaku side, which does not allow duplicated item id (of the items being purchased). The Midtrans deny message: "Denied by Akulaku with code [SYSTEM.0002] and message [The virtual skuId has been repeated. skuId=127777]".
+
+To solve the issue, you can remove `item_details` from the plugin's Snap API request. First please make sure you have updated Midtrans Woocommerce plugin, at minimum v2.30.0. Then if you are familiar with Wordpress hook, you can implement this hook on your Wordpress to remove `item_details` params:
+```php
+// Custom filter hook to modify Snap params
+add_filter( 'midtrans_snap_params_main_before_charge', 'my_midtrans_snap_param_hook' );
+function my_midtrans_snap_param_hook( $params ) {
+	unset($params['item_details']);
+    return $params;
+}
+// ref: https://github.com/veritrans/SNAP-Woocommerce#available-custom-hooks
+```
+For reference on where/which file to apply that code example, [refer here](https://blog.nexcess.net/the-right-way-to-add-custom-functions-to-your-wordpress-site/).
 <!-- END OF Category --><hr>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
