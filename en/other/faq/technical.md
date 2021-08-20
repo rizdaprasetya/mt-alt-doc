@@ -1184,7 +1184,7 @@ In case of OTP could not be received by customer, the issue is between card issu
 
 You should inform the customer to contact their card issuer support center. They should explain in detail that they are unable to do online transaction and did not receive 3DS/OTP. They should also provide the error message displayed on the page, if any. Make sure that they explain the issue is for online transaction. That is to avoid some case where the card issuer support center might mistakenly check the card issue for offline transaction only, and may tell customer that the card is fine and able to transact. The card issuer support center should check for issues on online transaction.
 
-### Card payment is marked as 3DS on Midtrans side, but customers said they didn’t get any OTP for the transaction, what is the issue?
+#### Card payment is marked as 3DS on Midtrans side, but customers said they didn’t get any OTP for the transaction, what is the issue?
 Unfortunately Midtrans and Merchant side will only get the final approval result from the Card Issuer 3DS verifier. The final result is whether it is approved or not. You can refer to Midtrans Dashboard to see the 3DS result, and this result is valid.
 
 The approval process itself happens on the Card Issuer 3DS verifier. It has direct control to decide whether the verification process is through OTP, SMS, PIN, Password, etc. Sometimes even the verification process can happen seamlessly without user verification if the 3DS verifier for example uses a system that can auto determine based on behavior and historical data. Or even in some rare bad cases there can be glitch/issue on the 3DS verifier. 
