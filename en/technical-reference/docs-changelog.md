@@ -1,6 +1,13 @@
 # Docs Changelog
 <hr>
 
+#### 2021/08/26
+- faq: improve wording on separate installment/promo button
+- add note that BCA klikpay is not available for Shopify
+- improve CMS payment plugin description
+- add section on CMS plugin feedback/feature-request & link to the gform
+- fix some migrated links
+
 #### 2021/08/19
 - faq: WooCommerce Akulaku payment fail due to duplicated item_id
 - faq: customer want to know card payment 3DS verification method
