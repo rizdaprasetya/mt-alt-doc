@@ -1,9 +1,9 @@
 # Integrating Midtrans Snap to E-commerce Content Management System (CMS)
 <hr>
 
-Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. 
+Content Management System (CMS) allows you to easily have a website or web store without building from scratch. CMS does not require programming knowledge. You just need to install the CMS and customize according to your requirement. Then you can focus on managing the content, without much technical work. In the context of Ecommerce CMS, it means you can easily manage your ecommerce website. Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on.
 
-You only require to manage the content (Content Management). Some of the examples of CMS are WordPress, Magento 2, PrestaShop, WHMCS, and so on. Payment methods available on [Snap](/en/snap/overview.md), explained on [this page](https://midtrans.com/payments), and are available for integration.
+Midtrans provides easy to use & install plugins for popular Ecommerce CMS, which will enable your website to accept payments from your customers. All [payment methods](https://midtrans.com/payments) available on [Snap](/en/snap/overview.md) that are activated on your Midtrans Account will become available for your website’s customers.
 
 ## Preparation
 <br>
@@ -75,6 +75,8 @@ Midtrans ❤️ WooCommerce! This plugin allows secure online payment on your Wo
 
 Midtrans-WooCommerce plugin is also available on [WordPress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). If you cannot find it listed there, you can always download and install it manually. For more details, refer to Manual Installation.
 
+Note: Wordpress is generally known as a generic CMS used for blogging, news, etc. But it also can easily become Ecommerce by installing WooCommerce plugin on top of it. Please ensure to install WooCommerce plugin first on your Wordpress site, so that payment feature is enabled.
+
 #### Requirements
 Some of the requirements to continue with the integration process, are listed below.
 * WordPress v3.9 or later **|** Tested up to v5.x
@@ -101,7 +103,7 @@ If you are unable to install, proceed to Manual Installation.
 
 #### B. Manual Installation
 
-To install Midtrans-WooCommerce plugin manually, follow the steps given below.
+If you are unable to install using simpler method above, to install Midtrans-WooCommerce plugin manually, follow the steps given below.
    1. Download the plugin file from the link given above.
    2. Extract the plugin, then rename the modules folder as **midtrans-woocommerce**.
    3. Upload the unzipped plugin folder to your WordPress installation's `./wp-content/plugins/` directory.
