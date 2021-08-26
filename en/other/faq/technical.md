@@ -213,8 +213,8 @@ Alternatively, you can also implement your system to generate `Misc Fee` item dy
 #### I want to use payment method specific promo campaign. How should I implement this?
 You have to use `enabled_payments` for payment method specific promo. The customer can pay with the specific payment method only. The customer cannot pay using other payment methods.
 
-It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for payment method specific promo. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with < payment method >" check box.
-It should give the information to the merchant backend that the customers want to pay with specific payment method. The merchant backend sends the `whitelist_bins` accordingly.
+It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for payment method specific promo. It does do not have to be different `buttons`, UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with < payment method >" check box.
+When customer choose it, frontend should forward the information to the merchant backend that the customers want to pay with payment method specific promo. The merchant backend then need to sends the `enabled_payments` accordingly.
 
 #### The customer transactions are denied because of fraud detection system. If I trust the customer, can I request whitelist?
 Yes. If you trust the customer and wish to whitelist the customer, please provide the list of customer emails and send the request as email to operations.fraud@midtrans.com.
@@ -580,9 +580,15 @@ This issue happens because of the *Server Key* and *Client Key* mismatch. Please
 * *Server Key* and *Client Key* used are for the same environment (Sandbox/Production) of the specific MID/account.
 
 #### How should I implement offline installment card payment?
-You have to use `whitelist_bins` to implement offline installment payment. The customer can pay with the whitelisted card only. The customer cannot use other cards or banks that are not in `whitelist-bins`.
+You will have to add `whitelist_bins` & `bank` JSON param on the API request to implement offline installment payment. The customer will only be able to pay with the whitelisted card. The customer cannot use other cards or banks that are not in `whitelist_bins`.
 
-It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for offline installment. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {Offline-Installment-bank-name} Installment" check box. It should give the information to the merchant backend that the customers want to pay with offline installment. The merchant backend sends the `whitelist_bins` accordingly.
+It is not recommended to add/mix this parameter with your online-installment or regular-payment flow. As it may have different `whitelist_bins` restriction & different acquiring `bank` destination.
+
+It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for offline installment. It does do not have to be different `buttons`, UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {Offline-Installment-bank-name} Installment" check box. When customer choose it, frontend should forward the information to the merchant backend that the customers want to pay with offline installment. The merchant backend then need to sends the `whitelist_bins` & `bank` accordingly.
+
+Documentation of offline installment implementation:
+- For [Snap](/en/snap/advanced-feature#offline-installment)
+- For [Core API](/en/core-api/advanced-features#offline-installment)
 
 #### Is it possible to identify card issuer or brand based on the card number?
 Yes, it is possible. The first 6-digit of the card is called: Bank Identification Number (BIN). This can help to identify the card issuer or the bank. For example, `410505` belongs to BNI Visa card, `477377` belongs to BCA Visa card, and so on.
@@ -608,9 +614,8 @@ For more reference on card transaction, refer to [Introduction to Card Payment p
 #### I want to use card BIN specific promo campaign. How should I implement this?
 You have to use `whitelist_bins` for BIN-specific promo. The customer can pay with the whitelisted card only. The customer cannot use other cards or banks that are not in `whitelist-bins`.
 
-It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for BIN specific promo. You do not have to use different `buttons` to separate payment flow. UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {the promo name}" check box.
-It should give the information to the merchant backend that the customers want to pay with BIN specific promo. The merchant backend sends the `whitelist_bins` accordingly.
-
+It is recommended to have separate payment flow (or separate payment button, check boxes, and so on) for BIN specific promo. It does do not have to be different `buttons`, UX-wise you can make it as check boxes for customers to select. For example, "I want to pay with {the promo name}" check box.
+When customer choose it, frontend should forward the information to the merchant backend that the customers want to pay with BIN specific promo. The merchant backend then need to sends the `whitelist_bins` accordingly.
 
 <!-- ### I want to use Bin API ( /v1/bins/bin_number), but I am getting "Invalid authentication credentials"?
 In order to use Bin API, request the Turbo team to whitelist the specific merchant. Provide Merchant ID and the environment.

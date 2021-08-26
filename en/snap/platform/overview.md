@@ -140,6 +140,7 @@ For example:
 	- [Other bank transfer & debit](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055297)
 	- [Card Payment](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055299)
 	- [Card Installment Payment](https://www.shopify.com/login?redirect=%2Fadmin%2Fauthorize_gateway%2F1055413)
+	- Note: BCA Klikpay is not available due to the Shopify's payment flow does not meet the [extensive requirements listed by BCA Team](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
 
 2. When prompted, login with your Shopify account. Click **Install** on the payment gateway.
 ![shopify](./../../../asset/image/shopify-13.png ':size=400')

@@ -26,7 +26,7 @@
 We force HTTPS for all services using TLS (SSL), including our public website and Merchant Administration Portal. 
 `midtrans.min.js` and `snap.js` are hosted on our Production server, are served only over HTTPS. We suggest merchants not to host these files on their servers. 
 
-Please make sure your system are able to communicate with Midtrans securely by referring to [this article about SSL/TLS](https://blog.midtrans.com/time-to-upgrade-to-tls-version-1-2/).
+Please make sure your system are able to communicate with Midtrans securely by referring to [this article about SSL/TLS](https://midtrans.com/id/blog/time-to-upgrade-to-tls-version-1-2).
 
 ### Card Data Secure Transmission
 
