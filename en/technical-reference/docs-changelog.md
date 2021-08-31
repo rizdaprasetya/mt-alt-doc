@@ -1,6 +1,12 @@
 # Docs Changelog
 <hr>
 
+#### 2021/08/31
+- faq: update WC order id duplicate faq with better solution via updating plugin
+- add note on shopify 1 order id can sometimes result in many payment id
+- add note on shopify UX refund flow limitations
+- auto scroll on load will now works for fragment link within collapsed details
+
 #### 2021/08/26
 - faq: improve wording on separate installment/promo button
 - add note that BCA klikpay is not available for Shopify
