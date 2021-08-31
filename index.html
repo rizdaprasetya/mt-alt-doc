@@ -422,6 +422,13 @@
                                         var spacedId = urlId.replace(/-/g,' ');
                                         element = document.querySelector('.docsify-tabs__tab[data-tab="'+spacedId+'"]');
                                     }
+                                    // if element is not visible, in case the <details> is collapsed, then expand it.
+                                    if(!element.offsetParent){
+                                        var detailsEl = element.closest('details');
+                                        if (detailsEl){
+                                            detailsEl.open = true;
+                                        }
+                                    }
                                     var offset = window.$docsify.topMargin;
                                     var bodyRect = document.body.getBoundingClientRect().top;
                                     var elementRect = element.getBoundingClientRect().top;
