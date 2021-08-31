@@ -1308,6 +1308,7 @@ Alternatively, only if needed, you can also:
 <!-- END OF Category --><hr>
 ### CMS Plugins
 #### WooCommerce: unable to pay getting error message transaction_details.order_id sudah digunakan
+?> This issue is now solved/handled on plugin version v2.31 and greater. It is recommended to update to the latest Midtrans Woocommerce plugin version to automatically solve this issue. But if you are unable to update or want to solve it manually, you can proceed to read below.
 
 When you are using Midtrans WooCommerce payment plugin, then if your customer encounter error messages that says `transaction_details.order_id sudah digunakan`, or you are getting validation error email notification with that same message, follow suggestion below.
 
