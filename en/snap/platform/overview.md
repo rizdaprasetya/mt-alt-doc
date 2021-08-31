@@ -236,8 +236,15 @@ Inside the order found by the search result, you can see the reference number.
 
 ![shopify](./../../../asset/image/shopify-11.png ':size=400')
 
-From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details.
+From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details. You will see the Midtrans order ID shown as `Authorization Key` or `X Reference`.
 ![shopify](./../../../asset/image/shopify-20.png ':size=400')
+
+?> Due to Shopify's payment UX flow which may allow 1 Shopify order to generate multiple payment id (order_id on Midtrans side), you may see multiple different `Authorization Key` or `X Reference` shown. Usually the most valid/recent one is the one from the latest (top-most) history shown on the Shopify’s order timeline.
+
+Known case that may cause "1 Shopify order to generate multiple payment id (order_id on Midtrans side)":
+- After customer did first payment attempt and reach Midtrans's payment page, merchant trigger `Resend Invoice` from Shopify's order page. This action will send email to the customer with another payment url. Which will generate another payment page (and another order_id) on Midtrans side.
+
+You should avoid this scenario, if you find it cause a confusing situation.
 
 ##### From Exported Order
 You can also find the reference number on the exported CSV file using Shopify export feature: __All Orders->Export->Export Orders.__ Then search within the CSV file.
