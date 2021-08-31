@@ -236,8 +236,15 @@ Inside the order found by the search result, you can see the reference number.
 
 ![shopify](./../../../asset/image/shopify-11.png ':size=400')
 
-From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details.
+From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details. You will see the Midtrans order ID shown as `Authorization Key` or `X Reference`.
 ![shopify](./../../../asset/image/shopify-20.png ':size=400')
+
+?> Due to Shopify's payment UX flow which may allow 1 Shopify order to generate multiple payment id (order_id on Midtrans side), you may see multiple different `Authorization Key` or `X Reference` shown. Usually the most valid/recent one is the one from the latest (top-most) history shown on the Shopify’s order timeline.
+
+Known case that may cause "1 Shopify order to generate multiple payment id (order_id on Midtrans side)":
+- After customer did first payment attempt and reach Midtrans's payment page, merchant trigger `Resend Invoice` from Shopify's order page. This action will send email to the customer with another payment url. Which will generate another payment page (and another order_id) on Midtrans side.
+
+You should avoid this scenario, if you find it cause a confusing situation.
 
 ##### From Exported Order
 You can also find the reference number on the exported CSV file using Shopify export feature: __All Orders->Export->Export Orders.__ Then search within the CSV file.
@@ -288,9 +295,14 @@ For example:
 - Canceling `pending` order on Shopify, will also make Midtrans order status to be marked as `cancel`.
 - Refunding `paid` order on Shopify, will also make Midtrans order status to be marked as `refund`/`cancel`.
 
-Not all payment types support online `refund`. On Midtrans side, capability is mostly limited to Card & GoPay transaction, if your Midtrans account is allowed to trigger online refund.
+Limitations:
+- Not all payment methods support online `refund` on Midtrans side, capability is mostly limited to Card & e-money/QRIS transaction.
+- Will only works if your Midtrans account is allowed to trigger online refund.
+- Shopify's refund UI/UX can be a little bit confusing, after clicking refund it may not tell you whether the refund is successful or not. It only shows `refund processing` which **should not be confused as an indication of success**. You can follow the refund status from the Shopify Order’s timeline. If it is marked as `pending` or failure, the refund is not successful.
+- It is more recommended to manage payment refund & cancellation from Midtrans Dashboard instead. As it will have a better indication of refund success and failure.
+- `cancel` or `refund` action triggered on Midtrans dashboard/API, may or may not be synced to Shopify due to some limitation.
 
-However, `cancel` or `refund` action triggered on Midtrans dashboard/API, may or may not be synced to Shopify due to some limitation.
+?> The more accurate payment status is the one shown on Midtrans dashboard. You should refer to it in case there are discrepancies on Shopify's side. Because in some rare case payment status syncing to Shopify's system may fail, and Shopify's order details UI can be confusing to read.
 
 ##### Note on Canceling Order
 Canceling a paid order will auto trigger attempt to refund/cancel payment on Payment Gateway (Midtrans) side. That is the flow of Shopify that Merchant and Payment Gateway follows. Please avoid canceling a paid order when you mean to edit/customize the item or size.
