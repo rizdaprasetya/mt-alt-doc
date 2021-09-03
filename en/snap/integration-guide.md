@@ -369,6 +369,8 @@ Postman is an API development tool which is used to build, test and modify APIs.
 
 ?>***Tips***: You can [include more information](/en/snap/advanced-feature.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
+Learn more on why this API request [should be securely managed from your backend](/en/security/overview#keep-sensitive-parameters-secured).
+
 #### Sample Response
 
 The API response for a successful API request is shown below.

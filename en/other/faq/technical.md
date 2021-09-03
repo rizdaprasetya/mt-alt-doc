@@ -1051,6 +1051,11 @@ It applies to other E-Money payment providers too. For example, if the issue hap
 
 Also please refer to [this section if none of them works](#if-none-works).
 
+#### Customer redirected to app store instead of directly to payment app for e-money transaction. What should I do?
+For e-money payment methods (GoPay, ShopeePay, etc.), Midtrans will provide you Deep/Universal Link for your app/web to redirect your customer. This issue can happen if you are implementing your payment page in a Webview, and handling the redirect link within Webview in your app.
+
+To solve this, you will need to configure your app to handle the redirect link on OS/browser level instead of from within the default webview. Please [follow these steps to implement a fix](#ios-webview-specific).
+
 #### I am using GoPay `callback_url` but the customer is not redirected to expected URL/deeplink. What is wrong?
 For GoPay transaction, you can specify the `callback_url`. After attempting GoPay payment within Gojek app, the customer will be redirected to `callback_url` whether the result is failure or success. If the customer did not get redirected properly, please check the points given below.
 - **If the customer is making payment on Gojek app via QR Code**
@@ -1307,6 +1312,20 @@ Alternatively, only if needed, you can also:
 
 <!-- END OF Category --><hr>
 ### CMS Plugins
+#### Merchant is using other Wordpress ecommerce plugins, can payment be integrated with Midtrans?
+Currently Wordpress based ecommerce CMS plugins that are officially supported by Midtrans [are the one listed here](/en/snap/with-plugins#cms-plugins-and-extensions-supported-by-midtrans). But, since many other WP ecommerce plugins can also utilize WooCommerce to handle payment, it means Midtrans’ WooCommerce payment plugin can also be used.
+
+For example, here are a few WP ecommerce plugins that is known to allow payment via WooCommerce:
+- **EventPress**: Although you may need to [configure paid order-status](/en/snap/with-plugins#advanced-customize-woocommerce-order-status-upon-payment-paid) to `completed`, depending on your needs.
+- **Ultimate Member**: you can follow this [link to allow payment via WooCommerce](https://docs.ultimatemember.com/article/131-woocommerce-setup).
+- **Paid Memberships Pro**:  you can follow this [link to allow payment via WooCommerce](https://www.paidmembershipspro.com/add-ons/pmpro-woocommerce).
+- And more, you may need to check with their documentation/community/support on how to allow payment via WooCommerce.
+
+In summary the main idea is: 
+1. Integrate/configure the commerce plugin you are using to allow payment via WooCommerce.
+2. [Install & configure Midtrans WooCommerce](/en/snap/with-plugins#wordpress-woocommerce) payment plugin.
+3. Midtrans as payment gateway in WooCommerce will then be available for your site.
+
 #### WooCommerce: unable to pay getting error message transaction_details.order_id sudah digunakan
 ?> This issue is now solved/handled on plugin version v2.31 and greater. It is recommended to update to the latest Midtrans Woocommerce plugin version to automatically solve this issue. But if you are unable to update or want to solve it manually, you can proceed to read below.
 

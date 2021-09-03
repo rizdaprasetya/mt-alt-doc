@@ -235,6 +235,8 @@ curl -X POST \
 
 You can also customize the output virtual account number for the transaction. For more details, please refer to [Specifying VA Number](#Specifying-VA-Number).
 
+Learn more on why this API request [should be securely managed from your backend](/en/security/overview#keep-sensitive-parameters-secured).
+
 #### Sample Response and Response Body
 The sample response and description of response body for *Bank Transfer* payment method is shown below.
 

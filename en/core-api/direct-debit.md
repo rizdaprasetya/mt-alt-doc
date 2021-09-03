@@ -149,6 +149,8 @@ curl -X POST \
 
 ?>***Tips***: You can [include more information](/en/core-api/advanced-features.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
 
+Learn more on why this API request [should be securely managed from your backend](/en/security/overview#keep-sensitive-parameters-secured).
+
 #### Sample Response and Response Body
 The sample API responses and a description of the response body for the available *Direct Debit* payment methods are shown below.
 <!-- tabs:start -->

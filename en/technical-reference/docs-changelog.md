@@ -1,6 +1,15 @@
 # Docs Changelog
 <hr>
 
+<!-- #### Unreleased 
+
+-->
+
+#### 2021/09/03
+- add emphasis to handle API params securely via bakend on integration guides
+- faq: possibility to use Midtrans WC plugin for other WP based ecommerce CMS plugin
+- faq: customer redirected to app store instead directly to e-money app
+
 #### 2021/08/31
 - faq: update WC order id duplicate faq with better solution via updating plugin
 - add note on shopify 1 order id can sometimes result in many payment id
