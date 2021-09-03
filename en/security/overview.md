@@ -50,7 +50,12 @@ Midtrans is always open to inputs or suggestions related our security processes.
 
 ### Keep Your Server Key Secured
 
-The *Server Key* you obtained from your Midtrans account is strictly informed only to you as a Merchant. The *Server Key* should be kept secret. To learn more about how to secure your *Server Key*, please refer to [this article](https://blog.midtrans.com/bagaimana-cara-menyimpan-server-key-dengan-aman/).
+The *Server Key* you obtained from your Midtrans account is strictly informed only to you as a Merchant. The *Server Key* should be kept secret. To learn more about how to secure your *Server Key*, please refer to [this article](https://midtrans.com/id/blog/bagaimana-cara-menyimpan-server-key-dengan-aman).
+
+### Keep Sensitive Parameters Secured
+Payment parameters (JSON payload) like `gross_amount`, `order_id`, `credit_card.secure`, and so on are also sensitives, those shouldn't be directly editable from customer side. Otherwise, you are risking your customer being able to modify the payment amount (you may receive wrong/less amount of payment), order id, and/or 3D Secure configuration (you will be more prone to fraud).
+
+This is your implementation responsibility, it can be securely managed from your backend, e.g: via validation and implementation logic.
 
 ### Others
 With the various Security protections provided above,
