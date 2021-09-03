@@ -1051,6 +1051,11 @@ It applies to other E-Money payment providers too. For example, if the issue hap
 
 Also please refer to [this section if none of them works](#if-none-works).
 
+#### Customer redirected to app store instead of directly to payment app for e-money transaction. What should I do?
+For e-money payment methods (GoPay, ShopeePay, etc.), Midtrans will provide you Deep/Universal Link for your app/web to redirect your customer. This issue can happen if you are implementing your payment page in a Webview, and handling the redirect link within Webview in your app.
+
+To solve this, you will need to configure your app to handle the redirect link on OS/browser level instead of from within the default webview. Please [follow these steps to implement a fix](#ios-webview-specific).
+
 #### I am using GoPay `callback_url` but the customer is not redirected to expected URL/deeplink. What is wrong?
 For GoPay transaction, you can specify the `callback_url`. After attempting GoPay payment within Gojek app, the customer will be redirected to `callback_url` whether the result is failure or success. If the customer did not get redirected properly, please check the points given below.
 - **If the customer is making payment on Gojek app via QR Code**
