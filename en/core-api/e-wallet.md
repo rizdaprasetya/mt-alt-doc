@@ -411,7 +411,7 @@ You need to prepare an implementation of `callback_url` on your web/app. Custome
 | order_id | Order ID sent on the Charge Request|
 | result | Result of the transaction to decide what kind of page to show to customer. Possible values: `success` or `failure`|
 
-?> ***Note:*** To update transaction status on your backend/database, DO NOT solely rely on frontend callbacks! For security reason to make sure the status is authentically coming from Midtrans, only update transaction status based on [HTTP Notification](#_3-handling-post-transaction) or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status)
+?>***Note*** : To update the **Transaction Status** on merchant backend/database, **do not** solely rely on frontend callbacks. For security reasons, to make sure that the **Transaction Status** is authentically coming from Midtrans, you can update **Transaction Status** by waiting for [HTTP Notification](/en/after-payment/http-notification.md) or timely call [API Get Status](/en/after-payment/get-status) on your backend.
 
 ## 3. Handling Post-Transaction
 When the transaction status changes, Midtrans notifies you at the *Redirect URL* and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
