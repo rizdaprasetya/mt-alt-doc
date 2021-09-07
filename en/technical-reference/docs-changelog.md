@@ -2,7 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
-
+- faq: about granular reason of payment failure on frontend e-money app
 -->
 
 #### 2021/09/03
