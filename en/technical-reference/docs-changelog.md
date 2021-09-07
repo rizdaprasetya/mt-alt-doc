@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 - faq: about granular reason of payment failure on frontend e-money app
+- add note of 3DS 2.0 js callback behaviour on card payment integration guide
 -->
 
 #### 2021/09/03
