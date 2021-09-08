@@ -809,6 +809,13 @@ Most of the time this can be caused by a promotion period (especially “cashbac
 
 Those numbers are what you should try to verify on your side. Also the question of are you having promo lately (whether it is your internal, with payment provider, or the payment provider itself)? That might trigger this kind of case. But if there is no promo confirmed and no “payment successfully paid”  count increase, then it might be something else.
 
+#### Can merchants get granular information about why e-money payment expired, left unpaid, or why payment attempts failed?
+This explanation applies to the case of payment created as `pending` on Midtrans' side, then merchants have redirected customers to the e-money payment provider’s app, but then the payment attempt fails. The failures usually are informed to the customer from the payment app, (e.g: “insufficient balance”, “account blocked”, “wrong PIN input”, etc.) this is frontend side payment validation. Unfortunately these kinds of failures currently are not reflected to Merchant (and Midtrans) on the backend side, so we have no granular information on the frontend validation failures. 
+
+However, the payment app will usually offer solutions to customers and encourage them to retry (e.g: asking them to top up their balance, or reset their PIN, etc), so the customer can end up successfully able to make the payment. As long as they retry before the expiry-time is exceeded. From a business perspective, this is good, it can help you increase payment acceptance rate. 
+
+But the downside is that if the customer ends up abandoning the payment, it won’t immediately update the payment status to failure. It will wait until the expiry-time is exceeded, and then it will be recorded as `expire`. This is the nature of asynchronous payment type.
+
 #### My developer tested failure scenario within GoPay simulator. Nothing happened and the transaction status is still pending. What happened?
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
@@ -1070,7 +1077,7 @@ Sometimes callback_url triggers redirect to another URL, or you have internal re
 \#gopay \#mobile \#snap
 
 #### After creating a GoPay transaction or after the transaction status is pending, how long is it available for payment?
-The default expiry for GoPay transaction is 15 minutes. However this can be customized by sending additional JSON parameter `custom_expiry` ([Core API](https://api-docs.midtrans.com/#charge-features)) or `expiry` ([Snap API](https://snap-docs.midtrans.com/#json-objects)) during transaction creation.
+The default expiry for GoPay transaction is 15 minutes. However this can be customized by sending additional JSON parameter `custom_expiry` ([Core API](https://api-docs.midtrans.com/#charge-transactions)) or `expiry` ([Snap API](https://snap-docs.midtrans.com/#json-objects)) during transaction creation.
 
 It is **not recommended to set expiry less than 15 minutes**. Expiry time is subjected to some delay because of batch processing of periodic expire transactions. Midtrans expiry scheduler may only reliably expires the transaction within 15 minutes or more. If you want the transaction to expire in real time or less than 15 minutes, utilize API [cancel](https://api-docs.midtrans.com/#cancel-transaction) or [expire](https://api-docs.midtrans.com/#expire-transaction) which you can trigger anytime on a `pending` transaction.
 
@@ -1153,7 +1160,7 @@ Please check the API response, it usually contains more reason of why transactio
 ```
 
 Sometimes `status_message` may already explains the reason, then you can further check `channel_response_code` response code definition explained here:
-https://api-docs.midtrans.com/#go-pay-response-codes
+https://api-docs.midtrans.com/#gopay-response-codes
 
 In this example it means GoPay side is returning `900` response code, which means intermittent service error. For the most cases, it is retriable. There might be temporary issue from GoPay at that time, please retry sometimes later.
 

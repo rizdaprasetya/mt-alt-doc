@@ -621,7 +621,11 @@ Sample of failure transaction callback response, is shown below.
 
 If the `transaction_status` is `capture` and `fraud_status` is `accept`, it means the transaction is successfully completed.
 
-?>***NOTE*** : To update the *Transaction Status* on merchant backend/database, DO NOT solely rely on frontend callbacks. For security reasons, make sure that the *Transaction Status* is authentically coming from Midtrans. Update *Transaction Status* based on HTTP Notification or [API Get Status](https://api-docs.midtrans.com/#get-transaction-status) only.
+If the `transaction_status` is `pending`, it means the transaction is waiting for further external action (by customer to complete 3DS process, and/or by 3DS provider to verify it).
+
+?>***Note*** : To update the **Transaction Status** on merchant backend/database, **do not** solely rely on frontend callbacks. For security reasons, to make sure that the **Transaction Status** is authentically coming from Midtrans, you can update **Transaction Status** by waiting for [HTTP Notification](/en/after-payment/http-notification.md) or timely call [API Get Status](/en/after-payment/get-status) on your backend.
+
+Specific if the transaction is processed via 3DS 2.0 (when the acquiring bank and the MID support), this frontend callback can remain `pending` for a while, waiting for the card's 3DS provider to process it. To get confirmation of payment success, you can follow *Note* above.
 
 ## 4. Handling After Payment
 When the *Transaction Status* changes, Midtrans notifies you at the redirect URL and sends HTTP notification to the merchant backend. This ensures that you are updated of the transaction status securely.
@@ -657,7 +661,7 @@ The table given below, describes the `transaction_status`.
 | Transaction Status | Description |
 | ------------------ | ----------- |
 | `capture` | The transaction is successful. Funds have been deducted from the customers' account. |
-| `pending` | The transaction is initiated and is waiting for further action by customer (3DS). |
+| `pending` | The transaction is initiated and is waiting for further external action (by customer to complete 3DS process, and/or by 3DS provider to verify it). |
 | `deny` | The transaction is denied. <br>Check `channel_response_message` or `fraud_status` for details. |
 | `expire` | The transaction failed, because customer did not complete 3DS within the expiry time. |
 

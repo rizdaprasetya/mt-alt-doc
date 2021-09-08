@@ -651,7 +651,7 @@ For more use cases, refer to [One Click, Two Click, and Recurring Transaction](h
 
 Note that the [Recurring / Subscription mentioned above](#recurring-subscription-card-transaction) is relying on your system/backend to schedule and trigger the recurring charges. Additionally, Midtrans also **support automatically charge recurring for you based on your specified schedule**.
 
-Follow the same implementation as [mentioned above](#recurring-subscription-card-transaction), to the point your system retrieved the `saved_token_id`. Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#recurring-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
+Follow the same implementation as [mentioned above](#recurring-subscription-card-transaction), to the point your system retrieved the `saved_token_id`. Then you can proceed with [Core API's Recurring API feature here](https://api-docs.midtrans.com/#subscription-api). To specify the schedule of when Midtrans should charge recurringly to your customer.
 
 ?> Note: This feature requires special MID from acquiring bank, this utilize what bank usually call as "recurring MID". Which may means additional business agreement with the acquiring bank, you should consult Midtrans Activation team to activate this feature.
 

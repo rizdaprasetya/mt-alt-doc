@@ -15,7 +15,7 @@ Overview of the transaction flow in sequence diagram:
 
 ## 1. Get QR Code Image URL
 
-Charge API request should be done from Partner's backend. **Server Key** (given by Midtrans Business PIC) will be needed to [authenticate the request](https://api-docs.midtrans.com/#http-s-header).
+Charge API request should be done from Partner's backend. **Server Key** (given by Midtrans Business PIC) will be needed to [authenticate the request](https://api-docs.midtrans.com/#authorization-header).
 
 ### Charge API Request
 
@@ -158,7 +158,7 @@ Link: [*More detailed definition of fraud_status*](https://api-docs.midtrans.com
 ## Additional Notes / FAQ
 
 ### Expiry Time
-By default expiry for Gopay transaction is 15 minutes. However this can be customized by sending additional JSON parameter during transaction creation. Partner can send `custom_expiry` ([Core API docs](https://api-docs.midtrans.com/#charge-features)).
+By default expiry for Gopay transaction is 15 minutes. However this can be customized by sending additional JSON parameter during transaction creation. Partner can send `custom_expiry` ([Core API docs](https://api-docs.midtrans.com/#charge-transactions)).
 
 It is **not recommended to set expiry below 15 minutes**, because Midtrans' expiry scheduler only reliably expire transaction with 15 minutes or more expiry, 15 minutes is also might be subject to some delay on batch processing of periodic expire transactions. If partner want the transaction to expire in real time or less than 15 minutes, they can utilize API [cancel](https://api-docs.midtrans.com/#cancel-transaction) or [expire](https://api-docs.midtrans.com/#expire-transaction) instead. Which partner can trigger at anytime on a `pending` transaction.
 
@@ -191,7 +191,7 @@ Pleas check the API response, it usually contains more reason of why transaction
 ```
 
 Some time `status_message` might already explain why it failed, then please check `channel_response_code` response code definition is explained here:
-https://api-docs.midtrans.com/#go-pay-response-codes
+https://api-docs.midtrans.com/#gopay-response-codes
 
 In this example it means Gopay side returning `900` response code, which means intermittent service error. For the most case, it is retriable. There's temporary issue from Gopay at that time and please retry at later time.
 
