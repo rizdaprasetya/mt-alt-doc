@@ -1077,7 +1077,7 @@ Sometimes callback_url triggers redirect to another URL, or you have internal re
 \#gopay \#mobile \#snap
 
 #### After creating a GoPay transaction or after the transaction status is pending, how long is it available for payment?
-The default expiry for GoPay transaction is 15 minutes. However this can be customized by sending additional JSON parameter `custom_expiry` ([Core API](https://api-docs.midtrans.com/#charge-features)) or `expiry` ([Snap API](https://snap-docs.midtrans.com/#json-objects)) during transaction creation.
+The default expiry for GoPay transaction is 15 minutes. However this can be customized by sending additional JSON parameter `custom_expiry` ([Core API](https://api-docs.midtrans.com/#charge-transactions)) or `expiry` ([Snap API](https://snap-docs.midtrans.com/#json-objects)) during transaction creation.
 
 It is **not recommended to set expiry less than 15 minutes**. Expiry time is subjected to some delay because of batch processing of periodic expire transactions. Midtrans expiry scheduler may only reliably expires the transaction within 15 minutes or more. If you want the transaction to expire in real time or less than 15 minutes, utilize API [cancel](https://api-docs.midtrans.com/#cancel-transaction) or [expire](https://api-docs.midtrans.com/#expire-transaction) which you can trigger anytime on a `pending` transaction.
 
@@ -1160,7 +1160,7 @@ Please check the API response, it usually contains more reason of why transactio
 ```
 
 Sometimes `status_message` may already explains the reason, then you can further check `channel_response_code` response code definition explained here:
-https://api-docs.midtrans.com/#go-pay-response-codes
+https://api-docs.midtrans.com/#gopay-response-codes
 
 In this example it means GoPay side is returning `900` response code, which means intermittent service error. For the most cases, it is retriable. There might be temporary issue from GoPay at that time, please retry sometimes later.
 
