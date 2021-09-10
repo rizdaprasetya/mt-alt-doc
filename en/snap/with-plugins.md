@@ -705,30 +705,40 @@ The table given below shows the fields and the URL.
 ## Drupal 8
 Midtrans ❤️ Drupal 8! This is the official Midtrans extension for the Drupal E-commerce platform. You can easily integrate your Drupal commerce store with Midtrans payment gateway.
 
+Also Available on [Drupal Project Module](https://www.drupal.org/project/midtrans_commerce)
+
 #### Requirements
 Some of the requirements to continue with the integration process, are listed below.
- * Drupal v8.x **|** Tested up to v8.x
+ * Drupal v8.x/v9.x **|** Tested up to drupal v8.x and drupal v9.x
  * Drupal Commerce 8.x-2.xx **|** Tested up to v8.x - 2.x
  * PHP v5.6.x or later
  * MySQL version 5.0 or later
  * Download Midtrans plugin for Drupal: [Zip file](https://github.com/Midtrans/Midtrans-Drupal8/archive/master.zip) (Open source on [GitHub](https://github.com/Midtrans/Midtrans-Drupal8))
 
-#### Drupal 8 Plugin Installation and Configuration
+#### Composer Installation
+If you are using [Composer](https://getcomposer.org), you can install via composer CLI
+1. Open terminal
+2. Move to your drupal site folder: `cd /[drupal site folder]/`
+2. Run: `composer require drupal/midtrans_commerce`
+
+#### Manual Installation
 To install and configure Drupal 8 plugin, follow the steps given below.
 1. Download the plugin file from the link given above.
-2. Extract the file and rename the folder to **commerce_midtrans**.
+2. Extract the file and rename the folder to **midtrans_commerce**.
 3. Using a FTP client, or your hosting control panel, upload the unzipped plugin folder to your Drupal modules installation's **[Drupal folder]/modules/contrib/** directory.
-4. Open Drupal administration page, click **Extend**.
-5. Under **COMMERCE (CONTRIB)** group, click **Commerce Midtrans**.
+
+#### Plugin Configuration
+1. Open Drupal administration page, click **Extend**.
+2. Under **COMMERCE (CONTRIB)** group, click **Commerce Midtrans**.
    ![Drupal 8 1](./../../asset/image/drupal8_1.png)
-6. Click **Install**.
+3. Click **Install**.
    Drupal 8 plugin is installed successfully.
-7. Go to **Commerce** > **Configuration** > **Payment** > **Payment gateways**.
+4. Go to **Commerce** > **Configuration** > **Payment** > **Payment gateways**.
    ![Drupal 8 2](./../../asset/image/drupal8_2.png)
-8. Click **Add payment gateway**.
+5. Click **Add payment gateway**.
    ![Drupal 8 3](./../../asset/image/drupal8_3.png)
    **Add payment gateway page** is displayed.
-9. Perform the following actions on *Payment gateways* page.
+6. Perform the following actions on *Payment gateways* page.
   * Enter **Name**. This text appears on the button displayed to the customer.
   * Select **Plugins** radio button.
   * Select **Mode**; *Sandbox* for testing transaction and *Production* for real transaction.
@@ -736,7 +746,7 @@ To install and configure Drupal 8 plugin, follow the steps given below.
   * Enter **Server key**.
   * Enter **Client key**.
     > **Note**: Other fields are optional. You may leave it as is.<br>You can retrieve *Merchant ID, Server key,* and *Client key* on Midtrans MAP Dashboard.
-10. Click **Save**.
+7. Click **Save**.
    A confirmation message is displayed.
 
 ![Drupal 8 4](./../../asset/image/drupal8_4.png)
@@ -761,9 +771,9 @@ The table given below shows the fields and the URL.
 | Field                 | URL                            |
 | ------------------------ | --------------------------------------- |
 | Payment Notification URL | [your-site-url]/payment/notify/midtrans |
-| Finish Redirect URL      | [your-site-url]                         |
-| Unfinish Redirect URL    | [your-site-url]                         |
-| Error Redirect URL       | [your-site-url]                         |
+| Finish Redirect URL      | [your-site-url]/payment/finish/midtrans |
+| Unfinish Redirect URL    | [your-site-url]/payment/finish/midtrans |
+| Error Redirect URL       | [your-site-url]/payment/finish/midtrans |
 
 > **Note**:
 >
