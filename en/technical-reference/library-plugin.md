@@ -33,7 +33,7 @@ Did you develop your own library/package/module for Midtrans API, and want us to
 |Opencart|**v2.0, v2.1, v2.2**<br> * [Github](https://github.com/veritrans/SNAP-Opencart)<br> * [Opencart Wiki](https://github.com/veritrans/SNAP-Opencart/wiki)<br>**v2.3**<br> * [Github](https://github.com/Midtrans/SNAP-Opencart-2.3/)<br>**v3.0**<br> * [Github](https://github.com/Midtrans/Midtrans-Opencart3/)<br><br>|
 |Wordpress <br> Woocommerce|**Wordpress v3.9.1 or Greater**<br>**WooCommerce v2.0 or Greater**<br> * [Github](https://github.com/veritrans/SNAP-Woocommerce)<br> * [Wordpress Wiki](https://github.com/veritrans/SNAP-Woocommerce/wiki)<br> * [Wordpress Plugin Site](https://wordpress.org/plugins/midtrans-woocommerce/)<br><br> |
 |WHMCS| **v5.3.12 - v7**<br> * [Github](https://github.com/veritrans/SNAP-whmcs)<br><br>|
-|Drupal Commerce|**7.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal7)<br>**v8.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal8)<br><br> |
+|Drupal Commerce|**7.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal7)<br>**v8.x**<br> * [Github](https://github.com/Midtrans/Midtrans-Drupal8)<br> * [Drupal Module Site](https://www.drupal.org/project/midtrans_commerce)<br><br> |
 |Wordpress <br> Easy Digital Downloads|**Wordpress v3.9.1 or Greater**<br>**v2.x**<br> * [Github](https://github.com/Midtrans/midtrans-edd)<br> * [Wordpress Plugin Site](https://wordpress.org/plugins/edd-midtrans-gateway/)<br><br> |
 
 ## Sample Integration Code
