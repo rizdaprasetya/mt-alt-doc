@@ -4,10 +4,11 @@
 <!-- #### Unreleased 
 -->
 
-#### 2021/09/08
+#### 2021/09/10
 - faq: about granular reason of payment failure on frontend e-money app
 - add note of 3DS 2.0 js callback behaviour on card payment integration guide
 - update fragment link to Core API docs according to new urls
+- update drupal guide according to latest module, now also support Drupal 9
 
 #### 2021/09/03
 - add emphasis to handle API params securely via backend on integration guides
