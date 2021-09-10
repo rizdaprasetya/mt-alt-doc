@@ -192,14 +192,14 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 1. Login to your website as an administrator.
 2. Go to the **Commerce > Configuration > Payment > Payment Gateways**.
-3. Enter your name.
+3. Enter **name** this text appears on the button displayed to the customer.
 4. Click **Midtrans** *Plugin* option button.
 5. Click **Production** *Mode* option button.
 6. Enter **Server key** with the *Server Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 7. Enter **Client key** with the *Client Key* retrieved from [Step 3 above](#_3-retrieving-server-key-and-client-key).
 8. Click **Save**.
 
-Your website is now integrated with Midtrans. For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins.md).
+Your website is now integrated with Midtrans. For more information, refer to [Configuring Drupal CMS Notification](/en/snap/with-plugins.md#drupal-plugin-notification-configuration).
 
 <!-- tabs:end -->
 
