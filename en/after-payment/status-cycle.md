@@ -9,7 +9,7 @@ The table given below describes the life cycle of *Transaction Status* and its p
 
 Transaction Status | Description | Possible changes(s)
 --- | --- | ---
-`pending` | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/Internet banking/E-money app/store). | settlement, <br>expire,<br>cancel, <br>deny 
+`pending` | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/Internet banking/E-money app/store). For card payment method: waiting for customer to complete (and card issuer to validate) 3DS/OTP process. | settlement, <br>expire,<br>cancel, <br>deny 
 `capture` | Transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*.<br />It is safe to assume a successful payment. | settlement, <br />cancel 
 `settlement` | Transaction is successfully settled. Funds have been received. | refund, chargeback, partial_refund, partial_chargeback, deny\*
 `deny` | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for denied transaction, see the `status_message` field in the response. |

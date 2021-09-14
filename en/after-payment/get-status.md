@@ -134,7 +134,7 @@ The following table describes the transaction status.
 | capture            | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. |
 | deny               | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. |
 | expire             | Transaction is not available for processing, because the payment was delayed. |
-| pending            | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-money, and so on. |
+| pending            | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-money, and so on. For card payment method: waiting for customer to complete (and card issuer to validate) 3DS/OTP process. |
 | refund             | Transaction is marked to be refunded. Refund status is triggered by you. |
 | settlement         | The transaction is successfully settled. Funds have been received. |
 

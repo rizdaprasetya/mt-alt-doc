@@ -2,6 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
+- update 'pending' notif definition to include 3DS 2.0 card payment note
 -->
 
 #### 2021/09/10
