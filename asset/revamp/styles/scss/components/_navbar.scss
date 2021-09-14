@@ -152,21 +152,16 @@
         height: 0;
       }
       .sidebar__right-title {
-        font-size: 18px;
-        font-weight: bold;
         color: $blue-darken;
         margin-top: 0;
-        line-height: 24px;
-        letter-spacing: 0.5px;
-        font-style: normal;
       }
 
       ul {
         li {
-          margin-bottom: 12px;
+          padding-bottom: 0.5em;
 
           a {
-            font-size: 14px;
+            font-size: var(--font-size-s);
             font-weight: 500;
             line-height: 20px;
             letter-spacing: 0;
@@ -188,11 +183,20 @@
 
           &.h3 {
             padding-left: 10px;
+            border-left: solid;
+            border-width: var(--docsifytabs-border-px);
+            border-color: var(--docsifytabs-border-color);
 
             a {
-              font-size: 12px;
+              font-size: var(--font-size-s);
               line-height: 18px;
+              font-weight: unset;
             }
+          }
+
+          &.h2 {
+            padding-top: 0.3em;
+            padding-bottom: 0.3em;
           }
 
         }
