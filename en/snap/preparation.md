@@ -3,7 +3,7 @@
 
 This section explains the preparations that are required to get started with *Snap* integration.
 
-### 1. Sign Up for Midtrans Account
+## 1. Sign Up for Midtrans Account
 <br>
 <div class="my-card">
 
@@ -11,7 +11,7 @@ This section explains the preparations that are required to get started with *Sn
 Sign up for Midtrans Merchant Administration Portal (MAP) account, to retrieve your API Keys for *Sandbox* environment and to test integration.
 </div>
 
-### 2. Retrieve API Keys
+## 2. Retrieve API Keys
 <br>
 <div class="my-card">
 

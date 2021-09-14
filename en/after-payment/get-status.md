@@ -3,7 +3,7 @@
 
 To get the status of a transaction, you can send a request to Midtrans API. It will then send back the transaction status. This method requires the transaction `order_id` (or `transaction_id`) as an identifier.
 
-### Endpoint
+## Endpoint
 
 | Method | URL                                                   |
 | ------ | ----------------------------------------------------- |
@@ -11,7 +11,7 @@ To get the status of a transaction, you can send a request to Midtrans API. It w
 
  This retrieves the transaction details for a specified *ORDER_ID*.
 
-### Path Parameters
+## Path Parameters
 
  Parameters | Description                                          
 --- | ---
@@ -19,7 +19,7 @@ To get the status of a transaction, you can send a request to Midtrans API. It w
 
 ?> Note: You can also replace `order_id` used in API urls with `transaction_id`, which uniquely generated from Midtrans side and you received as response when creating transaction, and from HTTP Notification. This is useful if your `order_id` contains unusual character (such as `#`) that may result in an invalid URL pattern.
 
-### HTTP Headers
+## HTTP Headers
 
 ```text
 Accept: application/json
@@ -32,7 +32,7 @@ Authorization: Basic AUTH_STRING
 ?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
 <!-- TODO: add more language examples to the sample request -->
-### Sample Request
+## Sample Request
 
 <!-- tabs:start -->
 
@@ -51,7 +51,7 @@ In the above request, replace `[ORDER_ID]` with your Order ID or Transaction ID.
 
 ?> Each of the official [Midtrans Language Library](/en/technical-reference/library-plugin.md) has *status* function to call Get Status API.
 
-### Sample Response
+## Sample Response
 
 The sample response from `[ORDER_ID]/status` endpoint is shown below.
 
@@ -105,7 +105,7 @@ The table given below describes elements in the response.
 | transaction_status       | The status of the transaction. For more information, refer to [Transaction Status](/en/after-payment/http-notification.md#status-definition). | String |
 | transaction_time         | The date and time of the transaction. The date is in YYYY-MM-DD form and the time is in HH:MM:SS form. The time zone is (GMT+7) | String |
 
-### Status Codes and Errors
+## Status Codes and Errors
 
 | Status Code | Message                              |
 | ----------- | ------------------------------------ |
@@ -113,7 +113,7 @@ The table given below describes elements in the response.
 | 401         | Authentication error.                |
 | 404         | The requested resource is not found. |
 
-### Sample Error Response
+## Sample Error Response
 
  Sample error response is given below.
 
@@ -124,7 +124,7 @@ The table given below describes elements in the response.
 }
 ```
 
-### Transaction Status
+## Transaction Status
 
 The following table describes the transaction status.
 
@@ -140,7 +140,7 @@ Transaction Status | Fund Received | Description
 `partial_refund` | ↩️ | Transaction is marked to be refunded partially (if you choose to refund in amount less than the paid amount). Refund status can be triggered by merchant. 
 `authorize` | 🕒 | Only available specifically only if you are using pre-authorize feature for card transactions (an advanced feature that you will not have by default, so in most cases are safe to ignore). Transaction is successful and card balance is reserved (authorized) successfully. You can later perform API “capture” to change it into `capture`, or if no action is taken will be auto released. Depending on your business use case, you may assume `authorize` status as a successful transaction.
 
-### Fraud Status
+## Fraud Status
 
 The following table describes the fraud status.
 
@@ -155,7 +155,7 @@ Fraud Status | Fund Received | Description
 The same [status definition with notification](/en/after-payment/http-notification?id=status-definition.md) applies.
 
 
-### Other API Action / Method
+## Other API Action / Method
 
 Other API actions that you can perform to an transaction are listed in this section:
 
