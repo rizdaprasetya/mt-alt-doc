@@ -128,25 +128,27 @@ The table given below describes elements in the response.
 
 The following table describes the transaction status.
 
-| Transaction Status | Description                                                  |
-| ------------------ | ------------------------------------------------------------ |
-| cancel             | The transaction is canceled. It can be triggered by you.<br> You can trigger *Cancel* status in the following cases:<br> 1. If you cancel the transaction after *Capture* status.<br> 2. If you deny a transaction after *Challenge* status.<br>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. |
-| capture            | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your parner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. |
-| deny               | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. |
-| expire             | Transaction is not available for processing, because the payment was delayed. |
-| pending            | The transaction is created and is waiting to be paid by the customer at the payment providers like ATM, Internet banking, E-money, and so on. For card payment method: waiting for customer to complete (and card issuer to validate) 3DS/OTP process. |
-| refund             | Transaction is marked to be refunded. Refund status is triggered by you. |
-| settlement         | The transaction is successfully settled. Funds have been received. |
+Transaction Status | Fund Received | Description 
+--- | --- | ---
+`capture` | ✅ | Transaction is successful and card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the same day or the next day or within your agreed settlement time with your partner bank. Then the  transaction status changes to  *settlement*. <br/>It is safe to assume a successful payment. 
+`settlement` | ✅ | The transaction is successfully settled. Funds have been credited to your account. 
+`pending` | 🕒 | The transaction is created and is waiting to be paid by the customer at the payment providers like Direct debit, Bank Transfer, E-money, and so on. For card payment method: waiting for customer to complete (and card issuer to validate) 3DS/OTP process.
+`deny` | ❌ | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for the denied transaction, see the `status_message` in the response. 
+`cancel` | ❌ | The transaction is canceled. It can be triggered by merchant.<br/> You can trigger *Cancel* status in the following cases:<br/> 1. If you cancel the transaction after *Capture* status.<br/> 2. If you deny a transaction after *Challenge* status.<br/>If you fail to respond to a transaction with *Challenge* status within one day, it is automatically canceled by Midtrans. 
+`expire` | ❌ | Transaction is not available for processing, because the payment was delayed. 
+`refund` | ↩️ | Transaction is marked to be refunded. Refund status can be triggered by merchant. 
+`partial_refund` | ↩️ | Transaction is marked to be refunded partially (if you choose to refund in amount less than the paid amount). Refund status can be triggered by merchant. 
+`authorize` | 🕒 | Only available specifically only if you are using pre-authorize feature for card transactions (an advanced feature that you will not have by default, so in most cases are safe to ignore). Transaction is successful and card balance is reserved (authorized) successfully. You can later perform API “capture” to change it into `capture`, or if no action is taken will be auto released. Depending on your business use case, you may assume `authorize` status as a successful transaction.
 
 ### Fraud Status
 
 The following table describes the fraud status.
 
-| Fraud Status | Description                                                  |
-| ------------ | ------------------------------------------------------------ |
-| accept       | Transaction is safe to proceed. It is not considered as fraud. |
-| deny         | Transaction is considered as fraud. It is rejected by Midtrans. |
-| challenge    | Transaction is flagged as potential fraud, but cannot be determined precisely. <br>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API ](https://api-docs.midtrans.com/#approve-transaction)or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br>If no action is taken, the transaction is denied automatically. |
+Fraud Status | Fund Received | Description 
+--- | --- | ---
+`accept` | ✅ | Transaction is safe to proceed. It is not considered as a fraud. 
+`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans. 
+`challenge` | ⚠️ | Transaction is flagged as potential fraud, but cannot be determined precisely. <br/>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API](https://api-docs.midtrans.com/#approve-transaction) or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br/>If no action is taken, the transaction is denied automatically. 
 
 
 

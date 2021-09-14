@@ -44,11 +44,11 @@ This is because the customer did not yet choose any payment method within the Sn
 
 The table given below describes the Fraud status.
 
-| Fraud Status | 🔍    | Description                                                  |
-| ------------ | ---- | ------------------------------------------------------------ |
-| `accept`     | ✅    | Transaction is safe to proceed. It is not considered as fraud. Refer to [Accepting Fraudulent Transaction](en/after-payment/dashboard-usage.md#accepting-fraudulent-transaction) for more details. |
-| `deny`       | ❌    | Transaction is considered as fraud and is denied/rejected for security reasons. For more information, refer to [Denying Fraudulent Transaction](en/after-payment/dashboard-usage.md#accepting-fraudulent-transaction). |
-| `challenge`  | ⚠️    | Transaction is flagged as potential fraud, but cannot be determined precisely. <br> You can accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API.<br />If no action is taken, the transaction is denied automatically. |
+Fraud Status | Fund Received | Description 
+--- | --- | ---
+`accept` | ✅ | Transaction is safe to proceed. It is not considered as a fraud. 
+`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans. 
+`challenge` | ⚠️ | Transaction is flagged as potential fraud, but cannot be determined precisely. <br/>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API](https://api-docs.midtrans.com/#approve-transaction) or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br/>If no action is taken, the transaction is denied automatically. 
 
 <!-- TODO explain how to do refund, approve, deny, cancel, etc -->
 
