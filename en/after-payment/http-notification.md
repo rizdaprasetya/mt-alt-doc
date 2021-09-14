@@ -36,7 +36,7 @@ The table given below describes the fields that can be configured from the Merch
 </article>
 </details>
 
-!> Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. Instead of using private network, you can implement method that is explained on [Verifying Notification Authenticity section](#verifying-notification-authenticity) below.
+!> Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. You may also need to make sure the [following IP address](/en/technical-reference/ip-address#notification-ip-address) is not blocked from your infrastructure. If you just want to make sure the notification is authentic, you can implement [Verifying Notification Authenticity section](#verifying-notification-authenticity) below.
 
 ?> **Tips**: If you are still running/developing your notification handler on localhost, you can utilize the services (such as [Ngrok](https://ngrok.com/), [Serveo](http://serveo.net/), [Localhost.Run](http://localhost.run/), and so on) to expose your localhost server to public Internet. Once you have obtained the Internet accessible URL, you can add it to the *Notification URL* field on *Dashboard*.
 
@@ -963,7 +963,7 @@ You can verify authenticity using the [GET status API Request](/en/after-payment
 ?> **Tips**: Official Midtrans language library will perform "Verify Directly to Midtrans API" mechanism automatically within the built in `notification` function. As well as official Midtrans CMS plugin.
 <!-- tabs:end -->
 
-Verifying notification/response data is recommended for the kind of data flow that is coming to you from an unknown source. This also includes frontend callback data, as frontend data can be modified by the user, you should verify it by querying the Midtrans API. For example, javascript callback data of payment status triggered by Snap.js should be verified via API get-status to Midtrans.
+Verifying notification/response data is recommended for any kind of data flow that is coming to you from an outside source. This also includes frontend callback data, as frontend data can be modified by the user, you should verify it by querying the Midtrans API. For example, javascript callback data of payment status triggered by Snap.js should be verified via API get-status to Midtrans.
 
 For API requests that are performed synchronously (from your) backend-to-backend (to Midtrans API), the response should already be trustworthy. You don’t have to re-query the Midtrans API, unless you want to check for latest updates at some later time.
 

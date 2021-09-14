@@ -3,7 +3,7 @@
 
 ## Notification IP Address
 
-Midtrans sends payment notifications from several IP addresses. In case your system needs to whitelist IP addresses, please add Midtrans CIDR given below to your whitelist.
+Midtrans sends (outgoing) payment notifications from various IP addresses to your notification url (backend). In case your system needs to whitelist IP addresses, please add Midtrans CIDR given below to your whitelist.
 ```
 Production Environment:
 103.208.23.0/24
@@ -23,7 +23,10 @@ Midtrans API endpoint is distributed and protected with multiple layers of secur
 
 ```
 api.midtrans.com
+api.sandbox.midtrans.com
+
 app.midtrans.com
+app.sandbbox.midtrans.com
 ```
 
 ?>If you are unable to **send request to Midtrans**, please ensure that you have whitelisted the above-mentioned domain name.
