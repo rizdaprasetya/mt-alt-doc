@@ -9,7 +9,7 @@ The table given below describes the life cycle of *Transaction Status* and its p
 
 Transaction Status | Description | Possible changes(s)
 --- | --- | ---
-`pending` | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/Internet banking/E-money app/store). | settlement, <br>expire,<br>cancel, <br>deny 
+`pending` | Transaction is created and available/waiting to be paid by customer at the payment provider (ATM/Internet banking/E-money app/store). For card payment method: waiting for customer to complete (and card issuer to validate) 3DS/OTP process. | settlement, <br>expire,<br>cancel, <br>deny 
 `capture` | Transaction is successful and credit card balance is captured successfully. <br/>If no action is taken by you, the transaction will be successfully settled on the next day and transaction status will change to *settlement*.<br />It is safe to assume a successful payment. | settlement, <br />cancel 
 `settlement` | Transaction is successfully settled. Funds have been received. | refund, chargeback, partial_refund, partial_chargeback, deny\*
 `deny` | The credentials used for payment are rejected by the payment provider or Midtrans Fraud Detection System (FDS). <br/>To know the reason and details for denied transaction, see the `status_message` field in the response. |
@@ -44,11 +44,11 @@ This is because the customer did not yet choose any payment method within the Sn
 
 The table given below describes the Fraud status.
 
-| Fraud Status | 🔍    | Description                                                  |
-| ------------ | ---- | ------------------------------------------------------------ |
-| `accept`     | ✅    | Transaction is safe to proceed. It is not considered as fraud. Refer to [Accepting Fraudulent Transaction](en/after-payment/dashboard-usage.md#accepting-fraudulent-transaction) for more details. |
-| `deny`       | ❌    | Transaction is considered as fraud and is denied/rejected for security reasons. For more information, refer to [Denying Fraudulent Transaction](en/after-payment/dashboard-usage.md#accepting-fraudulent-transaction). |
-| `challenge`  | ⚠️    | Transaction is flagged as potential fraud, but cannot be determined precisely. <br> You can accept or deny via Dashboard, or via [Approve](https://api-docs.midtrans.com/#approve-transaction) or [Deny](https://api-docs.midtrans.com/#deny-transaction) API.<br />If no action is taken, the transaction is denied automatically. |
+Fraud Status | Fund Received | Description 
+--- | --- | ---
+`accept` | ✅ | Transaction is safe to proceed. It is not considered as a fraud. 
+`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans. 
+`challenge` | ⚠️ | Transaction is flagged as potential fraud, but cannot be determined precisely. <br/>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API](https://api-docs.midtrans.com/#approve-transaction) or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br/>If no action is taken, the transaction is denied automatically. 
 
 <!-- TODO explain how to do refund, approve, deny, cancel, etc -->
 

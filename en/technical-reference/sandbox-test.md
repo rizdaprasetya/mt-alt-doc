@@ -14,7 +14,7 @@ Payment category:
 - [Direct Debit](#direct-debit)
 - [Cardless Credit](#cardless-credit)
 
-### Card Payments
+## Card Payments
 
 The table given below lists the details to be entered for simulating credit card transactions.
 
@@ -110,7 +110,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 ?> **[General](#card-number)** card number is used for general feature testing of card payment. <br>
 **[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
 
-### E-Money
+## E-Money
 
 |Payment Methods | Description|
 |----------|------------|
@@ -121,7 +121,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 
 ?>***Note***:  On Sandbox, Midtrans uses web-based payment simulator. So, payment that requires app deeplink like GoPay, will use web simulator instead of real app deeplink. To test real app deeplink use cases, please use Midtrans *Production Environment*.
 
-### Bank Transfer
+## Bank Transfer
 
 |Payment Methods | Description|
 |----------------|------------|
@@ -131,7 +131,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 |BNI Virtual Account | Midtrans will generate a dummy BNI Virtual Account Number. To perform a test transaction, use the [BNI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bni/va/index).|
 |BRI Virtual Account | Midtrans will generate a dummy BRI Virtual Account Number. To perform a test transaction, use the [BRI Virtual Account Simulator](https://simulator.sandbox.midtrans.com/bri/va/index).|
 
-### Convenience Store
+## Convenience Store
 
 | Payment Methods | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
@@ -141,7 +141,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 
 ?> ***Note on Alfamart:*** *If you are unable to find out what to input in `Product Code` field, please contact us at support@midtrans.com with subject: `Sandbox Alfamart Product Code` and mention your Merchant ID.*
 
-### Direct Debit
+## Direct Debit
 
 |Payment Methods | Description|
 |----------|------------|
@@ -152,13 +152,13 @@ It is used for testing a specific scenario where the card is not eligible for on
 |KlikBCA | Midtrans will register user id filled in KlikBCA input. To perform a test transaction, use the [KlikBca Simulator](https://simulator.sandbox.midtrans.com/bca/klikbca/index).|
 
 
-### Cardless Credit 
+## Cardless Credit 
 
 |Payment Methods | Description|
 |----------|------------|
 |Akulaku | Midtrans will redirect to Akulaku simulator page.|
 
-### Note & Limitation
+## Note & Limitation
 
 !> **Note: Do not attempt to pay with a real-world payment-provider/bank** to a transaction created in the Sandbox environment. **Sandbox transactions cannot accept real payment, and should be paid only with the sandbox simulator** explained in this page. Midtrans will not be able to help you recover any real-world payment funds if you make this mistake.
 

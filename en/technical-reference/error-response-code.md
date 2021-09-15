@@ -2,7 +2,7 @@
 
 <hr>
 
-### Frequently Encountered Error Codes
+## Frequently Encountered Error Codes
 
 Reasons and possible solutions for some frequently encountered error codes & responses from Midtrans APIs:
 

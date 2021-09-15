@@ -2,6 +2,10 @@
 <hr>
 
 <!-- #### Unreleased 
+- update 'pending' notif definition to include 3DS 2.0 card payment note
+- ensure consistency of transaction & fraud status table between different technical reference pages
+- ensure each page use h2 instead of h3 as section heading
+- right sidebar UI improvement: better visual structure & less crowded feel
 -->
 
 #### 2021/09/10

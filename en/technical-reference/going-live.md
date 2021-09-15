@@ -4,7 +4,7 @@
 This document is designed to assist you in switching from *Sandbox* environment to *Production* environment, in order to start accepting real world payment for your business. This is also known as "Going Live".
 
 
-### 1. Login to Your Midtrans Production Environment Dashboard
+## 1. Login to Your Midtrans Production Environment Dashboard
 
 To login to your Midtrans *Production* environment, follow the steps given below.
 
@@ -13,7 +13,7 @@ To login to your Midtrans *Production* environment, follow the steps given below
 2. Select **Production** Environment from top-left environment switcher dropdown.
     - refer to [Switching Environment](/en/midtrans-account/overview.md#switching-environment) for more details.
 
-### 2. Checking Your Production Account
+## 2. Checking Your Production Account
 
 To make sure your production account is active, follow the steps given below.
 
@@ -22,11 +22,11 @@ To make sure your production account is active, follow the steps given below.
 2. Select **Payment Channels** tab.
     - A list of active payment methods is displayed.
 
-### 3. Retrieving Server Key and Client Key
+## 3. Retrieving Server Key and Client Key
 
 Go to **SETTINGS > ACCESS KEYS**. Server Key and Client Key for *Production* environment and *Sandbox* environment are different. For more information, refer to [Retrieving API access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-### 4. Configuring the Integration
+## 4. Configuring the Integration
 
 Please select which one of integration method you are using:
 
@@ -203,13 +203,13 @@ Your website is now integrated with Midtrans. For more information, refer to [Co
 
 <!-- tabs:end -->
 
-### 5. Configuring HTTP Notification Webhooks URL
+## 5. Configuring HTTP Notification Webhooks URL
 
 - For more information on how to configure HTTP notification URL, refer to [Configuring HTTP Notifications On MAP](/en/after-payment/http-notification.md).
 
 - For **Snap Integration** you can opt to configure redirect URL. For more information, refer to [Configuring Redirect URL](/en/snap/advanced-feature.md#configuring-redirect-url).
 
-### 6. Done! Ready for Production Mode
+## 6. Done! Ready for Production Mode
 
 Now you are ready to accept real world payments in Production mode! You can test it yourself.
 
