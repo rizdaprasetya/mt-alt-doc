@@ -158,7 +158,8 @@
 
       ul {
         li {
-          padding-bottom: 0.5em;
+          padding-top: 0.25em;
+          padding-bottom: 0.25em;
 
           a {
             font-size: var(--font-size-s);
@@ -186,6 +187,13 @@
             border-left: solid;
             border-width: var(--docsifytabs-border-px);
             border-color: var(--docsifytabs-border-color);
+            // transition: border 0.2s ease-in-out;
+            
+            &.active {
+              border-color: $blue;
+              font-weight: 500;
+              // border-width: calc(var(--docsifytabs-border-width)*1.1);
+            }
 
             a {
               font-size: var(--font-size-s);
