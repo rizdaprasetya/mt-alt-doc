@@ -318,7 +318,7 @@
                  * with delay? or looped delay?
                  */
                 function (hook, vm) {
-                    // return 0; // comment to activate
+                    // return 0; // plugin active if this line commented
                     hook.ready(function () {
                         var dd = 0;
                         function openParentListRecursive(el,matchCount,count){
@@ -338,6 +338,7 @@
                             return openParentListRecursive(el.parentNode,matchCount,count)
                         }
                         function closeSubSidebar(el){
+                            dd&&console.log('--- closing',el)
                             var subSidebarOpenEl = el.parentNode.querySelector('.active.open');
                             subSidebarOpenEl.classList.remove('open');
                         }
@@ -356,7 +357,7 @@
                  * Custom plugin to hide Docsify sub-sidebar
                  */
                 function (hook, vm) {
-                    return 0; // comment to activate
+                    return 0; // plugin active if this line commented
                     hook.doneEach(function () {
                         var dd = 0;
                         function hideParentLastSublist(el){

@@ -88,9 +88,9 @@ curl -X POST \
 </article>
 </details>
 
-### Sample of Different Payment Channels
+### Sample for Various Payment Methods
 
-Some sample HTTP notifications for a successful transaction on different payment channels are given below.
+Some sample HTTP notifications for a successful transaction on different payment methods are given below.
 
 <!-- TODO: Update the notification sample with actual test result-->
 

@@ -528,7 +528,7 @@ Integration sample codes are also available on our [GitHub repos](/en/technical-
 
 #### Alternative way to Display Snap Payment Page via Redirect
 
-Alternatively, you can also use `redirect_url` retrieved from backend in the 1st step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js.
+Alternatively, you can also use `redirect_url` retrieved from backend in the [1st step](#sample-response) to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js.
 
 Additionally, you can configure where customer will be redirected after the payment page, by: Login to your MAP/Midtrans Dashboard account, then go to **SETTINGS > CONFIGURATION**. Then please configure the Finish, Unfinish, Error Redirection URLs. 
 

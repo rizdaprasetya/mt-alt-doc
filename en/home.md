@@ -18,7 +18,7 @@ Midtrans helps your business easily accept payments, disburse funds, and more in
 
 Enable your website and app to securely accept payments (subscriptions, installments, and more) from your customers in a few simple steps.
 
-- [Payment Overview](/en/payments/overview.md)
+- [Payment Overview & Comparison](/en/payments/overview.md)
 - [Built-in Interface (Snap)](/en/snap/overview.md)
 - [Custom Interface (Core API)](/en/core-api/overview.md)
 - [Mobile SDK (for Android and iOS )](https://mobile-docs.midtrans.com)
