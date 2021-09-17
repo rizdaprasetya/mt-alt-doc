@@ -2,6 +2,9 @@
 <hr>
 
 <!-- #### Unreleased 
+-->
+
+#### 2021/09/17
 - update 'pending' notif definition to include 3DS 2.0 card payment note
 - ensure consistency of transaction & fraud status table between different technical reference pages
 - ensure each page use h2 instead of h3 as section heading
@@ -12,8 +15,6 @@
 - add link to snap webview section & its demo on relevant pages
 - add note of 3DS 2.0 callback behaviour on snap js callback section
 - add link and visibility of GoPay Recurring
-
--->
 
 #### 2021/09/10
 - faq: about granular reason of payment failure on frontend e-money app
