@@ -7,6 +7,7 @@
 - ensure each page use h2 instead of h3 as section heading
 - right sidebar UI improvement: better visual structure & less crowded feel
 - faq: add note to handle payment deeplink url on webview topics
+- add section about Snap via webview in snap guide
 -->
 
 #### 2021/09/10

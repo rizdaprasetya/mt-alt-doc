@@ -552,5 +552,12 @@ Additionally, you can configure where customer will be redirected after the paym
 </article>
 </details>
 
+#### Display Snap via Mobile App’s WebView
+Displaying Snap payment page within WebView can be a quick and easy way to get a payment page on your mobile app. Learn more about [Displaying Snap via WebView here](/en/other/faq/technical.md#does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
+
+To further minimize implementation, instead of implementing Snap pop-up via `snap.js`, you can use [Snap's `redirect_url`](#sample-response) to be displayed within the WebView.
+
+You can check [demo of Snap displayed via WebView here](https://sample-demo-dot-midtrans-support-tools.et.r.appspot.com/snap-webview).
+
 #### BCA Klikpay Specific
 If you are planning to have **BCA KlikPay** on Production mode, you will [need to additionally meet these requirements.](/en/core-api/direct-debit.md#bca-klikpay-specific)
