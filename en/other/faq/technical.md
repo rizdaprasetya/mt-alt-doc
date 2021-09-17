@@ -486,6 +486,7 @@ Please refer to this [explanation of Snap token default expiry time](/en/snap/ad
     *  Allow WebView to open bank web domain.
 	  A lot of payment methods within Snap, redirect the customer to the bank's website. Your mobile developer needs to ensure that the app allows WebView to open the bank's website domains. All domains needs to be whitelisted, as the customers can use any issuing bank credit card with any website domain.
 - For testing or on Sandbox environment, allow WebView to open Midtrans simulator domain: https://simulator.midtrans.com.
+- Due to Webview's default behavior, sometimes it can fail to redirect to app-based deeplink url (for payment methods that utilize mobile app e.g: GoPay, ShopeePay, etc.). To address this, you may need to [implement the following configuration to your Webview](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 Those configs may be found on app config/manifest. Or specific code when calling WebView.
 
 **Reason:**
@@ -755,7 +756,9 @@ Rest assured, our payment products are compatible to be used on Flutter, React N
 
 The simplest and easiest method is to utilize **WebView** (or similar method to display HTML page). Developer can display (via WebView) the HTML page of *Snap* payment (HTML which utilize snap.js).
 
-Please proceed with [Snap integration](/en/snap/overview?id=various-ways-to-integrate-with-snap) on your web based backend, then you can use WebView to display the payment page from your mobile app.
+Please proceed with [Snap integration](/en/snap/overview.md#various-ways-to-integrate-with-snap) on your web based backend, then you can use WebView to display the payment page from your mobile app. 
+
+Note: Due to Webview's default behavior, sometimes it can fail to redirect to app-based deeplink url (for payment methods that utilize mobile app e.g: GoPay, ShopeePay, etc.). To address this, you may need to [implement the following configuration to your Webview](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 
 Alternatively developer can also utilize [Core API](/en/core-api/overview), which is JSON-based REST API, that should be able to integrate with any framework/platform with custom UI that you can build on your mobile app.
 
