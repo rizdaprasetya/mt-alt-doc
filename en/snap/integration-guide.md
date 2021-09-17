@@ -401,7 +401,7 @@ Status Code | Description | Example
 
 To display Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
-?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect).
+?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect). You can also [use WebView to display Snap payment page](#display-snap-via-mobile-apps-webview) within your mobile app.
 
 The table given below describes the components which are required to display Snap payment page.
 
@@ -435,7 +435,7 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
   </body>
 </html>
 ```
-Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical?id=my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
+Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical.md#my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
 
 >**Tips:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
 >`<meta name="viewport" content="width=device-width, initial-scale=1">` (included on sample above).
@@ -528,7 +528,7 @@ Integration sample codes are also available on our [GitHub repos](/en/technical-
 
 #### Alternative way to Display Snap Payment Page via Redirect
 
-Alternatively, you can also use `redirect_url` retrieved from backend in the 1st step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js.
+Alternatively, you can also use `redirect_url` retrieved from backend in the [1st step](#sample-response) to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js.
 
 Additionally, you can configure where customer will be redirected after the payment page, by: Login to your MAP/Midtrans Dashboard account, then go to **SETTINGS > CONFIGURATION**. Then please configure the Finish, Unfinish, Error Redirection URLs. 
 
@@ -551,6 +551,13 @@ Additionally, you can configure where customer will be redirected after the paym
 
 </article>
 </details>
+
+#### Display Snap via Mobile App’s WebView
+Displaying Snap payment page within WebView can be a quick and easy way to get a payment page on your mobile app. Learn more about [Displaying Snap via WebView here](/en/other/faq/technical.md#does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
+
+To further minimize implementation, instead of implementing Snap pop-up via `snap.js`, you can use [Snap's `redirect_url`](#sample-response) to be displayed within the WebView.
+
+You can check [demo of Snap displayed via WebView here](https://sample-demo-dot-midtrans-support-tools.et.r.appspot.com/snap-webview).
 
 #### BCA Klikpay Specific
 If you are planning to have **BCA KlikPay** on Production mode, you will [need to additionally meet these requirements.](/en/core-api/direct-debit.md#bca-klikpay-specific)

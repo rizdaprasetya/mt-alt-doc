@@ -8,7 +8,7 @@ Reasons and possible solutions for some frequently encountered error codes & res
 
 - `401`, **"Access denied due to unauthorized transaction, please check client or server key"**
     - Your API request used wrong Authorization, please refer to [Authorization Header](/en/technical-reference/api-header.md) on how to do proper API authorization.
-    - Please check your *Server Key* and make sure that you are using appropriate Server Key for the environment. The *Server Key* is different for Sandbox environment and Production environment. Refer to [Retrieving the access keys](/en/midtrans-account/overview?id=retrieving-api-access-keys.md).
+    - Please check your *Server Key* and make sure that you are using appropriate Server Key for the environment. The *Server Key* is different for Sandbox environment and Production environment. Refer to [Retrieving the access keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
     - Wrong environment (sandbox/production) is used. 
         - Check the API url and see if it contains `.sandbox.midtrans.com`, it means you are in sandbox mode. Or if using language library check for the `isProduction` variable value.
 

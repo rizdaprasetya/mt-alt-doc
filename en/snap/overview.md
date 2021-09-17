@@ -11,6 +11,8 @@
   <button onclick="previewSnap(this)" class="my-btn">Preview Snap UI ⎋</button>
 </p>
 
+?> ***Tips***: Snap can also be embedded within your mobile app [using WebView](/en/snap/integration-guide.md#display-snap-via-mobile-apps-webview). Check [demo of Snap displayed in a WebView](https://sample-demo-dot-midtrans-support-tools.et.r.appspot.com/snap-webview)
+
 ## Various Ways to Integrate with Snap {docsify-ignore}
 Select the best suitable method to integrate with *Snap* from the list given below.
 

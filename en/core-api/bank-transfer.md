@@ -526,7 +526,7 @@ Virtual Account number which is displayed to customer, contains two parts. for e
 
 Midtrans creates a random VA number for transaction using *Bank Transfer* payment method. You can customize this VA Number, by adding`bank_transfer` parameters in the Charge API Request Body as shown below.
 
-Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md?id=sample-request-and-request-body).
+Please add **bank_transfer** parameter during [Charge API Request](/en/core-api/bank-transfer.md#sample-request-and-request-body).
 <!-- tabs:start -->
 
 #### **BCA**

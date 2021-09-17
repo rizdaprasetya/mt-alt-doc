@@ -711,7 +711,7 @@ Also Available on [Drupal Project Module](https://www.drupal.org/project/midtran
 #### Requirements
 Some of the requirements to continue with the integration process, are listed below.
 * Drupal v8.x/v9.x **|** Tested up to drupal v8.x and drupal v9.x
-  * Note: this guide is for Drupal 8 & 9. Drupal 7 [check here](/en/technical-reference/library-plugin?id=snap-plugin-for-e-commerce-cms).
+  * Note: this guide is for Drupal 8 & 9. Drupal 7 [check here](/en/technical-reference/library-plugin.md#snap-plugin-for-e-commerce-cms).
 * Drupal Commerce 8.x-2.xx **|** Tested up to v8.x - 2.x
 * PHP v5.6.x or later
 * MySQL version 5.0 or later

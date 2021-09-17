@@ -486,6 +486,7 @@ Please refer to this [explanation of Snap token default expiry time](/en/snap/ad
     *  Allow WebView to open bank web domain.
 	  A lot of payment methods within Snap, redirect the customer to the bank's website. Your mobile developer needs to ensure that the app allows WebView to open the bank's website domains. All domains needs to be whitelisted, as the customers can use any issuing bank credit card with any website domain.
 - For testing or on Sandbox environment, allow WebView to open Midtrans simulator domain: https://simulator.midtrans.com.
+- Due to Webview's default behavior, sometimes it can fail to redirect to app-based deeplink url (for payment methods that utilize mobile app e.g: GoPay, ShopeePay, etc.). To address this, you may need to [implement the following configuration to your Webview](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 Those configs may be found on app config/manifest. Or specific code when calling WebView.
 
 **Reason:**
@@ -755,7 +756,9 @@ Rest assured, our payment products are compatible to be used on Flutter, React N
 
 The simplest and easiest method is to utilize **WebView** (or similar method to display HTML page). Developer can display (via WebView) the HTML page of *Snap* payment (HTML which utilize snap.js).
 
-Please proceed with [Snap integration](/en/snap/overview?id=various-ways-to-integrate-with-snap) on your web based backend, then you can use WebView to display the payment page from your mobile app.
+Please proceed with [Snap integration](/en/snap/overview.md#various-ways-to-integrate-with-snap) on your web based backend, then you can use WebView to display the payment page from your mobile app. 
+
+Note: Due to Webview's default behavior, sometimes it can fail to redirect to app-based deeplink url (for payment methods that utilize mobile app e.g: GoPay, ShopeePay, etc.). To address this, you may need to [implement the following configuration to your Webview](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
 
 Alternatively developer can also utilize [Core API](/en/core-api/overview), which is JSON-based REST API, that should be able to integrate with any framework/platform with custom UI that you can build on your mobile app.
 
@@ -1310,11 +1313,11 @@ Recurring MID is intended to be used for transactions with “saved card token i
 - It is **not intended to be used for regular one time or first time transactions** where the card is yet to be saved.
 
 If you are goal is to do recurring card transaction flow, It is recommended for first time transactions to be using 3DS MID. Like explained on these section for:
-- [Snap Recurring Flow](/en/snap/advanced-feature?id=recurring-subscription-card-transaction)
-- [Core API Recurring Flow](/en/core-api/advanced-features?id=recurringone-click-transaction)
+- [Snap Recurring Flow](/en/snap/advanced-feature.md#recurring-subscription-card-transaction)
+- [Core API Recurring Flow](/en/core-api/advanced-features.md#recurringone-click-transaction)
 
 Alternatively, only if needed, you can also: 
-- Opt to use [Register Card API](/en/core-api/advanced-features?id=recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
+- Opt to use [Register Card API](/en/core-api/advanced-features.md#recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
 - If you really want to perform non-3DS transactions, you can also opt to have an agreement with the acquiring bank to grant you a non-3DS MID. Please contact Midtrans Activation Team to learn more.
 
 <!-- END OF Category --><hr>

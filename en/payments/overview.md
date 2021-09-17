@@ -24,6 +24,10 @@ Snap user interface helps to securely accept payments on your website and mobile
 <div style="text-align: center;">
 
 [Try it yourself with this (less than 5 mins) integration sample! ↗](/en/snap/interactive-demo.md)
+<small>
+
+***Tips:*** Snap can also be embedded within your mobile app [using WebView](/en/snap/integration-guide.md#display-snap-via-mobile-apps-webview). Check [demo of Snap displayed in a WebView](https://sample-demo-dot-midtrans-support-tools.et.r.appspot.com/snap-webview)
+</small>
 </div>
 </div>
 
@@ -91,8 +95,9 @@ You can integrate with Midtrans to start accepting payment with third-party plat
       <td>
         <ul>
           <li>Easy way to integrate payment quickly, & customizable. </li>
-          <li>For web based business or webview capable app. </li>
-          <li>Embed payment page directly within your web & app (via webview)</li>
+          <li>
+
+Embed payment page directly within your web (or mobile app, via [webview](/en/snap/integration-guide.md#display-snap-via-mobile-apps-webview))</li>
           <li>Or redirect customer to Midtrans-hosted payment page.</li>
         </ul>
       </td>
@@ -187,7 +192,7 @@ Compatible with web and non-web applications (hardware devices or custom softwar
 ## Other Options to Integrate {docsify-ignore}
 - [Gopay Integration for POS](/en/other/faq/gopay-pos.md): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
   These devices can easily start accepting payments using the API calls.
-- If you are using non-native/hybrid mobile based app framework (such as React Native, Flutter, etc.) [you can try to follow this suggestion to integrate](/en/other/faq/technical?id=does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
+- If you are using non-native/hybrid mobile based app framework (such as React Native, Flutter, etc.) [you can try to follow this suggestion to integrate](/en/other/faq/technical.md#does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
 
 ## Next Step {docsify-ignore}
 <br>

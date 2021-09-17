@@ -88,9 +88,9 @@ curl -X POST \
 </article>
 </details>
 
-### Sample of Different Payment Channels
+### Sample for Various Payment Methods
 
-Some sample HTTP notifications for a successful transaction on different payment channels are given below.
+Some sample HTTP notifications for a successful transaction on different payment methods are given below.
 
 <!-- TODO: Update the notification sample with actual test result-->
 
@@ -1217,7 +1217,7 @@ Please make sure to check if the notification issue is not from your end. For mo
 
 ### Suggestion on Troubleshooting HTTP Notification Failures
 
-Please refer to this FAQ about [troubleshooting HTTP Notification failures](/en/other/faq/technical?id=how-to-troubleshoot-http-notification-failures).
+Please refer to this FAQ about [troubleshooting HTTP Notification failures](/en/other/faq/technical.md#how-to-troubleshoot-http-notification-failures).
 
 ### Note on TLS v1.3
 Currently our notification engine supports sending notification to your notification url using TLS protocol up to v1.2. Please make sure your backend/notification url still allows connection of TLS v1.2 in order to be able to receive HTTP notification/webhook from Midtrans. 

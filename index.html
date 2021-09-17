@@ -184,7 +184,11 @@
             routerMode: window.willUseDocsifyHashRouter ? 'hash' : 'history',
             auto2top: true,
             maxLevel: 3,
-            subMaxLevel: 2,
+            /**
+             * because right-sidebar is visual structure is good enough, 
+             * we don't need left sub-sidebar anymore. For less cluttered visual.
+             */
+            subMaxLevel: 0,
             plugins: [
                 /**
                  * Custom plugin to show 404 if non-content file is fetched by Docsify.
@@ -316,9 +320,10 @@
                  * @FIXME : hook.ready doesn't wait for sidebar to load, sometimes this script
                  * is executed too soon, need to check if sidebar is loaded or not, 
                  * with delay? or looped delay?
+                 * @NOTE: after subMaxLevel changed to 0, this seems to be still needed
                  */
                 function (hook, vm) {
-                    // return 0; // comment to activate
+                    // return 0; // plugin active if this line commented
                     hook.ready(function () {
                         var dd = 0;
                         function openParentListRecursive(el,matchCount,count){
@@ -338,6 +343,7 @@
                             return openParentListRecursive(el.parentNode,matchCount,count)
                         }
                         function closeSubSidebar(el){
+                            dd&&console.log('--- closing',el)
                             var subSidebarOpenEl = el.parentNode.querySelector('.active.open');
                             subSidebarOpenEl.classList.remove('open');
                         }
@@ -354,9 +360,10 @@
                 },
                 /**
                  * Custom plugin to hide Docsify sub-sidebar
+                 * @NOTE: This seems not needed because it is redundant to subMaxLevel: 0
                  */
                 function (hook, vm) {
-                    return 0; // comment to activate
+                    return 0; // plugin active if this line commented
                     hook.doneEach(function () {
                         var dd = 0;
                         function hideParentLastSublist(el){

@@ -186,7 +186,7 @@ For more details, refer to [Snap Docs](https://snap-docs.midtrans.com/#frontend-
 Snap.js supports callbacks. It can be used to trigger your custom JavaScript implementation on each event. The available callbacks are given below.
 
 * `onSuccess`: Function that will be triggered when payment is successful.
-* `onPending`: Function that will be triggered when payment is pending, which is for payment that requires further customer action, such as bank transfer / VA.
+* `onPending`: Function that will be triggered when payment is pending, which is for payment that requires further customer action, such as bank transfer / VA, or waiting for 3DS/OTP process\*.
 * `onError`: Function that will be triggered when there is a payment failure after several attempts.
 * `onClose`: Function that will be triggered when customer has closed the Snap popup.
 
@@ -215,6 +215,8 @@ window.snap.pay('SNAP_TRANSACTION_TOKEN', {
 })
 ```
 <!-- tabs:end -->
+
+\*Specific if the payment method is Credit Card & processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
 
 ### Custom Finish URL
 By default, Snap will redirect the customer to [Finish Redirect URL configured on Dashboard](#configuring-redirect-url). But you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
