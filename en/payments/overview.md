@@ -192,7 +192,7 @@ Compatible with web and non-web applications (hardware devices or custom softwar
 ## Other Options to Integrate {docsify-ignore}
 - [Gopay Integration for POS](/en/other/faq/gopay-pos.md): The non-conventional web/app platforms (vending machine, TV box, IoT, point of sales, and so on) can be integrated with **Core API** as long as they are connected to the Internet. 
   These devices can easily start accepting payments using the API calls.
-- If you are using non-native/hybrid mobile based app framework (such as React Native, Flutter, etc.) [you can try to follow this suggestion to integrate](/en/other/faq/technical?id=does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
+- If you are using non-native/hybrid mobile based app framework (such as React Native, Flutter, etc.) [you can try to follow this suggestion to integrate](/en/other/faq/technical.md#does-midtrans-support-flutter-react-native-or-other-hybridnon-native-mobile-framework).
 
 ## Next Step {docsify-ignore}
 <br>

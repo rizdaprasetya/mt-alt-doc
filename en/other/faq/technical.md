@@ -1313,11 +1313,11 @@ Recurring MID is intended to be used for transactions with “saved card token i
 - It is **not intended to be used for regular one time or first time transactions** where the card is yet to be saved.
 
 If you are goal is to do recurring card transaction flow, It is recommended for first time transactions to be using 3DS MID. Like explained on these section for:
-- [Snap Recurring Flow](/en/snap/advanced-feature?id=recurring-subscription-card-transaction)
-- [Core API Recurring Flow](/en/core-api/advanced-features?id=recurringone-click-transaction)
+- [Snap Recurring Flow](/en/snap/advanced-feature.md#recurring-subscription-card-transaction)
+- [Core API Recurring Flow](/en/core-api/advanced-features.md#recurringone-click-transaction)
 
 Alternatively, only if needed, you can also: 
-- Opt to use [Register Card API](/en/core-api/advanced-features?id=recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
+- Opt to use [Register Card API](/en/core-api/advanced-features.md#recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
 - If you really want to perform non-3DS transactions, you can also opt to have an agreement with the acquiring bank to grant you a non-3DS MID. Please contact Midtrans Activation Team to learn more.
 
 <!-- END OF Category --><hr>

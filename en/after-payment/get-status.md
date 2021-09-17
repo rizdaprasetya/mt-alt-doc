@@ -152,7 +152,7 @@ Fraud Status | Fund Received | Description
 
 
 
-The same [status definition with notification](/en/after-payment/http-notification?id=status-definition.md) applies.
+The same [status definition with notification](/en/after-payment/http-notification.md#status-definition) applies.
 
 
 ## Other API Action / Method

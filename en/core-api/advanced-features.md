@@ -592,7 +592,7 @@ curl -X POST \
 
 | Parameter        | Description                                                  | Type    |
 | ---------------- | ------------------------------------------------------------ | ------- |
-| token_id         | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response). | String  |
+| token_id         | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md#get-card-token-response). | String  |
 | authentication   | Flag to enable the 3DS authentication.                 | Boolean |
 | bank             | The name of the *Card Issuing Bank* or *Acquiring Bank*. <br>Else, it will be treated as [Offline Installment](#offline-installment). | String  |
 | installment_term | The tenor of installment.                                    | Integer |
@@ -658,7 +658,7 @@ curl -X POST \
 
 Parameter | Description |Type
 --- | --- | ---
-token_id | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response).|String
+token_id | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md#get-card-token-response).|String
 authentication | Flag to enable the 3D secure authentication.|Boolean
 installment_term | The tenor of installment. |Integer
 bins | List of credit card's BIN (Bank Identification Number) that is allowed for transaction. |Array
@@ -716,7 +716,7 @@ curl -X POST \
 
 Parameter | Type | Description |Note
 --- | --- | --- | ---
-token_id | String | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md?id=get-card-token-response).|--
+token_id | String | Represents customer's credit card information acquired from [Get Card Token Response](/en/core-api/credit-card.md#get-card-token-response).|--
 authentication | Boolean | Flag to enable the 3D secure authentication.|--
 type | String | Attribute to enable the pre-authorization feature. |Valid value `authorize`.
 
@@ -749,7 +749,7 @@ The `token_id` is a representation of customer's card information used for the t
 For more details, refer to [Getting the Card Token](/en/core-api/credit-card.md#_1-getting-the-card-token).
 
 #### Charge API Request for the First Transaction
-The `token_id` retrieved is added as an attribute in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md?id=charge-api-request).
+The `token_id` retrieved is added as an attribute in `credit_card` object in the *Request Body* during [Charge API Request](/en/core-api/bank-transfer.md#charge-api-request).
 
 <!-- tabs:start -->
 

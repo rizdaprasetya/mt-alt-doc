@@ -65,7 +65,7 @@ Enter the values of attributes as given below.
 
 For more details about the API, refer to [Get Token](https://api-docs.midtrans.com/#get-token).
 
-Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical?id=my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
+Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical.md#my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
 
 #### Get Card Token JS Implementation
 
