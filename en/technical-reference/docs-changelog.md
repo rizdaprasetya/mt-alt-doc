@@ -10,6 +10,7 @@
 - faq: add note to handle payment deeplink url on webview topics
 - add section about Snap via webview in snap guide
 - add link to snap webview section & its demo on relevant pages
+- add note of 3DS 2.0 callback behaviour on snap js callback section
 
 -->
 
