@@ -401,7 +401,7 @@ Status Code | Description | Example
 
 To display Snap payment page within your site, include `snap.js` library into your payment page HTML.
 
-?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect).
+?> ***Note:*** Alternatively, you can also use `redirect_url` retrieved from backend in the previous step to redirect customer to payment page hosted by Midtrans. This is useful if you do not want or can not display payment page on your web page via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect). You can also [use WebView to display Snap payment page](#display-snap-via-mobile-apps-webview) within your mobile app.
 
 The table given below describes the components which are required to display Snap payment page.
 

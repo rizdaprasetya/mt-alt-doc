@@ -8,6 +8,8 @@
 - right sidebar UI improvement: better visual structure & less crowded feel
 - faq: add note to handle payment deeplink url on webview topics
 - add section about Snap via webview in snap guide
+- add link to snap webview section & its demo on relevant pages
+
 -->
 
 #### 2021/09/10
