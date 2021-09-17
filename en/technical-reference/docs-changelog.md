@@ -6,6 +6,7 @@
 - ensure consistency of transaction & fraud status table between different technical reference pages
 - ensure each page use h2 instead of h3 as section heading
 - right sidebar UI improvement: better visual structure & less crowded feel
+- left sidebar UI improvement: remove sub-sidebar nav links, in favor of right sidebar
 - faq: add note to handle payment deeplink url on webview topics
 - add section about Snap via webview in snap guide
 - add link to snap webview section & its demo on relevant pages
