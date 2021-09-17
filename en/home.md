@@ -84,6 +84,7 @@ Accept recurring payments (subscription, membership, billing, and so on) with fl
 
 - [via Built-in Interface (Snap)](/en/snap/advanced-feature.md#save-card-for-seamless-subsequent-payments)
 - [via Custom Interface (Core API)](/en/core-api/advanced-features.md#recurringone-click-transaction)
+- [GoPay Recurring via Core API](/en/core-api/advanced-features.md#gopay-recurringsubscription)
 
 
   </div>

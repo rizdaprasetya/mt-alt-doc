@@ -1413,6 +1413,12 @@ result  |  Result of the transaction to decide what kind of page to show to cust
 
 ?> ***Note***: You may use the information to display custom message to your customer on your finish URL.
 
+### Gopay Recurring/Subscription
+
+Core API support linking customer's GoPay account to your web/app/business, to allow charging customer in recurring or subscription manner. Follow the documentation of [GoPay Recurring via Tokenization here](https://api-docs.midtrans.com/#gopay-tokenization).
+
+Requires additional **agreement & approval**. Consult Midtrans Activation team to have this feature activated for your merchant account.
+
 ## Bank Transfer/VA
 ### Specifying Custom VA Number and VA Description
 Midtrans creates random VA number for transactions using *Bank Transfer* payment method. In some cases, you can customize the VA number. You can do that with the following parameters.
