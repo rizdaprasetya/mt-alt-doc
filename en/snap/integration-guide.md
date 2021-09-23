@@ -450,9 +450,9 @@ Or try the demo here:
   <button onclick="previewSnap(this)" class="my-btn">Preview Snap UI ⎋</button>
 </p>
 
-After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configure-redirection-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
+After the payment is completed, customer is redirected back to `Finish URL`. It is specified on [Midtrans Dashboard](/en/snap/advanced-feature.md#configuring-redirect-url), under menu **Settings > Snap Preference > System Settings > `Finish URL`**.
 
-?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page.
+?>***Tips***: Optionally, you can also use [JavaScript callbacks](/en/snap/advanced-feature.md#javascript-callback) to handle payment events triggered from customer finishing interaction with Snap payment page on frontend.
 
 ## 3. Creating Test Payment
 Create a test payment to make sure you have integrated Snap successfully. Following are the test credentials for Card payment.
