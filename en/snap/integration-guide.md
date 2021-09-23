@@ -418,10 +418,13 @@ transaction `token` | Retrieved from backend in [previous step](#_1-acquiring-tr
 
 Enter your *Client Key* as the value of `data-client-key` attribute in snap.js script tag. Start the payment process by calling `window.snap.pay` with transaction `token`.
 
+<!-- tabs:start -->
+#### **Simple Implementation**
 ```html
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
     <script type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
       data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
@@ -430,16 +433,66 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
 
   <body>
     <button id="pay-button">Pay!</button>
+
     <script type="text/javascript">
-      var payButton = document.getElementById('pay-button');
       // For example trigger on button clicked, or any time you need
+      var payButton = document.getElementById('pay-button');
       payButton.addEventListener('click', function () {
-        window.snap.pay('SNAP_TRANSACTION_TOKEN'); // Replace it with your transaction token
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('TRANSACTION_TOKEN_HERE');
+        // customer will be redirected after completing payment pop-up
       });
     </script>
   </body>
 </html>
 ```
+
+### **With JS Callback Implementation**
+```html
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+  </head>
+
+  <body>
+    <button id="pay-button">Pay!</button>
+
+    <script type="text/javascript">
+      // For example trigger on button clicked, or any time you need
+      var payButton = document.getElementById('pay-button');
+      payButton.addEventListener('click', function () {
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('TRANSACTION_TOKEN_HERE', {
+          onSuccess: function(result){
+            /* You may add your own implementation here */
+            alert("payment success!"); console.log(result);
+          },
+          onPending: function(result){
+            /* You may add your own implementation here */
+            alert("wating your payment!"); console.log(result);
+          },
+          onError: function(result){
+            /* You may add your own implementation here */
+            alert("payment failed!"); console.log(result);
+          },
+          onClose: function(){
+            /* You may add your own implementation here */
+            alert('you closed the popup without finishing the payment');
+          }
+        })
+      });
+    </script>
+  </body>
+</html>
+```
+Learn more about [Snap's Javascript Callback here](/en/snap/advanced-feature.md#javascript-callback). And about [Snap's Javascript optional params here](/en/snap/advanced-feature.md#snapjs-main-functions). 
+<!-- tabs:end -->
+
 Note: If you are using frontend framework such as ReactJS and struggling to include the script tag, please [refer to this recommendation](/en/other/faq/technical.md#my-developer-uses-react-js-frontend-framework-and-is-unable-to-use-midtransminjssnapjs-what-should-i-do).
 
 >**Tips:** To ensure that Snap popup modal is displayed correctly on a mobile device, please include the viewport meta tag inside your `<head>` tag. The most common implementation:
