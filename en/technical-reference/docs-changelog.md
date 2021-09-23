@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 - add emphasis on importance of verifying & handling payment status update
+- add link to verify payment status on security page
 -->
 
 #### 2021/09/17

@@ -57,6 +57,9 @@ Payment parameters (JSON payload) like `gross_amount`, `order_id`, `credit_card.
 
 This is your implementation responsibility, it can be securely managed from your backend, e.g: via validation and implementation logic.
 
+### Securely Verify Payment Status
+Learn more on how to [securely verify payment status](/en/after-payment/http-notification.md#verifying-notification-authenticity), to avoid system security/financial liability on merchant side.
+
 ### Others
 With the various Security protections provided above,
 
