@@ -5,6 +5,7 @@
 - add emphasis on importance of verifying & handling payment status update
 - add link to verify payment status on security page
 - add note of 3DS 2.0 Snap redirect behaviour
+- improve snap integration guide section for better snap redirect method visibility
 -->
 
 #### 2021/09/17
