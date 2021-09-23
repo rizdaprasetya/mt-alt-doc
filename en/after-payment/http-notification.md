@@ -967,6 +967,8 @@ Verifying notification/response data is recommended for any kind of data flow th
 
 For API requests that are performed synchronously (from your) backend-to-backend (to Midtrans API), the response should already be trustworthy. You don’t have to re-query the Midtrans API, unless you want to check for latest updates at some later time.
 
+?> ***Note:*** Midtrans may not be able to help you with any **financial loss caused if merchants fail to [verify payment status authenticity](#verifying-notification-authenticity)**. Payment status has to be verified coming from Midtrans before you decide to take financial action on it (e.g. delivering good/service to customer when payment status is success). Failing to do so can be considered a security/financial liability on the merchant side.
+
 ## Responding HTTP Notification from Midtrans
 
 To confirm that you received the notification, your notification URL or backend must respond to the HTTP notification with HTTP `status code: 200`. On most backend or web frameworks you can achieve that by printing a string similar to *OK*. This will automatically sends HTTP `status code: 200` to Midtrans. 

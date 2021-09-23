@@ -2,6 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
+- add emphasis on importance of verifying & handling payment status update
 -->
 
 #### 2021/09/17
