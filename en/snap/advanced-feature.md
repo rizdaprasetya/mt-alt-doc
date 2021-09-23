@@ -155,10 +155,11 @@ The final redirect URL is appended with query parameter like `?order_id=xxx&stat
 
 For example the final redirect URL may look like this: `https://tokoecommerce.com/finish_payment/?order_id=CustOrder-102123123&status_code=200&transaction_status=capture`.
 
---------------------
-
 You may use this information to display custom message to your customer on your finish URL.
 
+Note: Specific if the payment method is Credit Card & processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger redirect with `?transaction_status=pending` instead of `capture/settlement`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
+
+--------------------
 ### Snap.js Function and Options
 Snap.js supports various useful options, such as specifying language, specifying GoPay payment mode to deeplink, and so on. You can use these options according to your requirement.
 

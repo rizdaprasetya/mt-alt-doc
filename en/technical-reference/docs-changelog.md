@@ -4,6 +4,13 @@
 <!-- #### Unreleased 
 -->
 
+#### 2021/09/23
+- add emphasis on importance of verifying & handling payment status update
+- add link to verify payment status on security page
+- add note of 3DS 2.0 Snap redirect behaviour
+- improve snap integration guide section for better snap redirect method visibility
+- improve snap integration guide html sample: add sample w/ js callback, improve code readability
+
 #### 2021/09/17
 - update 'pending' notif definition to include 3DS 2.0 card payment note
 - ensure consistency of transaction & fraud status table between different technical reference pages
