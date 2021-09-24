@@ -8,7 +8,7 @@ You can register to the Merchant Administration Portal (MAP) and login to your a
 
 To view *Dashboard*, follow the steps given below.
 
-1. Login to your MAP account.
+1. [Login to your MAP](https://account.midtrans.com/) account.
 2. On the home page, click **Dashboard**.
   ![Dashboard Usage](./../../asset/image/after-payment-dashboard.png)
   *Dashboard* pane is displayed.
