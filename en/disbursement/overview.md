@@ -1,16 +1,20 @@
-# Disbursement: Iris Overview
+# Disbursement (Iris) Overview
 
-Iris is Midtrans’ cash management solution that allows you to disburse payments to any bank accounts in Indonesia securely and easily. Iris connects to the banks’ hosts to enable seamless transfer using integrated APIs.
+Iris is Midtrans’ cash management solution that allows you to **disburse/payouts/transfer payments to any bank accounts** in Indonesia securely and easily. Iris connects to the banks’ hosts for you to enable seamless transfer using integrated APIs.
+
+![Iris Illustration](https://storage.googleapis.com/go-merchant-production.appspot.com/uploads/2020/11/59d58817e872cc6052f7161b4fc18c18_811b73f424b3b631e50cfe7a9f019871_compressed.png ':size=500')
 
 In summary the overall flow consist of these steps:
-1. Top-up/add funds to your Iris account via the Iris Dashboard or connect your bank account as a source of fund.
-2. Add beneficiaries (fund recipient) easily via dashboard, or integrate via API.
-3. Send disbursement/payout instantly in just a few clicks through the Dashboard, or integrate via API.
+1. **Add** source of **funds**:
+    * Aggregator Scheme: Top-up/deposit funds to your Iris account via the Iris Dashboard, Or
+    * Facilitator Scheme: Connect your bank account as a source of fund.
+2. **Add beneficiaries (fund recipient)** easily via dashboard, or integrate via API.
+3. **Send disbursement/payout** instantly in just a few clicks through the Dashboard, or integrate via API.
 
 <!-- @TODO: Need some visual, request to MKT team or maybe from Iris sales deck-->
 
 ## Glossary
-For the purpose of standardization and to prevent any misunderstanding, below our the terms we are going to use in this documentation:
+For the purpose of standardization and to prevent misunderstanding, below are the terms we use in this documentation:
 
 - **Partner**: Iris’ main user (You). A partner will be given access to Iris’ API and Dashboard.
 - **Beneficiary**: Destination account whereby the payout/transfer is intended to.
@@ -25,7 +29,7 @@ Iris comes in 2 different schemes (from business perspective): **aggregator** or
 <!-- @TODO: add visual to explain the diff  -->
  
 ### Aggregator
-Using the aggregator scheme, a partner will have a deposit account that can be topped up from time to time using various channels. Any payout will be done from this deposit account as the source of funds.
+Using the aggregator scheme, a partner will have a deposit account balance that can be topped up from time to time using various channels. Any payout will be done from this balance as the source of funds.
  
 Aggregator scheme is characterized by the following:
 - Source of funds comes from Midtrans’ bank accounts;
@@ -33,7 +37,7 @@ Aggregator scheme is characterized by the following:
 - Faster onboarding process.  
 
 ### Facilitator
-Facilitator scheme lets a partner use their own bank account as the source of funds for payouts. In addition to initiating transfers and payouts, partners can inquire about their balance and check their statements using Iris’ API.
+Facilitator scheme lets a partner use their own bank account as the source of funds for payouts. In addition to initiating transfers and payouts, partners can inquire balance and check statements using Iris’ API.
  
 The facilitator scheme is characterized by the following:
 - Source of funds comes from Partners’ own bank accounts;
@@ -46,13 +50,13 @@ The facilitator scheme is characterized by the following:
 - Other transfer types such as SKN (Kliring) and Bank Indonesia’s RTGS are also supported.
 
 ### Transfer Types
-- All transfer are done real-time for the following banks:
+- All transfer are done via real-time transfer for the following banks:
   - Mandiri
   - CIMB
   - BCA
   - Danamon
   - BNI
-- The rest of the banks will be done by SKN
+- The rest of the banks will be done via SKN (Sistem Kliring Nasional).
 
 
 ### Easy to Integrate API
@@ -68,7 +72,7 @@ The facilitator scheme is characterized by the following:
 <br>
 <div class="my-card">
 
-#### [Account & Dashboard](/en/disbursement/dashboard-usage.md)
+#### [Account & Dashboard Usage](/en/disbursement/dashboard-usage.md)
 Learn about Iris disbursement account and the dashboard usage.
 </div>
 
