@@ -11,6 +11,7 @@
 - improve snap integration guide section for better snap redirect method visibility
 - improve snap integration guide html sample: add sample w/ js callback, improve code readability
 - note on FDS deny: will not result in success transaction
+- add gopay universal link to deeplink url webview handling sample code faq
 - add iris overview section
 - add iris account & dashboard usage section
 
