@@ -860,8 +860,9 @@ private boolean handleWebviewCustomUri(final Uri uri) {
     
     // detect these specified deeplinks to be handled by OS
     if (url.contains("gojek://") 
+    	|| url.contains("//gojek.link") 
     	|| url.contains("shopeeid://") 
-    	|| url.contains("//wsa.wallet.airpay.co.id/")) 
+    	|| url.contains("//wsa.wallet.airpay.co.id")) 
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
@@ -888,8 +889,9 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
     Intent intent;
     // detect these deeplink to be handled by OS
     if (url.contains("gojek://") 
+    	|| url.contains("//gojek.link") 
     	|| url.contains("shopeeid://") 
-    	|| url.contains("https://wsa.wallet.airpay.co.id/")) 
+    	|| url.contains("//wsa.wallet.airpay.co.id")) 
     {
         intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
@@ -925,9 +927,10 @@ If you are implementing ShopeePay method and presenting it within Webview on iOS
  NSURL *url = navigationAction.request.URL;
  NSString *urlString = (url) ? url.absoluteString : @"";
  
- // detect these ShopeePay links to be handled by OS
- if ([urlString containsString:@"//wsa.wallet.airpay.co.id/"]
- 	|| [urlString containsString:@"shopeeid://"]) 
+ // detect these Ewallet app links to be handled by OS
+ if ([urlString containsString:@"//wsa.wallet.airpay.co.id"]
+ 	|| [urlString containsString:@"shopeeid://"]
+ 	|| [urlString containsString:@"//gojek.link"]) 
  {
   // will be opened by the OS level
   [[UIApplication sharedApplication] openURL:url];

@@ -4,12 +4,16 @@
 <!-- #### Unreleased 
 -->
 
-#### 2021/09/23
+#### 2021/09/24
 - add emphasis on importance of verifying & handling payment status update
 - add link to verify payment status on security page
 - add note of 3DS 2.0 Snap redirect behaviour
 - improve snap integration guide section for better snap redirect method visibility
 - improve snap integration guide html sample: add sample w/ js callback, improve code readability
+- note on FDS deny: will not result in success transaction
+- add gopay universal link to deeplink url webview handling sample code faq
+- add iris overview section
+- add iris account & dashboard usage section
 
 #### 2021/09/17
 - update 'pending' notif definition to include 3DS 2.0 card payment note

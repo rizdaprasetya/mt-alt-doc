@@ -57,9 +57,10 @@ No website yet? Not a problem. Send invoices and receive payments from your cust
 
 <h4 class="my-card-title">Payouts</h4>
 
-Manage payouts or disburse funds to multiple bank and e-money accounts easily with [Midtrans Payouts](https://midtrans.com/product/payout).
+Manage payouts or disburse funds to multiple bank and e-money accounts easily with [Midtrans Payouts (Iris)](https://midtrans.com/product/payout).
 
-- [Payouts/Disbursement (Iris) API docs](https://iris-docs.midtrans.com)
+- [Payouts/Disbursement (Iris)](/en/disbursement/overview.md)
+- [Iris API Docs](https://iris-docs.midtrans.com)
   </div>
   <div class="my-card">
 

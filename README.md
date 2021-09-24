@@ -64,6 +64,7 @@ For example (choose one of it, not all):
 	- SRI is additional security protection against external file being modified by unauthorized party.
 - custom css & js can be embedded in `index.html` and also located at `asset` folder.
 - image asset are in `asset/image` folder.
+	- image assets should be optimized for web, so file size could be small & fast to load from browser. Use tools to optimize image for web e.g. https://kraken.io/web-interface
 
 ## Editing Content
 

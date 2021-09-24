@@ -400,9 +400,9 @@ Status Code | Description | Example
 ## 2. Displaying Snap Payment Page on Frontend
 To display Snap payment page within your site, there are two methods to choose.
 <!-- tabs:start -->
-#### **Display Snap via Javascript**
-Proceed reading below.
-#### **Display Snap via Redirection**
+#### **Javascript Method**
+Proceed reading this section below.
+#### **Redirection Method**
 Alternatively, you can use `redirect_url` retrieved from backend in the previous step to redirect customer to url hosted by Midtrans. Useful if you do not want (or unable) to implement via snap.js. [Learn more in this alternative section](#alternative-way-to-display-snap-payment-page-via-redirect). 
 
 You can also [use WebView to display Snap payment page](#display-snap-via-mobile-apps-webview) within your mobile app.
@@ -419,7 +419,7 @@ transaction `token` | Retrieved from backend in [previous step](#_1-acquiring-tr
 Enter your *Client Key* as the value of `data-client-key` attribute in snap.js script tag. Start the payment process by calling `window.snap.pay` with transaction `token`.
 
 <!-- tabs:start -->
-#### **Simple Implementation**
+#### **Basic**
 ```html
 <html>
   <head>
@@ -447,7 +447,7 @@ Enter your *Client Key* as the value of `data-client-key` attribute in snap.js s
 </html>
 ```
 
-### **With JS Callback Implementation**
+### **With JS Callback**
 ```html
 <html>
   <head>
