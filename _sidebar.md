@@ -20,7 +20,7 @@
       - [Cardless Credit](en/core-api/cardless-credit.md "Midtrans - Core API Cardless Credit Documentation")
     - [Advanced Feature](en/core-api/advanced-features.md "Midtrans - Core API Advanced Feature Documentation")
     - [API Methods ↗](https://api-docs.midtrans.com/#api-methods)
-- [**![](asset/image/main/midtrans-icons-payouts.svg)Disbursement ↗**](https://iris-docs.midtrans.com/)
+- [**![](asset/image/main/midtrans-icons-payouts.svg)Disbursement**](en/disbursement/overview.md)
 - [**![](asset/image/main/midtrans-icons-account.svg)Account**](en/midtrans-account/overview.md "Midtrans - Account Documentation")
 - [**![](asset/image/main/midtrans-icons-signature.svg)Handle After Payment**](en/after-payment/overview.md "Midtrans - After Payment Documentation")
   - [Email Notification](en/after-payment/email-notification.md "Midtrans - Email Notification Documentation")

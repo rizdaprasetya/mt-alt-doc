@@ -146,7 +146,7 @@
             alias: {
                 // proxy for any /gh/ url to fetch markdown from real github url
                 '.*?/gh/(.*)': 'https://raw.githubusercontent.com/$1',
-                // match either of these words, use common sidebar
+                // match either of these words, use shared sidebar between all payment product subfolder
                 '/en/(?:snap|core-api|payment-link).*/_sidebar.md': '/en/payments/_sidebar.md',
                 '/id/(?:snap|core-api|payment-link).*/_sidebar.md': '/id/payments/_sidebar.md',
                 /**
@@ -160,9 +160,10 @@
                  * which can be slow to wait for 404 call. It impacted UI to be seem 
                  * unresponsive for few second on prod
                  */
-                // match any-word-except, allow load sub folder sidebar
-                '/en/(?!payments|other).*/_sidebar.md': '/_sidebar.md',
-                '/id/(?!payments|other).*/_sidebar.md': '/id/_sidebar.md',
+                // match any-word-except these will be forced to load root sidebar
+                // allow loading sub folder's sidebar only if word is specified here
+                '/en/(?!payments|disbursement|other).*/_sidebar.md': '/_sidebar.md',
+                '/id/(?!payments|disbursement|other).*/_sidebar.md': '/id/_sidebar.md',
                 // redirect to root navbar
                 '/en/.*/_navbar.md': '/_navbar.md',
                 '/id/.*/_navbar.md': '/id/_navbar.md'
