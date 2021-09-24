@@ -10,6 +10,7 @@
 - add note of 3DS 2.0 Snap redirect behaviour
 - improve snap integration guide section for better snap redirect method visibility
 - improve snap integration guide html sample: add sample w/ js callback, improve code readability
+- note on FDS deny: will not result in success transaction
 - add iris overview section
 - add iris account & dashboard usage section
 

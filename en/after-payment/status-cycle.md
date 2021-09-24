@@ -47,7 +47,7 @@ The table given below describes the Fraud status.
 Fraud Status | Fund Received | Description 
 --- | --- | ---
 `accept` | ✅ | Transaction is safe to proceed. It is not considered as a fraud. 
-`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans. 
+`deny` | ❌ | Transaction is considered as fraud. It is rejected by Midtrans FDS. FDS rejected transaction usually will not result in transaction_status: pending, capture, settlement.
 `challenge` | ⚠️ | Transaction is flagged as potential fraud, but cannot be determined precisely. <br/>You can *Accept* or *Deny* the transaction from MAP account or using [Approve Transaction API](https://api-docs.midtrans.com/#approve-transaction) or [Deny Transaction API](https://api-docs.midtrans.com/#deny-transaction).<br/>If no action is taken, the transaction is denied automatically. 
 
 <!-- TODO explain how to do refund, approve, deny, cancel, etc -->
