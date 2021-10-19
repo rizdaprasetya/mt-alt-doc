@@ -583,7 +583,7 @@ Permata `va_number` | String | Optional | Length should be 10. Only supported fo
 BNI `va_number` | String | Optional | Length should be within 1 to 8.
 BRI `va_number` | String | Optional | Length should be within 1 to 13.
 
-?>***Note:*** In *Production environment*, each and every bank may not support custom VA number. It depends on the agreement. Please consult Midtrans Activation team for further information.
+?>***Note***: In *Production* environment, not every bank may support custom VA number (e.g. Permata), as the default state. It depends on the type of VA configured for your merchant account & your business agreement with the bank. Please consult Midtrans Activation team for further information.
 
 #### Transaction Status Description
 The description of `transaction_status` value for *Bank Transfer* payment method is given below.

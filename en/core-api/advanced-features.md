@@ -1581,7 +1581,7 @@ Rules for customizing Virtual Account number is given below.
 * If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
 
-?>***Note***: In *Production* environment, all banks do not support custom VA number. It depends on the agreement. Please consult with Midtrans Activation team for further information.
+?>***Note***: In *Production* environment, not every bank may support custom VA number (e.g. Permata) as the default state. It depends on the type of VA configured for your merchant account & your business agreement with the bank. Please consult Midtrans Activation team for further information.
 
 ## Consideration and Limitations
 There are a few limitations to consider while using Midtrans API. These limitations are given below.
