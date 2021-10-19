@@ -2,6 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
+- improve visibility on Permata custom VA feature limitation
 
 - improve 3DS failure related FAQ wording to be more descriptive
 - improve Snap overview description which was not so descriptive
