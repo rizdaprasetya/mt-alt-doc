@@ -3,7 +3,7 @@
 
 <!-- #### Unreleased 
 
-
+- improve Snap overview description which was not so descriptive
 - improve wording on sandbox credential notice
 -->
 
