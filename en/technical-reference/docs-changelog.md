@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 
+- improve 3DS failure related FAQ wording to be more descriptive
 - improve Snap overview description which was not so descriptive
 - improve wording on sandbox credential notice
 -->

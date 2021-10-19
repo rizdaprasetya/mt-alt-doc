@@ -1199,20 +1199,23 @@ The customer should contact the card issuer/bank call center. The customer shoul
 Unfortunately, Midtrans as the Payment Gateways have no direct control over the issue, because the block happened on Card Issuer (and their network) side. The customer should explain the issue to the card issuer.
 
 #### The customer does not receive 3DS/OTP, so he can’t proceed with payment or the customer can proceed with the payment but the transaction becomes non 3DS. What is the issue? What should I do?
-In case of OTP could not be received by customer, the issue is between card issuer’s (bank’s) 3DS (OTP) page and the customer's phone. This can be caused because of any of the following reasons.
+In case of OTP could not be received by customer, the issue is between card issuer’s (bank’s) 3DS (OTP) page and the customer's phone. This may be caused by any of the likely reasons:
+- The card is not activated for 3DS by card-issuer.
 - The card issuer 3DS page is currently down or under maintenance.
-- The card is blocked by card issuer because fraud attempt or incorrect OTP is submitted too many times.
+- The card is blocked by card issuer because of suspected fraud attempt or incorrect OTP is submitted too many times.
 - The customer's phone is unreachable by the SMS service or the customer's phone does not have enough credit to receive SMS, and so on.
 - The card issuer is having issues and is downgrading the transaction to non 3DS.
+- Other issue that falls between card-holder & card-issuer.
+- etc.
 
-You should inform the customer to contact their card issuer support center. They should explain in detail that they are unable to do online transaction and did not receive 3DS/OTP. They should also provide the error message displayed on the page, if any. Make sure that they explain the issue is for online transaction. That is to avoid some case where the card issuer support center might mistakenly check the card issue for offline transaction only, and may tell customer that the card is fine and able to transact. The card issuer support center should check for issues on online transaction.
+You should inform the customer to contact their card issuer support center. They should explain in detail that they are unable to do online transaction and did not receive 3DS/OTP. They should also provide the error message displayed on the page, if any. Make sure that they explain the issue is for online transaction. That is to avoid some case where the card issuer support center might not understand that the issue is for online transaction, and may mistakenly check the card issue for offline transaction only, which result in prematurely telling customer that the card is fine and usable. The card issuer support center should check the issue more thoroughly and should properly identify it as online transaction, not otherwise.
 
 #### Card payment is marked as 3DS on Midtrans side, but customers said they didn’t get any OTP for the transaction, what is the issue?
 Unfortunately Midtrans and Merchant side will only get the final approval result from the Card Issuer 3DS verifier. The final result is whether it is approved or not. You can refer to Midtrans Dashboard to see the 3DS result, and this result is valid.
 
-The approval process itself happens on the Card Issuer 3DS verifier. It has direct control to decide whether the verification process is through OTP, SMS, PIN, Password, etc. Sometimes even the verification process can happen seamlessly without user verification if the 3DS verifier for example uses a system that can auto determine based on behavior and historical data. Or even in some rare bad cases there can be glitch/issue on the 3DS verifier. 
+The approval process itself happens on the Card Issuer 3DS verifier. It has direct control to decide whether the verification process is through OTP, SMS, PIN, Password, etc. Sometimes even the verification process can happen seamlessly without user verification if the 3DS verifier for example uses an advanced system that can auto determine whether the transaction should require customer 3DS input or not (e.g. based on behavior and historical data). Or in some rare unexpected cases there can be glitch/issue on the 3DS verifier. 
 
-Merchants can ask Customers to consult with their card issuer what kind of 3DS verification will be applied (or was applied) to their online transaction, if they want to know.
+Merchants can suggest Customers to consult with their card issuer what kind of 3DS verification is applied to their online transaction, if they really want to know.
 
 #### During card transaction, the customer entered invalid expiry date and CVV, but the transaction still get proceeded to 3DS, is this expected?
 The card's expiry date and CVV validation is a part of card issuer's validation process. The card issuer holds the card data and is responsible to validate it. Midtrans, as a payment gateway, only proceeds based on the card issuer validation process returned.
