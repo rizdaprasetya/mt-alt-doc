@@ -10,6 +10,7 @@
 	- Sandbox credentials notice
 	- 3DS failure FAQs
 	- Custom VA on Permata VA limitation & notes
+	- Custom notification url API request headers
 
 #### 2021/09/24
 - add emphasis on importance of verifying & handling payment status update
