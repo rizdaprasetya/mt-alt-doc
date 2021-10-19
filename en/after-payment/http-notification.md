@@ -1143,23 +1143,23 @@ else if ($transaction == 'settlement'){
 <summary><b>Customize Notification URL via API</b></summary>
 <article>
 
-Optionally, if required Merchant can opt-in to change or add custom notification URLs on each transaction. It can be achieved by adding additional HTTP(s) headers on the API request.
+Optionally, Merchant can opt-in to change or add custom notification URLs for each transaction, by adding additional HTTP(s) headers on the API request.
 
-There are two optional headers that we can accept:
-- `X-Append-Notification` : to add new notification url(s) alongside the settings on dashboard
+There are two kind of optional headers that you can choose:
+- `X-Append-Notification` : to add new notification url(s) and use it alongside the settings on dashboard
 - `X-Override-Notification` : to use new notification url(s) disregarding the settings on dashboard
 
-Both header can only receive up to maximum of 2 URLs, separated by coma(`,`).
+Both header can support up to maximum of 3 URLs, separated by coma(`,`).
 
 #### Example in CURL
 
-This is sample API request of Snap a transaction with override-notification url:
+Sample API request of Snap a transaction with override-notification url:
 
 ```bash
 curl -X POST \
   https://app.sandbox.midtrans.com/snap/v1/transactions \
   -H 'Accept: application/json'\
-  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87' \
+  -H 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p3ZnMzVV8LZU87' \
   -H 'Content-Type: application/json' \
   -H 'X-Override-Notification: https://tokoecomm.com/notif-handler-1,https://myweb.com/notif-handler-2' \
   -d '{
@@ -1172,14 +1172,15 @@ curl -X POST \
 
 #### Sample Case
 
-Assuming merchant has set `https://example.com` as notification url on the dashboard. If merchant set header `X-Append-Notification: https://example.com/test1,https://example.com/test2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
-- https://example.com,
-- https://example.com/test1, and
-- https://example.com/test2
+Assuming merchant has set `https://example.com/original` as notification url on the dashboard. If merchant set header `X-Append-Notification: https://example.com/additional1,https://example.com/additional2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
+- https://example.com/original ,
+- https://example.com/additional1 , and
+- https://example.com/additional2
 
-Else if merchant set header `X-Override-Notification: https://example.com/test1,https://example.com/test2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
-- https://example.com/test1 and
-- https://example.com/test2
+Else if merchant set header `X-Override-Notification: https://example.com/replacement1,https://example.com/replacement2`. Then, every HTTP(s) notification for that specific transaction will be sent to:
+- https://example.com/replacement1 and
+- https://example.com/replacement2
+- without sending to the original notification url set on the dashboard.
 
 </article>
 </details>

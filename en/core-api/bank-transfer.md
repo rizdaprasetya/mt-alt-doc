@@ -519,8 +519,8 @@ To configure the Payment Notification URL, follow the steps given below.
 Virtual Account number which is displayed to customer, contains two parts. for example, in `{91012}{12435678}` , the first part is the company-prefix-number and the second part is a unique-va-number. The second part can be customized. Following conditions need to be followed while customizing VA number:
 
 * Only digits are allowed.
-* Different banks have different specifications for their custom VA numbers. Please go through the documentation of the respective banks. Note: for **Permata, only B2B VA type** support custom VA numbers.
-* If the number provided is already utilized for another order, then a different unique number will be used instead.
+* Different banks have different specifications for their custom VA numbers. Please go through the documentation of the respective banks. Note: for **Permata, only B2B VA type** support custom VA numbers, so by default your sandbox account may not support Permata custom VA, please contact us if you wish to have this feature.
+* If the number provided is currently active for another order, then a different unique number will be used instead.
 * If the number provided is longer than required, then the unnecessary digits in the end will be trimmed.
 * If the number provided is shorter than required, then the number will be prefixed with zeros.
 
@@ -583,7 +583,7 @@ Permata `va_number` | String | Optional | Length should be 10. Only supported fo
 BNI `va_number` | String | Optional | Length should be within 1 to 8.
 BRI `va_number` | String | Optional | Length should be within 1 to 13.
 
-?>***Note:*** In *Production environment*, each and every bank may not support custom VA number. It depends on the agreement. Please consult Midtrans Activation team for further information.
+?>***Note***: In *Production* environment, not every bank may support custom VA number (e.g. Permata), as the default state. It depends on the type of VA configured for your merchant account & your business agreement with the bank. Please consult Midtrans Activation team for further information.
 
 #### Transaction Status Description
 The description of `transaction_status` value for *Bank Transfer* payment method is given below.
