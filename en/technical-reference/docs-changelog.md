@@ -2,6 +2,9 @@
 <hr>
 
 <!-- #### Unreleased 
+
+
+- improve wording on sandbox credential notice
 -->
 
 #### 2021/09/24
