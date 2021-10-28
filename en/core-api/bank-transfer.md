@@ -180,6 +180,10 @@ curl -X POST \
   "transaction_details": {
       "order_id": "order-101",
       "gross_amount": 44000
+  },
+  "echannel" : {
+      "bill_info1" : "Payment For:",
+      "bill_info2" : "debt"
   }
 }'
 ```
@@ -194,6 +198,9 @@ curl -X POST \
 | transaction_details | The details of the transaction like the order_id and gross_amount. | -      | Required |
 | order_id            | The order ID of the transaction.                             | String | Required |
 | gross_amount        | The total amount of transaction, defined from your side.     | String | Required |
+| echannel            | Charge details using Mandiri Bill Payment.                   | [Object](https://api-docs.midtrans.com/#e-channel-object) | Required |
+| bill_info1          | Label 1. Mandiri allows only 10 characters. Exceeding characters will be truncated.                   | String | Required |
+| bill_info2          | Value for Label 1. Mandiri allows only 30 characters. Exceeding characters will be truncated.         | String | Required |
 
 </article>
 </details>
