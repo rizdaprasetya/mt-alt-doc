@@ -182,8 +182,8 @@ curl -X POST \
       "gross_amount": 44000
   },
   "echannel" : {
-      "bill_info1" : "Payment For:",
-      "bill_info2" : "debt"
+      "bill_info1" : "Payment:",
+      "bill_info2" : "Online purchase"
   }
 }'
 ```
@@ -201,6 +201,8 @@ curl -X POST \
 | echannel            | Charge details using Mandiri Bill Payment.                   | [Object](https://api-docs.midtrans.com/#e-channel-object) | Required |
 | bill_info1          | Label 1. Mandiri allows only 10 characters. Exceeding characters will be truncated.                   | String | Required |
 | bill_info2          | Value for Label 1. Mandiri allows only 30 characters. Exceeding characters will be truncated.         | String | Required |
+
+You can customize with your own message to the customer on the `bill_info` params. It will usually shown when customer attempt to pay via ATM or MBanking app, during confirmation of transfer. For example you can show something like `Payment:` `Purchase at myonlinestore.com`, or `Deposit:` `John Doe at myinvestment.com`
 
 </article>
 </details>
