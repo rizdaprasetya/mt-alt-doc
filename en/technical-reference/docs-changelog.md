@@ -8,6 +8,7 @@
 - improve wording, description and sample on:
 	- Core API bank transfer - Mandiri Bill
 	- Core API emoney
+- faq on idempotency-key usage scenario on API request
 
 #### 2021/10/19
 - improve description and wording on:

@@ -474,6 +474,21 @@ If the status is updated on Midtrans but not on merchant's system, please check 
 
 Most likely the issue is caused by mis-implementation of **Notification URL** handler on merchant backend. For more details, refer to [View notification history](/en/after-payment/http-notification.md#viewing-notification-history).
 
+#### What is the example usage scenario of idempotency-key during API requests?
+There might be valid different situations where merchant want to use either “1-same” or “different” idempotency keys during API requests. Which one to use, will vary based on different contexts and needs. Some sample scenarios:
+
+**Scenario 1#:**
+
+Multiple requests (with the same params) & with 1 **same idempotency-key**, will **produce: 1 same response** (no duplicate transaction). 
+
+This is useful for cases like: merchant was encountering timeouts on their side when calling the API, so merchant just want to “ask for the **same response as the previous request**”. This can ensure that operations is executed only once. Like asking: Create this transaction once, or Refund with this amount once.
+
+**Scenario 2#:**
+
+Multiple requests with **different idempotency-keys**, will produce: multiple different responses (because the requests incur multiple different transactions).
+
+This is useful for cases like: merchant’s first request was resulting in a deny/failure response (e.g. due to bank deny, or bank having temporary issue), so merchant want to “intentionally **retry with another transaction attempt**, because the previous 1 got denied”. This is like asking: Create another transaction for me, or Do another refund with this amount.
+
 <!-- END OF Category --><hr>
 ### Snap
 
@@ -1183,6 +1198,7 @@ If the transaction was GoPay to GoPay, the refund policy will be much faster (in
 
 <!-- END OF Category --><hr>
 ### Card Payment
+<!-- @TODO explain 3DS 2.0 specifics -->
 #### How can I check the reasons for the denial of a customer's card transaction?
 The reason of a denied credit card transaction can be checked on merchant Dashboard. Go to home page, and search order id. Click ⓘ on "**Transaction failure**" red indicator, to display the reason for denied transaction.
 
