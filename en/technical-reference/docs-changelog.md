@@ -4,6 +4,11 @@
 <!-- #### Unreleased 
 -->
 
+#### 2021/10/29
+- improve wording, description and sample on:
+	- Core API bank transfer - Mandiri Bill
+	- Core API emoney
+
 #### 2021/10/19
 - improve description and wording on:
 	- Snap overview desc
