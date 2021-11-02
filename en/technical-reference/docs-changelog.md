@@ -4,6 +4,10 @@
 <!-- #### Unreleased 
 -->
 
+#### 2021/11/02
+- add new json field on callback & http notification of card payment 3DS 2.0
+- add faq on how to prepare 3DS 2.0
+
 #### 2021/10/29
 - improve wording, description and sample on:
 	- Core API bank transfer - Mandiri Bill
