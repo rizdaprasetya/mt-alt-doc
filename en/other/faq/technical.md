@@ -1342,6 +1342,37 @@ Alternatively, only if needed, you can also:
 - Opt to use [Register Card API](/en/core-api/advanced-features.md#recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
 - If you really want to perform non-3DS transactions, you can also opt to have an agreement with the acquiring bank to grant you a non-3DS MID. Please contact Midtrans Activation Team to learn more.
 
+#### How should merchants prepare for Card 3DS 2.0 changes?
+<details open>
+<summary>If Integrating via Core API</summary>
+<article>
+
+If you are using Core API payment product, here are some notable changes from Merchant perspective:
+- When transaction is processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (if the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then which it will result in transaction_status `pending` within the frontend callback. So please ensure you have properly follow the [card payment method integration guide](/en/core-api/credit-card), especially on [this step till the end](/en/core-api/credit-card.md#_3ds-authentication-page-json-response).
+- If your implementation already uses HTTP notification/webhook to update payment status, as mentioned on the link above, you should be fine and don’t need to update your implementation.
+- Note: If you are a merchant who implemented card integration **before 2019**, you might be implementing old-3DS-flow, you will need to update your implementation to the current latest [3DS flow](/en/core-api/credit-card.md). The indication of you are on old-3DS-flow are the 3DS popup implemented/happens before `/charge` API call. Otherwise, you should be fine.
+</article>
+</details>
+
+<details>
+<summary>If Integrating via Snap API</summary>
+<article>
+
+If you are using Snap payment product, most of the changes are automatically handled by Snap itself, so you don’t have to update your implementation. But here are some notable **changes from merchant perspective**:
+- Card payment which processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
+</article>
+</details>
+
+Notable **changes from customer perspective**:
+- Customer's 3DS 2.0 transaction may not prompt OTP/3DS-challenge input, when the 3DS provider determines their transaction is safe/low-risk. Their 3DS can automatically complete without interaction, thus their transaction will be more convenient and seamless, without degrading the security aspect.
+- More benefits/changes [explained here](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds).
+
+On the card payment method’s [callback](/en/core-api/credit-card.md#_3ds-authentication-page-json-response) & [HTTP notification](/en/after-payment/http-notification.md#sample-for-various-payment-methods), the JSON will contains **some new fields**:
+- `three_ds_version` this field will give you information about which 3DS version was used during the transaction e.g. `"1"` or `"2"`.
+- `challenge_completion` this field will give you information about whether the 3DS 2.0 challenge-input was prompted to customer & was completed by them e.g. `true` or `false`. Note: This field may only exists if applicable (e.g. only exists if transaction was processed via 3DS 2.0 & customer was prompted with 3DS 2.0 challenge-input)
+
+However, most of the time from a merchant perspective, you don’t need to know whether the transaction was processed via 3DS 2.0 or not, or if the customer was prompted with the 3DS challenge-input with input or not. As a merchant what usually you need to know [is just the ECI code](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-). To determine whether the transaction was 3DS or not. If the transaction was 3DS most of the time, the risk liability (in case of fraud, etc.) does not fall to the merchant.
+
 <!-- END OF Category --><hr>
 ### CMS Plugins
 #### Merchant is using other Wordpress ecommerce plugins, can payment be integrated with Midtrans?
