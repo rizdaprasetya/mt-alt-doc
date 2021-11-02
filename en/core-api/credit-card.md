@@ -457,7 +457,9 @@ A sample API response for *Card* payment method is shown below.
   "fraud_status": "accept",
   "masked_card": "481111-1114",
   "bank": "bni",
-  "card_type": "credit"
+  "card_type": "credit",
+  "three_ds_version": "2",
+  "challenge_completion": true
 }
 ```
 
@@ -593,7 +595,9 @@ A sample of successful transaction callback response, is shown below.
   "fraud_status": "accept",
   "approval_code": "1597223068747",
   "masked_card": "481111-1114",
-  "card_type": "credit"
+  "card_type": "credit",
+  "three_ds_version": "2",
+  "challenge_completion": true
 }
 ```
 
