@@ -526,7 +526,7 @@ You can follow the configurations given below to avoid this situation.
 
 On your `AndroidManifest.xml`, configure:
 
-```text
+```
 android:fitsSystemWindows="true"
 ```
 If the problem persists, make sure to do the same with your views, WebViews, and so on.
@@ -719,7 +719,7 @@ midtransSDK.startPaymentUiFlow(CONTEXT);
 #### How to display specific payment channel via mobile SDK client code?
 It is recommended to specify payment channel from merchant backend/server. Before forwarding request to *Snap* API, you can modify the JSON payload to add `enabled_payments` parameter. For example, add the following to the JSON.
 
-```text
+```
 ...
 "enabled_payments": ["credit_card", "mandiri_clickpay", "cimb_clicks",
     "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
@@ -1292,8 +1292,8 @@ Since the issue is between customer and card issuer, you and Midtrans cannot do 
 
 #### Using 3DS Card transaction flow v1 Core API, how can I ensure that the transaction is 3DS end to end?
 To ensure that the transaction is 3DS, check the following parameters.
-1. Get Token Process (endpoint `/v2/token`)
-       Make sure `redirect_url` is present on the response as shown in the sample given below.
+1. Get Token Process (endpoint `/v2/token`): 
+  Make sure `redirect_url` is present on the response as shown in the sample given below.
 
 
 ```javascript
@@ -1306,7 +1306,7 @@ To ensure that the transaction is 3DS, check the following parameters.
   hash: "481111-1114-xxx"
 }
 ```
-2. Callback from 3DS iframe
+2. Callback from 3DS iframe: 
   Response object should have `status_message: "Success, 3D Secure token generated"` and `eci` field, as a proof that the OTP/3DS page has been successfully completed by customer and verified by card issuer. A sample is shown below.
 
 ```javascript
@@ -1319,7 +1319,7 @@ To ensure that the transaction is 3DS, check the following parameters.
 ```
 ECI for **non-3DS** transaction is `07` or `00` (bad value). For more details, refer to [What is ECI on 3DS Protocol](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-).
 
-3. Charge process (endpoint `/v2/charge`)
+3. Charge process (endpoint `/v2/charge`): 
   There will be `eci` value as well.
   ECI for **non-3DS** transaction is `07` or `00 `(bad value).
 
