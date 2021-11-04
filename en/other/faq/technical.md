@@ -489,6 +489,17 @@ Multiple requests with **different idempotency-keys**, will produce: multiple di
 
 This is useful for cases like: merchant’s first request was resulting in a deny/failure response (e.g. due to bank deny, or bank having temporary issue), so merchant want to “intentionally **retry with another transaction attempt**, because the previous 1 got denied”. This is like asking: Create another transaction for me, or Do another refund with this amount.
 
+#### Why download-transaction/reset-password email doesn’t get received on my email?
+- Please make sure to double **check your email’s spam/junk/quarantine folder**, the email may be falsely flagged as spam/malicious.
+- If you are using a **company-managed email account domain** instead of personal email account (e.g. `nick@xyzclothingstore.com` instead of `nick@gmail.com`, yahoo.com, etc.) there are few possibilities:
+	- Usually your **company has email filtering/whitelisting/firewall** etc., please check with your company’s IT helpdesk to **check if any email from \@midtrans.com domain got blocked**.
+	- Ensure that your **email storage is not full**, sometimes your email storage is full and can’t receive any new email.
+	- Ensure that your **company email domain/address is properly configured**, sometimes there is misconfiguration in your company’s IT department that makes your email address unreachable.
+	- Ensure that your **email address is reachable & can receive email from external sender**, try sending an email from your personal email-account (like from your \@gmail.com) to your company-email address. If you can’t receive any email, then there's an issue with your company-email account, please check with your company’s IT helpdesk.
+- Try checking the **number of transactions you tried to download**, if the number is big, e.g. +10.000, it may take more than 1 minutes to be generated. If it’s more than +300.000 it may take more than 1 hour. So please patiently wait, or try downloading in smaller chunk by reducing "time range" on the transaction-search filter.
+
+Else, your email address may **have been unreachable sometimes in the past** (due to some reason explained above) when Midtrans tried to send email. When Midtrans fails to send emails about 3-5 times to an address, that address will be **marked as "unreachable/bad-address"** and Midtrans will stop sending any future emails. You will need to [contact Midtrans](https://midtrans.com/contact-us), to reset it.
+
 <!-- END OF Category --><hr>
 ### Snap
 
@@ -515,7 +526,7 @@ You can follow the configurations given below to avoid this situation.
 
 On your `AndroidManifest.xml`, configure:
 
-```text
+```
 android:fitsSystemWindows="true"
 ```
 If the problem persists, make sure to do the same with your views, WebViews, and so on.
@@ -708,7 +719,7 @@ midtransSDK.startPaymentUiFlow(CONTEXT);
 #### How to display specific payment channel via mobile SDK client code?
 It is recommended to specify payment channel from merchant backend/server. Before forwarding request to *Snap* API, you can modify the JSON payload to add `enabled_payments` parameter. For example, add the following to the JSON.
 
-```text
+```
 ...
 "enabled_payments": ["credit_card", "mandiri_clickpay", "cimb_clicks",
     "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
@@ -1196,6 +1207,13 @@ It is advised for customer to ask the source-wallet for the fund status.
 
 If the transaction was GoPay to GoPay, the refund policy will be much faster (instantly, in most cases) since the refund is not subject to external party policy.
 
+#### Why does ShopeePay payment finish redirect doesn't have any parameter appended?
+Currently, this is expected. Unfortuantely due to **limitation on ShopeePay**, the finish redirection that happen from Shopee App to your web/app url (when customer has finished payment) **will not** have any parameter automatically appended. So your plain finish-url will be used.
+
+In this case your web/app may need to have its own session-management to remember/store what is the order_id of the transaction, and they you can call Midtrans' [Get Status API (or wait for HTTP Notification)](/en/after-payment/overview.md) to inquire for the transaction status. Or display a generic finish page to your customer.
+
+This behavior is not like [GoPay, which will produce additional parameters](/en/core-api/e-wallet.md#implementing-finish-redirect-callback-handler) like `order_id=` & `result=`.
+
 <!-- END OF Category --><hr>
 ### Card Payment
 <!-- @TODO explain 3DS 2.0 specifics -->
@@ -1274,8 +1292,8 @@ Since the issue is between customer and card issuer, you and Midtrans cannot do 
 
 #### Using 3DS Card transaction flow v1 Core API, how can I ensure that the transaction is 3DS end to end?
 To ensure that the transaction is 3DS, check the following parameters.
-1. Get Token Process (endpoint `/v2/token`)
-       Make sure `redirect_url` is present on the response as shown in the sample given below.
+1. Get Token Process (endpoint `/v2/token`): 
+  Make sure `redirect_url` is present on the response as shown in the sample given below.
 
 
 ```javascript
@@ -1288,7 +1306,7 @@ To ensure that the transaction is 3DS, check the following parameters.
   hash: "481111-1114-xxx"
 }
 ```
-2. Callback from 3DS iframe
+2. Callback from 3DS iframe: 
   Response object should have `status_message: "Success, 3D Secure token generated"` and `eci` field, as a proof that the OTP/3DS page has been successfully completed by customer and verified by card issuer. A sample is shown below.
 
 ```javascript
@@ -1301,7 +1319,7 @@ To ensure that the transaction is 3DS, check the following parameters.
 ```
 ECI for **non-3DS** transaction is `07` or `00` (bad value). For more details, refer to [What is ECI on 3DS Protocol](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-).
 
-3. Charge process (endpoint `/v2/charge`)
+3. Charge process (endpoint `/v2/charge`): 
   There will be `eci` value as well.
   ECI for **non-3DS** transaction is `07` or `00 `(bad value).
 

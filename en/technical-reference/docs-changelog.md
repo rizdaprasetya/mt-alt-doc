@@ -8,6 +8,8 @@
 - add new json field on callback & http notification of card payment 3DS 2.0
 - add faq on how to prepare 3DS 2.0
 - add tips on running example code repo easily via Gitpod
+- faq on ShopeePay finish-redirect don't have any appended params
+- faq on download-report/reset-password email not received
 
 #### 2021/10/29
 - improve wording, description and sample on:
