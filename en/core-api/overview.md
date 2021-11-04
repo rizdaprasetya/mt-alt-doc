@@ -39,12 +39,12 @@ Based on the requirement, you can select any of the integration methods given be
 </div>
 
 ### B) Follow Sample Code {docsify-ignore}
-- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
+Use the collections of integration code examples for various programming languages, available as public GitHub repositories.
 
-<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
+<div class="my-card">
+
+#### [Sample Code Repo](/en/technical-reference/library-plugin.md#sample-integration-code)
+</div>
 
 ### C) Sample Demo Implementation {docsify-ignore}
 - [Core API Sample Demo](https://bit.ly/MidSampleApp)
