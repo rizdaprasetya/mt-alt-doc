@@ -55,6 +55,30 @@ FDS means Fraud Detection System. "Denied by FDS" means to simulate a transactio
 
 > **Note**: Not every acquiring banks might be able to accept JCB and Amex card. You can use BNI & BCA acquiring for JCB. BCA acquiring can accept Amex.
 
+#### 3D Secure 2.0
+Specific cards for testing 3DS 2.0 card payment scenario.
+
+<!-- @TODO: uncomment these commented cards after their result are as expected -->
+|VISA | Description |
+|---|---|
+|Card 3DS 2.0 Enrolled. <br> *frictionless 3DS (3DS input NOT prompted)* | **Accept:** 4556 5579 5572 6624 <br> **Accept**: 4024 0071 8944 9340 <br> **Deny:** 4485 4364 5535 4151|
+|Card 3DS 2.0 Enrolled. <br> *challenged by 3DS (3DS input prompted)* | **Accept:** *To be added soon* <!-- 4916 9940 6425 2017 --> <br> **Deny:** *To be added soon* <!-- 4604 6331 9421 9929 --> <br><br> **Result still** `Pending` **initially** (will become Accept after 60sec delay): <br> 4024 0071 7626 5022|
+| 3DS authentication is either failed or could not be attempted; possible reasons being both card and Issuing Bank are not secured by 3DS(technical errors or improper configuration). | **Deny:** 4716 1250 5984 7899 |
+
+|MASTERCARD | Description |
+|---|---|
+|Card 3DS 2.0 Enrolled. <br> *frictionless 3DS (3DS input NOT prompted)* | **Accept:** 5333 2591 5564 3223 <br> **Deny:** 5328 7203 8458 2224|
+|Card 3DS 2.0 Enrolled. <br> *challenged by 3DS (3DS input prompted)* | **Accept:** *To be added soon* <!-- 5306 8899 4283 3340 --> <br> **Deny:** *To be added soon* <!-- 5424 1840 4982 1670 --> <br><br> **Result still** `Pending` **initially** (will become Accept after 60sec delay): <br> 5487 9716 3133 0522|
+| 3DS authentication is either failed or could not be attempted; possible reasons being both card and Issuing Bank are not secured by 3DS(technical errors or improper configuration). | **Deny:** 5250 5486 9206 9390 |
+
+<!-- @TODO: uncomment this block after Amex test card ready
+|AMEX | Description |
+|---|---|
+|Card 3DS 2.0 Enrolled. <br> *frictionless 3DS (input NOT prompted)* | **Accept:** 3415 0209 8634 895 <br> **Deny:** 3456 9539 9207 589|
+|Card 3DS 2.0 Enrolled. <br> *challenged by 3DS (3DS input prompted)* | **Accept:** 3486 3826 7931 507 <br> **Deny:** 3720 2110 6351 394 <br><br> **Result still** `Pending` **initially** (will become Accept after 60sec delay): <br> 3451 9777 1649 926|
+| 3DS authentication is either failed or could not be attempted; possible reasons being both card and Issuing Bank are not secured by 3DS(technical errors or improper configuration). | **Deny:** 3794 5219 9603 6850 |
+ -->
+
 #### **Bank-Specific**
 
 This is useful for Installment/Promo scenario which require bank specific card.
