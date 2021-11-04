@@ -46,5 +46,20 @@ Did you develop your own library/package/module for Midtrans API, and want us to
 |Python | [Github](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)|
 |Other | please check <br>[respective language's repo](#language-library)|
 
+#### How to Run Sample Codes Quickly & Easily
+
+?> ***Tips:*** You can use [Gitpod.io](https://www.gitpod.io/) to easily run our sample codes. Gitpod is like a temporary cloud VM/VPS/container (with proper UI) that you can use to manage & run codes/web-servers easily. You don't need to install or download anything on your own machine, run it on their cloud!
+
+Here's how:
+- Go to [Gitpod.io](https://www.gitpod.io/), and sign-up/sign-in for a free account.
+	- You can easily sign-in with Github account.
+- Then on your web browser, type `https://gitpod.io#`, then paste Midtrans' example repo url at the end of the url.
+	- E.g. open this url on your browser: https://gitpod.io#https://github.com/Midtrans/midtrans-nodejs-client/
+- Then you will be given access to a cloud IDE, that have its own code-editor UI & terminal/shell that you can use to browse/edit the code & run the codes/examples.
+- You can `cd` to the `/examples` folder and follow the instruction.
+	- e.g. for NodeJS example, you can `cd /examples/expressApp` then run the example with `npm install; npm start;`. The example web server will run and you can click open browser/preview, to browse it as a web user.
+
+That's it!
+
 ## Ecommerce Platform
 If you are looking to integrate with 3rd party Ecommerce platform such as Shopify, [please visit this page](/en/snap/platform/overview).
