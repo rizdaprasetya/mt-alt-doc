@@ -1196,6 +1196,13 @@ It is advised for customer to ask the source-wallet for the fund status.
 
 If the transaction was GoPay to GoPay, the refund policy will be much faster (instantly, in most cases) since the refund is not subject to external party policy.
 
+#### Why does ShopeePay payment finish redirect doesn't have any parameter appended?
+Currently, this is expected. Unfortuantely due to **limitation on ShopeePay**, the finish redirection that happen from Shopee App to your web/app url (when customer has finished payment) **will not** have any parameter automatically appended. So your plain finish-url will be used.
+
+In this case your web/app may need to have its own session-management to remember/store what is the order_id of the transaction, and they you can call Midtrans' [Get Status API (or wait for HTTP Notification)](/en/after-payment/overview.md) to inquire for the transaction status. Or display a generic finish page to your customer.
+
+This behavior is not like [GoPay, which will produce additional parameters](/en/core-api/e-wallet.md#implementing-finish-redirect-callback-handler) like `order_id=` & `result=`.
+
 <!-- END OF Category --><hr>
 ### Card Payment
 <!-- @TODO explain 3DS 2.0 specifics -->
