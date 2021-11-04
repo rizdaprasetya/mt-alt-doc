@@ -4,8 +4,9 @@
 <!-- #### Unreleased 
 -->
 
-#### 2021/11/02
+#### 2021/11/04
 - add new json field on callback & http notification of card payment 3DS 2.0
+- add 3DS 2.0 sandbox test card - WIP
 - add faq on how to prepare 3DS 2.0
 
 #### 2021/10/29
