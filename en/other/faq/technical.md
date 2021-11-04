@@ -489,6 +489,17 @@ Multiple requests with **different idempotency-keys**, will produce: multiple di
 
 This is useful for cases like: merchant’s first request was resulting in a deny/failure response (e.g. due to bank deny, or bank having temporary issue), so merchant want to “intentionally **retry with another transaction attempt**, because the previous 1 got denied”. This is like asking: Create another transaction for me, or Do another refund with this amount.
 
+#### Why download-transaction/reset-password email doesn’t get received on my email?
+- Please make sure to double **check your email’s spam/junk/quarantine folder**, the email may be falsely flagged as spam/malicious.
+- If you are using a **company-managed email account domain** instead of personal email account (e.g. `nick@xyzclothingstore.com` instead of `nick@gmail.com`, yahoo.com, etc.) there are few possibilities:
+	- Usually your **company has email filtering/whitelisting/firewall** etc., please check with your company’s IT helpdesk to **check if any email from \@midtrans.com domain got blocked**.
+	- Ensure that your **email storage is not full**, sometimes your email storage is full and can’t receive any new email.
+	- Ensure that your **company email domain/address is properly configured**, sometimes there is misconfiguration in your company’s IT department that makes your email address unreachable.
+	- Ensure that your **email address is reachable & can receive email from external sender**, try sending an email from your personal email-account (like from your \@gmail.com) to your company-email address. If you can’t receive any email, then there's an issue with your company-email account, please check with your company’s IT helpdesk.
+- Try checking the **number of transactions you tried to download**, if the number is big, e.g. +10.000, it may take more than 1 minutes to be generated. If it’s more than +300.000 it may take more than 1 hour. So please patiently wait, or try downloading in smaller chunk by reducing "time range" on the transaction-search filter.
+
+Else, your email address may **have been unreachable sometimes in the past** (due to some reason explained above) when Midtrans tried to send email. When Midtrans fails to send emails about 3-5 times to an address, that address will be **marked as "unreachable/bad-address"** and Midtrans will stop sending any future emails. You will need to [contact Midtrans](https://midtrans.com/contact-us), to reset it.
+
 <!-- END OF Category --><hr>
 ### Snap
 
