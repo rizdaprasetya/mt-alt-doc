@@ -3,6 +3,8 @@
 
 <!-- #### Unreleased 
 -->
+#### 2021/11/11
+- add link & details on CMS demo store
 
 #### 2021/11/04
 - add new json field on callback & http notification of card payment 3DS 2.0
