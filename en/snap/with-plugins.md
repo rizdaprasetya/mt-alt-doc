@@ -72,7 +72,7 @@ Note: (un-official) 3rd party plugins from outside developer may exists out ther
 
 <!-- @TODO: add section where to send feedback and feature request here -->
 
-## WordPress - WooCommerce
+### WordPress - WooCommerce
 Midtrans ❤️ WooCommerce! This plugin allows secure online payment on your WooCommerce store, without ever needing your customer to leave your WooCommerce store! It has a beautiful built-in responsive payment interface. Midtrans strives to make payments simple for you and your customers. It supports various online payment channels. Midtrans supports WooCommerce v2 and v3.
 
 Midtrans-WooCommerce plugin is also available on [WordPress plugins store](https://wordpress.org/plugins/midtrans-woocommerce/). If you cannot find it listed there, you can always download and install it manually. For more details, refer to Manual Installation.
@@ -224,7 +224,7 @@ Available [on this page](/en/other/faq/technical.md#cms-plugins).
 
 <hr><br><br>
 
-## Magento
+### Magento
 Midtrans ❤️ Magento! Midtrans takes customer experience (UX) seriously and tries to make payments simple for you and the customers. With this plugin you can make your Magento store using Midtrans payment. This extension is also available on [Magento Marketplace](https://marketplace.magento.com/midtrans-snap.html).
 
 ?> **Note**: This section explains the installation and the configuration for Magento 2. For Magento 1, please refer to [Snap Plugin for E-commerce CMS](/en/technical-reference/library-plugin.md#snap-plugin-for-e-commerce-cms).
@@ -432,7 +432,7 @@ To request a refund for a transaction from Magento administration, follow the st
 </details>
 <hr><br><br>
 
-## PrestaShop
+### PrestaShop
 Midtrans ❤️ PrestaShop! Integrate your PrestaShop store with Midtrans Snap payment gateway. Midtrans strives to make payments simple for you and the customers. This plugin will allow online payment on your PrestaShop store using various online payment channels.
 
 #### Requirements
@@ -521,7 +521,7 @@ The table given below shows the fields and the URL.
 </details>
 <hr><br><br>
 
-## OpenCart
+### OpenCart
 Midtrans ❤️ OpenCart! This is official Midtrans extension for the OpenCart E-commerce platform.
 
 #### Requirements
@@ -622,7 +622,7 @@ The table given below shows the fields and the URL.
 </details>
 <hr><br><br>
 
-## WHMCS
+### WHMCS
 Midtrans ❤️ WHMCS! This plugin allows secure online payment on your WHMCS! With sleek built-in responsive payment interface (Snap). Midtrans strives to make payments simple for you and your customers. It supports various online payment channels.
 
 #### Requirements
@@ -704,7 +704,7 @@ The table given below shows the fields and the URL.
 </details>
 <hr><br><br>
 
-## Drupal
+### Drupal
 
 Midtrans ❤️ Drupal! This is the official Midtrans module for the Drupal E-commerce platform. You can easily integrate your Drupal commerce store with Midtrans payment gateway.
 
@@ -812,7 +812,7 @@ The table given below shows the fields and the URL.
 </details>
 <hr><br><br>
 
-## WordPress - Easy Digital Download
+### WordPress - Easy Digital Download
 Midtrans ❤️ EDD! Integrate your Easy Digital Download (EDD) store with Midtrans Snap payment gateway. Midtrans strives to make payments simple for both the merchant and the customers. This plugin will allow online payments on your EDD store using various online payment channels.
 
 Midtrans-EDD plugins also available on [WordPress plugins store](https://wordpress.org/plugins/edd-midtrans-gateway/).
