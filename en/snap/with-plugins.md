@@ -5,6 +5,8 @@ Content Management System (CMS) allows you to easily have a website or web store
 
 Midtrans provides easy to use & install plugins for popular Ecommerce CMS, which will enable your website to accept payments from your customers. All [payment methods](https://midtrans.com/payments) available on [Snap](/en/snap/overview.md) that are activated on your Midtrans Account will become available for your website’s customers.
 
+?> Want to **try Midtrans CMS payment plugins, without/before installing?** We have some demo web-stores that you can use to try the payment journey directly, [follow this section.](#midtrans-payment-plugin-live-demonstration)
+
 ## Preparation
 <br>
 
@@ -921,6 +923,13 @@ The table given below shows the fields and the URL.
 
 </article>
 </details>
+
+## Midtrans Payment Plugin Live Demonstration
+Want to see Midtrans CMS payment plugins in action? We have some demo web-stores that you can use to try the payment journey directly, click the link below.
+<div class="my-card">
+
+#### [Visit Plugin Live Demo](https://plugins-demo.midtrans.com/)
+</div>
 
 ## Feedback And Request
 If you have any kind of feedback, feature-request, new CMS that you want us to support, etc. related to Midtrans' CMS payment plugin, please [do let us know by filling this form](https://forms.gle/m3nJC1SNUDCw8Hmq9).

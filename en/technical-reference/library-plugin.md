@@ -24,7 +24,7 @@ Our library and plugins are **Open Source!** We are happy to accept any open sou
 Did you develop your own library/package/module for Midtrans API, and want us to list and recognize it on this page? Please do let us know via email at support@midtrans.com. We do appreciate community contributions 🎉.
 
 ## Snap Plugin for E-Commerce CMS
-?> The [step by step installation guide is available here](/en/snap/with-plugins.md).
+?> The [step by step installation guide & live-demo is available here](/en/snap/with-plugins.md).
 
 |Platforms | Resources |
 |---|---|
