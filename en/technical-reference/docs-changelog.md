@@ -2,10 +2,11 @@
 <hr>
 
 <!-- #### Unreleased 
-improve wording on sandbox warning
-improve format & wording on payment overview & status cycle
-fix typo on 3ds faq
 -->
+#### 2021/11/30
+- improve wording & reorder after payment overview
+- E-Pay BRI rebrand to BRImo
+
 #### 2021/11/11
 - add link & details on CMS demo store
 
