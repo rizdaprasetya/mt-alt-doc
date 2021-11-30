@@ -465,7 +465,7 @@ Some sample HTTP notifications for a successful transaction on different payment
 }
 ```
 
-#### **BRI Epay**
+#### **BRImo**
 
 ```json
 {
@@ -859,7 +859,7 @@ Some sample HTTP notifications for a successful transaction on different payment
 | currency           | The unit of currency used for the transaction.   | String | –                                                            |
 
 
-#### **BRI Epay**
+#### **BRImo**
 
 #### POST Body 
 

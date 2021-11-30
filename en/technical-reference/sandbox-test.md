@@ -147,7 +147,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 |----------|------------|
 |Mandiri Clickpay | **Card Number:** 4111 1111 1111 1111 <br> **Accept Token:** 000000 <br> **Deny Token:** 111111|
 |CIMB Clicks | Midtrans will redirect CIMB Clicks test transaction to a payment simulator. <br> **Success Transaction:** testuser00  <br> **Failure Transaction:** testuser01|
-|ePay BRI | Midtrans will redirect ePay BRI test transaction to a payment simulator. <br> **Success Transaction:** testuser00 <br> **Failure Transaction:** testuser03|
+|BRImo | Midtrans will redirect BRImo (previously known as E-Pay BRI) test transaction to a payment simulator. <br> **Success Transaction:** testuser00 <br> **Failure Transaction:** testuser03|
 |BCA Klikpay | Midtrans will redirect BCA Klikpay test transaction to a payment simulator.|
 |KlikBCA | Midtrans will register user id filled in KlikBCA input. To perform a test transaction, use the [KlikBca Simulator](https://simulator.sandbox.midtrans.com/bca/klikbca/index).|
 
