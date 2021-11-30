@@ -5,11 +5,11 @@
 ![Core API Overview](./../../asset/image/core-api-overview.svg)
 <br>
 
-Midtrans Core API is a Web service, based on RESTful architecture which enables seamless communication between you and Midtrans payment channels. You can easily set up your environment and can customize your payment page without redirecting to Midtrans page. Midtrans Core API is suitable for medium size as well as large size businesses.
+Midtrans **Core API is a RESTful Web service**, which enables **programmatic communication** between you and Midtrans payment system. You can easily integrate to any of your internet-capable system (Web, App, PoS, IoT, etc.) and can **fully bulid & customize the payment UI**, on your side without Midtrans hosted payment UI. Midtrans Core API is suitable for medium size as well as large size businesses.
 
 ## Various Ways to Integrate with Core API {docsify-ignore}
 
-Based on the requirement, you can select any of the integration methods given below.
+**Learn on how-to** integrate, **select one from any of methods below** that you most prefer.
 
 ### A) Step by Step Guide {docsify-ignore}
 <br>

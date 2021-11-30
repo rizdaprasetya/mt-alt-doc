@@ -3,6 +3,10 @@
 
 <!-- #### Unreleased 
 -->
+#### 2021/11/30
+- improve wording & reorder after payment overview
+- E-Pay BRI rebrand to BRImo
+
 #### 2021/11/11
 - add link & details on CMS demo store
 
