@@ -2,6 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
+improve wording on sandbox warning
 -->
 #### 2021/11/11
 - add link & details on CMS demo store

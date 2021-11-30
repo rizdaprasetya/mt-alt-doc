@@ -160,5 +160,5 @@ It is used for testing a specific scenario where the card is not eligible for on
 
 ## Note & Limitation
 
-!> **Note: Do not attempt to pay with a real-world payment-provider/bank** to a transaction created in the Sandbox environment. **Sandbox transactions cannot accept real payment, and should be paid only with the sandbox simulator** explained in this page. Midtrans will not be responsible and may not be able to help you recover any real-world payment funds if you do this mistake.
+!> **Note: Do not attempt to pay with a real-world payment-provider/bank** to a transaction created in the Sandbox environment. **Sandbox transactions cannot accept real payment, and should be paid only with the sandbox simulator** explained in this page. Midtrans will not be responsible and may not be able to help you recover any real-world payment funds if you made such mistake.
 
