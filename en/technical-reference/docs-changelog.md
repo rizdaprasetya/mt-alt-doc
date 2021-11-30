@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 improve wording on sandbox warning
+improve formatting on snap overview
 -->
 #### 2021/11/11
 - add link & details on CMS demo store
