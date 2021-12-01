@@ -19,7 +19,7 @@
   </div>
   <div>
 
-![BRImo](./../../asset/image/coreapi/epay_bri.png ":size=120")
+![BRImo](./../../asset/image/coreapi/epay_bri.png?dummyParamToPurgeCFCache=1 ":size=120")
   </div>
 </div>
 
