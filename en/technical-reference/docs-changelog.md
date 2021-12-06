@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2021/12/06
+- add faq on how to test offline installment on Sandbox environment
+
 #### 2021/11/30
 - improve wording & reorder after payment overview
 - E-Pay BRI rebrand to BRImo
