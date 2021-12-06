@@ -80,8 +80,6 @@ curl -X POST \
   "channel_response_message": "Approved",
   "channel_response_code": "00",
   "card_type": "credit",
-  "three_ds_version": "2",
-  "challenge_completion": true,
   "bank": "bni",
   "approval_code": "1578569243927"
 }'
@@ -119,8 +117,6 @@ Some sample HTTP notifications for a successful transaction on different payment
   "channel_response_message": "Approved",
   "channel_response_code": "00",
   "card_type": "credit",
-  "three_ds_version": "2",
-  "challenge_completion": true,
   "bank": "bni",
   "approval_code": "1578569243927"
 }
@@ -515,8 +511,6 @@ Some sample HTTP notifications for a successful transaction on different payment
 | channel_response_message | The response from payment channel.                           | String | –                                                            |
 | channel_response_code    | The response code from the payment channel.                  | String | –                                                            |
 | card_type                | The type of card used for the transaction.                   | String | Possible values are Credit, Debit.                           |
-| three_ds_version         | The version of 3DS used for the transaction.                 | String | Example values `"1"` or `"2"`                                    |
-| challenge_completion     | Whether the 3DS 2.0 challenge input was completed by customer.| Boolean | Example values `true` or `false`. Field may not exist if 3DS 2.0  challenge input was not prompted.|
 | bank                     | Name of the bank through which the transaction was processed.| String | –                                                            |
 | approval_code            | The approval code from the bank.                             | String | This can be used to refund a transaction. *approval_code* does not exist on transactions with transaction status: Denied |
 
