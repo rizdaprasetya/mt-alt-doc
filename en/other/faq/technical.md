@@ -500,6 +500,14 @@ This is useful for cases like: merchant’s first request was resulting in a den
 
 Else, your email address may **have been unreachable sometimes in the past** (due to some reason explained above) when Midtrans tried to send email. When Midtrans fails to send emails about 3-5 times to an address, that address will be **marked as "unreachable/bad-address"** and Midtrans will stop sending any future emails. You will need to [contact Midtrans](https://midtrans.com/contact-us), to reset it.
 
+#### How to test offline installment on Sandbox environment?
+Offline Installment is the type of payment where Card Issuing Bank used for making an installment payment and the Acquiring Bank need not be the same. For example, a customer makes an installment payment using BNI Card and the Acquiring Bank is Mandiri.
+test offline installment on Sandbox environment
+If you need to test offline installment on Sandbox environment. You can use a value BIN dummy card e.g. `“481111, 521111”`, [here is list testing dummy card](/en/technical-reference/sandbox-test.md#card-payments). <br>
+Please make sure the BIN dummy number only as test value and the transaction success as expected. When you are in a Production environment you need to change the BIN number to real BIN card issuer.
+
+Please refer here to further [implement about offline installment card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
+
 <!-- END OF Category --><hr>
 ### Snap
 
