@@ -157,7 +157,7 @@ For example the final redirect URL may look like this: `https://tokoecommerce.co
 
 You may use this information to display custom message to your customer on your finish URL.
 
-Note: Specific if the payment method is Credit Card & processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger redirect with `?transaction_status=pending` instead of `capture/settlement`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
+Note: Specific if the payment method is Credit Card & processed via [3DS 2](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger redirect with `?transaction_status=pending` instead of `capture/settlement`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
 
 --------------------
 ### Snap.js Function and Options
@@ -217,7 +217,7 @@ window.snap.pay('SNAP_TRANSACTION_TOKEN', {
 ```
 <!-- tabs:end -->
 
-\*Specific if the payment method is Credit Card & processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
+\*Specific if the payment method is Credit Card & processed via [3DS 2](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
 
 ### Custom Finish URL
 By default, Snap will redirect the customer to [Finish Redirect URL configured on Dashboard](#configuring-redirect-url). But you can override that configuration by specifying `callbacks.finish` parameter. This will allow you to have specific redirect for each specific payment.
