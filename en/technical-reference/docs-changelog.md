@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2021/12/06
+- add 3DS 2 sandbox test card
+
 #### 2021/11/30
 - improve wording & reorder after payment overview
 - E-Pay BRI rebrand to BRImo
