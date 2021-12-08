@@ -500,14 +500,6 @@ This is useful for cases like: merchant’s first request was resulting in a den
 
 Else, your email address may **have been unreachable sometimes in the past** (due to some reason explained above) when Midtrans tried to send email. When Midtrans fails to send emails about 3-5 times to an address, that address will be **marked as "unreachable/bad-address"** and Midtrans will stop sending any future emails. You will need to [contact Midtrans](https://midtrans.com/contact-us), to reset it.
 
-#### How to test offline installment on Sandbox environment?
-Offline Installment is the type of payment where Card Issuing Bank used for making an installment payment and the Acquiring Bank need not be the same. For example, a customer makes an installment payment using BNI Card and the Acquiring Bank is Mandiri.
-test offline installment on Sandbox environment
-If you need to test offline installment on Sandbox environment. You can use a value BIN dummy card e.g. `“481111, 521111”`, [here is list testing dummy card](/en/technical-reference/sandbox-test.md#card-payments). <br>
-Please make sure the BIN dummy number only as test value and the transaction success as expected. When you are in a Production environment you need to change the BIN number to real BIN card issuer.
-
-Please refer here to further [implement about offline installment card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
-
 <!-- END OF Category --><hr>
 ### Snap
 
@@ -1398,6 +1390,17 @@ On the card payment method’s [callback](/en/core-api/credit-card.md#_3ds-authe
 - `challenge_completion` this field will give you information about whether the 3DS 2.0 challenge-input was prompted to customer & was completed by them e.g. `true` or `false`. Note: This field may only exists if applicable (e.g. only exists if transaction was processed via 3DS 2.0 & customer was prompted with 3DS 2.0 challenge-input)
 
 However, most of the time from a merchant perspective, you don’t need to know whether the transaction was processed via 3DS 2.0 or not, or if the customer was prompted with the 3DS challenge-input or not. As a merchant what usually you need to know [is just the ECI code](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-). To determine whether the transaction was 3DS or not. If the transaction was 3DS most of the time, the risk liability (in case of fraud, etc.) does not fall to the merchant.
+
+#### How to test offline installment on Sandbox environment?
+Offline Installment is the type of payment where Card Issuing Bank used for making an installment payment and the Acquiring Bank need not be the same. For example, a customer makes an installment payment using BNI Card and the Acquiring Bank is Mandiri.
+
+You can use for example `"481111, 521111"` as dummy BINs value, which have corresponding test cards that are acceptable on Sandbox environment. You can check [here for more sandbox test cards](/en/technical-reference/sandbox-test.md#card-payments) that you can use as BINs value. E.g. choose some cards, and then use their first 6-digit as BINs value.  
+
+Please only use the dummy BINs value as testing purpose on Sandbox, so that you can test to the point that the transaction is successfully accepted as expected on Sandbox.
+When you are in a Production environment you need to change the BINs value to real BINs card issuer.
+Also you can use real BINs value on Sandbox, but please remember do not pay the transaction on Sandbox. You just need to test the BINs value to proceed and show the 3DS/OTP page.
+
+Please refer here to further [implement about offline installment card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
 
 <!-- END OF Category --><hr>
 ### CMS Plugins
