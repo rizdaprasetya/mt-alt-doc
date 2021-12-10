@@ -1396,9 +1396,7 @@ Offline Installment is the type of payment where Card Issuing Bank used for maki
 
 You can use for example `"481111, 521111"` as dummy BINs value, which have corresponding test cards that are acceptable on Sandbox environment. You can check [here for more sandbox test cards](/en/technical-reference/sandbox-test.md#card-payments) that you can use as BINs value. E.g. choose some cards, and then use their first 6-digit as BINs value.  
 
-Please only use the dummy BINs value as testing purpose on Sandbox, so that you can test to the point that the transaction is successfully accepted as expected on Sandbox.
-When you are in a Production environment you need to change the BINs value to real BINs card issuer.
-Also you can use real BINs value on Sandbox, but please remember do not pay the transaction on Sandbox. You just need to test the BINs value to proceed and show the 3DS/OTP page.
+Please only use the dummy BINs value as testing purpose on Sandbox, so that you can test to the point that the transaction is successfully accepted as expected on Sandbox. When you are in a Production environment you need to change the BINs value to real BINs card issuer. Alternatively, you can use real BINs value on Sandbox, you only will be able to test & proceed up until the 3DS/OTP page. That should be enough to test & ensure that the BINs param is valid & working. But please expect the payment will be denied after 3DS/OTP, because the card likely is not recognized by our Sandbox.
 
 Please refer here to further [implement about offline installment card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
 
