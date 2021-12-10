@@ -1398,7 +1398,7 @@ You can use for example `"481111, 521111"` as dummy BINs value, which have corre
 
 Please only use the dummy BINs value as testing purpose on Sandbox, so that you can test to the point that the transaction is successfully accepted as expected on Sandbox. When you are in a Production environment you need to change the BINs value to real BINs card issuer. Alternatively, you can use real BINs value on Sandbox, you only will be able to test & proceed up until the 3DS/OTP page. That should be enough to test & ensure that the BINs param is valid & working. But please expect the payment will be denied after 3DS/OTP, because the card likely is not recognized by our Sandbox.
 
-Please refer here to further [implement about offline installment card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
+Please refer here for more info on [how to implement offline installment for card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
 
 <!-- END OF Category --><hr>
 ### CMS Plugins
