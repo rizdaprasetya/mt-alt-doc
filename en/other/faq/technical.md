@@ -1402,6 +1402,15 @@ However, most of the time from a merchant perspective, you don’t need to know 
 #### How can merchant test 3DS 2 payment flow on sandbox?
 You will be able to test various 3DS 2 scenarios using the sandbox card testing credentials provided in the [Sandbox Testing page, under 3D Secure 2 section](/en/technical-reference/sandbox-test.md#_3d-secure-20).
 
+#### How to test offline installment on Sandbox environment?
+Offline Installment is the type of payment where Card Issuing Bank used for making an installment payment and the Acquiring Bank need not be the same. For example, a customer makes an installment payment using BNI Card and the Acquiring Bank is Mandiri.
+
+You can use for example `"481111, 521111"` as dummy BINs value, which have corresponding test cards that are acceptable on Sandbox environment. You can check [here for more sandbox test cards](/en/technical-reference/sandbox-test.md#card-payments) that you can use as BINs value. E.g. choose some cards, and then use their first 6-digit as BINs value.  
+
+Please only use the dummy BINs value as testing purpose on Sandbox, so that you can test to the point that the transaction is successfully accepted as expected on Sandbox. When you are in a Production environment you need to change the BINs value to real BINs card issuer. Alternatively, you can use real BINs value on Sandbox, you only will be able to test & proceed up until the 3DS/OTP page. That should be enough to test & ensure that the BINs param is valid & working. But please expect the payment will be denied after 3DS/OTP, because the card likely is not recognized by our Sandbox.
+
+Please refer here for more info on [how to implement offline installment for card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
+
 <!-- END OF Category --><hr>
 ### CMS Plugins
 #### Merchant is using other Wordpress ecommerce plugins, can payment be integrated with Midtrans?

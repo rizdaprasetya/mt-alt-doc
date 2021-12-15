@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2021/12/10
+- add faq on how to test offline installment on Sandbox environment
+
 #### 2021/12/06
 - add 3DS 2 sandbox test card
 
