@@ -17,8 +17,8 @@
 - add link & details on CMS demo store
 
 #### 2021/11/04
-- add new json field on callback & http notification of card payment 3DS 2.0
-- add faq on how to prepare 3DS 2.0
+- add new json field on callback & http notification of card payment 3DS 2
+- add faq on how to prepare 3DS 2
 - add tips on running example code repo easily via Gitpod
 - faq on ShopeePay finish-redirect don't have any appended params
 - faq on download-report/reset-password email not received
@@ -40,7 +40,7 @@
 #### 2021/09/24
 - add emphasis on importance of verifying & handling payment status update
 - add link to verify payment status on security page
-- add note of 3DS 2.0 Snap redirect behaviour
+- add note of 3DS 2 Snap redirect behaviour
 - improve snap integration guide section for better snap redirect method visibility
 - improve snap integration guide html sample: add sample w/ js callback, improve code readability
 - note on FDS deny: will not result in success transaction
@@ -49,7 +49,7 @@
 - add iris account & dashboard usage section
 
 #### 2021/09/17
-- update 'pending' notif definition to include 3DS 2.0 card payment note
+- update 'pending' notif definition to include 3DS 2 card payment note
 - ensure consistency of transaction & fraud status table between different technical reference pages
 - ensure each page use h2 instead of h3 as section heading
 - right sidebar UI improvement: better visual structure & less crowded feel
@@ -57,12 +57,12 @@
 - faq: add note to handle payment deeplink url on webview topics
 - add section about Snap via webview in snap guide
 - add link to snap webview section & its demo on relevant pages
-- add note of 3DS 2.0 callback behaviour on snap js callback section
+- add note of 3DS 2 callback behaviour on snap js callback section
 - add link and visibility of GoPay Recurring
 
 #### 2021/09/10
 - faq: about granular reason of payment failure on frontend e-money app
-- add note of 3DS 2.0 js callback behaviour on card payment integration guide
+- add note of 3DS 2 js callback behaviour on card payment integration guide
 - update fragment link to Core API docs according to new urls
 - update drupal guide according to latest module, now also support Drupal 9
 

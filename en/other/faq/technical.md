@@ -1216,7 +1216,7 @@ This behavior is not like [GoPay, which will produce additional parameters](/en/
 
 <!-- END OF Category --><hr>
 ### Card Payment
-<!-- @TODO explain 3DS 2.0 specifics -->
+<!-- @TODO explain 3DS 2 specifics -->
 #### How can I check the reasons for the denial of a customer's card transaction?
 The reason of a denied credit card transaction can be checked on merchant Dashboard. Go to home page, and search order id. Click ⓘ on "**Transaction failure**" red indicator, to display the reason for denied transaction.
 
@@ -1360,15 +1360,18 @@ Alternatively, only if needed, you can also:
 - Opt to use [Register Card API](/en/core-api/advanced-features.md#recurring-transaction-with-register-card-api) to save the card on Midtrans first, before attempting to perform recurring.
 - If you really want to perform non-3DS transactions, you can also opt to have an agreement with the acquiring bank to grant you a non-3DS MID. Please contact Midtrans Activation Team to learn more.
 
-#### How should merchants prepare for Card 3DS 2.0 changes?
+<!-- invisible anchor to preserve old id?= url link, due to question being renamed now -->
+<small id="how-should-merchants-prepare-for-card-3ds-20-changes">&nbsp;</small>
+#### How should merchants prepare for Card 3DS 2 changes?
+##### Changes from Merchant Perspective
 <details open>
 <summary>If Integrating via Core API</summary>
 <article>
 
-If you are using Core API payment product, here are some notable changes from Merchant perspective:
-- When transaction is processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (if the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then which it will result in transaction_status `pending` within the frontend callback. So please ensure you have properly follow the [card payment method integration guide](/en/core-api/credit-card), especially on [this step till the end](/en/core-api/credit-card.md#_3ds-authentication-page-json-response).
+If you are using Core API payment product, here are some notable **changes from Merchant perspective**:
+- When transaction is processed via [3DS 2](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (if the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then which it will result in transaction_status `pending` within the frontend callback. So please ensure you have properly follow the [card payment method integration guide](/en/core-api/credit-card), especially on [this step till the end](/en/core-api/credit-card.md#_3ds-authentication-page-json-response).
 - If your implementation already uses HTTP notification/webhook to update payment status, as mentioned on the link above, you should be fine and don’t need to update your implementation.
-- Note: If you are a merchant who implemented card integration **before 2019**, you might be implementing old-3DS-flow, you will need to update your implementation to the current latest [3DS flow](/en/core-api/credit-card.md). The indication of you are on old-3DS-flow are the 3DS popup implemented/happens before `/charge` API call. Otherwise, you should be fine.
+- Note: Specific if you are a merchant who implemented card integration **before 2019**, you might be implementing old-3DS-flow, you will need to update your implementation to the current latest [3DS flow](/en/core-api/credit-card.md). The indication of you are on old-3DS-flow are the 3DS popup implemented/happens before `/charge` API call. Otherwise, you should be fine.
 </article>
 </details>
 
@@ -1377,19 +1380,27 @@ If you are using Core API payment product, here are some notable changes from Me
 <article>
 
 If you are using Snap payment product, most of the changes are automatically handled by Snap itself, so you don’t have to update your implementation. But here are some notable **changes from merchant perspective**:
-- Card payment which processed via [3DS 2.0](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
+- Card payment which processed via [3DS 2](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds) (when the acquiring bank and the MID support), there's a small possibility of the transaction is still waiting for the card's 3DS provider to process/verify it, which then Snap will trigger `onPending` callback instead of `onSuccess`. To handle the payment success update, as usual you should [handle HTTP Notification](/en/snap/integration-guide.md#_4-handling-after-payment).
 </article>
 </details>
 
+##### Changes from Customer Perspective
 Notable **changes from customer perspective**:
-- Customer's 3DS 2.0 transaction may not prompt OTP/3DS-challenge input, when the 3DS provider determines their transaction is safe/low-risk. Their 3DS can automatically complete without interaction, thus their transaction will be more convenient and seamless, without degrading the security aspect.
-- More benefits/changes [explained here](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds).
+- Customer's 3DS 2 transaction may not required OTP/2FA/3DS-challenge input, when the 3DS provider determines their transaction is safe/low-risk. In that case the 3DS process requires no customer interaction, thus their transaction will be more convenient and seamless, without degrading the security aspect.
+	- This is because additional necessary information is exchanged in the background automatically. So that the risk can be determined more seamlessly.
+- More detailed benefits & changes [explained here](https://api-docs.midtrans.com/#card-feature-3d-secure-3ds).
 
+##### New JSON Fields
 On the card payment method’s [callback](/en/core-api/credit-card.md#_3ds-authentication-page-json-response) & [HTTP notification](/en/after-payment/http-notification.md#sample-for-various-payment-methods), the JSON will contains **some new fields**:
 - `three_ds_version` this field will give you information about which 3DS version was used during the transaction e.g. `"1"` or `"2"`.
-- `challenge_completion` this field will give you information about whether the 3DS 2.0 challenge-input was prompted to customer & was completed by them e.g. `true` or `false`. Note: This field may only exists if applicable (e.g. only exists if transaction was processed via 3DS 2.0 & customer was prompted with 3DS 2.0 challenge-input)
+- `challenge_completion` this field will give you information about whether the 3DS 2 challenge-input was prompted to customer & was completed by them e.g. `true` or `false`. Note: 
+	- This field may only exists if applicable (e.g. only exists if transaction was processed via 3DS 2 & customer was prompted with 3DS 2 challenge-input).
+	- In the case of the transaction is still waiting for the card's 3DS provider to process/verify it, this field's value may initially be `false`, and then become `true` after the 3DS verification is done.
 
-However, most of the time from a merchant perspective, you don’t need to know whether the transaction was processed via 3DS 2.0 or not, or if the customer was prompted with the 3DS challenge-input or not. As a merchant what usually you need to know [is just the ECI code](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-). To determine whether the transaction was 3DS or not. If the transaction was 3DS most of the time, the risk liability (in case of fraud, etc.) does not fall to the merchant.
+However, most of the time from a merchant perspective, you don’t need to know whether the transaction was processed via 3DS 2 or not, or if the customer was prompted with the 3DS challenge-input with input or not. As a merchant what usually you need to know [is just the ECI code](https://support.midtrans.com/hc/en-us/articles/204161150-What-is-ECI-on-3DS-protocol-). To determine whether the transaction was 3DS or not. If the transaction was 3DS, most of the time the risk liability (in case of fraud, etc.) does not fall to the merchant. So from risk-perspective merchant should be fine.
+
+#### How can merchant test 3DS 2 payment flow on sandbox?
+You will be able to test various 3DS 2 scenarios using the sandbox card testing credentials provided in the [Sandbox Testing page, under 3D Secure 2 section](/en/technical-reference/sandbox-test.md#_3d-secure-20).
 
 #### How to test offline installment on Sandbox environment?
 Offline Installment is the type of payment where Card Issuing Bank used for making an installment payment and the Acquiring Bank need not be the same. For example, a customer makes an installment payment using BNI Card and the Acquiring Bank is Mandiri.
