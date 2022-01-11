@@ -271,6 +271,8 @@ You can configure Enable Payment with Snap Preference on Midtrans *Dashboard*. T
 
 ![snap preference payment channels](./../../asset/image/snap-adv-enabled-payment-dash.png)
 
+?> ***Note:*** the configuration that is set using this method will only be applied to Snap payment transaction that is being opened via Snap Popup method (frontend javascript implementation method with snap.js). If your implementation is via Snap Redirect mode, please use configuration on the next section.
+
 #### B) Specify Payment Channel via API Request
 You can add and customize `enabled_payments` parameter. That will apply specifically for the transaction.
 

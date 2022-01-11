@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 - improve universal/deeplink redirect url FAQ
+- add note Snap Preferences only apply to Snap Popup mode
 -->
 #### 2021/12/10
 - add faq on how to test offline installment on Sandbox environment
