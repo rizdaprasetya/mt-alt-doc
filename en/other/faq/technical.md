@@ -1427,6 +1427,11 @@ Please only use the dummy BINs value as testing purpose on Sandbox, so that you 
 
 Please refer here for more info on [how to implement offline installment for card payment](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
 
+#### What are the available online installment terms on Sandbox environment?
+By default the usual available online installment terms that is activated on sandbox accounts are only: `3, 6, 12`. You should test using those available terms on Sandbox.
+
+But in case you really need to add more terms & or add additional online installment acquiring bank, please contact Midtrans Support Team or your account manager / Midtrans Business Team. We can try to accomodate your specific sandbox account requirement.
+
 <!-- END OF Category --><hr>
 ### CMS Plugins
 #### Merchant is using other Wordpress ecommerce plugins, can payment be integrated with Midtrans?
