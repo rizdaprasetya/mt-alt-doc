@@ -849,15 +849,41 @@ But the downside is that if the customer ends up abandoning the payment, it wonâ
 This is expected. In production mode, a failure of payment within Gojek App will be contained only within the app, and will allow customer to retry payment. So, failure is not notified to you or Midtrans. Transaction status will remain as pending, to allow retry attempt from the customer. If the customer fails to do successful payment within the expiry-time (default expiry is 15 minutes) the transaction status will change to `EXPIRE` and cannot be paid.
 
 #### Customer fails to be redirected to gojek:// deeplink on mobile app. What should I do?
-This may happen if the customer don't have the Gojek app installed, please make sure the **latest Gojek app version is installed on the customer's device**. If this doesn't solve the issue, please continue below.
+Proceed to read the next question to see the answer.
 
-This may also happen if you mistakenly encode, shorten, add, or remove any character from the deeplink URL. Please ensure that the URL you presented to customer is the **same URL retrieved from Midtrans API, without any modification**. Modifying the URL may result in the URL unable to be opened by customer's device.
+#### Failure to redirect the customer to Gojek GoPay, Shopee Pay, and other e-Money payment provider app. What should I do?
+There are some possibilities to check:
 
-Sometimes, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME`.
+**1. Customer Don't Have The Latest Payment Provider's App Installed**
 
-The issue usually happen if the customer is transacting (with Gopay payment method) within your mobile app, which the app implementation is using WebView, and the WebView implementation by default may not allow opening deeplink URL to Gojek app (or other external app).
+Please make sure & inform the customer to install the payment provider's app (Gojek, Shopee, etc.), if they don't have it installed already on their transacting device. 
 
-You will need to make sure that your app's WebView configuration allows opening `gojek://` deeplink protocol (or any other app required by payment provider). This section below will give you basic idea on how to configure your app implementation to allow opening other app deeplink (`gojek://` and `shopeeid://` will be used as example). 
+If they have it installed, please ask them to update to the **latest app version**. Sometimes older version of the app may have issue, so it is advised to update.
+
+**2. Your System May Have Modified The Payment Redirect URL**
+
+This may also happen if you mistakenly encode, shorten, add, or remove any character from the redirect URL. Please ensure that the URL you presented to customer is the **same URL retrieved from Midtrans API, without any modification**. Modifying the URL may result in the URL unable to be opened by customer's device.
+
+**3. Your iOS App's Implementation Prevent Redirect to the Payment App**
+##### iOS
+If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+<string>gojek</string>
+<string>shopeeid</string>
+</array>
+```
+This is to ensure that deeplink from your app to the (external) destination payment app is allowed.
+
+**4. Your App's WebView Implementation Prevent Redirect to the Payment App**
+
+The issue can happen if the customer is transacting from within a WebView implementation of your mobile app. The WebView default behavior may not allow opening universal/deeplink redirect URL to the (external) destination payment app.
+
+On Android platform, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME` as indication of the issue.
+
+To solve this, you will need to make sure that your app's WebView configuration allows opening universal/deeplink redirect URL to the (external) destination payment app. The next section below will give you basic idea on how to configure your app's Webview implementation. 
 
 Please follow according to the app platform your app is being implemented in:
 
@@ -933,19 +959,8 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
 </article>
 </details>
 
-##### iOS
-If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`
-
-```xml
-<key>LSApplicationQueriesSchemes</key>
-<array>
-<string>gojek</string>
-<string>shopeeid</string>
-</array>
-```
-
 ##### iOS Webview Specific
-If you are implementing ShopeePay method and presenting it within Webview on iOS and encounter issue. Configure/override your WebView like below:
+If your app is iOS based app. Configure/override your WebView like below:
 
 ```obj-c
 
@@ -979,7 +994,7 @@ Based [on this resource](https://laptrinhx.com/ios-wkwebview-cannot-handle-url-s
 If you are using iOS WebView implementation to show Snap payment page, here is another [sample code in Swift](https://gist.github.com/Xaxxis/4a9d90ecf7adc0c3013e2f323a1e9b74#file-viewcontroller-swift-L29-L46) that has been tested to work for GoPay and ShopeePay deeplink url.
 
 ##### Web Browser or Progressive Web App (PWA)
-If the customer is transacting through Mobile Web Browser or PWA, and the Gojek App fails to open, please make sure that you are not trying to open `gojek://` deeplink via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up.
+If the customer is transacting through Mobile Web Browser or PWA, and the destination payment app fail to opem, please make sure that you are not trying to open the url via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up.
 
 **Avoid doing** this, via JavaScript:
 ```javascript
@@ -1021,7 +1036,7 @@ If it doesn't work, try `onShouldStartLoadWithRequest`, as shown in the example 
   />
 ```
 
-Then, implement function to handle `gojek://`, as shown in the example shown below.
+Then, implement function to handle the URL, as shown in the example shown below.
 
 ```javascript
 import { WebView, Linking } from 'react-native';
@@ -1046,7 +1061,7 @@ For more reference, please visit:
 - https://stackoverflow.com/questions/35531679/react-native-open-links-in-browser
 
 ##### Flutter
-If your app is Flutter based app, if you are using WebView, referring to [this community resource](https://stackoverflow.com/a/60515494), you will need to implement this listener of the WebView in order to override Deeplink URL to be opened by the device's OS:
+If your app is Flutter based app, if you are using WebView, referring to [this community resource](https://stackoverflow.com/a/60515494), you will need to implement this listener of the WebView in order to override URL to be opened by the device's OS:
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
@@ -1067,10 +1082,18 @@ _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
 For more reference, please visit:
 - https://github.com/fluttercommunity/flutter_webview_plugin/issues/43
 
-##### If None Works
-The main goal is that to configure your WebView to allow opening the deeplink/universal link of the destination payment app. This usually require you to override/config your WebView to listen for specific URL prefixes, then invoke the URL to be opened on the OS level (e.g: via Android's `intent` or iOS `openURL`). 
+##### If None Above Works
+The main goal is that to configure your WebView to allow opening the universal/deeplink redirect URL to the (external) destination payment app. This usually require you to override/config your WebView to listen for specific URL prefixes, then invoke the URL to be opened on the OS level (e.g: via Android's `intent` or iOS `openURL`). 
 
-If none of the sample code above works for you, please follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
+The URLs list is:
+```txt
+gojek://
+shopee://
+https://gojek.link
+https://wsa.wallet.airpay.co.id
+```
+
+If none of the sample code above works for you, try to follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
 
 If it still fails, you should consider integrating with native Midtrans Mobile SDK. 
 
@@ -1081,14 +1104,7 @@ Please not that as consequences of implementing custom URLs listener/whitelist/h
 - You may need to update your implementation to add more URLs to handle, e.g: when adding new payment methods.
 - The URLs from the payment provider may changes without prior notice, so you may need to update your implementation when that happens.
 
-These limitation and risk unfortunately are due to the nature of how WebView, deeplink, and universal link works on each mobile platforms. Midtrans, payment provider, or merchant have no direct control over how they behave. We only follow the rule of the platforms.
-
-#### Failure to redirect the customer to Gojek GoPay, Shopee Pay, and other e-Money payment provider app. What should I do?
-Refer to the section [above](#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do).
-
-It applies to other E-Money payment providers too. For example, if the issue happens to `shopeeid://` app deeplink, then proceed with the suggestion above to allow deeplink whitelist, and add `shopeeid://` to the configuration.
-
-Also please refer to [this section if none of them works](#if-none-works).
+These limitation and risk unfortunately are due to the nature of how WebView, deeplink, and universal link works on each mobile platforms. Midtrans, payment provider, or merchant have no direct control over how they behave. We only follow the specification of the platforms.
 
 #### Customer redirected to app store instead of directly to payment app for e-money transaction. What should I do?
 For e-money payment methods (GoPay, ShopeePay, etc.), Midtrans will provide you Deep/Universal Link for your app/web to redirect your customer. This issue can happen if you are implementing your payment page in a Webview, and handling the redirect link within Webview in your app.
