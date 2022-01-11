@@ -20,6 +20,8 @@ Make sure that your **endpoint should not return/response**:
 
 Also it is **important to double check that your infrastructure layer** such as reverse-proxy (Nginx/Apache/etc.), network layer, firewall, etc. does not perform any of the above problematic issue.
 
+Make sure that the Notification URL **can be reached from Public Internet**. Midtrans **cannot send notifications to localhost**, URL protected with authorization or password, URL behind VPN, unusual destination port, and so on. You may also need to make sure the [following IP address](/en/technical-reference/ip-address#notification-ip-address) is not blocked from your infrastructure.
+
 <details open>
 <summary><b>Inspect & Reproduce HTTP Notification Sending Process</b></summary>
 <article>
