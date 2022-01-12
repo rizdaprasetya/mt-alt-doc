@@ -1106,7 +1106,9 @@ Please not that as consequences of implementing custom URLs listener/whitelist/h
 - You may need to update your implementation to add more URLs to handle, e.g: when adding new payment methods.
 - The URLs from the payment provider may changes without prior notice, so you may need to update your implementation when that happens.
 
-These limitation and risk unfortunately are due to the nature of how WebView, deeplink, and universal link works on each mobile platforms. Midtrans, payment provider, or merchant have no direct control over how they behave. We only follow the specification of the platforms.
+These limitation and risk unfortunately are due to the nature of how WebView, deeplink, and universal link works on each mobile platforms. Midtrans, payment provider, or merchant have no direct control over how they behave. We only follow the specification of the platforms. Proceed at your own risk.
+
+Specific for ShopeePay, ShopeePay team themself also confirmed: the redirect URL is not optimized to be handled from within WebView. They recommend to open the URL via device's browser in order for the redirect to work properly.
 
 #### Customer redirected to app store instead of directly to payment app for e-money transaction. What should I do?
 For e-money payment methods (GoPay, ShopeePay, etc.), Midtrans will provide you Deep/Universal Link for your app/web to redirect your customer. This issue can happen if you are implementing your payment page in a Webview, and handling the redirect link within Webview in your app.
