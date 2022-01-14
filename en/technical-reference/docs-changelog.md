@@ -6,6 +6,7 @@
 - add note Snap Preferences only apply to Snap Popup mode
 - add faq on available online installment terms on sandbox env
 - add note to verify webhook notif authenticity via signature key instead of IP whitelisting
+- clarify how to activate CoreAPI on prod env & its default state
 -->
 #### 2021/12/10
 - add faq on how to test offline installment on Sandbox environment
