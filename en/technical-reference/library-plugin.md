@@ -9,19 +9,38 @@ Our library and plugins are **Open Source!** We are happy to accept any open sou
 
 ## Language Library
 
-|Platforms | Resources | Notes |
-|---|---|---|
-|PHP|[Composer](https://packagist.org/packages/midtrans/midtrans-php)<br>[Github](https://github.com/Midtrans/midtrans-php)| |
-|Ruby|[Gem](https://rubygems.org/gems/veritrans)<br>[Github](https://github.com/veritrans/veritrans-ruby)| |
-|Node JS|[NPM](https://www.npmjs.org/package/midtrans-client)<br>[Github](https://github.com/Midtrans/midtrans-nodejs-client)| |
-|Python|[PyPI](https://pypi.org/project/midtransclient/1.0.6/)<br>[Github](https://github.com/Midtrans/midtrans-python-client)| |
-|Java|[Bintray](https://bintray.com/midtrans/midtrans-java/com.midtrans)<br>[Java Doc](https://midtrans.github.io/midtrans-java/index.html)<br>[Github](https://github.com/Midtrans/midtrans-java)| |
-|Go|[Github](https://github.com/Midtrans/midtrans-go)| |
-|Postman Collection| [Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)<br>[Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)| |
-|TypeScript\*|[Github](https://github.com/restuwahyu13/midtrans-node)| \*Community contribution. <br>Credits to [restuwahyu13](https://github.com/restuwahyu13)
+#### Official
+|Platforms | Resources |
+|---|---|
+|PHP|[Composer](https://packagist.org/packages/midtrans/midtrans-php)<br>[Github](https://github.com/Midtrans/midtrans-php)|
+|Ruby|[Gem](https://rubygems.org/gems/veritrans)<br>[Github](https://github.com/veritrans/veritrans-ruby)|
+|Node JS|[NPM](https://www.npmjs.org/package/midtrans-client)<br>[Github](https://github.com/Midtrans/midtrans-nodejs-client)|
+|Python|[PyPI](https://pypi.org/project/midtransclient/1.0.6/)<br>[Github](https://github.com/Midtrans/midtrans-python-client)|
+|Java|[Bintray](https://bintray.com/midtrans/midtrans-java/com.midtrans)<br>[Java Doc](https://midtrans.github.io/midtrans-java/index.html)<br>[Github](https://github.com/Midtrans/midtrans-java)|
+|Go|[Github](https://github.com/Midtrans/midtrans-go)|
+|Postman Collection| [Postman](https://app.getpostman.com/run-collection/af068be08b5d1a422796)<br>[Github](https://github.com/Midtrans/Midtrans-Payment-API-Postman-Collections)|
 
-#### For Library Developer
-Did you develop your own library/package/module for Midtrans API, and want us to list and recognize it on this page? Please do let us know via email at support@midtrans.com. We do appreciate community contributions 🎉.
+#### Community Contributed
+
+|Platforms | Resources | Contributed By |
+|---|---|---|
+|TypeScript|[NPM](https://www.npmjs.com/package/midtrans-node) <br>[Github](https://github.com/restuwahyu13/midtrans-node)| [restuwahyu13](https://github.com/restuwahyu13)\*|
+|PHP|[Composer](https://packagist.org/packages/sawirricardo/midtrans-api)<br>[Github](https://github.com/sawirricardo/midtrans-api) | [sawirricardo](https://github.com/sawirricardo)\*|
+|Laravel|[Composer](https://packagist.org/packages/sawirricardo/laravel-midtrans)<br>[Github](https://github.com/sawirricardo/laravel-midtrans) | [sawirricardo](https://github.com/sawirricardo)\*|
+
+\*These are contributed by open source contributors, which may provide good alternatives if the official library list doesn't meet your needs. Although are not officially maintaned by Midtrans.
+
+Are you an open source contributor? Did you develop your own library/package/module for Midtrans API, and want us to list and recognize it on this page? Please [do let us know](https://midtrans.com/contact-us). We do appreciate community contributions 🎉. Or you can also contribute to our officially maintained libraries too!
+
+<details>
+<summary><b>Note on Community Contributed Libraries</b></summary>
+<article>
+
+As Midtrans does not maintain the community contributed libraries, therefore Midtrans is not liable and may not be able to specifically help with the issue you may encounter during the usage of them. You can attempt to contact the contributors/community should you have any questions.
+
+Although open source contributed codes are relatively safe & transparently peer-reviewed, you may want to do your own review of the code integrity before using any external provided codes.
+</article>
+</details>
 
 ## Snap Plugin for E-Commerce CMS
 ?> The [step by step installation guide & live-demo is available here](/en/snap/with-plugins.md).

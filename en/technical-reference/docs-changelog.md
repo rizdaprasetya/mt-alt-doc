@@ -3,6 +3,8 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/03/01
+- update & add more community contributed libraries
 
 #### 2022/01/14
 - improve universal/deeplink redirect url FAQ
