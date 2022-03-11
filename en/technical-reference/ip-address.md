@@ -11,8 +11,12 @@ Production Environment:
 103.127.16.0/23
 103.127.17.6/32
 
-Sandbox Environment:
+Sandbox Environment (DEPRECATED on 15/03/2022):
 103.58.103.177
+
+Sandbox Environment (starting from 15/03/2022):
+34.101.68.130
+34.101.92.69
 ```
 
 Although we are providing the IP list, we don’t quite recommend relying on IP whitelisting to ensure notification authenticity. Instead, we **strongly recommend you to verify the authenticity** by [implementing the methods explained here](/en/after-payment/http-notification.md#verifying-notification-authenticity).

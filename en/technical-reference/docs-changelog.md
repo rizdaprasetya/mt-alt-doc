@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/03/11
+- update Sandbox env with new IP adresses, as announced via email previously
+
 #### 2022/03/01
 - update & add more community contributed libraries
 
