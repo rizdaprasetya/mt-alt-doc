@@ -4,161 +4,20 @@ TODO:
 
  -->
 # Payment Link - API Reference 
-This Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for merchants on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
+?> Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for merchants on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
 
-## Overview
-This API page will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchants can create & manage **Payment Link** using the API. Payment link provides an easy way to accept payments from your customers. Generates a link which redirects the customer to Midtrans payment page, a web-based link (URL) which you can share to customers to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
+Merchant can check out [general overview of Payment Link API](/en/payment-link/with-api.md), in case they haven't.
 
-### Key Benefit
-<br>
+## Integration Overview
+#### Pre-requisite:
+- Merchant should have [created Midtrans merchant account](/en/midtrans-account/overview.md) & [retrieved the API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-<!-- @NOTE: SVG icons generated from: https://tablericons.com/ size: 40, color: 597e8d
-Because of limited time. Should properly ask MKT team for icons?
--->
+#### Steps:
+1. Merchant backend [request to Create Payment Link API](#create-payment-link-api) to retrieve payment URL.
+2. Merchant share the payment URL to customer via system, messaging app, or Midtrans automated email; and then wait for payment.
+3. Merchant [get notified of the payment status changes & handle](#handling-notifications) accordingly.
 
-<div class="cards-r-3">
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-exchange" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <circle cx="5" cy="18" r="2" />
-  <circle cx="19" cy="6" r="2" />
-  <path d="M19 8v5a5 5 0 0 1 -5 5h-3l3 -3m0 6l-3 -3" />
-  <path d="M5 16v-5a5 5 0 0 1 5 -5h3l-3 -3m0 6l3 -3" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Create with simple API call</h4>
-
-You don't need to login to Midtrans dashboard and manually create one-by-one. You can create Payment Link via API integration.
-
-  </div>
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brush" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-  <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-  <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-  <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Customizable Order Interface</h4>
-
-You can freely customize your user interface, while your backend/system integrate to our API.
-
-  </div>
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock-access" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
-  <path d="M4 16v2a2 2 0 0 0 2 2h2" />
-  <path d="M16 4h2a2 2 0 0 1 2 2v2" />
-  <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
-  <rect x="8" y="11" width="8" height="5" rx="1" />
-  <path d="M10 11v-2a2 2 0 1 1 4 0v2" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Accessible & Secure</h4>
-
-You can manage who can access the feature from your system, without providing access to your whole Midtrans dashboard. Secure & simple payment for the customer.
-
-  </div>
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Customizable Limit</h4>
-
-You can specify for how long and how many usage the link will be valid.
-
-  </div>
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-forms" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 3a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3" />
-  <path d="M6 3a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3" />
-  <path d="M13 7h7a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-7" />
-  <path d="M5 7h-1a1 1 0 0 0 -1 1v8a1 1 0 0 0 1 1h1" />
-  <path d="M17 12h.01" />
-  <path d="M13 12h.01" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Customizable URL</h4>
-
-Part of the URL is customizable, to make it more accessible for customer.
-
-  </div>
-  <div class="my-card card-smaller">
-
-<p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <line x1="10" y1="14" x2="21" y2="3" />
-  <path d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5" />
-</svg>
-</p><br>
-
-<h4 class="my-card-title">Email Notification</h4>
-
-Payment instruction can automatically be sent to customer, after each successful creation.
-
-  </div>
-  
-</div>
-
-### Customer Journey
-Example of how customer journey can be:
-1. Merchant **share the Payment Link to customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to customer).
-  ![Payment Link API Showcase 1](../../asset/image/paymentlink-api-showcase-1.png ':size=250')
-2. Customer click the Payment Link, open the **payment page in web browser, and then the payment** as instructed.
-  ![Payment Link API Showcase 2](../../asset/image/paymentlink-api-showcase-2.gif)
-
-### Merchant Journey
-
-Example of how merchant journey can be:
-
-1. **Customer create an order/purchase** to Merchant (via web/app/system, or manual order).
-2. Merchant's **sales person prepare/initate payment invoice via Merchant's system**.
-3. Merchant's **system/backend [initiate API request to Create Payment Link](#create-payment-link-api)** to Midtrans API to retrieve payment URL. Display the result to the sales person.
-4. Merchant's sales person **share the Payment Link to customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to customer). [Customer proceed to pay](#customer-journey).
-5. Later after payment has been completed, [merchant system's will be notified](#handling-notifications). There are also other [alternatives actions for after-payment](#other-api-actions-amp-payment-handling).
-
-?> Note: you can check **[Business Usecase Example](#business-usecase-example)** for more idea & variations.
-
-Check out sequence diagram below for more details & visual.
-
-### Sequence Diagram
-<small>Click below to expand:</small>
-<details>
-<summary><b>Sequence Diagram</b></summary>
-<article>
-
-![Payment Link API Sequence Diagram](../../asset/image/paymentlink-api-sequence-diagram.png ':size=400')
-</article>
-</details>
-
-### Integration Overview
-TBA
+- Optional: can also use other API endpoints to manage Payment Link. For example to read/delete payment link as needed.
 
 <!-- 
 @TODO:
@@ -851,16 +710,9 @@ Notable benefits & differences compared to [Snap Payment](/en/snap/overview.md) 
 Notable benefits & differences compared to [Payment Link creation via Midtrans Dashboard](/en/payment-link/overview.md):
 - Payment Link creation can be **programmatically automated, via system integration to our API** according to your business needs. Although you will need your development resource to integrate with the API we provide.
 - Can be **programmatically integrated to the merchant's system**. Especially the backend system, store CMS, POS, Invoicing system, etc.
-- More **suitable for SMB/Entreprise merchant**, that has their own website/system and wants to automate PL creation.
+- More **suitable for SMB/Enterprise merchant**, that has their own website/system and wants to automate PL creation.
 
 <!-- @TODO: convert to table like demo slide? -->
-
-### Business Usecase Example
-Here are some business use case ideas that merchant can achieve with Payment Link:
-- **Invoice based payment system** use case. As the payment link expiry can be set to weeks or months. Can also be set to be paid by 1 specific customer, or mass generic invoice for a big number of customers.
-  - Whether for B2B business type where merchant want to create goods & services payment invoice to be paid by partner/vendor/customer.
-  - Or even for regular B2C business type that sells various goods & services.
-- **Ticketing payment** use case, due to the same reason as above. For example tickets for transportations, entertainment, courses, digital products, conferences, webinars, online/offline event, concert, shows, meet and greet, parking, hotel, traffic/other violation sanction, & hospitality, etc.
 
 <!-- 
 ### Note & Limitation
