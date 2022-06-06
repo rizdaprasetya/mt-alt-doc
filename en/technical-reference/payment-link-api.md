@@ -7,7 +7,7 @@ TODO:
 This Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for merchants on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
 
 ## Overview
-This API page will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchants can create & manage **Payment Link** using the API. **Payment Link** is a web-based link (URL) which you can share to customers to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
+This API page will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchants can create & manage **Payment Link** using the API. Payment link provides an easy way to accept payments from your customers. Generates a link which redirects the customer to Midtrans payment page, a web-based link (URL) which you can share to customers to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
 
 ### Key Benefit
 <br>
@@ -119,6 +119,7 @@ Part of the URL is customizable, to make it more accessible for customer.
 </p><br>
 
 <h4 class="my-card-title">Email Notification</h4>
+
 Payment instruction can automatically be sent to customer, after each successful creation.
 
   </div>
@@ -140,7 +141,7 @@ Example of how merchant journey can be:
 2. Merchant's **sales person prepare/initate payment invoice via Merchant's system**.
 3. Merchant's **system/backend [initiate API request to Create Payment Link](#create-payment-link-api)** to Midtrans API to retrieve payment URL. Display the result to the sales person.
 4. Merchant's sales person **share the Payment Link to customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to customer). [Customer proceed to pay](#customer-journey).
-5. Later after payment has been completed, [merchant system's will be notified](#handling-notifications). There are also other [alternatives actions for after-payment](other-api-actions-amp-payment-handling).
+5. Later after payment has been completed, [merchant system's will be notified](#handling-notifications). There are also other [alternatives actions for after-payment](#other-api-actions-amp-payment-handling).
 
 ?> Note: you can check **[Business Usecase Example](#business-usecase-example)** for more idea & variations.
 
@@ -252,9 +253,9 @@ Authorization: Basic AUTH_STRING
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | [transaction_details](#transaction_details-object)| **required** | Object | Specific information regarding the transaction|
-| [customer_details](#customer_details-object)| optional | Object | Specific information regarding the customer<br>**Note:** If merchant sent customer email detail on the request, midtrans will be sent payment link url to customer email|
+| [customer_details](#customer_details-object)| optional | Object | Specific information regarding the customer<br>**Note:** If merchant sends customer_detail’s email on the request, Midtrans will send the created Payment Link url to the customer’s email.|
 | [item_details](#item_details-object)| optional | Object | Shopping item details will be paid by customer|
-| usage_limit | optional | integer | Maximum Usage for payment success|
+| usage_limit | optional | integer | Maximum number of allowed successful/paid transactions. <br>**Note:** Each successful/paid payment will consume a "usage" quota. A `pending` payment (payment attempted, but still waiting for customers to make payment e.g. waiting Bank Transfer, Gopay, QRIS, etc.) will temporarily hold a usage quota, but if it is abandoned/left-unpaid (becomes `expire`) it will release the usage quota back.|
 | [expiry](#expiry-object)| optional | Object | Custom transaction lifetime|
 | enabled_payments    | optional | Array | List of payment types that should be enabled. If blank, all active payment types are included.<br>**Options:**<br>credit_card, gopay, cimb_clicks, bca_klikbca, bca_klikpay, bri_epay, telkomsel_cash, echannel, permata_va, other_va, bca_va, bni_va, bri_va, indomaret, danamon_online, akulaku, shopeepay |
 | custom_field1 | optional | String(255) | retrievable custom value that you can pass to Midtrans on field 1.|
