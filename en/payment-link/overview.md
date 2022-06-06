@@ -59,3 +59,13 @@ If you are planning only to use Payment Link without any other technical integra
 3. Briefly [understand the Midtrans Dashboard](/en/after-payment/dashboard-usage.md).
 
 If you are also planning to use other technical integration method, you may want to [explore more integration options.](/en/payments/overview.md)
+
+## Optional: Payment Link via API
+Instead, if you prefer to integrate programmatically via API, you can refer to the following section linked below. It can be more suitable if you have an SMB/Enterprise business that you already have your own commerce system.
+
+
+<div class="my-card">
+
+#### [Payment Link via API](/en/payment-link/with-api.md)
+Explains how merchants can create & manage **Payment Link** using API <span class="badge badge-yellow">BETA</span>.
+</div>
