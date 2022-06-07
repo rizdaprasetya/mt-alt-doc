@@ -10,14 +10,14 @@ Merchant can check out [general overview of Payment Link API](/en/payment-link/w
 
 ## Integration Overview
 #### Pre-requisite:
-- Merchant should have [created Midtrans merchant account](/en/midtrans-account/overview.md) & [retrieved the API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
+- [Midtrans merchant account](/en/midtrans-account/overview.md) & [retrieve API Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
 #### Steps:
-1. Merchant backend [request to Create Payment Link API](#create-payment-link-api) to retrieve payment URL.
-2. Merchant share the payment URL to customer via system, messaging app, or Midtrans automated email; and then wait for payment.
-3. Merchant [get notified of the payment status changes & handle](#handling-notifications) accordingly.
+1. Merchant's backend sends [request to Create Payment Link API](#create-payment-link-api), in order to retrieve payment URL.
+2. Shares the payment URL to Customer via system, messaging app, or Midtrans automated email; and then wait for payment.
+3. Merchant [gets notified of payment status changes & handles](#handling-notifications) accordingly.
 
-- Optional: can also use other API endpoints to manage Payment Link. For example to read/delete payment link as needed.
+- Optional: can also use other API endpoints to manage Payment Link. For example to read/delete Payment Link as needed.
 
 <!-- 
 @TODO:
@@ -46,7 +46,7 @@ The followings reference will explain the Payment Link API.
 </small>
 
 ## Create Payment Link API
-Merchant send HTTP API request with the desired transaction details to this endpoint, and will get API response mainly with the Payment Link URL. The URL then should be shared to & opened by their customer, so customer can initiate payment to the merchant.
+Merchant send HTTP API request with the desired transaction details to this endpoint, and will get API response mainly with the Payment Link URL. The URL then should be shared to & opened by Customer, to initiates payment.
 
 ### Request
 **Endpoints:** `/v1/payment-links`\
@@ -555,7 +555,7 @@ Response properties are conditional, depending on whether the API response is su
 </table>
 
 ## Delete Payment Link API
-Merchant send HTTP API request to this endpoint with the specified Order ID to delete the Payment Link. Useful to deactivate some specific payment links when merchant no longer want customer to pay for it.
+Merchant send HTTP API request to this endpoint with the specified Order ID to delete the Payment Link. Useful to deactivate some specific Payment Links when merchant no longer want Customer to pay for it.
 
 ### Request
 **Endpoints:** `/v1/payment-links/{order_id}`\
@@ -620,7 +620,7 @@ The created Payment Link(s) will then be available to be [viewed & managed via M
 ![List Payment Link](../../asset/image/paymentlink_list.png)
 
 ### Redirection After Payment Complete
-Merchants can customize the Redirect URL in Dashboard's **Settings > Snap Preference > System Settings** Menu. Redirect URL is used to redirect your customer after the payment process is complete. [Follow this section to learn the details.](/en/snap/advanced-feature.md#configuring-redirect-url).
+Merchant can customize the Redirect URL in Dashboard's **Settings > Snap Preference > System Settings** Menu. Redirect URL is used to redirect your customer after the payment process is complete. [Follow this section to learn the details.](/en/snap/advanced-feature.md#configuring-redirect-url).
 
 ### Handling Notifications
 [Transaction notification](/en/after-payment/http-notification.md) is sent when a customer completes the transaction or when the transaction status changes.
@@ -685,7 +685,7 @@ So that later when merchant receive the notification from Midtrans, the original
 ## Advanced Info
 ### Other API Actions & Payment Handling
 <!-- @TODO: link to other available endpoints -->
-Once customer has initiated the payment and payment is created on Midtrans side:
+Once Customer has initiated the payment and payment is created on Midtrans side:
 - Merchant can further perform [other API actions to the transaction](/en/after-payment/status-cycle.md#api-action-method).
 - Other [After Payment sections explanations](/en/after-payment/overview.md) also applies to the payment transaction.
 
@@ -700,8 +700,8 @@ Under the hood, our Payment Link product utilize [Snap Payment](/en/snap/overvie
 Notable benefits & differences compared to [Snap Payment](/en/snap/overview.md) product:
 - Support **more than 7 days link expiry** period. There is no defined maximum expiry period limit.
 - Payment Link **can be paid more than once** or any specified limit. Snap Payment link can only be paid once.
-- The **created payment links are visible and manageable** via Midtrans Dashboard.
-- **Automatic email of Payment Link & payment instruction** will be sent to the customer (if merchant specify the email).
+- The **created Payment Links are visible and manageable** via Midtrans Dashboard.
+- **Automatic email of Payment Link & payment instruction** will be sent to Customer (if merchant specify their email).
 - **Link/URL** is customizable. e.g. `https://app.midtrans.com/payment-links/my-product-123`
 - The resulting payment Order ID in Midtrans dashboard [will be appended with timestamp suffix.](#order-id-structure)
 <!-- @TODO: convert to table like demo slide? -->
@@ -710,7 +710,7 @@ Notable benefits & differences compared to [Snap Payment](/en/snap/overview.md) 
 Notable benefits & differences compared to [Payment Link creation via Midtrans Dashboard](/en/payment-link/overview.md):
 - Payment Link creation can be **programmatically automated, via system integration to our API** according to your business needs. Although you will need your development resource to integrate with the API we provide.
 - Can be **programmatically integrated to the merchant's system**. Especially the backend system, store CMS, POS, Invoicing system, etc.
-- More **suitable for SMB/Enterprise merchant**, that has their own website/system and wants to automate PL creation.
+- More **suitable for SMB/Enterprise merchant**, that has their own website/system and wants to automate Payment Link creation.
 
 <!-- @TODO: convert to table like demo slide? -->
 

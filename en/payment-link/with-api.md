@@ -1,9 +1,9 @@
 # Payment Link via API
 
 ## Overview
-This section will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchants can create & manage **Payment Link** using the API. **Payment Link** is a web-based link (URL) which you can share to customers to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
+This section will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchant can create & manage **Payment Link** using the API. **Payment Link** is a web-based link (URL) which you can share to Customer to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
 
-?> Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for merchants on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
+?> Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for Merchant on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
 
 ## Key Benefit
 <br>
@@ -27,7 +27,7 @@ Because of limited time. Should properly ask MKT team for icons?
 
 <h4 class="my-card-title">Create with simple API call</h4>
 
-You don't need to login to Midtrans dashboard and manually create one-by-one. You can create Payment Link via API integration.
+No need to login to Midtrans dashboard to manually create one-by-one. Easily create Payment Link via API integration.
 
   </div>
   <div class="my-card card-smaller">
@@ -44,7 +44,7 @@ You don't need to login to Midtrans dashboard and manually create one-by-one. Yo
 
 <h4 class="my-card-title">Customizable Order Interface</h4>
 
-You can freely customize your user interface, while your backend/system integrate to our API.
+Freely customize your user interface, while the backend/system integrates to our API.
 
   </div>
   <div class="my-card card-smaller">
@@ -63,7 +63,7 @@ You can freely customize your user interface, while your backend/system integrat
 
 <h4 class="my-card-title">Accessible & Secure</h4>
 
-You can manage who can access the feature from your system, without providing access to your whole Midtrans dashboard. Secure & simple payment for the customer.
+Manage who can access the feature from your system, without providing access to your whole Midtrans dashboard. Also a secure & simple payment flow for the Customer.
 
   </div>
   <div class="my-card card-smaller">
@@ -82,7 +82,7 @@ You can manage who can access the feature from your system, without providing ac
 
 <h4 class="my-card-title">Customizable Limit</h4>
 
-You can specify for how long and how many usage the link will be valid.
+Customize how long and how many usage(s) the link will be valid for.
 
   </div>
   <div class="my-card card-smaller">
@@ -101,7 +101,7 @@ You can specify for how long and how many usage the link will be valid.
 
 <h4 class="my-card-title">Customizable URL</h4>
 
-Part of the URL is customizable, to make it more accessible for customer.
+Customize some part of the URL, to make it more accessible for Customer.
 
   </div>
   <div class="my-card card-smaller">
@@ -116,34 +116,34 @@ Part of the URL is customizable, to make it more accessible for customer.
 
 <h4 class="my-card-title">Email Notification</h4>
 
-Payment instruction can automatically be sent to customer, after each successful creation.
+Payment instructions can automatically be sent to Customer, after each successful creation.
 
   </div>
   
 </div>
 
 ## Business Usecase Example
-Here are some business use case ideas that merchant can achieve with Payment Link:
+Here are some business use case ideas that Merchant can achieves with Payment Link:
 - **Invoice based payment system** use case. As the payment link expiry can be set to weeks or months. Can also be set to be paid by 1 specific customer, or mass generic invoice for a big number of customers.
-  - Whether for B2B business type where merchant want to create goods & services payment invoice to be paid by partner/vendor/customer.
+  - Whether for B2B business type where Merchant wants to create goods & services payment invoice to be paid by partner/vendor/customer.
   - Or even for regular B2C business type that sells various goods & services.
 - **Ticketing payment** use case, due to the same reason as above. For example tickets for transportations, entertainment, courses, digital products, conferences, webinars, online/offline event, concert, shows, meet and greet, parking, hotel, traffic/other violation sanction, & hospitality, etc.
 
 ## Customer Journey
-Example of how customer journey can be:
-1. Merchant **share the Payment Link to customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to customer).
+Example of how Customer journey can be:
+1. Merchant **shares the Payment Link to Customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to Customer).
   ![Payment Link API Showcase 1](../../asset/image/paymentlink-api-showcase-1.png ':size=250')
 2. Customer click the Payment Link, open the **payment page in web browser, and then the payment** as instructed.
   ![Payment Link API Showcase 2](../../asset/image/paymentlink-api-showcase-2.gif)
 
 ## Merchant Journey
 
-Example of how merchant journey can be:
+Example of how Merchant journey can be:
 
 1. **Customer create an order/purchase** to Merchant (via web/app/system, or manual order).
-2. Merchant's **sales person prepare/initate payment invoice via Merchant's system**.
+2. Merchant's **sales person prepares/initates payment invoice via Merchant's system**.
 3. Merchant's **system/backend [initiate API request to Create Payment Link](/en/technical-reference/payment-link-api.md#create-payment-link-api)** to Midtrans API to retrieve payment URL. Display the result to the sales person (or via system).
-4. Merchant's sales person (or system) **share the Payment Link to customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to customer). [Customer proceed to pay](#customer-journey).
+4. Merchant's sales person (or system) **share the Payment Link to Customer** via messaging app (Whatsapp, SMS, Email, etc. Midtrans can also automatically send via Email to Customer). [Customer proceed to pay](#customer-journey).
 5. Later after payment has been completed, [merchant system's will be notified](/en/technical-reference/payment-link-api.md#handling-notifications). There are also other [alternatives actions for after-payment](#other-api-actions-amp-payment-handling).
 
 ?> Note: you can check **[Business Usecase Example](#business-usecase-example)** for more idea & variations.
