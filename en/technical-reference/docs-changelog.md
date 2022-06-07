@@ -3,6 +3,7 @@
 
 <!-- #### Unreleased 
 - improve frequent false-positive report explanation
+- add beta Payment Link API reference & overview sections
 -->
 #### 2022/04/21
 - add custom VA number param support for Mandiri Bill
