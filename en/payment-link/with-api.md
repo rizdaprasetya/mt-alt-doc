@@ -1,9 +1,9 @@
 # Payment Link via API
 
 ## Overview
-This section will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchant can create & manage **Payment Link** using the API. **Payment Link** is a web-based link (URL) which you can share to Customer to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
+This section will explain about **Payment Link API** <span class="badge badge-yellow">BETA</span>. Merchant can create & manage **Payment Link** using the API. **Payment Link** is a web-based link (URL) which can be shared to Customer to receive payments from them – like an **invoice**. The link will redirect them to Midtrans hosted payment web page.
 
-?> Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable for Merchant on Midtrans Production environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
+?> Payment Link API is still in <span class="badge badge-yellow">BETA</span> phase. But is currently usable on Midtrans Production & Sandbox environment. Feel free [to contact our Support Team](https://midtrans.com/contact-us) (or your Midtrans' Sales Account Manager) to share your feedback or question.
 
 ## Key Benefit
 <br>
@@ -33,18 +33,16 @@ No need to login to Midtrans dashboard to manually create one-by-one. Easily cre
   <div class="my-card card-smaller">
 
 <p style="text-align: center;">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brush" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-  <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-  <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-  <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
+  <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+  <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
 </svg>
 </p><br>
 
-<h4 class="my-card-title">Customizable Order Interface</h4>
+<h4 class="my-card-title">Connect with Your Web/App</h4>
 
-Freely customize your user interface, while the backend/system integrates to our API.
+Connect your web/app/system, receive real time notification, & manage your transaction in a two-way communication flow via API.
 
   </div>
   <div class="my-card card-smaller">
