@@ -437,7 +437,7 @@ curl --location --request POST 'https://api.sandbox.midtrans.com/v1/payment-link
      "id": "tix-001",
      "name": "Exclusive Tour Concert Day 1",
      "price": 95000,
-     "quantity": 2,
+     "quantity": 2
    }
  ],
  "customer_details": {
@@ -639,7 +639,7 @@ HTTP Status Code: `200`
         "created_at": "2017-11-02T10:53:21.000Z",
         "updated_at": "2017-11-02T10:53:21.000Z"
       },
-      "purchases": "TBD"
+      "purchases": []
     }
   ]
 }
@@ -742,7 +742,7 @@ HTTP Status Code: `200`
     "created_at": "2017-11-02T10:53:21.000Z",
     "updated_at": "2017-11-02T10:53:21.000Z"
   },
-  "purchases": "TBD"
+  "purchases": []
 }
 ```
 #### Response JSON Body Details
