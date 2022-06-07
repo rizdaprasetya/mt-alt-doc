@@ -46,7 +46,7 @@ The followings reference will explain the Payment Link API.
 </small>
 
 ## Create Payment Link API
-Merchant send HTTP API request with the desired transaction details to this endpoint, and will get API response mainly with the Payment Link URL. The URL then should be shared to & opened by Customer, to initiates payment.
+Merchant sends HTTP API request with the desired transaction details to this endpoint, and will get API response mainly with the Payment Link URL. The URL then should be shared to & opened by Customer, to initiates payment.
 
 ### Request
 **Endpoints:** `/v1/payment-links`\
@@ -547,8 +547,209 @@ Response properties are conditional, depending on whether the API response is su
   </tr>
 </table>
 
+## Get List of Payment Links API
+Merchant sends HTTP API request to this endpoint to retrieve list of previously created Payment Links.
+
+### Request
+**Endpoints:** `/v1/payment-links?{query_parameters}`\
+**HTTP Method:** `GET`\
+**Headers:**
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
+[Authorization]((/en/technical-reference/api-header.md)) `AUTH_STRING` value is result of Base64Encode(`"YourServerKey"+":"`)
+
+| Query Parameter Key| Required | Type | Descriptions|
+| --------------- | -------- | ------- |------------------------- |
+| order\_id       | optional | String | Merchant's Order ID.|
+| pagination      | **required** | integer | Pagination page number.|
+| offset          | optional | integer | Skip specified number of rows.|
+| limit           | optional | integer | Retrieve specified number of rows.|
+
+Append query parameter(s) after the `?` character in the endpoint URL. Separate key & value with `=`. Separate keys with `&`. 
+
+For example: `/v1/payment-links?offset=5&limit=10`.
+
+### Request Sample
+Sample Request including Headers & Body.
+```bash
+curl --location --request GET 'https://api.sandbox.midtrans.com/v1/payment-links?pagination=1' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87'
+```
+
+### Response
+For successful response you will receive HTTP status code `2xx` as a response. For failure response you may receive HTTP status code `4xx` or `5xx`.
+
+#### Sample Success Response
+HTTP Status Code: `200`
+```json
+{
+  "payment_links": [
+    {
+      "id": "1",
+      "payment_link_url": "https://app.midtrans.com/payment-links/abc",
+      "order_id": "001",
+      "merchant_id": "M001",
+      "payment_link_id": "abc",
+      "enabled_payments": [
+        "credit_card",
+        "bca_va",
+        "indomaret"
+      ],
+      "usage_limit": 2,
+      "gross_amount": 190000,
+      "credit_card_3d_secure": true,
+      "whitelist_bins": [
+        "4645",
+        "4811111",
+        "bca",
+        "mandiri"
+      ],
+      "expiry_start": "2020-12-31 18:00 +0700",
+      "expiry_duration": 2,
+      "expiry_unit": "days",
+      "usage": 2,
+      "item_details": [
+        {
+          "id": "1",
+          "name": "Pillow",
+          "price": 95000,
+          "quantity": 2,
+          "brand": "Midtrans",
+          "category": "Furniture",
+          "merchant_name": "PT. Midtrans",
+          "item_id": "pil-001",
+          "payment_link_id": "1",
+          "created_at": "2017-11-02T10:53:21.000Z",
+          "updated_at": "2017-11-02T10:53:21.000Z"
+        }
+      ],
+      "customer_details": {
+        "id": "1",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@midtrans.com",
+        "phone": "+62181000000000",
+        "notes": "Thank you for your purchase. Please follow the instructions to pay.",
+        "payment_link_id": "1",
+        "created_at": "2017-11-02T10:53:21.000Z",
+        "updated_at": "2017-11-02T10:53:21.000Z"
+      },
+      "purchases": "TBD"
+    }
+  ]
+}
+```
+#### Response JSON Body Details
+<!-- @NOTE: auto converted w/ https://tabletomarkdown.com/convert-website-table-to-markdown/ from gdocs. To save times -->
+| Parameter         | Type    | Description                                               |
+| ----------------- | ------- | --------------------------------------------------------- |
+| payment\_links | Array of object | Collection of payment links which match query parameters. |
+| id                | String  | Auto-generated ID of Payment Link from Midtrans as internal unique reference.|
+| order\_id         | String  | Merchant specified Order ID of the Payment Link.|
+| merchant\_id      | String  | Merchant ID who owns the Payment Link.|
+| payment\_link\_id | String  | Payment link ID which is on last part of payment link URL.|
+| usage\_limit      | integer | Maximum number of allowed successful/paid transactions.|
+| usage             | integer | Current count of "usage" quota already consumed.|
+| gross\_amount     | integer | Payment amount Customer expected to pay.|
+| enabled\_payments | Array   | List of payment methods enabled for this Payment Link.|
+| item\_details     | Object  | Details of the purchased items.|
+| customer\_details | Object  | Specific information regarding the customer.|
+| expiry\_start     | String  | Start of expiry time.|
+| expiry\_duration  | Integer | Duration value of expiry time.|
+| expiry\_unit      | String  | Duration unit of expiry time.|
+
+## Get Payment Link Details API
+Merchant sends HTTP API request to this endpoint with the specified Order ID to retrieve the Payment Link details.
+
+### Request
+**Endpoints:** `/v1/payment-links/{order_id}`\
+**HTTP Method:** `GET`\
+**Headers:**
+```text
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic AUTH_STRING
+```
+[Authorization]((/en/technical-reference/api-header.md)) `AUTH_STRING` value is result of Base64Encode(`"YourServerKey"+":"`)
+
+### Request Sample
+Sample Request including Headers & Body.
+```bash
+curl --location --request GET 'https://api.sandbox.midtrans.com/v1/payment-links/001' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Basic U0ItTWlkLXNlcnZlci1UT3ExYTJBVnVpeWhoT2p2ZnMzVV7LZU87'
+```
+
+### Response
+For successful response you will receive HTTP status code `2xx` as a response. For failure response you may receive HTTP status code `4xx` or `5xx`.
+
+#### Sample Success Response
+HTTP Status Code: `200`
+```json
+{
+  "id": "1",
+  "payment_link_url": "https://app.midtrans.com/payment-links/abc",
+  "order_id": "001",
+  "merchant_id": "M001",
+  "payment_link_id": "abc",
+  "enabled_payments": [
+    "credit_card",
+    "bca_va",
+    "indomaret"
+  ],
+  "usage_limit": 2,
+  "gross_amount": 190000,
+  "credit_card_3d_secure": true,
+  "whitelist_bins": [
+    "4645",
+    "4811111",
+    "bca",
+    "mandiri"
+  ],
+  "expiry_start": "2020-12-31 18:00 +0700",
+  "expiry_duration": 2,
+  "expiry_unit": "days",
+  "usage": 2,
+  "item_details": [
+    {
+      "id": "1",
+      "name": "Pillow",
+      "price": 95000,
+      "quantity": 2,
+      "brand": "Midtrans",
+      "category": "Furniture",
+      "merchant_name": "PT. Midtrans",
+      "item_id": "pil-001",
+      "payment_link_id": "1",
+      "created_at": "2017-11-02T10:53:21.000Z",
+      "updated_at": "2017-11-02T10:53:21.000Z"
+    }
+  ],
+  "customer_details": {
+    "id": "1",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@midtrans.com",
+    "phone": "+62181000000000",
+    "notes": "Thank you for your purchase. Please follow the instructions to pay.",
+    "payment_link_id": "1",
+    "created_at": "2017-11-02T10:53:21.000Z",
+    "updated_at": "2017-11-02T10:53:21.000Z"
+  },
+  "purchases": "TBD"
+}
+```
+#### Response JSON Body Details
+Refer [to this details](#response-json-body-details-1).
+
 ## Delete Payment Link API
-Merchant send HTTP API request to this endpoint with the specified Order ID to delete the Payment Link. Useful to deactivate some specific Payment Links when merchant no longer want Customer to pay for it.
+Merchant sends HTTP API request to this endpoint with the specified Order ID to delete the Payment Link. Useful to deactivate some specific Payment Links when merchant no longer want Customer to pay for it.
 
 ### Request
 **Endpoints:** `/v1/payment-links/{order_id}`\
