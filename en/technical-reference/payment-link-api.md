@@ -561,14 +561,15 @@ Authorization: Basic AUTH_STRING
 ```
 [Authorization]((/en/technical-reference/api-header.md)) `AUTH_STRING` value is result of Base64Encode(`"YourServerKey"+":"`)
 
+#### Request URL Query Parameter Details
 | Query Parameter Key| Required | Type | Descriptions|
 | --------------- | -------- | ------- |------------------------- |
-| order\_id       | optional | String | Merchant's Order ID.|
-| pagination      | **required** | integer | Pagination page number.|
+| order\_id       | optional | String  | Merchant's Order ID.|
+| pagination      | optional | integer | Pagination page number.|
 | offset          | optional | integer | Skip specified number of rows.|
 | limit           | optional | integer | Retrieve specified number of rows.|
 
-Append query parameter(s) after the `?` character in the endpoint URL. Separate key & value with `=`. Separate keys with `&`. 
+Append query parameter(s) after the `?` character in the endpoint URL. Separate key & value with `=`. Separate keys with `&`. Further [resource on how URL Query Parameter syntax](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#query).
 
 For example: `/v1/payment-links?offset=5&limit=10`.
 
