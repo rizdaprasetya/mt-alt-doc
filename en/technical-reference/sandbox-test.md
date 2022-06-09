@@ -141,6 +141,7 @@ It is used for testing a specific scenario where the card is not eligible for on
 |Payment Methods | Description|
 |----------|------------|
 |GoPay | On mobile platform you are automatically redirected to GoPay Simulator. <br>On desktop, QR Code image is displayed. To perform a test transaction, enter the QR Code image URL in [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index). <br><br><small>Note: if the QRIS Simulator fails, please try [GoPay QR Simulator](https://simulator.sandbox.midtrans.com/gopay/ui/index), you may be on older version of merchant account before QRIS implemented.</small> |
+|ShopeePay | On mobile platform you are automatically redirected to ShopeePay Simulator. <br>On desktop, QR Code image is displayed. To perform a test transaction, enter the QR Code image URL in [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index).|
 |QRIS | To perform a test transaction, copy the QR Code image URL and use it in [QRIS Simulator](https://simulator.sandbox.midtrans.com/qris/index). |
 |Indosat Dompetku | **Accept number:** 08123456789 <br>**Deny number:** other than 08123456789 |
 |Mandiri E-cash | **Accept number:** 0987654321 <br> **PIN:** 12345 <br> **OTP:** 12123434|
@@ -182,7 +183,8 @@ It is used for testing a specific scenario where the card is not eligible for on
 
 |Payment Methods | Description|
 |----------|------------|
-|Akulaku | Midtrans will redirect to Akulaku simulator page.|
+|Akulaku | Midtrans will automatically redirect to Akulaku simulator page. Test credentials will be displayed.|
+|Kredivo | Midtrans will automatically redirect to Kredivo simulator page. Test credentials will be displayed.|
 
 ## Note & Limitation
 
