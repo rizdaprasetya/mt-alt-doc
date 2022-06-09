@@ -4,7 +4,7 @@
 
 <hr>
 
-?>***Note:*** This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/id/ruang-media/siaran-pers/Pages/SP_216219.aspx), and can be paid with **any QRIS compatible e-Money or banking app**.
+?>***Note:*** This payment method is compatible with [QR Code Indonesian Standard (QRIS)](https://www.bi.go.id/QRIS/default.aspx), and can be paid with **any QRIS compatible e-Money or banking app**.
 
 GoPay is an *E-Money* payment method by Gojek. Users can pay using the Gojek-GoPay app, or any QRIS compatible app. The user flow is different for web browser (on a computer or a tablet) and smartphone:
 
