@@ -551,6 +551,7 @@ Response properties are conditional, depending on whether the API response is su
   </tr>
 </table>
 
+<!-- @NOTE: postponed from publishing, waiting for product readiness.
 ## Get List of Payment Links API
 Merchant sends HTTP API request to this endpoint to retrieve list of previously created Payment Links.
 
@@ -751,6 +752,7 @@ HTTP Status Code: `200`
 ```
 #### Response JSON Body Details
 Refer [to this details](#response-json-body-details-1).
+-->
 
 ## Delete Payment Link API
 Merchant sends HTTP API request to this endpoint with the specified Order ID to delete the Payment Link. Useful to deactivate some specific Payment Links when merchant no longer want Customer to pay for it.
