@@ -2,8 +2,10 @@
 <hr>
 
 <!-- #### Unreleased 
-- add beta Payment Link API reference & overview sections
 -->
+#### 2022/06/10
+- add beta Payment Link API reference & overview sections
+
 #### 2022/06/09
 - improve frequent false-positive report explanation
 - update testing credentials for ShopeePay & Kredivo
