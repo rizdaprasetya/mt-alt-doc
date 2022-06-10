@@ -108,7 +108,11 @@ Authorization: Basic AUTH_STRING
 ```
 
 #### Request JSON Body Details
-<!-- Auto converted from Gdocs to html-markdown to markdown -->
+
+<!-- 
+@NOTE: some table auto converted w/ https://tabletomarkdown.com/convert-website-table-to-markdown/ from gdocs. To save times.
+Also some auto converted from Gdocs to html-markdown to markdown.
+-->
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | [transaction_details](#transaction_details-object)| **required** | Object | Specific information regarding the transaction.|
@@ -646,7 +650,6 @@ HTTP Status Code: `200`
 }
 ```
 #### Response JSON Body Details
-<!-- @NOTE: auto converted w/ https://tabletomarkdown.com/convert-website-table-to-markdown/ from gdocs. To save times -->
 | Parameter         | Type    | Description                                               |
 | ----------------- | ------- | --------------------------------------------------------- |
 | payment\_links | Array of object | Collection of payment links which match query parameters. |
