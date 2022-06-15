@@ -879,17 +879,42 @@ If your app is native iOS app, you will need to add `LSApplicationQueriesSchemes
 ```
 This is to ensure that deeplink from your app to the (external) destination payment app is allowed.
 
-**4. Your App's WebView Implementation Prevent Redirect to the Payment App**
+**4. Your Web Based Redirect Implementation is Blocked by Browser Security Policy**
 
-The issue can happen if the customer is transacting from within a WebView implementation of your mobile app. The WebView default behavior may not allow opening universal/deeplink redirect URL to the (external) destination payment app.
+##### Web Based Redirect Implementation
+If the customer is transacting through Mobile Web Browser, PWA or App's WebView, and the destination payment app fail to open, try the following suggestions.
 
-On Android platform, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME` as indication of the issue.
+Avoid redirecting via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up (especially on iOS/Apple platforms, due to strong security/privacy measures).
+
+E.g. **Avoid doing** this, via JavaScript:
+```javascript
+
+window.open("gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW", '_blank');
+```
+
+Other cases where Browser/Webview may block redirect to app according to several of our test (so **please avoid**):
+- Using delayed/asynchronous javascript (e.g. `setTimeout` or JS promise) to perform redirect.
+- Redirecting using new window/tab (e.g. `target="_blank"` or `window.open( ... , '_blank')`) to perform redirect.
+- [Further reference about this blocking behavior](https://stackoverflow.com/a/39926507). Sometimes javascript redirect would also works when it happens immediately after a valid user action/click, but please be careful as Web Browser may have inconsistent behavior.
+
+The **safest most recommended redirect method** is to allow customer to click the redirect link themselves. For example via HTML link element (`a` tag):
+```html
+
+<a href="gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW" rel="noopener">Click to Pay with Gopay</a>
+```
+Browser will allow opening the link, because it recognizes it as valid user click (intent to visit a link).
+
+**5. Your App's WebView Redirect Implementation is Blocked by Android/iOS Platform**
+
+The issue can happen if the customer is transacting from within a WebView implementation of your mobile app. The WebView default behavior may not allow opening universal/deeplink redirect URL to the (external) destination payment app. These are (technical or security) limitations from the platform itself that we must follow, not something that we can directly control.
 
 To solve this, you will need to make sure that your app's WebView configuration allows opening universal/deeplink redirect URL to the (external) destination payment app. The next section below will give you basic idea on how to configure your app's Webview implementation. 
 
 Please follow according to the app platform your app is being implemented in:
 
 ##### Android
+On Android platform, customer may also encounter error message `net:ERR_UNKNOWN_URL_SCHEME` as indication of the issue.
+
 If your app is native Android app, You need to override `shouldOverrideUrlLoading` functions of your WebView object as follows.
 
 ```java
@@ -995,22 +1020,6 @@ Based [on this resource](https://laptrinhx.com/ios-wkwebview-cannot-handle-url-s
 
 If you are using iOS WebView implementation to show Snap payment page, here is another [sample code in Swift](https://gist.github.com/Xaxxis/4a9d90ecf7adc0c3013e2f323a1e9b74#file-viewcontroller-swift-L29-L46) that has been tested to work for GoPay and ShopeePay deeplink url.
 
-##### Web Browser or Progressive Web App (PWA)
-If the customer is transacting through Mobile Web Browser or PWA, and the destination payment app fail to opem, please make sure that you are not trying to open the url via JavaScript. Some web browsers **may block** link opening or redirection through JavaScript, because browsers consider it as malicious pop-up.
-
-**Avoid doing** this, via JavaScript:
-```javascript
-
-window.open("gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW", '_blank');
-```
-
-Instead, please **do this**, allow customer to click the deeplink URL themselves, for example via HTML link element (`a` tag):
-```html
-
-<a href="gojek://gopay/merchanttransfer?tref=RHHM5IIFEIZCAUEWYDFITLBW" rel="noopener" target="_blank">Click to Pay with Gopay</a>
-```
-Browser will allow opening the deeplink URL, because it recognizes it as valid user click.
-
 ##### React Native
 If your app is React Native app, try whitelisting the deeplink via the `originWhitelist`. For example:
 
@@ -1056,7 +1065,7 @@ openExternalLink= (req) => {
   }
 }
 ```
-For more reference, please visit:
+For further React Native reference on this issue, please visit:
 - https://facebook.github.io/react-native/docs/linking#opening-external-links
 - https://stackoverflow.com/questions/54248411/react-native-deep-link-from-within-webview
 - https://stackoverflow.com/questions/56800122/err-unknown-url-scheme-on-react-native-webview

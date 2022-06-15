@@ -2,6 +2,7 @@
 <hr>
 
 <!-- #### Unreleased 
+resturcture FAQ of universal link redirect issue & add more info about recent findings
 -->
 #### 2022/06/10
 - add beta Payment Link API reference & overview sections
