@@ -28,6 +28,24 @@ Note:
 
 To integrate Midtrans to Shopify platform, follow the steps given below.
 
+1. [If You are A New Merchant or Existing Merchant that want to Integrate with Shopify for the first time](en/snap/platform/shopify-payment-app-preview?id=if-you-are-a-new-merchant-or-existing-merchant-that-want-to-integrate-with-shopify-for-the-first-time)
+
+2. [If You are Existing Merchant and previously using Old Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=if-you-are-existing-merchant-and-previously-using-old-midtrans-payment-app)
+
+#### If You are A New Merchant or Existing Merchant that want to Integrate with Shopify for the first time
+
+
+#### If You are Existing Merchant and previously using Old Midtrans Payment App
+
+1. [How to Install New Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=how-to-install-new-midtrans-payment-app)
+
+2. [How to Unistall Old Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=how-to-uninstall-old-midtrans-payment-app)
+
+#### How to Install New Midtrans Payment App
+
+
+#### How to Uninstall Old Midtrans Payment App
+
 1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
 
 	You will find your online shop name with *Sandbox/Production environment*. Please make sure that you are in __Production environment__.
