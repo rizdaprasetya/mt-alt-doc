@@ -155,6 +155,7 @@ Sandbox/Test Mode can be used to create "testing" transactions. All transaction 
 10. After payment is completed, you will found the timeline history on the detail order with TEST = TRUE
 	![Test timeline](./../../../asset/image/shopify-new-22-test-mode-timeline.png ':size=400')<br>
 11. That is indicated if the transaction is made on sandbox/test mode
+12. After the test is finished and ready for the real transaction (live on production), please disable the test mode by unticking the option on step 3.
 
 <hr>
 
