@@ -163,18 +163,36 @@ Sandbox/Test Mode can be used to create "testing" transactions. All transaction 
 
 1. On your store admin page, navigate to **Settings > Payment**, then on the listed payment with Midtrans as the provider, click **Manage**.
 2. In the displayed Midtrans Payment Gateway page, click __Manage__.
-![Manage](./../../../asset/image/shopify-new-11-manage.png ':size=400')
+![Manage](./../../../asset/image/shopify-new-11-manage.png ':size=400')<br>
 
 3. You will be redirect to the Midtrans account settings, you can update Midtrans Merchant ID, enable specific payment methods, and activate online offline installment.
-![Account Settings](./../../../asset/image/shopify-new-12-settings.png ':size=400')
 
-4. Sample if you only enable credit card payment method
-![Enable Payment Method](./../../../asset/image/shopify-new-13-enable-specific-payment-methods-1.png ':size=400')
-![Snap UI](./../../../asset/image/shopify-new-14-enable-credit-card-method.png ':size=400')
 
-5. Sample if you enable credit card, gopay, and bank transfer payment methods
-![Enable Payment Method](./../../../asset/image/shopify-new-15-enable-specific-payment-methods-2.png ':size=400')
-![Snap UI](./../../../asset/image/shopify-new-16-enable-some-methods.png ':size=400')
+#### General Settings
+On this section, you can update Midtrans Merchant ID and enable specific payment methods
+![General Settings](./../../../asset/image/shopify-new-23-general-settings.png ':size=400')<br>
+
+1. Sample if you only enable credit card payment method
+![Enable Payment Method](./../../../asset/image/shopify-new-13-enable-specific-payment-methods-1.png ':size=400')<br>
+![Snap UI](./../../../asset/image/shopify-new-14-enable-credit-card-method.png ':size=400')<br>
+
+2. Sample if you enable credit card, gopay, and bank transfer payment methods
+![Enable Payment Method](./../../../asset/image/shopify-new-15-enable-specific-payment-methods-2.png ':size=400')<br>
+![Snap UI](./../../../asset/image/shopify-new-16-enable-some-methods.png ':size=400')<br>
+
+#### Installment Settings
+On this section, you can activate Online or Offline Installment, to activate the installment feature and the feature is available for your customer, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for installment MID.
+![General Settings](./../../../asset/image/shopify-new-23-installment-settings.png ':size=400')<br>
+
+On Old Midtrans Payment App, when you install/activate Midtrans Card Installment, the default settings automatically set for Online Card Installment.
+![Installment Option](./../../../asset/image/shopify-new-23-installment-option.png ':size=400')<br>
+
+For New Midtrans Payment App, if you have activated Midtrans Card Installment before, you need to Enable Online Card Installment by ticking the option and save the settings.
+![Online Installment](./../../../asset/image/shopify-new-23-online-installment.png ':size=400')<br>
+
+__Offline Installment__, [this feature](https://docs.midtrans.com/en/snap/advanced-feature?id=offline-installment) is new on New Midtrans Payment App. Previously didn't support by Old Midtrans Payment App, to activate the installment feature and the feature is available for your customer, you are also required to have an agreement with the bank. Please consult Midtrans Activation Team for installment MID.
+You can Enable Offline Card Installment by ticking the option and save the settings.
+![Online Installment](./../../../asset/image/shopify-new-23-offline-installment.png ':size=400')<br>
 
 <hr>
 
