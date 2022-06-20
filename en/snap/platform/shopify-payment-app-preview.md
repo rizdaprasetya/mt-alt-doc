@@ -34,6 +34,47 @@ To integrate Midtrans to Shopify platform, follow the steps given below.
 
 #### If You are A New Merchant or Existing Merchant that want to Integrate with Shopify for the first time
 
+1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
+
+	You will find your online shop name with *Sandbox/Production environment*. Please make sure that you are in __Production environment__.
+
+	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')<br>
+
+2. Select __Settings -> Access Keys__.
+
+	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
+
+	you also need Midtrans Merchant ID and Server Key from sandbox environment, please change the environment mode to sandbox, and access the same menu to get Midtrans Merchant ID and Server Key
+
+	![access key](./../../../asset/image/sirclo-2.png)<br>
+
+3. Login to your [Shopify Store](https://www.shopify.com/login).
+
+4. Install Midtrans App from Shopify App Store [here](https://apps.shopify.com/midtrans-payment-gateway-new)
+
+	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
+
+5. Click __Add app__ button
+
+6. You will be redirect to installation page, you can review the displayed information, then click __Install app__
+	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
+
+7. You will be redirect to the Onboarding page, please fill by your Midtrans __Merchant ID__ and __Server Key__ for production and sandbox. Then click __Register__.
+	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
+
+8. You will be redirect back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
+
+9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+
+10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment__ as payment method on the checkout page.
+	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
+
+Midtrans Snap payment page will be displayed to the customer. Payment methods that are available on Snap product, are explained on [this page](https://midtrans.com/payments). These methods are available for integration. 
+
+![shopify](./../../../asset/image/shopify-new-19-snap-page.png ':size=400')<br>
+
+With this integration, your customer will be redirected to Snap Redirect payment page. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
 
 #### If You are Existing Merchant and previously using Old Midtrans Payment App
 
@@ -46,66 +87,6 @@ To integrate Midtrans to Shopify platform, follow the steps given below.
 
 #### How to Uninstall Old Midtrans Payment App
 
-1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
-
-	You will find your online shop name with *Sandbox/Production environment*. Please make sure that you are in __Production environment__.
-
-	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')
-
-2. Select __Settings -> Configuration__.
-
-	![Setting](./../../../asset/image/dashboard-configuration.png)
-
-On **Production** mode:
-
-| URL Role | Redirect URL|
-|----------|-------------|
-| Payment Notification URL | `https://pixel.midtrans.com/payments/notification` |
-| Finish Redirect URL | [your-site-url] |
-| Error Redirect URL | [your-site-url] |
-| Unfinish Redirect URL | [your-site-url] |
-
-3. Select __Settings -> Access Keys__.
-
-	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
-
-	![access key](./../../../asset/image/sirclo-2.png)<br>
-
-4. Login to your [Shopify Store](https://www.shopify.com/login).
-
-5. On your Shopify Store admin page, go to __Settings -> Payments__.
-
-	![Settings menu](./../../../asset/image/shopify-new-01-settings.png ':size=400')
-	![Payment providers menu](./../../../asset/image/shopify-new-02-payments.png ':size=400')
-
-6. Under __Supported payment methods__, click __Add payment methods__.
-	![Third-party providers](./../../../asset/image/shopify-new-03-supported-payment-methods.png ':size=400')
-
-7. Input __Midtrans Payment Gateway__ in the search bar, __Midtrans Payment Gateway__ will be shown, then click activate button.
-	![Search Midtrans](./../../../asset/image/shopify-new-04-search-midtrans.png ':size=400')
-
-8. In the displayed Midtrans Payment Gateway page, click __Connect__.
-	![Midtrans Page](./../../../asset/image/shopify-new-05-connect.png ':size=400')
-
-9. You can review the displayed information, then click __Install app__ to install.
-	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')
-
-10. You will be redirect to the Onboarding page, please fill by your Midtrans __Merchant ID__ and __Server Key__. Then click __Register__.
-	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')
-
-11. You will be redirect back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
-	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')
-
-12. To activate, click __Activate Midtrans Payment Gateway__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
-
-13. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment Gateway__ as payment method on the checkout page.
-	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')
-
-Midtrans Snap payment page will be displayed to the customer. Payment methods that are available on Snap product, are explained on [this page](https://midtrans.com/payments). These methods are available for integration. 
-
-![shopify](./../../../asset/image/shopify-new-19-snap-page.png ':size=400')
-
-With this integration, your customer will be redirected to Snap Redirect payment page. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
 
 <hr>
 
