@@ -464,11 +464,12 @@ The table given below explains `transaction_status` values for Ewallet transacti
 | refund | Transaction is refunded by you. |
 
 ## Additional Notes
+#### Allowing App Redirect for Mobile Platform App
 If app deeplink redirect method is being used within WebView, you may need to include additional configurations to ensure that your app will be able to redirect customer to Gojek-GoPay app. Please make sure that the WebView allows opening `gojek://` deeplink protocol.
 
 <!-- tabs:start -->
 
-#### **Android**
+#### **Android Native**
 On **Android** if using WebView, please make sure that the WebView allows opening `gojek://` deeplink protocol. You need to modify your web view `shouldOverrideUrlLoading` functions as shown below.
 
 ```java
@@ -487,7 +488,7 @@ On **Android** if using WebView, please make sure that the WebView allows openin
  }
 ```
 
-#### **iOS**
+#### **iOS Native**
 
 On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's `Info.plist`.
 
@@ -498,7 +499,7 @@ On **iOS**, you will need to add `LSApplicationQueriesSchemes` key to your app's
 </array>
 ```
 
-#### **Other Framework**
+#### **WebView & Other**
 
 If you are using other framework such as React Native, Flutter, etc. Please follow [this FAQ on how to allow Gojek-GoPay deeplink redirect.](/en/other/faq/technical.md#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do)
 
@@ -506,6 +507,11 @@ If you are using other framework such as React Native, Flutter, etc. Please foll
 <br>
 
 Link: [*More detailed definition of transaction_status & fraud_status*](/en/after-payment/status-cycle.md)
+
+#### Making Sure App Redirect Works on Web Based Mobile Platform App
+If you are implementing redirect using web based code (Browser, PWA, React Native, within WebView, etc.) on a Mobile App, sometimes the platform may block you from redirecting customer to another app. 
+
+Please follow [this FAQ on how to allow deep/universal link redirect.](/en/other/faq/technical.md#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do)
 
 ## Next Step
 <br>
