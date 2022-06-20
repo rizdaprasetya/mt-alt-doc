@@ -325,7 +325,7 @@ Merchant cancels/refunds order via Shopify. | Cancel/Refund | Canceled/Refunded
 Due to the changes introduced by Shopify’s new payment platform, here are some changes (compared to previous integration version) and limitations that should be expected:
 
 ##### How can I integrate my store with the Midtrans Sandbox Environment?
-To integrate your store with the Midtrans Sandbox environment, you will be required to install a separate/additional app (with similar steps of installation). We'll update our docs with the details once it is ready.
+To integrate your store with the Midtrans Sandbox environment, you need to enable test mode on Midtrans Payment App, you can follow the step [here](en/snap/platform/shopify-payment-app-preview?id=test-transaction-with-sandbox-mode) to enable it.
 
 ##### Is auto restock items upon abandoned payment still supported?
 Unfortunately due to Shopify's new payment platform, "auto restock items upon abandoned payment" may not be available in this integration version. In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. For this new integration, restock is not yet available, for an alternative, you need to cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers.
@@ -349,7 +349,7 @@ It is not currently possible to have both features activated, as activating both
 According to Shopify’s mandate, you will be required to integrate using the current/new integration method, please follow the steps given in (Integrating Midtrans to Shopify Platform)[#integrating-midtrans-to-shopify-platform] section.
 
 ##### What will happen during the transition period where both integration methods can be installed? Anything else the store owner is required to do?
-We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
+You can install New Midtrans Payment App along with Old Midtrans Payment App, both apps can work on your Shopify store
 
 ##### What will happen during the end of the transition period where the old integration method is deactivated? Anything else the store owner is required to do?
 We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
