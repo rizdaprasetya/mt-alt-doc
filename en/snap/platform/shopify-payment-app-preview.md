@@ -13,7 +13,7 @@ Step by step guide to integrate Snap to the platform of your choice, is explaine
 __If by July 31, 2022 you have not done so__, Midtrans payment integration (installed using the previous platform) __may no longer work for your Shopify store__.<br><br>
 Due to the changes introduced by Shopify’s new payment platform, there are some changes (compared to previous integration version) and limitations that should be expected. Visit [Known Limitations](#known-limitations) under Advanced section to see the details.
 
-Please complete the steps given below:
+Please complete the pre-requisite below:
 
 1. Create an online store with [Shopify](https://shopify.com) if you haven't.
 2. Register for [Midtrans account](https://dashboard.midtrans.com/register).
@@ -26,13 +26,11 @@ Note:
 
 ### Integrating Midtrans to Shopify Platform
 
-To integrate Midtrans to Shopify platform, follow the steps given below.
+Depending on each situation, please **follow one which best fits your situation**:
+- If you are a New/Existing Merchant who wants to integrate to Midtrans for the first time, please click & follow: [First Time Integration guide.](#first-time-integration)
+- If you are an Existing Merchant and previously using Old Midtrans Payment App, please click & follow: [Migrating from Previous Payment App Version](#migrating-from-previous-payment-app-version)
 
-1. [If You are A New Merchant or Existing Merchant that want to Integrate with Shopify for the first time](en/snap/platform/shopify-payment-app-preview?id=if-you-are-a-new-merchant-or-existing-merchant-that-want-to-integrate-with-shopify-for-the-first-time)
-
-2. [If You are Existing Merchant and previously using Old Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=if-you-are-existing-merchant-and-previously-using-old-midtrans-payment-app)
-
-#### If You are A New Merchant or Existing Merchant that want to Integrate with Shopify for the first time
+#### First Time Integration
 
 1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
 
@@ -50,41 +48,42 @@ To integrate Midtrans to Shopify platform, follow the steps given below.
 
 3. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Install Midtrans App from Shopify App Store [here](https://apps.shopify.com/midtrans-payment-gateway-new)
+4. Follow this link to find [Midtrans Payment App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
-5. Click __Add app__ button
+5. Click __Add app__ button to install.
 
-6. You will be redirect to installation page, you can review the displayed information, then click __Install app__
+6. You will be redirected to installation page, you can review the displayed information, then click __Install app__
 	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
 
-7. You will be redirect to the Onboarding page, please fill by your Midtrans __Merchant ID__ and __Server Key__ for production and sandbox. Then click __Register__.
+7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirect back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
 9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
 
 10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment__ as payment method on the checkout page.
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
-
-Midtrans Snap payment page will be displayed to the customer. Payment methods that are available on Snap product, are explained on [this page](https://midtrans.com/payments). These methods are available for integration. 
 
 ![shopify](./../../../asset/image/shopify-new-19-snap-page.png ':size=400')<br>
 
-With this integration, your customer will be redirected to Snap Redirect payment page. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
+With this integration, your customer will be redirected to Snap Redirect payment page if they choose Midtrans Payment on your store. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
 
-#### If You are Existing Merchant and previously using Old Midtrans Payment App
+All supported [Payment methods that are available on Snap product, are explained here](https://midtrans.com/payments).
 
-1. [How to Install New Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=how-to-install-new-midtrans-payment-app)
+#### Migrating from Previous Payment App Version
+There will be two steps:
+1. [Install New Midtrans Payment App](#install-new-midtrans-payment-app)
+2. [Uninstall Old Midtrans Payment App](#uninstall-old-midtrans-payment-app)
 
-2. [How to Unistall Old Midtrans Payment App](en/snap/platform/shopify-payment-app-preview?id=how-to-uninstall-old-midtrans-payment-app)
+Additionally, if you were using Card Installment previously, you [can follow card installment settings guide](#card-installment-settings).
 
-#### How to Install New Midtrans Payment App
+#### Install New Midtrans Payment App
 
-During the transition period, move from Old Midtrans App to New Midtrans App, you can install New Midtrans App before uninstalling the Old Midtrans App. Both apps can work on your Shopify store. Please test the transaction with New Midtrans App to ensure that New Midtrans App is work.
+During the transition period, move from Old Midtrans App to New Midtrans App, you can install New Midtrans App before uninstalling the Old Midtrans App. Both apps can work on your Shopify store. You can install and test the New Midtrans App to ensure that it will work.
 
 1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
 
@@ -102,19 +101,19 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 3. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Install Midtrans App from Shopify App Store [here](https://apps.shopify.com/midtrans-payment-gateway-new)
+4. Follow this link to find [Midtrans Payment App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
-5. Click __Add app__ button
+5. Click __Add app__ button to install.
 
-6. You will be redirect to installation page, you can review the displayed information, then click __Install app__
+6. You will be redirected to installation page, you can review the displayed information, then click __Install app__
 	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
 
-7. You will be redirect to the Onboarding page, please fill by your Midtrans __Merchant ID__ and __Server Key__ for production and sandbox. Then click __Register__.
+7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirect back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
 9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
@@ -123,39 +122,44 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
 
 
-#### How to Uninstall Old Midtrans Payment App
+#### Uninstall Old Midtrans Payment App
 
-Before uninstalling the Old Midtrans App, please ensure, you have successfully installed the New Midtrans App and it works on your Shopify store.
-To prevent payment failure when the customer checkout, choose the time with low traffic if want to uninstall, e.g: 2 AM
+Before uninstalling the Old Midtrans App, please ensure that you have successfully installed the New Midtrans App and it works on your Shopify store.
 
-1. Go to Payment Menu on your Shopify admin, Settings > Payments
-2. Click Manage button on payment app that you want to uninstall
-3. In detail of payment app, click Deactivate button
-4. You will redirected back to Payment Menu, and the app already removed from Payment List and also removed from your list of available payment methods on checkout page
-5. If you have multiple payment app, you can repeat the step from no.2
+It is recommended to:
+- Uninstall around the time that has low payment traffic, e.g: 2 AM. To prevent failure, if there are any customer in the middle of checkout/payment session.
+<!-- - Wait for all the order/payment that was created using Old Midtrans App to no longer `pending` status and already have `success/settlement` or `failure` status in Midtrans Dashboard. 
+	- If a payment was initiated (still `pending`) using the old payment app, then you disable it, payment status for that payment may no-longer be updated on your shopify store when later payment become success. You should refer to Midtrans Dashboard for the actual & updated payment status. -->
+
+Uninstall steps:
+1. Login to your Shopify admin page. Go to menu **Settings > Payments**.
+2. Click **Manage** button on payment app that you want to uninstall. (Note: You **should uninstall** the old ones named `Midtrans` & `Midtrans - ...`. But **don't uninstall** `Provider Midtrans Payment` the new one.)
+3. Then click **Deactivate** button in the payment app detail view.
+4. You will be redirected back to Payment Menu, and the app will be removed from Payment List and also removed from your list of available payment methods on checkout page.
+5. If you have installed multiple of Midtrans old payment apps, you can repeat the step from no.2.
 
 <hr>
 
 ### Test Transaction with Sandbox Mode
 
-Sandbox/Test Mode can be used to create "testing" transactions. All transaction made within this mode is not "real", and does not require "real payment/fund", you can do a test transaction with New Midtrans App, please follow the steps given below.
+**Sandbox/Test Mode** can be used to create "testing" transactions. All transaction made within this mode is not "real", and does not require "real payment/fund", you can do a test transaction with New Midtrans App, please follow the steps given below.
 
-1. Go to Payment Menu on your Shopify admin, Settings > Payments
-2. Click Manage button on payment app that you want to test
+1. On your store admin page, navigate to **Settings > Payment**.
+2. Click Manage button on payment app that you want to enable test mode.
 	![Manage app](./../../../asset/image/shopify-new-21-midtrans-manage-app.png ':size=400')<br>
-3. In the detail of payment app, enable the test mode by ticking the option
+3. In the payment app detail page, enable the test mode by ticking the option **Enable Test Mode**.
 	![Manage app](./../../../asset/image/shopify-new-22-test-mode.png ':size=400')<br>
-4. Click Save button
-5. Create a transaction and complete the process order until redirected to Midtrans payment page
-6. You will see Midtrans payment page with a mark "TEST"
+4. Click **Save** button.
+5. Create a transaction as a customer, complete the checkout process, and choose Midtrans Payment as payment options, until redirected to Midtrans payment page.
+6. You will see Midtrans payment page with a mark "TEST" around top right of the screen.
 	![Test page](./../../../asset/image/shopify-new-22-test-mode-page.png ':size=400')<br>
-7. Select payment method and click Pay Now
-8. Please use payment credentials [here](https://docs.midtrans.com/en/technical-reference/sandbox-test), based on payment method that you selected
-9. Follow the guide to making payment
-10. After payment is completed, you will found the timeline history on the detail order with TEST = TRUE
+7. Select payment method and proceed to **Pay**.
+8. Use [Sandbox payment credentials here](/en/technical-reference/sandbox-test.md), based on payment method that you selected.
+9. Follow the guide to complete the payment.
+10. After payment is completed, on your Shopify admin page, visit the order detail page. You will find the timeline history on the order detail page will show `Test = True`.
 	![Test timeline](./../../../asset/image/shopify-new-22-test-mode-timeline.png ':size=400')<br>
-11. That is indicated if the transaction is made on sandbox/test mode
-12. After the test is finished and ready for the real transaction (live on production), please disable the test mode by unticking the option on step 3.
+11. That indicates the transaction was made on sandbox/test mode.
+12. After the test is finished and you are ready for real transactions (live on Production mode), please disable the test mode by unticking the option on step 3.
 
 <hr>
 
@@ -166,7 +170,7 @@ Sandbox/Test Mode can be used to create "testing" transactions. All transaction 
 2. In the displayed Midtrans Payment Gateway page, click __Manage__.
 ![Manage](./../../../asset/image/shopify-new-11-manage.png ':size=400')<br>
 
-3. You will be redirect to the Midtrans account settings, you can update Midtrans Merchant ID, enable specific payment methods, and activate online offline installment.
+3. You will be redirected to the Midtrans account settings, you can update Midtrans Merchant ID, enable specific payment methods, and activate online offline installment.
 
 
 #### General Settings
@@ -181,18 +185,18 @@ On this section, you can update Midtrans Merchant ID and enable specific payment
 ![Enable Payment Method](./../../../asset/image/shopify-new-15-enable-specific-payment-methods-2.png ':size=400')<br>
 ![Snap UI](./../../../asset/image/shopify-new-16-enable-some-methods.png ':size=400')<br>
 
-#### Installment Settings
-On this section, you can activate Online or Offline Installment, to activate the installment feature and the feature is available for your customer, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for installment MID.
+#### Card Installment Settings
+On this section, you can activate Online or Offline Installment for card payment method, to activate the installment feature, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for details.
 ![General Settings](./../../../asset/image/shopify-new-23-installment-settings.png ':size=400')<br>
 
-On Old Midtrans Payment App, when you install/activate Midtrans Card Installment, the default settings automatically set for Online Card Installment.
-![Installment Option](./../../../asset/image/shopify-new-23-installment-option.png ':size=400')<br>
-
-For New Midtrans Payment App, if you have activated Midtrans Card Installment before, you need to Enable Online Card Installment by ticking the option and save the settings.
+Previously on Old Midtrans Payment App, when you install/activate Midtrans Card Installment, it will automatically configured by default. But on the New Midtrans Payment App, you will need to Enable Online Card Installment by ticking the option and clicking the **Submit** button to save the settings.
 ![Online Installment](./../../../asset/image/shopify-new-23-online-installment.png ':size=400')<br>
 
-__Offline Installment__, [this feature](https://docs.midtrans.com/en/snap/advanced-feature?id=offline-installment) is new on New Midtrans Payment App. Previously didn't support by Old Midtrans Payment App, to activate the installment feature and the feature is available for your customer, you are also required to have an agreement with the bank. Please consult Midtrans Activation Team for installment MID.
-You can Enable Offline Card Installment by ticking the option and save the settings.
+When customer choose to checkout using Midtrans Payment, they will see the installment options on the card payment page.
+
+__Offline Installment__, [this feature](/en/snap/advanced-feature.md#offline-installment) previously was not supported on Old Midtrans Payment App, to activate the installment feature, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for details.
+
+You can Enable Offline Card Installment by ticking the option and clicking the **Submit** button to save the settings.
 ![Online Installment](./../../../asset/image/shopify-new-23-offline-installment.png ':size=400')<br>
 
 <hr>
@@ -325,9 +329,6 @@ Merchant cancels/refunds order via Shopify. | Cancel/Refund | Canceled/Refunded
 #### Known Limitations
 Due to the changes introduced by Shopify’s new payment platform, here are some changes (compared to previous integration version) and limitations that should be expected:
 
-##### How can I integrate my store with the Midtrans Sandbox Environment?
-To integrate your store with the Midtrans Sandbox environment, you need to enable test mode on Midtrans Payment App, you can follow the step [here](en/snap/platform/shopify-payment-app-preview?id=test-transaction-with-sandbox-mode) to enable it.
-
 ##### Is auto restock items upon abandoned payment still supported?
 Unfortunately due to Shopify's new payment platform, "auto restock items upon abandoned payment" may not be available in this integration version. In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. For this new integration, restock is not yet available, for an alternative, you need to cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers.
 
@@ -344,16 +345,23 @@ In Shopify's new payment platform, this doesn’t seem to be possible.
 We do understand your concern that you want to bring the best customer experience to your store, Midtrans indeed also share a similar vision. So we are trying to figure out if we can bring back those or similar features. However please note that Midtrans integration is strictly bound to the limitations & behaviors of Shopify's new payment platform, so most of the time we’ll also need to communicate with Shopify and need their support to improve on the limitations. We’ll update our docs when we have any improvements ready.
 
 ##### Is it possible to have card online installment & offline installment feature activated at the same time?
-It is not currently possible to have both features activated, as activating both features may result in unexpected behavior regarding the installment acquirer result. Please choose only one of either feature activated.
+It is not currently possible to have both features activated, as activating both features may result in unexpected behavior regarding the installment acquirer result. Please choose only one of either feature activated. Please note that you should not enable Offline Installment if you are not exactly sure, as it may result in Customer not being able to pay with their card.
 
 ##### As a Shopify store owner who already integrated with Midtrans using the previous integration method, what am I required to do?
-According to Shopify’s mandate, you will be required to integrate using the current/new integration method, please follow the steps given in (Integrating Midtrans to Shopify Platform)[#integrating-midtrans-to-shopify-platform] section.
+According to Shopify’s mandate, you will be required to integrate using the current/new integration method, please follow the steps given in [Migrating from Previous Payment App Version](#migrating-from-previous-payment-app-version) section.
 
+<!-- 
 ##### What will happen during the transition period where both integration methods can be installed? Anything else the store owner is required to do?
-You can install New Midtrans Payment App along with Old Midtrans Payment App, both apps can work on your Shopify store
+It is recommended to follow the [steps provided in the migration section](#migrating-from-previous-payment-app-version).
+
+Although you can install New Midtrans Payment App along with Old Midtrans Payment App, both apps will work on your Shopify store. But it is less recommended.
+ -->
 
 ##### What will happen during the end of the transition period where the old integration method is deactivated? Anything else the store owner is required to do?
 We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
+
+##### How can I integrate my store with the Midtrans Sandbox Environment?
+To integrate your store with the Midtrans Sandbox environment, you need to [enable test mode on Midtrans Payment App, you can follow the step here](#test-transaction-with-sandbox-mode) to enable it.
 <hr>
 
 #### Deactivating Midtrans Payment Gateway
