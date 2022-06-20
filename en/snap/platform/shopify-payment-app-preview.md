@@ -84,9 +84,55 @@ With this integration, your customer will be redirected to Snap Redirect payment
 
 #### How to Install New Midtrans Payment App
 
+During the transition period, move from Old Midtrans App to New Midtrans App, you can install New Midtrans App before uninstalling the Old Midtrans App. Both apps can work on your Shopify store. Please test the transaction with New Midtrans App to ensure that New Midtrans App is work.
+
+1. Login to Midtrans [Merchant Administration Portal](https://dashboard.midtrans.com/login).
+
+	You will find your online shop name with *Sandbox/Production environment*. Please make sure that you are in __Production environment__.
+
+	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')<br>
+
+2. Select __Settings -> Access Keys__.
+
+	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
+
+	you also need Midtrans Merchant ID and Server Key from sandbox environment, please change the environment mode to sandbox, and access the same menu to get Midtrans Merchant ID and Server Key
+
+	![access key](./../../../asset/image/sirclo-2.png)<br>
+
+3. Login to your [Shopify Store](https://www.shopify.com/login).
+
+4. Install Midtrans App from Shopify App Store [here](https://apps.shopify.com/midtrans-payment-gateway-new)
+
+	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
+
+5. Click __Add app__ button
+
+6. You will be redirect to installation page, you can review the displayed information, then click __Install app__
+	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
+
+7. You will be redirect to the Onboarding page, please fill by your Midtrans __Merchant ID__ and __Server Key__ for production and sandbox. Then click __Register__.
+	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
+
+8. You will be redirect back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
+
+9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+
+10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment__ as payment method on the checkout page.
+	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
+
 
 #### How to Uninstall Old Midtrans Payment App
 
+Before uninstalling the Old Midtrans App, please ensure, you have successfully installed the New Midtrans App and it works on your Shopify store.
+To prevent payment failure when the customer checkout, choose the time with low traffic if want to uninstall, e.g: 2 AM
+
+1. Go to Payment Menu on your Shopify admin, Settings > Payments
+2. Click Manage button on payment app that you want to uninstall
+3. In detail of payment app, click Deactivate button
+4. You will redirected back to Payment Menu, and the app already removed from Payment List and also removed from your list of available payment methods on checkout page
+5. If you have multiple payment app, you can repeat the step from no.2
 
 <hr>
 
