@@ -136,6 +136,28 @@ To prevent payment failure when the customer checkout, choose the time with low 
 
 <hr>
 
+### Test Transaction with Sandbox Mode
+
+Sandbox/Test Mode can be used to create "testing" transactions. All transaction made within this mode is not "real", and does not require "real payment/fund", you can do a test transaction with New Midtrans App, please follow the steps given below.
+
+1. Go to Payment Menu on your Shopify admin, Settings > Payments
+2. Click Manage button on payment app that you want to test
+	![Manage app](./../../../asset/image/shopify-new-21-midtrans-manage-app.png ':size=400')<br>
+3. In the detail of payment app, enable the test mode by ticking the option
+	![Manage app](./../../../asset/image/shopify-new-22-test-mode.png ':size=400')<br>
+4. Click Save button
+5. Create a transaction and complete the process order until redirected to Midtrans payment page
+6. You will see Midtrans payment page with a mark "TEST"
+	![Test page](./../../../asset/image/shopify-new-22-test-mode-page.png ':size=400')<br>
+7. Select payment method and click Pay Now
+8. Please use payment credentials [here](https://docs.midtrans.com/en/technical-reference/sandbox-test), based on payment method that you selected
+9. Follow the guide to making payment
+10. After payment is completed, you will found the timeline history on the detail order with TEST = TRUE
+	![Test timeline](./../../../asset/image/shopify-new-22-test-mode-timeline.png ':size=400')<br>
+11. That is indicated if the transaction is made on sandbox/test mode
+
+<hr>
+
 ### Payment App Account Settings
 **Optionally**, you can further manage/edit your Midtrans Payment App account settings. Although **for most-usecase, you are not required** to do this.
 
