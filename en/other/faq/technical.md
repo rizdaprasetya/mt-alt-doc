@@ -1255,9 +1255,9 @@ If the card is blocked within the OTP/3DS page of the card issuer/bank, the cust
 Unfortunately, Midtrans as the Payment Gateways have no direct control over the issue, because the block happened on the card issuer (and their network) side. The customer should explain the issue to the card issuer.
 
 #### The customer stuck on 3DS/OTP screen. What is happening?
-3DS/OTP page is directly served by card issuer/bank's website. The issue is very likely caused by downtime or maintenance on the website.
+3DS/OTP page is directly served by card issuer/bank's website. The issue is very likely caused by downtime or maintenance on the website. Which could be temporary, Customer can try again later after a few moments.
 
-The customer should contact the card issuer/bank call center. The customer should provide the card issuer/bank the screenshot or message of the issue on the 3DS page. Please note that some card issuer/bank might mistakenly check only if the card has any offline payment issue. They might not check from online/3DS perspective whether it is able to transact online or not. The customer should mention specifically that, they are unable to pay on 3DS enabled online merchant.
+If the issue Persist, the customer should contact the card issuer/bank call center. The customer should provide the card issuer/bank the screenshot or message of the issue on the 3DS page. Please note that some card issuer/bank might mistakenly check only if the card has any offline payment issue. They might not check from online/3DS perspective whether it is able to transact online or not. The customer should mention specifically that, they are unable to pay on 3DS enabled online merchant.
 
 Unfortunately, Midtrans as the Payment Gateways have no direct control over the issue, because the block happened on Card Issuer (and their network) side. The customer should explain the issue to the card issuer.
 
