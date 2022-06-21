@@ -143,7 +143,7 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 !> If you **choose to uninstall the old one, you will not be able to re-install the old one again**.
 \
 \
-It will be **OK to not to uninstall any of the old Payment App** (and let Shopify platform auto-disable them when the time comes). You will have both enabled for customer to choose. With an advantage if anything goes wrong during transition period, you can still use the old one and temporary disable the new one. **Uninstalling is not a must**.
+ **Uninstalling the old Payment App is not a must**. <!-- It will be just fine to leave it enabled (and let Shopify platform auto-disable them when the time comes).--> You can have both old and new app enabled for customer to choose. With an advantage if anything goes wrong during transition period, you can still use the old one and temporary disable the new one.
 
 If you choose to uninstall the Old Midtrans Payment App(s), you can proceed to follow steps below.
 
