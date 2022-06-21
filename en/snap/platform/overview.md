@@ -92,11 +92,11 @@ All supported [Payment methods that are available on Snap product, are explained
 __If by July 31st, 2022 you have not done so__, Midtrans payment integration (installed using the previous platform) __may no longer work for your Shopify store__.<br><br>
 Due to the changes introduced by Shopify’s new payment platform, there are some changes and limitations (compared to previous integration version) that should be expected. Visit [Known Limitations](#known-limitations) under Advanced section to see the details.
 
-There will be two steps:
+There will be two parts:
 1. [Install New Midtrans Payment App](#install-new-midtrans-payment-app)
 2. [Uninstall Old Midtrans Payment App](#uninstall-old-midtrans-payment-app)
 
-Additionally, if you were using Card Installment previously, you [can follow card installment settings guide](#card-installment-settings).
+- Additionally, if you were using Card Installment feature previously, you [can follow card installment settings guide](#card-installment-settings).
 
 #### Install New Midtrans Payment App
 
