@@ -26,10 +26,6 @@ Step by step guide to integrate Snap to the platform of your choice, is explaine
 
 ## Shopify
 
-?> As [announced by Shopify](https://shopify.dev/apps/payments/hosted-payment-sdk), Shopify planned to deprecate the previous payment integration platform (Hosted Payment SDK) by July 31, 2022. Shopify has urged Midtrans (and other payment gateways) to migrate to their new [Payment Platform integration](https://shopify.dev/beta/payments-apps/). In compliance with it, Midtrans has migrated to the new platform, as a result of the new platform, __you__ as a __Midtrans’ merchants will need to migrate by installing Midtrans as Shopify Payment App__.<br><br>
-__If by July 31, 2022 you have not done so__, Midtrans payment integration (installed using the previous platform) __may no longer work for your Shopify store__.<br><br>
-Due to the changes introduced by Shopify’s new payment platform, there are some changes (compared to previous integration version) and limitations that should be expected. Visit [Known Limitations](#known-limitations) under Advanced section to see the details.
-
 Please complete the pre-requisite below:
 
 1. Create an online store with [Shopify](https://shopify.com) if you haven't.
@@ -92,6 +88,10 @@ With this integration, your customer will be redirected to Snap Redirect payment
 All supported [Payment methods that are available on Snap product, are explained here](https://midtrans.com/payments).
 
 #### Migrating from Previous Payment App Version
+?> As [announced by Shopify](https://shopify.dev/apps/payments/hosted-payment-sdk), Shopify planned to deprecate the previous payment integration platform (Hosted Payment SDK) by July 31st, 2022. Shopify has urged Midtrans (and other payment gateways) to migrate to their new [Payment Platform integration](https://shopify.dev/beta/payments-apps/). In compliance with it, Midtrans has migrated to the new platform. As a result, __you__ as a __Midtrans’ merchants will need to migrate by installing "Midtrans Payment App" for Shopify__. The app will have improved performance, reliability, & security.<br><br>
+__If by July 31st, 2022 you have not done so__, Midtrans payment integration (installed using the previous platform) __may no longer work for your Shopify store__.<br><br>
+Due to the changes introduced by Shopify’s new payment platform, there are some changes and limitations (compared to previous integration version) that should be expected. Visit [Known Limitations](#known-limitations) under Advanced section to see the details.
+
 There will be two steps:
 1. [Install New Midtrans Payment App](#install-new-midtrans-payment-app)
 2. [Uninstall Old Midtrans Payment App](#uninstall-old-midtrans-payment-app)
