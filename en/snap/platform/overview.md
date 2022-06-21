@@ -140,7 +140,14 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 
 #### Uninstall Old Midtrans Payment App
-To avoid confusion from customer side & inconsistent payment status update behavior, we recommend to uninstall the Old Midtrans Payment App on your store, so that only the new Midtrans Payment App is available for your customer to choose from.
+!> If you **choose to uninstall the old one, you will not be able to re-install the old one again**.
+\
+\
+It will be **OK to not to uninstall any of the old Payment App** (and let Shopify platform auto-disable them when the time comes). You will have both enabled for customer to choose. With an advantage if anything goes wrong during transition period, you can still use the old one and temporary disable the new one. **Uninstalling is not a must**.
+
+If you choose to uninstall the Old Midtrans Payment App(s), you can proceed to follow steps below.
+
+<!-- To avoid confusion from customer side & inconsistent payment status update behavior, we recommend to uninstall the Old Midtrans Payment App on your store, so that only the new Midtrans Payment App is available for your customer to choose from. -->
 
 Before uninstalling, it is recommended to:
 - Please ensure that you have successfully installed the New Midtrans App and it works on your Shopify store.
@@ -157,7 +164,7 @@ Uninstall steps:
 4. You will be redirected back to Payment Menu, and the app will be removed from Payment List and also removed from your list of available payment methods on checkout page.
 5. If you have installed multiple of Midtrans old payment apps, you can repeat the step from no.2.
 
-Although, you can choose not to uninstall any of the old Payment App and let Shopify platform auto-disable them when the time comes, it is more recommended to perform the uninstall as we instructed.
+<!-- Although, it will be OK to not to uninstall any of the old Payment App (and let Shopify platform auto-disable them when the time comes), it is more recommended to perform the uninstall as we instructed. -->
 <hr>
 
 ### Test Transaction with Sandbox Mode
