@@ -140,21 +140,24 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 
 #### Uninstall Old Midtrans Payment App
+To avoid confusion from customer side & inconsistent payment status update behavior, we recommend to uninstall the Old Midtrans Payment App on your store, so that only the new Midtrans Payment App is available for your customer to choose from.
 
-Before uninstalling the Old Midtrans App, please ensure that you have successfully installed the New Midtrans App and it works on your Shopify store.
-
-It is recommended to:
-- Uninstall around the time that has low payment traffic, e.g: 2 AM. To prevent failure, if there are any customer in the middle of checkout/payment session.
+Before uninstalling, it is recommended to:
+- Please ensure that you have successfully installed the New Midtrans App and it works on your Shopify store.
+- Plan to uninstall around the time that has low payment traffic, e.g: 2 AM. To prevent failure, if there are any customer in the middle of checkout/payment session.
 <!-- - Wait for all the order/payment that was created using Old Midtrans App to no longer `pending` status and already have `success/settlement` or `failure` status in Midtrans Dashboard. 
 	- If a payment was initiated (still `pending`) using the old payment app, then you disable it, payment status for that payment may no-longer be updated on your shopify store when later payment become success. You should refer to Midtrans Dashboard for the actual & updated payment status. -->
 
 Uninstall steps:
 1. Login to your Shopify admin page. Go to menu **Settings > Payments**.
-2. Click **Manage** button on payment app that you want to uninstall. (Note: You **should uninstall** the old ones named `Midtrans` & `Midtrans - ...`. But **don't uninstall** `Provider Midtrans Payment` the new one.)
+2. Click **Manage** button on payment app that you want to uninstall. Hint:
+	- You **should uninstall** the old ones named `Midtrans` & `Midtrans - ...`. 
+	- But **don't uninstall** `Provider Midtrans Payment` the new one.
 3. Then click **Deactivate** button in the payment app detail view.
 4. You will be redirected back to Payment Menu, and the app will be removed from Payment List and also removed from your list of available payment methods on checkout page.
 5. If you have installed multiple of Midtrans old payment apps, you can repeat the step from no.2.
 
+Although, you can choose not to uninstall any of the old Payment App and let Shopify platform auto-disable them when the time comes, it is more recommended to perform the uninstall as we instructed.
 <hr>
 
 ### Test Transaction with Sandbox Mode
@@ -347,10 +350,19 @@ Merchant cancels/refunds order via Shopify. | Cancel/Refund | Canceled/Refunded
 Due to the changes introduced by Shopify’s new payment platform, here are some changes (compared to previous integration version) and limitations that should be expected:
 
 ##### Is auto restock items upon abandoned payment still supported?
-Unfortunately due to Shopify's new payment platform, "auto restock items upon abandoned payment" may not be available in this integration version. In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. For this new integration, restock is not yet available, for an alternative, you need to cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers.
+
+For context: In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. 
+
+For this new integration, unfortunately "auto restock items upon abandoned payment" may not be available in this integration version. Due to Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order. Which is outside of Midtrans control.
+
+As alternative, you can cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers. There is also 3rd party apps/extensions that can automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days)\*.
+
+\*Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
 ##### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
-Unfortunately due to Shopify's new payment platform, this is no longer possible (unlike previous integration).
+As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
+
+This includes not able to display card installment payment method as a separate payment button.
 
 ##### Is it possible to add more payment method icons to be displayed on the checkout page?
 We are working and communicating with Shopify to try to add more payment method icons.
