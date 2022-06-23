@@ -2,9 +2,11 @@
 <hr>
 
 <!-- #### Unreleased 
-resturcture FAQ of universal link redirect issue & add more info about recent findings
-- minor improve 3DS stuck faq wording
 -->
+#### 2022/06/23
+- remove previous HPSDL version of Shopify integration guide
+- add current version of Shopify integration guide & its relevant info
+
 #### 2022/06/10
 - add beta Payment Link API reference & overview sections
 
