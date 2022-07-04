@@ -1261,6 +1261,17 @@ If the issue Persist, the customer should contact the card issuer/bank call cent
 
 Unfortunately, Midtrans as the Payment Gateways have no direct control over the issue, because the block happened on Card Issuer (and their network) side. The customer should explain the issue to the card issuer.
 
+#### The customer stuck on redirecting to 3DS/OTP screen. What is happening?
+In some rare cases customer may seems stuck on Midtrans' 3DS/OTP redirect page where it says "Tap to Retry".
+
+What causes the issue are usually:
+- Customer's device/browser network connection issue. -- Which customer can be advised to retry using a different network/browser/device with more stable network connections.
+- Destination 3DS/OTP web page issue on card issuer's side.
+
+3DS/OTP page is directly served by card issuer/bank's website. The issue is very likely caused by downtime or maintenance on the website. Which could be temporary, Customer can be advised to try again later after a few moments.
+
+If the issue Persist, the customer should contact the card issuer/bank call center. Please note that unfortunately some card issuer/bank might mistakenly not able to detect the issue, because most card issuer use 3rd party vendor to serve the 3DS/OTP pages. The card issuer will need to check with their vendor in this case.
+
 #### The customer does not receive 3DS/OTP, so he can’t proceed with payment or the customer can proceed with the payment but the transaction becomes non 3DS. What is the issue? What should I do?
 In case of OTP could not be received by customer, the issue is between card issuer’s (bank’s) 3DS (OTP) page and the customer's phone. This may be caused by any of the likely reasons:
 - The card is not activated for 3DS by card-issuer.
