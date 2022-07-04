@@ -606,7 +606,10 @@ curl -X POST \
 To allow installment feature with banks which do not issue Installment MID, merchant can use offline installment feature. With offline installment feature, the transaction will initially be charged in full amount and will be converted into installment later. To activate the installment feature, you are required to have agreement with the bank. Please consult Midtrans Activation Team for installment MID.
 
 
-You have to add the `installment_term` parameter with combination of `bins` whitelist feature. The purpose of BINs whitelist is to limit certain cards from making offline installment, based on the agreement between you and issuing banks.
+You have to add the `installment` parameter with combination of `bins` filter feature. The purpose of BIN filter is to allow only certain acceptable cards to proceed with offline installment payment, based on the agreement between you and issuing banks.
+
+Usually you will also need to add `bank` parameter to specify which card acquirer bank should be used for the offline installment payment.
+
 <!-- tabs:start -->
 
 #### **JSON Parameters**
@@ -623,7 +626,8 @@ The JSON parameters added in the *Request Body* of a [Charge API Request](en/cor
     "token_id": "<token_id from Get Card Token Step>",
     "authentication": true,
     "installment_term": 12,          
-    "bins": ["48111111", "3111", "5"]
+    "bins": ["48111111", "3111", "5"],
+    "bank": "mandiri"
   }
 }
 ```
@@ -646,7 +650,8 @@ curl -X POST \
     "token_id": "<token_id from Get Card Token Step>",
     "authentication": true,
     "installment_term": 12,
-    "bins": ["48111111", "3111", "5"]
+    "bins": ["48111111", "3111", "5"],
+    "bank": "mandiri"
   }
 }'
 ```

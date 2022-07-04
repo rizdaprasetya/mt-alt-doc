@@ -848,7 +848,9 @@ The sample Snap payment page with online installment feature is displayed below.
 
 To allow installment feature with banks which do not issue Installment MID, merchant can use offline installment feature. With offline installment feature, the transaction will initially be charged in full amount and will be converted into installment later. To activate the installment feature, you are required to have agreement with the bank. Please consult Midtrans Activation Team for installment MID.
 
-You have to add the `installment` parameter with combination of BIN filter feature. The purpose of BIN filter is to limit certain cards from making offline installment, based on the agreement between you and issuing banks.
+You have to add the `installment` parameter with combination of `whitelist_bins` feature. The purpose of Whitelist BIN is to allow only certain acceptable cards to proceed with offline installment payment, based on the agreement between you and issuing banks.
+
+Usually you will also need to add `bank` parameter to specify which card acquirer bank should be used for the offline installment payment.
 
 ```json
 ...
@@ -863,7 +865,8 @@ You have to add the `installment` parameter with combination of BIN filter featu
         "offline": [ <installment terms as array of integers> ]
       }
     },
-    "whitelist_bins": [ <card BINs as array of strings> ]
+    "whitelist_bins": [ <card BINs as array of strings> ],
+    "bank": <specify acquirer bank> // input the destination card acquirer bank that will be used
   }
 ...
 ```
@@ -889,7 +892,8 @@ Example of the JSON parameters used during [backend API request step](/en/snap/i
     "whitelist_bins": [
       "481111",
       "410505"
-    ]
+    ],
+    "bank": "mandiri"
   }
 }
 ```
@@ -916,7 +920,8 @@ curl -X POST \
     "whitelist_bins": [
       "481111",
       "410505"
-    ]
+    ],
+    "bank": "mandiri"
   }
 }'
 ```
@@ -931,6 +936,8 @@ Parameter | Description
 --- | ---
 `required` | If `true`, the customer must pay as installment for that specific transaction. <br>If `false`, the customer can choose to pay as installment or regular full payment for that specific transaction.
 `terms` | under `terms` array, on online installment, you can specify the bank name <br>(For example- BNI, BCA, CIMB, Mandiri, and so on)
+
+!> Important: When you use `whitelist_bins` to create a Snap transaction, it will be applied to all card transaction for that Snap transaction. It could means that you will not be able to mix offline installment with online installment or regular full payment into one Snap transaction. Read [further recommendations here](/en/other/faq/technical.md#how-should-i-implement-offline-installment-card-payment).
 
 ### Pre-Authorization Payment
 Pre-authorization feature means customer's fund will not be directly deducted after transaction, but its amount/limit will be temporary reserved (blocked). Then you can initiate "capture" action later via [Core API](https://api-docs.midtrans.com/#capture-transaction). By default, if there is no "capture" action for the transaction for 7 days, reserved fund will be released after 7 days.
