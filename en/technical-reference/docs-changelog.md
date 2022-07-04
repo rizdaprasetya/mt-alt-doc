@@ -4,7 +4,7 @@
 <!-- #### Unreleased 
 -->
 #### 2022/06/23
-- remove previous HPSDL version of Shopify integration guide
+- remove previous HPSDK version of Shopify integration guide
 - add current version of Shopify integration guide & its relevant info
 
 #### 2022/06/10
