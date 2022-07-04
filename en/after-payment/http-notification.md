@@ -1230,3 +1230,6 @@ If your backend/notification url only supports TLS v1.3, you may not be able to 
 You can check the TLS protocol version being supported by your backend by using tools such as: https://www.digicert.com/help/ . Input your notification url there, and check the supported TLS protocol version.
 
 Our notification engine team is working to bring future support of TLS v1.3. Until it happens, please follow the recommendation above.
+
+### Note on custom HTTP(s) Notification Headers
+Midtrans currently does not support custom HTTP(s) header to be added on our HTTP(s) Notification request. It means if your notification URL endpoint require extra HTTP(s) header to accept request (such as requiring Basic Auth or custom API key headers), it will not be supported. Your notification URL endpoint must allow regular HTTP(s) request without any custom headers.
