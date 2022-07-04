@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/07/04
+- improve HTTP(s) notification best practice, header, & security aspect
+
 #### 2022/06/23
 - remove previous HPSDK version of Shopify integration guide
 - add current version of Shopify integration guide & its relevant info
