@@ -969,6 +969,8 @@ For API requests that are performed synchronously (from your) backend-to-backend
 
 ?> ***Note:*** Midtrans may not be able to help you with any **financial loss caused if merchants fail to [verify payment status authenticity](#verifying-notification-authenticity)**. Payment status has to be verified coming from Midtrans before you decide to take financial action on it (e.g. delivering good/service to customer when payment status is success). Failing to do so can be considered a security/financial liability on the merchant side.
 
+?> ***Note:*** On top of that, you should also **use a valid SSL/HTTP(s)** on your notification URL endpoints for extra security.
+
 ## Responding HTTP Notification from Midtrans
 
 To confirm that you received the notification, your notification URL or backend must respond to the HTTP notification with HTTP `status code: 200`. On most backend or web frameworks you can achieve that by printing a string similar to *OK*. This will automatically sends HTTP `status code: 200` to Midtrans. 
@@ -1233,3 +1235,6 @@ Our notification engine team is working to bring future support of TLS v1.3. Unt
 
 ### Note on custom HTTP(s) Notification Headers
 Midtrans currently does not support custom HTTP(s) header to be added on our HTTP(s) Notification request. It means if your notification URL endpoint require extra HTTP(s) header to accept request (such as requiring Basic Auth or custom API key headers), it will not be supported. Your notification URL endpoint must allow regular HTTP(s) request without any custom headers.
+
+### Security Aspect
+If you have concern regarding the security aspect, please refer to [Verifying Authenticity section](#verifying-notification-authenticity). As long as you are using a valid HTTPs endpoint & verifying notification authenticity, it should be secure enough already (e.g. from any MiTM attack attempt, etc.).
