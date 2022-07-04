@@ -3,7 +3,7 @@
 
 Midtrans Snap can be integrated with third party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
-Midtrans is partnered with various platforms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans. If you are using third party platforms that are not listed here, and would like for Midtrans to integrate with it, please contact us at [support@midtrans.com](mailto:support@midtrans.com "email support")
+Midtrans is partnered with various platforms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans. If you are using third party platforms that are not listed here, and would like for Midtrans to integrate with it, please [contact us](https://midtrans.com/contact-us/).
 
 Step by step guide to integrate Snap to the platform of your choice, is explained below. 
 #### Choose from any platform of your choice:
@@ -30,7 +30,7 @@ Please complete the pre-requisite below:
 
 1. Create an online store with [Shopify](https://shopify.com) if you haven't.
 2. Register for [Midtrans account](https://dashboard.midtrans.com/register).
-3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use **SHOPIFY - URL Name** as a subject header and mention your registered _Midtrans Merchant ID_.
+3. Complete the account registration form. For any help, you can contact [Midtrans contact center](https://midtrans.com/contact-us/registration-and-service-information/cara-mendaftar-akun-midtrans).
 
 Note: 
 
@@ -213,7 +213,7 @@ On this section, you can update Midtrans Merchant ID and enable specific payment
 ![Snap UI](./../../../asset/image/shopify-new-16-enable-some-methods.png ':size=400')<br>
 
 #### Card Installment Settings
-On this section, you can activate Online or Offline Installment for card payment method, to activate the installment feature, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for details.
+On this section, you can activate Online or Offline Installment for card payment method, to activate the installment feature, you are required to have an agreement with the bank. Please contact Midtrans for details.
 ![General Settings](./../../../asset/image/shopify-new-23-installment-settings.png ':size=400')<br>
 
 Previously on Old Midtrans Payment App, when you install/activate Midtrans Card Installment, it will automatically configured by default. But on the New Midtrans Payment App, you will need to Enable Online Card Installment by ticking the option and clicking the **Submit** button to save the settings.
@@ -221,7 +221,7 @@ Previously on Old Midtrans Payment App, when you install/activate Midtrans Card 
 
 When customer choose to checkout using Midtrans Payment, they will see the installment options on the card payment page.
 
-__Offline Installment__, [this feature](/en/snap/advanced-feature.md#offline-installment) previously was not supported on Old Midtrans Payment App, to activate the installment feature, you are required to have an agreement with the bank. Please consult Midtrans Activation Team for details.
+__Offline Installment__, [this feature](/en/snap/advanced-feature.md#offline-installment) previously was not supported on Old Midtrans Payment App, to activate the installment feature, you are required to have an agreement with the bank. Please contact Midtrans for details.
 
 You can Enable Offline Card Installment by ticking the option and clicking the **Submit** button to save the settings.
 ![Online Installment](./../../../asset/image/shopify-new-23-offline-installment.png ':size=400')<br>
@@ -421,7 +421,7 @@ Please complete the following steps:
 
 1. Create an online store with Sirclo.
 2. Register to [Midtrans account](https://account.midtrans.com/register).
-3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use __SIRCLO - URL Name__ as a subject header and mention your registered _Midtrans Merchant ID_. 
+3. Complete the account registration form. For any help, you can contact [Midtrans contact center](https://midtrans.com/contact-us/registration-and-service-information/cara-mendaftar-akun-midtrans).
 
 ### Integrating Midtrans to Sirclo Platform:
 
@@ -480,7 +480,7 @@ To integrate Midtrans to Sirclo platform, follow the steps given below.
 > **Note for installment:**
 > 
 >- You need to agree and negotiate with the Bank regarding interest rate and installment period.
-> - Please contact Midtrans at [activation@midtrans.com](mailto:activation@midtrans.com) for further inquiry.
+> - Please contact Midtrans for details.
 
 8. Click **Save** or **Update**.
 <hr><br><br>
@@ -491,7 +491,7 @@ Please complete the following steps:
 
 1. Create an online store account with [Jejualan](https://jejualan.com/daftar), and choose Beta, Gamma, or Delta in order to use Midtrans service.
 2. Register to [Midtrans account](https://account.midtrans.com/register).
-3. Complete the account registration form. For any help, you can contact [Midtrans activation team](mailto:activation@midtrans.com). Use __Jejualan – URL Name__ as subject header and mention your registered _Midtrans Merchant ID_. 
+3. Complete the account registration form. For any help, you can contact [Midtrans contact center](https://midtrans.com/contact-us/registration-and-service-information/cara-mendaftar-akun-midtrans).
 
 ### Integrating Midtrans to Jejualan Platform:
 
