@@ -1002,19 +1002,19 @@ Your server can respond with the following status and error codes, which will tr
 <summary><b>Best Practices</b></summary>
 <article>
 
-- Use HTTPS endpoint. For better security & to avoid Man-in-the-Middle (MITM) attacks. We validate the certificates match with the hosts. Do not use self signed SSL certificates.
-- Use standard port (80/443) for notification URL.
-- Implement notification in an idempotent way. In extremely rare cases, we may send multiple notifications for the same transaction event. Your endpoint should avoid processing it as duplicate entries, one way of achieving this is to use *order_id* as the key to track the entries.
-- Check the signature hash of the notification, This will confirm that the notification was actually sent by Midtrans and not any body else. *Server Key* is used to verify the signature, which only Midtrans and you should have the access to it.
+- **Use HTTPS endpoint**. For better security & to avoid Man-in-the-Middle (MITM) attacks. We validate the certificates match with the hosts. Do not use self signed SSL certificates.
+- **Use standard port (80/443)** for notification URL.
+- **Implement notification handling in an idempotent way.** In extremely rare cases, we may send multiple notifications for the same transaction event. Your endpoint should avoid processing it as duplicate entries, one way of achieving this is to use *order_id* as the key to track the entries.
+- **Verify the signature key hash of the notification**, This will confirm that the notification was actually sent by Midtrans and not any body else. *Server Key* is used to verify the signature, which only Midtrans and you should have the access to it.
 - Check the following three fields when confirming success transactions:
 	- `status_code`: Should be 200 for successful transactions.
-	- `fraud_status`: if applicable, the value should be ACCEPT.
+	- `fraud_status`: If exists, the value should be ACCEPT. If not exists then you can ignore it.
 	- `transaction_status` : *settlement* or *capture* for successful transactions.
-- We strive to send the notification immediately after the transaction has occurred. However, in extremely rare cases, it may be delayed due to issues (e.g. high load, incidents, network latency, etc.). If you think you are have not receive notification in time, you can use the *GET Status API* to check for current status of the transaction.
-- HTTP request timeout when Midtrans sends notification is configured to 15 seconds. Your endpoint should respond as soon as possible, ideally, within 5 seconds, to reduce the load on Midtrans' & your own infrastructure.
-- In extremely rare cases that the payment status notifications received out of order - `settlement` status comes before `pending` status. You should call *GET Status API* to get the latest/actual status of the transaction. Or you can ignore the `pending` notifications in such cases. 
-- HTTP Notification body is in JSON format. Which should allow additional JSON fields to be added in the future. Your implementation should allow new fields to be later added to the notification body, so parse the JSON fields in a non strict way (especially if you are using some JSON parser library that strictly does not allow new fields to be added). Avoid JSON parser behavior that will throw error/exceptions when encountering new fields, instead it should gracefully ignore the new fields. This allows us to improve our notification system for newer use cases without breaking compatibility.
-- Always use the right HTTP Status code for responding HTTP notifications requests. 
+- We strive to send the notification immediately after the transaction has occurred. However, in extremely rare cases, it may be delayed due to issues (e.g. high load, incidents, network latency, etc.). If you think you are have not receive notification in time, you can use the [GET Status API](/en/after-payment/get-status.md) to check for current status of the transaction.
+- Midtrans will wait for up-to **15 seconds** when sending notification, before considering the request timeout/failed. Your endpoint should **respond as soon as possible, ideally within 5 seconds**, to reduce the load on Midtrans' & your own infrastructure.
+- In extremely rare cases that the payment status notifications received out of order - `settlement` status comes before `pending` status. You should call [GET Status API](/en/after-payment/get-status.md) to get the latest/actual status of the transaction. Or you can ignore the `pending` notifications in such cases. 
+- HTTP Notification body is in **JSON format**. Which should allow additional JSON fields to be added in the future. Your implementation **should allow new fields to be later added** to the notification body, so parse the JSON fields in a non strict way (especially if you are using some JSON parser library that strictly does not allow new fields to be added). Avoid JSON parser behavior that will throw error/exceptions when encountering new fields, instead it should gracefully ignore the new fields. This allows us to improve our notification system for newer use cases without breaking compatibility.
+- Always use the **right HTTP Status code for responding HTTP notifications** requests. 
 - Midtrans will retry when encountering HTTP error status codes, & differently based on it.
 	- for `2xx`: No retries, it is considered successfully received.
 	- for `500`: Retry only once.
@@ -1023,14 +1023,14 @@ Your server can respond with the following status and error codes, which will tr
 	- for `301/302/303`: No retries, these redirect status codes is not supported. We suggest you to update the Notification endpoint URL. Do not intentionally reply with them.
 	- for `307/308`: Follow the new URL with POST method and same notification body. Max redirect is 5 times.
 	- for all other failures: Retry 5 times.
-- Midtrans retry at most 5 times with following policy.
+- Midtrans retry **at most 5 times** with following policy.
 - Different retry intervals based on number of retry attempt:
   - First time - 2 minutes.
   - Second time - 10 minutes.
   - Third time - 30 minutes (0.5 hours).
   - Fourth time - 90 minutes (1.5 hours).
   - Fifth time - 210 minutes (3.5 hours).
-- We put a random time shift for each attempt based on above interval. For example, the first retry time might be 33s (up to 2m) after previous attempt.
+- Midtrans put a random time shift for each attempt based on above interval. For example, the first retry time might be 33s (up to 2m) after previous attempt.
 <!-- @TODO: link the get status api references -->
 </article>
 </details>
