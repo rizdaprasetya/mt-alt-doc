@@ -636,6 +636,8 @@ curl -X POST \
 
 Then you will proceed with [displaying Snap payment page](/en/snap/integration-guide.md#_2-displaying-snap-payment-page-on-frontend) as usual. After customer proceed with payment and result in successful first transaction, you will receive `saved_token_id` & `saved_token_id_expired_at` in the JSON of HTTP notification. `saved_token_id` is unique for each customer's card. Store this `saved_token_id` in your database and associate that card token to your customer.
 
+!> Important: Be sure to store `saved_token_id_expired_at`. When that date time has been surpassed, the card's `saved_token_id` will be no longer usable, it means the card is expired. In that case you will need to ask your customer to re-do the card saving process with their re-newed card.
+
 #### Sample HTTP Notification with `saved_token_id`
 ```json
 {
