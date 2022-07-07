@@ -333,6 +333,11 @@ Few points to understand about order status & item stock management that is mana
 - It is recommended to **avoid manual order status changes (manual intervention)** from Shopify Admin Panel at least between period of the order first created as `pending` and it finally become `paid/canceled` (about 0-26 hours), in order for payment integration with Midtrans to perform smoothly. Which the order status and item stock will be managed automatically based on the flow explained on this page.
   - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
 
+##### Email Notification SNAP Validation Error
+When a customer selects credit card on the snap payment page, then the payment is denied/rejected by the bank, then the customer decided to left without trying to select another payment method/use another credit card, you as a merchant maybe will receive an email notification with the subject __"Snap - Validation Error"__ with the message: __"Transaction can't be canceled after being paid"__. 
+
+For now, it's safe to ignore the email, because Midtrans will retry to invalidate the snap payment page after two hours if without any successful payment.
+
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
 --- | --- | ---
