@@ -338,6 +338,9 @@ When a customer selects credit card on the snap payment page, then the payment i
 
 For now, it's safe to ignore the email, because Midtrans will retry to invalidate the snap payment page after two hours if without any successful payment.
 
+##### Customer still able to retry payment if status order is expired
+An order with status expired, customer still able to retry payment if the order receive failure notification payment from Midtrans. If in the timeline history of the order, you find the notification e.g: `Unable to process a payment for Rp220,000.00 IDR on Midtrans Payment`, your customer will receives an email to let them know that their payment couldn't be processed. The email includes a Pay now link that the customer can use to try paying again.
+
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
 --- | --- | ---
