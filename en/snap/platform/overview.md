@@ -375,9 +375,7 @@ For context: In previous integration, if a customer left the Snap payment page w
 
 For this new integration, unfortunately "auto restock items upon abandoned payment" may not be available in this integration version. Due to Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order. Which is outside of Midtrans control.
 
-As alternative, you can cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers. There is also 3rd party apps/extensions that can automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days)\*.
-
-\*Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
+As alternative, you can cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers
 
 ##### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
