@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/07/08
+- update screenshots and app name
+
 #### 2022/07/04
 - improve HTTP(s) notification best practice, header, & security aspect
 
