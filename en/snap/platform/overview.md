@@ -341,6 +341,11 @@ For now, it's safe to ignore the email, because Midtrans will retry to invalidat
 ##### Customer still able to retry payment if status order is expired
 An order with status expired, customer still able to retry payment if the order receive failure notification payment from Midtrans. If in the timeline history of the order, you find the notification e.g: `Unable to process a payment for Rp220,000.00 IDR on Midtrans Payment`, your customer will receives an email to let them know that their payment couldn't be processed. The email includes a Pay now link that the customer can use to try paying again.
 
+##### One order have 2 payment ID
+Yes, it's possible. it same case with [Customer still able to retry payment if status order is expired](/en/snap/platform/overview?id=customer-still-able-to-retry-payment-if-status-order-is-expired).
+e.g: first attempt payment, the customer postpone the payment until transaction is expired on Midtrans. Midtrans will send failure notification to Shopify. Customer will receive email to retry payment, customer retry payment and settlement, this second attempt will creating new order ID on Midtrans. On shopify admin, the order will have 2 payments, 1 failure and 1 successful.
+![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')<br>
+
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
 --- | --- | ---
