@@ -356,10 +356,13 @@ When your customer does that, the payment status for that order will be re-start
 
 This is a default Shopify behavior (as of the time of this writing) and is outside of Midtrans control. If you want to know whether this is configurable, please consult Shopify's documentation or contact center.
 
-##### One order have 2 payment ID
-Yes, it's possible. it same case with [Customer still able to retry payment if status order is expired](/en/snap/platform/overview?id=customer-still-able-to-retry-payment-if-status-order-is-expired).
-e.g: first attempt payment, the customer postpone the payment until transaction is expired on Midtrans. Midtrans will send failure notification to Shopify. Customer will receive email to retry payment, customer retry payment and settlement, this second attempt will creating new order ID on Midtrans. On shopify admin, the order will have 2 payments, 1 failure and 1 successful.
-![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')<br>
+##### Multiple Payment IDs for One Shopify Order
+It is possible for **1 order (on Shopify admin panel) to have more than 1 payment IDs**. This is due to Shopify platform's behavior that **allows customers to retry their payments** for each order they create. For example, customer is able to [retry payment via an email received from Shopify](#retry-payment-email-on-an-order-with-expired-payment). 
+
+The **detailed history will be displayed on Shopify admin panel's order details timeline**. Each one of those payment IDs (payment attempts) will **produces a separate Order ID on Midtrans side** aswell.
+
+Here is an example of 1 order that has 1 earlier payment id which is unpaid, and then 1 other payment id which is successfully paid, as observed from Shopify admin panel's order details timeline.
+![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
