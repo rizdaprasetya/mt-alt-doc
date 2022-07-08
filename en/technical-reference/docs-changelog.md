@@ -4,10 +4,7 @@
 <!-- #### Unreleased 
 -->
 #### 2022/07/08
-- add content: email notification snap validation error
-- add content: customer able to retry payment if status order is expired
-- add content: one order have 2 payments
-- remove content: remove mechanic app due to restock doesn't work
+- add further info on Shopify guide: validation error email, payment retry, multiple payment ids, restock limitation.
 
 #### 2022/07/04
 - improve HTTP(s) notification best practice, header, & security aspect
