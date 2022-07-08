@@ -322,6 +322,37 @@ https://help.shopify.com/en/manual/orders/edit-orders
 Or archive the order, if they really need to remove it from order list:
 https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-order
 
+##### Email Notification of SNAP Validation Error
+In the scenario of:
+- Your customer proceeds to payment by selecting card payment method (on Snap payment page), and the **card payment ends up as rejected or abandoned**.
+
+Then after some times (usually 2 hours):
+- You (Merchant) may **receive a few emails from Midtrans** with subject __"Snap - Validation Error"__ and message: __"Transaction can't be canceled after being paid"__. 
+
+Currently, it is **safe to ignore/disregard these emails**. This email is unintentionally triggered as part of Midtrans' internal integration with Shopify. It will not cause any issue for you and Customer, which should be safe to ignore.
+
+We do understand that this can become an inconvenience, and our team is working to find a solution.
+
+##### Retry Payment Email on an Order with Expired Payment
+In the scenario of:
+- Your customer proceeds to pay for an order to the point that they are redirected to Midtrans' Snap payment page, but then **they don't complete the payment**.
+- Then after some time, the payment will be **considered as unpaid on Midtrans side**. On the Shopify admin panel's order details timeline you can also see it marked with `Unable to process a payment for Rp ... IDR on Payments via Midtrans`.
+
+Then:
+- By Shopify's default behaviour, your customer **will receives an email** that informs `Your payment couldn’t be processed for order #... You have not been charged. Click below to try paying for the order again.`. Which will **allow your customer to attempt another payment** by clicking the provided `Pay now` link.
+
+When your customer does that, the payment status for that order will be re-started to `pending` state again. Which your customer has another chance to proceed with payment.
+
+This is a default Shopify behavior (as of the time of this writing) and is outside of Midtrans control. If you want to know whether this is configurable, please consult Shopify's documentation or contact center.
+
+##### Multiple Payment IDs for One Shopify Order
+It is possible for **1 order (on Shopify admin panel) to have more than 1 payment IDs**. This is due to Shopify platform's behavior that **allows customers to retry their payments** for each order they create. For example, customer is able to [retry payment via an email received from Shopify](#retry-payment-email-on-an-order-with-expired-payment). 
+
+The **detailed history will be displayed on Shopify admin panel's order details timeline**. Each one of those payment IDs (payment attempts) will **produces a separate Order ID on Midtrans side** aswell.
+
+Here is an example of 1 order that has 1 earlier payment id which is unpaid, and then 1 other payment id which is successfully paid, as observed from Shopify admin panel's order details timeline.
+![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')
+
 ##### Item Stock & Status
 Few points to understand about order status & item stock management that is managed automatically with this integration:
 - Item stock will be reduced whenever order status become `pending` on Shopify side.
@@ -331,7 +362,7 @@ Few points to understand about order status & item stock management that is mana
 - Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as expired on Shopify after two hours. Order may not show up in Midtrans Dashboard.
 - When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer which says "order ready to be shipped", although from Shopify side it is still waiting for payment. Refer to section above about this behavior.
 - It is recommended to **avoid manual order status changes (manual intervention)** from Shopify Admin Panel at least between period of the order first created as `pending` and it finally become `paid/canceled` (about 0-26 hours), in order for payment integration with Midtrans to perform smoothly. Which the order status and item stock will be managed automatically based on the flow explained on this page.
-  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
+  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to explain/help-with the consequences.
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
@@ -360,11 +391,19 @@ Due to the changes introduced by Shopify’s new payment platform, here are some
 
 For context: In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. 
 
-For this new integration, unfortunately "auto restock items upon abandoned payment" may not be available in this integration version. Due to Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order. Which is outside of Midtrans control.
+On this Shopify's new platform (at the time of this writing), unfortunately "auto restock items upon abandoned payment" may not be available. Due to **Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order**. This is was a design-decision from Shopify, which is **outside of Midtrans control**.
 
-As alternative, you can cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers. There is also 3rd party apps/extensions that can automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days)\*.
+As alternative, **you can cancel the order manually from Shopify admin**, to release the stock that previously was allocated for customers.
 
-\*Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
+Further details:
+
+When we reached out to Shopify, they answered:
+- "This is an expected behaviour. Once the order is created, even if the payment is pending (as an example), we will hold the inventory for the merchant. Even if they reject the pending payment, the order still exists and the merchant can decide to get paid with another payment method. So as long as the merchant does not explicitly decide to release the inventory or cancel the order, the inventory is held." -- Shopify Team.
+
+Which in short: Shopify allows customer to retry payment to the unpaid order, so the item stock will not be auto re-stocked unless Merchant explicitly do so.
+
+There was another option, but seems to be **no longer working due to same reason** above:
+- There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
 ##### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
