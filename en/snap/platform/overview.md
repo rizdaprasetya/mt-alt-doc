@@ -322,17 +322,6 @@ https://help.shopify.com/en/manual/orders/edit-orders
 Or archive the order, if they really need to remove it from order list:
 https://help.shopify.com/en/manual/orders/manage-orders#archive-a-fulfilled-order
 
-##### Item Stock & Status
-Few points to understand about order status & item stock management that is managed automatically with this integration:
-- Item stock will be reduced whenever order status become `pending` on Shopify side.
-- Item stock will be reduced immediately after the customer reaches Snap payment page, regardless of whether he/she will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment. 
-  - Example of "oversell" issue prevented by this mechanism: This happens when item stock is 1 left, but there are 2 (or more) customers racing to complete the payment, if both complete the payments, and both are accepted by Shopify, then the item stock will be negative. Which will cause issues on its own. So to prevent this, item stock is reserved (and marked as pending on Shopify side) as early as the customer is redirected to the payment page.
-- Card transaction with `deny` status will be updated as failed on Shopify by Midtrans after two hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
-- Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as expired on Shopify after two hours. Order may not show up in Midtrans Dashboard.
-- When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer which says "order ready to be shipped", although from Shopify side it is still waiting for payment. Refer to section above about this behavior.
-- It is recommended to **avoid manual order status changes (manual intervention)** from Shopify Admin Panel at least between period of the order first created as `pending` and it finally become `paid/canceled` (about 0-26 hours), in order for payment integration with Midtrans to perform smoothly. Which the order status and item stock will be managed automatically based on the flow explained on this page.
-  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
-
 ##### Email Notification of SNAP Validation Error
 In the scenario of:
 - Your customer proceeds to payment by selecting card payment method (on Snap payment page), and the **card payment ends up as rejected or abandoned**.
@@ -363,6 +352,17 @@ The **detailed history will be displayed on Shopify admin panel's order details 
 
 Here is an example of 1 order that has 1 earlier payment id which is unpaid, and then 1 other payment id which is successfully paid, as observed from Shopify admin panel's order details timeline.
 ![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')
+
+##### Item Stock & Status
+Few points to understand about order status & item stock management that is managed automatically with this integration:
+- Item stock will be reduced whenever order status become `pending` on Shopify side.
+- Item stock will be reduced immediately after the customer reaches Snap payment page, regardless of whether he/she will proceed to actual payment or not. This is to prevent "oversell" issue, by reserving the item stock for the duration of this payment. 
+  - Example of "oversell" issue prevented by this mechanism: This happens when item stock is 1 left, but there are 2 (or more) customers racing to complete the payment, if both complete the payments, and both are accepted by Shopify, then the item stock will be negative. Which will cause issues on its own. So to prevent this, item stock is reserved (and marked as pending on Shopify side) as early as the customer is redirected to the payment page.
+- Card transaction with `deny` status will be updated as failed on Shopify by Midtrans after two hours if left without any success attempt. If success pay attempt is found, it will be updated as success on Shopify.
+- Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as expired on Shopify after two hours. Order may not show up in Midtrans Dashboard.
+- When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer which says "order ready to be shipped", although from Shopify side it is still waiting for payment. Refer to section above about this behavior.
+- It is recommended to **avoid manual order status changes (manual intervention)** from Shopify Admin Panel at least between period of the order first created as `pending` and it finally become `paid/canceled` (about 0-26 hours), in order for payment integration with Midtrans to perform smoothly. Which the order status and item stock will be managed automatically based on the flow explained on this page.
+  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
