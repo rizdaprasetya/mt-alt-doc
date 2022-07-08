@@ -334,8 +334,9 @@ Few points to understand about order status & item stock management that is mana
   - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
 
 ##### Email Notification of SNAP Validation Error
-In the case of:
-- Customers proceed to payment by selecting card payment method (on Snap payment page), and the payment ends up as rejected or abandoned.
+In the scenario of:
+- Your customer proceeds to payment by selecting card payment method (on Snap payment page), and the **card payment ends up as rejected or abandoned**.
+
 Then after some times (usually 2 hours):
 - You (Merchant) may **receive a few emails from Midtrans** with subject __"Snap - Validation Error"__ and message: __"Transaction can't be canceled after being paid"__. 
 
