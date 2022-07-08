@@ -362,7 +362,7 @@ Few points to understand about order status & item stock management that is mana
 - Abandoned Snap payment page (customer left without proceeding with any payment method) will be updated as expired on Shopify after two hours. Order may not show up in Midtrans Dashboard.
 - When customer reaches Snap payment page (status `pending` and stock reduced). Shopify may send email to customer which says "order ready to be shipped", although from Shopify side it is still waiting for payment. Refer to section above about this behavior.
 - It is recommended to **avoid manual order status changes (manual intervention)** from Shopify Admin Panel at least between period of the order first created as `pending` and it finally become `paid/canceled` (about 0-26 hours), in order for payment integration with Midtrans to perform smoothly. Which the order status and item stock will be managed automatically based on the flow explained on this page.
-  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to help/explain with the consequences.
+  - Manual order status changes may cause unexpected behaviour in terms of order status & item stock management, such as order status stuck at certain state. Do this at your own risk. Midtrans may not be in position to explain/help-with the consequences.
 
 ##### Basic Status Mapping
 Condition | Midtrans Status | Shopify Payment Status
@@ -391,9 +391,19 @@ Due to the changes introduced by Shopify’s new payment platform, here are some
 
 For context: In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. 
 
-For this new integration, unfortunately "auto restock items upon abandoned payment" may not be available in this integration version. Due to Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order. Which is outside of Midtrans control.
+On this Shopify's new platform (at the time of this writing), unfortunately "auto restock items upon abandoned payment" may not be available. Due to **Shopify (or Shopify's new payment platform) default behavior does not seem to re-stock unpaid/payment-canceled order**. This is was a design-decision from Shopify, which is **outside of Midtrans control**.
 
-As alternative, you can cancel the order manually from Shopify admin, to release the stock that previously was allocated for customers
+As alternative, **you can cancel the order manually from Shopify admin**, to release the stock that previously was allocated for customers.
+
+Further details:
+
+When we reached out to Shopify, they answered:
+- "This is an expected behaviour. Once the order is created, even if the payment is pending (as an example), we will hold the inventory for the merchant. Even if they reject the pending payment, the order still exists and the merchant can decide to get paid with another payment method. So as long as the merchant does not explicitly decide to release the inventory or cancel the order, the inventory is held." -- Shopify Team.
+
+Which in short: Shopify allows customer to retry payment to the unpaid order, so the item stock will not be auto re-stocked unless Merchant explicitly do so.
+
+There was another option, but seems to be **no longer working due to same reason** above:
+- There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
 ##### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
