@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/07/08
+- add further info on Shopify guide: validation error email, payment retry, multiple payment ids, restock limitation.
+
 #### 2022/07/04
 - improve HTTP(s) notification best practice, header, & security aspect
 
