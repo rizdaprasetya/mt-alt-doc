@@ -343,8 +343,17 @@ Currently, it is **safe to ignore/disregard these emails**. This email is uninte
 
 We do understand that this can become an inconvenience, and our team is working to find a solution.
 
-##### Customer still able to retry payment if status order is expired
-An order with status expired, customer still able to retry payment if the order receive failure notification payment from Midtrans. If in the timeline history of the order, you find the notification e.g: `Unable to process a payment for Rp220,000.00 IDR on Midtrans Payment`, your customer will receives an email to let them know that their payment couldn't be processed. The email includes a Pay now link that the customer can use to try paying again.
+##### Retry Payment Email on an Order with Expired Payment
+In the scenario of:
+- Your customer proceeds to pay for an order to the point that they are redirected to Midtrans' Snap payment page, but then **they don't complete the payment**.
+- Then after some time, the payment will be **considered as unpaid on Midtrans side**. On the Shopify admin panel's order details timeline you can also see it marked with `Unable to process a payment for Rp ... IDR on Payments via Midtrans`.
+
+Then:
+- By Shopify's default behaviour, your customer **will receives an email** that informs `Your payment couldn’t be processed for order #... You have not been charged. Click below to try paying for the order again.`. Which will **allow your customer to attempt another payment** by clicking the provided `Pay now` link.
+
+When your customer does that, the payment status for that order will be re-started to `pending` state again. Which your customer has another chance to proceed with payment.
+
+This is a default Shopify behavior (as of the time of this writing) and is outside of Midtrans control. If you want to know whether this is configurable, please consult Shopify's documentation or contact center.
 
 ##### One order have 2 payment ID
 Yes, it's possible. it same case with [Customer still able to retry payment if status order is expired](/en/snap/platform/overview?id=customer-still-able-to-retry-payment-if-status-order-is-expired).
