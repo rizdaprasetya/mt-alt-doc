@@ -1,6 +1,6 @@
 # Integrate Midtrans Snap to 3rd Party Ecommerce Platform
 <hr>
-
+ 
 Midtrans Snap can be integrated with third party E-commerce platform or SaaS like Shopify, Sirclo, and Jejualan. 
 
 Midtrans is partnered with various platforms to make integration process as easy as possible. This page contains a list of platforms that have partnered with Midtrans. If you are using third party platforms that are not listed here, and would like for Midtrans to integrate with it, please [contact us](https://midtrans.com/contact-us/).
@@ -61,7 +61,7 @@ Depending on each situation, please **follow one which best fits your situation*
 
 3. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Follow this link to find [Midtrans Payment App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
+4. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
@@ -73,22 +73,22 @@ Depending on each situation, please **follow one which best fits your situation*
 7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
-9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+9. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
 
-10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment__ as payment method on the checkout page.
+10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
 
 ![shopify](./../../../asset/image/shopify-new-19-snap-page.png ':size=400')<br>
 
-With this integration, your customer will be redirected to Snap Redirect payment page if they choose Midtrans Payment on your store. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
+With this integration, your customer will be redirected to Snap Redirect payment page if they choose Payments via Midtrans on your store. Customer payment data is safely managed by Midtrans hosted payment web page, outside of your Shopify store web domain.
 
 All supported [Payment methods that are available on Snap product, are explained here](https://midtrans.com/payments).
 
 ### Migrating from Previous Payment App Version
-?> As [announced by Shopify](https://shopify.dev/apps/payments/hosted-payment-sdk), Shopify planned to deprecate the previous payment integration platform (Hosted Payment SDK) by July 31st, 2022. Shopify has urged Midtrans (and other payment gateways) to migrate to their new [Payment Platform integration](https://shopify.dev/beta/payments-apps/). In compliance with it, Midtrans has migrated to the new platform. As a result, __you__ as a __Midtrans’ merchants will need to migrate by installing "Midtrans Payment App" for Shopify__. The app will have improved performance, reliability, & security.<br><br>
+?> As [announced by Shopify](https://shopify.dev/apps/payments/hosted-payment-sdk), Shopify planned to deprecate the previous payment integration platform (Hosted Payment SDK) by July 31st, 2022. Shopify has urged Midtrans (and other payment gateways) to migrate to their new [Payment Platform integration](https://shopify.dev/beta/payments-apps/). In compliance with it, Midtrans has migrated to the new platform. As a result, __you__ as a __Midtrans’ merchants will need to migrate by installing "Payments via Midtrans App" for Shopify__. The app will have improved performance, reliability, & security.<br><br>
 __If by July 31st, 2022 you have not done so__, Midtrans payment integration (installed using the previous platform) __may no longer work for your Shopify store__.<br><br>
 Due to the changes introduced by Shopify’s new payment platform, there are some changes and limitations (compared to previous integration version) that should be expected. Visit [Known Limitations](#known-limitations) under Advanced section to see the details.
 
@@ -118,7 +118,7 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 3. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Follow this link to find [Midtrans Payment App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
+4. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
@@ -130,12 +130,12 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Midtrans Payment Gateway.
+8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
-9. To activate, click __Activate Midtrans Payment__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+9. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
 
-10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Midtrans Payment__ as payment method on the checkout page.
+10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
 
 
@@ -159,7 +159,7 @@ Uninstall steps:
 1. Login to your Shopify admin page. Go to menu **Settings > Payments**.
 2. Click **Manage** button on payment app that you want to uninstall. Hint:
 	- You **should uninstall** the old ones named `Midtrans` & `Midtrans - ...`. 
-	- But **don't uninstall** `Provider Midtrans Payment` the new one.
+	- But **don't uninstall** `Provider Payments via Midtrans` the new one.
 3. Then click **Deactivate** button in the payment app detail view.
 4. You will be redirected back to Payment Menu, and the app will be removed from Payment List and also removed from your list of available payment methods on checkout page.
 5. If you have installed multiple of Midtrans old payment apps, you can repeat the step from no.2.
@@ -177,7 +177,7 @@ Uninstall steps:
 3. In the payment app detail page, enable the test mode by ticking the option **Enable Test Mode**.
 	![Manage app](./../../../asset/image/shopify-new-22-test-mode.png ':size=400')<br>
 4. Click **Save** button.
-5. Create a transaction as a customer, complete the checkout process, and choose Midtrans Payment as payment options, until redirected to Midtrans payment page.
+5. Create a transaction as a customer, complete the checkout process, and choose Payments via Midtrans as payment options, until redirected to Midtrans payment page.
 6. You will see Midtrans payment page with a mark "TEST" around top right of the screen.
 	![Test page](./../../../asset/image/shopify-new-22-test-mode-page.png ':size=400')<br>
 7. Select payment method and proceed to **Pay**.
@@ -191,10 +191,10 @@ Uninstall steps:
 <hr>
 
 ### Payment App Account Settings
-**Optionally**, you can further manage/edit your Midtrans Payment App account settings. Although **for most-usecase, you are not required** to do this.
+**Optionally**, you can further manage/edit your Payments via Midtrans App account settings. Although **for most-usecase, you are not required** to do this.
 
 1. On your store admin page, navigate to **Settings > Payment**, then on the listed payment with Midtrans as the provider, click **Manage**.
-2. In the displayed Midtrans Payment Gateway page, click __Manage__.
+2. In the displayed Payments via Midtrans page, click __Manage__.
 ![Manage](./../../../asset/image/shopify-new-11-manage.png ':size=400')<br>
 
 3. You will be redirected to the Midtrans account settings, you can update Midtrans Merchant ID, enable specific payment methods, and activate online offline installment.
@@ -219,7 +219,7 @@ On this section, you can activate Online or Offline Installment for card payment
 Previously on Old Midtrans Payment App, when you install/activate Midtrans Card Installment, it will automatically configured by default. But on the New Midtrans Payment App, you will need to Enable Online Card Installment by ticking the option and clicking the **Submit** button to save the settings.
 ![Online Installment](./../../../asset/image/shopify-new-23-online-installment.png ':size=400')<br>
 
-When customer choose to checkout using Midtrans Payment, they will see the installment options on the card payment page.
+When customer choose to checkout using Payments via Midtrans, they will see the installment options on the card payment page.
 
 __Offline Installment__, [this feature](/en/snap/advanced-feature.md#offline-installment) previously was not supported on Old Midtrans Payment App, to activate the installment feature, you are required to have an agreement with the bank. Please contact Midtrans for details.
 
@@ -413,7 +413,7 @@ This includes not able to display card installment payment method as a separate 
 ##### Is it possible to add more payment method icons to be displayed on the checkout page?
 We are working and communicating with Shopify to try to add more payment method icons.
 
-##### Is it possible to change the text-label of the payment button instead of the generic Midtrans Payment Gateway text?
+##### Is it possible to change the text-label of the payment button instead of the generic Payment via Midtrans text?
 In Shopify's new payment platform, this doesn’t seem to be possible.
 
 ##### Is there anything Midtrans plan to do about the missing features compared to previous integration?
@@ -436,11 +436,11 @@ Although you can install New Midtrans Payment App along with Old Midtrans Paymen
 We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
 
 ##### How can I integrate my store with the Midtrans Sandbox Environment?
-To integrate your store with the Midtrans Sandbox environment, you need to [enable test mode on Midtrans Payment App, you can follow the step here](#test-transaction-with-sandbox-mode) to enable it.
+To integrate your store with the Midtrans Sandbox environment, you need to [enable test mode on Payments via Midtrans App, you can follow the step here](#test-transaction-with-sandbox-mode) to enable it.
 <hr>
 
-#### Deactivating Midtrans Payment Gateway
-If you decide to not use Midtrans Payment Gateway, then you can deactivate it. When you deactivate the app, it's removed from your list of available payment methods, but it's still available if you need it for cases such as order returns.
+#### Deactivating Payments via Midtrans
+If you decide to not use Payments via Midtrans, then you can deactivate it. When you deactivate the app, it's removed from your list of available payment methods, but it's still available if you need it for cases such as order returns.
 
 1. In the Supported payment methods section, find the provider in the list.
 2. Click Manage.
