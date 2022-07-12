@@ -387,7 +387,7 @@ Merchant cancels/refunds order via Shopify. | Cancel/Refund | Canceled/Refunded
 #### Known Limitations
 Due to the changes introduced by Shopify’s new payment platform, here are some changes (compared to previous integration version) and limitations that should be expected:
 
-##### Is auto restock items upon abandoned payment still supported?
+#### Is auto restock items upon abandoned payment still supported?
 
 For context: In previous integration, if a customer left the Snap payment page without proceeding with any payment method, order will be updated as canceled on Shopify after two hours, and will be restocked. 
 
@@ -405,37 +405,37 @@ Which in short: Shopify allows customer to retry payment to the unpaid order, so
 There was another option, but seems to be **no longer working due to same reason** above:
 - There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
-##### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
+#### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 
 This includes not able to display card installment payment method as a separate payment button.
 
-##### Is it possible to add more payment method icons to be displayed on the checkout page?
 We are working and communicating with Shopify to try to add more payment method icons.
+#### Is it possible to add more payment method icons to be displayed on the checkout page?
 
-##### Is it possible to change the text-label of the payment button instead of the generic Payment via Midtrans text?
+#### Is it possible to change the text-label of the payment button instead of the generic Payment via Midtrans text?
 In Shopify's new payment platform, this doesn’t seem to be possible.
 
-##### Is there anything Midtrans plan to do about the missing features compared to previous integration?
+#### Is there anything Midtrans plan to do about the missing features compared to previous integration?
 We do understand your concern that you want to bring the best customer experience to your store, Midtrans indeed also share a similar vision. So we are trying to figure out if we can bring back those or similar features. However please note that Midtrans integration is strictly bound to the limitations & behaviors of Shopify's new payment platform, so most of the time we’ll also need to communicate with Shopify and need their support to improve on the limitations. We’ll update our docs when we have any improvements ready.
 
-##### Is it possible to have card online installment & offline installment feature activated at the same time?
+#### Is it possible to have card online installment & offline installment feature activated at the same time?
 It is not currently possible to have both features activated, as activating both features may result in unexpected behavior regarding the installment acquirer result. Please choose only one of either feature activated. Please note that you should not enable Offline Installment if you are not exactly sure, as it may result in Customer not being able to pay with their card.
 
-##### As a Shopify store owner who already integrated with Midtrans using the previous integration method, what am I required to do?
+#### As a Shopify store owner who already integrated with Midtrans using the previous integration method, what am I required to do?
 According to Shopify’s mandate, you will be required to integrate using the current/new integration method, please follow the steps given in [Migrating from Previous Payment App Version](#migrating-from-previous-payment-app-version) section.
 
 <!-- 
-##### What will happen during the transition period where both integration methods can be installed? Anything else the store owner is required to do?
+#### What will happen during the transition period where both integration methods can be installed? Anything else the store owner is required to do?
 It is recommended to follow the [steps provided in the migration section](#migrating-from-previous-payment-app-version).
 
 Although you can install New Midtrans Payment App along with Old Midtrans Payment App, both apps will work on your Shopify store. But it is less recommended.
  -->
 
-##### What will happen during the end of the transition period where the old integration method is deactivated? Anything else the store owner is required to do?
 We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
+#### What will happen during the end of the transition period where the old integration method is deactivated? Anything else the store owner is required to do?
 
-##### How can I integrate my store with the Midtrans Sandbox Environment?
+#### How can I integrate my store with the Midtrans Sandbox Environment?
 To integrate your store with the Midtrans Sandbox environment, you need to [enable test mode on Payments via Midtrans App, you can follow the step here](#test-transaction-with-sandbox-mode) to enable it.
 <hr>
 
