@@ -398,20 +398,23 @@ As alternative, **you can cancel the order manually from Shopify admin**, to rel
 Further details:
 
 When we reached out to Shopify, they answered:
-- "This is an expected behaviour. Once the order is created, even if the payment is pending (as an example), we will hold the inventory for the merchant. Even if they reject the pending payment, the order still exists and the merchant can decide to get paid with another payment method. So as long as the merchant does not explicitly decide to release the inventory or cancel the order, the inventory is held." -- Shopify Team.
+- "This is an expected behaviour. Once the order is created, even if the payment is pending (as an example), we will hold the inventory for the merchant. Even if they reject the pending payment, the order still exists and the merchant can decide to get paid with another payment method. So as long as the merchant does not explicitly decide to release the inventory or cancel the order, the inventory is held. ... As some context, with the new system once a pending payment is rejected/expired, the customer is sent an email indicating that their original payment was not processed and provides the option to once again try payment. At the current time, we do not have plans to modify this flow. All this being said, I will be sure to pass on your feedback to our development team for potential future API updates." -- Shopify Team.
 
 Which in short: Shopify allows customer to retry payment to the unpaid order, so the item stock will not be auto re-stocked unless Merchant explicitly do so.
 
 There was another option, but seems to be **no longer working due to same reason** above:
 - There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
-As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately this is no longer possible (unlike previous integration). 
 #### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
+As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately Shopify discourages this approach. Additionally it will cause some technical complications. So Midtrans no longer able to continue providing this approach.
 
-This includes not able to display card installment payment method as a separate payment button.
+The above also applies to "card installment payment method as a separate payment button".
 
-We are working and communicating with Shopify to try to add more payment method icons.
 #### Is it possible to add more payment method icons to be displayed on the checkout page?
+Shopify's platform seems to have limitation on the number of payment icons displayed for 1 payment button. We are trying to communicate with Shopify about this concern.
+
+For now, you can choose which payment icons should be displayed for "Payments via Midtrans" button from:
+- Shopify admin page, go to menu **Settings > Payments**, click **Manage**.
 
 #### Is it possible to change the text-label of the payment button instead of the generic Payment via Midtrans text?
 In Shopify's new payment platform, this doesn’t seem to be possible.
@@ -432,8 +435,8 @@ It is recommended to follow the [steps provided in the migration section](#migra
 Although you can install New Midtrans Payment App along with Old Midtrans Payment App, both apps will work on your Shopify store. But it is less recommended.
  -->
 
-We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
 #### What will happen during the end of the transition period where the old integration method is deactivated? Anything else the store owner is required to do?
+The old one will be automatically deactivated from Shopify's platform side. We are further clarifying with the Shopify team, we’ll update the docs once we have further details.
 
 #### How can I integrate my store with the Midtrans Sandbox Environment?
 To integrate your store with the Midtrans Sandbox environment, you need to [enable test mode on Payments via Midtrans App, you can follow the step here](#test-transaction-with-sandbox-mode) to enable it.
