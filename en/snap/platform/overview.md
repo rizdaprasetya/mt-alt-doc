@@ -408,6 +408,15 @@ Which in short: Shopify allows customer to retry payment to the unpaid order, so
 There was another option, but seems to be **no longer working due to same reason** above:
 - There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
+#### Is it possible to perform a refund for a card transaction?
+Midtrans only support refund if status transaction has been `settlement`, Midtrans does not support refund if status transaction is still `capture`, merchant need to wait until status transaction has been settlement before perform a refund, usually settlement time is D+1 at 4 PM, it means that transaction created today will be settled tomorrow at 4 PM.
+
+In case the merchant perform a refund from Shopify admin when status transaction on Midtrans is still `capture`, here is what happened:
+- Full Refund: Refund means returning the funds back to the customer, due to Midtrans does not support refund if status transaction is still capture, Midtrans will cancel/void the card transaction (the funds back to the customer), status on Shopify will be `refunded` and status on Midtrans will be `cancel`.
+
+- Partial Refund: Midtrans will not cancel the card transaction, because cancel a transaction will return full amount of the payment, Midtrans will reject the partial refund, and send notification to merchant to wait until the transaction has been settlement, merchant can retry the partial refund after status transaction has been settlement.
+![partial refund](./../../../asset/image/shopify-new-25-partial-refund.png ':size=400')<br>
+
 #### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately Shopify discourages this approach. Additionally it will cause some technical complications. So Midtrans no longer able to continue providing this approach.
 
