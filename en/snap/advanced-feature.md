@@ -529,7 +529,7 @@ curl -X POST \
 <!-- tabs:end -->
 
 <!-- TODO: explain about 3DS and non 3DS save card feature -->
-### Save Card for Seamless Subsequent Payments
+### Save Card (Tokenization) for Seamless Subsequent Payments
 You can allow customer to save their card credentials within Snap payment page, for easier and faster future transactions. Card credentials will be saved securely on Midtrans side, and will not require merchant to manage the card data.
 
 Merchant will only need to store and associate each unique customer with unique `user_id` defined by merchant.
@@ -579,6 +579,8 @@ Use the same `user_id` for that particular customer on future transactions. Thei
 ![enabled payment card](./../../asset/image/snap-adv-save-card-preview.jpg)
 
 For more use cases, refer to [One Click, Two Click, and Recurring Transaction](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
+
+?> This feature is also known as Card Tokenization. Which simply means a method to replace sensitive information value (card credentials) with a `token` (a placeholder) value, but also allowing it to still be associated with the actual value. Generally to keep sensitive information safely kept within secure environments, but still accessible for authorized parties.
 
 ### Recurring / Subscription Card Transaction
 Snap can be utilized to **initialize** subscription or recurring payment flow. Note that:

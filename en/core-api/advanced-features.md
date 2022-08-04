@@ -728,7 +728,9 @@ type | String | Attribute to enable the pre-authorization feature. |Valid value 
 </article>
 </details>
 
-## Credit Card - Save Card
+## Credit Card - Save Card (Tokenization)
+
+?> This feature is also known as Card Tokenization. Which simply means a method to replace sensitive information value (card credentials) with a `token` (a placeholder) value, but also allowing it to still be associated with the actual value. Generally to keep sensitive information safely kept within secure environments, but still accessible for authorized parties.
 
 ### Two Click Transaction
 You can allow customer to save their card credentials, for easier and faster future transactions. Two Clicks means there will be additional step which require customer to input CVV (and also conditionally 3DS/OTP process). Which basically means abput two-step away to trigger the payment: input CVV, and then initiate payment.
