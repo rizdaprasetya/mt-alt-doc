@@ -6,6 +6,7 @@
 #### 2022/08/04
 - improve Snap JS callback advanced section by adding link to Snap Docs.
 - clarify Shopify partial refund limitations.
+- update to 8 digit bins wording & examples
 
 #### 2022/07/08
 - add further info on Shopify guide: validation error email, payment retry, multiple payment ids, restock limitation. Update images.
