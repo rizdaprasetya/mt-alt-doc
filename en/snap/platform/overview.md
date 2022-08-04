@@ -408,6 +408,20 @@ Which in short: Shopify allows customer to retry payment to the unpaid order, so
 There was another option, but seems to be **no longer working due to same reason** above:
 - There is also 3rd party apps/extensions that may able to automate such task. For example, [Mechanic App](https://apps.shopify.com/mechanic) seems to be able to do that using [this automation task](https://tasks.mechanic.dev/cancel-and-close-unpaid-orders-after-two-days). Note: Informational only, Midtrans is not promoting the use of & not responsible for any external-party products.
 
+#### Is it possible to perform a refund from Shopify order details page for a card payment transaction?
+Yes, with some limitations related to the refund amount.
+
+- In case the merchant performs a refund from Shopify order details page, when **transaction status on Midtrans is still `capture`**, the following will happen depending on the amount:
+	- **Full-Amount Refund: Midtrans will proceed.** Refund intend to return the funds back to the customer, due to Midtrans does not support refund if status transaction is still capture, Midtrans will instead automatically perform cancel/void to transaction (to reverse fund back to customer), status on Shopify will be `refunded` and status on Midtrans will be `cancel`.
+	- **Partial-Amount Refund: Midtrans will reject,** and return a message to the merchant's Shopify store: to wait until the transaction has reached `settlement` status. Then after waiting, the refund can be retried. Midtrans will not cancel the transaction, because currently cancel only supports full amount, & performing cancel will return the full amount of the payment.
+	![partial refund](./../../../asset/image/shopify-new-25-partial-refund.png ':size=400')<br>
+- In case the refund performed **when transaction status on Midtrans is already `settlement`, both full-amount and partial-amount refunds will be supported.**
+
+For context:
+- For refund action, Midtrans support both full-amount and partial-amount. But for cancel action, only full-amount is supported.
+- Midtrans only supports refund if transaction status has reached `settlement`, but not if the status is `capture`. 
+- Usually settlement time is D+1 at 4 PM, which means that successful card transactions captured today will be settled tomorrow at 4 PM.
+
 #### Is it possible to have each payment method displayed as a separate payment button on my store’s checkout page?
 As Midtrans have to follow Shopify's new payment platform guidelines, unfortunately Shopify discourages this approach. Additionally it will cause some technical complications. So Midtrans no longer able to continue providing this approach.
 
