@@ -483,7 +483,7 @@ curl -X POST \
 </details>
 
 ### BIN (Bank Identification Number) Filter
-BIN (Bank Identification Number) filter is a feature that allows the merchant to accept credit cards within specific set of BIN numbers. It is useful for certain bank promotions or discount payments, by accepting only the credit cards issued by that bank. BIN is the six digits of the card number that identifies the bank, issuing the card. Generally, a bank has more than one BIN.
+BIN (Bank Identification Number) filter is a feature that allows the merchant to accept only Credit Cards within specific set of BIN numbers. It is useful for certain bank promo/discount payment by accepting only credit cards issued by that bank. BIN (Bank Identification Number) is the **first 1-8 digits of a card number**, which identifies the bank that issues the card. A bank generally has more than one BIN.
 
 To use this feature, accumulate the list of BIN that accepts the promotion or uses the issuing bank's name. This transaction can be performed exclusively by using the credit card that is included in the BIN list or BIN under the particular defined issuing bank.
 <!-- tabs:start -->
