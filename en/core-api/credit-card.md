@@ -134,8 +134,8 @@ A sample of onSuccess `response` object is shown below.
 {
   "status_code": "200",
   "status_message": "Credit card token is created as Token ID.",
-  "token_id": "481111-1114-77328ff4-eba6-4201-b31a-1070d8f19ae9",
-  "hash": "481111-1114-xxxx"
+  "token_id": "48111111-1114-77328ff4-eba6-4201-b31a-1070d8f19ae9",
+  "hash": "48111111-1114-xxxx"
 }
 ```
 
@@ -448,14 +448,14 @@ A sample API response for *Card* payment method is shown below.
   "status_message": "Success, Credit Card transaction is successful",
   "transaction_id": "0bb563a9-ebea-41f7-ae9f-d99ec5f9700a",
   "order_id": "order102",
-  "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-0bb563a9-ebea-41f7-ae9f-d99ec5f9700a",
+  "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/48111111-1114-0bb563a9-ebea-41f7-ae9f-d99ec5f9700a",
   "gross_amount": "789000.00",
   "currency": "IDR",
   "payment_type": "credit_card",
   "transaction_time": "2019-08-27 15:50:54",
   "transaction_status": "pending",
   "fraud_status": "accept",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "bank": "bni",
   "card_type": "credit",
   "three_ds_version": "2",
@@ -498,7 +498,7 @@ The `redirect_url` attribute for the transaction is received.
 Status Code | Description | Sample Response Message
 --- | --- | ---
 200 | Successful transaction (non 3DS transaction). | "transaction_status": "capture"
-201 | Need to open the redirect_url (3DS transaction). | "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-f424a955-ed0f-4a64-88ea-60cdc9655984 "
+201 | Need to open the redirect_url (3DS transaction). | "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/48111111-1114-f424a955-ed0f-4a64-88ea-60cdc9655984 "
 401 | Failed transaction. Wrong authorization details sent. | "Access denied, please check client or server key"
 4xx | Failed transaction. Wrong parameter sent. Follow the `error_message` and check your parameter. | "transaction_details.gross_amount is not equal to the sum of item_details"
 5xx | Failed transaction. Midtrans internal error. This is temporary. Retry again later. | "Sorry, we encountered internal server error. We will fix this soon."
@@ -594,7 +594,7 @@ A sample of successful transaction callback response, is shown below.
   "transaction_status": "capture",
   "fraud_status": "accept",
   "approval_code": "1597223068747",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "card_type": "credit",
   "three_ds_version": "2",
   "challenge_completion": true
@@ -618,7 +618,7 @@ Sample of failure transaction callback response, is shown below.
   "transaction_time": "2020-08-12 16:03:49",
   "transaction_status": "deny",
   "fraud_status": "accept",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
 }
 ```
 <!-- tabs:end -->

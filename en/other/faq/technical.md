@@ -62,7 +62,7 @@ curl -vvv -X POST \
   "payment_type": "credit_card",
   "order_id": "Postman-1578568851",
   "merchant_id": "M004123",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "gross_amount": "10000.00",
   "fraud_status": "accept",
   "eci": "05",
@@ -1340,10 +1340,10 @@ To ensure that the transaction is 3DS, check the following parameters.
 {
   status_code: "200",
   status_message: "Credit card token is created as Token ID.",
-  token_id: "481111-1114-dc7d77d5-237b-4a7f-a26c-75c4a7aa4e91",
+  token_id: "48111111-1114-dc7d77d5-237b-4a7f-a26c-75c4a7aa4e91",
   bank: "bni",
-  redirect_url: "https://api.sandbox.veritrans.co.id/v2/token/redirect/481111-1114-dc7d77d5-237b-4a7f-a26c-75c4a7aa4e91",
-  hash: "481111-1114-xxx"
+  redirect_url: "https://api.sandbox.veritrans.co.id/v2/token/redirect/48111111-1114-dc7d77d5-237b-4a7f-a26c-75c4a7aa4e91",
+  hash: "48111111-1114-xxx"
 }
 ```
 2. Callback from 3DS iframe: 
@@ -1351,7 +1351,7 @@ To ensure that the transaction is 3DS, check the following parameters.
 
 ```javascript
 {
-  token_id: "481111-1114-592cfc60-9056-4c6d-bb4d-323fb0ebd97e",
+  token_id: "48111111-1114-592cfc60-9056-4c6d-bb4d-323fb0ebd97e",
   status_code: "200",
   status_message: "Success, 3D Secure token generated",
   eci: "05"

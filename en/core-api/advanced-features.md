@@ -808,7 +808,7 @@ The Charge API response includes the `redirect_url`.
     "status_message": "Success, Credit Card transaction is successful",
     "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
     "order_id": "Order-123-1578978260",
-    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/48111111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
     "merchant_id": "G816197673",
     "gross_amount": "10000.00",
     "currency": "IDR",
@@ -816,7 +816,7 @@ The Charge API response includes the `redirect_url`.
     "transaction_time": "2020-01-14 12:04:20",
     "transaction_status": "pending",
     "fraud_status": "accept",
-    "masked_card": "481111-1114",
+    "masked_card": "48111111-1114",
     "bank": "mandiri",
     "card_type": "credit"
 }
@@ -853,7 +853,7 @@ Midtrans notifies the merchant backend with the new `transaction status` and `sa
   "fraud_status": "accept",
   "approval_code": "1578977095472",
   "eci": "05",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "bank": "mandiri",
   "card_type": "credit",
   "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
@@ -982,7 +982,7 @@ The sample Charge API response for the first transaction is shown below.
     "status_message": "Success, Credit Card transaction is successful",
     "transaction_id": "47df99ca-f997-41bd-864e-8598ccf2fc27",
     "order_id": "Order-123-1578978260",
-    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/481111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
+    "redirect_url": "https://api.sandbox.veritrans.co.id/v2/token/rba/redirect/48111111-1114-47df99ca-f997-41bd-864e-8598ccf2fc27",
     "merchant_id": "G816197673",
     "gross_amount": "10000.00",
     "currency": "IDR",
@@ -990,7 +990,7 @@ The sample Charge API response for the first transaction is shown below.
     "transaction_time": "2020-01-14 12:04:20",
     "transaction_status": "pending",
     "fraud_status": "accept",
-    "masked_card": "481111-1114",
+    "masked_card": "48111111-1114",
     "bank": "mandiri",
     "card_type": "credit"
 }
@@ -1021,7 +1021,7 @@ For more details, refer to [Open 3DS Authentication Page JS Implementation](/en/
   "fraud_status": "accept",
   "approval_code": "1578977095472",
   "eci": "05",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "bank": "mandiri",
   "card_type": "credit",
   "saved_token_id":"481111xDUgxnnredRMAXuklkvAON1114",
@@ -1107,7 +1107,7 @@ The Charge API response for recurring transaction on the card is identical with 
   "transaction_status": "capture",
   "fraud_status": "accept",
   "approval_code": "1578977940108",
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "bank": "bni",
   "card_type": "credit",
   "channel_response_code": "00",
@@ -1201,7 +1201,7 @@ Sample Register API response is given below.
     "status_code": "200",
     "saved_token_id": "521111nHlLvTuKywNOOLhTlHZcab1117",
     "transaction_id": "cbd3ff55-2ead-43e9-84c5-5c3b7a8a1814",
-    "masked_card": "521111-1117"
+    "masked_card": "52111111-1117"
 }
 ```
 <!-- tabs:end -->

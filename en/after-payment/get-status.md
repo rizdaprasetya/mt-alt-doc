@@ -57,7 +57,7 @@ The sample response from `[ORDER_ID]/status` endpoint is shown below.
 
 ```json
 {
-  "masked_card": "481111-1114",
+  "masked_card": "48111111-1114",
   "approval_code": "1578569243927",
   "bank": "bni",
   "eci": "05",
