@@ -60,6 +60,7 @@ Some example of how the HTTP notification will be sent from Midtrans side:
 ```bash
 curl -X POST \
   https://tokoecommerc.com/payment-notification-handler/ \
+  -H 'User-Agent: Veritrans' \
   -H 'Accept: application/json'\
   -H 'Content-Type: application/json' \
   -d '{
