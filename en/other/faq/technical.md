@@ -937,7 +937,7 @@ public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request
 private boolean handleWebviewCustomUri(final Uri uri) {
     final String url = uri.toString();
     
-    // detect these specified deeplinks to be handled by OS
+    // detect these specified universal-urls/deeplinks to be handled by OS
     if (url.contains("gojek://") 
     	|| url.contains("//gojek.link") 
     	|| url.contains("shopeeid://") 
@@ -953,12 +953,48 @@ private boolean handleWebviewCustomUri(final Uri uri) {
     }
 }
 ```
-Based on [this community resource](https://stackoverflow.com/a/32714613).
+Based on [this community resource](https://stackoverflow.com/a/32714613). Further resource on [Official Android Developer Guide](https://developer.android.com/training/basics/intents/sending).
 
 <details>
 <summary>Alternative Code</summary>
 <article>
-Alternative (old) sample codes, use this if you are targeting Android API level <24
+
+Alternative sample code without specifying list of urls to handle. Based on [this community resource](https://stackoverflow.com/questions/41693263/android-webview-err-unknown-url-scheme).
+```java
+@SuppressWarnings("deprecation")
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+    final Uri uri = Uri.parse(url);
+    return handleWebviewCustomUri(uri);
+}
+// Include above override only if you need backward-compatibility with Android API level <24
+// If you only build for Android API level >=24, start from line below
+
+@TargetApi(Build.VERSION_CODES.N)
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+    final Uri uri = request.getUrl();
+    return handleWebviewCustomUri(uri);
+}
+
+private boolean handleWebviewCustomUri(final Uri uri) {
+    final String url = uri.toString();
+    if( URLUtil.isNetworkUrl(url) ) {
+        return false;
+    }
+    try {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity( intent );
+    }  catch (Exception e) {
+        // handle error/fail when trying to open non-HTTP(s) URL
+        Log.i(TAG, "shouldOverrideUrlLoading Exception:" + e);
+        return true;
+    }
+    return true;
+}
+```
+
+Alternative (old) sample code, use this if you are targeting Android API level <24
 that may trigger deprecation warning if used target API level >=24
 
 ```java

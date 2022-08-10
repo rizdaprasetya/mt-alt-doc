@@ -50,8 +50,7 @@ Midtrans provides feature to schedule automated payout, that can be set as daily
 ![Dashboard Usage](./../../asset/image/after-payment-dash-usage-13.png)
 
 
-
-?> The condition for scheduled payout is, The minimum amount of funds being disbursed should be IDR 250,000. If the amount of funds to disburse has not reached IDR. 250,000, the system waits until the minimum is reached. If the amount is reached before the next schedule, the disbursement is processed on the next schedule.
+?> There is a minimum amount for automated payout to work, it will be shown on the page (e.g. IDR 50.000). If the amount of funds to disburse has not reached the specified limit, the system waits until the minimum is reached. If the amount is reached before the next schedule, the disbursement is processed on the next schedule. Other limitation(s) will also be shown on the page.
 
 ### Manual Payout
 You can manually withdraw funds from Midtrans. To withdraw funds, follow the steps given below.
