@@ -1102,7 +1102,8 @@ openExternalLink= (req) => {
 }
 ```
 For further React Native reference on this issue, please visit:
-- https://facebook.github.io/react-native/docs/linking#opening-external-links
+<!-- - https://facebook.github.io/react-native/docs/linking#opening-external-links -->
+- https://reactnative.dev/docs/linking#open-links-and-deep-links-universal-links
 - https://stackoverflow.com/questions/54248411/react-native-deep-link-from-within-webview
 - https://stackoverflow.com/questions/56800122/err-unknown-url-scheme-on-react-native-webview
 - https://stackoverflow.com/questions/35531679/react-native-open-links-in-browser
