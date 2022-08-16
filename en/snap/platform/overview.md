@@ -241,33 +241,32 @@ Order ID created on Midtrans Dashboard for each payment transaction is based fro
 To find order on Shopify platform, based on Order ID from Midtrans, first find the transaction Order ID from Midtrans *Dashboard* on **Transactions**.
 ![shopify](./../../../asset/image/shopify-new-17-order-id-on-midtrans.png ':size=400')
 
-##### From General search bar
+##### From General Search Bar
 1. On your Shopify admin area (administration page)
 2. In the general search bar, search using **Midtrans order ID**
 3. Click on the shown order.
 
 ![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify-alt-2.png ':size=400')
 
-##### From Order menu, search using the custom term
+##### From Order Menu, Search Using Custom Term
 1. On your Shopify admin area (administration page), go to __Orders__. 
 2. In the search bar, search using the custom term **receipt.payment_id:** and the **order ID** value from Midtrans. For example: **receipt.payment_id:order_id_from_midtrans**
 3. Click on the shown order.
 
 ![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify.png ':size=400')
 
-##### From Order menu, search using midtrans order ID
+##### From Order Menu, Search Using Midtrans Order ID
 1. On your Shopify admin area (administration page), go to __Orders__. 
 2. In the search bar, search using **Midtrans order ID**
 3. Click on the shown order.
 
 ![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify-alt.png ':size=400')
 
-##### Order detail
-
+##### Order Detail
 From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details. You will see the Midtrans order ID under `Information from the gateway => Payment`.
 ![shopify](./../../../asset/image/shopify-new-17-search-order-id-on-detail-order.png ':size=400')
 
-##### From Transaction json format
+##### From Transaction Json Format
 You can also get payment ID from transaction json format.
 From the order detail URL, you can add `/transaction.json` in end of the URL, e.g: if you have detail order URL: <br>
 `https://midtrans-store.myshopify.com/admin/orders/4129044234449` then you can add `/transaction.json` to be <br>
