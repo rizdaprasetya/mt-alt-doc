@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/08/16
+- add more methods info to match/search Midtrans Order ID on Shopify platform.
+
 #### 2022/08/08
 - update Shopify old extension's deprecation date & notice.
 
