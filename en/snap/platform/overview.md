@@ -268,9 +268,9 @@ From the order details' `Timeline` you can also review the order status history.
 
 ##### From Transaction Json Format
 You can also get payment ID from transaction json format.
-From the order detail URL, you can add `/transaction.json` in end of the URL, e.g: if you have detail order URL: <br>
-`https://midtrans-store.myshopify.com/admin/orders/4129044234449` then you can add `/transaction.json` to be <br>
-`https://midtrans-store.myshopify.com/admin/orders/4129044234449/transaction.json`<br>
+From the order detail URL, you can add `/transactions.json` in end of the URL, e.g: if you have detail order URL: <br>
+`https://midtrans-store.myshopify.com/admin/orders/4129044234449` then you can add `/transactions.json` to be <br>
+`https://midtrans-store.myshopify.com/admin/orders/4129044234449/transactions.json`<br>
 This helpful for you if want to get Midtrans payment ID as programmatically not manual 1 by 1.
 
 ![shopify](./../../../asset/image/shopify-new-26-payment-id-on-transaction-json.png ':size=400')
