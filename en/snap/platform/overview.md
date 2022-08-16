@@ -241,18 +241,47 @@ Order ID created on Midtrans Dashboard for each payment transaction is based fro
 To find order on Shopify platform, based on Order ID from Midtrans, first find the transaction Order ID from Midtrans *Dashboard* on **Transactions**.
 ![shopify](./../../../asset/image/shopify-new-17-order-id-on-midtrans.png ':size=400')
 
-##### From Order menu
+Then there will be multiple methods that you can choose:
+
+##### From General Search Bar
+1. On your Shopify admin area (administration page)
+2. In the general search bar, search using **Midtrans order ID**
+3. Click on the shown order.
+
+![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify-alt-2.png ':size=400')
+
+##### From Order Menu, Search Using Custom Term
 1. On your Shopify admin area (administration page), go to __Orders__. 
 2. In the search bar, search using the custom term **receipt.payment_id:** and the **order ID** value from Midtrans. For example: **receipt.payment_id:order_id_from_midtrans**
 3. Click on the shown order.
 
 ![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify.png ':size=400')
 
-##### Order detail
+##### From Order Menu, Search Using Midtrans Order ID
+1. On your Shopify admin area (administration page), go to __Orders__. 
+2. In the search bar, search using **Midtrans order ID**
+3. Click on the shown order.
 
+![shopify](./../../../asset/image/shopify-new-17-search-order-on-shopify-alt.png ':size=400')
+
+##### Order Detail
 From the order details' `Timeline` you can also review the order status history. You can also click one of them to expand to see more details. You will see the Midtrans order ID under `Information from the gateway => Payment`.
 ![shopify](./../../../asset/image/shopify-new-17-search-order-id-on-detail-order.png ':size=400')
 
+##### Using Order Transactions API
+You can also retrieve Midtrans Order ID from a Shopify Order via API. Useful if you prefer to do it programatically (to avoid manual 1 by 1 works, or to connect it with your system).
+
+- You can refer to this [Shopify API's Order Transaction](https://shopify.dev/api/admin-rest/2022-07/resources/transaction#get-orders-order-id-transactions)
+- You will get list of `transaction` object as API response, you will find `receipt` object, and `payment_id` value. That `payment_id` is being used on Midtrans as Order ID.
+
+Another quick & easy way to test/try this API:
+1. On your Shopify admin area (administration page), go to __Orders__. 
+2. Click on any of the shown order with `paid` status.
+3. On your browser URL address bar, you will find the order URL e.g. `https://midtrans-store.myshopify.com/admin/orders/4129044234449`
+4. On that URL, you can add `/transactions.json` at the end, e.g: resulting url `https://midtrans-store.myshopify.com/admin/orders/4129044234449/transactions.json`
+5. Open the new URL on your browser. You will be able to see list of `transaction` object as API response, you will find `receipt` object, and `payment_id` value. That `payment_id` is being used on Midtrans as Order ID.
+
+![shopify](./../../../asset/image/shopify-new-26-payment-id-on-transaction-json.png ':size=400')
 
 ##### From Exported Order
 You can also find the order ID on the exported CSV file using Shopify export feature: __Export Orders.__ Then search **Payment ID column** within the CSV file
