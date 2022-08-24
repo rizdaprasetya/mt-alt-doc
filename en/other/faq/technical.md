@@ -1119,7 +1119,12 @@ If your app is Flutter based app, if you are using WebView, referring to [this c
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
-      if (url.startsWith("gojek") || url.startsWith("shopeeid"))
+      if (
+        url.startsWith("https://gojek.link") ||
+        url.startsWith("gojek://") ||
+        url.startsWith("https://wsa.wallet.airpay.co.id") ||
+        url.startsWith("shopeeid://")
+      )
       {
         await webViewPlugin.stopLoading();
         await webViewPlugin.goBack();
