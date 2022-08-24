@@ -939,9 +939,10 @@ private boolean handleWebviewCustomUri(final Uri uri) {
     
     // detect these specified universal-urls/deeplinks to be handled by OS
     if (url.contains("gojek://") 
-    	|| url.contains("//gojek.link") 
-    	|| url.contains("shopeeid://") 
-    	|| url.contains("//wsa.wallet.airpay.co.id")) 
+      || url.contains("//gojek.link") 
+      || url.contains("shopeeid://") 
+      || url.contains("//wsa.wallet.airpay.co.id")
+    ) 
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
@@ -1004,9 +1005,10 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
     Intent intent;
     // detect these deeplink to be handled by OS
     if (url.contains("gojek://") 
-    	|| url.contains("//gojek.link") 
-    	|| url.contains("shopeeid://") 
-    	|| url.contains("//wsa.wallet.airpay.co.id")) 
+      || url.contains("//gojek.link") 
+      || url.contains("shopeeid://") 
+      || url.contains("//wsa.wallet.airpay.co.id")
+    ) 
     {
         intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
@@ -1032,10 +1034,12 @@ If your app is iOS based app. Configure/override your WebView like below:
  NSString *urlString = (url) ? url.absoluteString : @"";
  
  // detect these Ewallet app links to be handled by OS
- if ([urlString containsString:@"//wsa.wallet.airpay.co.id"]
- 	|| [urlString containsString:@"shopeeid://"]
+ if (
+  [urlString containsString:@"//wsa.wallet.airpay.co.id"]
+  || [urlString containsString:@"shopeeid://"]
   || [urlString containsString:@"//gojek.link"]
- 	|| [urlString containsString:@"gojek://"]) 
+  || [urlString containsString:@"gojek://"]
+ ) 
  {
   // will be opened by the OS level
   [[UIApplication sharedApplication] openURL:url];
