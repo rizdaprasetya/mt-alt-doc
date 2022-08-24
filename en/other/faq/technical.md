@@ -1075,32 +1075,37 @@ If your app is React Native app, try whitelisting the deeplink via the `originWh
 ```
 If it doesn't work, try `onShouldStartLoadWithRequest`, as shown in the example given below.
 
-```
+```javascript
 <WebView
     ...
-    onShouldStartLoadWithRequest={this.openExternalLink}
+    onShouldStartLoadWithRequest={function (req) {
+        if (
+          // Gopay app link prefixes
+          req.url.startsWith('https://gojek.link') ||
+          req.url.startsWith('gojek://') ||
+          // ShopeePay app link prefixes
+          req.url.startsWith('https://wsa.wallet.airpay.co.id') ||
+          req.url.startsWith('shopee://') ||
+          // other app link prefixes, if needed
+          req.url.startsWith('intent://')
+        ) {
+          // URL meets the conditions to be handled specifically
+          if (Linking.canOpenURL(req.url)) {
+            Linking.openURL(req.url); // URL will be opened on OS level, not by WebView
+            return false; // prevent WebView from loading the URL
+          } else {
+            // handle URL not able to be opened,
+            return false; // try loading the URL via WebView anyway
+          }
+        }
+        // URL doesn't meet the conditions to be handled specifically
+        return true; // URL will be loaded via WebView normally
+      }}
     ...
   />
 ```
+Visit this [React Native Expo demo](https://snack.expo.dev/ZonZvuGq-1) to try live demo of above code snippet.
 
-Then, implement function to handle the URL, as shown in the example shown below.
-
-```javascript
-import { WebView, Linking } from 'react-native';
-
-openExternalLink= (req) => {
-  const isHTTPS = req.url.search('https://') !== -1;
-
-  if (isHTTPS) {
-    return true;
-  } else {
-    if (req.url.startsWith("gojek://") || req.url.startsWith("shopeeid://")) {
-      return Linking.openURL(req.url);
-    }
-    return false;
-  }
-}
-```
 For further React Native reference on this issue, please visit:
 <!-- - https://facebook.github.io/react-native/docs/linking#opening-external-links -->
 - https://reactnative.dev/docs/linking#open-links-and-deep-links-universal-links
