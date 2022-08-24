@@ -1034,7 +1034,8 @@ If your app is iOS based app. Configure/override your WebView like below:
  // detect these Ewallet app links to be handled by OS
  if ([urlString containsString:@"//wsa.wallet.airpay.co.id"]
  	|| [urlString containsString:@"shopeeid://"]
- 	|| [urlString containsString:@"//gojek.link"]) 
+  || [urlString containsString:@"//gojek.link"]
+ 	|| [urlString containsString:@"gojek://"]) 
  {
   // will be opened by the OS level
   [[UIApplication sharedApplication] openURL:url];
@@ -1140,10 +1141,10 @@ The main goal is that to configure your WebView to allow opening the universal/d
 
 The URLs list is:
 ```txt
-gojek://
-shopee://
 https://gojek.link
+gojek://
 https://wsa.wallet.airpay.co.id
+shopee://
 ```
 
 If none of the sample code above works for you, try to follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
