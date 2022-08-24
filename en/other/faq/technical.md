@@ -942,6 +942,7 @@ private boolean handleWebviewCustomUri(final Uri uri) {
       || url.contains("//gojek.link") 
       || url.contains("shopeeid://") 
       || url.contains("//wsa.wallet.airpay.co.id")
+      || url.contains("//tmrwbyuobid.page.link")
     ) 
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -1008,6 +1009,7 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
       || url.contains("//gojek.link") 
       || url.contains("shopeeid://") 
       || url.contains("//wsa.wallet.airpay.co.id")
+      || url.contains("//tmrwbyuobid.page.link")
     ) 
     {
         intent = new Intent(Intent.ACTION_VIEW);
@@ -1039,6 +1041,7 @@ If your app is iOS based app. Configure/override your WebView like below:
   || [urlString containsString:@"shopeeid://"]
   || [urlString containsString:@"//gojek.link"]
   || [urlString containsString:@"gojek://"]
+  || [urlString containsString:@"https://tmrwbyuobid.page.link"]
  ) 
  {
   // will be opened by the OS level
@@ -1091,6 +1094,8 @@ If it doesn't work, try `onShouldStartLoadWithRequest`, as shown in the example 
           // ShopeePay app link prefixes
           req.url.startsWith('https://wsa.wallet.airpay.co.id') ||
           req.url.startsWith('shopee://') ||
+          // UOB EzPay app link prefixes
+          req.url.startsWith('https://tmrwbyuobid.page.link') ||
           // other app link prefixes, if needed
           req.url.startsWith('intent://')
         ) {
@@ -1127,7 +1132,8 @@ _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
         url.startsWith("https://gojek.link") ||
         url.startsWith("gojek://") ||
         url.startsWith("https://wsa.wallet.airpay.co.id") ||
-        url.startsWith("shopeeid://")
+        url.startsWith("shopeeid://") ||
+        url.startsWith("https://tmrwbyuobid.page.link")
       )
       {
         await webViewPlugin.stopLoading();
@@ -1154,6 +1160,7 @@ https://gojek.link
 gojek://
 https://wsa.wallet.airpay.co.id
 shopee://
+https://tmrwbyuobid.page.link
 ```
 
 If none of the sample code above works for you, try to follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
