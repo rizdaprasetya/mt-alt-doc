@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/08/24
+- tech faq: improve app universal/deep link code snippet & add UOB EzPay prefix
+
 #### 2022/08/16
 - add more methods info to match/search Midtrans Order ID on Shopify platform.
 

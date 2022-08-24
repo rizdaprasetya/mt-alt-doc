@@ -939,9 +939,11 @@ private boolean handleWebviewCustomUri(final Uri uri) {
     
     // detect these specified universal-urls/deeplinks to be handled by OS
     if (url.contains("gojek://") 
-    	|| url.contains("//gojek.link") 
-    	|| url.contains("shopeeid://") 
-    	|| url.contains("//wsa.wallet.airpay.co.id")) 
+      || url.contains("//gojek.link") 
+      || url.contains("shopeeid://") 
+      || url.contains("//wsa.wallet.airpay.co.id")
+      || url.contains("//tmrwbyuobid.page.link")
+    ) 
     {
         final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
@@ -1004,9 +1006,11 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
     Intent intent;
     // detect these deeplink to be handled by OS
     if (url.contains("gojek://") 
-    	|| url.contains("//gojek.link") 
-    	|| url.contains("shopeeid://") 
-    	|| url.contains("//wsa.wallet.airpay.co.id")) 
+      || url.contains("//gojek.link") 
+      || url.contains("shopeeid://") 
+      || url.contains("//wsa.wallet.airpay.co.id")
+      || url.contains("//tmrwbyuobid.page.link")
+    ) 
     {
         intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
@@ -1032,9 +1036,13 @@ If your app is iOS based app. Configure/override your WebView like below:
  NSString *urlString = (url) ? url.absoluteString : @"";
  
  // detect these Ewallet app links to be handled by OS
- if ([urlString containsString:@"//wsa.wallet.airpay.co.id"]
- 	|| [urlString containsString:@"shopeeid://"]
- 	|| [urlString containsString:@"//gojek.link"]) 
+ if (
+  [urlString containsString:@"//wsa.wallet.airpay.co.id"]
+  || [urlString containsString:@"shopeeid://"]
+  || [urlString containsString:@"//gojek.link"]
+  || [urlString containsString:@"gojek://"]
+  || [urlString containsString:@"https://tmrwbyuobid.page.link"]
+ ) 
  {
   // will be opened by the OS level
   [[UIApplication sharedApplication] openURL:url];
@@ -1075,32 +1083,39 @@ If your app is React Native app, try whitelisting the deeplink via the `originWh
 ```
 If it doesn't work, try `onShouldStartLoadWithRequest`, as shown in the example given below.
 
-```
+```javascript
 <WebView
     ...
-    onShouldStartLoadWithRequest={this.openExternalLink}
+    onShouldStartLoadWithRequest={function (req) {
+        if (
+          // Gopay app link prefixes
+          req.url.startsWith('https://gojek.link') ||
+          req.url.startsWith('gojek://') ||
+          // ShopeePay app link prefixes
+          req.url.startsWith('https://wsa.wallet.airpay.co.id') ||
+          req.url.startsWith('shopee://') ||
+          // UOB EzPay app link prefixes
+          req.url.startsWith('https://tmrwbyuobid.page.link') ||
+          // other app link prefixes, if needed
+          req.url.startsWith('intent://')
+        ) {
+          // URL meets the conditions to be handled specifically
+          if (Linking.canOpenURL(req.url)) {
+            Linking.openURL(req.url); // URL will be opened on OS level, not by WebView
+            return false; // prevent WebView from loading the URL
+          } else {
+            // handle URL not able to be opened,
+            return false; // try loading the URL via WebView anyway
+          }
+        }
+        // URL doesn't meet the conditions to be handled specifically
+        return true; // URL will be loaded via WebView normally
+      }}
     ...
   />
 ```
+Visit this [React Native Expo demo](https://snack.expo.dev/ZonZvuGq-1) to try live demo of above code snippet.
 
-Then, implement function to handle the URL, as shown in the example shown below.
-
-```javascript
-import { WebView, Linking } from 'react-native';
-
-openExternalLink= (req) => {
-  const isHTTPS = req.url.search('https://') !== -1;
-
-  if (isHTTPS) {
-    return true;
-  } else {
-    if (req.url.startsWith("gojek://") || req.url.startsWith("shopeeid://")) {
-      return Linking.openURL(req.url);
-    }
-    return false;
-  }
-}
-```
 For further React Native reference on this issue, please visit:
 <!-- - https://facebook.github.io/react-native/docs/linking#opening-external-links -->
 - https://reactnative.dev/docs/linking#open-links-and-deep-links-universal-links
@@ -1113,7 +1128,13 @@ If your app is Flutter based app, if you are using WebView, referring to [this c
 ```javascript
 _subscription = webViewPlugin.onUrlChanged.listen((String url) async {
       print("navigating to deeplink...$url");
-      if (url.startsWith("gojek") || url.startsWith("shopeeid"))
+      if (
+        url.startsWith("https://gojek.link") ||
+        url.startsWith("gojek://") ||
+        url.startsWith("https://wsa.wallet.airpay.co.id") ||
+        url.startsWith("shopeeid://") ||
+        url.startsWith("https://tmrwbyuobid.page.link")
+      )
       {
         await webViewPlugin.stopLoading();
         await webViewPlugin.goBack();
@@ -1135,10 +1156,11 @@ The main goal is that to configure your WebView to allow opening the universal/d
 
 The URLs list is:
 ```txt
-gojek://
-shopee://
 https://gojek.link
+gojek://
 https://wsa.wallet.airpay.co.id
+shopee://
+https://tmrwbyuobid.page.link
 ```
 
 If none of the sample code above works for you, try to follow this same goal but you will need to figure out how to implement it on the framework/platform that you are using. You may need to consult with the documentation, or the community resources for that particular framework/platform.
