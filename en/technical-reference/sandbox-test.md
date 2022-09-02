@@ -98,7 +98,8 @@ This is useful for Installment/Promo scenario which require bank specific card.
 |*Attempted Authentication* | 4599 2039 9705 2898 | 5481 1671 2103 2563|
 |**BNI** <br> *Full Authentication* | <br> 4105 0586 8948 1467 | <br> 5264 2210 3887 4659|
 |*Attempted Authentication* | 4105 0525 4151 2148 | 5264 2249 7176 1016|
-|*BNI Private Label* | 1946 4159 8148 7684 ||
+|*BNI Private Label* | 1946 4159 8148 7684\* ||
+|<small>\*Card only acceptable via BNI Acquiring.</small>|
 |**BCA** <br> *Full Authentication* | <br> 4773 7760 5705 1650 | <br> 5229 9031 3685 3172|
 |*Attempted Authentication* | 4773 7738 1098 1190 | 5229 9073 6430 3610|
 |**BRI** <br> *Full Authentication* | <br> 4365 0263 3573 7199 | <br> 5520 0298 7089 9100|
