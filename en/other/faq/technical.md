@@ -103,6 +103,49 @@ It can be caused by `notification url` (set by merchant on Dashboard) is ending 
 
 Make sure that there is no redirect on your `notification url`. You can open your `notification url` on web browser, see whether the end URL is the same as the original URL or not. If you see the URL on browser address bar is different (changed) after open it, it means there is a redirect. Use the last URL displayed on browser URL bar, after you open the original URL as `notification url`.
 
+#### If I have technical issues/questions related to Midtrans products, what information should I provide?
+Usually you will need to provide atleast the following information:
+- Your **Merchant ID** – can be [found here](/en/midtrans-account/overview.md#retrieving-api-access-keys), or your Midtrans login email address.
+- Product **Environment** Type – sandbox or production.
+- **Order ID**  – of the impacted transaction (if during payment, or any unique identifier during API/product usage).
+- **Description** – of the issue, explaining what the issue/question is.
+- **Evidence** – of the issue e.g. API error log, or Screenshot.
+
+To help you provide better evidence, here are some sample of good evidences:
+- If the issue is on code/backend/server/API-request, provide: 
+  - API **request-response log**, preferably contains full HTTP request & response also its HTTP body & headers.
+  - or at least the **error message** coming from Midtrans API/product.
+- If the issue is on User Interface(UI)/frontend/customer side, provide:
+  - Video **Screen Record or Screenshot** of the issue, that shows the process of how the issue happened.
+
+On the other hand, sample of not preferred evidence:
+- Internal Error message that is coming from the merchant side (not Midtrans API/product). 
+- Screenshot of error that shows User Interface & error message of Merchant (not Midtrans product)
+The above indicates the issue may not necessarily come from Midtrans, Merchant need to check deeper on Merchant’s internal log, to see if they can get any log of error/response from Midtrans side.
+
+To help you write a good description of the issue, try to write based on:
+- What **actually happened in a chronological order**? The more details the better.
+- What is the **expected result** when you do the action that leads to the issue?
+
+Additional information that can be helpful to speed up & get more accurate answer:
+- **Which product** – Midtrans product being used e.g. Core API, Snap, Payment Link, etc.
+- **Urgency of the issue** – Explain how urgent/important it is.
+- Any other relevant info, as much details as possible.
+
+Example of good issue question:
+> **Merchant ID**: G000123 \
+> **Environment**: Production \
+> **Order ID**: Order123 \
+> **Description**: \
+> My customer was proceeding with payment at my website `https://myshop.com`, then got redirected to Midtrans Snap payment page, proceeded to select Gopay payment, then customer is redirected to Gopay app but got message that said “PIN not set up”. The expectation is: the customer should be able to pay with his Gopay account. \
+> \
+> Can you check? Because they is one of my loyal customers, I need to solve this issue to avoid them getting upset. \
+> \
+> \<attached screen record video of the issue\>
+
+Note:
+- Issue escalation generally involves some personal/sensitive information, please ensure that your question is asked directly to Midtrans team/representative. **Avoid posting issue question in publicly** accessible space, for your own information's **confidentiality & security**.
+
 #### Why my Permata VA number cannot be customized?
 Permata custom VA is available only for B2B VA type. So if you are have agreement with permata as B2C VA type, the VA number cannot be customized.
 
