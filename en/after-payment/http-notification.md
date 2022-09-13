@@ -1213,6 +1213,8 @@ Although Midtrans strives for its best to keep notification service reliable, th
 
 This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status.md) to reconcile payment status between your backend and Midtrans.
 
+?> Due to the reason explained above, **if your system is time-sensitive and expects to always be updated with payment status** from Midtrans, then you are **recommended to integrate [GET Status API](/en/after-payment/get-status.md)** to your system’s workflow. It should be used as failover mechanism in case of a Midtrans Notification system unexpectedly having issue.
+
 Your backend can perform [GET Status API call](/en/after-payment/get-status.md), for example in any of the following point in time:
 
 - When notification is not received within the defined time (24 hours, 12 hours, and so on).
