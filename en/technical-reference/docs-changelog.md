@@ -3,6 +3,18 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/09/13
+- add more findings on snap in iframe limitations
+- add info on snap multiple order id case
+- clarify snap save card ui checkbox
+- clarify core api payment type can change from gopay to qris
+- improve TLS/HTTPS explanation
+- clarify our https recommendation for merchant
+- fix grammar on notif best-practice
+- highlight recommendation to implement get-status as fallback
+- clarify get-status api explanation is just sample
+- add info get-status api response will contains refund details
+
 #### 2022/08/24
 - tech faq: improve app universal/deep link code snippet & add UOB EzPay prefix
 
