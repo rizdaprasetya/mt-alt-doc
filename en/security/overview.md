@@ -23,10 +23,13 @@
 
 ### HTTPS for Secure Connections
 
-We force HTTPS for all services using TLS (SSL), including our public website and Merchant Administration Portal. 
-`midtrans.min.js` and `snap.js` are hosted on our Production server, are served only over HTTPS. We suggest merchants not to host these files on their servers. 
+We enforce [TLS/SSL encryption](https://www.cloudflare.com/learning/ssl/what-is-ssl/) to all of our public endpoints [via HTTPS](https://www.cloudflare.com/learning/ssl/what-is-https/), including our public website and Merchant Administration Portal. To ensure that communication coming from merchants & their customers are securely encrypted over the network.
+
+`midtrans.min.js` and `snap.js` are also securely hosted over HTTPS. We suggest merchants not to host these files on their servers, and should use Midtrans provided url.
 
 Please make sure your system are able to communicate with Midtrans securely by referring to [this article about SSL/TLS](https://midtrans.com/id/blog/time-to-upgrade-to-tls-version-1-2).
+
+We recommend merchants to also secure their websites & endpoints [with HTTPS](https://www.cloudflare.com/learning/ssl/what-is-https/). ​​This especially important if you want to make sure that notifications coming from Midtrans system to your system is secure. Note: we don't currently have strict requirements, so any valid SSL/TLS/HTTPS used on your side should work.
 
 ### Card Data Secure Transmission
 

@@ -574,9 +574,13 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-Use the same `user_id` for that particular customer on future transactions. Their card will be previewed on Snap card payment page, on future transactions.
+?> **Note:** During the first payment when a customer is intended to save their card, **they must tick the “Save this card” check box on Snap payment page**, in order for the card to be saved. This is to **ensure that the customer explicitly gives consent** that they are ok that their card will be securely saved.
 
-![enabled payment card](./../../asset/image/snap-adv-save-card-preview.jpg)
+![save card checkbox](./../../asset/image/snap-adv-save-card-checkbox.png ':size=350')
+
+Use the same `user_id` API params for that particular customer on future transactions. Their card will be previewed on Snap card payment page, on future transactions.
+
+![saved card preview](./../../asset/image/snap-adv-save-card-preview.jpg)
 
 For more use cases, refer to [One Click, Two Click, and Recurring Transaction](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
@@ -1324,6 +1328,24 @@ To avoid Order ID duplication, you can also change your implementation logic to 
 ### Note on Card Transaction Expire Notification
 Card transaction payment status will become `pending` once it is proceeded into 3DS/OTP phase. If the transaction is abandoned or not completed within 10-15 minutes, its status will become `expire`. For more details [please refer here](https://snap-docs.midtrans.com/#code-2xx).
 
+### Multiple Payment Attempts
+Snap is designed to maximize conversion rate of customer payment, it has built-in behavior: 
+- In which **1 Snap order-id is allowed to be retried multiple times** by the customer as long as it is not yet finally paid or expired.
+
+Example scenario:
+- Customer attempted to pay a Snap Order ID using card payment, then his card declined 2x. 
+- Then he choose another payment method, Akulaku, in which he got 1x another declined payment. 
+- Then finally he chose another payment method, Gopay, in which his payment is successfully accepted.
+- In summary: 3x deny attempts, 1x final success attempt.
+
+Thus may result in:
+- On **Midtrans dashboard you may see for 1 Snap Order ID, it can have multiple attempts recorded**.
+  - In the example scenario above, you will see 2x denied card transactions + 1x denied Akulaku transactions + finally 1x successful Gopay transactions. This is **normal as long as there are only 1 successful transaction** for 1 Order ID. It is expected that the multiple failed transactions are also recorded.
+- Your backend/system may **receive multiple webhook/HTTP Notifications** of transaction status for 1 Snap order ID, according to the status of each unique attempts.
+  - In the example scenario above, your system will get 2x denied card transactions notif + 1x denied Akulaku transactions notif + finally 1x successful Gopay transactions notif. This is **normal as long as there are only 1 successful transaction** for 1 Order ID. It is expected that the multiple failed transaction notifications are also triggered.
+
+?> Tips: You should implement your backend/system **to allow early failed payment attempts & eventually accept notification of payment success**.
+
 ### Note on Wallet & QRIS Deeplink/QR url
 Due to the focus of Snap to be simple, easy to integrate, and focus on the customer friendly UI; for GoPay, ShopeePay, and QRIS transactions made within Snap payment UI, currently there is no feature to programmatically retrieve the `actions[].url` (of the payment deeplink/QR url) value from Snap. In case you need to do that scenario, it is recommended to use [Core API](/en/core-api/overview) instead. Though, we are working to improve this in the future Snap version.
 
@@ -1349,11 +1371,13 @@ cloudfront.net
 Please whitelist the above domains/URLs in your CSP header/rule, to ensure proper working of Snap.js.
 
 ### Snap Popup in an IFrame
-**Avoid** displaying Snap payment popup within an iframe from your main checkout page. As it may cause unexpected results that Snap's size won't fit to the size of the browser/device.
+**Avoid** displaying Snap payment popup within an iframe from your main checkout page. As it may cause unexpected results (known so far):
+- Snap UI size may not perfectly fit the size of the browser/device.
+  - Snap automatically tries to fit to the webpage’s size, if you put Snap within an iframe, it tries to fit to the iframe size instead. Thus it is not recommended. If you insist on doing it with iframe, you can try to resize the iframe size to fit the main webpage’s.
+- Payment methods that require redirect to payment provider's website/app may not work (e.g. Gopay, ShopeePay, etc.).
+  - This is mainly because of Web Browser's security limitations, to avoid spam and unwanted pop-up most of modern web browser by default will try to block redirection coming from cross-domain iframe.
 
-Snap automatically tries to fit to the webpage’s size, if you put Snap within an iframe, it tries to fit to the iframe size instead. Thus it is not recommended. If you insist on doing it with iframe, you can try to resize the iframe size to fit the main webpage’s.
-
-But we always recommend to follow the basic Snap integration:
+We always recommend to follow the basic Snap integration:
 - Use Snap’s javascript directly on your checkout webpage, and [make sure to use meta-viewport tag](/en/snap/integration-guide.md#_2-displaying-snap-payment-page-on-frontend).
 - Or alternatively use [Snap’s redirect method](/en/snap/integration-guide.md#alternative-way-to-display-snap-payment-page-via-redirect).
 

@@ -513,6 +513,13 @@ If you are implementing redirect using web based code (Browser, PWA, React Nativ
 
 Please follow [this FAQ on how to allow deep/universal link redirect.](/en/other/faq/technical.md#customer-fails-to-be-redirected-to-gojek-deeplink-on-mobile-app-what-should-i-do)
 
+#### Payment via QRIS
+Please note that **if the payment transaction is paid by customer via QRIS** scanning method, then:
+- Midtrans will send **webhook/HTTP notification with `"payment_type": "qris"` instead of `gopay`**. This is to indicate that the payment is via QRIS.
+
+Please **ensure that your system can handle this behavior**, although it may seem unusual that you send payment_type as `gopay` but may receive back as `qris`.
+
+
 ## Next Step
 <br>
 

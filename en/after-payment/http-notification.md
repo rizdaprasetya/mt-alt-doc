@@ -1006,6 +1006,7 @@ Your server can respond with the following status and error codes, which will tr
 <article>
 
 - **Use HTTPS endpoint**. For better security & to avoid Man-in-the-Middle (MITM) attacks. We validate the certificates match with the hosts. Do not use self signed SSL certificates.
+  - Note: we don't currently have strict requirements, so any valid SSL/TLS/HTTPS used on your side should work.
 - **Use standard port (80/443)** for notification URL.
 - **Implement notification handling in an idempotent way.** In extremely rare cases, we may send multiple notifications for the same transaction event. Your endpoint should avoid processing it as duplicate entries, one way of achieving this is to use *order_id* as the key to track the entries.
 - **Verify the signature key hash of the notification**, This will confirm that the notification was actually sent by Midtrans and not any body else. *Server Key* is used to verify the signature, which only Midtrans and you should have the access to it.
@@ -1013,7 +1014,7 @@ Your server can respond with the following status and error codes, which will tr
 	- `status_code`: Should be 200 for successful transactions.
 	- `fraud_status`: If exists, the value should be ACCEPT. If not exists then you can ignore it.
 	- `transaction_status` : *settlement* or *capture* for successful transactions.
-- We strive to send the notification immediately after the transaction has occurred. However, in extremely rare cases, it may be delayed due to issues (e.g. high load, incidents, network latency, etc.). If you think you are have not receive notification in time, you can use the [GET Status API](/en/after-payment/get-status.md) to check for current status of the transaction.
+- We strive to send the notification immediately after the transaction has occurred. However, in extremely rare cases, it may be delayed due to issues (e.g. high load, incidents, network latency, etc.). If you think you have not receive notification in time, you should use the [GET Status API](/en/after-payment/get-status.md) to check for current status of the transaction.
 - Midtrans will wait for up-to **15 seconds** when sending notification, before considering the request timeout/failed. Your endpoint should **respond as soon as possible, ideally within 5 seconds**, to reduce the load on Midtrans' & your own infrastructure.
 - In extremely rare cases that the payment status notifications received out of order - `settlement` status comes before `pending` status. You should call [GET Status API](/en/after-payment/get-status.md) to get the latest/actual status of the transaction. Or you can ignore the `pending` notifications in such cases. 
 - HTTP Notification body is in **JSON format**. Which should allow additional JSON fields to be added in the future. Your implementation **should allow new fields to be later added** to the notification body, so parse the JSON fields in a non strict way (especially if you are using some JSON parser library that strictly does not allow new fields to be added). Avoid JSON parser behavior that will throw error/exceptions when encountering new fields, instead it should gracefully ignore the new fields. This allows us to improve our notification system for newer use cases without breaking compatibility.
@@ -1211,6 +1212,8 @@ To audit if notification is sent, and if it sent successfuly or not you can logi
 Although Midtrans strives for its best to keep notification service reliable, there may be some exceptional cases that can cause failure in sending notification from Midtrans or failure in receiving from merchant side.
 
 This can happen due to cases such as delay, network/infra issues, unexpected downtime, vendor/service disruption, and so on. In this exceptional case, use [Get Status API call](/en/after-payment/get-status.md) to reconcile payment status between your backend and Midtrans.
+
+?> Due to the reason explained above, **if your system is time-sensitive and expects to always be updated with payment status** from Midtrans, then you are **recommended to integrate [GET Status API](/en/after-payment/get-status.md)** to your system’s workflow. It should be used as failover mechanism in case of a Midtrans Notification system unexpectedly having issue.
 
 Your backend can perform [GET Status API call](/en/after-payment/get-status.md), for example in any of the following point in time:
 
