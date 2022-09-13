@@ -81,6 +81,7 @@ The sample response from `[ORDER_ID]/status` endpoint is shown below.
   "challenge_completion": true
 }
 ```
+?> Please note that this is **only a sample response**, to let you know the general idea of this API action. Please expect that the actual API response may have **slight variations (more/less JSON fields), depending on conditions** (like different payment methods will have different fields, etc.). In the future, Midtrans can also add new JSON fields to enhance this API with more useful information.
 
 The table given below describes elements in the response.
 
