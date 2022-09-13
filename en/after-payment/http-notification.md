@@ -1006,6 +1006,7 @@ Your server can respond with the following status and error codes, which will tr
 <article>
 
 - **Use HTTPS endpoint**. For better security & to avoid Man-in-the-Middle (MITM) attacks. We validate the certificates match with the hosts. Do not use self signed SSL certificates.
+  - Note: we don't currently have strict requirements, so any valid SSL/TLS/HTTPS used on your side should work.
 - **Use standard port (80/443)** for notification URL.
 - **Implement notification handling in an idempotent way.** In extremely rare cases, we may send multiple notifications for the same transaction event. Your endpoint should avoid processing it as duplicate entries, one way of achieving this is to use *order_id* as the key to track the entries.
 - **Verify the signature key hash of the notification**, This will confirm that the notification was actually sent by Midtrans and not any body else. *Server Key* is used to verify the signature, which only Midtrans and you should have the access to it.

@@ -29,6 +29,8 @@ We enforce [TLS/SSL encryption](https://www.cloudflare.com/learning/ssl/what-is-
 
 Please make sure your system are able to communicate with Midtrans securely by referring to [this article about SSL/TLS](https://midtrans.com/id/blog/time-to-upgrade-to-tls-version-1-2).
 
+We recommend merchants to also secure their websites & endpoints [with HTTPS](https://www.cloudflare.com/learning/ssl/what-is-https/). ​​This especially important if you want to make sure that notifications coming from Midtrans system to your system is secure. Note: we don't currently have strict requirements, so any valid SSL/TLS/HTTPS used on your side should work.
+
 ### Card Data Secure Transmission
 
 By following above points, all the data transmission coming from customer device to Midtrans is encrypted over the network layer via SSL/HTTPS. That means data transmission is end-to-end encrypted (customer-to-Midtrans), and secure from any third-party. Only Customer and Midtrans side can see the real value of data being transmitted, unless a third-party has direct control over the user’s device (which means already compromised anyway) or is able to decrypt SSL/HTTPS.
