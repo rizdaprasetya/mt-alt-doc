@@ -1324,6 +1324,24 @@ To avoid Order ID duplication, you can also change your implementation logic to 
 ### Note on Card Transaction Expire Notification
 Card transaction payment status will become `pending` once it is proceeded into 3DS/OTP phase. If the transaction is abandoned or not completed within 10-15 minutes, its status will become `expire`. For more details [please refer here](https://snap-docs.midtrans.com/#code-2xx).
 
+### Multiple Payment Attempts
+Snap is designed to maximize conversion rate of customer payment, it has built-in behavior: 
+- In which **1 Snap order-id is allowed to be retried multiple times** by the customer as long as it is not yet finally paid or expired.
+
+Example scenario:
+- Customer attempted to pay a Snap Order ID using card payment, then his card declined 2x. 
+- Then he choose another payment method, Akulaku, in which he got 1x another declined payment. 
+- Then finally he chose another payment method, Gopay, in which his payment is successfully accepted.
+- In summary: 3x deny attempts, 1x final success attempt.
+
+Thus may result in:
+- On **Midtrans dashboard you may see for 1 Snap Order ID, it can have multiple attempts recorded**.
+  - In the example scenario above, you will see 2x denied card transactions + 1x denied Akulaku transactions + finally 1x successful Gopay transactions. This is **normal as long as there are only 1 successful transaction** for 1 Order ID. It is expected that the multiple failed transactions are also recorded.
+- Your backend/system may **receive multiple webhook/HTTP Notifications** of transaction status for 1 Snap order ID, according to the status of each unique attempts.
+  - In the example scenario above, your system will get 2x denied card transactions notif + 1x denied Akulaku transactions notif + finally 1x successful Gopay transactions notif. This is **normal as long as there are only 1 successful transaction** for 1 Order ID. It is expected that the multiple failed transaction notifications are also triggered.
+
+?> Tips: You should implement your backend/system **to allow early failed payment attempts & eventually accept notification of payment success**.
+
 ### Note on Wallet & QRIS Deeplink/QR url
 Due to the focus of Snap to be simple, easy to integrate, and focus on the customer friendly UI; for GoPay, ShopeePay, and QRIS transactions made within Snap payment UI, currently there is no feature to programmatically retrieve the `actions[].url` (of the payment deeplink/QR url) value from Snap. In case you need to do that scenario, it is recommended to use [Core API](/en/core-api/overview) instead. Though, we are working to improve this in the future Snap version.
 
