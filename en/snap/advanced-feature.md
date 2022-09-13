@@ -1349,11 +1349,13 @@ cloudfront.net
 Please whitelist the above domains/URLs in your CSP header/rule, to ensure proper working of Snap.js.
 
 ### Snap Popup in an IFrame
-**Avoid** displaying Snap payment popup within an iframe from your main checkout page. As it may cause unexpected results that Snap's size won't fit to the size of the browser/device.
+**Avoid** displaying Snap payment popup within an iframe from your main checkout page. As it may cause unexpected results (known so far):
+- Snap UI size may not perfectly fit the size of the browser/device.
+  - Snap automatically tries to fit to the webpage’s size, if you put Snap within an iframe, it tries to fit to the iframe size instead. Thus it is not recommended. If you insist on doing it with iframe, you can try to resize the iframe size to fit the main webpage’s.
+- Payment methods that require redirect to payment provider's website/app may not work (e.g. Gopay, ShopeePay, etc.).
+  - This is mainly because of Web Browser's security limitations, to avoid spam and unwanted pop-up most of modern web browser by default will try to block redirection coming from cross-domain iframe.
 
-Snap automatically tries to fit to the webpage’s size, if you put Snap within an iframe, it tries to fit to the iframe size instead. Thus it is not recommended. If you insist on doing it with iframe, you can try to resize the iframe size to fit the main webpage’s.
-
-But we always recommend to follow the basic Snap integration:
+We always recommend to follow the basic Snap integration:
 - Use Snap’s javascript directly on your checkout webpage, and [make sure to use meta-viewport tag](/en/snap/integration-guide.md#_2-displaying-snap-payment-page-on-frontend).
 - Or alternatively use [Snap’s redirect method](/en/snap/integration-guide.md#alternative-way-to-display-snap-payment-page-via-redirect).
 
