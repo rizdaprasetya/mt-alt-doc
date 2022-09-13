@@ -574,9 +574,13 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-Use the same `user_id` for that particular customer on future transactions. Their card will be previewed on Snap card payment page, on future transactions.
+?> **Note:** During the first payment when a customer is intended to save their card, **they must tick the “Save this card” check box on Snap payment page**, in order for the card to be saved. This is to **ensure that the customer explicitly gives consent** that they are ok that their card will be securely saved.
 
-![enabled payment card](./../../asset/image/snap-adv-save-card-preview.jpg)
+![save card checkbox](./../../asset/image/snap-adv-save-card-checkbox.png ':size=350')
+
+Use the same `user_id` API params for that particular customer on future transactions. Their card will be previewed on Snap card payment page, on future transactions.
+
+![saved card preview](./../../asset/image/snap-adv-save-card-preview.jpg)
 
 For more use cases, refer to [One Click, Two Click, and Recurring Transaction](https://support.midtrans.com/hc/en-us/articles/360002419153-One-Click-Two-Clicks-and-Recurring-Transaction).
 
