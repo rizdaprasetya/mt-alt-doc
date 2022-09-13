@@ -159,6 +159,45 @@ Fraud Status | Fund Received | Description
 
 The same [status definition with notification](/en/after-payment/http-notification.md#status-definition) applies.
 
+## Refund Details
+When a payment transaction has any recorded refund history, the response of get-status API will also return the refund status details. For example:
+
+```json
+{
+  ...
+  "refunds": [
+    {
+      "refund_chargeback_id": 183700,
+      "refund_chargeback_uuid": "21a2b0a9-a2a2-4ab1-8758-ae0477458f21",
+      "refund_amount": "10000.00",
+      "created_at": "2022-08-23 11:16:16",
+      "reason": "Refund reason is defined by merchant when attempting the refund request",
+      "refund_key": "2358b552-3e22-4611-8b92-956223d1c03f",
+      "refund_method": "online",
+      "bank_confirmed_at": "2022-08-23 11:16:16"
+    },
+    {
+      "refund_chargeback_id": 183701,
+      "refund_chargeback_uuid": "b1adbe80-84de-4aae-b567-9f5eba7c0414",
+      "refund_amount": "15000.00",
+      "created_at": "2022-08-23 11:16:21",
+      "reason": "Refund reason is defined by merchant when attempting the refund request",
+      "refund_key": "32705cff-8907-4f09-a712-1bcea6dafea2",
+      "refund_method": "online",
+      "bank_confirmed_at": "2022-08-23 11:16:21"
+    }
+  ],
+  "refund_amount": "25000.00"
+  ...
+}
+```
+
+Notable info:
+- Each unique refund attempt will be on its own `refund` object inside the `refunds` array.
+- Total refund amount will be available as `refund_amount`.
+- If you previously attempted to refund, then the attempt is shown on the get-status API response, it means Midtrans and/or Payment Provider has already acknowledged the refund request.
+ - But if it’s not listed, it means your refund request has not been acknowledged, you can retry the refund request.
+
 
 ## Other API Action / Method
 
