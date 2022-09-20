@@ -4,6 +4,9 @@
 <!-- #### Unreleased 
 -->
 #### 2022/09/13
+- update Gopay Core API additional notes on app redirect section
+
+#### 2022/09/13
 - add more findings on snap in iframe limitations
 - add info on snap multiple order id case
 - clarify snap save card ui checkbox
