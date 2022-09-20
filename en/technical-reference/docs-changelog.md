@@ -3,7 +3,7 @@
 
 <!-- #### Unreleased 
 -->
-#### 2022/09/13
+#### 2022/09/20
 - update Gopay Core API additional notes on app redirect section
 
 #### 2022/09/13
