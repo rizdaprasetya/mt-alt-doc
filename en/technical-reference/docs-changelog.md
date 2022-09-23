@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/09/23
+- add notes on Snap QRIS related behavior.
+
 #### 2022/09/20
 - update Gopay Core API additional notes on app redirect section
 
