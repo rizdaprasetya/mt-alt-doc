@@ -3,6 +3,14 @@
 
 <!-- #### Unreleased 
 -->
+#### 2022/10/31
+- update Shopify payment app install guide 
+	- to include finish redirect config.
+	- to add advanced notes on:
+		- payment icons
+		- testing order payment fee
+		- rare case of Shopify API blocking payment status update
+
 #### 2022/09/23
 - add notes on Snap QRIS related behavior.
 

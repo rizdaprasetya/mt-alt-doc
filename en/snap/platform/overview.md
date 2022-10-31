@@ -51,7 +51,14 @@ Depending on each situation, please **follow one which best fits your situation*
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')<br>
 
-2. Select __Settings -> Access Keys__.
+2. Select __Settings->Configuration__.
+
+	Some payment methods such as UOB EZ Pay and Kredivo require a Finish Redirect URL, to be used as a final redirect page, after the customer has completed the payment. If you have activated the payment methods above, you can configure the Finish Redirect URL through the menu **Settings > Configuration**. Please fill the **Finish Redirect URL** with your Shopify URL website, then click Update Button.
+
+	![Set Finish URL](./../../../asset/image/shopify-new-27-set-finish-url.png ':size=400')<br>
+
+
+3. Select __Settings -> Access Keys__.
 
 	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
 
@@ -59,26 +66,26 @@ Depending on each situation, please **follow one which best fits your situation*
 
 	![access key](./../../../asset/image/sirclo-2.png)<br>
 
-3. Login to your [Shopify Store](https://www.shopify.com/login).
+4. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
+5. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
-5. Click __Add app__ button to install.
+6. Click __Add app__ button to install.
 
-6. You will be redirected to installation page, you can review the displayed information, then click __Install app__
+7. You will be redirected to installation page, you can review the displayed information, then click __Install app__
 	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
 
-7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
+8. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
+9. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
-9. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+10. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
 
-10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
+11. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
 
 ![shopify](./../../../asset/image/shopify-new-19-snap-page.png ':size=400')<br>
@@ -108,7 +115,13 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 	![Login MAP](./../../../asset/image/snap-prep-env-diff.jpg ':size=400')<br>
 
-2. Select __Settings -> Access Keys__.
+2. Select __Settings->Configuration__.
+
+	Some payment methods such as UOB EZ Pay and Kredivo require a Finish Redirect URL, to be used as a final redirect page, after the customer has completed the payment. If you have activated the payment methods above, you can configure the Finish Redirect URL through the menu **Settings > Configuration**. Please fill the **Finish Redirect URL** with your Shopify URL website, then click Update Button.
+
+	![Set Finish URL](./../../../asset/image/shopify-new-27-set-finish-url.png ':size=400')<br>
+
+3. Select __Settings -> Access Keys__.
 
 	Copy Midtrans __Merchant ID__ and __Server Key__ (Will be used for the next step).
 
@@ -116,26 +129,26 @@ During the transition period, move from Old Midtrans App to New Midtrans App, yo
 
 	![access key](./../../../asset/image/sirclo-2.png)<br>
 
-3. Login to your [Shopify Store](https://www.shopify.com/login).
+4. Login to your [Shopify Store](https://www.shopify.com/login).
 
-4. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
+5. Follow this link to find [Payments via Midtrans App on Shopify App Store.](https://apps.shopify.com/midtrans-payment-gateway-new)
 
 	![shopify app store](./../../../asset/image/shopify-new-20-midtrans-shopify-appstore.png)<br>
 
-5. Click __Add app__ button to install.
+6. Click __Add app__ button to install.
 
-6. You will be redirected to installation page, you can review the displayed information, then click __Install app__
+7. You will be redirected to installation page, you can review the displayed information, then click __Install app__
 	![Install Midtrans](./../../../asset/image/shopify-new-06-install.png ':size=400')<br>
 
-7. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
+8. You will be redirected to the Onboarding page, please fill in your Midtrans __Merchant ID__ and __Server Key__ (from step 2) for each production and sandbox. Then click __Register__.
 	![Register](./../../../asset/image/shopify-new-07-register.png ':size=400')<br>
 
-8. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
+9. You will be redirected back to Shopify, and the page will indicates that your Shopify store is connected to Payments via Midtrans.
 	![Connected to Midtrans](./../../../asset/image/shopify-new-08-success-install.png ':size=400')<br>
 
-9. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
+10. To activate, click __Activate Payments via Midtrans__. You can also tick/untick desired payment method icons that will be shown in the payment button on your checkout page.
 
-10. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
+11. Done! Now your Shopify online shop is ready to start accepting payments with Midtrans as payment gateway. Your customer will see __Payments via Midtrans__ as payment method on the checkout page.
 	![Midtrans show in checkout page](./../../../asset/image/shopify-new-10-order.png ':size=400')<br>
 
 
@@ -382,6 +395,28 @@ The **detailed history will be displayed on Shopify admin panel's order details 
 
 Here is an example of 1 order that has 1 earlier payment id which is unpaid, and then 1 other payment id which is successfully paid, as observed from Shopify admin panel's order details timeline.
 ![Timeline 1 Order 2x Payments](./../../../asset/image/shopify-new-24-1-order-2x-payment.png ':size=400')
+
+##### Payment Method Icons on Shopify Payment Setting Page
+On the Shopify payment setting page, you will find there are payment method icons. But be advised that **the icons selection does not directly affect the actual payment methods activated on Midtrans**.
+![Payment icons](./../../../asset/image/shopify-new-25-payment-icons.png ':size=400')<br>
+The selected icons mainly will be shown on the payment button on the Shopify checkout page.
+![Payment icons](./../../../asset/image/shopify-new-25-payment-icons-on-checkout.png ':size=400')<br>
+If you want to configure active payment methods on the Snap payment page, you should configure it on [Midtrans Shopify Payment App Account Settings](#payment-app-account-settings).
+
+##### Shopify will not Charge Third-Party Transaction Fees for Test Order by Enabling Test Mode
+For real transaction, when you use a third-party payment provider such as "Midtrans", Shopify will charge transaction fee for each transaction, the transaction fee varies depending on your [pricing plan](https://www.shopify.com/id/pricing).
+
+But if you want to do "Test Order" by enabling Test Mode, **Shopify should not charge you any payment processing fee for "Test Order" payments.** Performing "Test Order" is helpful for you to make sure that the checkout process and settings for order processing, payment, inventory, shipping, email notifications, etc are all correct. You can place a "Test Order" by [transacting using Test Mode](#test-transaction-with-sandbox-mode). You can also check [Shopify docs about Test Order](https://help.shopify.com/en/manual/checkout-settings/test-orders) for further details.
+
+##### In Some Rare Cases, Midtrans Unable to Update the Payment Status to Shopify
+In some rare cases, payment status syncing to Shopify's system may fail. If it happens and affect your order on Shopify, then there are some possibilities of:
+
+- There are issues on the Shopify side. e.g: Shopify service is unavailable to receive and process Midtrans' API request, you can check [the Shopify status page](https://www.shopifystatus.com/) for reported service outages.
+- Your store is locked by Shopify. The store may be locked due to your Shopify account performed API requests which exceeds [Shopify API request limit](https://shopify.dev/api/usage/rate-limits), or if there is an issue with the account, such as fraud risk, use of content/product that infringes on [the copyright or trademarks](https://help.shopify.com/en/manual/your-account/copyright-and-trademark) of others, payment failure, etc. Some of the impacts of your store being locked are:
+	1. Customers are still able to access your store and do the checkout process, but Midtrans unable to update the payment status, this is because Shopify block/reject API request from Midtrans.
+	2. The Store is fully unavailable, customers unable to access your store, and you unable to access the Shopify admin page.
+
+If you are facing this issue, we recommend you to [Contact Shopify](https://help.shopify.com/en/support/login) to get further details then you can request to unlock your store.
 
 ##### Item Stock & Status
 Few points to understand about order status & item stock management that is managed automatically with this integration:
