@@ -1,14 +1,28 @@
-# Direct Debit Transfer Integration
-One of the payment method offered by Midtrans is Direct Debit. By using this payment method, customers will have the option to make a payment via bank website and Midtrans will send real time notification when the customer complete the payment.
+# Core API Direct Debit Payment Integration
+<hr>
 
-At this moment, Midtrans has integrated with some direct debit payment methods:
 
-![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=150") <br>
-![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=150") <br>
-![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=150") <br>
-![epay bri](./../../asset/image/coreapi/epay_bri.png ":size=150") <br>
+*Direct Debit* is one of the payment methods offered by Midtrans. Using this payment method, the customer can pay using their E-Banking debit account. Midtrans sends real-time notifications when the customer completes the payment. Currently, Midtrans can integrate with the following *Direct Debit* payment methods such as BCA KlikPay, CIMB Clicks, Danamon Online Banking, and BRImo (previously known as e-Pay BRI).
 
-Basic integration process of Direct Debit will be explained below.
+<div class="cards-r-4">
+  <div>
+
+![bca klikpay](./../../asset/image/coreapi/bca_klikpay.svg ":size=120")
+  </div>
+  <div>
+
+![cimb clicks](./../../asset/image/coreapi/cimb_clicks.svg ":size=120")
+  </div>
+  <div>
+
+![danamon online banking](./../../asset/image/coreapi/danamon.png ":size=120")
+  </div>
+  <div>
+
+![BRImo](./../../asset/image/coreapi/epay_bri.png?dummyParamToPurgeCFCache=1 ":size=120")
+  </div>
+</div>
+
 <details>
 <summary><b>Sequence Diagram Transaction Flow</b></summary>
 <article>
@@ -18,48 +32,38 @@ Basic integration process of Direct Debit will be explained below.
 </article>
 </details>
 
-#### Sandbox Environment
-All the steps below are using [Midtrans Sandbox environment](https://account.midtrans.com/), not Production, to easily test the integration process. Make sure you are switching to Sandbox mode on your Midtrans account dashboard while retrieving Server Key and Client Key. Explained in [`Getting Started - Preparation`](/en/midtrans-account/overview.md).
+## Sandbox Environment
+The steps given below uses Midtrans *Sandbox* environment to test the integration process. Please make sure that you use the *Server Key* and *Client Key* for the *Sandbox* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-Server Key and Client Key can be retrieved on menu `Settings` > `Access Key`.
+## Steps for Integration
+To integrate with *Direct Debit* payment method, follow the steps given below.
 
-?>**Info:**
-[How to retrieved Access key](/en/midtrans-account/overview.md#retrieving-api-access-keys)
-
-### Integration Step
-1. Send transaction data to API Charge.
-2. Redirect customer to bank's website.
-3. Create landing page after customer complete the payment.
-4. Handle transaction notification.
-
-Charge API request should be done from Merchant's backend. Server Key (from your account's Dashboard) will be needed to [authenticate the request](https://api-docs.midtrans.com/#http-s-header).
+### 1. Sending transaction data to Charge API
+The *Charge API* request is sent with the transaction details, from the merchant backend.
 
 #### Request Details
-Type | Value
---- | ---
-HTTP Method | `POST`
-API endpoint (Sandbox) | `https://api.sandbox.midtrans.com/v2/charge`
-API endpoint (Production) | `https://api.midtrans.com/v2/charge`
+| Environment | Method | URL                                        |
+| ----------- | ------ | ------------------------------------------ |
+| Sandbox     | POST   | https://api.sandbox.midtrans.com/v2/charge |
+| Production  | POST   | https://api.midtrans.com/v2/charge         |
 
 #### HTTP Headers
-```
+
+```text
 Accept: application/json
 Content-Type: application/json
 Authorization: Basic AUTH_STRING
 ```
 
-**AUTH_STRING**: Base64(`ServerKey + :`)
+**AUTH_STRING**: Base64Encode(`"YourServerKey"+":"`)
 
-?> HTTP request by using Basic Authentication method. The username is your Server Key while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username & password separated by **:** (colon symbol).
+?> Midtrans API validates HTTP request by using Basic Authentication method. The username is your **Server Key** while the password is empty. The authorization header value is represented by AUTH_STRING. AUTH_STRING is base-64 encoded string of your username and password separated by colon symbol (**:**). For more details, refer to [ API Authorization and Headers](/en/technical-reference/api-header.md).
 
-
-
-### 1. Send Transaction Data to API Charge
-
-#### Charge API request
-This is example of basic `/charge` API request in Curl, please implement according to your backend language (you can also check our [available language libraries](/en/technical-reference/library-plugin.md)).
+#### Sample Request
+The sample CURL request for *Charge API* for *Direct Debit* payment methods are shown below. You may implement according to your backend language. For more details, refer to available [Language Libraries](/en/technical-reference/library-plugin.md#language-library).
 <!-- tabs:start -->
-#### **BCA Kilkpay**
+
+#### **BCA KilkPay**
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -112,7 +116,7 @@ curl -X POST \
   }
 }'
 ```
-#### **e-Pay BRI**
+#### **BRImo**
 ```bash
 curl -X POST \
   https://api.sandbox.midtrans.com/v2/charge \
@@ -129,13 +133,30 @@ curl -X POST \
 ```
 <!-- tabs:end -->
 
-?>**Optional:**
-You can customize [transaction_details](https://api-docs.midtrans.com/#json-object) data. To include data like customer_details, item_details, etc. It's recommended to send as much detail so on report/dashboard those information will be included.
+<details>
+<summary><b>POST JSON Body Attribute Description</b></summary>
+<article>
 
-#### Charge API response
-You will get the API response like the following.
+| Element             | Description                                                  | Type   | Required |
+| ------------------- | ------------------------------------------------------------ | ------ | -------- |
+| payment_type        | Direct Debit payment type.                                   | String | Required |
+| transaction_details | The details of the transaction like the order_id and gross_amount. | Object | Required |
+| order_id            | The order_id of the transaction.                             | String | Required |
+| gross_amount        | The total amount of transaction.                             | Long   | Required |
+
+</article>
+</details>
+
+?>***Tips***: You can [include more information](/en/core-api/advanced-features.md#recommended-parameters) such as `customer_details`, `item_details`, and so on. It is recommended to send more details regarding the transaction, so that these details will be captured on the transaction record. Which can be [viewed on the Midtrans Dashboard](/en/after-payment/dashboard-usage.md#transaction).
+
+Learn more on why this API request [should be securely managed from your backend](/en/security/overview#keep-sensitive-parameters-secured).
+
+#### Sample Response and Response Body
+The sample API responses and a description of the response body for the available *Direct Debit* payment methods are shown below.
 <!-- tabs:start -->
-#### **BCA Kilkpay**
+
+#### **BCA KilkPay**
+**Sample Response**
 ```json
 {
     "status_code": "201",
@@ -150,26 +171,35 @@ You will get the API response like the following.
     "transaction_time": "2019-12-12 11:03:55",
     "transaction_status": "pending",
     "fraud_status": "accept",
-    "redirect_data": {
-        "url": "https://simulator.sandbox.midtrans.com/bca/klikpay/index",
-        "method": "post",
-        "params": {
-            "klikPayCode": "03KHAN816197673",
-            "transactionNo": "92396",
-            "totalAmount": "44000",
-            "currency": "IDR",
-            "payType": "01",
-            "callback": "https://example.com?id=d19a4bcd-ae30-49dc-bde7-57749aede090",
-            "transactionDate": "11/11/2019 11:03:55",
-            "descp": "Pembelian Barang",
-            "miscFee": "0.00",
-            "signature": "239297204"
-        }
-    }
 }
 ```
 
+<details>
+<summary><b>Response Body JSON Attribute Description</b></summary>
+<article>
+
+| Element    | Description    | Type   | Notes   |
+| ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | A message from BCA KlikPay describing the status of the transaction. | String |                                                              |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
+| order_id           | The specific *Order ID*.                                     | String |                                                              |
+| redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
+| merchant_id        | Your merchant ID.                                            | String |                                                              |
+| gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
+| currency           | The unit of currency used for the transaction.               | String |                                                              |
+| payment_type       | The type of payment method used.                             | String |                                                              |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+| redirect_data      | Technical information from BCA such as transaction number, total amount, currency, and so on. | Object |                                                              |
+
+</article>
+</details>
+
 #### **CIMB Clicks**
+**Sample Response**
+
 ```json
 {
     "status_code": "201",
@@ -186,7 +216,30 @@ You will get the API response like the following.
 }
 ```
 
+<details>
+<summary><b>Response Body JSON Attribute Description</b></summary>
+<article>
+
+| Element            | Description                                                  | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | A message from CIMB Clicks describing the status of the transaction. | String |                                                              |
+| redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
+| order_id           | The specific *Order ID*.                                     | String |                                                              |
+| gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
+| currency           | The unit of currency used for the transaction.               | String |                                                              |
+| payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| merchant_id        | Your merchant ID.                                            | String |                                                              |
+
+</article>
+</details>
+
 #### **Danamon Online Banking**
+**Sample Response**
+
 ```json
 {
     "status_code": "201",
@@ -203,7 +256,31 @@ You will get the API response like the following.
     "fraud_status": "accept"
 }
 ```
-#### **e-Pay BRI**
+<details>
+<summary><b>Response Body JSON Attribute Description</b></summary>
+<article>
+
+| Element            | Description                                                  | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | A message from Danamon Online Bank describing the status of the transaction. | String |                                                              |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
+| order_id           | The specific *Order ID*.                                     | String |                                                              |
+| redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
+| merchant_id        | Your merchant ID.                                            | String |                                                              |
+| gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
+| currency           | The unit of currency used for the transaction.               | String |                                                              |
+| payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The status of the transaction.                               | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+
+</article>
+</details>
+
+#### **BRImo**
+**Sample Response**
+
 ```json
 {
     "status_code": "201",
@@ -220,21 +297,76 @@ You will get the API response like the following.
     "fraud_status": "accept"
 }
 ```
+<details>
+<summary><b>Response Body JSON Attribute Description</b></summary>
+<article>
+
+| Element            | Description                                                  | Type   | Notes                                                        |
+| ------------------ | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| status_code        | This is the status of the API call.                          | String | For more details, refer to [Error Code and Response Code](/en/technical-reference/error-response-code.md#status-codes-and-errors). |
+| status_message     | A message from BRImo describing the status of the transaction. | String |                                                              |
+| transaction_id     | The *Transaction ID* of the specific transaction.            | String |                                                              |
+| order_id           | The specific *Order ID*.                                     | String |                                                              |
+| redirect_url       | The URL to which the customer is redirected from the bank's website. | String |                                                              |
+| merchant_id        | Your merchant ID                                             | String |                                                              |
+| gross_amount       | The total amount of transaction for the specific order.      | String |                                                              |
+| currency           | The unit of currency used for the transaction.               | String |                                                              |
+| payment_type       | The type of payment method used by the customer for the transaction. | String |                                                              |
+| transaction_time   | The date and time at which the transaction occurred.         | String | It is in the format, *YYYY-MM-DD* *HH:MM:SS.*<br>Time zone: Western Indonesian Time (GMT+7). |
+| transaction_status | The transaction status of the transaction.                   | String | For more details, refer to [Transaction Status](/en/after-payment/get-status.md#transaction-status). |
+| fraud_status       | The fraud status of the transaction.                         | String | For more details, refer to [Fraud Status](/en/after-payment/get-status.md#fraud-status). |
+
+</article>
+</details>
+
 <!-- tabs:end -->
-You will get the `redirect_url` attribute which can be performed this transaction.
+?>***Note***: The `redirect_url` attribute for the transaction is received.
 
-### 2. Redirect Customer to Bank's Website
-To redirect customer to Bank's Website, use redirect_url that retrieved from API response.
+#### Status Codes and Errors
 
-Then customer can be redirected via server-side redirect, using javascript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
+| Code | Description                            | Notes                                                     |
+| ---- | -------------------------------------- | --------------------------------------------------------- |
+| 201  | Successful transaction                 | –                                                         |
+| 400  | The `transaction_details` are missing. | Make sure the `order_id` and `gross_amount` are included. |
+| 413  | There is syntax error.                 | Check the syntax.                                         |
+| 500  | Internal system error occurred.        | You can try again later.                                  |
 
-?> Read [here to simulate/test success payment](/en/technical-reference/sandbox-test.md#direct-debit).
+### 2. Redirecting the customer to bank's website
+The `redirect_url` retrieved from the previous step is used to redirect the customer to the bank's website.
+You can redirect the customer through server-side redirect, using JavaScript like `window.location=[REDIRECT URL]`, or using HTML link `<a href="[REDIRECT URL]">Pay Here!</a>`.
+The customer can complete the payment on this page.
 
-### 3. Create Landing Page After Customer Complete the Payment
-After the customer completes the payment via bank's website, the bank website automatically redirect customer to `Finish Redirect URL` which can be configured on MAP (Merchant Administration Portal). You must [login to MAP](https://account.midtrans.com/login). Go to setting -> configuration, and fill in the `Finish Redirect URL` with your landing page endpoint.
-![Direct Debit Payment Flow](./../../asset/image/coreapi/direct_debit_map.png)
+For more details, refer to [Testing Payment on Sandbox](/en/technical-reference/sandbox-test.md#cardless-credit).
 
-On the Finish Redirect URL script, we need to obtain the response sent to the finish url script. Please make sure the `Finish Redirect URL` endpoint can receive POST. The sample code below are written in native php. Please adjust to your own environment.
+### 3. Configuring landing page
+After the customer completes the payment, the bank's website redirects the customer to *Finish Redirect URL* which can be configured on MAP (Merchant Administration Portal).
+
+<details>
+<summary><b>Configuring Finish Redirect URL</b></summary>
+<article>
+
+To configure the *Finish Redirect URL*, follow the steps given below.
+1. Login to your MAP account.
+2. On the Home page, go to **SETTINGS > CONFIGURATION**.
+   *Configuration* page is displayed.
+3. Enter **Finish Redirect URL** with your landing page endpoint.
+4. Click **Update**.
+   A confirmation message is displayed.
+
+   ![Core API](./../../asset/image/coreapi/core-api-finish-redirect-url-2.png)
+
+   The *Finish Redirect URL* is configured.
+
+   </article>
+
+   </details>
+
+?>***Note***: Please make sure the *Finish Redirect URL* endpoint can receive the POST request .
+
+The sample code in *PHP* is given below as reference. Please make appropriate changes according to your environment & language.
+
+#### Sample Code
+
 ```php
 <?php
     $response = $_POST['response']; //get the json response
@@ -242,7 +374,7 @@ On the Finish Redirect URL script, we need to obtain the response sent to the fi
     $order_id = $decoded_response->order_id;//how to access
 ?>
 ```
-The response is in JSON format:
+#### Sample Response
 
 ```json
 {
@@ -259,13 +391,50 @@ The response is in JSON format:
 }
 ```
 
-### 4. Handling Post-Transaction
+#### BCA KlikPay Specific
+Specific to **BCA KlikPay** you will need to implement a bit differently, click below to see in details.
+<details>
+<summary><b>Implementing BCA KlikPay Landing Page</b></summary>
+<article>
 
-HTTP notification from Midtrans to Merchant backend will also be triggered on event of `transaction_status` getting updated, to ensure merchant is securely informed. Including if transaction success or expired (not paid). So apart of JSON result above, Merchant backend will be notified by Midtrans.
+You will need to:
+- First, BCA KlikPay only eligible if you fullfil this [list of BCA KlikPay requirements](https://support.midtrans.com/hc/en-us/articles/360024549814-What-if-I-want-to-use-BCA-Klikpay-as-a-payment-channel-).
+- Follow [BCA KlikPay landing page development guideline](https://support.midtrans.com/hc/en-us/articles/115004580573-BCA-KlikPay-Landing-Page-Development-Guideline).
+<!-- @HACK: link below is using absolute domain url to avoid docsify unexpectedly try to parse it as a web page, which throw 404 -->
+- Click here to [see detailed sequence diagram on the end-to-end BCA KlikPay flow](https://docs.midtrans.com/asset/image/core-api_sequence_bca_klikpay.jpeg ':target=_blank').
+</article>
+</details>
 
-HTTP POST request with JSON body will be sent to Merchant's **notification url** configured on dashboard (Settings > Configuration > Notification URL), this is the sample JSON body that will be received by Merchant:
+
+### 4. Handling post-transaction
+When the transaction status changes, you are directly notified about the changes in the transaction through redirect URL and also on merchant backend. Midtrans sends HTTP notification to merchant backend. This ensures that you are updated of the transaction status securely.
+
+HTTP POST request with JSON body is sent to your *Payment Notification URL* configured on *Dashboard*.
+
+<details>
+<summary><b>Configuring Payment Notification URL</b></summary>
+<article>
+
+To configure the Payment Notification URL, follow the steps given below.
+1. Login to your MAP account.
+2. On the Home page, go to **SETTINGS > CONFIGURATION**.
+   *Configuration* page is displayed.
+3. Enter **Payment Notification URL**.
+4. Click **Update**.
+   A confirmation message is displayed.
+
+   ![Core API](./../../asset/image/coreapi/core-api-payment-notification-1.png)
+
+   The *Payment Notification URL* is configured.
+
+</article>
+</details>
+
+The sample HTTP notification request received at merchant backend for *Direct Debit* payment method is given below.
+
 <!-- tabs:start -->
-#### **BCA Kilkpay**
+
+#### **BCA KilkPay**
 ```json
 {
   "transaction_time": "2019-12-11 16:20:48",
@@ -323,7 +492,7 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
    "approval_code": "uRaSu1XAnIm56i"
  }
 ```
-#### **e-Pay BRI**
+#### **BRImo**
 ```json
 {
   "transaction_time": "2019-11-11 15:09:35",
@@ -346,15 +515,18 @@ HTTP POST request with JSON body will be sent to Merchant's **notification url**
 
 <div class="my-card">
 
-#### [Handling Webhook HTTP Notification](/en/after-payment/http-notification.md)
+#### [HTTP(S) Notification/Webhooks](/en/after-payment/http-notification.md)
 </div>
 
-### Switching To Production
-To use Midtrans production environment (accept real payment from real customer), please make sure to:
+## Switching to Production Environment
+Follow the steps given below to switch to Midtrans *Production* environment and to accept real payments from real customers.
+1. Change API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`.
+2. Use *Client Key* and *Server Key* for *Production* environment. For more details, refer to [Retrieving API Access Keys](/en/midtrans-account/overview.md#retrieving-api-access-keys).
 
-1. Switch the API domain URL from `api.sandbox.midtrans.com` to `api.midtrans.com`
-2. Switch the Client Key and Server Key from sandbox Dashboard, with keys from production Dashboard.
+## Note & Limitation
 
+#### BRImo Rebranding
+Since November 2021 *E-Pay* BRI has been rebranded as *BRImo*. If you have it integrated on your side, please adjust your frontend/UI accordingly. For example by changing the text & logo displayed to customer side, as for the backend side, you are not required to change.
 
 ## Next Step:
 <br>
@@ -375,3 +547,4 @@ To use Midtrans production environment (accept real payment from real customer),
 </div>
 
 <hr>
+

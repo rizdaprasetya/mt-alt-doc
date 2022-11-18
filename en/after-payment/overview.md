@@ -1,31 +1,38 @@
 # Getting Notified of Payment Status
+<hr>
 
-As Merchant you would like to know or get notified when a payment has been successfully accepted. So you can proceed customer order accordingly.
-
-After payment has been completed by customer (payment confirmed on Midtrans). Merchant will be notified by Midtrans, alternatively Merchant can pro-actively retrieve transaction status to Midtrans.
-
-Midtrans provides various means for merchant to obtain the transaction status:
+You can get **notifications when the transaction status is updated** on Midtrans (payment success, expire, etc.), so that you can process the customer order accordingly. Once the payment process is completed by the customer, **Midtrans sends notification to you**. You can access notifications via any of the following methods:
+<br><br>
 
 <div class="my-card">
 
-#### [A. Email Notification](/en/after-payment/email-notification.md)
-The simplest. Require no complicated set up.
+#### [HTTP(S) Notification / Webhook](/en/after-payment/http-notification.md)
+You can have automated/programmatic transaction status update on your system.
+- The most recommended & customizable way to receive notifications.
+
 </div>
 
 <div class="my-card">
 
-#### [B. HTTP(S) Notification / Webhook](/en/after-payment/http-notification.md)
-The most recommended, if you are aiming to have automated transaction status update on your system.
+#### [Call API Get Status](/en/after-payment/get-status.md)
+Alternatively, you can also actively retrieve the transaction status from the Midtrans side. 
+- Enquire about the current transaction status by calling API **GET Status**.
+
 </div>
 
 <div class="my-card">
 
-#### [C. Dashboard / Merchant Administration Portal](/en/after-payment/dashboard-usage.md)
-Also simple and easy, utilizing our ready to use Dashboard.
+#### [Email Notification](/en/after-payment/email-notification.md)
+You can get notified to your email inbox at the event of a transaction.
+- Simplest way to receive notifications.
+- Requires no complicated set up.
+
 </div>
 
 <div class="my-card">
 
-#### [D. Call API Get Status](/en/after-payment/get-status.md)
-You can query for transaction status to Midtrans via API too if needed.
+#### [Merchant Administration Portal (MAP) Dashboard](/en/after-payment/dashboard-usage.md)
+You can view the transaction notifications on the dashboard of Midtrans Administrative Portal (MAP).
+- Simple, easy and user-friendly.
+
 </div>

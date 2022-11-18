@@ -92,7 +92,7 @@ details > article {
     border-width: 0.02em;
     border-color: #00000010;
     border-top: none;
-    padding: 0em 1em 0em 1em;
+    padding: 1em 1em 0em 1em;
     max-height: 0em;
     overflow: hidden;
     transition: all 0.25s ease-in-out;

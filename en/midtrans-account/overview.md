@@ -1,4 +1,5 @@
-## Midtrans Account
+# Midtrans Account
+<hr>
 
 Before integrating with Midtrans, you need to register for Account.
 
@@ -7,72 +8,123 @@ Before integrating with Midtrans, you need to register for Account.
 #### [Register Midtrans Account here](https://account.midtrans.com/register)
 </div>
 
-After completing the registration you will be given access to your Merchant Administration Portal (MAP), where you shall have access to both sandbox and production environment.
+After completing the registration, login to Merchant Administration Portal (MAP) where you can access both Sandbox and Production environment.
 
 ![Production Merchant Dashboard](./../../asset/image/production-map.png)
 
-## Access Midtrans Administration Portal
+## Accessing Midtrans Administration Portal
 
-Please click the "Login" button on the top right of the Midtrans page (www.midtrans.com) or directly at https://account.midtrans.com. Enter the email and password the user used to create the Midtrans account, then click the "Login" button.
+To access Midtrans Administration Portal (MAP), follow the steps given below.
+
+1. Click **Login** on Midtrans website (www.midtrans.com).
+   You are redirected to the *LOGIN* page.
+2. Enter your **Email**.
+3. Enter **Password**.
+
+4. Click **Login**.
 
 ![Login page](./../../asset/image/snap-prep-login-page-url.png)
 
-> **Note:** Midtrans do the following to maintain the security of your account.
-> * If there is no activity on Midtrans MAP for 15 minutes, the account will automatically logout.
-> * MAP Midtrans will do merchant to update the password every 90 days.
+​	Upon successful login, *Dashboard* is displayed.
 
-## Complete Account Information
+> **Notes:** Midtrans follows certain practices to maintain the security of your account.
+>
+> * If your session is inactive for more than 15 minutes, you will be logged out automatically.
+> * Midtrans MAP notifies you to update your Midtrans MAP password every 90 days.
 
-Please complete the required information in the General Settings menu [**Settings > General Settings**](https://dashboard.sandbox.midtrans.com/settings/general_info).
+## Completing Account Information
+
+Complete the required information from [**Settings > General Settings**](https://dashboard.sandbox.midtrans.com/settings/general_info).
 
 ![General Information](./../../asset/image/snap-prep-general-setting.png)
 
-> **Note:**
-> * Please do not use any symbols in Merchant Name.
-> * Please use less than 25 characters for Merchant URL.
+> **Notes:**
+>
+> * Merchant Name can not contain any symbols.
+> * Merchant URL should be less than 25 characters.
 
 ## Retrieving API Access Keys
 
-API Access Keys will be used to access Midtrans' API. You can find them in [Dashboard](dashboard.sandbox.midtrans.com), menu [**Settings > Access Keys**](https://dashboard.sandbox.midtrans.com/settings/config_info).
+To communicate with the Midtrans API, Client Key and Server Key are required.
+
+To get access to the Client Key and Server Key, follow the steps given below.
+
+1. Login to your MAP account.
+
+2. On the *Dashboard*, go to **Settings > Access Keys**.
+
+   *Access Keys* page is displayed.
 
 ![access keys](./../../asset/image/snap-prep-access-keys.png)
 
-> **Key Explanation**
+> **Notes**
+>
 > - `Client Key`: Used as API key to be used for authorization on **frontend** API request/configuration. So it safe to put in your HTML / client code publicly.
-> - `Server Key`: Used as API key to be used for authorization while calling Midtrans API **from backend**. So keep it **stored confidentially**.
+> - `Server Key`: Used as API key to be used for authorization while calling Midtrans API from **backend**. So **keep it confidential**.
 
-!> Access Keys are unique for every merchant. Server Key are secret, please always **keep Server Key confidential**.
+!> Access Keys are unique for every merchant. **Always keep Server Key confidential**.
 
 ## Switching Environment
-
-Keys between **Production & Sandbox** environment are different, please make sure you are accessing correct dashboard **environment**. Environment can be switched easily on top left **Environment** Dropdown on the dashboard.
+Environment can be switched from the top left **Environment** drop-down on the dashboard.
 
 ![environment switch](./../../asset/image/snap-prep-env-switch.png ':size=300')
 
-The light and dark shade of blue indicates production and sandbox mode respectively. You can use the sandbox environment during your development phase of integrating Midtrans’ payments system. You can also test dummy transactions on sandbox environment.
+You can use the Sandbox environment during your development phase of integrating Midtrans’ payment system. You can also test dummy transactions on the Sandbox environment.
 ![environment switch](./../../asset/image/snap-prep-env-diff.jpg ':size=400')
 
-## How to unlock account (locked account)
+- **Sandbox Environment**: Can be used to create "testing" transactions (usually performed from your development/testing environment). All transaction made within this environment mode is not "real", and does not require "real payment/fund". You can simulate a test-payment [via Sandbox Simulator](/en/technical-reference/sandbox-test.md) to change the payment status, as if it has been paid. This environment is created automatically when you are signing up, and free to use.
+- **Production Environment**: Can be used when you are ready to accept "real payment/fund" from your customer. Customer will need to make a real payment to trigger the payment status update. Transaction fee may apply to any payment created in this environment mode.
 
-Midtrans provides tolerance of up to 5x (five times) errors when the merchant tries to login into MAP. If the tolerance limit is exceeded, the account will be locked automatically. This is to protect your account from illegitimate access.
+API Keys between **Production & Sandbox** environment are different. Please make sure to access correct dashboard environment. 
 
-To unlock MAP, please wait for at least 15 minutes, account will be automatically unlocked. 
+Transaction data are separated between each environments, so it will not interfere/get mixed with each other. Settings & configurations are mostly separated between each environments, so you can have two different settings for testing and production mode.
 
-If it still locked, please inform the locked account to support@midtrans.com to begin unlock process. After the account has been unlocked, please log into midtrans account using your previous password.
+## Unlocking Locked Account
 
-## Reset Password
+If you try to login to your account with a wrong password more than five times, your account is automatically locked. This is a safety feature to protect your account from any illegitimate access.
 
-If you forgot your Midtrans account password, you can reset the password by clicking **Trouble Logging in?** button on login page
+Once your account is locked, it will be automatically unlocked after 15 minutes. 
+
+If you are not able to unlock your account after 15 minutes, please inform support@midtrans.com to begin the unlock process. Once the account is unlocked, please log in to Midtrans MAP account using your existing password.
+
+## Resetting the Password
+
+In case you forget the password, you can reset your password with a new one.
+
+To reset your password, follow the steps given below.
+
+1. On the Login page, click **Trouble Logging In?**.
 
 ![forgot password page](./../../asset/image/snap-prep-login-page.png ':size=300')
 
-Input the email that registered as Midtrans Account, instructions for the password reset process will be sent to your email. Please check your Inbox (or Spam folder incase it flagged as spam), you will receive a new e-mail with instructions on how to reset your password in a few moments.
+You are redirected to *Reset Password* page.
+
+2. Enter your registered email in the **Email** field.
+3. Click **Reset Password**.
 
 ![forgot password page email field](./../../asset/image/snap-prep-reset-password.png ':size=300')
 
+A message confirming a link will be sent via email to reset your password is displayed. Please check your *Inbox* and *Spam* folder.
 
-> **Info :**
-> - Forgot password link in the email is only valid for 1 hour. If the link has expired, you must repeat from the beginning the password reset process.
+4. Go to your email account and open the auto-generated email received in your inbox.
+
+5. Click the link to reset your password.
+
+6. You are redirected to the Midtrans **Change Password** page.
+
+7. Enter a new password in the **New Password** field.
+
+8. Re-enter the same password in the **Confirm New Password** field.
+
+9. Click **Change My Password**.
+
+   Upon successful password reset, you are redirected to Midtrans Login page.
+
+
+> **Notes:**
+>
+> - The *Forgot password* link in the email is only valid for one hour. If the link expires, repeat the password reset process.
+> - The new password can not be same as the password used in the past.
 
 
 ## Next Step
@@ -80,5 +132,5 @@ Input the email that registered as Midtrans Account, instructions for the passwo
 
 <div class="my-card">
 
-#### [Proceed with Payment Integration](/en/payments/overview.md#choose-integration-options)
+#### [Proceed with Payment Integration](/en/payments/overview.md)
 </div>

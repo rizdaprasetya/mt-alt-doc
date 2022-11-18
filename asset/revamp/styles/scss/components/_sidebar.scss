@@ -1,0 +1,401 @@
+/* Sidebar
+============================================================================= */
+:root {
+  --sidebar-background                          : #{$white} ;
+  --sidebar-border-color                        : var(--base-boder-color);
+  --sidebar-border-width                        : 0 1px 0 0;
+  --sidebar-padding                             : 0 0 0 12px;
+  --sidebar-transition-duration                 : var(--duration-fast);
+  --sidebar-width                               : 17rem;
+
+  /* Name */
+  --sidebar-name-font-family                    : 'Poppins', sans-serif;
+  --sidebar-name-font-size                      : var(--font-size-l);
+  --sidebar-name-font-weight                    : normal;
+  --sidebar-name-margin                         : 1.5rem 0 0;
+  // --sidebar-name-padding                        : ;
+  --sidebar-name-text-align                     : center;
+  --search-input-margin                         : 0 0 0 -12px;
+
+}
+
+
+/* Custom Sidebar
+============================================================================= */
+
+.sidebar {
+  background-image: url("/asset/revamp/img/capsules.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+  .search {
+    // unhide: docsify themeable hide sidebar nav when searching, this unhide it.
+    // fix docsify themeable bug: clicking around outside search clear icon won't unhide sidebar nav
+    &.show {
+        ~ *:not(h1) {
+            display: block;
+        }
+    }
+    .results-panel {
+      font-size: var(--font-size-s);
+      padding-left: 12px;
+      max-height: 40vh;
+      overflow-y: scroll;
+      margin: var(--search-input-margin);
+      border-width: var(--search-input-border-width, 0); 
+      border-style: solid; 
+      border-color: var(--search-input-border-color); 
+      border-radius: var(--search-input-border-radius); 
+      box-shadow: var(--hover-box-shadow);
+    }
+  }
+
+  .app-name{
+    text-align: left;
+    .app-name-link {
+      img {
+        max-width: 62%;
+
+        @include tab-portrait {
+          max-width: 160px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .sidebar-nav {
+    font-size: smaller;
+    height: 100vh;
+
+    >ul {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      padding-bottom: 5em;
+
+      &::-webkit-scrollbar { /* WebKit */
+        width: 0;
+        height: 0;
+      }
+
+      >li {
+        >ul {
+          padding-left: 1rem;
+        }
+        >strong {
+          font-weight: 500;
+          color: $grey;
+          text-transform: uppercase;
+        }
+        >a {
+          font-weight: 500;
+          color: var(--strong-color, currentColor);
+
+          >small {
+            color: $grey !important;
+            font-weight: 300 !important;
+          }
+        }
+
+        &.active {
+          >a {
+            color: $blue;
+          }
+        };
+      }
+    }
+
+    // main menu
+    ul {
+      li {
+        position: relative;
+        margin-top: 0.4em;
+
+        img {
+          height: 1rem;
+        }
+
+        a {
+          background: none !important;
+          text-decoration: none;
+
+          strong {
+            font-weight: 500;
+          }
+
+          &:hover {
+            strong {
+              color: $blue !important;
+            }
+          }
+        }
+
+        small {
+          color: $blue-darken;
+          text-decoration: none;
+          font-weight: 500;
+          color: $blue-lighten !important;
+        }
+
+        &:hover, &.active { 
+          img {
+            filter: invert(19%) sepia(94%) saturate(2408%) hue-rotate(193deg) brightness(93%) contrast(102%);
+          }
+        }
+
+        &.active {
+          a {
+            strong {
+              color: $blue !important;
+            }
+
+            &:after {
+              content: "";
+              height: 80%;
+              width: 3px;
+              background-color: $blue;
+              position: absolute;
+              right: 0;
+              top: 4px;
+              // bottom: 0;
+              margin: auto;
+              max-height: 25px;
+            }
+            
+          }
+        }
+
+        &.open {
+          ul {
+            margin-bottom: 0;
+          }
+          >a {
+            color: $blue !important;
+            // background-color: $blue-lighten-20 !important;
+            &::after {
+              content: "";
+              height: 80%;
+              width: 3px;
+              background-color: $blue;
+              position: absolute;
+              right: 0;
+              top: 4px;
+              margin: auto;
+              max-height: 25px;
+              display: block;
+            }
+          }
+        }
+
+        //sub menu
+        .app-sub-sidebar,ul {
+          li {
+            a {
+              color: $blue-lighten;
+              background: $white;
+              text-decoration: none;
+              font-weight: normal;
+              max-width: 100%;
+              display: block;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              border: none;
+
+              &:after {
+                display: none;
+              }
+
+              &:hover {
+                color: $blue;
+                max-width: 100% !important;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+              }
+            }
+            // li active and hover
+            &.active, &:hover {
+              .section-link {
+                color: $blue;
+                margin: 0 !important;
+                padding: 0.25em 0 0.25em 0 !important;
+
+                
+              }
+            }
+            // li active
+            &.active {
+              .section-link {
+                &:after {
+                  display: block;
+                }
+              }
+
+              &.open, &.hold {
+                a {
+                  color: $blue;
+                  &::after {
+                    content: "";
+                    height: 80%;
+                    width: 3px;
+                    background-color: $blue;
+                    position: absolute;
+                    right: 0;
+                    top: 4px;
+                    margin: auto;
+                    max-height: 25px;
+                    display: block;
+                  }
+                }
+              }
+            }
+            // li hover
+            &:hover {
+              &:after {
+                display: none !important;
+              }
+            }
+
+            //3rd level menus
+            ul {
+              li {
+                a {
+                  color: $blue-lighten !important;
+
+                  &::after {
+                    display: none !important;
+                  }
+                }
+
+                &.active {
+                  a {
+                    color: $blue !important;
+
+                    &::after {
+                      display: block !important;
+                    }
+                  }
+                }
+
+                ul {
+                  &.app-sub-sidebar {
+                    li {
+                      a {
+                        color: $blue-lighten !important;
+      
+                        &::after {
+                          display: none !important;
+                        }
+                      }
+      
+                      &.active {
+                        a {
+                          color: $blue !important;
+      
+                          &::after {
+                            display: block !important;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+}
+
+//dark mode
+.theme__dark {
+  // Plugin: Search
+  // =========================================================================
+  // Input
+  --search-input-background-color        : #{$blue-dark-darken};
+  --search-input-background-image        : url("data:image/svg+xml,%3Csvg height='20px' width='20px' viewBox='0 0 24 24' fill='none' stroke='rgba(255, 255, 255, 0.3)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' preserveAspectRatio='xMidYMid meet' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10.5' cy='10.5' r='7.5' vector-effect='non-scaling-stroke'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='15.8' y2='15.8' vector-effect='non-scaling-stroke'%3E%3C/line%3E%3C/svg%3E");
+  --search-input-border-color            : rgba(222, 234, 245, 0.13);
+  --search-input-placeholder-color       : rgba(255, 255, 255, 0.4);
+  --search-result-keyword-background     : #{$blue};
+
+  // Clear Button
+  --search-clear-icon-color1             : rgba(255, 255, 255, 0.3);
+  .sidebar-toggle {
+    .sidebar-toggle-button {
+      background-color: $blue-dark;
+      color: $white-gray;
+    }
+  }
+
+  // @TODO: fix not all link hover effect apply to all sidebar link levels
+  .sidebar {
+    .search {
+      .input-wrap {
+        input {
+          color: $white-gray;
+        }
+      }
+      
+      .results-panel {
+        &.show {
+          // background-color: $blue-dark-darken;
+          color: $white-gray;
+          border-color: rgb(102 104 107 / 13%);
+
+          h2  {
+            color: $white;
+          }
+
+          .matching-post {
+            &:hover {
+              h2 {
+                color: $blue;
+              }
+            }
+          }
+
+        }
+      } 
+    }
+    background-color: $blue-dark-darken;
+    border-right: none;
+
+    .sidebar-nav {
+      ul {
+        li {
+          border-color: #102f51 !important;
+          a {
+            color: $white-gray !important;
+
+            img {
+              filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(106deg) brightness(105%) contrast(101%);
+            }
+
+            strong {
+              color: $white-gray;
+            }
+          }
+
+          .app-sub-sidebar {
+            a {
+              color: $white-gray !important;
+            }
+          }
+
+          &.open {
+            >a {
+              color: $blue !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}

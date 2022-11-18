@@ -1,10 +1,17 @@
+# Core API Overview
+<hr>
 <!-- TODO: standardize linking accross Core API section -->
-<!-- TODO: replace any <img> tag with markdown image format @done -->
-Midtrans’ Core API is a RESTful Web Service used as a communication bridge between merchant and our payment channels. By using our Core API services, our partners can fully customize their payment page, without any redirection to Midtrans’ page. Setup is easy. Core API is suitable for medium sized businesses to large enterprises.
 
-## Available Ways to Integrate {docsify-ignore}
+![Core API Overview](./../../asset/image/core-api-overview.svg)
+<br>
 
-Choose any of one integration method below that is suitable to your liking:
+Midtrans **Core API is a RESTful Web service**, which enables **programmatic communication** between you and Midtrans payment system. You can easily integrate to any of your internet-capable system (Web, App, PoS, IoT, etc.) and can **fully bulid & customize the payment UI**, on your side without Midtrans hosted payment UI. Midtrans Core API is suitable for medium size as well as large size businesses.
+
+?> ***Note:*** Core API product on your account's **Sandbox Environment is activated by default**, so you can try & test it right away. However to activate this product for **Production Environment**, you will need to **request for activation,** [please submit a request](https://midtrans.com/contact-us/payment-method-and-service-addition-1/bagaimana-cara-mengaktifkan-layanan-core-api), our team will then review it. 
+
+## Various Ways to Integrate with Core API {docsify-ignore}
+
+**Learn on how-to** integrate, **select one from any of methods below** that you most prefer.
 
 ### A) Step by Step Guide {docsify-ignore}
 <br>
@@ -18,7 +25,7 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 <div class="my-card">
 
-#### [E-Wallet Integration Guide](/en/core-api/e-wallet.md)
+#### [E-Money Integration Guide](/en/core-api/e-wallet.md)
 </div>
 <div class="my-card">
 
@@ -34,9 +41,12 @@ Choose any of one integration method below that is suitable to your liking:
 </div>
 
 ### B) Follow Sample Code {docsify-ignore}
-- [PHP](https://github.com/Midtrans/midtrans-php/tree/master/examples)
-- [Java](https://github.com/Midtrans/midtrans-java/tree/master/example)
-- [NodeJS](https://github.com/Midtrans/midtrans-nodejs-client/tree/master/examples)
-- [Python](https://github.com/Midtrans/midtrans-python-client/tree/master/examples)
+Use the collections of integration code examples for various programming languages, available as public GitHub repositories.
 
-<sub><sup>[*Other languanges*](/en/technical-reference/library-plugin.md#language-library)</sup></sub>
+<div class="my-card">
+
+#### [Sample Code Repo](/en/technical-reference/library-plugin.md#sample-integration-code)
+</div>
+
+### C) Sample Demo Implementation {docsify-ignore}
+- [Core API Sample Demo](https://bit.ly/MidSampleApp)

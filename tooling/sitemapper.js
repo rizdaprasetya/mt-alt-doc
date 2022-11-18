@@ -5,11 +5,12 @@ const cf = {
     sidebarFiles: [
         "./../_sidebar.md",
         "./../en/payments/_sidebar.md",
-        "./../id/_sidebar.md"
+        "./../en/other/faq/_sidebar.md",
+        // "./../id/_sidebar.md"
     ],
     outputXmlPath: "./../sitemap.xml",
     urlPriority:"0.75",
-    sitePrefix: "https://beta-docs.midtrans.com/", // append this prefix to url
+    sitePrefix: "https://docs.midtrans.com/", // append this prefix to url
     removeSuffix: ".md", // delete this suffix from url
     ignorePrefix: "http", // any url that have this prefix will not be modified
     excludeUrl: ".svg",
@@ -46,8 +47,12 @@ Date.prototype.toW3CString=function(){var f=this.getFullYear();var e=this.getMon
 // Read all sidebar files
 let rawSidebarText = "";
 cf.sidebarFiles.map((sidebarPath)=>{
-    rawSidebarText += fs.readFileSync(path.join(__dirname, sidebarPath), 'utf8');
-    rawSidebarText += "\r\n"
+    try{
+        rawSidebarText += fs.readFileSync(path.join(__dirname, sidebarPath), 'utf8');
+        rawSidebarText += "\r\n"
+    } catch(e){
+        console.log('readFileSync fail on reading a sidebar file:', e);
+    }
 })
 
 dd&&console.log(rawSidebarText);
@@ -93,6 +98,8 @@ cleanUrls = cleanUrls.filter(url=>!url.includes(excludeUrl));
 cleanUrls = cleanUrls.filter(url=>url.includes(sitePrefix));
 // @HACK: remove `/#/` from 1st url, which is homepage
 cleanUrls[0] = cleanUrls[0].replace("/#/","");
+// remove duplicated entries https://stackoverflow.com/a/9229821
+cleanUrls = [...new Set(cleanUrls)];
 
 // output
 dd&&console.log("=================== final")

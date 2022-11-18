@@ -47,6 +47,7 @@
 - check & fix next/previous page extension, seems doesn't work - done
 - check and patch any XSS potential on any input from URL, eg: part when reading split of `#/` from urls
 - update sitemap generator to also include sub folder sidebar?
+- prevent duplicate entry on sitemapper
 
 ## Content
 
@@ -136,3 +137,15 @@
 - consider double deploy to firebase
 	- https://medium.com/@puuga/deploy-to-firebase-hosting-with-github-actions-f795785fde6b
 	- https://firebase.google.com/docs/hosting/full-config
+- store theme preference across tab session
+- Explain 2 technical group of payment type: async vs sync
+- optimize image for bandwith saving, especially gifs
+	- or put gifs/images to cdn?
+- explain what criteria to be able to use /refund/direct API
+- explain the use case of doing promo based on bin via bin filter
+- explain how to handle if webhook notif fail because of 500 or issue on merchant as destination endpoint
+- font size for code, codeblock and table(?) seems not decreased yet. Making it looks bigger than default font. Decrease it.
+- add note on notif handling, Snap CC deny should be ignored as it is retry-able
+	- also boost this visibility to other page like Snap guide?
+- fix notif handling example NodeJS to ignore CC deny
+- fix notif handling example php to correct indentation
