@@ -5,6 +5,8 @@
 -->
 #### 2023/01/09
 - add link to https://beta-docs.midtrans.com
+	- adjust right sidebar height
+- fix some table heading not visible on dark mode theme
 
 #### 2022/10/31
 - update Shopify payment app install guide 
