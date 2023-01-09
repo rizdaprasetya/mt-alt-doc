@@ -3,8 +3,10 @@
 [![Midtrans Logo](/asset/image/main/midtrans-logo.png ':size=220')](https://midtrans.com)<hr>
 
 <div style="text-align: center;">
-  
+
 Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
+
+?> Heads up! We have a <span class="badge badge-yellow">New</span> [improved Documentation. Check it out↗](https://beta-docs.midtrans.com). Have a peek at a better experience!
 </div>
 
 ## Explore Midtrans Product <!-- {docsify-ignore} -->
