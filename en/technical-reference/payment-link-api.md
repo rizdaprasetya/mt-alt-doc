@@ -137,12 +137,12 @@ it was auto converted to HTML format from GDocs, as quick solution.
 ##### transaction_details object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>order_id</td>
    <td><strong>required</strong></td>
@@ -166,12 +166,12 @@ it was auto converted to HTML format from GDocs, as quick solution.
 ##### credit_card object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>secure</td>
    <td>optional</td>
@@ -219,12 +219,12 @@ it was auto converted to HTML format from GDocs, as quick solution.
 ##### expiry object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>start_time</td>
    <td>optional</td>
@@ -249,12 +249,12 @@ it was auto converted to HTML format from GDocs, as quick solution.
 The value of these parameters will be specified by Merchant (not Midtrans).
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>id</td>
    <td>optional</td>
@@ -303,12 +303,12 @@ The value of these parameters will be specified by Merchant (not Midtrans).
 The value of these parameters will be specified by Merchant (not Midtrans).
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>first_name</td>
    <td><strong>required</strong></td>
@@ -345,12 +345,12 @@ The value of these parameters will be specified by Merchant (not Midtrans).
 BCA Virtual Account Object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td><a href="https://snap-docs.midtrans.com/#custom-virtual-account-number">va_number</a></td>
    <td>optional</td>
@@ -363,12 +363,12 @@ BCA Virtual Account Object
 BNI Virtual Account Object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td><a href="https://snap-docs.midtrans.com/#custom-virtual-account-number">va_number</a></td>
    <td>optional</td>
@@ -381,12 +381,12 @@ BNI Virtual Account Object
 Permata Virtual Account Object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td><a href="https://snap-docs.midtrans.com/#custom-virtual-account-number">va_number</a></td>
    <td>optional</td>
@@ -399,12 +399,12 @@ Permata Virtual Account Object
 BRI Virtual Account Object
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Parameter</th>
    <th>Required</th>
    <th>Type</th>
    <th>Description</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td><a href="https://snap-docs.midtrans.com/#custom-virtual-account-number">va_number</a></td>
    <td>optional</td>
@@ -502,11 +502,11 @@ HTTP Status Code: `400`
 #### Response JSON Body Details
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Property</th>
    <th>Descriptions</th>
   </tr>
-  <tr>
+  <tr></thead>
    <td>order_id</td>
    <td>Merchant’s Order ID</td>
   </tr>
@@ -525,10 +525,10 @@ Response properties are conditional, depending on whether the API response is su
 #### HTTP Status Code
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Status Code</th>
    <th>Descriptions</th>
-  </tr>
+  </tr></thead>
   <tr>
    <td>200</td>
    <td>Request is successful</td>
@@ -791,11 +791,11 @@ HTTP Status Code: `200`
 #### HTTP Status Code
 
 <table>
-  <tr>
+  <thead><tr>
    <th>Status Code</th>
    <th>Descriptions</th>
   </th>
-  <tr>
+  <tr></thead>
    <td>200</td>
    <td>Request is successful</td>
   </tr>
