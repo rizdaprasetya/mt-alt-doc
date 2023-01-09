@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2023/01/09
+- add link to https://beta-docs.midtrans.com
+
 #### 2022/10/31
 - update Shopify payment app install guide 
 	- to include finish redirect config.
