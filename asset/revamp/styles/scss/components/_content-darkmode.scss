@@ -95,11 +95,17 @@
       }
 
       table {
-        thead {
-          th {
-            background: $bg-blue-dark;
-            color: $white;
-          }
+        // thead {
+        //   th {
+        //     background: $bg-blue-dark;
+        //     color: $white;
+        //   }
+        // }
+        th {
+          // @HACK: temporary fix for non-standard table markdown format, 
+          // that will not have table `thead`, like HTML formatted table on: payment-link-api.md
+          background: $bg-blue-dark;
+          color: $white;
         }
         tbody {
           tr {
