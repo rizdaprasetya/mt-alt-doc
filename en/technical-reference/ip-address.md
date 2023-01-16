@@ -11,10 +11,7 @@ Production Environment:
 103.127.16.0/23
 103.127.17.6/32
 
-Sandbox Environment (DEPRECATED on 15/03/2022):
-103.58.103.177
-
-Sandbox Environment (starting from 15/03/2022):
+Sandbox Environment:
 34.101.68.130
 34.101.92.69
 ```
