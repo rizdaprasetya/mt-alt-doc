@@ -19,7 +19,7 @@ Sandbox Environment:
 ```
 
 !> **Changes Notice:** \
-As part of improving our service reliability, (specific for Production Environement) around **20 January 2023**: \
+As part of improving our service reliability, (specific for Production Environment) around **20 January 2023**: \
 \- We will be adding new IP addresses of: `34.87.92.33` and `34.87.59.67`. \
 \- The older IP ranges with prefixes of `103.x.x.x` will gradually no longer be used a few weeks after that date. \
 **Please ensure that your system is capable of accommodating this change** smoothly.
