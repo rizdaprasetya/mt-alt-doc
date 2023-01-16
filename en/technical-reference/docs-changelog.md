@@ -4,6 +4,9 @@
 <!-- #### Unreleased 
 -->
 #### 2023/01/09
+- add notification IP addresses changes notices
+
+#### 2023/01/09
 - add link to https://beta-docs.midtrans.com
 	- adjust right sidebar height
 - fix some table heading not visible on dark mode theme

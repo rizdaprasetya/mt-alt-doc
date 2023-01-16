@@ -10,11 +10,20 @@ Production Environment:
 103.208.23.6/32
 103.127.16.0/23
 103.127.17.6/32
+34.87.92.33
+34.87.59.67
 
 Sandbox Environment:
 34.101.68.130
 34.101.92.69
 ```
+
+!> **Changes Notice:** \
+As part of improving our service reliability, (specific for Production Environement) around **20 January 2023**: \
+\- We will be adding new IP addresses of: `34.87.92.33` and `34.87.59.67`. \
+\- The older IP ranges with prefixes of `103.x.x.x` will gradually no longer be used a few weeks after that date. \
+**Please ensure that your system is capable of accommodating this change** smoothly.
+
 
 Although we are providing the IP list, we don’t quite recommend relying on IP whitelisting to ensure notification authenticity. Instead, we **strongly recommend you to verify the authenticity** by [implementing the methods explained here](/en/after-payment/http-notification.md#verifying-notification-authenticity).
 
