@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2023/01/20
+- add sandbox testing card & 3DS 2 changes notices
+
 #### 2023/01/09
 - add notification IP addresses changes notices
 
