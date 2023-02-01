@@ -1,3 +1,15 @@
+#### Deprecation Notice
+
+--------------------
+
+> **:warning::warning: Deprecated :warning::warning:**
+> 
+> **This repo is deprecated (no longer updated, or deployed to Prod env).** As this project has been superseded with a better version currently live at https://docs.midtrans.com
+> 
+> This repo still be here for archive purpose. But it's always recommended to refer to the latest version mentioned above.
+
+---------------------
+
 # Instructions
 
 <details>
@@ -314,6 +326,14 @@ Due to homepage UI/UX needs to stand out, as a trade-off a lot of custom html ta
 
 #### Misc
 - If ID lang content will be used again, please remove the `@TODO` marked redirect rule on `_redirects` file. To allow the content to be accessed.
+
+#### Deprecation specifics
+- `./robots.txt` file is modified to prevent Search Engine indexing (as the content of the docs will likely be obselete at this point), the original file can be found as `./robots.txt.original`
+- Some urls that may be able to be used to serve this repo as static website:
+	- `https://raw.githack.com/Midtrans/technical-documentation-site/master/index.html#/?hash=1`
+		- `https://raw.githack.com/Midtrans/technical-documentation-site/master/index.html#`
+	- `https://midtrans.github.io/technical-documentation-site/#/`
+		- `https://midtrans.github.io/technical-documentation-site/#/?hash=true`
 
 </article>
 </details>

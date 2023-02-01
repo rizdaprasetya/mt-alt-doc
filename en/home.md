@@ -4,9 +4,9 @@
 
 <div style="text-align: center;">
 
-Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
+?> This docs is for archive purpose only, the content may no longer relevant/updated. <br>If you are looking for the most updated docs, check out: <br><span class="badge badge-yellow">New</span> [Latest Midtrans Documentation↗](https://docs.midtrans.com).
 
-?> Heads up! We have a <span class="badge badge-yellow">New</span> [improved Documentation. Check it out↗](https://beta-docs.midtrans.com). Have a peek at a better experience!
+Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
 </div>
 
 ## Explore Midtrans Product <!-- {docsify-ignore} -->

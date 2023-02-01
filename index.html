@@ -113,6 +113,7 @@
         // Check which Docsify router mode should be used
         window.willUseDocsifyHashRouter =
             document.location.href.indexOf("/#/")>=0 ||
+            document.location.href.indexOf("index.html#/")>=0 ||
             // @OPTIMIZE: param checking.
             document.location.href.indexOf("hash=1")>=0 ||
             document.location.href.indexOf("hash=true")>=0
@@ -576,7 +577,7 @@
                         (document.querySelector(docsifyContentWrapperSelector)).insertAdjacentHTML(
                             'beforeend',
                             '<div class="footer-custom" style="text-align:center; margin-bottom:1rem;">'+
-                            '<p><small>Also check our <a href="https://beta-docs.midtrans.com" target="_blank"><span class="badge badge-yellow">NEW</span>Improved Docs↗</a> <br>Is this page helpful? <a href=\'javascript:false&&"promptFeedback";\' onclick=\'promptFeedback();\'>Let us hear your feedback!</a></small></p>'+
+                            '<p><small>Is this page helpful? <a href=\'javascript:false&&"promptFeedback";\' onclick=\'promptFeedback();\'>Let us hear your feedback!</a></small></p>'+
                         '\<\/div\>'
                         );
                     });

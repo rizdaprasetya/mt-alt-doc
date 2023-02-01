@@ -3,6 +3,9 @@
 
 <!-- #### Unreleased 
 -->
+#### 2023/02/01
+- this docs version deprecation, superseded with a better version currently live at https://docs.midtrans.com
+
 #### 2023/01/20
 - add sandbox testing card & 3DS 2 changes notices
 
