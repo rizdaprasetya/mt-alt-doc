@@ -137,6 +137,13 @@ It is used for testing a specific scenario where the card is not eligible for on
 ?> **[General](#card-number)** card number is used for general feature testing of card payment. <br>
 **[Bank Specific](#card-number)** card number is useful for testing advanced card features (on-us/off-us installments, whitelist BIN, promo, and so on) that require card from specific bank.
 
+> **Changes Notice:** \
+To reflect the changes that has been applied to our Production Environment, on **31st January 2023** similar changes is applied to Sandbox Environment. The changes are summarized as follows:
+> - Most/all **acquirer bank MIDs** within merchants’ sandbox accounts is upgraded to allow accepting **3DS 2**. The previously MIGS acquirer MID's `channel` will be replaced with MPGS. Which will change the transaction's value of `channel_response_message` and `channel_response_code`. [As explained in this notice](https://api-docs.midtrans.com/#october-7-2022).
+> - All sandbox **testing cards** (that were previously 3DS 1) are **upgraded to 3DS 2**. Including cards listed under General and Bank Specific tabs.
+> - These changes are supposed to be **seamless**, not cause breaking, and **not require changes of implementation** from the merchant side (except IF merchant is still using a very old pre-2019 card integration flow, then card transaction will be treated as 3DS 1).
+> - Background context: 3DS 1 has been phased-out & upgraded to 3DS 2 in Production Environment & industry wide. Hence the same are applied to Sandbox.
+
 ## E-Money
 
 |Payment Methods | Description|

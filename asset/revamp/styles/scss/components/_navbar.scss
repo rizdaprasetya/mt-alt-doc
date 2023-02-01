@@ -143,6 +143,7 @@
 
     .sidebar__right-wrapper {
       max-height: 68%;
+      // max-height: 60%; // @HACK: to accommodate link-addition causing on floating footer becoming too tall
       overflow-y: scroll;
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none;  /* Internet Explorer 10+ */

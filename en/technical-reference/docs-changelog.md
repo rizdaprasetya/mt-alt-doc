@@ -3,6 +3,20 @@
 
 <!-- #### Unreleased 
 -->
+#### 2023/02/01
+- this docs version deprecation, superseded with a better version currently live at https://docs.midtrans.com
+
+#### 2023/01/20
+- add sandbox testing card & 3DS 2 changes notices
+
+#### 2023/01/09
+- add notification IP addresses changes notices
+
+#### 2023/01/09
+- add link to https://beta-docs.midtrans.com
+	- adjust right sidebar height
+- fix some table heading not visible on dark mode theme
+
 #### 2022/10/31
 - update Shopify payment app install guide 
 	- to include finish redirect config.
