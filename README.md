@@ -1,3 +1,15 @@
+#### Deprecation Notice
+
+--------------------
+
+> **:warning::warning: Deprecated :warning::warning:**
+> 
+> **This repo is deprecated (no longer updated, or deployed to Prod env).** As this project has been superseded with a better version currently live at https://docs.midtrans.com
+> 
+> This repo still be here for archive purpose. But it's always recommended to refer to the latest version mentioned above.
+
+---------------------
+
 # Instructions
 
 <details>
