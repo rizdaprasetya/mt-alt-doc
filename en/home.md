@@ -4,6 +4,8 @@
 
 <div style="text-align: center;">
 
+?> This docs is for archive purpose only, the content may no longer relevant/updated. <br>If you are looking for the most updated docs, check out: <br><span class="badge badge-yellow">New</span> [Latest Midtrans Documentation↗](https://docs.midtrans.com).
+
 Midtrans helps your business easily accept payments, disburse funds, and more in automated manner.
 </div>
 
