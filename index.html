@@ -113,6 +113,7 @@
         // Check which Docsify router mode should be used
         window.willUseDocsifyHashRouter =
             document.location.href.indexOf("/#/")>=0 ||
+            document.location.href.indexOf("index.html#/")>=0 ||
             // @OPTIMIZE: param checking.
             document.location.href.indexOf("hash=1")>=0 ||
             document.location.href.indexOf("hash=true")>=0
